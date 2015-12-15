@@ -17,6 +17,8 @@ Plugin 'Solarized'
 Plugin 'ctrlp.vim'
 Plugin 'EasyMotion'
 Plugin 'The-NERD-tree'
+Plugin 'fugitive.vim'
+"Plugin 'delimitMate.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,14 +44,15 @@ set smartcase
 
 "Colors
 syntax enable " enable syntax processing
+set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
-"colorscheme solarized
-colorscheme hybrid
+colorscheme solarized
 
 "Space & Tabs
-set tabstop=4 " number of visual spaces per TABj
-set softtabstop=4 " number of spaces in tab when editing
+set tabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set expandtab " On pressing tab, insert 4 spaces
 
 "UI Config
 set number " show line numbers
@@ -62,6 +65,7 @@ set showmatch " highlight matching [{()}]
 set formatoptions-=cro " disable auto comment
 
 "Searching
+set gdefault " always turn on global regex
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
 " set selected text as search param, use //
@@ -84,3 +88,13 @@ nnoremap k gk
 nnoremap <leader>v :e ~/.vimrc<CR>
 " shortcut for reload .vimrc
 nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
+
+" Permudah navigasi antar window
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Scrolling
+nmap <S-j> <PageDown>
+nmap <S-k> <PageUp>
