@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Solarized'
 Plugin 'ctrlp.vim'
 Plugin 'EasyMotion'
+Plugin 'The-NERD-tree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,3 +82,5 @@ nnoremap k gk
 "My Remap
 " shortcut for editing this .vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
+" shortcut for reload .vimrc
+nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
