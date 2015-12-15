@@ -14,6 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add Plugins here..
 Plugin 'Solarized'
+Plugin 'ctrlp.vim'
+Plugin 'EasyMotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,7 +43,8 @@ set smartcase
 syntax enable " enable syntax processing
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
+colorscheme hybrid
 
 "Space & Tabs
 set tabstop=4 " number of visual spaces per TABj
@@ -60,7 +63,8 @@ set formatoptions-=cro " disable auto comment
 "Searching
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
-vnoremap // y/<C-R>"<CR> " set selected text as search param, use //
+" set selected text as search param, use //
+vnoremap // y/<C-R>"<CR> 
 
 "Folding
 set foldenable " enable folding
@@ -74,3 +78,6 @@ set foldmethod=indent " fold based on indent level
 nnoremap j gj
 nnoremap k gk
 
+"My Remap
+" shortcut for editing this .vimrc
+nnoremap <leader>v :e ~/.vimrc<CR>
