@@ -13,12 +13,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " Add Plugins here..
-Plugin 'Solarized'
-Plugin 'ctrlp.vim'
-Plugin 'EasyMotion'
-Plugin 'The-NERD-tree'
-Plugin 'fugitive.vim'
-"Plugin 'delimitMate.vim'
+Plugin 'Solarized' " you know it
+Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
+Plugin 'EasyMotion' " easy motion, use: \\w
+Plugin 'The-NERD-tree' " file browser
+Plugin 'The-NERD-Commenter' " commenter
+Plugin 'fugitive.vim' " git wrapper
+Plugin 'AutoClose' " auto add matching [({''})]
+Plugin 'SuperTab' " auto complete
+Plugin 'bling/vim-airline' " statusline
+Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers.
+Plugin 'scratch.vim' " open scratch file that will not be saved
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +58,7 @@ colorscheme solarized
 set tabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 set expandtab " On pressing tab, insert 4 spaces
+set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 
 "UI Config
 set number " show line numbers
@@ -63,6 +69,34 @@ set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to.
 set showmatch " highlight matching [{()}]
 set formatoptions-=cro " disable auto comment
+set nowrap " nowrap line
+
+" Vim Airline
+set laststatus=2 " always show statusline
+let g:airline#extensions#tabline#enabled =1 " enable tabline
+let g:airline_powerline_fonts = 1
+
+" unicode symbols, pakai ini kalo belum punya patched font nya.
+"if !exists('g:airline_symbols')
+"let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.crypt = '🔒'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.space = "\ua0"
+"let g:airline_symbols.whitespace = 'Ξ'
+
+"NERDTree
+nnoremap <leader>d :NERDTreeToggle<CR>
 
 "Searching
 set gdefault " always turn on global regex
@@ -78,23 +112,32 @@ set foldnestmax=10 " 10 nested fold max
 nnoremap <space> za " space open/close folds
 set foldmethod=indent " fold based on indent level
 
-"Movement
+"Movement and Scrolling
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+nmap <S-j> <PageDown>
+nmap <S-k> <PageUp>
+set scrolloff=3 " Show 3 lines after / before scrolling
 
 "My Remap
-" shortcut for editing this .vimrc
+
+" Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-" shortcut for reload .vimrc
+
+" Save vimrc
 nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
+
+" new tab
+nnoremap <C-t> :tabe<CR>
+
+" Paste toggle
+set pastetoggle=<leader>p
 
 " Permudah navigasi antar window
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-
-" Scrolling
-nmap <S-j> <PageDown>
-nmap <S-k> <PageUp>
+nnoremap <leader>w <C-w>c
+nnoremap <leader>W <C-w>o
