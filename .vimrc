@@ -16,8 +16,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Solarized' " you know it
 Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
 Plugin 'EasyMotion' " easy motion, use: \\w
+Plugin 'mileszs/ack.vim' " Ack
 Plugin 'The-NERD-tree' " file browser
 Plugin 'The-NERD-Commenter' " commenter
+Plugin 'NERD_Tree-and-ack' " nerdtree act, search pattern (pake quote)
 Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
@@ -46,6 +48,7 @@ filetype plugin indent on    " required
 set fileencoding=utf-8
 set ignorecase
 set smartcase
+set noswapfile
 
 "Colors
 syntax enable " enable syntax processing
@@ -121,6 +124,11 @@ nmap <S-k> <PageUp>
 set scrolloff=3 " Show 3 lines after / before scrolling
 
 "My Remap
+" Save file
+nnoremap <leader>s :w<CR>
+
+" Save file and quit
+nnoremap <leader><leader>s :wq<CR>
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
