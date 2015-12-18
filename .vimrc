@@ -24,7 +24,7 @@ Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
-Plugin 'Smooth-Scroll'
+"Plugin 'Smooth-Scroll'
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -83,11 +83,14 @@ set smartcase
 set noswapfile
 set hidden
 
+" Font for macvim/gvim
+set guifont=Droid\ Sans\ Mono\ for\ Powerline
+
 "Colors
 syntax enable " enable syntax processing
 set t_Co=256
 set background=dark
-"set background=light
+let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
 
@@ -163,7 +166,7 @@ nnoremap <leader>W <C-w>o
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
 
-" Performance issue improvement, got it from browsing, not sure how it works though.
+" Performance issue improvement, hasil browsing, not sure how it works though.
 autocmd BufEnter * :syn sync maxlines=500
 syntax sync minlines=100
 syntax sync maxlines=240
