@@ -24,8 +24,10 @@ Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
-Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers.
-Plugin 'scratch.vim' " open scratch file that will not be saved
+Plugin 'Smooth-Scroll'
+
+"Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
+"enek sing ngomong jarene iki marai lemot, di komen ae.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,41 +44,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
-
-"Etc
-set fileencoding=utf-8
-set ignorecase
-set smartcase
-set noswapfile
-
-"Colors
-syntax enable " enable syntax processing
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
-
-"Space & Tabs
-set tabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4 " when indenting with '>', use 4 spaces width
-set expandtab " On pressing tab, insert 4 spaces
-set backspace=indent,eol,start " backspace hapus tab, end of line, start line
-
-"UI Config
-set number " show line numbers
-set showcmd " show command in bottom bar
-set cursorline " highlight current line
-filetype indent on " load filetype-specific indent files
-set wildmenu " visual autocomplete for command menu
-set lazyredraw " redraw only when we need to.
-set showmatch " highlight matching [{()}]
-set formatoptions-=cro " disable auto comment
-set nowrap " nowrap line
+" Plugin Custom Config
 
 " Vim Airline
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
+let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
 let g:airline_powerline_fonts = 1
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
@@ -101,7 +74,43 @@ let g:airline_powerline_fonts = 1
 "NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
 
+"^ START
+
+"Etc
+set encoding=utf-8
+set fileencoding=utf-8
+set smartcase
+set noswapfile
+set hidden
+
+"Colors
+syntax enable " enable syntax processing
+set t_Co=256
+set background=dark
+"set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
+
+"Space & Tabs
+set tabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set expandtab " On pressing tab, insert 4 spaces
+set backspace=indent,eol,start " backspace hapus tab, end of line, start line
+
+"UI Config
+set number " show line numbers
+set showcmd " show command in bottom bar
+"set cursorline " highlight current line
+filetype indent on " load filetype-specific indent files
+set wildmenu " visual autocomplete for command menu
+"set lazyredraw " redraw only when we need to.
+"set showmatch " highlight matching [{()}]
+set formatoptions-=cro " disable auto comment
+set nowrap " nowrap line
+
+
 "Searching
+set ignorecase " be case insensitive
 set gdefault " always turn on global regex
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
@@ -119,9 +128,9 @@ set foldmethod=indent " fold based on indent level
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
-nmap <S-j> <PageDown>
-nmap <S-k> <PageUp>
-set scrolloff=3 " Show 3 lines after / before scrolling
+nmap <S-j> <C-d>
+nmap <S-k> <C-u>
+set scrolloff=1 " Show 1 lines after / before scrolling
 
 "My Remap
 " Save file
@@ -149,3 +158,16 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nnoremap <leader>w <C-w>c
 nnoremap <leader>W <C-w>o
+
+" buffer
+nnoremap <leader>b :bn<CR>
+nnoremap <leader>B :bp<CR>
+
+" Performance issue improvement, got it from browsing, not sure how it works though.
+autocmd BufEnter * :syn sync maxlines=500
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=256
