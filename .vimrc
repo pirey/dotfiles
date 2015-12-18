@@ -24,7 +24,6 @@ Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
-"Plugin 'Smooth-Scroll'
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -90,7 +89,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline
 syntax enable " enable syntax processing
 set t_Co=256
 set background=dark
-let g:solarized_termtrans=1
+"let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
 
@@ -174,3 +173,9 @@ set synmaxcol=800
 set nocursorcolumn
 set nocursorline
 syntax sync minlines=256
+
+" Some setting for my linux gvim
+if has('gui_running')
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+end
