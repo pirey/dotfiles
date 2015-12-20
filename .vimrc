@@ -72,6 +72,7 @@ let g:airline_powerline_fonts = 1
 
 "NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>D :NERDTreeFind<CR>
 
 "^ START
 
@@ -94,7 +95,7 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 "Space & Tabs
-set tabstop=4 " show existing tab with 4 spaces width
+set softtabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 set expandtab " On pressing tab, insert 4 spaces
 set backspace=indent,eol,start " backspace hapus tab, end of line, start line
@@ -135,11 +136,6 @@ nmap <S-k> <C-u>
 set scrolloff=1 " Show 1 lines after / before scrolling
 
 "My Remap
-" Save file
-nnoremap <leader>s :w<CR>
-
-" Save file and quit
-nnoremap <leader><leader>s :wq<CR>
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
@@ -164,6 +160,8 @@ nnoremap <leader>W <C-w>o
 " buffer
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
+nnoremap <leader>n :enew<CR>
+nnoremap <leader>N :bd<CR>
 
 " Performance issue improvement, hasil browsing, not sure how it works though.
 autocmd BufEnter * :syn sync maxlines=500
@@ -178,4 +176,5 @@ syntax sync minlines=256
 if has('gui_running')
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
+    set guioptions-=L "remove left scroll bar
 end
