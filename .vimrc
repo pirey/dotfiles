@@ -131,7 +131,8 @@ vnoremap // y/<C-R>"<CR>
 set foldenable " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
-nnoremap <space> za " space open/close folds
+" space open/close folds
+nnoremap <space> za 
 set foldmethod=indent " fold based on indent level
 
 "Movement and Scrolling
@@ -179,7 +180,7 @@ set nocursorcolumn
 set nocursorline
 syntax sync minlines=256
 
-" Some setting for my linux gvim
+" Some setting for gvim
 if has('gui_running')
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
