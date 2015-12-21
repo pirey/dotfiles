@@ -74,6 +74,10 @@ let g:airline_powerline_fonts = 1
 "NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
 
+
+"CtrlP
+let g:ctrlp_clear_cache_on_exit = 0
+
 "^ START
 
 "Etc
