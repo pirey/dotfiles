@@ -24,6 +24,7 @@ Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
+Plugin 'mattn/emmet-vim'
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -73,6 +74,8 @@ let g:airline_powerline_fonts = 1
 "NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
+
+"Emmet-Vim, trigger= '<c-y>,'
 
 
 "CtrlP
