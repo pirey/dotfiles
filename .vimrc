@@ -25,6 +25,7 @@ Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
 Plugin 'mattn/emmet-vim'
+Plugin 'MatchTag' " highlight matching html tag
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -82,6 +83,9 @@ nnoremap <leader>D :NERDTreeFind<CR>
 let g:ctrlp_clear_cache_on_exit = 0
 
 "^ START
+"NOTE:
+"use "+y in normal mode to copy
+"use "+p in normal mode to copy
 
 "Etc
 set encoding=utf-8
@@ -89,9 +93,6 @@ set fileencoding=utf-8
 set smartcase
 set noswapfile
 set hidden
-
-" Font for macvim/gvim
-set guifont=Droid\ Sans\ Mono\ for\ Powerline
 
 "Colors
 syntax enable " enable syntax processing
@@ -102,6 +103,7 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 "Space & Tabs
+set tabstop=4 " tab width
 set softtabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 set expandtab " On pressing tab, insert 4 spaces
@@ -111,7 +113,7 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 set number " show line numbers
 set showcmd " show command in bottom bar
 "set cursorline " highlight current line
-filetype indent on " load filetype-specific indent files
+"filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
 "set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
@@ -182,6 +184,9 @@ syntax sync minlines=256
 
 " Some setting for gvim
 if has('gui_running')
+    " Font for macvim/gvim
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline
+
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
