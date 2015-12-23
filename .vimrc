@@ -1,3 +1,4 @@
+"sdlkfjsldkfjdslkfj
 "Vundle Config
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -9,6 +10,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" Setup: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 
 
@@ -153,8 +155,8 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 " Save vimrc
 nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
 
-" new tab
-nnoremap <C-t> :tabe<CR>
+" new empty buffer
+nnoremap <C-t> :enew<CR>
 
 " Paste toggle
 set pastetoggle=<leader>p
