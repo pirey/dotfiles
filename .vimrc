@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " Add Plugins here..
+Plugin 'flazz/vim-colorschemes' " all colorscheme
 Plugin 'Solarized' " you know it
 Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
 Plugin 'EasyMotion' " easy motion, use: \\w
