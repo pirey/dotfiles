@@ -100,7 +100,7 @@ set hidden
 "Colors
 syntax enable " enable syntax processing
 set t_Co=256
-set background=light
+set background=dark
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -155,9 +155,6 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 
 " Save vimrc
 nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
-
-" new empty buffer
-nnoremap <C-t> :enew<CR>
 
 " Paste toggle
 set pastetoggle=<leader>p
