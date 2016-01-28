@@ -29,6 +29,7 @@ Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
 Plugin 'mattn/emmet-vim'
 Plugin 'MatchTag' " highlight matching html tag
+Plugin 'jdkanani/vim-material-theme' " Material theme.
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -104,6 +105,7 @@ set background=dark
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 colorscheme solarized
+colorscheme obsidian
 
 "Space & Tabs
 set tabstop=4 " tab width
@@ -184,6 +186,7 @@ syntax sync minlines=256
 
 " Some setting for gvim
 if has('gui_running')
+    colorscheme material-theme
     " Font for macvim/gvim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline
 
