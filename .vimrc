@@ -1,4 +1,3 @@
-"sdlkfjsldkfjdslkfj
 "Vundle Config
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -10,13 +9,12 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" Setup: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 
 
 " Add Plugins here..
 Plugin 'flazz/vim-colorschemes' " all colorscheme
-Plugin 'Solarized' " you know it
+"Plugin 'Solarized' " you know it
 Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
 Plugin 'EasyMotion' " easy motion, use: \\w
 Plugin 'mileszs/ack.vim' " Ack
@@ -49,7 +47,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Plugin Custom Config
+" Custom config
+" below is my custom setting for each package and some general setting
 
 " Vim Airline
 set laststatus=2 " always show statusline
@@ -84,6 +83,9 @@ nnoremap <leader>D :NERDTreeFind<CR>
 
 
 "CtrlP
+" cache ctrlP tidak dihapus pas keluar vim,
+" supaya pas buka vim nanti ga nunggu ctrlP bikin index lagi
+" kayaknya mau cari ganti aja dari ctrlP :(
 let g:ctrlp_clear_cache_on_exit = 0
 
 "^ START
@@ -104,8 +106,9 @@ set t_Co=256
 set background=dark
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-colorscheme solarized
-colorscheme obsidian
+
+" Chose obsidian color if only it exists, surpress the error
+silent! colorscheme obsidian
 
 "Space & Tabs
 set tabstop=4 " tab width
@@ -175,18 +178,9 @@ nnoremap <leader>B :bp<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>N :bd<CR>
 
-" Performance issue improvement, hasil browsing, not sure how it works though.
-autocmd BufEnter * :syn sync maxlines=500
-syntax sync minlines=100
-syntax sync maxlines=240
-set synmaxcol=800
-set nocursorcolumn
-set nocursorline
-syntax sync minlines=256
-
 " Some setting for gvim
 if has('gui_running')
-    colorscheme material-theme
+    silent! colorscheme material-theme
     " Font for macvim/gvim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline
 
@@ -194,3 +188,14 @@ if has('gui_running')
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
 end
+
+" Performance issue improvement
+" someday i run into a large file and my vim somehow went lagging,
+" so this is what i found on the google
+autocmd BufEnter * :syn sync maxlines=500
+syntax sync minlines=100
+syntax sync maxlines=240
+set synmaxcol=800
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=256
