@@ -14,7 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add Plugins here..
 Plugin 'flazz/vim-colorschemes' " all colorscheme
-"Plugin 'Solarized' " you know it
 Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
 Plugin 'EasyMotion' " easy motion, use: \\w
 Plugin 'mileszs/ack.vim' " Ack
@@ -28,6 +27,9 @@ Plugin 'bling/vim-airline' " statusline
 Plugin 'mattn/emmet-vim'
 Plugin 'MatchTag' " highlight matching html tag
 Plugin 'jdkanani/vim-material-theme' " Material theme.
+
+" The dragon plugin
+Plugin 'unite.vim'
 
 "Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
 "enek sing ngomong jarene iki marai lemot, di komen ae.
@@ -49,6 +51,26 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+" Unite
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -input=**/    -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " Vim Airline
 set laststatus=2 " always show statusline
@@ -79,7 +101,7 @@ let g:airline_powerline_fonts = 1
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 
-"Emmet-Vim, trigger= '<c-y>,'
+"Emmet-Vim, trigger pake ini <c-y>,
 
 
 "CtrlP
@@ -107,7 +129,7 @@ set background=dark
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 
-" Chose obsidian color if only it exists, surpress the error
+" Chose color if it is exists, surpress the error
 silent! colorscheme Tomorrow-Night
 
 "Space & Tabs
