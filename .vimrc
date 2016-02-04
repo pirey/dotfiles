@@ -108,7 +108,7 @@ set background=dark
 let g:solarized_termcolors=256
 
 " Chose obsidian color if only it exists, surpress the error
-silent! colorscheme obsidian
+silent! colorscheme Tomorrow-Night
 
 "Space & Tabs
 set tabstop=4 " tab width
