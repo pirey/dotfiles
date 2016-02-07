@@ -194,6 +194,7 @@ nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>N :bd<CR>
+nnoremap <leader><leader>b :b#<cr>
 
 " Some setting for gvim
 if has('gui_running')
