@@ -27,12 +27,7 @@ Plugin 'bling/vim-airline' " statusline
 Plugin 'mattn/emmet-vim'
 Plugin 'MatchTag' " highlight matching html tag
 Plugin 'jdkanani/vim-material-theme' " Material theme.
-
-" The dragon plugin
-Plugin 'unite.vim'
-
-"Plugin 'airblade/vim-gitgutter' "adds +, -, or ~ next to the line numbers,
-"enek sing ngomong jarene iki marai lemot, di komen ae.
+Plugin 'BufOnly.vim' " Close all buffer but this one.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,16 +46,6 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
-
-" Unite
-"let g:unite_source_history_yank_enable = 1
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec<cr>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
 " Vim Airline
 set laststatus=2 " always show statusline
@@ -148,6 +133,8 @@ set incsearch " search as characters are entered
 set hlsearch " highlight matches
 " set selected text as search param, use //
 vnoremap // y/<C-R>"<CR> 
+" this make vim calls provided program when we call :grep
+set grepprg='ag' 
 
 "Folding
 set foldenable " enable folding
@@ -184,13 +171,15 @@ nmap <C-l> <C-w>l
 nnoremap <leader>w <C-w>c
 nnoremap <leader>W <C-w>o
 
-" buffer
+" Buffers
+" since i primarily use only one window, 
+" so i set some mapping for working with buffers
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>N :bd<CR>
 
-" Some setting for gvim
+" Specific setting for gvim
 if has('gui_running')
     silent! colorscheme material-theme
     " Font for macvim/gvim
