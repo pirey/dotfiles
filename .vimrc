@@ -29,6 +29,9 @@ Plugin 'MatchTag' " highlight matching html tag
 Plugin 'jdkanani/vim-material-theme' " Material theme.
 Plugin 'BufOnly.vim' " Close all buffer but this one.
 
+" The dragon plugin
+Plugin 'unite.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,6 +49,21 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+" Unite
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>f :Unite file buffer history/yank file_mru<cr>
+nnoremap <leader>F :Unite line<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " Vim Airline
 set laststatus=2 " always show statusline
@@ -178,6 +196,7 @@ nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>N :bd<CR>
+nnoremap <leader><leader>b :b#<cr>
 
 " Specific setting for gvim
 if has('gui_running')
