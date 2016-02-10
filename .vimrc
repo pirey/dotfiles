@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Add Plugins here..
 Plugin 'flazz/vim-colorschemes' " all colorscheme
 Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
-Plugin 'EasyMotion' " easy motion, use: \\w
+Plugin 'EasyMotion' " jumping over places, very cool, use: \\w
 Plugin 'mileszs/ack.vim' " Ack
 Plugin 'The-NERD-tree' " file browser
 Plugin 'The-NERD-Commenter' " commenter
@@ -24,13 +24,14 @@ Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete
 Plugin 'bling/vim-airline' " statusline
-Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim' " Emmet for vim
 Plugin 'MatchTag' " highlight matching html tag
-Plugin 'jdkanani/vim-material-theme' " Material theme.
 Plugin 'BufOnly.vim' " Close all buffer but this one.
-
-" The dragon plugin
-Plugin 'unite.vim'
+Plugin 'NrrwRgn' " Separate selected text and edit it to new window
+Plugin 'surround.vim'
+Plugin 'unite.vim' " Similar function as CtrlP
+Plugin 'PHPUnit-QF'
+Plugin 'vim-utils/vim-man' " View other program's manual page in vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,7 +53,7 @@ filetype plugin indent on    " required
 
 " Unite
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :Unite file buffer history/yank file_mru<cr>
+nnoremap <leader>f :Unite file buffer history/yank file_mru file_rec<cr>
 nnoremap <leader>F :Unite line<cr>
 
 " Custom mappings for the unite buffer
@@ -67,9 +68,9 @@ endfunction
 
 " Vim Airline
 set laststatus=2 " always show statusline
-let g:airline#extensions#tabline#enabled =1 " enable tabline
-let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
-let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled =1 " enable tabline
+"let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
+"let g:airline_powerline_fonts = 1
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
 "if !exists('g:airline_symbols')
@@ -77,8 +78,10 @@ let g:airline_powerline_fonts = 1
 "endif
 "let g:airline_left_sep = '»'
 "let g:airline_left_sep = '▶'
+let g:airline_left_sep = ''
 "let g:airline_right_sep = '«'
 "let g:airline_right_sep = '◀'
+let g:airline_right_sep = ''
 "let g:airline_symbols.crypt = '🔒'
 "let g:airline_symbols.linenr = '␊'
 "let g:airline_symbols.linenr = '␤'
@@ -98,12 +101,10 @@ nnoremap <leader>D :NERDTreeFind<CR>
 
 
 "CtrlP
-" cache ctrlP tidak dihapus pas keluar vim,
-" supaya pas buka vim nanti ga nunggu ctrlP bikin index lagi
-" kayaknya mau cari ganti aja dari ctrlP :(
+" keep cache when reopen CtrlP, to refresh use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 
-"^ START
+" Custom config
 "NOTE:
 "use "+y in normal mode to copy
 "use "+p in normal mode to copy
@@ -117,10 +118,12 @@ set hidden
 
 "Colors
 syntax enable " enable syntax processing
-set t_Co=256
 set background=dark
+set t_Co=256 " set terminal color to use 256
+
+" Additional setting for solarized
 "let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 
 " Chose color if it is exists, surpress the error
 silent! colorscheme Tomorrow-Night
@@ -168,7 +171,8 @@ nnoremap j gj
 nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
-set scrolloff=1 " Show 1 lines after / before scrolling
+set scrolloff=1 " Show n lines after / before scrolling
+set mouse=nvicr " :h mouse
 
 "My Remap
 
@@ -186,7 +190,9 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+" Close current window
 nnoremap <leader>w <C-w>c
+" Close all other  window
 nnoremap <leader>W <C-w>o
 
 " Buffers
@@ -198,9 +204,9 @@ nnoremap <leader>n :enew<CR>
 nnoremap <leader>N :bd<CR>
 nnoremap <leader><leader>b :b#<cr>
 
-" Specific setting for gvim
+" Specific setting for gui vim
 if has('gui_running')
-    silent! colorscheme material-theme
+    silent! colorscheme gruvbox
     " Font for macvim/gvim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline
 
