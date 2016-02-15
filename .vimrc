@@ -30,7 +30,6 @@ Plugin 'BufOnly.vim' " Close all buffer but this one.
 Plugin 'NrrwRgn' " Separate selected text and edit it to new window
 Plugin 'surround.vim'
 Plugin 'unite.vim' " Similar function as CtrlP
-Plugin 'PHPUnit-QF'
 Plugin 'vim-utils/vim-man' " View other program's manual page in vim
 
 " All of your Plugins must be added before the following line
@@ -122,6 +121,7 @@ set background=dark
 set t_Co=256 " set terminal color to use 256
 
 " Additional setting for solarized
+"set t_Co=256
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 
@@ -173,6 +173,7 @@ nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 set scrolloff=1 " Show n lines after / before scrolling
 set mouse=nvicr " :h mouse
+set scrolloff=1 " Show 1 lines after / before scrolling
 
 "My Remap
 
