@@ -31,6 +31,7 @@ Plugin 'NrrwRgn' " Separate selected text and edit it to new window
 Plugin 'surround.vim'
 Plugin 'unite.vim' " Similar function as CtrlP
 Plugin 'vim-utils/vim-man' " View other program's manual page in vim
+Plugin 'Tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
