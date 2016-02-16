@@ -12,26 +12,28 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-" Add Plugins here..
+" Some of cool plugins here
 Plugin 'flazz/vim-colorschemes' " all colorscheme
-Plugin 'ctrlp.vim' " similar to ctrl-p in sublime text
-Plugin 'EasyMotion' " jumping over places, very cool, use: \\w
+Plugin 'ctrlp.vim' " file searcher <c-p>
+Plugin 'EasyMotion' " jumping over places <leader><leader>w
 Plugin 'mileszs/ack.vim' " Ack
-Plugin 'The-NERD-tree' " file browser
-Plugin 'The-NERD-Commenter' " commenter
-Plugin 'NERD_Tree-and-ack' " nerdtree act, search pattern (pake quote)
+Plugin 'The-NERD-tree' " file browser <leader>d
+Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
+Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
 Plugin 'fugitive.vim' " git wrapper
 Plugin 'AutoClose' " auto add matching [({''})]
-Plugin 'SuperTab' " auto complete
+Plugin 'SuperTab' " auto complete <tab>
 Plugin 'bling/vim-airline' " statusline
-Plugin 'mattn/emmet-vim' " Emmet for vim
+Plugin 'mattn/emmet-vim' " Emmet for vim `<c-y>,`
 Plugin 'MatchTag' " highlight matching html tag
-Plugin 'BufOnly.vim' " Close all buffer but this one.
-Plugin 'NrrwRgn' " Separate selected text and edit it to new window
-Plugin 'surround.vim'
+Plugin 'BufOnly.vim' " Close all buffer but this one. :Bufonly
+Plugin 'NrrwRgn' " Separate selected text and edit it to new window :NR
+Plugin 'surround.vim' " Surrounder `cs*`
 Plugin 'unite.vim' " Similar function as CtrlP
-Plugin 'vim-utils/vim-man' " View other program's manual page in vim
-Plugin 'Tabular'
+Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
+Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
+Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,8 +60,8 @@ nnoremap <leader>F :Unite line<cr>
 
 " Vim Airline
 set laststatus=2 " always show statusline
-"let g:airline#extensions#tabline#enabled =1 " enable tabline
-"let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
+let g:airline#extensions#tabline#enabled =1 " enable tabline
+let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
 "let g:airline_powerline_fonts = 1
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
@@ -188,6 +190,7 @@ nnoremap <leader>w <C-w>c
 nnoremap <leader>W <C-w>o
 
 " Buffers
+set autoread " auto reload if a file modified outside vim
 " since i primarily use only one window, 
 " so i set some mapping for working with buffers
 nnoremap <leader>b :bn<CR>
