@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 
-" Some of cool plugins here
+" Some cool plugins here
 Plugin 'flazz/vim-colorschemes' " all colorscheme
 Plugin 'ctrlp.vim' " file searcher <c-p>
 Plugin 'EasyMotion' " jumping over places <leader><leader>w
@@ -55,7 +55,7 @@ filetype plugin indent on    " required
 
 " Unite
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :Unite file buffer history/yank file_mru file_rec<cr>
+nnoremap <leader>f :Unite history/yank<cr>
 nnoremap <leader>F :Unite line<cr>
 
 " Vim Airline
@@ -91,6 +91,12 @@ nnoremap <leader>D :NERDTreeFind<CR>
 
 "Emmet-Vim, trigger pake ini <c-y>,
 
+" Surround cheatsheet
+" cs"'
+" cs'<q>
+" cst"
+" ds"
+" S<p class="something">
 
 "CtrlP
 " keep cache when reopen CtrlP, to refresh use <F5>
