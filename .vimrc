@@ -17,6 +17,7 @@ Plugin 'flazz/vim-colorschemes' " all colorscheme
 Plugin 'ctrlp.vim' " file searcher <c-p>
 Plugin 'EasyMotion' " jumping over places <leader><leader>w
 Plugin 'mileszs/ack.vim' " Ack
+Plugin 'rking/ag.vim' " Ag
 Plugin 'The-NERD-tree' " file browser <leader>d
 Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
 Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
@@ -33,6 +34,7 @@ Plugin 'unite.vim' " Similar function as CtrlP
 Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
 Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
+Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 
 
 " All of your Plugins must be added before the following line
