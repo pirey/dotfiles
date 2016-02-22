@@ -123,7 +123,7 @@ set t_Co=256 " set terminal color to use 256
 
 " Additional setting for solarized
 "set t_Co=256
-"let g:solarized_termtrans=1
+let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 
 " Chose color if it is exists, surpress the error
@@ -176,7 +176,9 @@ set scrolloff=1 " Show n lines after / before scrolling
 set mouse=nvicr " :h mouse
 set scrolloff=1 " Show 1 lines after / before scrolling
 
-"My Remap
+" Shortcut & Mapping
+
+nnoremap ; :
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
