@@ -7,7 +7,7 @@
     Boom! Have a courtship with vim already!
 
 ## Setup tmux:
-    install tmux plugin manager
+    install tmux plugin manager (Optional)
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     
     in tmux session, `prefix + I` to install listed plugins
