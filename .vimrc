@@ -57,9 +57,10 @@ filetype plugin indent on    " required
 " below is my custom setting for each package and some general setting
 
 " Git Gutter
-" disable realtime update, in hope vim doesn't lag
-let g:gitgutter_realtime = 0
+let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
+let g:gitgutter_map_keys = 0 " don't want vim-gitgutter to set up any mappings at all
+nnoremap <leader>g :GitGutterToggle<CR>
 
 " Unite
 let g:unite_source_history_yank_enable = 1
