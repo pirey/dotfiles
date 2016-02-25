@@ -22,6 +22,7 @@ Plugin 'The-NERD-tree' " file browser <leader>d
 Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
 Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
 Plugin 'fugitive.vim' " git wrapper
+Plugin 'airblade/vim-gitgutter' " git changes sign
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete <tab>
 Plugin 'bling/vim-airline' " statusline
@@ -54,6 +55,11 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+" Git Gutter
+" disable realtime update, in hope vim doesn't lag
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " Unite
 let g:unite_source_history_yank_enable = 1
