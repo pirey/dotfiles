@@ -128,6 +128,8 @@ let g:solarized_termtrans=1
 
 " Chose color if it is exists, surpress the error
 silent! colorscheme Tomorrow-Night
+" Enable transparent background
+hi Normal ctermbg=NONE
 
 "Space & Tabs
 set tabstop=4 " tab width
@@ -138,6 +140,7 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 
 "UI Config
 set number " show line numbers
+set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
 "set cursorline " highlight current line
 "filetype indent on " load filetype-specific indent files
