@@ -142,7 +142,7 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 set number " show line numbers
 set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
-"set cursorline " highlight current line
+set cursorline " highlight current line
 "filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
 "set lazyredraw " redraw only when we need to.
@@ -231,5 +231,5 @@ syntax sync minlines=100
 syntax sync maxlines=240
 set synmaxcol=800
 set nocursorcolumn
-set nocursorline
+"set nocursorline
 syntax sync minlines=256
