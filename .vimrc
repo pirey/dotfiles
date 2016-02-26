@@ -22,6 +22,7 @@ Plugin 'The-NERD-tree' " file browser <leader>d
 Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
 Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
 Plugin 'fugitive.vim' " git wrapper
+Plugin 'airblade/vim-gitgutter' " git changes sign
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete <tab>
 Plugin 'bling/vim-airline' " statusline
@@ -54,6 +55,12 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+" Git Gutter
+let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
+let g:gitgutter_eager = 0
+let g:gitgutter_map_keys = 0 " don't want vim-gitgutter to set up any mappings at all
+nnoremap <leader>g :GitGutterToggle<CR>
 
 " Unite
 let g:unite_source_history_yank_enable = 1
@@ -123,11 +130,13 @@ set t_Co=256 " set terminal color to use 256
 
 " Additional setting for solarized
 "set t_Co=256
-"let g:solarized_termtrans=1
+let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 
 " Chose color if it is exists, surpress the error
 silent! colorscheme Tomorrow-Night
+" Enable transparent background
+hi Normal ctermbg=NONE
 
 "Space & Tabs
 set tabstop=4 " tab width
@@ -138,8 +147,9 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 
 "UI Config
 set number " show line numbers
+set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
-"set cursorline " highlight current line
+set cursorline " highlight current line
 "filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
 "set lazyredraw " redraw only when we need to.
@@ -176,7 +186,9 @@ set scrolloff=1 " Show n lines after / before scrolling
 set mouse=nvicr " :h mouse
 set scrolloff=1 " Show 1 lines after / before scrolling
 
-"My Remap
+" Shortcut & Mapping
+
+nnoremap ; :
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
@@ -226,5 +238,5 @@ syntax sync minlines=100
 syntax sync maxlines=240
 set synmaxcol=800
 set nocursorcolumn
-set nocursorline
+"set nocursorline
 syntax sync minlines=256
