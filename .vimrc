@@ -36,6 +36,7 @@ Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
 Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+Plugin 'Yggdroot/indentLine' " Indentation guide
 
 
 " All of your Plugins must be added before the following line
@@ -55,6 +56,10 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+" IndentLine
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar='.'
 
 " Git Gutter
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
@@ -149,13 +154,14 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 set number " show line numbers
 set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
-set cursorline " highlight current line
+"set cursorline " highlight current line
 "filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
 "set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
 set formatoptions-=cro " disable auto comment
 set nowrap " nowrap line
+set diffopt +=vertical " open diffs in vertical split.
 
 
 "Searching
@@ -211,13 +217,18 @@ nnoremap <leader>W <C-w>o
 
 " Buffers
 set autoread " auto reload if a file modified outside vim
-" since i primarily use only one window, 
-" so i set some mapping for working with buffers
-nnoremap <leader>b :bn<CR>
-nnoremap <leader>B :bp<CR>
-nnoremap <leader>n :enew<CR>
-nnoremap <leader>N :bd<CR>
-nnoremap <leader><leader>b :b#<cr>
+
+nnoremap <leader>b :b#<CR>
+
+" Some mapping from tpope's unimpaired mapping
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [B :bfirst<CR>
+nnoremap ]B :blast<CR>
 
 " Specific setting for gui vim
 if has('gui_running')
@@ -238,5 +249,5 @@ syntax sync minlines=100
 syntax sync maxlines=240
 set synmaxcol=800
 set nocursorcolumn
-"set nocursorline
+set nocursorline
 syntax sync minlines=256
