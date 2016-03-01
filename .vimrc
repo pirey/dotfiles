@@ -200,6 +200,10 @@ nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
 " Paste toggle
 set pastetoggle=<leader>p
 
+" List
+nnoremap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
 " Permudah navigasi antar window
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
