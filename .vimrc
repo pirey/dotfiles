@@ -26,6 +26,7 @@ Plugin 'airblade/vim-gitgutter' " git changes sign
 Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete <tab>
 Plugin 'bling/vim-airline' " statusline
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim' " Emmet for vim `<c-y>,`
 Plugin 'MatchTag' " highlight matching html tag
 Plugin 'BufOnly.vim' " Close all buffer but this one. :Bufonly
@@ -61,6 +62,8 @@ let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+" hunk stage = <leader>hs
+" hunk revert stage (unstage) = <leader>hr
 
 " Unite
 let g:unite_source_history_yank_enable = 1
@@ -72,6 +75,7 @@ set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
 "let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
 "if !exists('g:airline_symbols')
