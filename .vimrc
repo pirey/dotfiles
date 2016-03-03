@@ -37,6 +37,7 @@ Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
 Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+Plugin 'Tagbar' " List tags in sidebar
 
 
 " All of your Plugins must be added before the following line
@@ -56,6 +57,9 @@ filetype plugin indent on    " required
 
 " Custom config
 " below is my custom setting for each package and some general setting
+
+"Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
 
 " Git Gutter
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
