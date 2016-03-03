@@ -1,0 +1,9 @@
+" Additional setting for solarized
+let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+
+" if solarized color available, choose solarized
+silent! colorscheme solarized
+
+" solarized colorscheme for airline
+let g:airline_theme='solarized'

@@ -75,7 +75,6 @@ set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
 "let g:airline_powerline_fonts = 1 " use this if you want to use powerline
-"let g:airline_theme='solarized' " for solarized
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
 "if !exists('g:airline_symbols')
@@ -139,16 +138,15 @@ endif
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
-
-" Additional setting for solarized
-"set t_Co=256
-let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-
-" Chose color if it is exists, surpress the error
-silent! colorscheme Tomorrow-Night
+silent! colorscheme Tomorrow-Night " Chose color if it is exists, surpress the error
 " Enable transparent background
 hi Normal ctermbg=NONE
+
+" solarized is nice, but it requires additional configuration
+" so I'll just split the config file, and load it if we want to use solarized colorscheme
+if filereadable(expand("~/.vimrc.solarized"))
+    source ~/.vimrc.solarized
+endif
 
 "Space & Tabs
 set tabstop=4 " tab width
