@@ -74,8 +74,8 @@ nnoremap <leader>F :Unite line<cr>
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
-"let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+"let g:airline_powerline_fonts = 1 " use this if you want to use powerline
+"let g:airline_theme='solarized' " for solarized
 
 " unicode symbols, pakai ini kalo belum punya patched font nya.
 "if !exists('g:airline_symbols')
@@ -115,17 +115,25 @@ nnoremap <leader>D :NERDTreeFind<CR>
 " keep cache when reopen CtrlP, to refresh use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 
-" Custom config
-"NOTE:
-"use "+y in normal mode to copy
-"use "+p in normal mode to copy
-
-"Etc
+"General Setting (open :h <config> for more info)
 set encoding=utf-8
 set fileencoding=utf-8
 set smartcase
 set noswapfile
 set hidden
+
+" Clipboard
+" NOTE:
+" use "<register>y in normal mode to copy
+" use "<register>p in normal mode to copy
+" where <register> is either * or +
+if has('clipboard')
+	if has('unnamedplus')  " When possible use + register for copy-paste
+		set clipboard=unnamed,unnamedplus
+	else         " On mac and Windows, use * register for copy-paste
+		set clipboard=unnamed
+	endif
+endif
 
 "Colors
 syntax enable " enable syntax processing
