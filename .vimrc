@@ -138,12 +138,6 @@ silent! colorscheme Tomorrow-Night " Chose color if it is exists, surpress the e
 " Enable transparent background
 hi Normal ctermbg=NONE
 
-" solarized is nice, but it requires additional configuration
-" so I'll just split the config file, and load it if we want to use solarized colorscheme
-if filereadable(expand("~/.vimrc.solarized"))
-    source ~/.vimrc.solarized
-endif
-
 "Space & Tabs
 set tabstop=4 " tab width
 set softtabstop=4 " show existing tab with 4 spaces width
@@ -240,6 +234,7 @@ nnoremap <leader>W <C-w>o
 " Buffers
 set autoread " auto reload if a file modified outside vim
 
+" Open previously open buffer
 nnoremap <leader>b :b#<CR>
 
 " Some mapping from tpope's unimpaired mapping
@@ -273,3 +268,8 @@ set synmaxcol=800
 set nocursorcolumn
 set nocursorline
 syntax sync minlines=256
+
+" Local config
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
