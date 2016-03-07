@@ -1,4 +1,4 @@
-"Vundle Config
+" Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,7 +10,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 
 " Some cool plugins here
 Plugin 'flazz/vim-colorschemes' " all colorscheme
@@ -59,10 +58,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Custom config
-" below is my custom setting for each package and some general setting
+" Plugin configurations
 
-"Tagbar
+" Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 
 " Git Gutter
@@ -76,35 +74,14 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 " Vim Airline
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
-let g:airline#extensions#tabline#fnamemod = ':t' " show just the file name
+let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 "let g:airline_powerline_fonts = 1 " use this if you want to use powerline
 
-" unicode symbols, pakai ini kalo belum punya patched font nya.
-"if !exists('g:airline_symbols')
-"let g:airline_symbols = {}
-"endif
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-let g:airline_left_sep = ''
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-let g:airline_right_sep = ''
-"let g:airline_symbols.crypt = '🔒'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.space = "\ua0"
-"let g:airline_symbols.whitespace = 'Ξ'
-
-"NERDTree
+" NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
 
-"Emmet-Vim, trigger pake ini <c-y>,
+" Emmet-Vim, trigger pake ini <c-y>,
 
 " Surround cheatsheet
 " cs"'
@@ -113,11 +90,12 @@ nnoremap <leader>D :NERDTreeFind<CR>
 " ds"
 " S<p class="something">
 
-"CtrlP
+" CtrlP
 " keep cache when reopen CtrlP, to refresh use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 
-"General Setting (open :h <config> for more info)
+" General Configurations
+
 set encoding=utf-8
 set fileencoding=utf-8
 set smartcase
@@ -128,7 +106,7 @@ set hidden
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
-silent! colorscheme Tomorrow-Night " Chose color if it is exists, surpress the error
+silent! colorscheme Tomorrow-Night " Chose this color if it's exists, surpress the error if it isn't
 " Enable transparent background
 hi Normal ctermbg=NONE
 " Provide shortcut for solarized colorscheme, because why not?
@@ -145,14 +123,16 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 set number " show line numbers
 set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
-"set cursorline " highlight current line
-"filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
-"set lazyredraw " redraw only when we need to.
-"set showmatch " highlight matching [{()}]
 set formatoptions-=cro " disable auto comment
 set nowrap " nowrap line
 set diffopt +=vertical " open diffs in vertical split.
+set listchars=tab:▸\ ,eol:¬
+nnoremap <leader>l :set list!<CR>
+"set cursorline " highlight current line
+"filetype indent on " load filetype-specific indent files
+"set lazyredraw " redraw only when we need to.
+"set showmatch " highlight matching [{()}]
 
 
 "Searching
@@ -160,7 +140,7 @@ set ignorecase " be case insensitive
 set gdefault " always turn on global regex
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
-" set selected text as search param, use //
+" set visually selected text as search param
 vnoremap // y/<C-R>"<CR> 
 
 if executable('ag')
@@ -173,18 +153,18 @@ endif
 set foldenable " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
+set foldmethod=indent " fold based on indent level
 " space open/close folds
 nnoremap <space> za 
-set foldmethod=indent " fold based on indent level
 
 "Movement and Scrolling
+set scrolloff=1 " Show n lines after / before scrolling
+set scrolloff=1 " Show 1 lines after / before scrolling
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
-set scrolloff=1 " Show n lines after / before scrolling
-set scrolloff=1 " Show 1 lines after / before scrolling
 
 " Clipboard
 if has('clipboard')
@@ -200,7 +180,7 @@ else
     set mouse="" " Disable mouse
 endif
 
-" Shortcut & Mapping
+" General Shortcut & Mapping
 
 nnoremap ; :
 
@@ -213,19 +193,13 @@ nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
 " Paste toggle
 set pastetoggle=<leader>p
 
-" List
-nnoremap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-
-" Permudah navigasi antar window
+" Easier window movement
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 " Close current window
 nnoremap <leader>w <C-w>c
-" Close all other  window
-nnoremap <leader>W <C-w>o
 
 " Buffers
 set autoread " auto reload if a file modified outside vim
