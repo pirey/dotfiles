@@ -137,6 +137,8 @@ set t_Co=256 " set terminal color to use 256
 silent! colorscheme Tomorrow-Night " Chose color if it is exists, surpress the error
 " Enable transparent background
 hi Normal ctermbg=NONE
+" Provide shortcut for solarized colorscheme, because why not?
+nnoremap <leader><leader>bg :silent! colorscheme solarized<CR>
 
 "Space & Tabs
 set tabstop=4 " tab width
