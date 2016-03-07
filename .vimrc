@@ -16,8 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes' " all colorscheme
 Plugin 'ctrlp.vim' " file searcher <c-p>
 Plugin 'EasyMotion' " jumping over places <leader><leader>w
-Plugin 'mileszs/ack.vim' " Ack
-Plugin 'rking/ag.vim' " Ag
 Plugin 'The-NERD-tree' " file browser <leader>d
 Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
 Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
@@ -38,6 +36,13 @@ Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar' " List tags in sidebar
+
+if executable('ag')
+
+	" Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+	Plugin 'rking/ag.vim' " Ag
+
+endif
 
 
 " All of your Plugins must be added before the following line
@@ -180,8 +185,12 @@ set incsearch " search as characters are entered
 set hlsearch " highlight matches
 " set selected text as search param, use //
 vnoremap // y/<C-R>"<CR> 
-" this make vim calls provided program when we call :grep
-set grepprg='ag' 
+
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+endif
 
 "Folding
 set foldenable " enable folding
