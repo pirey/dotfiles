@@ -130,19 +130,6 @@ set smartcase
 set noswapfile
 set hidden
 
-" Clipboard
-" NOTE:
-" use "<register>y in normal mode to copy
-" use "<register>p in normal mode to copy
-" where <register> is either * or +
-if has('clipboard')
-	if has('unnamedplus')  " When possible use + register for copy-paste
-		set clipboard=unnamed,unnamedplus
-	else         " On mac and Windows, use * register for copy-paste
-		set clipboard=unnamed
-	endif
-endif
-
 "Colors
 syntax enable " enable syntax processing
 set background=dark
@@ -207,8 +194,21 @@ nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 set scrolloff=1 " Show n lines after / before scrolling
-set mouse=nvicr " :h mouse
 set scrolloff=1 " Show 1 lines after / before scrolling
+
+" Clipboard
+if has('clipboard')
+	if has('unnamedplus')  " When possible use + register for copy-paste
+		set clipboard=unnamed,unnamedplus
+	else         " On mac and Windows, use * register for copy-paste
+		set clipboard=unnamed
+	endif
+
+    set mouse=a " Enable mouse
+else
+    " if clipboard is not supported, disable mouse
+    set mouse="" " Disable mouse
+endif
 
 " Shortcut & Mapping
 
