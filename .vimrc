@@ -30,7 +30,6 @@ Plugin 'MatchTag' " highlight matching html tag
 Plugin 'BufOnly.vim' " Close all buffer but this one. :Bufonly
 Plugin 'NrrwRgn' " Separate selected text and edit it to new window :NR
 Plugin 'surround.vim' " Surrounder `cs*`
-Plugin 'unite.vim' " Similar function as CtrlP
 Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
 Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
@@ -73,11 +72,6 @@ nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 " hunk stage = <leader>hs
 " hunk revert stage (unstage) = <leader>hr
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :Unite history/yank<cr>
-nnoremap <leader>F :Unite line<cr>
 
 " Vim Airline
 set laststatus=2 " always show statusline
