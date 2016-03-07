@@ -75,7 +75,11 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
-"let g:airline_powerline_fonts = 1 " use this if you want to use powerline
+" Use simple square shaped statusline rather than 'fancy' powerline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+" Use this instead if you want to use powerline
+"let g:airline_powerline_fonts = 1 
 
 " NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
