@@ -20,8 +20,8 @@ Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
 Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
 Plugin 'fugitive.vim' " git wrapper
 Plugin 'airblade/vim-gitgutter' " git changes sign
-Plugin 'AutoClose' " auto add matching [({''})]
 Plugin 'SuperTab' " auto complete <tab>
+Plugin 'delimitMate.vim' " auto add matching [({''})]
 Plugin 'bling/vim-airline' " statusline
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim' " Emmet for vim `<c-y>,`
