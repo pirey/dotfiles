@@ -1,13 +1,15 @@
-## Note
-    Copy or symlink needed files inside dotfiles directory to appropriate directory
-    e.g `ln -s ./dotfiles/.vimrc ~/.vimrc`
 ## Setup vim:
-    first you need to install vundle: 
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    First you need to install vundle: 
+    `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
     
-    then open vim, run command `:PluginInstall` to install listed plugins
+    Copy or symlink `.vimrc` file inside dotfiles directory to your $HOME directory
+    E.g `ln -s ./dotfiles/.vimrc ~/.vimrc`
 
-    if you want to want to use `solarized` colorscheme, copy or symlink `.vimrc.solarized` file to your $HOME directory
+    Then open vim, run command `:PluginInstall` to install listed plugins
+
+    If you want to want to use custom configuration, create `.vimrc.local` in your $HOME directory
+
+    My `.vimrc` file is well commented (I guess) so I recommend you to read it, and feel free to contact me if you have any question.
 ## Setup tmux:
     all configuration does not need any aditional action, except for the plugin
     to use plugin: install tmux plugin manager (Optional)
