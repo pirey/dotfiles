@@ -12,7 +12,10 @@ If you want to want to use custom configuration, create `.vimrc.local` in your $
 My `.vimrc` file is well commented (I guess) so I recommend you to read it, and feel free to contact me if you have any question.
 
 ## Setup tmux
-all configuration does not need any aditional action, except for the plugin
-to use plugin: install tmux plugin manager (Optional)
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-in tmux session, `prefix + I` to install listed plugins
+All configuration does not need any aditional action, except for the plugin
+
+To use plugin: install tmux plugin manager (Optional)
+
+Git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+In tmux session, `prefix + I` to install listed plugins
