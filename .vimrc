@@ -12,28 +12,28 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Some cool plugins here
-Plugin 'flazz/vim-colorschemes' " all colorscheme
-Plugin 'ctrlp.vim' " file searcher <c-p>
-Plugin 'EasyMotion' " jumping over places <leader><leader>w
-Plugin 'The-NERD-tree' " file browser <leader>d
-Plugin 'The-NERD-Commenter' " commenter `<leader>c<space>`
-Plugin 'NERD_Tree-and-ack' " find in folder, from nerdtree
-Plugin 'fugitive.vim' " git wrapper
-Plugin 'airblade/vim-gitgutter' " git changes sign
-Plugin 'SuperTab' " auto complete <tab>
-Plugin 'delimitMate.vim' " auto add matching [({''})]
-Plugin 'bling/vim-airline' " statusline
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mattn/emmet-vim' " Emmet for vim `<c-y>,`
-Plugin 'MatchTag' " highlight matching html tag
-Plugin 'BufOnly.vim' " Close all buffer but this one. :Bufonly
-Plugin 'NrrwRgn' " Separate selected text and edit it to new window :NR
-Plugin 'surround.vim' " Surrounder `cs*`
-Plugin 'vim-utils/vim-man' " View other program's manual page in vim :Man
-Plugin 'Tabular' " Aligning tool :Tabular /{pattern}
+Plugin 'flazz/vim-colorschemes'            " All colorscheme
+Plugin 'ctrlp.vim'                         " File searcher <c-p>
+Plugin 'EasyMotion'                        " Jumping over places <leader><leader>w
+Plugin 'The-NERD-tree'                     " File browser <leader>d
+Plugin 'The-NERD-Commenter'                " Commenter `<leader>c<space>`
+Plugin 'NERD_Tree-and-ack'                 " Find in folder, from nerdtree
+Plugin 'fugitive.vim'                      " Git wrapper
+Plugin 'airblade/vim-gitgutter'            " Git changes sign
+Plugin 'SuperTab'                          " Auto complete <tab>
+Plugin 'delimitMate.vim'                   " Auto add matching [({''})]
+Plugin 'bling/vim-airline'                 " Statusline
+Plugin 'vim-airline/vim-airline-themes'    " Themes for airline plugin
+Plugin 'mattn/emmet-vim'                   " Emmet for vim `<c-y>,`
+Plugin 'MatchTag'                          " Highlight matching html tag
+Plugin 'BufOnly.vim'                       " Close all buffer but this one. :Bufonly
+Plugin 'NrrwRgn'                           " Separate selected text and edit it to new window :NR
+Plugin 'surround.vim'                      " Surrounder `cs*`
+Plugin 'vim-utils/vim-man'                 " View other program's manual page in vim :Man
+Plugin 'Tabular'                           " Aligning tool :Tabular /{pattern}
 Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
-Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
-Plugin 'Tagbar' " List tags in sidebar
+Plugin 'textutil.vim'                      " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+Plugin 'Tagbar'                            " List tags in sidebar
 
 if executable('ack') || executable('ack-grep')
     " Better than grep, they said http://beyondgrep.com
