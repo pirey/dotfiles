@@ -237,6 +237,7 @@ nnoremap ]B :blast<CR>
 
 " Specific setting for gui vim
 if has('gui_running')
+    set transparency=10
     silent! colorscheme gruvbox
     " Font for macvim/gvim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline
