@@ -35,10 +35,8 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar' " List tags in sidebar
 
-if executable('ack')
-    " This is better than grep, http://beyondgrep.com
-    Plugin 'ack.vim'
-elseif executable('ack-grep')
+if executable('ack') || executable('ack-grep')
+    " Better than grep, they said http://beyondgrep.com
     Plugin 'ack.vim'
 endif
 
@@ -160,7 +158,7 @@ elseif executable('ack-grep')
 endif
 
 if executable('ag')
-  " Use Ag over Grep
+  " Use Ag over Grep or Ack
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
