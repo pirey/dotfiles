@@ -184,20 +184,6 @@ nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 
-" Clipboard
-if has('clipboard')
-	if has('unnamedplus')  " When possible use + register for copy-paste
-		set clipboard=unnamed,unnamedplus
-	else         " On mac and Windows, use * register for copy-paste
-		set clipboard=unnamed
-	endif
-
-    set mouse=a " Enable mouse
-else
-    " if clipboard is not supported, disable mouse
-    set mouse="" " Disable mouse
-endif
-
 " General Shortcut & Mapping
 
 nnoremap ; :
