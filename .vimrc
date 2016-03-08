@@ -157,9 +157,9 @@ vnoremap // y/<C-R>"<CR>
 
 if executable('ack')
   " Use Ack over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ack\ --nogroup\ --nocolor
 elseif executable('ack-grep')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ack-grep\ --nogroup\ --nocolor
 endif
 
 if executable('ag')
