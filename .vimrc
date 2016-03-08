@@ -35,11 +35,16 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim' " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar' " List tags in sidebar
 
+if executable('ack')
+    " This is better than grep, http://beyondgrep.com
+    Plugin 'ack.vim'
+elseif executable('ack-grep')
+    Plugin 'ack.vim'
+endif
+
 if executable('ag')
-
-	" Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-	Plugin 'rking/ag.vim' " Ag
-
+    " Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+    Plugin 'rking/ag.vim' " Ag
 endif
 
 
@@ -147,10 +152,16 @@ set hlsearch " highlight matches
 " set visually selected text as search param
 vnoremap // y/<C-R>"<CR> 
 
+if executable('ack')
+  " Use Ack over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+elseif executable('ack-grep')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
-
 endif
 
 "Folding
