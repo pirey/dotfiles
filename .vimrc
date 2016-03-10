@@ -190,7 +190,11 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 " Save vimrc
 nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
 
-" Paste toggle
+" Clipboard
+if has('clipboard')
+    " Use ctrl-c to copy selected text to clipboard
+    vmap <C-c> "+y
+endif
 set pastetoggle=<leader>p
 
 " Easier window movement
