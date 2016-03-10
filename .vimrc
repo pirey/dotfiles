@@ -186,7 +186,11 @@ nmap <S-k> <C-u>
 
 " Clipboard
 if has('clipboard')
-    set mouse=a " enable mouse
+
+    " Only enable mouse when vim has clipboard support
+    if has('mouse')
+        set mouse=a
+    endif
 
     " Use ctrl-c to copy selected text to clipboard
     vmap <C-c> "+y
