@@ -11,13 +11,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Some cool plugins here
+" Some useful plugins here
 Plugin 'flazz/vim-colorschemes'            " All colorscheme
 Plugin 'ctrlp.vim'                         " File searcher <c-p>
 Plugin 'EasyMotion'                        " Jumping over places <leader><leader>w
 Plugin 'The-NERD-tree'                     " File browser <leader>d
 Plugin 'The-NERD-Commenter'                " Commenter `<leader>c<space>`
-Plugin 'NERD_Tree-and-ack'                 " Find in folder, from nerdtree
 Plugin 'fugitive.vim'                      " Git wrapper
 Plugin 'airblade/vim-gitgutter'            " Git changes sign
 Plugin 'SuperTab'                          " Auto complete <tab>
@@ -35,13 +34,14 @@ Plugin 'textutil.vim'                      " Open rtf, doc, rtfd, wordml as plai
 Plugin 'Tagbar'                            " List tags in sidebar
 
 if executable('ack') || executable('ack-grep')
-    " Better than grep, they said http://beyondgrep.com
-    Plugin 'ack.vim'
+    
+    Plugin 'ack.vim'           " Better than grep, they said http://beyondgrep.com
+    Plugin 'NERD_Tree-and-ack' " Find in folder, from nerdtree
 endif
 
 if executable('ag')
     " Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-    Plugin 'rking/ag.vim' " Ag
+    Plugin 'rking/ag.vim'
 endif
 
 
