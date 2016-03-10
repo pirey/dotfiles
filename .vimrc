@@ -192,6 +192,8 @@ nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
 
 " Clipboard
 if has('clipboard')
+    set mouse=a " enable mouse
+
     " Use ctrl-c to copy selected text to clipboard
     vmap <C-c> "+y
 endif
