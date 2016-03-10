@@ -205,7 +205,7 @@ vnoremap ; :
 nnoremap <leader>v :e ~/.vimrc<CR>
 
 " reload vimrc
-nnoremap <leader><leader>v :bufdo! source ~/.vimrc<CR>
+nnoremap <leader><leader>v :source ~/.vimrc<CR>
 
 " Easier window movement
 nmap <C-h> <C-w>h
