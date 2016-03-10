@@ -134,10 +134,14 @@ set formatoptions-=cro " disable auto comment
 set nowrap " nowrap line
 set diffopt +=vertical " open diffs in vertical split.
 set listchars=tab:▸\ ,eol:¬
+" toggle list
 nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
 nnoremap <C-n> :set relativenumber!<CR>
-"set cursorline " highlight current line
+" toggle highlight current line
+nnoremap <leader>hx :set cursorline!<CR>
+" toggle highlight current column
+nnoremap <leader>hy :set cursorcolumn!<CR>
 "filetype indent on " load filetype-specific indent files
 "set lazyredraw " redraw only when we need to.
 "set showmatch " highlight matching [{()}]
@@ -215,7 +219,10 @@ nnoremap <leader>w <C-w>c
 " Open previously open buffer
 nnoremap <leader>b :b#<CR>
 
-" Some mapping from tpope's unimpaired mapping
+" Force close all buffers
+nnoremap <leader>bd :bufdo bd!<CR>
+
+" Some mapping from tpope's unimpaired
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
@@ -246,17 +253,16 @@ if has('gui_macvim')
 endif
 
 " Performance issue improvement
-" someday i run into a large file and my vim somehow went lagging,
-" so this is what i found on the google
+" one day I run into a large file and my vim somehow went lagging,
+" so this is what I found on the google
 autocmd BufEnter * :syn sync maxlines=500
-syntax sync minlines=100
-syntax sync maxlines=240
+syntax sync minlines=256
+syntax sync maxlines=256
 set synmaxcol=800
 set nocursorcolumn
 set nocursorline
-syntax sync minlines=256
 
-" Local config
+" Load local config if exists
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
