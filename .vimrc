@@ -223,7 +223,6 @@ nnoremap ]B :blast<CR>
 
 " Specific setting for gui vim
 if has('gui_running')
-    set transparency=10
     silent! colorscheme gruvbox
     " Font for macvim/gvim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline
@@ -232,6 +231,11 @@ if has('gui_running')
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
 end
+
+" Macvim
+if has('gui_macvim')
+    set transparency=10
+endif
 
 " Performance issue improvement
 " someday i run into a large file and my vim somehow went lagging,
