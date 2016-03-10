@@ -1,3 +1,10 @@
+"                        _ _      
+"                       | | |     
+" __   ___   _ _ __   __| | | ___ 
+" \ \ / / | | | '_ \ / _` | |/ _ \
+"  \ V /| |_| | | | | (_| | |  __/
+"   \_/  \__,_|_| |_|\__,_|_|\___|
+
 " Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -60,7 +67,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Plugin configurations
+"        _             _                  _   _   _                 
+"       | |           (_)                | | | | (_)                
+"  _ __ | |_   _  __ _ _ _ __    ___  ___| |_| |_ _ _ __   __ _ ___ 
+" | '_ \| | | | |/ _` | | '_ \  / __|/ _ \ __| __| | '_ \ / _` / __|
+" | |_) | | |_| | (_| | | | | | \__ \  __/ |_| |_| | | | | (_| \__ \
+" | .__/|_|\__,_|\__, |_|_| |_| |___/\___|\__|\__|_|_| |_|\__, |___/
+" | |             __/ |                                    __/ |    
+" |_|            |___/                                    |___/     
 
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
@@ -100,15 +114,39 @@ nnoremap <leader>D :NERDTreeFind<CR>
 " keep cache when reopen CtrlP, to refresh use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 
-" General Configurations
+"                                  _ 
+"                                 | |
+"   __ _  ___ _ __   ___ _ __ __ _| |
+"  / _` |/ _ \ '_ \ / _ \ '__/ _` | |
+" | (_| |  __/ | | |  __/ | | (_| | |
+"  \__, |\___|_| |_|\___|_|  \__,_|_|
+"   __/ |                            
+"  |___/                             
 
 set encoding=utf-8
 set fileencoding=utf-8
 set smartcase
 set noswapfile
 set hidden
+set autoread " auto reload if a file modified outside vim
 
-"Colors
+" Performance issue improvement
+" one day I run into a large file and my vim somehow went lagging,
+" so this is what I found on the google
+autocmd BufEnter * :syn sync maxlines=500
+syntax sync minlines=256
+syntax sync maxlines=256
+set synmaxcol=800
+set nocursorcolumn
+set nocursorline
+
+"            _                
+"           | |               
+"   ___ ___ | | ___  _ __ ___ 
+"  / __/ _ \| |/ _ \| '__/ __|
+" | (_| (_) | | (_) | |  \__ \
+"  \___\___/|_|\___/|_|  |___/
+                             
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
@@ -118,14 +156,29 @@ hi Normal ctermbg=NONE
 " Provide shortcut for solarized colorscheme, because why not?
 nnoremap <leader><leader>bg :silent! colorscheme solarized<CR>
 
-"Space & Tabs
+"                                      _        _     
+"                                     | |      | |    
+"  ___ _ __   __ _  ___ ___   ______  | |_ __ _| |__  
+" / __| '_ \ / _` |/ __/ _ \ |______| | __/ _` | '_ \ 
+" \__ \ |_) | (_| | (_|  __/          | || (_| | |_) |
+" |___/ .__/ \__,_|\___\___|           \__\__,_|_.__/ 
+"     | |                                             
+"     |_|                                             
+
 set tabstop=4 " tab width
 set softtabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4 " when indenting with '>', use 4 spaces width
 set expandtab " On pressing tab, insert 4 spaces
 set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 
-"UI Config
+"        _ 
+"       (_)
+"  _   _ _ 
+" | | | | |
+" | |_| | |
+"  \__,_|_|
+          
+          
 set number " show line numbers
 set norelativenumber " default use no relative numbering.
 set showcmd " show command in bottom bar
@@ -147,7 +200,14 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 "set showmatch " highlight matching [{()}]
 
 
-"Searching
+"                          _     _             
+"                         | |   (_)            
+"  ___  ___  __ _ _ __ ___| |__  _ _ __   __ _ 
+" / __|/ _ \/ _` | '__/ __| '_ \| | '_ \ / _` |
+" \__ \  __/ (_| | | | (__| | | | | | | | (_| |
+" |___/\___|\__,_|_|  \___|_| |_|_|_| |_|\__, |
+"                                         __/ |
+"                                        |___/ 
 set ignorecase " be case insensitive
 set gdefault " always turn on global regex
 set incsearch " search as characters are entered
@@ -167,7 +227,14 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-"Folding
+"   __      _     _ _             
+"  / _|    | |   | (_)            
+" | |_ ___ | | __| |_ _ __   __ _ 
+" |  _/ _ \| |/ _` | | '_ \ / _` |
+" | || (_) | | (_| | | | | | (_| |
+" |_| \___/|_|\__,_|_|_| |_|\__, |
+"                            __/ |
+"                           |___/ 
 set foldenable " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
@@ -175,7 +242,13 @@ set foldmethod=indent " fold based on indent level
 " space open/close folds
 nnoremap <space> za 
 
-"Movement and Scrolling
+"                                                _   
+"                                               | |  
+"  _ __ ___   _____   _____ _ __ ___   ___ _ __ | |_ 
+" | '_ ` _ \ / _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __|
+" | | | | | | (_) \ V /  __/ | | | | |  __/ | | | |_ 
+" |_| |_| |_|\___/ \_/ \___|_| |_| |_|\___|_| |_|\__|
+                                                    
 set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
 " move vertically by visual line
@@ -184,7 +257,14 @@ nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 
-" Clipboard
+"       _ _       _                         _ 
+"      | (_)     | |                       | |
+"   ___| |_ _ __ | |__   ___   __ _ _ __ __| |
+"  / __| | | '_ \| '_ \ / _ \ / _` | '__/ _` |
+" | (__| | | |_) | |_) | (_) | (_| | | | (_| |
+"  \___|_|_| .__/|_.__/ \___/ \__,_|_|  \__,_|
+"          | |                                
+"          |_|                                
 if has('clipboard')
 
     " Only enable mouse when vim has clipboard support
@@ -197,10 +277,14 @@ if has('clipboard')
 endif
 set pastetoggle=<leader>p
 
-" Buffers
-set autoread " auto reload if a file modified outside vim
-
-" General Shortcut & Mapping
+"                              _             
+"                             (_)            
+"  _ __ ___   __ _ _ __  _ __  _ _ __   __ _ 
+" | '_ ` _ \ / _` | '_ \| '_ \| | '_ \ / _` |
+" | | | | | | (_| | |_) | |_) | | | | | (_| |
+" |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |
+"                 | |   | |             __/ |
+"                 |_|   |_|            |___/ 
 
 nnoremap ; :
 vnoremap ; :
@@ -240,7 +324,15 @@ nnoremap ]B :blast<CR>
 cnoremap <c-n>  <down>
 cnoremap <c-p>  <up>
 
-" Specific setting for gui vim
+"              _       __                             _           
+"             (_)     / /                            (_)          
+"   __ _ _   _ _     / /   _ __ ___   __ _  _____   ___ _ __ ___  
+"  / _` | | | | |   / /   | '_ ` _ \ / _` |/ __\ \ / / | '_ ` _ \ 
+" | (_| | |_| | |  / /    | | | | | | (_| | (__ \ V /| | | | | | |
+"  \__, |\__,_|_| /_/     |_| |_| |_|\__,_|\___| \_/ |_|_| |_| |_|
+"   __/ |                                                         
+"  |___/                                                          
+
 if has('gui_running')
     silent! colorscheme gruvbox
     " Font for macvim/gvim
@@ -256,17 +348,13 @@ if has('gui_macvim')
     set transparency=10
 endif
 
-" Performance issue improvement
-" one day I run into a large file and my vim somehow went lagging,
-" so this is what I found on the google
-autocmd BufEnter * :syn sync maxlines=500
-syntax sync minlines=256
-syntax sync maxlines=256
-set synmaxcol=800
-set nocursorcolumn
-set nocursorline
-
-" Load local config if exists
+"  _                 _ 
+" | |               | |
+" | | ___   ___ __ _| |
+" | |/ _ \ / __/ _` | |
+" | | (_) | (_| (_| | |
+" |_|\___/ \___\__,_|_|
+                      
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
