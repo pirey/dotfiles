@@ -180,16 +180,6 @@ nnoremap k gk
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 
-" General Shortcut & Mapping
-
-nnoremap ; :
-
-" Edit vimrc
-nnoremap <leader>v :e ~/.vimrc<CR>
-
-" Save vimrc
-nnoremap <leader><leader>v :w<CR>:source ~/.vimrc<CR>
-
 " Clipboard
 if has('clipboard')
     set mouse=a " enable mouse
@@ -199,16 +189,28 @@ if has('clipboard')
 endif
 set pastetoggle=<leader>p
 
+" Buffers
+set autoread " auto reload if a file modified outside vim
+
+" General Shortcut & Mapping
+
+nnoremap ; :
+vnoremap ; :
+
+" Edit vimrc
+nnoremap <leader>v :e ~/.vimrc<CR>
+
+" reload vimrc
+nnoremap <leader><leader>v :bufdo! source ~/.vimrc<CR>
+
 " Easier window movement
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
 " Close current window
 nnoremap <leader>w <C-w>c
-
-" Buffers
-set autoread " auto reload if a file modified outside vim
 
 " Open previously open buffer
 nnoremap <leader>b :b#<CR>
@@ -222,6 +224,10 @@ nnoremap [b :bprevious<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [B :bfirst<CR>
 nnoremap ]B :blast<CR>
+
+" Command line
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
 
 " Specific setting for gui vim
 if has('gui_running')
