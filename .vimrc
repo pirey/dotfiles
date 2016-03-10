@@ -31,7 +31,6 @@ Plugin 'NrrwRgn'                           " Separate selected text and edit it 
 Plugin 'surround.vim'                      " Surrounder `cs*`
 Plugin 'vim-utils/vim-man'                 " View other program's manual page in vim :Man
 Plugin 'Tabular'                           " Aligning tool :Tabular /{pattern}
-Plugin 'jeffkreeftmeijer/vim-numbertoggle' " Toggle number <c-n>
 Plugin 'textutil.vim'                      " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar'                            " List tags in sidebar
 
@@ -136,6 +135,8 @@ set nowrap " nowrap line
 set diffopt +=vertical " open diffs in vertical split.
 set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>l :set list!<CR>
+" toggle relative numbering
+nnoremap <C-n> :set relativenumber!<CR>
 "set cursorline " highlight current line
 "filetype indent on " load filetype-specific indent files
 "set lazyredraw " redraw only when we need to.
