@@ -1,3 +1,5 @@
+" This is my personal vimrc [ https://github.com/yeripratama/dotfiles ]
+"
 "                        _ _      
 "                       | | |     
 " __   ___   _ _ __   __| | | ___ 
@@ -251,9 +253,18 @@ nnoremap <space> za
                                                     
 set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
+
+" easier navigation to beginning/end of line
+nnoremap e E
+nnoremap b B
+nnoremap E $
+nnoremap B ^
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+
+" easy scroll
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 
