@@ -255,8 +255,6 @@ set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
 
 " easier navigation to beginning/end of line
-nnoremap e E
-nnoremap b B
 nnoremap E $
 nnoremap B ^
 
