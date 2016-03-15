@@ -21,26 +21,27 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Some useful plugins here
-Plugin 'flazz/vim-colorschemes'            " All colorscheme
-Plugin 'ctrlp.vim'                         " File searcher <c-p>
-Plugin 'EasyMotion'                        " Jumping over places <leader><leader>w
-Plugin 'The-NERD-tree'                     " File browser <leader>d
-Plugin 'The-NERD-Commenter'                " Commenter `<leader>c<space>`
-Plugin 'fugitive.vim'                      " Git wrapper
-Plugin 'airblade/vim-gitgutter'            " Git changes sign
-Plugin 'SuperTab'                          " Auto complete <tab>
-Plugin 'delimitMate.vim'                   " Auto add matching [({''})]
-Plugin 'bling/vim-airline'                 " Statusline
-Plugin 'vim-airline/vim-airline-themes'    " Themes for airline plugin
-Plugin 'mattn/emmet-vim'                   " Emmet for vim `<c-y>,`
-Plugin 'MatchTag'                          " Highlight matching html tag
-Plugin 'BufOnly.vim'                       " Close all buffer but this one. :Bufonly
-Plugin 'NrrwRgn'                           " Separate selected text and edit it to new window :NR
-Plugin 'surround.vim'                      " Surrounder `cs*`
-Plugin 'vim-utils/vim-man'                 " View other program's manual page in vim :Man
-Plugin 'Tabular'                           " Aligning tool :Tabular /{pattern}
-Plugin 'textutil.vim'                      " Open rtf, doc, rtfd, wordml as plain text (Mac only)
-Plugin 'Tagbar'                            " List tags in sidebar
+Plugin 'flazz/vim-colorschemes'         " All colorscheme
+Plugin 'ctrlp.vim'                      " File searcher <c-p>
+Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
+Plugin 'The-NERD-tree'                  " File browser <leader>d
+Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
+Plugin 'fugitive.vim'                   " Git wrapper
+Plugin 'airblade/vim-gitgutter'         " Git changes sign
+Plugin 'SuperTab'                       " Auto complete <tab>
+Plugin 'delimitMate.vim'                " Auto add matching [({''})]
+Plugin 'bling/vim-airline'              " Statusline
+Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
+Plugin 'MatchTag'                       " Highlight matching html tag
+Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
+Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
+Plugin 'surround.vim'                   " Surrounder `cs*`
+Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
+Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
+Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+Plugin 'Tagbar'                         " List tags in sidebar
+Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 
 if executable('ack') || executable('ack-grep')
     
@@ -77,6 +78,9 @@ filetype plugin indent on    " required
 " | .__/|_|\__,_|\__, |_|_| |_| |___/\___|\__|\__|_|_| |_|\__, |___/
 " | |             __/ |                                    __/ |    
 " |_|            |___/                                    |___/     
+
+" Bclose
+nnoremap <leader>bd :Bclose<CR>
 
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
@@ -157,6 +161,10 @@ silent! colorscheme Tomorrow-Night " Chose this color if it's exists, surpress t
 hi Normal ctermbg=NONE
 " Provide shortcut for solarized colorscheme, because why not?
 nnoremap <leader><leader>bg :silent! colorscheme solarized<CR>
+
+" Toggle background
+" http://tilvim.com/2013/07/31/swapping-bg.html
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 "                                      _        _     
 "                                     | |      | |    
@@ -317,7 +325,7 @@ nnoremap <leader>w <C-w>c
 nnoremap <leader>b :b#<CR>
 
 " Force close all buffers
-nnoremap <leader>bd :bufdo bd!<CR>
+nnoremap <leader><leader>bd :bufdo bd!<CR>
 
 " Some mapping from tpope's unimpaired
 nnoremap [q :cprevious<CR>
