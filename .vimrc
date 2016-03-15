@@ -156,11 +156,44 @@ set nocursorline
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
+
+" Some of my favorite colors
 silent! colorscheme Tomorrow-Night " Chose this color if it's exists, surpress the error if it isn't
+silent! colorscheme gruvbox        " Chose this color if it's exists, surpress the error if it isn't
+
+" fixing incorrect background when displaying italic fonts
+let  g:gruvbox_italic = 0
+
 " Enable transparent background
 hi Normal ctermbg=NONE
-" Provide shortcut for solarized colorscheme, because why not?
-nnoremap <leader><leader>bg :silent! colorscheme solarized<CR>
+
+" Provide shortcut for some of my favorite colorschemes
+nnoremap <leader><leader>so :call SetSolarized()<CR>
+nnoremap <leader><leader>gru :call SetGruvbox()<CR>
+nnoremap <leader><leader>to :call SetTomorrowNight()<CR>
+
+" Gruvbox
+function! SetGruvbox()
+    silent! colorscheme gruvbox
+    "let g:airline_theme = 'base16'
+    AirlineTheme base16
+endfunction
+
+" Solarized
+function! SetSolarized()
+    let g:solarized_termtrans=1
+    "let g:solarized_termcolors=256
+    silent! colorscheme solarized
+    "let g:airline_theme='solarized'
+    AirlineTheme solarized
+endfunction
+
+" Tomorrow-Night
+function! SetTomorrowNight()
+    silent! colorscheme Tomorrow-Night
+    "let g:airline_theme = 'tomorrow'
+    AirlineTheme tomorrow
+endfunction
 
 " Toggle background
 " http://tilvim.com/2013/07/31/swapping-bg.html
