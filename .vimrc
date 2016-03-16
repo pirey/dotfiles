@@ -42,6 +42,7 @@ Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
 Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
+Plugin 'Syntastic'                      " Syntax checker
 
 if executable('ack') || executable('ack-grep')
     
@@ -78,6 +79,16 @@ filetype plugin indent on    " required
 " | .__/|_|\__,_|\__, |_|_| |_| |___/\___|\__|\__|_|_| |_|\__, |___/
 " | |             __/ |                                    __/ |    
 " |_|            |___/                                    |___/     
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Bclose
 nnoremap <leader>bd :Bclose<CR>
