@@ -43,6 +43,7 @@ Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain t
 Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'Syntastic'                      " Syntax checker
+Plugin 'EasyGrep'                       " Easy find and replace
 
 if executable('ack') || executable('ack-grep')
     
