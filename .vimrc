@@ -234,14 +234,15 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 "  \__,_|_|
           
           
-set number " show line numbers
-set norelativenumber " default use no relative numbering.
-set showcmd " show command in bottom bar
-set wildmenu " visual autocomplete for command menu
-set formatoptions-=cro " disable auto comment
-set nowrap " nowrap line
-set diffopt +=vertical " open diffs in vertical split.
+set number                  " show line numbers
+set norelativenumber        " default use no relative numbering.
+set showcmd                 " show command in bottom bar
+set wildmenu                " visual autocomplete for command menu
+set formatoptions-=cro      " disable auto comment
+set nowrap                  " nowrap line
+set diffopt +=vertical      " open diffs in vertical split.
 set listchars=tab:▸\ ,eol:¬
+set splitright              " open new vsplit to the right
 " toggle list
 nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
