@@ -186,8 +186,7 @@ nnoremap <leader><leader>to :call SetTomorrowNight()<CR>
 " Gruvbox
 function! SetGruvbox()
     silent! colorscheme gruvbox
-    "let g:airline_theme = 'base16'
-    AirlineTheme base16
+    let g:airline_theme = 'base16'
 endfunction
 
 " Solarized
@@ -195,15 +194,13 @@ function! SetSolarized()
     let g:solarized_termtrans=1
     "let g:solarized_termcolors=256
     silent! colorscheme solarized
-    "let g:airline_theme='solarized'
-    AirlineTheme solarized
+    let g:airline_theme='solarized'
 endfunction
 
 " Tomorrow-Night
 function! SetTomorrowNight()
     silent! colorscheme Tomorrow-Night
-    "let g:airline_theme = 'tomorrow'
-    AirlineTheme tomorrow
+    let g:airline_theme = 'tomorrow'
 endfunction
 
 " Toggle background
@@ -419,3 +416,5 @@ endif
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+call SetGruvbox()
