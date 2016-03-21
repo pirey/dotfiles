@@ -7,7 +7,9 @@ E.g `ln -s ./dotfiles/.vimrc ~/.vimrc`
 
 Then open vim, run command `:PluginInstall` to install listed plugins
 
-If you want to want to use custom configuration, create `.vimrc.local` in your `$HOME` directory
+There are currently two type of custom configuration
+1. Global: create `.vimrc.custom` in your `$HOME` directory
+2. Local (project configuration): create `.vimrc.local` inside the root of your project directory (open vim from project root directory)
 
 My `.vimrc` file is well commented (I guess) so I recommend you to read it, and feel free to contact me if you have any question.
 

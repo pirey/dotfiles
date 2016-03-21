@@ -411,13 +411,29 @@ if has('gui_macvim')
     set transparency=10
 endif
 
+"                 _                  
+"                | |                 
+"   ___ _   _ ___| |_ ___  _ __ ___  
+"  / __| | | / __| __/ _ \| '_ ` _ \ 
+" | (__| |_| \__ \ || (_) | | | | | |
+"  \___|\__,_|___/\__\___/|_| |_| |_|
+"                                    
+
+" Load global custom configuration if exists
+
+if filereadable(expand("~/.vimrc.custom"))
+    source ~/.vimrc.custom
+endif
+
 "  _                 _ 
 " | |               | |
 " | | ___   ___ __ _| |
 " | |/ _ \ / __/ _` | |
 " | | (_) | (_| (_| | |
 " |_|\___/ \___\__,_|_|
-                      
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+
+" Load local (per project) custom configuration if exists
+
+if filereadable(expand(".vimrc.local"))
+    source .vimrc.local
 endif
