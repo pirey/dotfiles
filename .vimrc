@@ -208,6 +208,9 @@ endfunction
 " http://tilvim.com/2013/07/31/swapping-bg.html
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
+" call default colorscheme here
+call SetGruvbox()
+
 "                                      _        _     
 "                                     | |      | |    
 "  ___ _ __   __ _  ___ ___   ______  | |_ __ _| |__  
@@ -418,5 +421,3 @@ endif
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
-
-call SetGruvbox()
