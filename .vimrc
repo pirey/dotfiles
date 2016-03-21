@@ -388,6 +388,9 @@ nnoremap ]B :blast<CR>
 cnoremap <c-n>  <down>
 cnoremap <c-p>  <up>
 
+" Paste yanked text in command line
+cnoremap <c-v> <c-r>"
+
 "              _       __                             _           
 "             (_)     / /                            (_)          
 "   __ _ _   _ _     / /   _ __ ___   __ _  _____   ___ _ __ ___  
