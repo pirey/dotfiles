@@ -44,6 +44,7 @@ Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'Syntastic'                      " Syntax checker
 Plugin 'EasyGrep'                       " Easy find and replace
+Plugin 'StanAngeloff/php.vim'           " PHP
 
 if executable('ack') || executable('ack-grep')
     
@@ -408,6 +409,7 @@ if has('gui_running')
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
+    set cusrorline
 end
 
 " Macvim
@@ -441,3 +443,13 @@ endif
 if filereadable(expand(".vimrc.local"))
     source .vimrc.local
 endif
+
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
