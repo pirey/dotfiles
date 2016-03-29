@@ -45,6 +45,7 @@ Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split w
 Plugin 'Syntastic'                      " Syntax checker
 Plugin 'EasyGrep'                       " Easy find and replace
 Plugin 'StanAngeloff/php.vim'           " PHP
+Plugin 'terryma/vim-expand-region'      " Select region
 
 if executable('ack') || executable('ack-grep')
     
@@ -300,6 +301,18 @@ set foldmethod=indent " fold based on indent level
 " space open/close folds
 nnoremap <space> za 
 
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
 "                                                _   
 "                                               | |  
 "  _ __ ___   _____   _____ _ __ ___   ___ _ __ | |_ 
@@ -409,12 +422,12 @@ if has('gui_running')
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
-    set cusrorline
+    set cursorline
 end
 
 " Macvim
 if has('gui_macvim')
-    set transparency=2
+    set transparency=1
 endif
 
 "                 _                  
