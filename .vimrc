@@ -46,6 +46,7 @@ Plugin 'Syntastic'                      " Syntax checker
 Plugin 'EasyGrep'                       " Easy find and replace
 Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'terryma/vim-expand-region'      " Select region
+Plugin 'itchyny/calendar.vim'           " Calendar app
 
 if executable('ack') || executable('ack-grep')
     
