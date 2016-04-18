@@ -48,6 +48,7 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'terryma/vim-expand-region'      " Select region
 Plugin 'itchyny/calendar.vim'           " Calendar app
 Plugin 'vitalk/vim-simple-todo'         " Simple todo app
+Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 
 if executable('ack') || executable('ack-grep')
     
