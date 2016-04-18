@@ -464,6 +464,9 @@ if filereadable(expand(".vimrc.local"))
     source .vimrc.local
 endif
 
+
+
+" ETC
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
   hi! def link phpDocParam phpType
