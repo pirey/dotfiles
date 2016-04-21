@@ -198,6 +198,10 @@ nnoremap <leader><leader>to :call SetTomorrowNight()<CR>
 
 " Gruvbox
 function! SetGruvbox()
+    " force airline to use the theme of this colorscheme,
+    " since gruvbox has no airline theme
+    silent! colorscheme base16-atelierdune
+
     silent! colorscheme gruvbox
     " can't find gruvbox theem for airline, use this instead
     "let g:airline_theme = 'base16'
