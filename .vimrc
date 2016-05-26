@@ -35,22 +35,24 @@ Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
 Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
-Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
 Plugin 'surround.vim'                   " Surrounder `cs*`
-Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
 Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
-Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'Syntastic'                      " Syntax checker
-Plugin 'EasyGrep'                       " Easy find and replace
 Plugin 'StanAngeloff/php.vim'           " PHP
-Plugin 'terryma/vim-expand-region'      " Select region
-Plugin 'itchyny/calendar.vim'           " Calendar app
-Plugin 'vitalk/vim-simple-todo'         " Simple todo app
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
+
+" Temporarily disabled plugins
+" Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
+" Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
+" Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+" Plugin 'EasyGrep'                       " Easy find and replace
+" Plugin 'terryma/vim-expand-region'      " Select region
+" Plugin 'itchyny/calendar.vim'           " Calendar app
+" Plugin 'vitalk/vim-simple-todo'         " Simple todo app
 
 if executable('ack') || executable('ack-grep')
     
@@ -62,9 +64,6 @@ if executable('ag')
     " Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
     Plugin 'rking/ag.vim'
 endif
-
-nnoremap n nzz
-nnoremap N Nzz
 
 
 " All of your Plugins must be added before the following line
@@ -90,6 +89,19 @@ filetype plugin indent on    " required
 " | .__/|_|\__,_|\__, |_|_| |_| |___/\___|\__|\__|_|_| |_|\__, |___/
 " | |             __/ |                                    __/ |    
 " |_|            |___/                                    |___/     
+"
+" Plugin Settings
+
+" PHP.vim
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -124,17 +136,19 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
-" Use simple square shaped statusline rather than 'fancy' powerline
+" I prefer simple square shaped statusline, than using 'fancy' powerline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+
 " Use this instead if you want to use powerline
 "let g:airline_powerline_fonts = 1 
 
 " NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
-" Emmet-Vim, trigger pake ini <c-y>,
+" Emmet-Vim, use this to trigger <c-y>,
 
 " Surround cheatsheet
 " cs"'
@@ -144,8 +158,10 @@ nnoremap <leader>D :NERDTreeFind<CR>
 " S<p class="something">
 
 " CtrlP
-" keep cache when reopen CtrlP, to refresh use <F5>
+" No need to reindex files when reopen CtrlP.
+" to refresh search list, use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
 
 "                                  _ 
 "                                 | |
@@ -155,23 +171,22 @@ let g:ctrlp_clear_cache_on_exit = 0
 "  \__, |\___|_| |_|\___|_|  \__,_|_|
 "   __/ |                            
 "  |___/                             
+"
+" General
 
-set encoding=utf-8
 set fileencoding=utf-8
 set smartcase
 set noswapfile
 set hidden
 set autoread " auto reload if a file modified outside vim
+set nocursorcolumn
+set nocursorline
 
-" Performance issue improvement
-" one day I run into a large file and my vim somehow went lagging,
-" so this is what I found on the google
+" Limit syntax highlighting
 autocmd BufEnter * :syn sync maxlines=500
 syntax sync minlines=256
 syntax sync maxlines=256
 set synmaxcol=800
-set nocursorcolumn
-set nocursorline
 
 "            _                
 "           | |               
@@ -179,6 +194,8 @@ set nocursorline
 "  / __/ _ \| |/ _ \| '__/ __|
 " | (_| (_) | | (_) | |  \__ \
 "  \___\___/|_|\___/|_|  |___/
+"
+" Colors
                              
 syntax enable " enable syntax processing
 set background=dark
@@ -239,6 +256,8 @@ call SetGruvbox()
 " |___/ .__/ \__,_|\___\___|           \__\__,_|_.__/ 
 "     | |                                             
 "     |_|                                             
+"
+" Space - Tab
 
 set tabstop=4 " tab width
 set softtabstop=4 " show existing tab with 4 spaces width
@@ -252,6 +271,8 @@ set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 " | | | | |
 " | |_| | |
 "  \__,_|_|
+" 
+" UI
           
           
 set number                  " show line numbers
@@ -284,12 +305,18 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 " |___/\___|\__,_|_|  \___|_| |_|_|_| |_|\__, |
 "                                         __/ |
 "                                        |___/ 
+" Searching
+
 set ignorecase " be case insensitive
-set gdefault " always turn on global regex
-set incsearch " search as characters are entered
-set hlsearch " highlight matches
+set gdefault   " always turn on global regex
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
 " set visually selected text as search param
 vnoremap // y/<C-R>"<CR> 
+
+" Better cursor position
+nnoremap n nzz
+nnoremap N Nzz
 
 if executable('ack')
   " Use Ack over Grep
@@ -311,6 +338,9 @@ endif
 " |_| \___/|_|\__,_|_|_| |_|\__, |
 "                            __/ |
 "                           |___/ 
+"
+" Folding
+
 set foldenable " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested fold max
@@ -336,6 +366,8 @@ set foldtext=NeatFoldText()
 " | '_ ` _ \ / _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __|
 " | | | | | | (_) \ V /  __/ | | | | |  __/ | | | |_ 
 " |_| |_| |_|\___/ \_/ \___|_| |_| |_|\___|_| |_|\__|
+"
+" Movement
                                                     
 set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
@@ -349,8 +381,8 @@ nnoremap j gj
 nnoremap k gk
 
 " easy scroll
-nmap <S-j> <C-d>
-nmap <S-k> <C-u>
+nnoremap <S-j> <C-d>
+nnoremap <S-k> <C-u>
 
 "       _ _       _                         _ 
 "      | (_)     | |                       | |
@@ -360,6 +392,9 @@ nmap <S-k> <C-u>
 "  \___|_|_| .__/|_.__/ \___/ \__,_|_|  \__,_|
 "          | |                                
 "          |_|                                
+"
+" Clipboard
+
 if has('clipboard')
 
     " Only enable mouse when vim has clipboard support
@@ -380,6 +415,8 @@ set pastetoggle=<leader>p
 " |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |
 "                 | |   | |             __/ |
 "                 |_|   |_|            |___/ 
+"
+" Mapping
 
 nnoremap ; :
 vnoremap ; :
@@ -430,6 +467,8 @@ cnoremap <c-v> <c-r>"
 "  \__, |\__,_|_| /_/     |_| |_| |_|\__,_|\___| \_/ |_|_| |_| |_|
 "   __/ |                                                         
 "  |___/                                                          
+"
+" GUI / Mac Vim
 
 if has('gui_running')
     silent! colorscheme gruvbox
@@ -447,13 +486,28 @@ if has('gui_macvim')
     set transparency=1
 endif
 
+"  _   _                 _           
+" | \ | |               (_)          
+" |  \| | ___  _____   ___ _ __ ___  
+" | . ` |/ _ \/ _ \ \ / / | '_ ` _ \ 
+" | |\  |  __/ (_) \ V /| | | | | | |
+" |_| \_|\___|\___/ \_/ |_|_| |_| |_|
+"
+" Neovim
+
+ if !has('nvim')
+     set encoding=utf-8
+	 set ttymouse=xterm2
+ endif
+
 "                 _                  
 "                | |                 
 "   ___ _   _ ___| |_ ___  _ __ ___  
 "  / __| | | / __| __/ _ \| '_ ` _ \ 
 " | (__| |_| \__ \ || (_) | | | | | |
 "  \___|\__,_|___/\__\___/|_| |_| |_|
-"                                    
+"
+" Custom
 
 " Load global custom configuration if exists
 
@@ -474,15 +528,4 @@ if filereadable(expand(".vimrc.local"))
     source .vimrc.local
 endif
 
-
-
 " ETC
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
