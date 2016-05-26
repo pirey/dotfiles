@@ -63,6 +63,9 @@ if executable('ag')
     Plugin 'rking/ag.vim'
 endif
 
+nnoremap n nzz
+nnoremap N Nzz
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
