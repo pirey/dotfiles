@@ -46,7 +46,7 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
-"Plugin 'ryanoasis/vim-devicons'         " Fancy icons
+Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 
 " Temporarily disabled plugins
 " Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
@@ -139,12 +139,14 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 set laststatus=2 " always show statusline
 let g:airline#extensions#tabline#enabled =1 " enable tabline
 let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
-" I prefer simple square shaped statusline, than using 'fancy' powerline
+
+" User patched font to display icons
+let g:airline_powerline_fonts = 1 
+
+" If you don't have patched font installed, 
+" I recommend using this setting for nice & simple appearance
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-
-" Use this instead if you want to use powerline
-"let g:airline_powerline_fonts = 1 
 
 " NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -476,7 +478,8 @@ cnoremap <c-v> <c-r>"
 if has('gui_running')
     silent! colorscheme gruvbox
     " Font for macvim/gvim
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline
+    "set guifont=Droid\ Sans\ Mono\ for\ Powerline
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Mono
 
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
