@@ -34,6 +34,7 @@ Plugin 'SuperTab'                       " Auto complete <tab>
 Plugin 'delimitMate.vim'                " Auto add matching [({''})]
 Plugin 'bling/vim-airline'              " Statusline
 Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
 Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
@@ -145,8 +146,14 @@ let g:airline_powerline_fonts = 1
 
 " If you don't have patched font installed, 
 " I recommend using this setting for nice & simple appearance
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
+
+" Tmuxline
+let g:tmuxline_powerline_separators = 1
+let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
+let g:tmuxline_theme = 'airline_visual'
+let g:tmuxline_preset = 'minimal'
 
 " NERDTree
 nnoremap <leader>d :NERDTreeToggle<CR>
@@ -223,13 +230,17 @@ nnoremap <leader><leader>to :call SetTomorrowNight()<CR>
 
 " Gruvbox
 function! SetGruvbox()
-    " force airline to use the theme of this colorscheme,
-    " since gruvbox has no airline theme
-    silent! colorscheme base16-atelierdune
+    if has('gui_running')
+        " force airline to use the theme of this colorscheme,
+        " since gruvbox has no airline theme (lucius)
+        silent! colorscheme lucius
+    else
+        " can't find gruvbox theem for airline, use this instead
+        let g:airline_theme = 'lucius'
+    endif
 
     silent! colorscheme gruvbox
-    " can't find gruvbox theem for airline, use this instead
-    "let g:airline_theme = 'base16'
+    set background=dark
 endfunction
 
 " Solarized
@@ -237,13 +248,19 @@ function! SetSolarized()
     let g:solarized_termtrans=1
     "let g:solarized_termcolors=256
     silent! colorscheme solarized
-    "let g:airline_theme = 'solarized'
+    "
+    if !has('gui_running')
+        let g:airline_theme = 'solarized'
+    endif
 endfunction
 
 " Tomorrow-Night
 function! SetTomorrowNight()
     silent! colorscheme Tomorrow-Night
-    "let g:airline_theme = 'tomorrow'
+
+    if !has('gui_running')
+        let g:airline_theme = 'tomorrow'
+    endif
 endfunction
 
 " Toggle background
@@ -429,6 +446,9 @@ vnoremap ; :
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
 
+" Edit zshrc
+nnoremap <leader>z :e ~/.zshrc<CR>
+
 " reload vimrc
 nnoremap <leader><leader>v :source ~/.vimrc<CR>
 
@@ -502,8 +522,12 @@ endif
 " Neovim
 
  if !has('nvim')
+     " neovim use utf8 as default, and we will get error when sourcing vimrc
+     " if we declare it outside this block
      set encoding=utf-8
 	 set ttymouse=xterm2
+ else
+     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
  endif
 
 "                 _                  
