@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+alias ..="cd .."
+alias cd..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias ls-dir="ls -d */"
+alias proses="ps aux | grep"
+alias hosts="sudo vim /etc/hosts"
+alias timux="tmux a -t"
+alias kilall_tmux="tmux kill-session -a"
+alias vim="nvim"
+alias v="nvim"
+
+alias hosts="sudo vim /etc/hosts"
+
+# git
+alias gst="git status"
+alias gitconfg="vim $HOME/.gitconfig"
