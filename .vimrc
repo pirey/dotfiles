@@ -22,10 +22,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Some useful plugins here
 Plugin 'flazz/vim-colorschemes'         " All colorscheme
-Plugin 'ctrlp.vim'                      " File searcher <c-p>
+Plugin 'mhinz/vim-startify'             " Fancy start screen
+Plugin 'ctrlpvim/ctrlp.vim'             " File searcher <c-p>
 Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
 Plugin 'The-NERD-tree'                  " File browser <leader>d
 Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
+Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 Plugin 'fugitive.vim'                   " Git wrapper
 Plugin 'airblade/vim-gitgutter'         " Git changes sign
 Plugin 'SuperTab'                       " Auto complete <tab>
@@ -44,6 +46,7 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
+"Plugin 'ryanoasis/vim-devicons'         " Fancy icons
 
 " Temporarily disabled plugins
 " Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
