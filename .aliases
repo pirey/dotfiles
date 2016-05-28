@@ -13,6 +13,7 @@ alias timux="tmux a -t"
 alias kilall_tmux="tmux kill-session -a"
 alias vim="nvim"
 alias v="nvim"
+alias vl="vim -u NONE"
 
 alias hosts="sudo vim /etc/hosts"
 
