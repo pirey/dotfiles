@@ -497,9 +497,6 @@ cnoremap <c-v> <c-r>"
 
 if has('gui_running')
     silent! colorscheme gruvbox
-    " Font for macvim/gvim
-    "set guifont=Droid\ Sans\ Mono\ for\ Powerline
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Mono
 
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
@@ -527,7 +524,6 @@ endif
      set encoding=utf-8
 	 set ttymouse=xterm2
  else
-     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
  endif
 
 "                 _                  
