@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+alias help="man"
 
 alias ..="cd .."
 alias cd..="cd .."
@@ -8,15 +9,21 @@ alias .....="cd ../../../.."
 
 alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
-alias hosts="sudo vim /etc/hosts"
-alias timux="tmux a -t"
-alias kilall_tmux="tmux kill-session -a"
+
+# vim
 alias vim="nvim"
 alias v="nvim"
-alias vl="vim -u NONE"
+alias vl="vim -u ~/.lite.vimrc" # vim 'light' mode
+alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
+alias hosts="vl /etc/hosts"
 
-alias hosts="sudo vim /etc/hosts"
+# zsh
+alias zconf="vl ~/.zshrc"
+alias zsource="source ~/.zshrc"
+
+# tmux
 
 # git
 alias gst="git status"
-alias gitconfg="vim $HOME/.gitconfig"
+alias gdiff="git diff"
+alias gcf="vl $HOME/.gitconfig"
