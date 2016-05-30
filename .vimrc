@@ -20,197 +20,6 @@ set synmaxcol=800
 
 " }}}
 
-" Colors {{{
-
-syntax enable " enable syntax processing
-set background=dark
-set t_Co=256 " set terminal color to use 256
-
-" Some of my favorite colors
-silent! colorscheme Tomorrow-Night " Chose this color if it's exists, surpress the error if it isn't
-silent! colorscheme gruvbox        " Chose this color if it's exists, surpress the error if it isn't
-
-" fixing incorrect background when displaying italic fonts
-let  g:gruvbox_italic = 0
-
-" Enable transparent background
-hi Normal ctermbg=NONE
-
-" Provide shortcut for some of my favorite colorschemes
-nnoremap <leader><leader>so :call SetSolarized()<CR>
-nnoremap <leader><leader>gru :call SetGruvbox()<CR>
-nnoremap <leader><leader>to :call SetTomorrowNight()<CR>
-
-" Gruvbox
-function! SetGruvbox()
-    if has('gui_running')
-        " force airline to use the theme of this colorscheme,
-        " since gruvbox has no airline theme (lucius)
-        silent! colorscheme lucius
-    else
-        " can't find gruvbox theem for airline, use this instead
-        let g:airline_theme = 'lucius'
-    endif
-
-    silent! colorscheme gruvbox
-    set background=dark
-endfunction
-
-" Solarized
-function! SetSolarized()
-    let g:solarized_termtrans=1
-    "let g:solarized_termcolors=256
-    silent! colorscheme solarized
-    "
-    if !has('gui_running')
-        let g:airline_theme = 'solarized'
-    endif
-endfunction
-
-" Tomorrow-Night
-function! SetTomorrowNight()
-    silent! colorscheme Tomorrow-Night
-
-    if !has('gui_running')
-        let g:airline_theme = 'tomorrow'
-    endif
-endfunction
-
-" Toggle background
-" http://tilvim.com/2013/07/31/swapping-bg.html
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
-" call default colorscheme here
-call SetGruvbox()
-
-" }}}
-
-" Space - Tab {{{
-
-set tabstop=4 " tab width
-set softtabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4 " when indenting with '>', use 4 spaces width
-set expandtab " On pressing tab, insert 4 spaces
-set backspace=indent,eol,start " backspace hapus tab, end of line, start line
-
-" }}}
-
-" UI {{{
-
-set number                  " show line numbers
-set norelativenumber        " default use no relative numbering.
-set showcmd                 " show command in bottom bar
-set wildmenu                " visual autocomplete for command menu
-set formatoptions-=cro      " disable auto comment
-set nowrap                  " nowrap line
-set diffopt +=vertical      " open diffs in vertical split.
-set listchars=tab:▸\ ,eol:¬
-set splitright              " open new vsplit to the right
-" toggle list
-nnoremap <leader>l :set list!<CR>
-" toggle relative numbering
-nnoremap <C-n> :set relativenumber!<CR>
-" toggle highlight current line
-nnoremap <leader>hx :set cursorline!<CR>
-" toggle highlight current column
-nnoremap <leader>hy :set cursorcolumn!<CR>
-"filetype indent on " load filetype-specific indent files
-"set lazyredraw " redraw only when we need to.
-"set showmatch " highlight matching [{()}]
-
-" }}}
-
-" Searching {{{
-
-set ignorecase " be case insensitive
-set gdefault   " always turn on global regex
-set incsearch  " search as characters are entered
-set hlsearch   " highlight matches
-" set visually selected text as search param
-vnoremap // y/<C-R>"<CR> 
-
-" Better cursor position
-nnoremap n nzz
-nnoremap N Nzz
-
-if executable('ack')
-  " Use Ack over Grep
-  set grepprg=ack\ --nogroup\ --nocolor
-elseif executable('ack-grep')
-  set grepprg=ack-grep\ --nogroup\ --nocolor
-endif
-
-if executable('ag')
-  " Use Ag over Grep or Ack
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-" }}}
-
-" Folding {{{
-
-set foldenable " enable folding
-set foldlevelstart=10 " open most folds by default
-set foldnestmax=10 " 10 nested fold max
-set foldmethod=indent " fold based on indent level
-" space open/close folds
-nnoremap <space> za 
-
-augroup VimFdm
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal foldlevel=0
-augroup END
-
-function! NeatFoldText()
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
-
-" }}}
-
-" Movement {{{
-
-set scrolloff=1 " Show n lines after / before scrolling
-set scrolloff=1 " Show 1 lines after / before scrolling
-
-" easier navigation to beginning/end of line
-nnoremap E $
-nnoremap B ^
-
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" easy scroll
-nnoremap <S-j> <C-d>
-nnoremap <S-k> <C-u>
-
-" }}}
-
-" Clipboard {{{
-
-if has('clipboard')
-
-    " Only enable mouse when vim has clipboard support
-    if has('mouse')
-        set mouse=a
-    endif
-
-    " Use ctrl-c to copy selected text to clipboard
-    vmap <C-c> "+y
-endif
-set pastetoggle=<leader>p
-
-" }}}
-
 " Mapping {{{
 
 let mapleader = ","
@@ -261,6 +70,163 @@ cnoremap <c-p>  <up>
 
 " Paste yanked text in command line
 cnoremap <c-v> <c-r>"
+
+" }}}
+
+" Colors {{{
+
+syntax enable " enable syntax processing
+set background=dark
+set t_Co=256 " set terminal color to use 256
+
+" fixing incorrect background when displaying italic fonts
+let  g:gruvbox_italic = 0
+
+" Enable transparent background
+hi Normal ctermbg=NONE
+
+" Gruvbox
+silent! colorscheme gruvbox
+
+" Solarized
+let g:solarized_termtrans=1
+silent! colorscheme solarized
+
+" Toggle background
+" http://tilvim.com/2013/07/31/swapping-bg.html
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" }}}
+
+" Space - Tab {{{
+
+set tabstop=4 " tab width
+set softtabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4 " when indenting with '>', use 4 spaces width
+set expandtab " On pressing tab, insert 4 spaces
+set backspace=indent,eol,start " backspace hapus tab, end of line, start line
+
+" }}}
+
+" UI {{{
+
+set number                  " show line numbers
+set norelativenumber        " default use no relative numbering.
+set showcmd                 " show command in bottom bar
+set showmode
+set wildmenu                " visual autocomplete for command menu
+set formatoptions-=cro      " disable auto comment
+set nowrap                  " nowrap line
+set diffopt +=vertical      " open diffs in vertical split.
+set listchars=tab:▸\ ,eol:¬
+set splitright              " open new vsplit to the right
+hi VertSplit ctermbg=NONE
+" toggle list
+nnoremap <leader>l :set list!<CR>
+" toggle relative numbering
+nnoremap <C-n> :set relativenumber!<CR>
+" toggle highlight current line
+nnoremap <leader>hx :set cursorline!<CR>
+" toggle highlight current column
+nnoremap <leader>hy :set cursorcolumn!<CR>
+"filetype indent on " load filetype-specific indent files
+"set lazyredraw " redraw only when we need to.
+"set showmatch " highlight matching [{()}]
+
+" Status Line: {{{
+set statusline=%f%m
+set statusline+=%=
+" }}}
+
+" }}}
+
+" Searching {{{
+
+set ignorecase " be case insensitive
+set gdefault   " always turn on global regex
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
+" set visually selected text as search param
+vnoremap // y/<C-R>"<CR> 
+
+" Better cursor position
+nnoremap n nzz
+nnoremap N Nzz
+
+if executable('ack')
+  " Use Ack over Grep
+  set grepprg=ack\ --nogroup\ --nocolor
+elseif executable('ack-grep')
+  set grepprg=ack-grep\ --nogroup\ --nocolor
+endif
+
+if executable('ag')
+  " Use Ag over Grep or Ack
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" }}}
+
+" Folding {{{
+
+set foldenable " enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10 " 10 nested fold max
+set foldmethod=indent " fold based on indent level
+" space open/close folds
+nnoremap <space> za 
+
+augroup VimFdm
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
+" }}}
+
+" Movement {{{
+
+set scrolloff=1 " Show n lines after / before scrolling
+set scrolloff=1 " Show 1 lines after / before scrolling
+
+" easier navigation to beginning/end of line
+nnoremap E $
+nnoremap B ^
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" easy scroll
+nnoremap <S-j> <C-d>
+nnoremap <S-k> <C-u>
+
+" }}}
+
+" Clipboard {{{
+
+if has('clipboard')
+
+    " Only enable mouse when vim has clipboard support
+    if has('mouse')
+        set mouse=a
+    endif
+
+    " Use ctrl-c to copy selected text to clipboard
+    vmap <C-c> "+y
+endif
+set pastetoggle=<leader>p
 
 " }}}
 

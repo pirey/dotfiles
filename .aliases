@@ -12,13 +12,13 @@ alias proses="ps aux | grep"
 
 # vim
 alias vim="nvim"
+alias vi="nvim"
 alias v="nvim"
-alias vl="vim -u ~/.lite.vimrc" # vim 'light' mode
 alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
-alias hosts="vl /etc/hosts"
+alias hosts="sudo vim /etc/hosts"
 
 # zsh
-alias zconf="vl ~/.zshrc"
+alias zconf="vim ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
 # tmux
@@ -26,4 +26,4 @@ alias zsource="source ~/.zshrc"
 # git
 alias gst="git status"
 alias gdiff="git diff"
-alias gcf="vl $HOME/.gitconfig"
+alias gcf="vim $HOME/.gitconfig"

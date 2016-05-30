@@ -23,8 +23,9 @@ Plugin 'fugitive.vim'                   " Git wrapper
 Plugin 'airblade/vim-gitgutter'         " Git changes sign
 Plugin 'SuperTab'                       " Auto complete <tab>
 Plugin 'delimitMate.vim'                " Auto add matching [({''})]
-Plugin 'bling/vim-airline'              " Statusline
-Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+"Plugin 'bling/vim-airline'              " Statusline
+"Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
 Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
@@ -38,7 +39,7 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
-Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
+"Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 
 " Temporarily disabled plugins
 " Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
@@ -94,6 +95,10 @@ augroup END
 
 " }}}
 
+" Buftabline {{{
+let g:buftabline_indicators = 1
+" }}}
+
 " Syntastic {{{
 
 set statusline+=%#warningmsg#
@@ -127,6 +132,10 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " }}}
 
+" Fugitive {{{
+set statusline+=%{fugitive#statusline()}
+" }}}
+
 " Git Gutter {{{
 
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
@@ -139,13 +148,11 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 " }}}
 
 " Vim Airline & Tmuxline {{{
-
-set laststatus=2 " always show statusline
-let g:airline#extensions#tabline#enabled =1 " enable tabline
-let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
+"let g:airline#extensions#tabline#enabled =1 " enable tabline
+"let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 
 " User patched font to display icons
-let g:airline_powerline_fonts = 1 
+"let g:airline_powerline_fonts = 1 
 
 " If you don't have patched font installed, 
 " I recommend using this setting for nice & simple appearance
@@ -153,10 +160,10 @@ let g:airline_powerline_fonts = 1
 "let g:airline_right_sep = ''
 
 " Tmuxline
-let g:tmuxline_powerline_separators = 1
-let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
-let g:tmuxline_theme = 'airline_visual'
-let g:tmuxline_preset = 'minimal'
+"let g:tmuxline_powerline_separators = 1
+"let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
+"let g:tmuxline_theme = 'airline'
+"let g:tmuxline_preset = 'full'
 
 " }}}
 
