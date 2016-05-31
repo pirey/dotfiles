@@ -24,6 +24,9 @@ set synmaxcol=800
 
 let mapleader = ","
 
+" I tend to press :q! a lot, and mistyped
+cnoremap Q q
+
 nnoremap ; :
 vnoremap ; :
 
@@ -31,7 +34,18 @@ vnoremap ; :
 nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
 
 " Edit vimrc
-nnoremap <leader>v :e ~/.vimrc<CR>
+if filereadable(expand('~/.dotfiles/.vimrc'))
+    nnoremap <leader>v :e ~/.dotfiles/.vimrc<CR>
+else
+    nnoremap <leader>v :e ~/.vimrc<CR>
+endif
+
+" Edit vimrc.bundles to manage plugins
+if filereadable(expand('~/.dotfiles/.vimrc.bundles'))
+    nnoremap <leader>vp :e ~/.dotfiles/.vimrc.bundles<CR>
+else
+    nnoremap <leader>vp :e ~/.vimrc.bundles<CR>
+endif
 
 " Edit zshrc
 nnoremap <leader>z :e ~/.zshrc<CR>
@@ -71,6 +85,10 @@ cnoremap <c-p>  <up>
 " Paste yanked text in command line
 cnoremap <c-v> <c-r>"
 
+" Shell
+" Jump to the main session in tmux
+nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN:0<CR>
+
 " }}}
 
 " Colors {{{
@@ -100,10 +118,10 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 
 " Space - Tab {{{
 
-set tabstop=4 " tab width
-set softtabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4 " when indenting with '>', use 4 spaces width
-set expandtab " On pressing tab, insert 4 spaces
+set tabstop=4                  " tab width
+set softtabstop=4              " show existing tab with 4 spaces width
+set shiftwidth=4               " when indenting with '>', use 4 spaces width
+set expandtab                  " On pressing tab, insert 4 spaces
 set backspace=indent,eol,start " backspace hapus tab, end of line, start line
 
 " }}}
@@ -120,6 +138,7 @@ set nowrap                  " nowrap line
 set diffopt +=vertical      " open diffs in vertical split.
 set listchars=tab:▸\ ,eol:¬
 set splitright              " open new vsplit to the right
+" Make vertical split separator looks thinner
 hi VertSplit ctermbg=NONE
 " toggle list
 nnoremap <leader>l :set list!<CR>
@@ -169,9 +188,9 @@ endif
 
 " Folding {{{
 
-set foldenable " enable folding
+set foldenable        " enable folding
 set foldlevelstart=10 " open most folds by default
-set foldnestmax=10 " 10 nested fold max
+set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
 " space open/close folds
 nnoremap <space> za 
@@ -181,7 +200,7 @@ augroup VimFdm
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-function! NeatFoldText()
+function! NeatFoldText() " {{{
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
   let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
@@ -190,8 +209,25 @@ function! NeatFoldText()
   let foldtextend = lines_count_text . repeat(foldchar, 8)
   let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
+endfunction " }}}
+
+function! MikeHartington() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+
+set foldtext=MikeHartington()
 
 " }}}
 
@@ -208,9 +244,12 @@ nnoremap B ^
 nnoremap j gj
 nnoremap k gk
 
-" easy scroll
+" shift+j to scroll up
+" shift+k to scroll down
 nnoremap <S-j> <C-d>
 nnoremap <S-k> <C-u>
+vnoremap <S-j> <C-d>
+vnoremap <S-k> <C-u>
 
 " }}}
 
@@ -250,6 +289,11 @@ endif
 if !has('nvim')
     set encoding=utf-8
     set ttymouse=xterm2
+
+else
+    if has('mac')
+        let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+    endif
 endif
 
 " }}}
@@ -257,7 +301,6 @@ endif
 " Custom {{{
 
 " Load global custom configuration if exists
-
 if filereadable(expand("~/.vimrc.custom"))
     source ~/.vimrc.custom
 endif
@@ -272,14 +315,12 @@ endif
 
 " Plugin {{{
 
-if ! exists('LITE_MODE')
-    if filereadable(expand('~/.vimrc.bundles'))
-        source ~/.vimrc.bundles
-    endif
+if filereadable(expand('~/.vimrc.bundles'))
+    source ~/.vimrc.bundles
 endif
 
 " }}}
 
 " ETC {{{
-"
+set secure
 " }}}

@@ -11,35 +11,47 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Some useful plugins here
-Plugin 'flazz/vim-colorschemes'         " All colorscheme
-"Plugin 'mhinz/vim-startify'             " Fancy start screen
-Plugin 'ctrlpvim/ctrlp.vim'             " File searcher <c-p>
-Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
-Plugin 'The-NERD-tree'                  " File browser <leader>d
-Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
-Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
-Plugin 'fugitive.vim'                   " Git wrapper
-Plugin 'airblade/vim-gitgutter'         " Git changes sign
-Plugin 'SuperTab'                       " Auto complete <tab>
-Plugin 'delimitMate.vim'                " Auto add matching [({''})]
-"Plugin 'bling/vim-airline'              " Statusline
-"Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
-Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
-Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
-Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
-Plugin 'MatchTag'                       " Highlight matching html tag
-Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
-Plugin 'surround.vim'                   " Surrounder `cs*`
-Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
-Plugin 'Tagbar'                         " List tags in sidebar
-Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
+" Language
 Plugin 'Syntastic'                      " Syntax checker
 Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
-"Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
+
+" Editing
+Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
+Plugin 'SuperTab'                       " Auto complete <tab>
+Plugin 'delimitMate.vim'                " Auto add matching [({''})]
+Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
+Plugin 'MatchTag'                       " Highlight matching html tag
+Plugin 'surround.vim'                   " Surrounder `cs*`
+Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
+
+" UI
+Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
+Plugin 'flazz/vim-colorschemes'         " All colorscheme
+Plugin 'junegunn/goyo.vim'              " Distraction free
+
+" Navigation
+Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
+Plugin 'ctrlpvim/ctrlp.vim'             " File searcher <c-p>
+Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
+Plugin 'The-NERD-tree'                  " File browser <leader>d
+Plugin 'Tagbar'                         " List tags in sidebar
+Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
+
+" Git
+Plugin 'fugitive.vim'                   " Git wrapper
+Plugin 'airblade/vim-gitgutter'         " Git changes sign
+Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
+
+" Fancy
+" Plugin 'mhinz/vim-startify'             " Fancy start screen
+" Plugin 'bling/vim-airline'              " Statusline
+" Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+" Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
+" Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 
 " Temporarily disabled plugins
 " Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
@@ -133,7 +145,7 @@ nnoremap <leader>t :TagbarToggle<CR>
 " }}}
 
 " Fugitive {{{
-set statusline+=%{fugitive#statusline()}
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " }}}
 
 " Git Gutter {{{
