@@ -21,7 +21,7 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
 Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
-Plugin 'SuperTab'                       " Auto complete <tab>
+Plugin 'ervandew/supertab'                       " Auto complete <tab>
 Plugin 'delimitMate.vim'                " Auto add matching [({''})]
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
