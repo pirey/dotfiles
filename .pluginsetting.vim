@@ -89,12 +89,13 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " NERDTree {{{
 
-nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>D :NERDTreeFind<CR>
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeStatusline = "FILES"
 
 " }}}
 

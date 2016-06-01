@@ -145,7 +145,7 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 "set showmatch " highlight matching [{()}]
 
 " Statusline
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 "" Status Line: {{{
 "" https://github.com/blaenk/dots/blob/master/vim/.vimrc
