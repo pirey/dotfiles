@@ -468,12 +468,7 @@ endif
 " Plugin {{{
 
 " Use vundle plugin manager
-"source ~/.vimrc.bundles
-
-" Use dein.vim plugin manager
-source ~/.deinbundles.vim
-
-source ~/.pluginsetting.vim
+source ~/.vimrc.bundles
 
 " }}}
 

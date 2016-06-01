@@ -22,7 +22,7 @@ alias zconf="vim ~/.zshrc"
 alias zsource="source ~/.zshrc"
 
 # tmux
-alias tmuxmain="tmux switch -t MAIN:0" # go to main session
+alias tmuxmain="tmux switch -t MAIN" # go to main session
 
 # git
 alias gst="git status"
