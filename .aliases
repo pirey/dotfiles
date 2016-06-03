@@ -11,9 +11,8 @@ alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
 # vim
-alias vim="nvim"
-alias vi="nvim"
-alias v="nvim"
+alias vi="vim"
+alias v="vim"
 alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
 alias hosts="sudo vim -u NONE /etc/hosts"
 

@@ -358,34 +358,34 @@ augroup VimFdm
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-"function! NeatFoldText() " {{{
-  "let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  "let lines_count = v:foldend - v:foldstart + 1
-  "let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  "let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  "let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  "let foldtextend = lines_count_text . repeat(foldchar, 8)
-  "let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  "return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-"endfunction " }}}
-
-function! MikeHartington() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+function! NeatFoldText() " {{{
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction " }}}
 
-set foldtext=MikeHartington()
+"function! NeatFoldText() " {{{
+"    let line = getline(v:foldstart)
+"
+"    let nucolwidth = &fdc + &number * &numberwidth
+"    let windowwidth = winwidth(0) - nucolwidth - 3
+"    let foldedlinecount = v:foldend - v:foldstart
+"
+"    " expand tabs into spaces
+"    let onetab = strpart('          ', 0, &tabstop)
+"    let line = substitute(line, '\t', onetab, 'g')
+"
+"    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+"    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+"    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+"endfunction " }}}
+
+set foldtext=NeatFoldText()
 
 " }}}
 
@@ -467,7 +467,7 @@ endif
 
 " Plugin {{{
 
-" Use vundle plugin manager
+" Load plugins
 source ~/.vimrc.bundles
 
 " }}}

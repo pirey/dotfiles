@@ -31,15 +31,22 @@ Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
 Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
 
 " Completion
-Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
-" SnipMate {{{
-" Require:
-Plugin 'MarcWeber/vim-addon-mw-utils' 
-Plugin 'tomtom/tlib_vim'              
+" Determinte snippet engine
+if has('python')
+    " use UltiSnips
+    Plugin 'SirVer/ultisnips'           " Snippet Engine
+else
+    " SnipMate {{{
+    " Require:
+    Plugin 'MarcWeber/vim-addon-mw-utils' 
+    Plugin 'tomtom/tlib_vim'              
 
-Plugin 'garbas/vim-snipmate'            " Snippet Engine
+    Plugin 'garbas/vim-snipmate'        " Snippet Engine
+    " }}}
+endif
+
+Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
 Plugin 'honza/vim-snippets'             " Snippets files
-" }}}
 
 " UI
 Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
