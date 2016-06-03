@@ -17,16 +17,29 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
+
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
 Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
-Plugin 'ervandew/supertab'                       " Auto complete <tab>
+Plugin 'ervandew/supertab'              " Auto complete <tab>
 Plugin 'delimitMate.vim'                " Auto add matching [({''})]
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
 Plugin 'surround.vim'                   " Surrounder `cs*`
 Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
+Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
+
+" Completion
+Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
+" SnipMate {{{
+" Require:
+Plugin 'MarcWeber/vim-addon-mw-utils' 
+Plugin 'tomtom/tlib_vim'              
+
+Plugin 'garbas/vim-snipmate'            " Snippet Engine
+Plugin 'honza/vim-snippets'             " Snippets files
+" }}}
 
 " UI
 Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
@@ -46,6 +59,22 @@ Plugin 'fugitive.vim'                   " Git wrapper
 Plugin 'airblade/vim-gitgutter'         " Git changes sign
 Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 
+" Angular {{{
+" Require:
+" a snippet engine
+" pangloss/vim-javascript
+" othree/javascript-libraries-syntax.vim
+" matthewsimo/angular-vim-snippets
+" claco/jasmine.vim
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'matthewsimo/angular-vim-snippets' " Angular snippets
+Plugin 'claco/jasmine.vim'                " Jasmine JS
+Plugin 'burnettk/vim-angular'             " Angular
+" end of Angular }}}
+
+" Experimental
+Plugin 'Olical/vim-enmasse'               " Edit every file in a quickfix list at the same time
+
 " Fancy
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
 " Plugin 'bling/vim-airline'              " Statusline
@@ -54,7 +83,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 " Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 
 " Temporarily disabled plugins
-" Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
 " Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
 " Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 " Plugin 'EasyGrep'                       " Easy find and replace
@@ -105,6 +133,21 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+" }}}
+
+" Js Lib (javascript-libraries-syntax.vim) {{{
+let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter'
+" }}}
+
+" Supertab {{{
+" set default action to keyword completion
+let g:SuperTabDefaultCompletionType = '<c-p>'
+let g:SuperTabRetainCompletionDuration = 'session'
+let g:SuperTabCrMapping = 1
+autocmd FileType *
+\ if &omnifunc != '' |
+\   call SuperTabChain(&omnifunc, "<c-p>") |
+\ endif
 " }}}
 
 " Buftabline {{{

@@ -20,6 +20,7 @@ alias hosts="sudo vim -u NONE /etc/hosts"
 # zsh
 alias zconf="vim ~/.zshrc"
 alias zsource="source ~/.zshrc"
+alias lsln="find . -maxdepth 1 -type l" # list symlinks
 
 # tmux
 alias tmuxmain="tmux switch -t MAIN" # go to main session
