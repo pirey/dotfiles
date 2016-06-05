@@ -1,6 +1,8 @@
-" This is my personal vimrc ( https://github.com/yeripratama/dotfiles )
+" This is my personal vimrc 
+" The idea is to make it as simple as possible while covering all my needs
+" See the repo at https://github.com/yeripratama/dotfiles
 
-" Press <space> to open/close folds
+" NOTE: Press <space> to open/close folds
 
 " General {{{
 
@@ -18,7 +20,7 @@ set novisualbell
 autocmd BufEnter * :syn sync maxlines=500
 syntax sync minlines=256
 syntax sync maxlines=256
-set synmaxcol=200
+set synmaxcol=250
 
 " }}}
 
@@ -26,7 +28,7 @@ set synmaxcol=200
 
 let mapleader = ","
 
-" I tend to press :q! a lot, and mistyped
+" I press :q! a lot, and mistyped
 cnoremap Q q
 
 nnoremap ; :
@@ -37,6 +39,7 @@ nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
+nnoremap <leader>ep :e ~/.vimrc.bundles<CR>
 
 " Edit zshrc
 nnoremap <leader>z :e ~/.zshrc<CR>
@@ -130,8 +133,8 @@ set diffopt +=vertical      " open diffs in vertical split.
 set listchars=tab:▸\ ,eol:¬
 set splitright              " open new vsplit to the right
 " Make vertical split separator looks thinner
-hi VertSplit ctermbg=NONE
-autocmd ColorScheme * hi VertSplit ctermbg=NONE
+autocmd ColorScheme * hi VertSplit ctermbg=NONE guibg=NONE
+hi VertSplit ctermbg=NONE guibg=NONE
 " toggle list
 nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
@@ -145,6 +148,7 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 "set showmatch " highlight matching [{()}]
 
 " Statusline
+set laststatus=2 " always show statusline
 set statusline=%<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 "" Status Line: {{{
@@ -330,22 +334,22 @@ vnoremap // y/<C-R>"<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
-if executable('ack')
-  " Use Ack over Grep
-  set grepprg=ack\ --nogroup\ --nocolor
-elseif executable('ack-grep')
-  set grepprg=ack-grep\ --nogroup\ --nocolor
-endif
-
 if executable('ag')
   " Use Ag over Grep or Ack
   set grepprg=ag\ --nogroup\ --nocolor
+
+else
+    if executable('ack')
+        " Use Ack over Grep
+        set grepprg=ack\ --nogroup\ --nocolor
+    elseif executable('ack-grep')
+        set grepprg=ack-grep\ --nogroup\ --nocolor
+    endif
 endif
 
 " }}}
 
 " Folding {{{
-
 set foldenable        " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10    " 10 nested fold max
@@ -353,10 +357,7 @@ set foldmethod=indent " fold based on indent level
 " space open/close folds
 nnoremap <space> za 
 
-augroup VimFdm
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
+autocmd FileType vim setlocal foldmethod=marker
 
 function! NeatFoldText() " {{{
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
@@ -435,7 +436,7 @@ if has('gui_running')
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=L "remove left scroll bar
-    set cursorline
+    "set cursorline
 end
 
 " Macvim
@@ -467,7 +468,8 @@ endif
 
 " Plugin {{{
 
-" Load plugins
+" Separate plugin configuration with main vimrc
+" I can try & use different plugin manager without messing with current setting
 source ~/.vimrc.bundles
 
 " }}}

@@ -22,7 +22,7 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
 Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
-Plugin 'ervandew/supertab'              " Auto complete <tab>
+" Plugin 'ervandew/supertab'              " Auto complete <tab>
 Plugin 'delimitMate.vim'                " Auto add matching [({''})]
 Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
 Plugin 'MatchTag'                       " Highlight matching html tag
@@ -32,21 +32,17 @@ Plugin 'NrrwRgn'                        " Separate selected text and edit it to 
 
 " Completion
 " Determinte snippet engine
-if has('python')
+"if has('python')
     " use UltiSnips
-    Plugin 'SirVer/ultisnips'           " Snippet Engine
-else
-    " SnipMate {{{
-    " Require:
-    Plugin 'MarcWeber/vim-addon-mw-utils' 
-    Plugin 'tomtom/tlib_vim'              
+    "Plugin 'SirVer/ultisnips'             " Snippet Engine
+"else
+    "Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
+    "Plugin 'tomtom/tlib_vim'              " required by snipmate
+    "Plugin 'garbas/vim-snipmate'          " Snippet Engine
+"endif
 
-    Plugin 'garbas/vim-snipmate'        " Snippet Engine
-    " }}}
-endif
-
-Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
-Plugin 'honza/vim-snippets'             " Snippets files
+"Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
+"Plugin 'honza/vim-snippets'             " Snippets files
 
 " UI
 Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
@@ -74,7 +70,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 " matthewsimo/angular-vim-snippets
 " claco/jasmine.vim
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'matthewsimo/angular-vim-snippets' " Angular snippets
+"Plugin 'matthewsimo/angular-vim-snippets' " Angular snippets
 Plugin 'claco/jasmine.vim'                " Jasmine JS
 Plugin 'burnettk/vim-angular'             " Angular
 " end of Angular }}}
@@ -119,6 +115,7 @@ filetype plugin indent on    " required
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
@@ -142,20 +139,24 @@ augroup END
 
 " }}}
 
+" Goyo {{{
+set showcmd
+" }}}
+
 " Js Lib (javascript-libraries-syntax.vim) {{{
 let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter'
 " }}}
 
-" Supertab {{{
-" set default action to keyword completion
-let g:SuperTabDefaultCompletionType = '<c-p>'
-let g:SuperTabRetainCompletionDuration = 'session'
-let g:SuperTabCrMapping = 1
-autocmd FileType *
-\ if &omnifunc != '' |
-\   call SuperTabChain(&omnifunc, "<c-p>") |
-\ endif
-" }}}
+"" Supertab {{{
+"" set default action to keyword completion
+"let g:SuperTabDefaultCompletionType = '<c-p>'
+"let g:SuperTabRetainCompletionDuration = 'session'
+"let g:SuperTabCrMapping = 1
+"autocmd FileType *
+"\ if &omnifunc != '' |
+"\   call SuperTabChain(&omnifunc, "<c-p>") |
+"\ endif
+"" }}}
 
 " Buftabline {{{
 let g:buftabline_indicators = 1
@@ -178,7 +179,7 @@ let g:syntastic_check_on_wq = 0
 
 " Angular & Ionic syntastic ignore {{{
 
-let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-",  'proprietary attribute "ng-', 'proprietary attribute "ng-']
+"let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-",  'proprietary attribute "ng-', 'proprietary attribute "ng-']
 
 " }}}
 
@@ -195,7 +196,7 @@ nnoremap <leader>t :TagbarToggle<CR>
 " }}}
 
 " Fugitive {{{
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%t\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " }}}
 
 " Git Gutter {{{
