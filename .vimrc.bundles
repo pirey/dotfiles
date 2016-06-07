@@ -269,41 +269,41 @@ if executable('ag')
   let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
 endif
 
-" Status Line: {{{
-" Arguments: focus, byfname, s:regexp, prv, item, nxt, marked
-"            a:1    a:2      a:3       a:4  a:5   a:6  a:7
-fu! CtrlP_main_status(...)
-  let regex = a:3 ? '%2*regex %*' : ''
-  let prv = '%#StatusLineNC# '.a:4.' %*'
-  let item = ' ' . (a:5 == 'mru files' ? 'mru' : a:5) . ' '
-  let nxt = '%#StatusLineNC# '.a:6.' %*'
-  let byfname = '%2* '.a:2.' %*'
-  let dir = '%#SLBranch# ← %*%#StatusLineNC#' . fnamemodify(getcwd(), ':~') . '%* '
-
-  " only outputs current mode
-  retu ' %#SLArrows#»%*' . item . '%#SLArrows#«%* ' . '%=%<' . dir
-
-  " outputs previous/next modes as well
-  " retu prv . '%4*»%*' . item . '%4*«%*' . nxt . '%=%<' . dir
-endf
- 
-" Argument: len
-"           a:1
-fu! CtrlP_progress_status(...)
-  let len = '%#Function# '.a:1.' %*'
-  let dir = ' %=%<%#LineNr# '.getcwd().' %*'
-  retu len.dir
-endf
-
-hi CtrlP_Purple  ctermfg=255 guifg=#ffffff  ctermbg=54  guibg=#5f5faf
-hi CtrlP_IPurple ctermfg=54  guifg=#5f5faf  ctermbg=255 guibg=#ffffff
-hi CtrlP_Violet  ctermfg=54  guifg=#5f5faf  ctermbg=104 guibg=#aeaed7
-
-let g:ctrlp_status_func = {
-  \ 'main': 'CtrlP_main_status',
-  \ 'prog': 'CtrlP_progress_status'
-  \}
-" }}}
-
+"" Status Line: {{{
+"" Arguments: focus, byfname, s:regexp, prv, item, nxt, marked
+""            a:1    a:2      a:3       a:4  a:5   a:6  a:7
+"fu! CtrlP_main_status(...)
+"  let regex = a:3 ? '%2*regex %*' : ''
+"  let prv = '%#StatusLineNC# '.a:4.' %*'
+"  let item = ' ' . (a:5 == 'mru files' ? 'mru' : a:5) . ' '
+"  let nxt = '%#StatusLineNC# '.a:6.' %*'
+"  let byfname = '%2* '.a:2.' %*'
+"  let dir = '%#SLBranch# ← %*%#StatusLineNC#' . fnamemodify(getcwd(), ':~') . '%* '
+"
+"  " only outputs current mode
+"  retu ' %#SLArrows#»%*' . item . '%#SLArrows#«%* ' . '%=%<' . dir
+"
+"  " outputs previous/next modes as well
+"  " retu prv . '%4*»%*' . item . '%4*«%*' . nxt . '%=%<' . dir
+"endf
+" 
+"" Argument: len
+""           a:1
+"fu! CtrlP_progress_status(...)
+"  let len = '%#Function# '.a:1.' %*'
+"  let dir = ' %=%<%#LineNr# '.getcwd().' %*'
+"  retu len.dir
+"endf
+"
+"hi CtrlP_Purple  ctermfg=255 guifg=#ffffff  ctermbg=54  guibg=#5f5faf
+"hi CtrlP_IPurple ctermfg=54  guifg=#5f5faf  ctermbg=255 guibg=#ffffff
+"hi CtrlP_Violet  ctermfg=54  guifg=#5f5faf  ctermbg=104 guibg=#aeaed7
+"
+"let g:ctrlp_status_func = {
+"  \ 'main': 'CtrlP_main_status',
+"  \ 'prog': 'CtrlP_progress_status'
+"  \}
+"" }}}
+"
 " }}}
 " }}}
