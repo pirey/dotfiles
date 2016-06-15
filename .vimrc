@@ -6,6 +6,10 @@
 
 " General {{{
 
+if !has('nvim')
+    set encoding=utf-8
+endif
+
 set fileencoding=utf-8
 set smartcase
 set noswapfile
@@ -446,7 +450,6 @@ endif
 
 " Neovim
 if !has('nvim')
-    set encoding=utf-8
     set ttymouse=xterm2
 
 else
