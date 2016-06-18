@@ -4,3 +4,4 @@
 tags
 node_modules/*
 bower_modules/*
+.phalcon

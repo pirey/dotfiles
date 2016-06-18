@@ -45,7 +45,7 @@ Plugin 'NrrwRgn'                        " Separate selected text and edit it to 
 "Plugin 'honza/vim-snippets'             " Snippets files
 
 " UI
-Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
+"Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
 Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
 
