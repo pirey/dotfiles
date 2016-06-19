@@ -1,4 +1,3 @@
-" Hi there! How you doin'?
 " This is my personal vimrc 
 " The idea is to make it as simple as possible while covering all my needs
 " See the repo at https://github.com/yeripratama/dotfiles
@@ -205,15 +204,19 @@ set foldtext=NeatFoldText()
 set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
 
-" move vertically by visual line
+" normalize up and down movement in wrapped line
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " Now, this is my favorite part, jumping like a Ninja!
 
-" easier navigation to beginning/end of line
-nnoremap E $
-nnoremap B ^
+" jump to the left and right
+nnoremap E 20l
+nnoremap B 20h
+vnoremap E 20l
+vnoremap B 20h
 
 " Semi soft scroll, scroll half the page
 " nnoremap J <C-d>
@@ -222,10 +225,10 @@ nnoremap B ^
 " vnoremap K <C-u>
 
 " Soft scroll, scroll 10 lines
-nnoremap J 10j
-nnoremap K 10k
-vnoremap J 10j
-vnoremap K 10k
+nnoremap J 10gj
+nnoremap K 10gk
+vnoremap J 10gj
+vnoremap K 10gk
 
 " Easier window movement, you'll love this soon or later!
 nnoremap <C-h> <C-w>h
