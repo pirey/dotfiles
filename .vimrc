@@ -175,6 +175,8 @@ set foldenable        " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
+" removes underline in fold text
+hi Folded term=NONE cterm=NONE
 " open or close a fold
 nnoremap <space> za 
 
