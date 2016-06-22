@@ -17,18 +17,21 @@ Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
+Plugin 'jwalton512/vim-blade'           " Laravel's Blade
 
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
-Plugin 'The-NERD-Commenter'             " Commenter `<leader>c<space>`
-" Plugin 'ervandew/supertab'              " Auto complete <tab>
-Plugin 'delimitMate.vim'                " Auto add matching [({''})]
-Plugin 'mattn/emmet-vim'                " Emmet for vim `<c-y>,`
-Plugin 'MatchTag'                       " Highlight matching html tag
-Plugin 'surround.vim'                   " Surrounder `cs*`
-Plugin 'Tabular'                        " Aligning tool :Tabular /{pattern}
-Plugin 'NrrwRgn'                        " Separate selected text and edit it to new window :NR
+Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
+Plugin 'delimitMate.vim'    " Auto add matching [({''})]
+Plugin 'mattn/emmet-vim'    " Emmet for vim `<c-y>,`
+Plugin 'MatchTag'           " Highlight matching html tag
+Plugin 'surround.vim'       " Surrounder `cs*`
+Plugin 'Tabular'            " Aligning tool :Tabular /{pattern}
+Plugin 'NrrwRgn'            " edit selected text to a new window
+Plugin 'Olical/vim-enmasse' " Edit all files in the quickfix list
+"Plugin 'ervandew/supertab'  " Auto complete <tab>
+
 
 " Completion
 " Determinte snippet engine
@@ -69,14 +72,11 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 " othree/javascript-libraries-syntax.vim
 " matthewsimo/angular-vim-snippets
 " claco/jasmine.vim
-Plugin 'othree/javascript-libraries-syntax.vim'
-"Plugin 'matthewsimo/angular-vim-snippets' " Angular snippets
-Plugin 'claco/jasmine.vim'                " Jasmine JS
-Plugin 'burnettk/vim-angular'             " Angular
+" Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'matthewsimo/angular-vim-snippets'       " Angular snippets
+" Plugin 'claco/jasmine.vim'                      " Jasmine JS
+" Plugin 'burnettk/vim-angular'                   " Angular
 " end of Angular }}}
-
-" Experimental
-Plugin 'Olical/vim-enmasse'               " Edit every file in a quickfix list at the same time
 
 " Fancy
 " Plugin 'mhinz/vim-startify'             " Fancy start screen

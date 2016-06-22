@@ -21,6 +21,7 @@ if type "nvim" > /dev/null; then
 fi
 alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
 alias hosts="sudo vim -u NONE /etc/hosts"
+alias sshconf="vim ~/.ssh/config"
 
 # zsh
 alias zconf="vim ~/.zshrc"
@@ -32,3 +33,5 @@ alias lsln="find . -maxdepth 1 -type l" # list symlinks
 alias gst="git status"
 alias gdiff="git diff"
 alias gcf="vim $HOME/.gitconfig"
+
+alias cari="find ./ -name"
