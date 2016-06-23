@@ -11,7 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Language
+" Language & Syntax
 Plugin 'Syntastic'                      " Syntax checker
 Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
@@ -53,7 +53,7 @@ Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
 
 " Navigation
-Plugin 'BufOnly.vim'                    " Close all buffer but this one. :Bufonly
+Plugin 'BufOnly.vim'                    " Close all buffer but current one.
 Plugin 'ctrlpvim/ctrlp.vim'             " File searcher <c-p>
 Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
 Plugin 'The-NERD-tree'                  " File browser <leader>d
@@ -63,7 +63,7 @@ Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split w
 " Git
 Plugin 'fugitive.vim'                   " Git wrapper
 Plugin 'airblade/vim-gitgutter'         " Git changes sign
-Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
+"Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 
 " Angular {{{
 " Require:
@@ -260,7 +260,7 @@ let g:NERDTreeStatusline = "FILES"
 " CtrlP {{{
 "
 " No need to reindex files when reopen CtrlP.
-" to refresh search list, use <F5>
+" NOTE: to refresh search list, use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
 
@@ -269,41 +269,6 @@ if executable('ag')
   let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
 endif
 
-"" Status Line: {{{
-"" Arguments: focus, byfname, s:regexp, prv, item, nxt, marked
-""            a:1    a:2      a:3       a:4  a:5   a:6  a:7
-"fu! CtrlP_main_status(...)
-"  let regex = a:3 ? '%2*regex %*' : ''
-"  let prv = '%#StatusLineNC# '.a:4.' %*'
-"  let item = ' ' . (a:5 == 'mru files' ? 'mru' : a:5) . ' '
-"  let nxt = '%#StatusLineNC# '.a:6.' %*'
-"  let byfname = '%2* '.a:2.' %*'
-"  let dir = '%#SLBranch# ← %*%#StatusLineNC#' . fnamemodify(getcwd(), ':~') . '%* '
-"
-"  " only outputs current mode
-"  retu ' %#SLArrows#»%*' . item . '%#SLArrows#«%* ' . '%=%<' . dir
-"
-"  " outputs previous/next modes as well
-"  " retu prv . '%4*»%*' . item . '%4*«%*' . nxt . '%=%<' . dir
-"endf
-" 
-"" Argument: len
-""           a:1
-"fu! CtrlP_progress_status(...)
-"  let len = '%#Function# '.a:1.' %*'
-"  let dir = ' %=%<%#LineNr# '.getcwd().' %*'
-"  retu len.dir
-"endf
-"
-"hi CtrlP_Purple  ctermfg=255 guifg=#ffffff  ctermbg=54  guibg=#5f5faf
-"hi CtrlP_IPurple ctermfg=54  guifg=#5f5faf  ctermbg=255 guibg=#ffffff
-"hi CtrlP_Violet  ctermfg=54  guifg=#5f5faf  ctermbg=104 guibg=#aeaed7
-"
-"let g:ctrlp_status_func = {
-"  \ 'main': 'CtrlP_main_status',
-"  \ 'prog': 'CtrlP_progress_status'
-"  \}
-"" }}}
-"
 " }}}
+
 " }}}
