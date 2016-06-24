@@ -135,10 +135,11 @@ map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "da
 
 " Space - Tab - Indent {{{
 
-set tabstop=4                  " tab width
-set softtabstop=4              " show existing tab with 4 spaces width
-set shiftwidth=4               " when indenting with '>', use 4 spaces width
-set expandtab                  " when we press tab, tell vim to insert 4 spaces instead
+set tabstop=4     " tab width
+set softtabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4  " when indenting with '>', use 4 spaces width
+set expandtab     " when we press tab, tell vim to insert 4 spaces instead
+set breakindent   " indent wrapped lines
 
 " }}}
 
@@ -205,6 +206,10 @@ set foldtext=NeatFoldText()
 " Movement {{{
 set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
+
+" faster horizontal scroll
+nnoremap zh 20zh
+nnoremap zl 20zl
 
 " normalize up and down movement in wrapped line
 nnoremap j gj
