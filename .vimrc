@@ -243,17 +243,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Some mapping from tpope's unimpaired
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap [B :bfirst<CR>
-nnoremap ]B :blast<CR>
-
-
 " }}}
 
 " Clipboard {{{
