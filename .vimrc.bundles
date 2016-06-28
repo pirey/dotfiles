@@ -51,6 +51,7 @@ Plugin 'Olical/vim-enmasse' " Edit all files in the quickfix list
 "Plugin 'ap/vim-buftabline'              " Buffer name on top of screen
 Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
+Plugin 'junegunn/limelight.vim'         " Distraction free
 
 " Navigation
 Plugin 'BufOnly.vim'                    " Close all buffer but current one.
@@ -140,8 +141,33 @@ augroup END
 
 " }}}
 
-" Goyo {{{
+" Goyo - Limelight {{{
 set showcmd
+
+function! GoyoEnterHandler()
+    Limelight
+    set wrap
+endfunction
+
+function! GoyoLeaveHandler()
+    Limelight!
+    set nowrap
+endfunction
+
+autocmd! User GoyoEnter call GoyoEnterHandler()
+autocmd! User GoyoLeave call GoyoLeaveHandler()
+
+" Color name (:help cterm-colors) or ANSI code
+"let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_default_coefficient = 0.8
+
+if has('gui_running')
+    " Color name (:help gui-colors) or RGB color
+    "let g:limelight_conceal_guifg = 'DarkGray'
+    let g:limelight_conceal_guifg = '#777777'
+
+endif
 " }}}
 
 " Js Lib (javascript-libraries-syntax.vim) {{{
