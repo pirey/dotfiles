@@ -139,7 +139,9 @@ set tabstop=4     " tab width
 set softtabstop=4 " show existing tab with 4 spaces width
 set shiftwidth=4  " when indenting with '>', use 4 spaces width
 set expandtab     " when we press tab, tell vim to insert 4 spaces instead
-set breakindent   " indent wrapped lines
+if has('linebreak')
+    set breakindent   " indent wrapped lines
+endif
 
 " }}}
 
