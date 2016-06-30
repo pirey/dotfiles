@@ -35,3 +35,5 @@ alias gdiff="git diff"
 alias gcf="vim $HOME/.gitconfig"
 
 alias cari="find ./ -name"
+
+alias art="php artisan"

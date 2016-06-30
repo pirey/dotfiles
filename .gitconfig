@@ -1,38 +1,45 @@
 [user]
-  name = Yeri
-  email = yeri@jogja.camp
+    name = Yeri
+    email = yeri@jogja.camp
 [filter "lfs"]
-  clean = git lfs clean %f
-  smudge = git lfs smudge %f
-  required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [core]
-  editor = /usr/local/bin/nvim
-  excludesfile = /Users/yeri/.gitignore_global
+    editor = /usr/local/bin/nvim
+    excludesfile = /Users/yeri/.gitignore_global
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff3
 [mergetool]
-  prompt = false
+    prompt = false
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
 [alias]
-  #l = log --oneline --graph --decorate
-  l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  #la = log --oneline --graph --decorate --all
-  la = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+    #l = log --oneline --graph --decorate
+    l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    #la = log --oneline --graph --decorate --all
+    la = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
 
-  gap = log --left-right --oneline --decorate
-  compare = log --left-right --oneline --decorate
-  co = checkout
-  # list-files = show --format=\"\" --name-status
-  list-files = diff-tree --no-commit-id --name-status -r
-  br = branch
-  branch = branch -v
-  stash = stash -u
-  rlog = reflog --date=local
-  logno = log --no-merges
-  confg = config --global --list
+    gap = log --left-right --oneline --decorate
+    compare = log --left-right --oneline --decorate
+    co = checkout
+    # list-files = show --format=\"\" --name-status
+    list-files = diff-tree --no-commit-id --name-status -r
+    br = branch
+    branch = branch -v
+    stash = stash -u
+    rlog = reflog --date=local
+    logno = log --no-merges
+    confg = config --global --list
