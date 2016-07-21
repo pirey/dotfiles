@@ -74,10 +74,10 @@ Plugin 'airblade/vim-gitgutter'         " Git changes sign
 " othree/javascript-libraries-syntax.vim
 " matthewsimo/angular-vim-snippets
 " claco/jasmine.vim
-" Plugin 'othree/javascript-libraries-syntax.vim'
-" Plugin 'matthewsimo/angular-vim-snippets'       " Angular snippets
-" Plugin 'claco/jasmine.vim'                      " Jasmine JS
-" Plugin 'burnettk/vim-angular'                   " Angular
+Plugin 'othree/javascript-libraries-syntax.vim'
+"Plugin 'matthewsimo/angular-vim-snippets'       " Angular snippets
+Plugin 'claco/jasmine.vim'                      " Jasmine JS
+Plugin 'burnettk/vim-angular'                   " Angular
 " end of Angular }}}
 
 " Fancy
@@ -206,7 +206,7 @@ let g:syntastic_check_on_wq = 0
 
 " Angular & Ionic syntastic ignore {{{
 
-"let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-",  'proprietary attribute "ng-', 'proprietary attribute "ng-']
+let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref"]
 
 " }}}
 
