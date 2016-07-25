@@ -80,6 +80,9 @@ Plugin 'claco/jasmine.vim'                      " Jasmine JS
 Plugin 'burnettk/vim-angular'                   " Angular
 " end of Angular }}}
 
+" Shell Integration
+Plugin 'tpope/vim-dispatch'
+
 " Fancy
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
 " Plugin 'bling/vim-airline'              " Statusline

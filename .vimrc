@@ -72,10 +72,6 @@ cnoremap <c-v> <c-r>"
 " Jump to the main session in tmux
 nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 
-" Insert newline in normal mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
 " }}}
 
 " UI {{{
