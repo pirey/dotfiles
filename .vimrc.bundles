@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Language & Syntax
-Plugin 'Syntastic'                      " Syntax checker
+Plugin 'scrooloose/syntastic'           " Syntax checker
 Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
@@ -30,6 +30,7 @@ Plugin 'tpope/vim-surround' " Surrounder `cs*`
 Plugin 'Tabular'            " Aligning tool :Tabular /{pattern}
 Plugin 'NrrwRgn'            " edit selected text to a new window
 Plugin 'Olical/vim-enmasse' " Edit all files in the quickfix list
+Plugin 'editorconfig/editorconfig-vim' " Editor config
 "Plugin 'ervandew/supertab'  " Auto complete <tab>
 
 
@@ -69,10 +70,6 @@ Plugin 'airblade/vim-gitgutter'         " Git changes sign
 
 " Angular {{{
 " Require:
-" a snippet engine
-" pangloss/vim-javascript
-" othree/javascript-libraries-syntax.vim
-" matthewsimo/angular-vim-snippets
 " claco/jasmine.vim
 Plugin 'othree/javascript-libraries-syntax.vim'
 "Plugin 'matthewsimo/angular-vim-snippets'       " Angular snippets
@@ -209,7 +206,7 @@ let g:syntastic_check_on_wq = 0
 
 " Angular & Ionic syntastic ignore {{{
 
-let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref"]
+let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref", " proprietary attribute \"nav-direction"]
 
 " }}}
 
@@ -246,9 +243,9 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 "let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 
 " User patched font to display icons
-"let g:airline_powerline_fonts = 1 
+"let g:airline_powerline_fonts = 1
 
-" If you don't have patched font installed, 
+" If you don't have patched font installed,
 " I recommend using this setting for nice & simple appearance
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
@@ -266,6 +263,7 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
+let NERDTreeWinSize=40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'

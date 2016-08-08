@@ -9,6 +9,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+
+# mac
+alias sizeof="du -h -d 0"
+
 alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
@@ -37,3 +41,6 @@ alias gcf="vim $HOME/.gitconfig"
 alias cari="find ./ -name"
 
 alias art="php artisan"
+
+# npm js node whatever..
+alias karma1="karma start --single-run"
