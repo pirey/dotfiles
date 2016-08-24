@@ -18,7 +18,8 @@ Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
 Plugin 'jwalton512/vim-blade'           " Laravel's Blade
-
+Plugin 'vim-scripts/smarty-syntax'      " Smarty template engine
+Plugin 'leafgarland/typescript-vim'     " Typescript
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
@@ -206,7 +207,7 @@ let g:syntastic_check_on_wq = 0
 
 " Angular & Ionic syntastic ignore {{{
 
-let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref", " proprietary attribute \"nav-direction"]
+let g:syntastic_html_tidy_ignore_errors=["<angucomplete-", "<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref", " proprietary attribute \"max-selected-items", " proprietary attribute \"ion-autocomplete", " proprietary attribute \"nav-direction"]
 
 " }}}
 
