@@ -1,4 +1,4 @@
-" This is my personal vimrc 
+" This is my personal vimrc
 " The idea is to make it as simple as possible while covering all my needs
 " See the repo at https://github.com/yeripratama/dotfiles
 
@@ -11,7 +11,6 @@ if !has('nvim')
 endif
 
 set fileencoding=utf-8
-set smartcase
 set noswapfile
 set hidden
 set autoread
@@ -98,7 +97,7 @@ nnoremap <leader>hx :set cursorline!<CR>
 " toggle highlight current column
 nnoremap <leader>hy :set cursorcolumn!<CR>
 "filetype indent on " load filetype-specific indent files
-"set lazyredraw 
+"set lazyredraw
 "set showmatch " highlight matching [{()}]
 
 " Statusline
@@ -148,11 +147,12 @@ endif
 " Searching {{{
 
 set ignorecase " be case insensitive
+set smartcase  " be case sensitive when search pattern contains uppercase character
 set gdefault   " turn on regex's global option by default
 set incsearch  " instant search, search as we type
 set hlsearch   " highlight matches
 " in visual mode, press // to search for selected text
-vnoremap // y/<C-R>"<CR> 
+vnoremap // y/<C-R>"<CR>
 
 " Better cursor position
 nnoremap n nzz
@@ -181,7 +181,7 @@ set foldmethod=indent " fold based on indent level
 " removes underline in fold text
 hi Folded term=NONE cterm=NONE
 " open or close a fold
-nnoremap <space> za 
+nnoremap <space> za
 
 autocmd FileType vim setlocal foldmethod=marker
 
@@ -284,8 +284,21 @@ endif
 if !has('nvim')
     set ttymouse=xterm2
 
+    " cursor shape
+    if exists('$TMUX')
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    endif
+
+    " eliminate escape delay
+    set timeoutlen=1000 ttimeoutlen=0
+
 else
     if has('mac')
+        " change cursor shape
         let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
     endif
 endif
