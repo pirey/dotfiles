@@ -81,12 +81,9 @@ Plugin 'burnettk/vim-angular'                   " Angular
 " Shell Integration
 Plugin 'tpope/vim-dispatch'
 
-" Fancy
+" Fancy stuff
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
-" Plugin 'bling/vim-airline'              " Statusline
-" Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
 " Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
-" Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 
 " Temporarily disabled plugins
 " Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
@@ -95,6 +92,13 @@ Plugin 'tpope/vim-dispatch'
 " Plugin 'terryma/vim-expand-region'      " Select region
 " Plugin 'itchyny/calendar.vim'           " Calendar app
 " Plugin 'vitalk/vim-simple-todo'         " Simple todo app
+
+" More functionality on Macvim or gvim
+if has('gui_macvim')
+  Plugin 'bling/vim-airline'              " Statusline
+  Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+  "Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
+endif
 
 if executable('ag')
     " Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -239,25 +243,27 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " }}}
 
-" Vim Airline & Tmuxline {{{
-"let g:airline#extensions#tabline#enabled =1 " enable tabline
-"let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
+if has('gui_macvim')
+    " Vim Airline & Tmuxline {{{
+    let g:airline#extensions#tabline#enabled =1 " enable tabline
+    let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 
-" User patched font to display icons
-"let g:airline_powerline_fonts = 1
+    " User patched font to display icons
+    "let g:airline_powerline_fonts = 1
 
-" If you don't have patched font installed,
-" I recommend using this setting for nice & simple appearance
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
+    " If you don't have patched font installed,
+    " I recommend using this setting for nice & simple appearance
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
 
-" Tmuxline
-"let g:tmuxline_powerline_separators = 1
-"let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
-"let g:tmuxline_theme = 'airline'
-"let g:tmuxline_preset = 'full'
+    " Tmuxline
+    "let g:tmuxline_powerline_separators = 1
+    "let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
+    "let g:tmuxline_theme = 'airline'
+    "let g:tmuxline_preset = 'full'
 
-" }}}
+    " }}}
+endif
 
 " NERDTree {{{
 
