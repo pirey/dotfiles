@@ -32,6 +32,7 @@ Plugin 'Tabular'            " Aligning tool :Tabular /{pattern}
 Plugin 'NrrwRgn'            " edit selected text to a new window
 Plugin 'Olical/vim-enmasse' " Edit all files in the quickfix list
 Plugin 'editorconfig/editorconfig-vim' " Editor config
+Plugin 'tpope/vim-repeat'   " Repeat last plugin command
 "Plugin 'ervandew/supertab'  " Auto complete <tab>
 
 
@@ -57,12 +58,13 @@ Plugin 'junegunn/limelight.vim'         " Distraction free
 
 " Navigation
 Plugin 'BufOnly.vim'                    " Close all buffer but current one.
-Plugin 'ctrlpvim/ctrlp.vim'             " File searcher <c-p>
+Plugin 'ctrlpvim/ctrlp.vim'             " File fuzzy finder <c-p>
 Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
 Plugin 'The-NERD-tree'                  " File browser <leader>d
 Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'tpope/vim-unimpaired'           " pairs of handy bracket mappings
+Plugin 'mhinz/vim-grepper'              " Searching tool
 
 " Git
 Plugin 'fugitive.vim'                   " Git wrapper
