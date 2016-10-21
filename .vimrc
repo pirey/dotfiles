@@ -71,6 +71,15 @@ cnoremap <c-v> <c-r>"
 " Jump to the main session in tmux
 nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 
+" select last pasted text
+nnoremap gp `[v`]
+
+" auto indent pasted text
+nnoremap p p=`]
+nnoremap P P=`]
+
+vnoremap $ $h
+
 " }}}
 
 " UI {{{
