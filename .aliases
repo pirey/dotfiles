@@ -44,3 +44,6 @@ alias art="php artisan"
 
 # npm js node whatever..
 alias karma1="karma start --single-run"
+
+# a litle twist :D
+alias nano="vim -u NONE"
