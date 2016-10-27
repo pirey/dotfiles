@@ -24,9 +24,9 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 " Editing
 Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
-Plugin 'delimitMate.vim'    " Auto add matching [({''})]
+"Plugin 'delimitMate.vim'    " Auto add matching [({''})]
 Plugin 'mattn/emmet-vim'    " Emmet for vim `<c-y>,`
-Plugin 'MatchTag'           " Highlight matching html tag
+"Plugin 'MatchTag'           " Highlight matching html tag
 Plugin 'tpope/vim-surround' " Surrounder `cs*`
 Plugin 'Tabular'            " Aligning tool :Tabular /{pattern}
 Plugin 'NrrwRgn'            " edit selected text to a new window
@@ -65,6 +65,7 @@ Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'tpope/vim-unimpaired'           " pairs of handy bracket mappings
 Plugin 'mhinz/vim-grepper'              " Searching tool
+Plugin 'hoelzro/vim-split-navigate' 	" Jump to line
 
 " Git
 Plugin 'fugitive.vim'                   " Git wrapper
@@ -136,15 +137,17 @@ filetype plugin indent on    " required
 "
 " PHP.vim {{{
 
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
+let php_sql_query = 1
 
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
+"function! PhpSyntaxOverride()
+"  hi! def link phpDocTags  phpDefine
+"  hi! def link phpDocParam phpType
+"endfunction
+"
+"augroup phpSyntaxOverride
+"  autocmd!
+"  autocmd FileType php call PhpSyntaxOverride()
+"augroup END
 
 " }}}
 
