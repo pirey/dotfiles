@@ -46,4 +46,4 @@ alias art="php artisan"
 alias karma1="karma start --single-run"
 
 # a litle twist :D
-alias nano="vim -u NONE"
+alias nano="vim -u ~/.simple.vimrc"
