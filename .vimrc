@@ -167,10 +167,14 @@ vnoremap // y/<C-R>"<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
-if executable('ag')
-  " Use Ag over Grep or Ack, highly recommended!
-  set grepprg=ag\ --nogroup\ --nocolor
-
+" Determine grep tool to be used
+if executable('rg')
+  " Use RipGrep over Ag, Grep or Ack
+  " This is the fastest
+  set grepprg=rg\ --no-heading\ --vimgrep
+elseif executable('ag')
+    " Use Ag over Grep or Ack
+    set grepprg=ag\ --nogroup\ --nocolor
 else
     if executable('ack')
         " Use Ack over Grep
