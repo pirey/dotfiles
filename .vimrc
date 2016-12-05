@@ -333,6 +333,9 @@ endif
 " I can try & use different plugin manager without messing with current setting
 source ~/.vimrc.bundles
 
+" Set colorscheme after colors has been loaded
+silent! colorscheme solarized
+
 " }}}
 
 " ETC {{{
