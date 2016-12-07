@@ -19,8 +19,11 @@ Plugin 'pangloss/vim-javascript'        " Javascript
 Plugin 'evidens/vim-twig'               " Twig
 Plugin 'jwalton512/vim-blade'           " Laravel's Blade
 Plugin 'vim-scripts/smarty-syntax'      " Smarty template engine
-Plugin 'leafgarland/typescript-vim'     " Typescript
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
+Plugin 'leafgarland/typescript-vim'     " Typescript syntax
+Plugin 'Quramy/tsuquyomi'               " Typescript completion & checker
+
+Plugin 'Shougo/vimproc.vim'             " Async library
 
 " Editing
 Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
@@ -211,6 +214,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " }}}
 
