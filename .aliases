@@ -47,3 +47,5 @@ alias karma1="karma start --single-run"
 
 # a litle twist :D
 alias nano="vim -u ~/.simple.vimrc"
+
+alias pyserve="python -m SimpleHTTPServer 9999"
