@@ -58,6 +58,7 @@ Plugin 'tpope/vim-repeat'   " Repeat last plugin command
 Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
 Plugin 'junegunn/limelight.vim'         " Distraction free
+Plugin 'vim-scripts/ScrollColors'       " colorscheme explorer
 
 " Navigation
 Plugin 'BufOnly.vim'                    " Close all buffer but current one.
@@ -101,8 +102,8 @@ Plugin 'tpope/vim-dispatch'
 
 " More functionality on Macvim or gvim
 if has('gui_macvim')
-  Plugin 'bling/vim-airline'              " Statusline
-  Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
+  "Plugin 'bling/vim-airline'              " Statusline
+  "Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
   "Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 endif
 
@@ -256,16 +257,16 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 if has('gui_macvim')
     " Vim Airline & Tmuxline {{{
-    let g:airline#extensions#tabline#enabled =1 " enable tabline
-    let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
+    "let g:airline#extensions#tabline#enabled =1 " enable tabline
+    "let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 
     " User patched font to display icons
     "let g:airline_powerline_fonts = 1
 
     " If you don't have patched font installed,
     " I recommend using this setting for nice & simple appearance
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
+    "let g:airline_left_sep = ''
+    "let g:airline_right_sep = ''
 
     " Tmuxline
     "let g:tmuxline_powerline_separators = 1
