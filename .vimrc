@@ -95,6 +95,7 @@ set diffopt +=vertical      " open diffs in vertical split.
 set splitright              " open new vsplit to the right
 set listchars=tab:▸\ ,eol:¬
 " Make the vertical split separator looks simpler
+set fillchars+=vert:\ " replace separator with whitespace
 autocmd ColorScheme * hi VertSplit ctermbg=NONE guibg=NONE
 hi VertSplit ctermbg=NONE guibg=NONE
 " toggle list
@@ -120,10 +121,10 @@ set showtabline=0
 
 syntax enable " enable syntax processing
 set background=dark
-"set t_Co=256 " set terminal color to use 256
+set t_Co=256 " set terminal color to use 256
 
 " Enable transparent background
-"hi Normal ctermbg=NONE
+hi Normal ctermbg=NONE
 
 " Gruvbox
 "silent! colorscheme gruvbox
@@ -133,7 +134,7 @@ let  g:gruvbox_italic = 0
 
 " Solarized
 let g:solarized_termtrans=1 " enable transparent bg
-silent! colorscheme solarized
+" silent! colorscheme solarized
 
 " Toggle background
 " http://tilvim.com/2013/07/31/swapping-bg.html
@@ -291,6 +292,7 @@ end
 " Macvim
 if has('gui_macvim')
     set transparency=1
+    set guifont=Menlo:h12
 endif
 
 " Neovim

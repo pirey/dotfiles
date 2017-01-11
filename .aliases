@@ -17,12 +17,12 @@ alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
 # vim
-if type "nvim" > /dev/null; then
-    # if nvim is available, we use it
-    alias vim='nvim'
-    alias vi='nvim'
-    alias v='nvim'
-fi
+#if type "nvim" > /dev/null; then
+    ## if nvim is available, we use it
+    #alias vim='nvim'
+    #alias vi='nvim'
+    #alias v='nvim'
+#fi
 alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
 alias hosts="sudo vim -u NONE /etc/hosts"
 alias sshconf="vim ~/.ssh/config"
@@ -48,4 +48,4 @@ alias karma1="karma start --single-run"
 # a litle twist :D
 alias nano="vim -u ~/.simple.vimrc"
 
-alias pyserve="python -m SimpleHTTPServer 9999"
+alias pyserve="python -m SimpleHTTPServer"
