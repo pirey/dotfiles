@@ -107,8 +107,11 @@ if has('gui_macvim')
   "Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
 endif
 
-if executable('ag')
-    " Seriously, use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('rg')
+    " ripgrep https://github.com/BurntSushi/ripgrep
+    Plugin 'jremmen/vim-ripgrep'
+elseif executable('ag')
+    " The Silver Searcher https://github.com/ggreer/the_silver_searcher
     Plugin 'rking/ag.vim'
 else
     if executable('ack') || executable('ack-grep')

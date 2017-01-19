@@ -75,8 +75,9 @@ nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 nnoremap gp `[v`]
 
 " auto indent pasted text
-nnoremap p p=`]
-nnoremap P P=`]
+" TODO disable auto indent only on html files
+"nnoremap p p=`]
+"nnoremap P P=`]
 
 vnoremap $ $h
 
@@ -336,7 +337,7 @@ endif
 source ~/.vimrc.bundles
 
 " Set colorscheme after colors has been loaded
-silent! colorscheme solarized
+silent! colorscheme Tomorrow-Night-Bright
 
 " }}}
 
