@@ -1,6 +1,6 @@
 [user]
     name = Yeri
-    email = yeri@jogja.camp
+    email = arifyeripratama@gmail.com
 [filter "lfs"]
     clean = git lfs clean %f
     smudge = git lfs smudge %f

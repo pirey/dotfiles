@@ -18,6 +18,7 @@ alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
 # vim
+alias visudo="sudo vim -u NONE"
 #if type "nvim" > /dev/null; then
     ## if nvim is available, we use it
     #alias vim='nvim'
@@ -38,6 +39,8 @@ alias lsln="find . -maxdepth 1 -type l" # list symlinks
 alias gst="git status"
 alias gdiff="git diff"
 alias gcf="vim $HOME/.gitconfig"
+alias ginit="git init && git add . && git commit -m 'init'"
+alias commit="git commit -m"
 
 alias cari="find ./ -name"
 

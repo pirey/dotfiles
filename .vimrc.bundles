@@ -22,6 +22,7 @@ Plugin 'vim-scripts/smarty-syntax'      " Smarty template engine
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'leafgarland/typescript-vim'     " Typescript syntax
 Plugin 'Quramy/tsuquyomi'               " Typescript completion & checker
+Plugin 'posva/vim-vue'                  " Vue component
 
 Plugin 'Shougo/vimproc.vim'             " Async library
 
@@ -69,7 +70,6 @@ Plugin 'Tagbar'                         " List tags in sidebar
 Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
 Plugin 'tpope/vim-unimpaired'           " pairs of handy bracket mappings
 Plugin 'mhinz/vim-grepper'              " Searching tool
-Plugin 'hoelzro/vim-split-navigate' 	" Jump to line
 
 " Git
 Plugin 'fugitive.vim'                   " Git wrapper
@@ -218,6 +218,8 @@ let g:syntastic_check_on_wq = 0
 
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vue_checkers = ['eslint']
 
 " }}}
 
@@ -282,7 +284,7 @@ endif
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=40
+"let NERDTreeWinSize=40
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'

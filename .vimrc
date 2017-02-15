@@ -75,8 +75,8 @@ nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 nnoremap gp `[v`]
 
 " auto indent pasted text
-nnoremap p p=`]
-nnoremap P P=`]
+"nnoremap p p=`]
+"nnoremap P P=`]
 
 vnoremap $ $h
 
