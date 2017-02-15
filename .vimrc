@@ -75,6 +75,7 @@ nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 nnoremap gp `[v`]
 
 " auto indent pasted text
+" TODO disable auto indent only on html files
 "nnoremap p p=`]
 "nnoremap P P=`]
 
