@@ -23,6 +23,7 @@ Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'leafgarland/typescript-vim'     " Typescript syntax
 Plugin 'Quramy/tsuquyomi'               " Typescript completion & checker
 Plugin 'posva/vim-vue'                  " Vue component
+Plugin 'digitaltoad/vim-pug'            " Pug template engine
 
 Plugin 'Shougo/vimproc.vim'             " Async library
 
