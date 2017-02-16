@@ -1,0 +1,13 @@
+#!/bin/sh
+
+rm ~/.vimrc
+rm ~/.vimrc.bundles
+rm ~/.agignore
+rm ~/.aliases
+rm ~/.ctags
+rm ~/.gitconfig
+rm ~/.gitignore_global
+rm ~/.tmux.conf
+rm ~/.tmux.conf
+rm ~/.bashrc
+rm ~/.editorconfig

@@ -11,3 +11,4 @@ ln -sfv ~/.dotfiles/.gitignore_global ~/.gitignore_global
 ln -sfv ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sfv ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sfv ~/.dotfiles/.bashrc ~/.bashrc
+ln -sfv ~/.dotfiles/.editorconfig ~/.editorconfig
