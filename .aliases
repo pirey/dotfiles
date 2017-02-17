@@ -36,12 +36,14 @@ alias zsource="source ~/.zshrc"
 alias lsln="find . -maxdepth 1 -type l" # list symlinks
 
 # git
+alias gconf="vim $HOME/.gitconfig"
 alias gst="git status"
 alias gdiff="git diff"
-alias gcf="vim $HOME/.gitconfig"
 alias ginit="git init && git add . && git commit -m 'init'"
 alias gadd="git add ."
-alias commit="git commit -m"
+alias gac="git add . && git commit -m"
+alias gca="git add . && git commit --amend"
+alias gc="git commit -m"
 
 alias cari="find ./ -name"
 
