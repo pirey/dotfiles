@@ -61,6 +61,7 @@ Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
 Plugin 'junegunn/limelight.vim'         " Distraction free
 Plugin 'vim-scripts/ScrollColors'       " colorscheme explorer
+Plugin 'Yggdroot/indentLine'            " Indent line
 
 " Navigation
 Plugin 'BufOnly.vim'                    " Close all buffer but current one.
@@ -322,6 +323,11 @@ if executable('ag')
   let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
 endif
 
+" }}}
+
+" Indent Line {{{
+nnoremap <leader>i :IndentLinesToggle<CR>
+let g:indentLine_char = '┊'
 " }}}
 
 " }}}
