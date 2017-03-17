@@ -326,8 +326,8 @@ endif
 " }}}
 
 " Indent Line {{{
-let g:indentLine_char = '┊'
 nnoremap <leader>i :IndentLinesToggle<CR>
+let g:indentLine_char = '┊'
 " }}}
 
 " }}}

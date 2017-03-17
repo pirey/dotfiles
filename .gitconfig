@@ -43,3 +43,4 @@
     rlog = reflog --date=local
     logno = log --no-merges
     confg = config --global --list
+    committer = shortlog -s -n --all
