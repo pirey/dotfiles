@@ -26,6 +26,7 @@ Plugin 'posva/vim-vue'                  " Vue component
 Plugin 'digitaltoad/vim-pug'            " Pug template engine
 
 Plugin 'Shougo/vimproc.vim'             " Async library
+Plugin 'Yggdroot/indentLine'
 
 " Editing
 Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
@@ -322,6 +323,11 @@ if executable('ag')
   let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
 endif
 
+" }}}
+
+" Indent Line {{{
+let g:indentLine_char = '┊'
+nnoremap <leader>i :IndentLinesToggle<CR>
 " }}}
 
 " }}}

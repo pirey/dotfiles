@@ -15,5 +15,9 @@ trim_trailing_whitespace = true
 indent_style             = tab
 tab_width                = 4
 
-[*.{pug,yml,json,html,js}]
+[*.coffee]
+indent_style             = tab
+tab_width                = 2
+
+[*.{jade,pug,yml,json,html,js}]
 indent_size              = 2
