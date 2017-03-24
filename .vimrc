@@ -145,10 +145,13 @@ map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "da
 
 " Space - Tab - Indent {{{
 
-set tabstop=4     " tab width
-set softtabstop=4 " show existing tab with 4 spaces width
-set shiftwidth=4  " when indenting with '>', use 4 spaces width
-set expandtab     " when we press tab, tell vim to insert 4 spaces instead
+"set tabstop=4     " tab width
+"set softtabstop=4 " show existing tab with 4 spaces width
+"set shiftwidth=4  " when indenting with '>', use 4 spaces width
+set tabstop=4      " tab width
+set shiftwidth=0   " Make 'shiftwidth' follow 'tabstop'
+set softtabstop=-1 " Make 'softtabstop' follow 'shiftwidth'
+set expandtab      " when we press tab, tell vim to insert 4 spaces instead
 if has('linebreak')
     set breakindent   " indent wrapped lines
 endif
