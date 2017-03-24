@@ -24,6 +24,7 @@ Plugin 'leafgarland/typescript-vim'     " Typescript syntax
 Plugin 'Quramy/tsuquyomi'               " Typescript completion & checker
 Plugin 'posva/vim-vue'                  " Vue component
 Plugin 'digitaltoad/vim-pug'            " Pug template engine
+Plugin 'neoclide/vim-jsx-improve'       " React's jsx
 
 Plugin 'Shougo/vimproc.vim'             " Async library
 Plugin 'Yggdroot/indentLine'
