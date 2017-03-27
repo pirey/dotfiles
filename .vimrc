@@ -340,7 +340,7 @@ endif
 source ~/.vimrc.bundles
 
 " Set colorscheme after colors has been loaded
-silent! colorscheme solarized
+silent! colorscheme nord
 
 " }}}
 

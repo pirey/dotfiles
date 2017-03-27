@@ -63,6 +63,7 @@ Plugin 'flazz/vim-colorschemes'         " All colorscheme
 Plugin 'junegunn/goyo.vim'              " Distraction free
 Plugin 'junegunn/limelight.vim'         " Distraction free
 Plugin 'vim-scripts/ScrollColors'       " colorscheme explorer
+Plugin 'arcticicestudio/nord-vim'       " Nord
 
 " Navigation
 Plugin 'BufOnly.vim'                    " Close all buffer but current one.
