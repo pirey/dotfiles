@@ -113,7 +113,7 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 
 " Statusline
 set laststatus=2 " always show statusline
-set statusline=%<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set showtabline=0
 
 " }}}

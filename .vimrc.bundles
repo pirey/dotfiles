@@ -249,7 +249,7 @@ nnoremap <leader>t :TagbarToggle<CR>
 " }}}
 
 " Fugitive {{{
-set statusline=%<%t\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " }}}
 
 " Git Gutter {{{
@@ -329,10 +329,11 @@ endif
 
 " Indent Line {{{
 nnoremap <leader>i :IndentLinesToggle<CR>
-let g:indentLine_enabled = 0
-let g:indentLine_char = '┊'
-let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_faster = 1
+"let g:indentLine_enabled = 0
+"let g:indentLine_char = '┊'
+"let g:indentLine_leadingSpaceChar = '·'
+"let g:indentLine_leadingSpaceEnabled = 1
 " }}}
 
 " ultisnip {{{
