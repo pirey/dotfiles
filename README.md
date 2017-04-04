@@ -1,8 +1,9 @@
+## setup
++ clone
++ run `./install [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/.dotfiles`). it will create symlinks to home directory
+
 ## vim
 + First you need to install vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-+ Make sure that you have `.vimrc` and `.vimrc.bundles` in your `$HOME` directory
-    - `.vimrc` for main configuration
-    - `.vimrc.bundles` for plugins listing and their settings
 + Install plugins:
     - open vim, then run command `:PluginInstall` to install listed plugins
 

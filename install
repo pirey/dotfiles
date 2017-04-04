@@ -1,14 +1,20 @@
 #!/bin/sh
 
-# TODO dynamic folder name
-ln -sfv ~/.dotfiles/.vimrc ~/.vimrc
-ln -sfv ~/.dotfiles/.vimrc.bundles ~/.vimrc.bundles
-ln -sfv ~/.dotfiles/.agignore ~/.agignore
-ln -sfv ~/.dotfiles/.aliases ~/.aliases
-ln -sfv ~/.dotfiles/.ctags ~/.ctags
-ln -sfv ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -sfv ~/.dotfiles/.gitignore_global ~/.gitignore_global
-ln -sfv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -sfv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -sfv ~/.dotfiles/.bashrc ~/.bashrc
-ln -sfv ~/.dotfiles/.editorconfig ~/.editorconfig
+DOTFILES="~/.dotfiles"
+
+if [ "$1" != "" ]; then
+    DOTFILES=$1
+fi
+
+# TODO get all files dynamically
+ln -sfv $DOTFILES/.vimrc ~/.vimrc
+ln -sfv $DOTFILES/.vimrc.bundles ~/.vimrc.bundles
+ln -sfv $DOTFILES/.agignore ~/.agignore
+ln -sfv $DOTFILES/.aliases ~/.aliases
+ln -sfv $DOTFILES/.ctags ~/.ctags
+ln -sfv $DOTFILES/.gitconfig ~/.gitconfig
+ln -sfv $DOTFILES/.gitignore_global ~/.gitignore_global
+ln -sfv $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sfv $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sfv $DOTFILES/.bashrc ~/.bashrc
+ln -sfv $DOTFILES/.editorconfig ~/.editorconfig
