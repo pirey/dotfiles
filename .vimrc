@@ -123,6 +123,7 @@ set showtabline=0
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
+set term=screen-256color
 
 " Enable transparent background
 hi Normal ctermbg=NONE
@@ -340,7 +341,7 @@ endif
 source ~/.vimrc.bundles
 
 " Set colorscheme after colors has been loaded
-silent! colorscheme nord
+silent! colorscheme hybrid_reverse
 
 " }}}
 
