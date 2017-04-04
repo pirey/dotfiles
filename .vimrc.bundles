@@ -16,6 +16,7 @@ Plugin 'scrooloose/syntastic'           " Syntax checker
 Plugin 'StanAngeloff/php.vim'           " PHP
 Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
 Plugin 'pangloss/vim-javascript'        " Javascript
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'evidens/vim-twig'               " Twig
 Plugin 'jwalton512/vim-blade'           " Laravel's Blade
 Plugin 'vim-scripts/smarty-syntax'      " Smarty template engine
@@ -80,15 +81,6 @@ Plugin 'fugitive.vim'                   " Git wrapper
 Plugin 'airblade/vim-gitgutter'         " Git changes sign
 "Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
 
-" Angular {{{
-" Require:
-" claco/jasmine.vim
-Plugin 'othree/javascript-libraries-syntax.vim'
-"Plugin 'matthewsimo/angular-vim-snippets'       " Angular snippets
-Plugin 'claco/jasmine.vim'                      " Jasmine JS
-Plugin 'burnettk/vim-angular'                   " Angular
-" end of Angular }}}
-
 " Shell Integration
 Plugin 'tpope/vim-dispatch'
 
@@ -96,20 +88,15 @@ Plugin 'tpope/vim-dispatch'
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
 " Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
 
-" Temporarily disabled plugins
 " Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
 " Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 " Plugin 'EasyGrep'                       " Easy find and replace
 " Plugin 'terryma/vim-expand-region'      " Select region
 " Plugin 'itchyny/calendar.vim'           " Calendar app
 " Plugin 'vitalk/vim-simple-todo'         " Simple todo app
-
-" More functionality on Macvim or gvim
-if has('gui_macvim')
-  "Plugin 'bling/vim-airline'              " Statusline
-  "Plugin 'vim-airline/vim-airline-themes' " Themes for airline plugin
-  "Plugin 'ryanoasis/vim-devicons'         " Fancy icons, require patched font (nerd font)
-endif
+"Plugin 'bling/vim-airline'               " Statusline
+"Plugin 'vim-airline/vim-airline-themes'  " Themes for airline plugin
+"Plugin 'ryanoasis/vim-devicons'          " Fancy icons, require patched font (nerd font)
 
 if executable('rg')
     " ripgrep https://github.com/BurntSushi/ripgrep
@@ -191,7 +178,7 @@ if has('gui_running')
 endif
 " }}}
 
-" Js Lib (javascript-libraries-syntax.vim) {{{
+" javascript-libraries-syntax.vim {{{
 let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter'
 " }}}
 
@@ -230,12 +217,6 @@ let g:syntastic_vue_checkers = ['eslint']
 
 " }}}
 
-" Angular & Ionic syntastic ignore {{{
-
-let g:syntastic_html_tidy_ignore_errors=["<angucomplete-", "<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-", " proprietary attribute \"ui-sref", " proprietary attribute \"max-selected-items", " proprietary attribute \"ion-autocomplete", " proprietary attribute \"nav-direction"]
-
-" }}}
-
 " Bclose {{{
 
 nnoremap <leader>x :Bclose<CR>
@@ -264,27 +245,25 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " }}}
 
-if has('gui_macvim')
-    " Vim Airline & Tmuxline {{{
-    "let g:airline#extensions#tabline#enabled =1 " enable tabline
-    "let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
+" Vim Airline & Tmuxline {{{
+"let g:airline#extensions#tabline#enabled =1 " enable tabline
+"let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
 
-    " User patched font to display icons
-    "let g:airline_powerline_fonts = 1
+" User patched font to display icons
+"let g:airline_powerline_fonts = 1
 
-    " If you don't have patched font installed,
-    " I recommend using this setting for nice & simple appearance
-    "let g:airline_left_sep = ''
-    "let g:airline_right_sep = ''
+" If you don't have patched font installed,
+" I recommend using this setting for nice & simple appearance
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
 
-    " Tmuxline
-    "let g:tmuxline_powerline_separators = 1
-    "let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
-    "let g:tmuxline_theme = 'airline'
-    "let g:tmuxline_preset = 'full'
+" Tmuxline
+"let g:tmuxline_powerline_separators = 1
+"let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
+"let g:tmuxline_theme = 'airline'
+"let g:tmuxline_preset = 'full'
 
-    " }}}
-endif
+" }}}
 
 " NERDTree {{{
 
@@ -292,9 +271,9 @@ nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 "let NERDTreeWinSize=40
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+"let g:NERDTreeDirArrows = 1
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeStatusline = "FILES"
 
 " }}}
@@ -330,8 +309,8 @@ endif
 " Indent Line {{{
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
+let g:indentLine_char = '┊'
 "let g:indentLine_enabled = 0
-"let g:indentLine_char = '┊'
 "let g:indentLine_leadingSpaceChar = '·'
 "let g:indentLine_leadingSpaceEnabled = 1
 " }}}

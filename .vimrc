@@ -45,9 +45,6 @@ nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>ep :e ~/.vimrc.bundles<CR>
 
-" Edit zshrc
-nnoremap <leader>z :e ~/.zshrc<CR>
-
 " reload vimrc
 nnoremap <leader><leader>v :source ~/.vimrc<CR>
 
@@ -68,8 +65,6 @@ cnoremap <c-p>  <up>
 cnoremap <c-v> <c-r>"
 
 " Shell
-" Jump to the main session in tmux
-nnoremap <silent> <leader><leader>1 :!tmux switch -t MAIN<CR>
 
 " select last pasted text
 nnoremap gp `[v`]
@@ -79,6 +74,7 @@ nnoremap gp `[v`]
 "nnoremap p p=`]
 "nnoremap P P=`]
 
+" go to end of line, but not really
 vnoremap $ $h
 
 " }}}
@@ -136,7 +132,6 @@ let  g:gruvbox_italic = 0
 
 " Solarized
 let g:solarized_termtrans=1 " enable transparent bg
-" silent! colorscheme solarized
 
 " Toggle background
 " http://tilvim.com/2013/07/31/swapping-bg.html
@@ -169,7 +164,7 @@ set hlsearch   " highlight matches
 " in visual mode, press // to search for selected text
 vnoremap // y/<C-R>"<CR>
 
-" Better cursor position
+" auto center search item
 nnoremap n nzz
 nnoremap N Nzz
 
@@ -285,8 +280,6 @@ set pastetoggle=<leader>p
 " GUI / Mac Vim / Neovim {{{
 
 if has('gui_running')
-    silent! colorscheme gruvbox
-
     set guioptions-=m " remove menu bar
     set guioptions-=T " remove toolbar
     set guioptions-=L " remove left scroll bar
