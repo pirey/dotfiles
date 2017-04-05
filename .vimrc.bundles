@@ -83,12 +83,13 @@ Plugin 'airblade/vim-gitgutter'         " Git changes sign
 
 " Shell Integration
 Plugin 'tpope/vim-dispatch'
+Plugin 'diepm/vim-rest-console'         " making rest api call
 
 " Fancy stuff
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
 " Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
 
-" Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
+Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
 " Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
 " Plugin 'EasyGrep'                       " Easy find and replace
 " Plugin 'terryma/vim-expand-region'      " Select region
@@ -326,6 +327,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" }}}
+
+" vim rest client {{{
+let g:vrc_allow_get_request_body = 1
 " }}}
 
 " }}}
