@@ -119,7 +119,9 @@ set showtabline=0
 syntax enable " enable syntax processing
 set background=dark
 set t_Co=256 " set terminal color to use 256
-set term=screen-256color
+if !has('gui_running')
+    set term=screen-256color
+endif
 
 " Enable transparent background
 hi Normal ctermbg=NONE
