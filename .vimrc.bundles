@@ -46,7 +46,9 @@ Plugin 'tpope/vim-repeat'   " Repeat last plugin command
 
 " Completion & Snippet
 " Choose snippet engine to be used
-if has('python')
+if has('python') || has('python3')
+    " fancy feature for fancy vim
+    Plugin 'Valloric/YouCompleteMe'       " code completion
     Plugin 'SirVer/ultisnips'             " Snippet Engine
 else
     Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
