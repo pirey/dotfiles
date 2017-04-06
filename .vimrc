@@ -123,11 +123,10 @@ if !has('gui_running')
     set term=screen-256color
 endif
 
-" Enable transparent background
+" transparent background
 hi Normal ctermbg=NONE
 
 " Gruvbox
-"silent! colorscheme gruvbox
 " gruvbox use italic font for commented lines,
 " and sometimes the background color becomes incorrect
 let  g:gruvbox_italic = 0
@@ -173,7 +172,7 @@ nnoremap N Nzz
 " Determine grep tool to be used
 if executable('rg')
   " Use RipGrep over Ag, Grep or Ack
-  " This is the fastest
+  " They said this is the fastest
   set grepprg=rg\ --no-heading\ --vimgrep
 elseif executable('ag')
     " Use Ag over Grep or Ack
@@ -255,7 +254,7 @@ nnoremap K 10gk
 vnoremap J 10gj
 vnoremap K 10gk
 
-" Easier window movement, you'll love this soon or later!
+" Easier window movement
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -268,6 +267,7 @@ nnoremap <C-l> <C-w>l
 if has('clipboard')
 
     " Only enable mouse when vim has clipboard support
+    " otherwise we will get hard time copying stuff to the clipboard
     if has('mouse')
         set mouse=a
     endif
@@ -341,5 +341,7 @@ silent! colorscheme gotham
 " }}}
 
 " ETC {{{
+" have no idea what this thing's doing
+" put it anyway
 set secure
 " }}}
