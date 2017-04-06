@@ -96,6 +96,7 @@ Plugin 'airblade/vim-gitgutter'         " Git changes sign
 Plugin 'tpope/vim-dispatch'
 Plugin 'diepm/vim-rest-console'         " making rest api call
 Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
+Plugin 'Shougo/vimshell.vim'
 
 " Fancy stuff
 " Plugin 'mhinz/vim-startify'             " Fancy start screen
