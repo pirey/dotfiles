@@ -38,6 +38,7 @@ Plugin 'junegunn/goyo.vim'              " Distraction free
 Plugin 'junegunn/limelight.vim'         " Distraction free++
 Plugin 'vim-scripts/ScrollColors'       " colorscheme explorer
 Plugin 'arcticicestudio/nord-vim'       " Nord
+Plugin 'whatyouhide/vim-gotham'
 
 " Editing
 Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
