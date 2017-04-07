@@ -12,7 +12,3 @@
 + To use plugin, install tmux plugin manager (Optional)
     - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
     - In tmux session, `prefix + I` to install listed plugins
-
-## Screenshots
-
-![screenshot](screenshot.png)
