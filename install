@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOTFILES="~/.dotfiles"
+DOTFILES="$HOME/.dotfiles"
 
 if [ "$1" != "" ]; then
     DOTFILES=$1
@@ -14,7 +14,6 @@ ln -sfv $DOTFILES/.aliases ~/.aliases
 ln -sfv $DOTFILES/.ctags ~/.ctags
 ln -sfv $DOTFILES/.gitconfig ~/.gitconfig
 ln -sfv $DOTFILES/.gitignore_global ~/.gitignore_global
-ln -sfv $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sfv $DOTFILES/.bashrc ~/.bashrc
 ln -sfv $DOTFILES/.editorconfig ~/.editorconfig

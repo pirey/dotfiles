@@ -343,6 +343,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " vim rest client {{{
 let g:vrc_allow_get_request_body = 1
+let g:vrc_elasticsearch_support = 1
 " }}}
 
 " }}}

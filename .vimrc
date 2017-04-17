@@ -54,8 +54,10 @@ nnoremap <leader>w <C-w>c
 " Open previous buffer
 nnoremap <leader>b :b#<CR>
 
+" Close current buffer, this will be improved by plugin called Bclose
+nnoremap <leader>x :bd!<CR>
 " Force close all buffers, clean things up!
-nnoremap <leader><leader>bd :bufdo bd!<CR>
+nnoremap <leader><leader>x :bufdo bd!<CR>
 
 " Command line
 cnoremap <c-n>  <down>
