@@ -21,10 +21,15 @@ set novisualbell
 set backspace=indent,eol,start " normalize backspace behaviour
 
 " Limit syntax highlighting
-autocmd BufEnter * :syn sync maxlines=500
+"autocmd BufEnter * :syn sync maxlines=500
 syntax sync minlines=256
 syntax sync maxlines=256
 set synmaxcol=250
+
+" don't load matchparen plugin (builtin plugin)
+" boost performance when folding text
+let loaded_matchparen = 1
+set noshowmatch
 
 " }}}
 
