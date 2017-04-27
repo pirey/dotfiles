@@ -38,7 +38,7 @@ set noshowmatch
 let mapleader = ","
 
 " I press :q! a lot, and mistyped
-cnoremap Q q
+"cnoremap Q q
 
 nnoremap ; :
 vnoremap ; :
