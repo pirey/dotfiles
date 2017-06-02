@@ -359,7 +359,7 @@ endif
 source ~/.vimrc.bundles
 
 " Set colorscheme after colors has been loaded
-silent! colorscheme gotham
+silent! colorscheme solarized
 
 " }}}
 
