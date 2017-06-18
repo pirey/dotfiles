@@ -29,6 +29,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'posva/vim-vue'                  " Vue component
 Plugin 'digitaltoad/vim-pug'            " Pug template engine
 Plugin 'neoclide/vim-jsx-improve'       " React's jsx
+Plugin 'elmcast/elm-vim'
 
 " UI & Colors
 " Plugin 'ap/vim-buftabline'              " Show buffer name on top of screen
@@ -344,6 +345,10 @@ let g:UltiSnipsEditSplit="vertical"
 " vim rest client {{{
 let g:vrc_allow_get_request_body = 1
 let g:vrc_elasticsearch_support = 1
+" }}}
+
+" Elm {{{
+let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
 
 " }}}
