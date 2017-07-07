@@ -358,10 +358,20 @@ endif
 " I can try & use different plugin manager without messing with current setting
 source ~/.vimrc.bundles
 
+" }}}
+
+" Color & Highlight Customization {{{
+" This must come after all plugin load,
+" otherwise these settings may be overriden by some plugin
+
 " Set colorscheme after colors has been loaded
 silent! colorscheme solarized
 " 'Hides' tildes
 hi NonText ctermfg=8
+" Hides line number, but keep padding
+hi LineNr ctermfg=8 ctermbg=8
+" Show statusline for active buffer only
+hi StatusLineNC ctermfg=8 ctermbg=8
 
 " }}}
 
