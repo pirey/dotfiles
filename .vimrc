@@ -372,6 +372,7 @@ hi NonText ctermfg=8
 hi LineNr ctermfg=8 ctermbg=8
 " Show statusline for active buffer only
 hi StatusLineNC ctermfg=8 ctermbg=8
+hi StatusLine ctermfg=2
 
 " }}}
 
