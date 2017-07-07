@@ -360,6 +360,8 @@ source ~/.vimrc.bundles
 
 " Set colorscheme after colors has been loaded
 silent! colorscheme solarized
+" 'Hides' tildes
+hi NonText ctermfg=8
 
 " }}}
 
