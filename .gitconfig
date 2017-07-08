@@ -7,7 +7,7 @@
     required = true
 [core]
     editor = "vim -u NONE"
-    excludesfile = /Users/yeri/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [merge]
     tool = vimdiff
     conflictstyle = diff3
