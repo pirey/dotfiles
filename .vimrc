@@ -130,6 +130,7 @@ map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "da
 
 " transparent background
 hi Normal ctermbg=NONE
+hi Normal ctermbg=8
 " hides tildes
 hi NonText ctermfg=8
 " hides line number, but keep padding
