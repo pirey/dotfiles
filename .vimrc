@@ -10,6 +10,8 @@
 " Modified: Frequently
 " NOTE:     Press <space> to open/close folds
 
+" TODO: better config type organization
+
 " General {{{
 
 if !has('nvim')
@@ -92,6 +94,47 @@ vnoremap $ $h
 
 " }}}
 
+" Plugin {{{
+
+" Separate plugin configuration with main vimrc
+" I can try & use different plugin manager without messing with current setting
+source ~/.vimrc.bundles
+
+" }}}
+
+" Colors & Highlighting {{{
+
+syntax enable " enable syntax processing
+set background=dark
+silent! colorscheme solarized
+set t_Co=256 " set terminal color to use 256
+if !has('gui_running')
+    set term=screen-256color
+endif
+
+" Gruvbox
+" gruvbox use italic font for commented lines,
+" and sometimes the background color becomes incorrect
+let  g:gruvbox_italic = 0
+
+" Solarized
+let g:solarized_termtrans=1 " enable transparent bg
+
+" Toggle background
+" http://tilvim.com/2013/07/31/swapping-bg.html
+map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" transparent background
+hi Normal ctermbg=NONE
+" hides tildes
+hi NonText ctermfg=8
+" hides line number, but keep padding
+hi LineNr ctermfg=8 ctermbg=8
+" soft visual selection
+hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
+
+" }}}
+
 " UI {{{
 
 set number                  " show line numbers
@@ -123,34 +166,14 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 " Statusline
 "set laststatus=2 " always show statusline
 set laststatus=1 " show statusline when multi window
-set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set showtabline=0
-
-" }}}
-
-" Colors {{{
-
-syntax enable " enable syntax processing
-set background=dark
-set t_Co=256 " set terminal color to use 256
-if !has('gui_running')
-    set term=screen-256color
+" set statusline if not yet set in plugin configuration
+if (g:statusline_set < 1)
+    set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 endif
-
-" transparent background
-hi Normal ctermbg=NONE
-
-" Gruvbox
-" gruvbox use italic font for commented lines,
-" and sometimes the background color becomes incorrect
-let  g:gruvbox_italic = 0
-
-" Solarized
-let g:solarized_termtrans=1 " enable transparent bg
-
-" Toggle background
-" http://tilvim.com/2013/07/31/swapping-bg.html
-map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+set showtabline=0
+" only show statusline for active buffer
+hi StatusLineNC ctermfg=8 ctermbg=8
+hi StatusLine ctermfg=2
 
 " }}}
 
@@ -347,41 +370,6 @@ else
         let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
     endif
 endif
-
-" }}}
-
-" Custom {{{
-
-" Load global custom configuration if exists
-"if filereadable(expand("~/.vimrc.custom"))
-    "source ~/.vimrc.custom
-"endif
-
-" }}}
-
-" Plugin {{{
-
-" Separate plugin configuration with main vimrc
-" I can try & use different plugin manager without messing with current setting
-source ~/.vimrc.bundles
-
-" }}}
-
-" Color & Highlight Customization {{{
-" This must come after all plugin load,
-" otherwise these settings may be overriden by some plugin
-
-" Set colorscheme after colors has been loaded
-silent! colorscheme solarized
-" 'Hides' tildes
-hi NonText ctermfg=8
-" Hides line number, but keep padding
-hi LineNr ctermfg=8 ctermbg=8
-" Show statusline for active buffer only
-hi StatusLineNC ctermfg=8 ctermbg=8
-hi StatusLine ctermfg=2
-" Soft visual selection
-hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
 
 " }}}
 

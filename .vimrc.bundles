@@ -256,6 +256,8 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " Fugitive {{{
 set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" notify vimrc that statusline is already set
+let g:statusline_set = 1
 " }}}
 
 " Git Gutter {{{
