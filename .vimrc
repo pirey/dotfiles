@@ -1,8 +1,14 @@
 " This is my personal vimrc
 " The idea is to make it as simple as possible while covering all my needs
-" See the repo at https://github.com/yeripratama/dotfiles
+" See the repo at https://github.com/pirey/dotfiles
 
-" NOTE: Press <space> to open/close folds
+" Name:     .vimrc
+" Author:   Yeri <arifyeripratama@gmail.com>
+" URL:      https://github.com/pirey/dotfiles
+" License:  MIT license
+" Created:  2015
+" Modified: Frequently
+" NOTE:     Press <space> to open/close folds
 
 " General {{{
 

@@ -1,3 +1,14 @@
+" This is an additional file for my .vimrc
+" I separated the main vimrc and plugin setting for easier maintenance
+"
+" Name:     .vimrc.bundles
+" Author:   Yeri <arifyeripratama@gmail.com>
+" URL:      https://github.com/pirey/dotfiles
+" License:  MIT license
+" Created:  2015
+" Modified: Frequently
+" NOTE:     Press <space> to open/close folds
+
 " Vundle {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
