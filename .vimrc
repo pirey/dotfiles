@@ -36,8 +36,12 @@ set synmaxcol=250
 
 " don't load matchparen plugin (builtin plugin)
 " boost performance when folding text
-let loaded_matchparen = 1
-set noshowmatch
+"let loaded_matchparen = 1
+"set noshowmatch
+
+" set timeout for match paren computation
+let g:matchparen_timeout = 20
+let g:matchparen_insert_timeout = 20
 
 " }}}
 
@@ -161,7 +165,7 @@ nnoremap <leader>hx :set cursorline!<CR>
 nnoremap <leader>hy :set cursorcolumn!<CR>
 "filetype indent on " load filetype-specific indent files
 "set lazyredraw
-"set showmatch " highlight matching [{()}]
+set showmatch " highlight matching [{()}]
 
 " Statusline
 set laststatus=2 " always show statusline
