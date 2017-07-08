@@ -164,8 +164,7 @@ nnoremap <leader>hy :set cursorcolumn!<CR>
 "set showmatch " highlight matching [{()}]
 
 " Statusline
-"set laststatus=2 " always show statusline
-set laststatus=1 " show statusline when multi window
+set laststatus=2 " always show statusline
 " set statusline if not yet set in plugin configuration
 if (g:statusline_set < 1)
     set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
