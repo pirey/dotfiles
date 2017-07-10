@@ -30,6 +30,7 @@ Plugin 'posva/vim-vue'                  " Vue component
 Plugin 'digitaltoad/vim-pug'            " Pug template engine
 Plugin 'neoclide/vim-jsx-improve'       " React's jsx
 Plugin 'elmcast/elm-vim'
+Plugin 'lepture/vim-jinja'
 
 " UI & Colors
 " Plugin 'ap/vim-buftabline'              " Show buffer name on top of screen
