@@ -129,7 +129,6 @@ let g:solarized_termtrans=1 " enable transparent bg
 map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " transparent background
-hi Normal ctermbg=NONE
 hi Normal ctermbg=8
 " hides tildes
 hi NonText ctermfg=8
@@ -375,6 +374,12 @@ else
     endif
 endif
 
+" }}}
+
+" OS {{{
+if has('macunix')
+    set nonumber
+endif
 " }}}
 
 " ETC {{{
