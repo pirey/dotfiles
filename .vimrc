@@ -1,8 +1,16 @@
 " This is my personal vimrc
 " The idea is to make it as simple as possible while covering all my needs
-" See the repo at https://github.com/yeripratama/dotfiles
+" See the repo at https://github.com/pirey/dotfiles
 
-" NOTE: Press <space> to open/close folds
+" Name:     .vimrc
+" Author:   Yeri <arifyeripratama@gmail.com>
+" URL:      https://github.com/pirey/dotfiles
+" License:  MIT license
+" Created:  2015
+" Modified: Frequently
+" NOTE:     Press <space> to open/close folds
+
+" TODO: better config type organization
 
 " General {{{
 
@@ -28,8 +36,12 @@ set synmaxcol=250
 
 " don't load matchparen plugin (builtin plugin)
 " boost performance when folding text
-let loaded_matchparen = 1
-set noshowmatch
+"let loaded_matchparen = 1
+"set noshowmatch
+
+" set timeout for match paren computation
+let g:matchparen_timeout = 20
+let g:matchparen_insert_timeout = 20
 
 " }}}
 
@@ -86,6 +98,48 @@ vnoremap $ $h
 
 " }}}
 
+" Plugin {{{
+
+" Separate plugin configuration with main vimrc
+" I can try & use different plugin manager without messing with current setting
+source ~/.vimrc.bundles
+
+" }}}
+
+" Colors & Highlighting {{{
+
+syntax enable " enable syntax processing
+set background=dark
+silent! colorscheme solarized
+set t_Co=256 " set terminal color to use 256
+if !has('gui_running')
+    set term=screen-256color
+endif
+
+" Gruvbox
+" gruvbox use italic font for commented lines,
+" and sometimes the background color becomes incorrect
+let  g:gruvbox_italic = 0
+
+" Solarized
+let g:solarized_termtrans=1 " enable transparent bg
+
+" Toggle background
+" http://tilvim.com/2013/07/31/swapping-bg.html
+map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" transparent background
+hi Normal ctermbg=NONE
+hi Normal ctermbg=8
+" hides tildes
+hi NonText ctermfg=8
+" hides line number, but keep padding
+hi LineNr ctermfg=8 ctermbg=8
+" soft visual selection
+hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
+
+" }}}
+
 " UI {{{
 
 set number                  " show line numbers
@@ -112,38 +166,18 @@ nnoremap <leader>hx :set cursorline!<CR>
 nnoremap <leader>hy :set cursorcolumn!<CR>
 "filetype indent on " load filetype-specific indent files
 "set lazyredraw
-"set showmatch " highlight matching [{()}]
+set showmatch " highlight matching [{()}]
 
 " Statusline
 set laststatus=2 " always show statusline
-set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set showtabline=0
-
-" }}}
-
-" Colors {{{
-
-syntax enable " enable syntax processing
-set background=dark
-set t_Co=256 " set terminal color to use 256
-if !has('gui_running') && !has('nvim')
-    set term=screen-256color
+" set statusline if not yet set in plugin configuration
+if (g:statusline_set < 1)
+    set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 endif
-
-" transparent background
-hi Normal ctermbg=NONE
-
-" Gruvbox
-" gruvbox use italic font for commented lines,
-" and sometimes the background color becomes incorrect
-let  g:gruvbox_italic = 0
-
-" Solarized
-let g:solarized_termtrans=1 " enable transparent bg
-
-" Toggle background
-" http://tilvim.com/2013/07/31/swapping-bg.html
-map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+set showtabline=0
+" only show statusline for active buffer
+hi StatusLineNC ctermfg=8 ctermbg=8
+hi StatusLine ctermfg=2
 
 " }}}
 
@@ -340,26 +374,6 @@ else
         let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
     endif
 endif
-
-" }}}
-
-" Custom {{{
-
-" Load global custom configuration if exists
-"if filereadable(expand("~/.vimrc.custom"))
-    "source ~/.vimrc.custom
-"endif
-
-" }}}
-
-" Plugin {{{
-
-" Separate plugin configuration with main vimrc
-" I can try & use different plugin manager without messing with current setting
-source ~/.vimrc.bundles
-
-" Set colorscheme after colors has been loaded
-silent! colorscheme solarized
 
 " }}}
 

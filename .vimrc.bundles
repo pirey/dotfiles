@@ -1,3 +1,14 @@
+" This is an additional file for my .vimrc
+" I separated the main vimrc and plugin setting for easier maintenance
+"
+" Name:     .vimrc.bundles
+" Author:   Yeri <arifyeripratama@gmail.com>
+" URL:      https://github.com/pirey/dotfiles
+" License:  MIT license
+" Created:  2015
+" Modified: Frequently
+" NOTE:     Press <space> to open/close folds
+
 " Vundle {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -246,6 +257,8 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " Fugitive {{{
 set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" notify vimrc that statusline is already set
+let g:statusline_set = 1
 " }}}
 
 " Git Gutter {{{
@@ -325,6 +338,7 @@ endif
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
 "let g:indentLine_char = '┊'
+let g:indentLine_char = '·'
 "let g:indentLine_enabled = 0
 "let g:indentLine_leadingSpaceChar = '·'
 "let g:indentLine_leadingSpaceEnabled = 1
