@@ -98,6 +98,12 @@ vnoremap $ $h
 
 " }}}
 
+" Variables {{{
+" set this variable to 1 in .vimrc.bundles to custom the statusline
+" e.g use vim-airline or just add fugitive git branch name
+let g:statusline_set = 0
+" }}}
+
 " Plugin {{{
 
 " Separate plugin configuration with main vimrc
