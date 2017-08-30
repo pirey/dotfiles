@@ -1,7 +1,7 @@
 " This is an additional file for my .vimrc
 " I separated the main vimrc and plugin setting for easier maintenance
 "
-" Name:     .vimrc.bundles
+" Name:     .vimrc.vimplug
 " Author:   Yeri <arifyeripratama@gmail.com>
 " URL:      https://github.com/pirey/dotfiles
 " License:  MIT license
@@ -9,152 +9,125 @@
 " Modified: Frequently
 " NOTE:     Press <space> to open/close folds
 
-" Vundle {{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Vim Plug {{{
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Make sure you use single quotes
 
 " Util
-Plugin 'Shougo/vimproc.vim'             " Async library
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-Plugin 'scrooloose/syntastic'           " Syntax checker
-Plugin 'StanAngeloff/php.vim'           " PHP
-"Plugin 'evidens/vim-twig'               " Twig
-"Plugin 'yeripratama/vim-volt-syntax'    " Phalcon's Volt
-"Plugin 'vim-scripts/smarty-syntax'      " Smarty template engine
-Plugin 'jwalton512/vim-blade'           " Laravel's Blade
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'pangloss/vim-javascript'        " Javascript
-Plugin 'othree/javascript-libraries-syntax.vim'
-"Plugin 'leafgarland/typescript-vim'     " Typescript syntax
-"Plugin 'Quramy/tsuquyomi'               " Typescript completion & checker
-Plugin 'posva/vim-vue'                  " Vue component
-Plugin 'digitaltoad/vim-pug'            " Pug template engine
-Plugin 'neoclide/vim-jsx-improve'       " React's jsx
-Plugin 'elmcast/elm-vim'
-Plugin 'lepture/vim-jinja'
+Plug 'scrooloose/syntastic'                                   " Syntax checker
+Plug 'StanAngeloff/php.vim'                                   " PHP
+" Plug 'evidens/vim-twig'                                     " Twig
+Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'pangloss/vim-javascript'                                " Javascript
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'posva/vim-vue'                                          " Vue component
+Plug 'digitaltoad/vim-pug'                                    " Pug template engine
+Plug 'neoclide/vim-jsx-improve'                               " React's jsx
+Plug 'elmcast/elm-vim'
+Plug 'lepture/vim-jinja'
+Plug 'itchyny/vim-haskell-indent'
 
 " UI & Colors
-" Plugin 'ap/vim-buftabline'              " Show buffer name on top of screen
-Plugin 'Yggdroot/indentLine'
-Plugin 'flazz/vim-colorschemes'         " A bunch of colorschemes
-Plugin 'junegunn/goyo.vim'              " Distraction free
-Plugin 'junegunn/limelight.vim'         " Distraction free++
-Plugin 'vim-scripts/ScrollColors'       " colorscheme explorer
-Plugin 'arcticicestudio/nord-vim'       " Nord
-Plugin 'whatyouhide/vim-gotham'
+" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+Plug 'Yggdroot/indentLine'
+Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
+Plug 'junegunn/goyo.vim'                                      " Distraction free
+Plug 'junegunn/limelight.vim'                                 " Distraction free++
+Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
+Plug 'arcticicestudio/nord-vim'                               " Nord
+Plug 'whatyouhide/vim-gotham'
 
 " Editing
-Plugin 'The-NERD-Commenter' " Commenter `<leader>c<space>`
-Plugin 'mattn/emmet-vim'    " Emmet for vim `<c-y>,`
-Plugin 'tpope/vim-repeat'   " Repeat last plugin command
-Plugin 'tpope/vim-surround' " Surrounder `cs*`
-Plugin 'Tabular'            " Aligning tool :Tabular /{pattern}
-Plugin 'NrrwRgn'            " edit selected text to a new window
-Plugin 'Olical/vim-enmasse' " Edit all files in the quickfix list
-Plugin 'editorconfig/editorconfig-vim' " Editor config
-"Plugin 'delimitMate.vim'    " Auto add matching [({''})]
-"Plugin 'MatchTag'           " Highlight matching html tag
-"Plugin 'ervandew/supertab'  " Auto complete <tab>
+Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
+Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
+Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
+Plug 'tpope/vim-surround'                                     " Surrounder `cs*`
+Plug 'godlygeek/tabular'                                      " Aligning tool :Tabular /{pattern}
+Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
+Plug 'Olical/vim-enmasse'                                     " Edit all files in the quickfix list
+Plug 'editorconfig/editorconfig-vim'                          " Editor config
+" Plug 'delimitMate.vim'                                      " Auto add matching [({''})]
+" Plug 'MatchTag'                                             " Highlight matching html tag
+" Plug 'ervandew/supertab'                                    " Auto complete <tab>
 
 
 " Completion & Snippet
 
 " fancy feature for fancy vim
 if has('gui_running') && (has('python') || has('python3'))
-    Plugin 'Valloric/YouCompleteMe'       " code completion
+    Plug 'Valloric/YouCompleteMe'                             " code completion
 
-    " I think using snippet without YCM is basically pointless
-    " since I can't see which keyword triggers the snippets
-    " and remembering snippet keywords is just insane
+                                                              " I think using snippet without YCM is basically pointless
+                                                              " since I can't see which keyword triggers the snippets
+                                                              " and remembering snippet keywords is just insane
 
-    " Choose snippet engine to be used
+                                                              " Choose snippet engine to be used
     if has('python') || has('python3')
-        Plugin 'SirVer/ultisnips'             " Snippet Engine
+        Plug 'SirVer/ultisnips'                               " Snippet Engine
     else
-        Plugin 'MarcWeber/vim-addon-mw-utils' " required by snipmate
-        Plugin 'tomtom/tlib_vim'              " required by snipmate
-        Plugin 'garbas/vim-snipmate'          " Snippet Engine
+        Plug 'MarcWeber/vim-addon-mw-utils'                   " required by snipmate
+        Plug 'tomtom/tlib_vim'                                " required by snipmate
+        Plug 'garbas/vim-snipmate'                            " Snippet Engine
     endif
 
-    Plugin 'honza/vim-snippets'               " Snippets files
-
-    " Plugin 'shawncplus/phpcomplete.vim'     " PHP omnicompletion
+    Plug 'honza/vim-snippets'                                 " Snippets files
 endif
 
 " Navigation
-Plugin 'BufOnly.vim'                    " Close all buffer but current one.
-Plugin 'ctrlpvim/ctrlp.vim'             " File fuzzy finder <c-p>
-Plugin 'EasyMotion'                     " Jumping over places <leader><leader>w
-Plugin 'The-NERD-tree'                  " File browser <leader>d
-"Plugin 'Tagbar'                         " List tags in sidebar
-Plugin 'chrismccord/bclose.vim'         " Close a buffer without closing split window
-Plugin 'tpope/vim-unimpaired'           " pairs of handy bracket mappings
-Plugin 'mhinz/vim-grepper'              " Searching tool
+Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
+Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
+Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
+" Plug 'Tagbar'                                               " List tags in sidebar
+Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
+Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
+Plug 'mhinz/vim-grepper'                                      " Searching tool
 
 " Git
-Plugin 'fugitive.vim'                   " Git wrapper
-Plugin 'airblade/vim-gitgutter'         " Git changes sign
-"Plugin 'Xuyuanp/nerdtree-git-plugin'    " Git status within nerdtree
+Plug 'tpope/vim-fugitive'                                     " Git wrapper
+Plug 'airblade/vim-gitgutter'                                 " Git changes sign
+" Plug 'Xuyuanp/nerdtree-git-plugin'                          " Git status within nerdtree
 
 " ETC
-Plugin 'tpope/vim-dispatch'
-Plugin 'diepm/vim-rest-console'         " making rest api call
-Plugin 'vim-utils/vim-man'              " View other program's manual page in vim :Man
-Plugin 'Shougo/vimshell.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'diepm/vim-rest-console'                                 " making rest api call
+Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
+" Plug 'Shougo/vimshell.vim'
 
 " Fancy stuff
-" Plugin 'mhinz/vim-startify'             " Fancy start screen
-" Plugin 'edkolev/tmuxline.vim'           " Statusline for tmux
-" Plugin 'textutil.vim'                   " Open rtf, doc, rtfd, wordml as plain text (Mac only)
-" Plugin 'EasyGrep'                       " Easy find and replace
-" Plugin 'terryma/vim-expand-region'      " Select region
-" Plugin 'itchyny/calendar.vim'           " Calendar app
-" Plugin 'vitalk/vim-simple-todo'         " Simple todo app
-" Plugin 'bling/vim-airline'               " Statusline
-" Plugin 'vim-airline/vim-airline-themes'  " Themes for airline plugin
-" Plugin 'ryanoasis/vim-devicons'          " Fancy icons, require patched font (nerd font)
+" Plug 'mhinz/vim-startify'                                   " Fancy start screen
+" Plug 'edkolev/tmuxline.vim'                                 " Statusline for tmux
+" Plug 'textutil.vim'                                         " Open rtf, doc, rtfd, wordml as plain text (Mac only)
+" Plug 'EasyGrep'                                             " Easy find and replace
+" Plug 'terryma/vim-expand-region'                            " Select region
+" Plug 'itchyny/calendar.vim'                                 " Calendar app
+" Plug 'vitalk/vim-simple-todo'                               " Simple todo app
+" Plug 'bling/vim-airline'                                    " Statusline
+" Plug 'vim-airline/vim-airline-themes'                       " Themes for airline plugin
+" Plug 'ryanoasis/vim-devicons'                               " Fancy icons, require patched font (nerd font)
 
 if executable('rg')
-    " ripgrep https://github.com/BurntSushi/ripgrep
-    Plugin 'jremmen/vim-ripgrep'
+    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
 elseif executable('ag')
-    " The Silver Searcher https://github.com/ggreer/the_silver_searcher
-    Plugin 'rking/ag.vim'
+    Plug 'rking/ag.vim'                                       " The Silver Searcher https://github.com/ggreer/the_silver_searcher
 else
     if executable('ack') || executable('ack-grep')
-        Plugin 'ack.vim'           " Better than grep, they said http://beyondgrep.com
-        Plugin 'NERD_Tree-and-ack' " Find in folder, from nerdtree
+        Plug 'mileszs/ack.vim'                                " Better than grep, they said http://beyondgrep.com
+        Plug 'tyok/nerdtree-ack'                              " Find in folder, from nerdtree
     endif
 
 endif
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-"
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+" Initialize plugin system
+call plug#end()
 " }}}
 
 " Plugin Settings {{{
@@ -240,6 +213,7 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_vue_checkers = ['eslint']
+let g:syntastic_html_checkers=['']
 
 " }}}
 

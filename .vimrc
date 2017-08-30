@@ -159,8 +159,8 @@ set splitright              " open new vsplit to the right
 set listchars=tab:▸\ ,eol:¬
 " Make the vertical split separator looks simpler
 set fillchars+=vert:\ " replace separator with whitespace
-autocmd ColorScheme * hi VertSplit ctermbg=NONE guibg=NONE
-hi VertSplit ctermbg=NONE guibg=NONE
+autocmd ColorScheme * hi VertSplit cterm=NONE ctermbg=8 guibg=NONE
+hi VertSplit cterm=NONE ctermbg=8 guibg=NONE
 " toggle list
 nnoremap <leader>l :set list!<CR>
 " toggle relative numbering

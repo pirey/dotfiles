@@ -1,9 +1,12 @@
 ## setup
-+ clone
-+ run `./install [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/.dotfiles`). it will create symlinks to home directory
++ `git clone https://github.com/pirey/dotfiles`
++ go to cloned directory, then `./install [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/.dotfiles`). it will create symlinks to home directory
 
 ## vim
-+ First you need to install vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
++ Install plugin manager, I use [vim-plug](https://github.com/junegunn/vim-plug):
+    - `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+
 + Install plugins:
     - open vim, then run command `:PluginInstall` to install listed plugins
 
