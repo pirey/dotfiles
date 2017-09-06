@@ -39,6 +39,7 @@ alias gad="git add ."
 alias gac="git add . && git commit -m"
 alias gca="git add . && git commit --amend"
 alias gc="git commit -m"
+alias gp="git push"
 
 alias art="php artisan"
 
