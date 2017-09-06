@@ -25,22 +25,16 @@ alias visudo="sudo vim -u NONE"
     #alias vi='nvim'
     #alias v='nvim'
 #fi
-alias vconf="cd ~/.dotfiles && vim ~/.dotfiles/.vimrc"
 alias hosts="sudo vim -u NONE /etc/hosts"
-alias sshconf="vim ~/.ssh/config"
-
-# zsh
-alias zconf="vim ~/.zshrc"
-alias zsource="source ~/.zshrc"
 
 alias lsln="find . -maxdepth 1 -type l" # list symlinks
 
 # git
 alias gconf="vim $HOME/.gitconfig"
 alias gst="git status"
-alias gdiff="git diff"
+alias gdif="git diff"
 alias ginit="git init && git add . && git commit -m 'init'"
-alias gadd="git add ."
+alias gad="git add ."
 alias gac="git add . && git commit -m"
 alias gca="git add . && git commit --amend"
 alias gc="git commit -m"
@@ -49,13 +43,9 @@ alias cari="find ./ -name"
 
 alias art="php artisan"
 
-# npm js node whatever..
-alias karma1="karma start --single-run"
-
 # a litle twist :D
 alias nano="vim -u ~/.simple.vimrc"
 
 alias pyserve="python -m SimpleHTTPServer"
 
 alias hs="http-server -c-1 -d"
-alias cra="create-react-app"
