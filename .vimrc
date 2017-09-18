@@ -60,7 +60,7 @@ nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
 
 " Edit vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-nnoremap <leader>ep :e ~/.vimrc.bundles<CR>
+nnoremap <leader>ep :e ~/.pluginconfig.vim<CR>
 
 " reload vimrc
 nnoremap <leader><leader>v :source ~/.vimrc<CR>
@@ -99,7 +99,7 @@ vnoremap $ $h
 " }}}
 
 " Variables {{{
-" set this variable to 1 in .vimrc.bundles to custom the statusline
+" set this variable to 1 in .pluginconfig.vim to custom the statusline
 " e.g use vim-airline or just add fugitive git branch name
 let g:statusline_set = 0
 " }}}
@@ -108,7 +108,7 @@ let g:statusline_set = 0
 
 " Separate plugin configuration with main vimrc
 " I can try & use different plugin manager without messing with current setting
-source ~/.vimrc.bundles
+source ~/.pluginconfig.vim
 
 " }}}
 

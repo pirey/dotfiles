@@ -1,13 +1,21 @@
 #!/bin/sh
 
+remove_file () {
+    if [ ! -e "$1" ]; then
+        echo "File $1 doesn't exists\n"
+    else
+        rm "$1"
+    fi
+}
+
 # TODO get file names dynamically
-rm ~/.vimrc
-rm ~/.vimrc.bundles
-rm ~/.agignore
-rm ~/.aliases
-rm ~/.ctags
-rm ~/.gitconfig
-rm ~/.gitignore_global
-rm ~/.tmux.conf
-rm ~/.bashrc
-rm ~/.editorconfig
+remove_file ~/.vimrc
+remove_file ~/.pluginconfig.vim
+remove_file ~/.agignore
+remove_file ~/.aliases
+remove_file ~/.ctags
+remove_file ~/.gitconfig
+remove_file ~/.gitignore_global
+remove_file ~/.tmux.conf
+remove_file ~/.bashrc
+remove_file ~/.editorconfig
