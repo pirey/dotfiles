@@ -1,6 +1,14 @@
 #!/bin/sh
 
-# TODO install vim-plug here
+# installing vim-plug plugin manager for vim
+if [ ! -e "$HOME/.vim/autoload/plug.vim" ]; then
+    echo "installing vim-plug...\n"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "vim-plug installed\n"
+else
+    echo "vim-plug already installed\n"
+fi
 
 DOTFILES="$HOME/.dotfiles"
 
@@ -9,13 +17,19 @@ if [ "$1" != "" ]; then
 fi
 
 # TODO get all files dynamically
-ln -sfv $DOTFILES/.vimrc ~/.vimrc
-ln -sfv $DOTFILES/.pluginconfig.vim ~/.pluginconfig.vim
-ln -sfv $DOTFILES/.agignore ~/.agignore
-ln -sfv $DOTFILES/.aliases ~/.aliases
-ln -sfv $DOTFILES/.ctags ~/.ctags
-ln -sfv $DOTFILES/.gitconfig ~/.gitconfig
-ln -sfv $DOTFILES/.gitignore_global ~/.gitignore_global
-ln -sfv $DOTFILES/.tmux.conf ~/.tmux.conf
-ln -sfv $DOTFILES/.bashrc ~/.bashrc
-ln -sfv $DOTFILES/.editorconfig ~/.editorconfig
+echo "creating symlinks...\n"
+ln -sf $DOTFILES/.vimrc ~/.vimrc
+ln -sf $DOTFILES/.pluginconfig.vim ~/.pluginconfig.vim
+ln -sf $DOTFILES/.agignore ~/.agignore
+ln -sf $DOTFILES/.aliases ~/.aliases
+ln -sf $DOTFILES/.ctags ~/.ctags
+ln -sf $DOTFILES/.gitconfig ~/.gitconfig
+ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES/.bashrc ~/.bashrc
+ln -sf $DOTFILES/.editorconfig ~/.editorconfig
+echo "symlinks created\n"
+
+echo "All clear\n"
+echo "NOTE:\n"
+echo "to install vim plugins, open vim and then type :PlugInstall\n"
