@@ -1,6 +1,6 @@
 ## setup
 + `git clone https://github.com/pirey/dotfiles`
-+ go to cloned directory, then `./install [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/.dotfiles`). it will:
++ go to cloned directory, then `./install [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/dotfiles`). it will:
     - install [vim-plug](https://github.com/junegunn/vim-plug) if not already installed
     - create symlinks for all necessary dotfiles to your home directory
 

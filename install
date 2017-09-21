@@ -10,7 +10,7 @@ else
     echo "vim-plug already installed\n"
 fi
 
-DOTFILES="$HOME/.dotfiles"
+DOTFILES="$HOME/dotfiles"
 
 if [ "$1" != "" ]; then
     DOTFILES=$1
