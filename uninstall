@@ -17,5 +17,5 @@ remove_file ~/.ctags
 remove_file ~/.gitconfig
 remove_file ~/.gitignore_global
 remove_file ~/.tmux.conf
-remove_file ~/.bashrc
+# remove_file ~/.bashrc
 remove_file ~/.editorconfig

@@ -26,7 +26,7 @@ ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES/.bashrc ~/.bashrc
+# ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 echo "symlinks created\n"
 
