@@ -82,6 +82,7 @@ if has('gui_running') && (has('python') || has('python3'))
 endif
 
 " Navigation
+Plug 'nelstrom/vim-visual-star-search'                        " search for the selected text (press star in visual mode)
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
