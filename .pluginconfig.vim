@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-Plug 'scrooloose/syntastic'                                   " Syntax checker
+Plug 'w0rp/ale'                                               " linter
 Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
@@ -197,27 +197,6 @@ let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirou
 let g:buftabline_indicators = 1
 " }}}
 
-" Syntastic {{{
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-nnoremap <leader><leader>s :SyntasticToggleMode<CR>
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
-let g:syntastic_html_checkers=['']
-
-" }}}
-
 " Bclose {{{
 
 nnoremap <leader>x :Bclose<CR>
@@ -370,6 +349,11 @@ let g:vrc_elasticsearch_support = 1
 
 " Elm {{{
 let g:elm_setup_keybindings = 0 " disable mapping
+" }}}
+
+" ALE {{{
+let g:ale_linters = {'javascript': ['standard']}
+let g:ale_sign_error = '●'
 " }}}
 
 " }}}
