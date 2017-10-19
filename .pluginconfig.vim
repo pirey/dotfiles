@@ -62,9 +62,9 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 
 " fancy feature for fancy vim
 if (v:version >= 800 && has('python') || has('python3'))
-    Plug 'maralla/completor.vim', { 'do': 'make js' }         " Auto complete (YCM sucks!)
+    Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
 
-    " TODO while we're at it, why don't use snippet engine?
+    " while we're at it, why don't use snippet engine?
 
     Plug 'SirVer/ultisnips'                                   " Snippet Engine
     Plug 'honza/vim-snippets'                                 " Snippets collections
@@ -253,6 +253,8 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrows = 1
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeDirArrowExpandable = '🖿'
+let g:NERDTreeDirArrowCollapsible = '🗁'
 let g:NERDTreeStatusline = "FILES"
 
 " }}}
@@ -341,7 +343,7 @@ let g:elm_setup_keybindings = 0 " disable mapping
 
 " ALE {{{
 " let g:ale_sign_error = '✗'
-let g:ale_sign_error = '●'
+" let g:ale_sign_error = '●'
 let g:ale_sign_error = '🠶'
 let g:ale_linters = {'javascript': ['standard']}
 if (executable('standard'))
@@ -351,6 +353,8 @@ endif
 let g:ale_fixers = { 'javascript': 'standard' }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 0
+" highlight Error ctermbg=1 ctermfg=0
+" highlight link ALEErrorLine Error
 " }}}
 
 " }}}
