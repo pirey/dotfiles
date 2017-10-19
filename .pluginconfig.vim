@@ -28,10 +28,9 @@ Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'pangloss/vim-javascript'                                " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'posva/vim-vue'                                          " Vue component
-Plug 'digitaltoad/vim-pug'                                    " Pug template engine
+" Plug 'digitaltoad/vim-pug'                                    " Pug template engine
 Plug 'neoclide/vim-jsx-improve'                               " React's jsx
-Plug 'elmcast/elm-vim'
+" Plug 'elmcast/elm-vim'
 Plug 'lepture/vim-jinja'
 Plug 'itchyny/vim-haskell-indent'
 
@@ -42,8 +41,8 @@ Plug 'flazz/vim-colorschemes'                                 " A bunch of color
 Plug 'junegunn/goyo.vim'                                      " Distraction free
 Plug 'junegunn/limelight.vim'                                 " Distraction free++
 Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
-Plug 'arcticicestudio/nord-vim'                               " Nord
-Plug 'whatyouhide/vim-gotham'
+" Plug 'arcticicestudio/nord-vim'                               " Nord
+" Plug 'whatyouhide/vim-gotham'
 
 " Editing
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
