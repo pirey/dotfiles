@@ -66,8 +66,8 @@ if (v:version >= 800 && has('python') || has('python3'))
 
     " TODO while we're at it, why don't use snippet engine?
 
-    " Plug 'SirVer/ultisnips'                                   " Snippet Engine
-    " Plug 'honza/vim-snippets'                                 " Snippets collections
+    Plug 'SirVer/ultisnips'                                   " Snippet Engine
+    Plug 'honza/vim-snippets'                                 " Snippets collections
 endif
 
 " Navigation
@@ -328,7 +328,6 @@ let g:UltiSnipsListSnippets        = '<c-s>'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsUsePythonVersion = 2
 " }}}
 
 " vim rest client {{{
@@ -343,6 +342,7 @@ let g:elm_setup_keybindings = 0 " disable mapping
 " ALE {{{
 " let g:ale_sign_error = '✗'
 let g:ale_sign_error = '●'
+let g:ale_sign_error = '🠶'
 let g:ale_linters = {'javascript': ['standard']}
 if (executable('standard'))
     let g:ale_javascript_standard_executable = 'standard'
