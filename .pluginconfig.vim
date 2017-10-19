@@ -1,7 +1,7 @@
 " This is an additional file for my .vimrc
 " I separated the main vimrc and plugin setting for easier maintenance
 "
-" Name:     .vimrc.vimplug
+" Name:     .pluginconfig.vim
 " Author:   Yeri <arifyeripratama@gmail.com>
 " URL:      https://github.com/pirey/dotfiles
 " License:  MIT license
@@ -61,23 +61,13 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " Completion & Snippet
 
 " fancy feature for fancy vim
-if has('gui_running') && (has('python') || has('python3'))
-    Plug 'Valloric/YouCompleteMe'                             " code completion
+if (v:version >= 800 && has('python') || has('python3'))
+    Plug 'maralla/completor.vim'                              " Auto complete (YCM sucks!)
 
-                                                              " I think using snippet without YCM is basically pointless
-                                                              " since I can't see which keyword triggers the snippets
-                                                              " and remembering snippet keywords is just insane
+    " TODO while we're at it, why don't use snippet engine?
 
-                                                              " Choose snippet engine to be used
-    if has('python') || has('python3')
-        Plug 'SirVer/ultisnips'                               " Snippet Engine
-    else
-        Plug 'MarcWeber/vim-addon-mw-utils'                   " required by snipmate
-        Plug 'tomtom/tlib_vim'                                " required by snipmate
-        Plug 'garbas/vim-snipmate'                            " Snippet Engine
-    endif
-
-    Plug 'honza/vim-snippets'                                 " Snippets files
+    " Plug 'SirVer/ultisnips'                                   " Snippet Engine
+    " Plug 'honza/vim-snippets'                                 " Snippets collections
 endif
 
 " Navigation
@@ -102,7 +92,7 @@ Plug 'diepm/vim-rest-console'                                 " making rest api 
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 " Plug 'Shougo/vimshell.vim'
 
-" Fancy stuff
+" Fancy stuff for fun
 " Plug 'mhinz/vim-startify'                                   " Fancy start screen
 " Plug 'edkolev/tmuxline.vim'                                 " Statusline for tmux
 " Plug 'textutil.vim'                                         " Open rtf, doc, rtfd, wordml as plain text (Mac only)
@@ -331,14 +321,14 @@ let g:indentLine_char = '·'
 " ultisnip {{{
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-
+let g:UltiSnipsExpandTrigger       = '<c-l>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsListSnippets        = '<c-s>'
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsUsePythonVersion = 2
 " }}}
 
 " vim rest client {{{
@@ -360,6 +350,7 @@ if (executable('standard'))
 endif
 let g:ale_fixers = { 'javascript': 'standard' }
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 0
 " }}}
 
 " }}}
