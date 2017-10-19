@@ -352,8 +352,15 @@ let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
 
 " ALE {{{
-let g:ale_linters = {'javascript': ['standard']}
+" let g:ale_sign_error = '✗'
 let g:ale_sign_error = '●'
+let g:ale_linters = {'javascript': ['standard']}
+if (executable('standard'))
+    let g:ale_javascript_standard_executable = 'standard'
+    let g:ale_javascript_standard_use_global = 1
+endif
+let g:ale_fixers = { 'javascript': 'standard' }
+let g:ale_fix_on_save = 1
 " }}}
 
 " }}}
