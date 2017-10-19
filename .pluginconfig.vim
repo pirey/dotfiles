@@ -62,7 +62,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 
 " fancy feature for fancy vim
 if (v:version >= 800 && has('python') || has('python3'))
-    Plug 'maralla/completor.vim'                              " Auto complete (YCM sucks!)
+    Plug 'maralla/completor.vim', { 'do': 'make js' }         " Auto complete (YCM sucks!)
 
     " TODO while we're at it, why don't use snippet engine?
 
