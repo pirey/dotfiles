@@ -147,7 +147,7 @@ hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
 
 " UI {{{
 
-set nonumber                  " show line numbers
+set nonumber                " don't really need line numbers
 set norelativenumber        " use no relative numbering.
 set showcmd                 " show command in bottom bar
 set showmode                " show current mode (insert, visual, bla bla)

@@ -356,7 +356,7 @@ function! AleStatus() abort
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
 
-    return l:counts.total == 0 ? 'OK' : printf(
+    return l:counts.total == 0 ? '✔' : printf(
     \   '%dE %dW',
     \   all_errors,
     \   all_non_errors
@@ -365,7 +365,7 @@ endfunction
 
 set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-10{AleStatus()}%-14.(%l,%c%V%)\ %P
 " highlight Error ctermbg=1 ctermfg=0
-" highlight link ALEErrorLine Error
+highlight link ALEErrorLine Error
 " }}}
 
 " }}}
