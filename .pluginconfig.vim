@@ -253,8 +253,6 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrows = 1
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeDirArrowExpandable = '🖿'
-let g:NERDTreeDirArrowCollapsible = '🗁'
 let g:NERDTreeStatusline = "FILES"
 
 " }}}
@@ -341,10 +339,10 @@ let g:vrc_elasticsearch_support = 1
 let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
 
-" ALE {{{
+" ALE (linter) {{{
 " let g:ale_sign_error = '✗'
-" let g:ale_sign_error = '●'
-let g:ale_sign_error = '🠶'
+let g:ale_sign_error = '●'
+let g:ale_sign_column_always = 1
 let g:ale_linters = {'javascript': ['standard']}
 if (executable('standard'))
     let g:ale_javascript_standard_executable = 'standard'
@@ -352,7 +350,7 @@ if (executable('standard'))
 endif
 let g:ale_fixers = { 'javascript': 'standard' }
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 " highlight Error ctermbg=1 ctermfg=0
 " highlight link ALEErrorLine Error
 " }}}
