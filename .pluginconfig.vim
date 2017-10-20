@@ -208,8 +208,6 @@ function! FugitiveStatusline(...) abort
 endfunction
 
 set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
-" notify vimrc that statusline is already set
-let g:statusline_set = 1
 " }}}
 
 " Git Gutter {{{
@@ -342,6 +340,7 @@ let g:elm_setup_keybindings = 0 " disable mapping
 " ALE (linter) {{{
 " let g:ale_sign_error = '✗'
 let g:ale_sign_error = '●'
+" let g:ale_open_list = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {'javascript': ['standard']}
 if (executable('standard'))
@@ -351,8 +350,25 @@ endif
 let g:ale_fixers = { 'javascript': 'standard' }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 1
+function! AleStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dE %dW',
+    \   all_errors,
+    \   all_non_errors
+    \)
+endfunction
+
+set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-10{AleStatus()}%-14.(%l,%c%V%)\ %P
 " highlight Error ctermbg=1 ctermfg=0
 " highlight link ALEErrorLine Error
 " }}}
 
 " }}}
+
+" notify vimrc that statusline is already set
+let g:statusline_set = 1

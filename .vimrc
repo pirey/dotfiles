@@ -184,6 +184,8 @@ set showtabline=0
 hi StatusLineNC ctermfg=8 ctermbg=8
 hi StatusLine ctermfg=2
 
+set signcolumn=yes
+
 " }}}
 
 " Space - Tab - Indent {{{
