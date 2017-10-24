@@ -24,6 +24,8 @@ alias proses="ps aux | grep"
 
 # vim
 alias visudo="sudo vim -u NONE"
+alias vi='vim'
+alias v='vim'
 #if type "nvim" > /dev/null; then
     ## if nvim is available, we use it
     #alias vim='nvim'

@@ -341,6 +341,7 @@ let g:elm_setup_keybindings = 0 " disable mapping
 " let g:ale_sign_error = '✗'
 let g:ale_sign_error = '●'
 " let g:ale_open_list = 1
+let g:ale_lint_delay = 50
 let g:ale_sign_column_always = 1
 let g:ale_linters = {'javascript': ['standard']}
 if (executable('standard'))
