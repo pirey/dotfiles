@@ -83,6 +83,7 @@ Plug 'mhinz/vim-grepper'                                      " Searching tool
 
 " Git
 Plug 'tpope/vim-fugitive'                                     " Git wrapper
+Plug 'junegunn/gv.vim'                                        " Git commit browser
 Plug 'airblade/vim-gitgutter'                                 " Git changes sign
 " Plug 'Xuyuanp/nerdtree-git-plugin'                          " Git status within nerdtree
 
