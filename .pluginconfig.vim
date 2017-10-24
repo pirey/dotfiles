@@ -299,10 +299,16 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
 
-if executable('ag')
+let g:user_command_async = 1
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files -F --color never --hidden --follow --glob "!.git/*" %s'
+elseif executable('ag')
   "let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
 endif
+
+let g:ctrlp_line_prefix = '▸ '
+let g:ctrlp_types = ['fil', 'buf', 'mru', 'undo', 'line']
 
 " }}}
 
