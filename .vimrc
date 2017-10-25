@@ -127,9 +127,6 @@ endif
 " and sometimes the background color becomes incorrect
 let  g:gruvbox_italic = 0
 
-" Solarized
-let g:solarized_termtrans=1 " enable transparent bg
-
 " Toggle background
 " http://tilvim.com/2013/07/31/swapping-bg.html
 map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
