@@ -156,6 +156,7 @@ set formatoptions-=cro      " disable auto comment
 set nowrap                  " don't wrap line, let them flow..
 set diffopt +=vertical      " open diffs in vertical split.
 set splitright              " open new vsplit to the right
+set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
 " Make the vertical split separator looks simpler
 set fillchars+=vert:\ " replace separator with whitespace
@@ -183,8 +184,6 @@ set showtabline=0
 " only show statusline for active buffer
 hi StatusLineNC ctermfg=8 ctermbg=8
 hi StatusLine ctermfg=2
-
-set signcolumn=yes
 
 " }}}
 
