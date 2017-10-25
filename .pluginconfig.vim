@@ -216,6 +216,12 @@ set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-14
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
 let g:gitgutter_max_signs = 250
+
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+" let g:gitgutter_sign_modified_removed = 'ww'
+
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 " hunk stage = <leader>hs
@@ -345,8 +351,8 @@ let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
 
 " ALE (linter) {{{
-" let g:ale_sign_error = '✗'
-let g:ale_sign_error = '●'
+" let g:ale_sign_error = '●'
+let g:ale_sign_error = 'E'
 " let g:ale_open_list = 1
 let g:ale_lint_delay = 50
 let g:ale_sign_column_always = 1
