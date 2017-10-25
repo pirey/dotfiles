@@ -315,7 +315,7 @@ elseif executable('ag')
 endif
 
 let g:ctrlp_line_prefix = '▸ '
-let g:ctrlp_types = ['fil', 'buf', 'mru', 'undo', 'line']
+let g:ctrlp_match_window = 'bottom,order:btt,max:30'
 
 " }}}
 
