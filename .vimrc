@@ -391,4 +391,11 @@ endif
 " have no idea what this thing's doing
 " put it anyway
 set secure
+" silent! colorscheme nord
+" hi clear VertSplit
+" hi VertSplit ctermfg=8
+" hi clear StatusLineNC
+" hi StatusLineNC ctermfg=8
+" hi clear StatusLine
+" hi StatusLine ctermfg=0 ctermbg=2
 " }}}
