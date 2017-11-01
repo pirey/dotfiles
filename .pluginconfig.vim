@@ -21,7 +21,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-Plug 'w0rp/ale'                                               " linter
+if (v:version >= 800 && (has('python') || has('python3')))
+    Plug 'w0rp/ale'                                               " linter
+endif
 Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
@@ -61,7 +63,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " Completion & Snippet
 
 " fancy feature for fancy vim
-if (v:version >= 800 && has('python') || has('python3'))
+if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
 
     " while we're at it, why don't use snippet engine?
