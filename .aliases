@@ -22,7 +22,8 @@ alias sizeof="du -h -d 0"
 alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
-# vim
+# typo sucks
+alias vm='vim'
 alias visudo="sudo vim -u NONE"
 alias vi='vim'
 alias v='vim'
