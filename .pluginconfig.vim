@@ -382,6 +382,15 @@ set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-10
 highlight link ALEErrorLine Error
 " }}}
 
+" VRC {{{
+let g:vrc_curl_opts={
+    \'--include': '',
+    \'--location': '',
+    \'--show-error': '',
+    \'--silent': ''
+    \}
+" }}}
+
 " }}}
 
 " notify vimrc that statusline is already set
