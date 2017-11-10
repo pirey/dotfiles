@@ -208,8 +208,9 @@ set smartcase  " be case sensitive when search pattern contains uppercase charac
 set gdefault   " turn on regex's global option by default
 set incsearch  " instant search, search as we type
 set hlsearch   " highlight matches
-" in visual mode, press // to search for selected text
-vnoremap // y/<C-R>"<CR>
+" in visual mode, press * to search for selected text, instead of jumping the
+" selection
+vnoremap * y/<C-R>"<CR>
 
 " auto center search item
 nnoremap n nzz
