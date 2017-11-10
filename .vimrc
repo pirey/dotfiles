@@ -211,6 +211,8 @@ set hlsearch   " highlight matches
 " in visual mode, press * to search for selected text, instead of jumping the
 " selection
 vnoremap * y/<C-R>"<CR>
+" auto turn off previous highlight when searching
+nnoremap / :noh<cr>/
 
 " auto center search item
 nnoremap n nzz
