@@ -87,7 +87,7 @@ Plug 'mhinz/vim-grepper'                                      " Searching tool
 Plug 'tpope/vim-fugitive'                                     " Git wrapper
 Plug 'junegunn/gv.vim'                                        " Git commit browser
 Plug 'airblade/vim-gitgutter'                                 " Git changes sign
-" Plug 'Xuyuanp/nerdtree-git-plugin'                          " Git status within nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
 
 " ETC
 Plug 'tpope/vim-dispatch'
@@ -262,6 +262,20 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeStatusline = "FILES"
 
+" nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "M",
+    \ "Staged"    : "S",
+    \ "Untracked" : "U",
+    \ "Renamed"   : "R",
+    \ "Unmerged"  : "!",
+    \ "Deleted"   : "D",
+    \ "Dirty"     : "!",
+    \ "Clean"     : "C",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 " }}}
 
 " NERDCommenter {{{
@@ -358,7 +372,7 @@ let g:ale_sign_error = 'E'
 " let g:ale_open_list = 1
 let g:ale_lint_delay = 50
 let g:ale_sign_column_always = 1
-let g:ale_linters = {'javascript': ['standard']}
+let g:ale_linters = {'javascript': ['standard'], 'haskell': ['hlint']}
 if (executable('standard'))
     let g:ale_javascript_standard_executable = 'standard'
     let g:ale_javascript_standard_use_global = 1
