@@ -383,12 +383,6 @@ endif
 
 " }}}
 
-" OS {{{
-if has('macunix')
-    set nonumber
-endif
-" }}}
-
 " ETC {{{
 " have no idea what this thing's doing
 " put it anyway
