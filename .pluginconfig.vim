@@ -356,11 +356,6 @@ let g:UltiSnipsListSnippets        = '<c-s>'
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
-" vim rest client {{{
-let g:vrc_allow_get_request_body = 1
-let g:vrc_elasticsearch_support = 1
-" }}}
-
 " Elm {{{
 let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
@@ -398,6 +393,8 @@ highlight link ALEErrorLine Error
 " }}}
 
 " VRC {{{
+let g:vrc_allow_get_request_body = 1
+let g:vrc_elasticsearch_support = 1
 let g:vrc_curl_opts={
     \'--include': '',
     \'--location': '',
