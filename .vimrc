@@ -139,6 +139,7 @@ hi NonText ctermfg=8
 hi LineNr ctermfg=8 ctermbg=8
 " soft visual selection
 hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
+hi SignColumn guibg=NONE
 
 " }}}
 
