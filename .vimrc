@@ -87,6 +87,8 @@ cnoremap <c-v> <c-r>"
 
 " select last pasted text
 nnoremap gp `[v`]
+nnoremap yp yyp
+nnoremap yP yyP
 
 " auto indent pasted text
 " TODO disable auto indent only on html files
@@ -324,6 +326,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <C-w>f <C-w>vgf
+nnoremap <C-w>f <C-w>vgf
+nnoremap <C-w><c-f> <C-w>vgf
 
 " }}}
 
