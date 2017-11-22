@@ -47,6 +47,7 @@ Plug 'vim-scripts/ScrollColors'                               " colorscheme expl
 " Plug 'whatyouhide/vim-gotham'
 
 " Editing
+Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
 Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
