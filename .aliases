@@ -13,6 +13,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias api="vim ~/api.rest"
 
 alias pp_json="python -m json.tool"
 

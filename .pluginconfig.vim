@@ -35,6 +35,7 @@ Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 " Plug 'elmcast/elm-vim'
 Plug 'lepture/vim-jinja'
 Plug 'itchyny/vim-haskell-indent'
+Plug 'posva/vim-vue'
 
 " UI & Colors
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
