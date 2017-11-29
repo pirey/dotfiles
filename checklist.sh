@@ -31,7 +31,8 @@ function npm_package_is_installed {
 # echo echo_fail "No"
 function echo_fail {
   # echo first argument in red
-  printf "\e[31m✘ ${1}"
+  # printf "\e[31m✘ ${1}"
+  printf "\e[31mMISSING${1}"
   # reset colours back to normal
   echo -e "\033[0m"
 }
@@ -41,7 +42,8 @@ function echo_fail {
 # echo echo_fail "Yes"
 function echo_pass {
   # echo first argument in green
-  printf "\e[32m✔ ${1}"
+  # printf "\e[32m✔ ${1}"
+  printf "\e[32mOK${1}"
   # reset colours back to normal
   echo -e "\033[0m"
 }
