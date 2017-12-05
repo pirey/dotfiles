@@ -44,10 +44,13 @@ Plug 'flazz/vim-colorschemes'                                 " A bunch of color
 Plug 'junegunn/goyo.vim'                                      " Distraction free
 Plug 'junegunn/limelight.vim'                                 " Distraction free++
 Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
+Plug 'guns/xterm-color-table.vim'
+" Plug 'nightsense/seabird'
 " Plug 'arcticicestudio/nord-vim'                               " Nord
 " Plug 'whatyouhide/vim-gotham'
 
 " Editing
+Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
