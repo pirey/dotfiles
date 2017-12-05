@@ -38,6 +38,7 @@ Plug 'itchyny/vim-haskell-indent'
 Plug 'posva/vim-vue'
 
 " UI & Colors
+Plug 'chriskempson/base16-vim'
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
 Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
