@@ -184,7 +184,7 @@ set showtabline=0
 " only show statusline for active buffer
 hi clear StatusLineNC
 hi StatusLineNC ctermfg=8 ctermbg=8
-hi StatusLine ctermfg=2
+" hi StatusLine ctermfg=243
 
 " }}}
 
