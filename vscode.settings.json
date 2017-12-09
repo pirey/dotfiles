@@ -1,12 +1,12 @@
 {
+  "editor.fontSize": 14,
   "editor.renderIndentGuides": false,
   "editor.renderWhitespace": "boundary",
   "editor.cursorStyle": "line",
-  "window.reopenFolders": "none",
+  "window.restoreWindows": "none",
   "terminal.external.osxExec": "Alacritty.app",
   "vim.startInInsertMode": false,
   "vim.easymotion": true,
-  "vim.leader": ",",
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": [
@@ -76,7 +76,5 @@
     }
   ],
   "workbench.iconTheme": "vs-seti",
-  "vim.disableAnnoyingNeovimMessage": true,
-  "workbench.colorTheme": "Solarized Light",
-  "typescript.check.tscVersion": false
+  "workbench.colorTheme": "Solarized Dark"
 }
