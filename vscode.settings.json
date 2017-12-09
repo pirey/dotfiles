@@ -1,4 +1,6 @@
 {
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
   "editor.fontSize": 14,
   "editor.renderIndentGuides": false,
   "editor.renderWhitespace": "boundary",
