@@ -9,6 +9,7 @@
 " Created:  2015
 " Modified: Frequently
 " NOTE:     Press <space> to open/close folds
+" NOTE:     for help, use :h {topic}
 
 " TODO: better config type organization
 
@@ -114,34 +115,29 @@ source ~/.pluginconfig.vim
 
 " }}}
 
-" Colors & Highlighting {{{
+" Colors {{{
 
 syntax enable " enable syntax processing
-set background=dark
-silent! colorscheme solarized
-set t_Co=256 " set terminal color to use 256
-if !has('gui_running')
-    set term=screen-256color
-endif
+set background=light
+silent! colorscheme PaperColor
+" set t_Co=256
+" if !has('gui_running')
+"     set term=screen-256color
+" endif
 
-" Gruvbox
-" gruvbox use italic font for commented lines,
-" and sometimes the background color becomes incorrect
-let  g:gruvbox_italic = 0
+" }}}
 
-" Toggle background
-" http://tilvim.com/2013/07/31/swapping-bg.html
-map <Leader><leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+" Highlight {{{
+" for help, use :h hl-{highlight-name}
 
-" transparent background
-hi Normal ctermbg=8
-" hides tildes
-hi NonText ctermfg=8
-" hides line number, but keep padding
-hi LineNr ctermfg=8 ctermbg=8
-" soft visual selection
-hi Visual cterm=NONE ctermbg=0 ctermfg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
+hi Normal ctermbg=NONE
+hi NonText ctermfg=255
+hi LineNr ctermfg=255 ctermbg=255
+hi Visual ctermbg=0 ctermfg=NONE
+hi SignColumn ctermbg=NONE
+hi VertSplit cterm=NONE ctermbg=NONE
+hi StatusLineNC ctermfg=255 ctermbg=NONE
+hi Folded ctermbg=254
 
 " }}}
 
@@ -160,16 +156,13 @@ set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
 " Make the vertical split separator looks simpler
 set fillchars+=vert:\ " replace separator with whitespace
-autocmd ColorScheme * hi VertSplit cterm=NONE ctermbg=8 guibg=NONE
-hi VertSplit cterm=NONE ctermbg=8 guibg=NONE
+if has('linebreak')
+    set breakindent   " indent wrapped lines
+endif
 " toggle list
 nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
 nnoremap <C-n> :set relativenumber!<CR>
-" toggle highlight current line
-nnoremap <leader>hx :set cursorline!<CR>
-" toggle highlight current column
-nnoremap <leader>hy :set cursorcolumn!<CR>
 "filetype indent on " load filetype-specific indent files
 "set lazyredraw
 set showmatch " highlight matching [{()}]
@@ -177,29 +170,20 @@ set showmatch " highlight matching [{()}]
 " Statusline
 set laststatus=2 " always show statusline
 " set statusline if not yet set in plugin configuration
+" TODO:
 if (g:statusline_set < 1)
     set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 endif
 set showtabline=0
-" only show statusline for active buffer
-hi clear StatusLineNC
-hi StatusLineNC ctermfg=8 ctermbg=8
-" hi StatusLine ctermfg=243
 
 " }}}
 
 " Space - Tab - Indent {{{
 
-"set tabstop=4     " tab width
-"set softtabstop=4 " show existing tab with 4 spaces width
-"set shiftwidth=4  " when indenting with '>', use 4 spaces width
-set tabstop=4      " tab width
-set shiftwidth=0   " Make 'shiftwidth' follow 'tabstop'
-set softtabstop=-1 " Make 'softtabstop' follow 'shiftwidth'
+set tabstop=4     " tab width
+set softtabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4  " when indenting with '>', use 4 spaces width
 set expandtab      " when we press tab, tell vim to insert 4 spaces instead
-if has('linebreak')
-    set breakindent   " indent wrapped lines
-endif
 
 " }}}
 
@@ -260,8 +244,6 @@ set foldenable        " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
-" removes underline in fold text
-hi Folded term=NONE cterm=NONE
 " open or close a fold
 nnoremap <space> za
 
@@ -348,58 +330,4 @@ if has('clipboard')
 endif
 set pastetoggle=<leader>p
 
-" }}}
-
-" GUI / Mac Vim / Neovim {{{
-
-if has('gui_running')
-    set guioptions-=m " remove menu bar
-    set guioptions-=T " remove toolbar
-    set guioptions-=L " remove left scroll bar
-    set guioptions-=r " remove right scroll bar
-    "set cursorline
-end
-
-" Macvim
-if has('gui_macvim')
-    set transparency=1
-    set guifont=Menlo:h12
-endif
-
-" Neovim
-if !has('nvim')
-    set ttymouse=xterm2
-
-    " cursor shape
-    if exists('$TMUX')
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    endif
-
-    " eliminate escape delay
-    set timeoutlen=1000 ttimeoutlen=0
-
-else
-    if has('mac')
-        " change cursor shape
-        let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-    endif
-endif
-
-" }}}
-
-" ETC {{{
-" have no idea what this thing's doing
-" put it anyway
-set secure
-" silent! colorscheme nord
-" hi clear VertSplit
-" hi VertSplit ctermfg=8
-" hi clear StatusLineNC
-" hi StatusLineNC ctermfg=8
-" hi clear StatusLine
-" hi StatusLine ctermfg=0 ctermbg=2
 " }}}
