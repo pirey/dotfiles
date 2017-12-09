@@ -88,10 +88,12 @@ cnoremap <c-v> <c-r>"
 
 " select last pasted text
 nnoremap gp `[v`]
+
 nnoremap yp yyp
 nnoremap yP yyP
 
 " auto indent pasted text
+" nice trick but problematic when pasting large text
 " TODO disable auto indent only on html files
 "nnoremap p p=`]
 "nnoremap P P=`]

@@ -21,40 +21,44 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-if (v:version >= 800 && (has('python') || has('python3')))
-    Plug 'w0rp/ale'                                               " linter
-endif
 Plug 'pangloss/vim-javascript'                                " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
+Plug 'neoclide/vim-jsx-improve'                               " React's jsx
+Plug 'posva/vim-vue'
 
 Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 " Plug 'elmcast/elm-vim'
 Plug 'lepture/vim-jinja'
 Plug 'itchyny/vim-haskell-indent'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'posva/vim-vue'
 
-" UI & Colors
-Plug 'chriskempson/base16-vim'
-" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-Plug 'Yggdroot/indentLine'
-Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
-Plug 'junegunn/goyo.vim'                                      " Distraction free
-Plug 'junegunn/limelight.vim'                                 " Distraction free++
-Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
-Plug 'guns/xterm-color-table.vim'
+" Colorscheme
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+" Plug 'chriskempson/base16-vim'
+" Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
 " Plug 'nightsense/seabird'
 " Plug 'arcticicestudio/nord-vim'                               " Nord
 " Plug 'whatyouhide/vim-gotham'
+" Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
+
+" UI
+" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'                                      " Distraction free
+Plug 'junegunn/limelight.vim'                                 " Distraction free++
+Plug 'guns/xterm-color-table.vim'
 
 " Editing
+if (v:version >= 800 && (has('python') || has('python3')))
+    Plug 'w0rp/ale'                                               " linter
+endif
 Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
