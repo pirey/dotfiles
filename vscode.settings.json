@@ -1,70 +1,82 @@
 {
-    "editor.cursorStyle": "line",
-    "vim.startInInsertMode": true,
-    "vim.easymotion": true,
-    "vim.leader": ",",
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                ";"
-            ],
-            "after": [
-                ":"
-            ]
-        },
-        {
-            "before": [
-                "J"
-            ],
-            "after": [
-                "1", "0",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "1", "0",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "E"
-            ],
-            "after": [
-                "1", "0",
-                "l"
-            ]
-        },
-        {
-            "before": [
-                "B"
-            ],
-            "after": [
-                "1", "0",
-                "h"
-            ]
-        }
-    ]
+  "editor.renderIndentGuides": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.cursorStyle": "line",
+  "window.reopenFolders": "none",
+  "terminal.external.osxExec": "Alacritty.app",
+  "vim.startInInsertMode": false,
+  "vim.easymotion": true,
+  "vim.leader": ",",
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        ";"
+      ],
+      "after": [
+        ":"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "1",
+        "0",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "1",
+        "0",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "E"
+      ],
+      "after": [
+        "1",
+        "0",
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "B"
+      ],
+      "after": [
+        "1",
+        "0",
+        "h"
+      ]
+    }
+  ],
+  "workbench.iconTheme": "vs-seti",
+  "vim.disableAnnoyingNeovimMessage": true,
+  "workbench.colorTheme": "Solarized Light",
+  "typescript.check.tscVersion": false
 }

@@ -28,6 +28,12 @@ ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 # ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
+
+
+# TODO vscode setting symlink
+# Mac $HOME/Library/Application Support/Code/User/settings.json
+# Linux $HOME/.config/Code/User/settings.json
+
 echo "symlinks created\n"
 
 echo "All clear\n"
