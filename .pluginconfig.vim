@@ -24,12 +24,15 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
+Plug 'pangloss/vim-javascript'                                " Javascript
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'vim-scripts/JavaScript-Indent'
+
 Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html'
-Plug 'pangloss/vim-javascript'                                " Javascript
-Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
 Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 " Plug 'elmcast/elm-vim'
