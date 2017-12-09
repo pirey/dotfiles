@@ -223,7 +223,14 @@ function! FugitiveStatusline(...) abort
   return '['.fugitive#head(7).']'
 endfunction
 
-set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=\(%{toupper(mode())}\)
+set statusline+=\ %<%t
+set statusline+=\ %r%h%m
+set statusline+=%=
+set statusline+=%y
+set statusline+=%{FugitiveStatusline()}
+set statusline+=%-14.(%l,%c%V%)
+set statusline+=\ %P
 " }}}
 
 " Git Gutter {{{
@@ -402,7 +409,15 @@ if (v:version >= 800 && (has('python') || has('python3')))
                     \)
     endfunction
 
-    set statusline=\(%{toupper(mode())}\)\ %<%t\ %h%m%r%{FugitiveStatusline()}%=%-10{AleStatus()}%-14.(%l,%c%V%)\ %P
+    set statusline=\(%{toupper(mode())}\)
+    set statusline+=\ %<%t
+    set statusline+=\ %r%h%m
+    set statusline+=%=
+    set statusline+=%y
+    set statusline+=%{FugitiveStatusline()}
+    set statusline+=\ %-10{AleStatus()}
+    set statusline+=%-14.(%l,%c%V%)
+    set statusline+=\ %P
     " highlight Error ctermbg=1 ctermfg=0
     highlight link ALEErrorLine Error
 endif
