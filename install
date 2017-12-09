@@ -31,5 +31,6 @@ ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 echo "symlinks created\n"
 
 echo "All clear\n"
-echo "NOTE:\n"
-echo "to install vim plugins, open vim and then type :PlugInstall\n"
+
+# install vim plugins
+vim "+PlugInstall"
