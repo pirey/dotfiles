@@ -133,7 +133,7 @@ silent! colorscheme PaperColor
 hi Normal ctermbg=NONE
 hi NonText ctermfg=255
 hi LineNr ctermfg=255 ctermbg=255
-hi Visual ctermbg=0 ctermfg=NONE
+hi Visual ctermbg=254 ctermfg=NONE
 hi SignColumn ctermbg=NONE
 hi VertSplit cterm=NONE ctermbg=NONE
 hi StatusLineNC ctermfg=255 ctermbg=NONE
