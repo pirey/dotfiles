@@ -220,17 +220,9 @@ function! FugitiveStatusline(...) abort
   if !exists('b:git_dir')
     return ''
   endif
-  return '['.fugitive#head(7).']'
+  return '[git:'.fugitive#head(7).']'
 endfunction
 
-set statusline=\(%{toupper(mode())}\)
-set statusline+=\ %<%t
-set statusline+=\ %r%h%m
-set statusline+=%=
-set statusline+=%y
-set statusline+=%{FugitiveStatusline()}
-set statusline+=%-14.(%l,%c%V%)
-set statusline+=\ %P
 " }}}
 
 " Git Gutter {{{
@@ -409,15 +401,6 @@ if (v:version >= 800 && (has('python') || has('python3')))
                     \)
     endfunction
 
-    set statusline=\(%{toupper(mode())}\)
-    set statusline+=\ %<%t
-    set statusline+=\ %r%h%m
-    set statusline+=%=
-    set statusline+=%y
-    set statusline+=%{FugitiveStatusline()}
-    set statusline+=\ %-10{AleStatus()}
-    set statusline+=%-14.(%l,%c%V%)
-    set statusline+=\ %P
     " highlight Error ctermbg=1 ctermfg=0
     highlight link ALEErrorLine Error
 endif
@@ -436,5 +419,17 @@ let g:vrc_curl_opts={
 
 " }}}
 
+" Custom Statusline {{{
+set statusline=\[%{toupper(mode())}\]
+set statusline+=\ %<%t
+set statusline+=\ %r%h%m
+set statusline+=%=
+set statusline+=%y
+set statusline+=%{FugitiveStatusline()}
+set statusline+=\[%{AleStatus()}\]
+set statusline+=\[%(%l:%c%V%)\]
+set statusline+=\[%P\]
+
 " notify vimrc that statusline is already set
 let g:statusline_set = 1
+" }}}
