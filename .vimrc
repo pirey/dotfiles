@@ -132,7 +132,7 @@ silent! colorscheme PaperColor
 " Highlight {{{
 " for help, use :h hl-{highlight-name}
 
-hi Normal ctermbg=255
+hi Normal ctermbg=NONE
 hi NonText ctermfg=255
 hi LineNr ctermfg=255 ctermbg=255
 hi Visual ctermbg=254 ctermfg=NONE

@@ -1,5 +1,14 @@
 #!/bin/sh
 
+OS="unknown"
+UNAMESTR=`uname`
+if [ "$UNAMESTR" = "Linux" ]; then
+   OS="linux"
+elif [ "$UNAMESTR" = "Darwin" ]; then
+   OS="mac"
+fi
+
+
 # installing vim-plug plugin manager for vim
 if [ ! -e "$HOME/.vim/autoload/plug.vim" ]; then
     echo "installing vim-plug...\n"
@@ -30,9 +39,15 @@ ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 
 
-# TODO vscode setting symlink
-# Mac $HOME/Library/Application Support/Code/User/settings.json
-# Linux $HOME/.config/Code/User/settings.json
+VSCODE_SETTING=""
+if [ "$OS" = "linux" ]; then
+    VSCODE_SETTING="$HOME/.config/Code/User/settings.json"
+elif [ "$OS" = "mac" ]; then
+    VSCODE_SETTING="$HOME/Library/Application Support/Code/User/settings.json"
+fi
+
+rm $VSCODE_SETTING
+ln -sf $DOTFILES/vscode.settings.json $VSCODE_SETTING
 
 echo "symlinks created\n"
 
