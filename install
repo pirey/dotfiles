@@ -1,14 +1,5 @@
 #!/bin/sh
 
-OS="unknown"
-UNAMESTR=`uname`
-if [ "$UNAMESTR" = "Linux" ]; then
-   OS="linux"
-elif [ "$UNAMESTR" = "Darwin" ]; then
-   OS="mac"
-fi
-
-
 # installing vim-plug plugin manager for vim
 if [ ! -e "$HOME/.vim/autoload/plug.vim" ]; then
     echo "installing vim-plug...\n"
@@ -40,13 +31,11 @@ ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 
 
 VSCODE_SETTING=""
-if [ "$OS" = "linux" ]; then
+if [ `uname` = "Linux" ]; then
     VSCODE_SETTING="$HOME/.config/Code/User/settings.json"
-elif [ "$OS" = "mac" ]; then
+elif [ `uname` = "Darwin" ]; then
     VSCODE_SETTING="$HOME/Library/Application Support/Code/User/settings.json"
 fi
-
-rm $VSCODE_SETTING
 ln -sf $DOTFILES/vscode.settings.json $VSCODE_SETTING
 
 echo "symlinks created\n"
@@ -54,4 +43,4 @@ echo "symlinks created\n"
 echo "All clear\n"
 
 # install vim plugins
-vim "+PlugInstall"
+#vim "+PlugInstall"
