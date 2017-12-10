@@ -50,7 +50,7 @@ Plug 'NLKNguyen/papercolor-theme'
 
 " UI
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'                                      " Distraction free
 Plug 'junegunn/limelight.vim'                                 " Distraction free++
 Plug 'guns/xterm-color-table.vim'
@@ -424,11 +424,12 @@ set statusline=
 set statusline+=\ %<%f
 set statusline+=\ %r%h%m
 set statusline+=%=
-set statusline+=%Y\ \|
-set statusline+=\ %{FugitiveStatusline()}\ \|
 set statusline+=\ %{AleStatus()}\ \|
+set statusline+=\ %{FugitiveStatusline()}\ \|
+set statusline+=\ %Y\ \|
 set statusline+=\ %l:%c\ \|
 set statusline+=\ %P
+set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set
 let g:statusline_set = 1

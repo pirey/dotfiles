@@ -133,7 +133,8 @@ silent! colorscheme PaperColor
 " for help, use :h hl-{highlight-name}
 
 hi Normal ctermbg=NONE
-hi NonText ctermfg=255
+" hi NonText ctermfg=255
+hi EndOfBuffer ctermfg=255
 hi LineNr ctermfg=255 ctermbg=255
 hi Visual ctermbg=254 ctermfg=NONE
 hi SignColumn ctermbg=NONE
@@ -156,6 +157,7 @@ set diffopt +=vertical      " open diffs in vertical split.
 set splitright              " open new vsplit to the right
 set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
+set list                    " show listchars
 " Make the vertical split separator looks simpler
 set fillchars+=vert:\ " replace separator with whitespace
 if has('linebreak')
@@ -178,9 +180,10 @@ if (g:statusline_set < 1)
     set statusline+=\ %<%f
     set statusline+=\ %r%h%m
     set statusline+=%=
-    set statusline+=%Y\ \|
+    set statusline+=\ %Y\ \|
     set statusline+=\ %l:%c\ \|
     set statusline+=\ %P
+    set statusline+=\ " trailing space
 endif
 set showtabline=0
 
