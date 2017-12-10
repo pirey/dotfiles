@@ -218,9 +218,9 @@ nnoremap <leader>t :TagbarToggle<CR>
 " simpler than fugitive#statusline()
 function! FugitiveStatusline(...) abort
   if !exists('b:git_dir')
-    return ''
+    return '-'
   endif
-  return '[git:'.fugitive#head(7).']'
+  return 'git:'.fugitive#head(7)
 endfunction
 
 " }}}
@@ -420,15 +420,15 @@ let g:vrc_curl_opts={
 " }}}
 
 " Custom Statusline {{{
-set statusline=\[%{toupper(mode())}\]
-set statusline+=\ %<%t
+set statusline=
+set statusline+=\ %<%f
 set statusline+=\ %r%h%m
 set statusline+=%=
-set statusline+=%y
-set statusline+=%{FugitiveStatusline()}
-set statusline+=\[%{AleStatus()}\]
-set statusline+=\[%(%l:%c%V%)\]
-set statusline+=\[%P\]
+set statusline+=%Y\ \|
+set statusline+=\ %{FugitiveStatusline()}\ \|
+set statusline+=\ %{AleStatus()}\ \|
+set statusline+=\ %l:%c\ \|
+set statusline+=\ %P
 
 " notify vimrc that statusline is already set
 let g:statusline_set = 1

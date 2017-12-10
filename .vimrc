@@ -174,13 +174,13 @@ set laststatus=2 " always show statusline
 " set statusline if not yet set in plugin configuration
 " TODO:
 if (g:statusline_set < 1)
-    set statusline=\[%{toupper(mode())}\]
-    set statusline+=\ %<%t
+    set statusline=
+    set statusline+=\ %<%f
     set statusline+=\ %r%h%m
     set statusline+=%=
-    set statusline+=%y
-    set statusline+=\[%(%l:%c%V%)\]
-    set statusline+=\[%P\]
+    set statusline+=%Y\ \|
+    set statusline+=\ %l:%c\ \|
+    set statusline+=\ %P
 endif
 set showtabline=0
 
