@@ -23,5 +23,5 @@ remove_file ~/.editorconfig
 if [ `uname` = "Linux" ]; then
     remove_file "$HOME/.config/Code/User/settings.json"
 elif [ `uname` = "Darwin" ]; then
-    remove_file "$HOME/Library/Application Support/Code/User/settings.json"
+    remove_file "$HOME/Library/Application\\ Support/Code/User/settings.json"
 fi

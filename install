@@ -2,12 +2,12 @@
 
 # installing vim-plug plugin manager for vim
 if [ ! -e "$HOME/.vim/autoload/plug.vim" ]; then
-    echo "installing vim-plug...\n"
+    echo "installing vim-plug..."
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "vim-plug installed\n"
+    echo "vim-plug installed"
 else
-    echo "vim-plug already installed\n"
+    echo "vim-plug already installed"
 fi
 
 DOTFILES="$HOME/dotfiles"
@@ -17,7 +17,7 @@ if [ "$1" != "" ]; then
 fi
 
 # TODO get all files dynamically
-echo "creating symlinks...\n"
+echo "creating symlinks..."
 ln -sf $DOTFILES/.vimrc ~/.vimrc
 ln -sf $DOTFILES/.pluginconfig.vim ~/.pluginconfig.vim
 ln -sf $DOTFILES/.agignore ~/.agignore
@@ -36,11 +36,12 @@ if [ `uname` = "Linux" ]; then
 elif [ `uname` = "Darwin" ]; then
     VSCODE_SETTING="$HOME/Library/Application Support/Code/User/settings.json"
 fi
-ln -sf $DOTFILES/vscode.settings.json $VSCODE_SETTING
+ln -sf $DOTFILES/vscode.settings.json "${VSCODE_SETTING}"
 
-echo "symlinks created\n"
+echo "symlinks created"
 
-echo "All clear\n"
+echo "installing vim plugins..."
+vim "+PlugInstall | qa!"
+echo "vim plugins installed"
 
-# install vim plugins
-#vim "+PlugInstall"
+echo "All clear"
