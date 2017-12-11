@@ -429,7 +429,7 @@ set statusline+=%=
 set statusline+=\ %{AleStatus()}\ \|
 set statusline+=\ %{FugitiveStatusline()}\ \|
 set statusline+=\ %Y\ \|
-set statusline+=\ %l:%c\ \|
+set statusline+=\ %7.(%l:%c%)\ \|
 set statusline+=\ %P
 set statusline+=\ " trailing space
 
