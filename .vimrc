@@ -120,7 +120,7 @@ source ~/.pluginconfig.vim
 " Colors {{{
 
 syntax enable " enable syntax processing
-set background=light
+set background=dark
 silent! colorscheme PaperColor
 " set t_Co=256
 " if !has('gui_running')
@@ -132,15 +132,36 @@ silent! colorscheme PaperColor
 " Highlight {{{
 " for help, use :h hl-{highlight-name}
 
-hi Normal ctermbg=NONE
-" hi NonText ctermfg=255
-hi EndOfBuffer ctermfg=255
-hi LineNr ctermfg=255 ctermbg=255
-hi Visual ctermbg=254 ctermfg=NONE
-hi SignColumn ctermbg=NONE
-hi VertSplit cterm=NONE ctermbg=NONE
-hi StatusLineNC ctermfg=255 ctermbg=NONE
-hi Folded ctermbg=254
+function! DarkMode ()
+    set bg=dark
+
+    hi Normal ctermbg=NONE
+    " hi NonText ctermfg=NONE
+    hi EndOfBuffer ctermfg=0
+    hi LineNr ctermfg=NONE ctermbg=NONE
+    hi Visual ctermbg=236 ctermfg=NONE
+    hi SignColumn ctermbg=NONE
+    hi VertSplit cterm=NONE ctermbg=NONE
+    hi StatusLineNC ctermfg=0 ctermbg=0
+    hi StatusLine ctermfg=250 ctermbg=0
+    hi Folded ctermbg=236
+endfunction
+
+function! LightMode ()
+    set bg=light
+
+    hi Normal ctermbg=NONE
+    " hi NonText ctermfg=255
+    hi EndOfBuffer ctermfg=255
+    hi LineNr ctermfg=255 ctermbg=255
+    hi Visual ctermbg=254 ctermfg=NONE
+    hi SignColumn ctermbg=NONE
+    hi VertSplit cterm=NONE ctermbg=NONE
+    hi StatusLineNC ctermfg=255 ctermbg=NONE
+    hi Folded ctermbg=254
+endfunction
+
+call DarkMode()
 
 " }}}
 
@@ -181,7 +202,7 @@ if (g:statusline_set < 1)
     set statusline+=\ %r%h%m
     set statusline+=%=
     set statusline+=\ %Y\ \|
-    set statusline+=\ %7.(%l:%c%)\ \|
+    set statusline+=\ %6.(%l:%c%)\ \|
     set statusline+=\ %P
     set statusline+=\ " trailing space
 endif
