@@ -78,5 +78,6 @@
     }
   ],
   "workbench.iconTheme": "vs-seti",
-  "workbench.colorTheme": "papercolor-vscode"
+  "keyboard.dispatch": "keyCode",
+  "workbench.colorTheme": "Base16 Dark Default"
 }
