@@ -33,7 +33,7 @@ Plug 'StanAngeloff/php.vim'                                   " PHP
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-" Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 Plug 'lepture/vim-jinja'
 
 Plug 'itchyny/vim-haskell-indent'
