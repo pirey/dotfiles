@@ -121,11 +121,11 @@ source ~/.pluginconfig.vim
 
 syntax enable " enable syntax processing
 set background=dark
-silent! colorscheme PaperColor
-" set t_Co=256
-" if !has('gui_running')
-"     set term=screen-256color
-" endif
+silent! colorscheme hybrid
+set t_Co=256
+if !has('gui_running')
+    set term=screen-256color
+endif
 
 " }}}
 
@@ -273,7 +273,7 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 
 " Folding {{{
 set foldenable        " enable folding
-" set foldlevelstart=10 " open most folds by default
+set foldlevelstart=10 " open most folds by default
 set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
 " open or close a fold
