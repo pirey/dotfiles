@@ -29,15 +29,6 @@ ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 # ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 
-
-VSCODE_SETTING=""
-if [ `uname` = "Linux" ]; then
-    VSCODE_SETTING="$HOME/.config/Code/User/settings.json"
-elif [ `uname` = "Darwin" ]; then
-    VSCODE_SETTING="$HOME/Library/Application Support/Code/User/settings.json"
-fi
-ln -sf $DOTFILES/vscode.settings.json "${VSCODE_SETTING}"
-
 echo "OK symlinks created"
 
 echo "-> installing vim plugins..."
