@@ -186,3 +186,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 
 # Remaps the caps lock button to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
+
+# Print screen takes a screenshot.
+# With shift, it takes one only of the given window.
+bindsym Print       exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
