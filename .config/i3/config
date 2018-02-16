@@ -151,10 +151,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        tray_output none
         status_command ~/bumblebee-status/bumblebee-status -m memory cpu battery amixer brightness date time
-        # status_command i3status
-        # tray_output primary
+        # status_command i3blocks
+        tray_output primary
 
         # mode hide
         # hidden_state hide
@@ -162,10 +161,10 @@ bar {
 }
 
 # Audio
-set $inc      --no-startup-id amixer sset Master 2%+
-set $biginc   --no-startup-id amixer sset Master 5%+
-set $dec      --no-startup-id amixer sset Master 2%-
-set $bigdec   --no-startup-id amixer sset Master 5%-
+set $inc      --no-startup-id amixer sset Master 5%+
+set $biginc   --no-startup-id amixer sset Master 10%+
+set $dec      --no-startup-id amixer sset Master 5%-
+set $bigdec   --no-startup-id amixer sset Master 10%-
 set $mute     --no-startup-id amixer sset Master toggle
 set $truemute --no-startup-id amixer sset Master mute
 
@@ -184,8 +183,11 @@ bindsym XF86AudioMute exec $truemute
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
-# Remaps the caps lock button to escape
+exec_always --no-startup-id xset r rate 250 60
 exec_always --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id compton -f
+
+hide_edge_borders both
 
 # Print screen takes a screenshot.
 # With shift, it takes one only of the given window.
