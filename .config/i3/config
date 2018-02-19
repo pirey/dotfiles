@@ -152,7 +152,6 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command ~/bumblebee-status/bumblebee-status -m memory cpu battery amixer brightness date time
-        # status_command i3blocks
         tray_output primary
 
         # mode hide
@@ -177,7 +176,7 @@ bindsym $mod+Shift+minus   exec $bigdec
 # XF86 keys
 bindsym XF86AudioRaiseVolume exec $inc
 bindsym XF86AudioLowerVolume exec $dec
-bindsym XF86AudioMute exec $truemute
+bindsym XF86AudioMute exec $mute
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5 # increase screen brightness
@@ -187,6 +186,8 @@ exec_always --no-startup-id xset r rate 250 60
 exec_always --no-startup-id setxkbmap -option caps:escape
 
 hide_edge_borders both
+
+exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # Print screen takes a screenshot.
 # With shift, it takes one only of the given window.
