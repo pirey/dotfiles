@@ -41,8 +41,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'Twinside/vim-haskellConceal'
 
 " Colorscheme
-Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 " Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
 " Plug 'nightsense/seabird'
