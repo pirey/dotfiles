@@ -1,0 +1,16 @@
+# configure keyboard delay speed
+
+# swap capslock to escape
+
+# install basic packages
+sudo apt-get install vim git tmux curl zsh
+snap install rg
+
+# zsh as default shell
+chsh -s $(which zsh)
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# installing dotfiles
+git clone https://github.com/pirey/dotfiles.git ~/dotfiles && ~/dotfiles/install
