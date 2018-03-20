@@ -3,7 +3,7 @@
 # swap capslock to escape
 
 # install basic packages
-sudo apt-get install vim git tmux curl zsh
+sudo apt-get install vim git tmux curl zsh ctags
 snap install rg
 
 # zsh as default shell
