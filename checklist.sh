@@ -66,6 +66,7 @@ function echo_if {
 echo "$(echo_if $(program_is_installed node)) node"
 echo "$(echo_if $(program_is_installed npm)) npm"
 echo "$(echo_if $(program_is_installed standard)) standard"
+echo "$(echo_if $(program_is_installed http-server)) http-server"
 echo "$(echo_if $(program_is_installed git)) git"
 echo "$(echo_if $(program_is_installed vim)) vim"
 echo "$(echo_if $(program_is_installed fzf)) fzf"
