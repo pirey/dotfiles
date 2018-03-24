@@ -28,7 +28,7 @@ set nocursorline
 set noerrorbells
 set novisualbell
 set backspace=indent,eol,start " normalize backspace behaviour
-set iskeyword-=_
+" set iskeyword-=_
 
 " Limit syntax highlighting
 "autocmd BufEnter * :syn sync maxlines=500
