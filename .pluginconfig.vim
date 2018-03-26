@@ -44,6 +44,7 @@ Plug 'Twinside/vim-haskellConceal'
 " Plug 'NLKNguyen/papercolor-theme'
 " Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
+Plug 'tomasiser/vim-code-dark'
 " Plug 'nightsense/seabird'
 " Plug 'arcticicestudio/nord-vim'                               " Nord
 " Plug 'whatyouhide/vim-gotham'

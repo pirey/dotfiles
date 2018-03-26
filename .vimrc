@@ -179,7 +179,7 @@ set diffopt +=vertical      " open diffs in vertical split.
 set splitright              " open new vsplit to the right
 set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
-set list                    " show listchars
+set nolist                  " do not show listchars
 " Make the vertical split separator looks simpler
 set fillchars+=vert:\ " replace separator with whitespace
 if has('linebreak')
@@ -364,3 +364,5 @@ endif
 set pastetoggle=<leader>p
 
 " }}}
+
+colo codedark
