@@ -32,7 +32,7 @@ ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 echo "OK symlinks created"
 
 echo "-> installing vim plugins..."
-vim "+PlugInstall | qa!"
+vim "+PlugInstall! | qa!"
 echo "OK vim plugins installed"
 
 echo "OK All clear"
