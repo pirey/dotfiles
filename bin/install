@@ -10,8 +10,8 @@ else
     echo "OK vim-plug already installed"
 fi
 
+# doftiles directory
 DOTFILES="$HOME/dotfiles"
-
 if [ "$1" != "" ]; then
     DOTFILES=$1
 fi
@@ -28,9 +28,9 @@ ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 # ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
-
 echo "OK symlinks created"
 
+# VIM
 echo "-> installing vim plugins..."
 vim "+PlugInstall! | qa!"
 echo "OK vim plugins installed"
