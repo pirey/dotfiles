@@ -202,7 +202,6 @@ if (g:statusline_set < 1)
     set statusline+=\ %<%f
     set statusline+=\ %r%h%m
     set statusline+=%=
-    set statusline+=\ %Y\ \|
     set statusline+=\ %6.(%l:%c%)\ \|
     set statusline+=\ %P
     set statusline+=\ " trailing space

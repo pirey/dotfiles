@@ -220,9 +220,9 @@ nnoremap <leader>t :TagbarToggle<CR>
 " simpler than fugitive#statusline()
 function! FugitiveStatusline(...) abort
   if !exists('b:git_dir')
-    return '-'
+    return ''
   endif
-  return 'git:'.fugitive#head(7)
+  return fugitive#head(7).' |'
 endfunction
 
 " }}}
@@ -427,9 +427,8 @@ set statusline+=\ %<%f
 set statusline+=\ %r%h%m
 set statusline+=%=
 set statusline+=\ %{AleStatus()}\ \|
-set statusline+=\ %{FugitiveStatusline()}\ \|
-set statusline+=\ %Y\ \|
-set statusline+=\ %6.(%l:%c%)\ \|
+set statusline+=\ %{FugitiveStatusline()}
+set statusline+=\ %1.(%l:%c%)\ \|
 set statusline+=\ %P
 set statusline+=\ " trailing space
 
