@@ -130,9 +130,9 @@ bar {
                 separator #666666
 
                                             #border         #bg         #text
-                focused_workspace           #333333         #222222     #888888
-                active_workspace            #333333         #222222     #888888
-                inactive_workspace          #efefef         #efefef     #222222
+                focused_workspace           #efefef         #efefef     #222222
+                active_workspace            #efefef         #efefef     #222222
+                inactive_workspace          #efefef         #efefef     #999999
                 urgent_workspace            #2f343a         #900000     #ffffff
                 binding_mode                #2f343a         #900000     #ffffff
         }
