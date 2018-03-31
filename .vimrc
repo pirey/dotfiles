@@ -122,47 +122,10 @@ source ~/.pluginconfig.vim
 
 syntax enable " enable syntax processing
 set background=dark
-silent! colorscheme hybrid
 set t_Co=256
 if !has('gui_running')
     set term=screen-256color
 endif
-
-" }}}
-
-" Highlight {{{
-" for help, use :h hl-{highlight-name}
-
-function! DarkMode ()
-    set bg=dark
-
-    hi Normal ctermbg=NONE
-    " hi NonText ctermfg=NONE
-    hi EndOfBuffer ctermfg=0
-    hi LineNr ctermfg=NONE ctermbg=NONE
-    hi Visual ctermbg=236 ctermfg=NONE
-    hi SignColumn ctermbg=NONE
-    hi VertSplit cterm=NONE ctermbg=NONE
-    hi StatusLineNC ctermfg=0 ctermbg=0
-    hi StatusLine ctermfg=250 ctermbg=0
-    hi Folded ctermbg=236
-endfunction
-
-function! LightMode ()
-    set bg=light
-
-    hi Normal ctermbg=NONE
-    " hi NonText ctermfg=255
-    hi EndOfBuffer ctermfg=255
-    hi LineNr ctermfg=255 ctermbg=255
-    hi Visual ctermbg=254 ctermfg=NONE
-    hi SignColumn ctermbg=NONE
-    hi VertSplit cterm=NONE ctermbg=NONE
-    hi StatusLineNC ctermfg=255 ctermbg=NONE
-    hi Folded ctermbg=254
-endfunction
-
-call DarkMode()
 
 " }}}
 
@@ -364,6 +327,18 @@ set pastetoggle=<leader>p
 
 " }}}
 
-colo codedark
+" colorscheme & highlight {{{
+" i put it in the bottom because of reasons...
+silent! colorscheme hybrid
 hi Normal cterm=NONE ctermbg=NONE
-hi EndOfBuffer cterm=NONE ctermbg=NONE
+hi EndOfBuffer ctermfg=0
+hi SignColumn cterm=NONE ctermbg=NONE
+hi VertSplit cterm=NONE ctermbg=NONE
+
+" hi NonText ctermfg=NONE
+" hi LineNr ctermfg=NONE ctermbg=NONE
+" hi Visual ctermbg=236 ctermfg=NONE
+" hi Folded ctermbg=236
+" hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
+" hi StatusLine ctermfg=250 ctermbg=0
+" }}}
