@@ -76,6 +76,9 @@ echo "$(echo_if $(program_is_installed php)) php"
 echo "$(echo_if $(program_is_installed ctags)) ctags"
 echo "$(echo_if $(program_is_installed python)) python"
 echo "$(echo_if $(program_is_installed python3)) python3"
+echo "$(echo_if $(program_is_installed python3)) i3lock"
+echo "$(echo_if $(program_is_installed python3)) i3status"
+echo "$(echo_if $(program_is_installed python3)) feh"
 
 # local npm packages
 # echo "grunt-shell   $(echo_if $(npm_package_is_installed grunt-shell))"
