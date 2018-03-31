@@ -1,4 +1,5 @@
 set $mod Mod1
+set $terminal i3-sensible-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -10,7 +11,7 @@ floating_modifier $mod
 hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -75,23 +76,26 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# move focused container to workspace, and jump to that workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # screenshots
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures'
 bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -sel clip -t image/png $f'
 bindsym --release Shift+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures'
 bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f'
+
+# audio
+bindsym $mod+m exec $terminal -e 'alsamixer'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -130,13 +134,13 @@ exec_always --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertSc 
 
 # init
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/hisoka.jpg
-exec --no-startup-id compton
+exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0
-# smart_gaps on
+smart_gaps on
 gaps inner 10
 # gaps outer 10

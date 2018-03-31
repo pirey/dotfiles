@@ -30,13 +30,15 @@ ln -sf $DOTFILES/.editorconfig ~/.editorconfig
 # i3
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/i3status
+mkdir -p $HOME/.config/volumeicon
 ln -sf $DOTFILES/.config/i3/config ~/.config/i3/config
 ln -sf $DOTFILES/.config/i3status/config ~/.config/i3status/config
+ln -sf $DOTFILES/.config/volumeicon/volumeicon ~/.config/volumeicon/volumeicon
 echo "OK symlinks created"
 
 # VIM
 echo "-> installing vim plugins..."
-vim "+PlugInstall! | qa!"
+# vim "+PlugInstall! | qa!"
 echo "OK vim plugins installed"
 
 echo "OK All clear"
