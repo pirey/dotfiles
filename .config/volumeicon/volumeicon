@@ -5,7 +5,7 @@ mmb_mute=false
 use_horizontal_slider=true
 show_sound_level=true
 onclick=x-terminal-emulator -e 'alsamixer'
-theme=White Gnome
+theme=Black Gnome
 
 [Hotkeys]
 up_enabled=true

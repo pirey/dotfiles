@@ -15,7 +15,7 @@ order += "battery 1"
 order += "tztime local"
 
 battery 1 {
-        format = " Battery: %percentage "
+        format = " %status %percentage "
 }
 
 tztime local {
