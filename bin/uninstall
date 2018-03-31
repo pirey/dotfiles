@@ -2,11 +2,13 @@
 
 remove_file () {
     if [ ! -e "$1" ]; then
-        echo "File $1 doesn't exists\n"
+        echo "File $1 doesn't exists"
     else
-        rm "$1"
+        rm -rf "$1"
     fi
 }
+
+echo "-> removing dotfiles..."
 
 # TODO get file names dynamically
 remove_file ~/.vimrc
@@ -19,3 +21,8 @@ remove_file ~/.gitignore_global
 remove_file ~/.tmux.conf
 # remove_file ~/.bashrc
 remove_file ~/.editorconfig
+remove_file ~/.config/i3
+remove_file ~/.config/i3status
+remove_file ~/.config/volumeicon
+
+echo "OK dotfiles removed"
