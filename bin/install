@@ -26,8 +26,12 @@ ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
-# ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
+# i3
+mkdir -p $HOME/.config/i3
+mkdir -p $HOME/.config/i3status
+ln -sf $DOTFILES/.config/i3/config ~/.config/i3/config
+ln -sf $DOTFILES/.config/i3status/config ~/.config/i3status/config
 echo "OK symlinks created"
 
 # VIM

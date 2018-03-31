@@ -365,3 +365,5 @@ set pastetoggle=<leader>p
 " }}}
 
 colo codedark
+hi Normal cterm=NONE ctermbg=NONE
+hi EndOfBuffer cterm=NONE ctermbg=NONE
