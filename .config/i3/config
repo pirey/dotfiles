@@ -90,9 +90,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # screenshots
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures'
-bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -sel clip -t image/png $f'
+bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -sel clip -t image/png $f && rm $f'
 bindsym --release Shift+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures'
-bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f'
+bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f && rm $f'
 
 # audio
 bindsym $mod+m exec $terminal -e 'alsamixer'
