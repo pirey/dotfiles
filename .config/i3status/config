@@ -20,6 +20,7 @@ battery 1 {
         status_bat = ""
         status_full = "FULL"
         low_threshold = 30
+        integer_battery_capacity = true
 
 }
 
