@@ -7,7 +7,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = false
+        colors = true
         interval = 1
 }
 
@@ -16,8 +16,14 @@ order += "tztime local"
 
 battery 1 {
         format = " %status %percentage "
+        status_chr = ""
+        status_bat = ""
+        status_full = "FULL"
+        low_threshold = 30
+
 }
 
 tztime local {
-        format = " %Y-%m-%d %H:%M:%S "
+        # format = " %Y-%m-%d %H:%M:%S "
+        format = " %H:%M:%S "
 }
