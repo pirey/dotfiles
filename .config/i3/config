@@ -23,7 +23,7 @@ set $inactive-bg-color   #efefef
 set $text-color          #222222
 set $inactive-text-color #999999
 set $urgent-bg-color     #900000
-bindsym $mod+d exec rofi -show run -lines 5 -hide-scrollbar -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Courier 18"
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left

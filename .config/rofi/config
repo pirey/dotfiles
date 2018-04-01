@@ -1,0 +1,12 @@
+! this config uses .Xresources format
+rofi.lines: 5
+rofi.hide-scrollbar: true
+rofi.eh: 2
+rofi.width: 100
+rofi.padding: 300
+rofi.opacity: 70
+rofi.bw: 0
+rofi.font: Courier 18
+rofi.color-enabled
+rofi.color-window: #772953,#000000,#772953
+rofi.color-normal: #772953,#ffffff,#772953,#ffffff,#772953
