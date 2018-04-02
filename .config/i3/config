@@ -157,7 +157,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # natural scrolling
-exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
+exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
 # init
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/hisoka.jpg
