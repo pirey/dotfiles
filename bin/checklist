@@ -86,6 +86,7 @@ echo "$(echo_if $(program_is_installed rofi)) rofi"
 echo "$(echo_if $(program_is_installed nm-applet)) nm-applet"
 echo "$(echo_if $(program_is_installed volumeicon)) volumeicon-alsa"
 echo "$(echo_if $(program_is_installed xbacklight)) xbacklight"
+echo "$(echo_if $(program_is_installed lxappearance)) lxappearance"
 
 # local npm packages
 # echo "grunt-shell   $(echo_if $(npm_package_is_installed grunt-shell))"
