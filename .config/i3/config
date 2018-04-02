@@ -149,6 +149,12 @@ bar {
 exec_always --no-startup-id xset r rate 250 60
 exec_always --no-startup-id setxkbmap -option caps:escape
 
+# Sreen brightness controls
+# TODO still not working
+force_xinerama yes
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 # natural scrolling
 exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
