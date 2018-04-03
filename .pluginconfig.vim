@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript'                                " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jelera/vim-javascript-syntax'
