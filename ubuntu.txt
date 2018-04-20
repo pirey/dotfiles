@@ -14,3 +14,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # installing dotfiles
 git clone https://github.com/pirey/dotfiles.git ~/dotfiles && ~/dotfiles/install
+
+# install light (xbacklight alternative)
+git clone https://github.com/haikarainen/light.git
+sudo make
+sudo make install
+

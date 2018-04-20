@@ -151,16 +151,20 @@ exec_always --no-startup-id xset r rate 250 60
 exec_always --no-startup-id setxkbmap -option caps:escape
 
 # Sreen brightness controls
-# TODO still not working
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 force_xinerama yes
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Screen brightness controls with notification
+bindsym XF86MonBrightnessUp exec light -A 15
+bindsym XF86MonBrightnessDown exec light -U 15
 
 # touchpad & natural scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
 # init
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/hisoka.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/purple.jpg
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
