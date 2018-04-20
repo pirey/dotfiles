@@ -44,6 +44,7 @@ alias ginit="git init && git add . && git commit -m 'init'"
 alias gad="git add ."
 alias gac="git add . && git commit -m"
 alias gca="git add . && git commit --amend"
+alias gcn="git commit --amend --no-edit"
 alias gc="git commit -m"
 alias gp="git push"
 
