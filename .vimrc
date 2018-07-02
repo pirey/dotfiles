@@ -329,8 +329,8 @@ set pastetoggle=<leader>p
 
 " colorscheme & highlight {{{
 " i put it in the bottom because of reasons...
-silent! colorscheme hybrid
-hi Normal cterm=NONE ctermbg=NONE
+silent! colorscheme codedark
+" hi Normal cterm=NONE ctermbg=NONE
 hi EndOfBuffer ctermfg=0
 hi SignColumn cterm=NONE ctermbg=NONE
 hi VertSplit cterm=NONE ctermbg=NONE
