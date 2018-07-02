@@ -21,25 +21,26 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-Plug 'mustache/vim-mustache-handlebars'
+" Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript'                                " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
 Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 
-Plug 'StanAngeloff/php.vim'                                   " PHP
+" Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
-Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
-Plug 'captbaritone/better-indent-support-for-php-with-html'
-Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-Plug 'elmcast/elm-vim'
-Plug 'lepture/vim-jinja'
+" Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
+" Plug 'captbaritone/better-indent-support-for-php-with-html'
+" Plug 'digitaltoad/vim-pug'                                    " Pug template engine
+" Plug 'elmcast/elm-vim'
+" Plug 'lepture/vim-jinja'
 
-Plug 'itchyny/vim-haskell-indent'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'Twinside/vim-haskellConceal'
+" Plug 'itchyny/vim-haskell-indent'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'Twinside/vim-haskellConceal'
 
 " Colorscheme
 " Plug 'NLKNguyen/papercolor-theme'
@@ -54,19 +55,19 @@ Plug 'tomasiser/vim-code-dark'
 " UI
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 " Plug 'Yggdroot/indentLine'
-Plug 'junegunn/goyo.vim'                                      " Distraction free
-Plug 'junegunn/limelight.vim'                                 " Distraction free++
-Plug 'guns/xterm-color-table.vim'
+" Plug 'junegunn/goyo.vim'                                      " Distraction free
+" Plug 'junegunn/limelight.vim'                                 " Distraction free++
+" Plug 'guns/xterm-color-table.vim'
 
 " Editing
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
-Plug 'simnalamburt/vim-mundo'                                 " Undo tree
+" Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
-Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
+" Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
 Plug 'tpope/vim-surround'                                     " Surrounder `cs*`
 Plug 'godlygeek/tabular'                                      " Aligning tool :Tabular /{pattern}
 Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
@@ -97,7 +98,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <le
 " Plug 'Tagbar'                                               " List tags in sidebar
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
-Plug 'mhinz/vim-grepper'                                      " Searching tool
+" Plug 'mhinz/vim-grepper'                                      " Searching tool
 
 " Git
 Plug 'tpope/vim-fugitive'                                     " Git wrapper
@@ -106,10 +107,10 @@ Plug 'airblade/vim-gitgutter'                                 " Git changes sign
 Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
 
 " ETC
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-dispatch'
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
-" Plug 'Shougo/vimshell.vim'
+" Plug 'Shougo/vimshell.vim'                                  " NOTE: this is already built-in feature in vim 8 so no need to install it
 
 " Fancy stuff for fun
 " Plug 'mhinz/vim-startify'                                   " Fancy start screen
@@ -187,7 +188,7 @@ endif
 " }}}
 
 " javascript-libraries-syntax.vim {{{
-let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter'
+let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter,react,vue'
 " }}}
 
 "" Supertab {{{
@@ -383,12 +384,12 @@ if (v:version >= 800 && (has('python') || has('python3')))
     " let g:ale_open_list = 1
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
-    let g:ale_linters = {'javascript': ['standard'], 'haskell': ['hlint']}
+    let g:ale_linters = {'typescript': ['tslint'], 'javascript': ['standard'], 'haskell': ['hlint']}
     if (executable('standard'))
         let g:ale_javascript_standard_executable = 'standard'
         let g:ale_javascript_standard_use_global = 1
     endif
-    let g:ale_fixers = { 'javascript': 'standard' }
+    let g:ale_fixers = { 'typescript': 'tslint', 'javascript': 'standard' }
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
     function! AleStatus() abort
@@ -409,7 +410,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
 endif
 " }}}
 
-" VRC {{{
+" vim-rest-console {{{
 let g:vrc_allow_get_request_body = 1
 let g:vrc_elasticsearch_support = 1
 let g:vrc_curl_opts={
