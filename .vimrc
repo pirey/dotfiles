@@ -342,3 +342,9 @@ hi VertSplit cterm=NONE ctermbg=NONE
 " hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
 " hi StatusLine ctermfg=250 ctermbg=0
 " }}}
+
+" Local vimrc {{{
+if filereadable('./.vimrc')
+    source ./.vimrc
+endif
+" }}}

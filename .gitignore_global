@@ -6,3 +6,4 @@ node_modules/*
 bower_modules/*
 .phalcon
 .vscode
+.vimrc*
