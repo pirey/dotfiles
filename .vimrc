@@ -344,7 +344,7 @@ hi VertSplit cterm=NONE ctermbg=NONE
 " }}}
 
 " Local vimrc {{{
-if filereadable('./.vimrc')
-    source ./.vimrc
+if filereadable('./.vimrc.local')
+    source ./.vimrc.local
 endif
 " }}}
