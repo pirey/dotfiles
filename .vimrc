@@ -327,24 +327,32 @@ set pastetoggle=<leader>p
 
 " }}}
 
-" colorscheme & highlight {{{
-" i put it in the bottom because of reasons...
-silent! colorscheme codedark
-" hi Normal cterm=NONE ctermbg=NONE
-hi EndOfBuffer ctermfg=0
-hi SignColumn cterm=NONE ctermbg=NONE
-hi VertSplit cterm=NONE ctermbg=NONE
-
-" hi NonText ctermfg=NONE
-" hi LineNr ctermfg=NONE ctermbg=NONE
-" hi Visual ctermbg=236 ctermfg=NONE
-" hi Folded ctermbg=236
-" hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
-" hi StatusLine ctermfg=250 ctermbg=0
-" }}}
-
 " Local vimrc {{{
 if filereadable('./.vimrc.local')
     source ./.vimrc.local
 endif
+
+" colorscheme & highlight {{{
+" i put it in the bottom because of reasons...
+
+" use colorscheme config helper from base16 shell
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
+
+" custom highlight config (solarized)
+hi Normal cterm=NONE ctermbg=NONE
+hi EndOfBuffer ctermfg=0
+hi SignColumn cterm=NONE ctermbg=NONE
+hi VertSplit cterm=NONE ctermbg=NONE
+
+hi NonText ctermfg=NONE
+hi LineNr ctermfg=NONE ctermbg=NONE
+hi Visual ctermbg=18 ctermfg=NONE
+hi Folded ctermbg=18
+hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
+hi StatusLine ctermfg=8 ctermbg=18
+" }}}
+
 " }}}

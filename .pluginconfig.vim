@@ -29,6 +29,7 @@ Plug 'vim-scripts/JavaScript-Indent'
 Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 
 " Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
@@ -39,12 +40,12 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'lepture/vim-jinja'
 
 " Plug 'itchyny/vim-haskell-indent'
-" Plug 'neovimhaskell/haskell-vim'
+Plug 'neovimhaskell/haskell-vim'
 " Plug 'Twinside/vim-haskellConceal'
 
 " Colorscheme
 " Plug 'NLKNguyen/papercolor-theme'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
 Plug 'tomasiser/vim-code-dark'
 " Plug 'nightsense/seabird'
@@ -65,6 +66,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
 endif
 " Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
+Plug 'hotoo/jsgf.vim'                                         " better `gf` command support for js files
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
 " Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
@@ -384,12 +386,28 @@ if (v:version >= 800 && (has('python') || has('python3')))
     " let g:ale_open_list = 1
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
-    let g:ale_linters = {'typescript': ['tslint'], 'javascript': ['standard'], 'haskell': ['hlint']}
-    if (executable('standard'))
-        let g:ale_javascript_standard_executable = 'standard'
-        let g:ale_javascript_standard_use_global = 1
-    endif
-    let g:ale_fixers = { 'typescript': 'tslint', 'javascript': 'standard' }
+    let g:ale_linters = {
+                \'typescript': ['tslint'],
+                \'javascript': ['eslint'],
+                \'haskell': ['hlint']
+                \}
+    " let g:ale_linters = {
+    "             \'typescript': ['tslint'],
+    "             \'javascript': ['standard'],
+    "             \'haskell': ['hlint']
+    "             \}
+    " if (executable('standard'))
+    "     let g:ale_javascript_standard_executable = 'standard'
+    "     let g:ale_javascript_standard_use_global = 1
+    " endif
+    " let g:ale_fixers = {
+    "             \'typescript': 'tslint',
+    "             \'javascript': 'standard'
+    "             \}
+    let g:ale_fixers = {
+                \'typescript': 'tslint',
+                \'javascript': 'eslint'
+                \}
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
     function! AleStatus() abort
