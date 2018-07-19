@@ -387,7 +387,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
     let g:ale_linters = {
-                \'typescript': ['tslint'],
+                \'typescript': ['tslint', 'tsserver'],
                 \'javascript': ['eslint'],
                 \'haskell': ['hlint']
                 \}
