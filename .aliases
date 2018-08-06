@@ -56,3 +56,6 @@ alias nano="vim -u ~/.simple.vimrc"
 alias pyserve="python -m SimpleHTTPServer"
 
 alias hs="http-server -c-1 -d"
+
+# react native
+alias rn-reverse="adb reverse tcp:8081 tcp:8081"
