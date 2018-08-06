@@ -132,6 +132,7 @@ endif
 " UI {{{
 
 set nonumber                " don't really need line numbers
+set noruler                 " don't display number and colon in bottom right
 set norelativenumber        " use no relative numbering.
 set showcmd                 " show command in bottom bar
 set showmode                " show current mode (insert, visual, bla bla)
@@ -157,7 +158,7 @@ nnoremap <C-n> :set relativenumber!<CR>
 set showmatch " highlight matching [{()}]
 
 " Statusline
-set laststatus=2 " always show statusline
+" set laststatus=2 " always show statusline
 " set statusline if not yet set in plugin configuration
 " TODO:
 if (g:statusline_set < 1)
@@ -170,6 +171,9 @@ if (g:statusline_set < 1)
     set statusline+=\ " trailing space
 endif
 set showtabline=0
+
+" let's go crazy simple and hide everything
+set laststatus=0 " never show statusline
 
 " }}}
 
