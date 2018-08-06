@@ -30,11 +30,12 @@ Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+Plug 'purescript-contrib/purescript-vim'
 
-" Plug 'StanAngeloff/php.vim'                                   " PHP
+Plug 'StanAngeloff/php.vim'                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
-" Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
-" Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
+Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
 " Plug 'elmcast/elm-vim'
 " Plug 'lepture/vim-jinja'
@@ -66,10 +67,9 @@ if (v:version >= 800 && (has('python') || has('python3')))
 endif
 " Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
-Plug 'hotoo/jsgf.vim'                                         " better `gf` command support for js files
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
-" Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
+Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
 Plug 'tpope/vim-surround'                                     " Surrounder `cs*`
 Plug 'godlygeek/tabular'                                      " Aligning tool :Tabular /{pattern}
 Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
@@ -387,7 +387,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
     let g:ale_linters = {
-                \'typescript': ['tslint', 'tsserver'],
+                \'typescript': ['tsserver'],
                 \'javascript': ['eslint'],
                 \'haskell': ['hlint']
                 \}
@@ -410,6 +410,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
                 \}
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
+    let g:ale_completion_enabled = 0
     function! AleStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
 
