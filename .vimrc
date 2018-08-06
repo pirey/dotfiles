@@ -24,7 +24,7 @@ set noswapfile
 set hidden
 set autoread
 set nocursorcolumn
-set nocursorline
+set cursorline
 set noerrorbells
 set novisualbell
 set backspace=indent,eol,start " normalize backspace behaviour
