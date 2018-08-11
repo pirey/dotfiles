@@ -175,6 +175,13 @@ set showtabline=0
 " let's go crazy simple and hide everything
 set laststatus=0 " never show statusline
 
+" cursorline only for active window
+augroup CurrentCursorline
+    autocmd!
+    autocmd WinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
 " }}}
 
 " Space - Tab - Indent {{{

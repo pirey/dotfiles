@@ -55,7 +55,6 @@ Plug 'tomasiser/vim-code-dark'
 " Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
 
 " UI
-Plug 'vim-scripts/CursorLineCurrentWindow'
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 " Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
