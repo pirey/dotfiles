@@ -169,7 +169,7 @@ exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 Horiz
 
 # init
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/cityscape.jpg
-exec --no-startup-id compton -f
+exec --no-startup-id compton -f -i 0.4 --inactive-dim 0.4
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
