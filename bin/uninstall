@@ -8,9 +8,10 @@ remove_file () {
     fi
 }
 
-echo "-> removing dotfiles..."
+echo "-> removing files..."
 
 # TODO get file names dynamically
+remove_file ~/.local/bin/fuzzy_lock.sh
 remove_file ~/.vimrc
 remove_file ~/.pluginconfig.vim
 remove_file ~/.agignore
@@ -26,4 +27,4 @@ remove_file ~/.config/i3status
 remove_file ~/.config/volumeicon
 remove_file ~/.config/rofi
 
-echo "OK dotfiles removed"
+echo "OK files removed"
