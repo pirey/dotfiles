@@ -335,6 +335,7 @@ set pastetoggle=<leader>p
 if filereadable('./.vimrc.local')
     source ./.vimrc.local
 endif
+" }}}
 
 " colorscheme & highlight {{{
 " i put it in the bottom because of reasons...
@@ -357,6 +358,4 @@ hi Visual ctermbg=18 ctermfg=NONE
 hi Folded ctermbg=18
 hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
 hi StatusLine ctermfg=8 ctermbg=18
-" }}}
-
 " }}}
