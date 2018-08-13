@@ -267,7 +267,7 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrows = 1
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeStatusline = " ❖ FILES"
+let g:NERDTreeStatusline = " FILES"
 
 " nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
@@ -433,12 +433,10 @@ let g:vrc_curl_opts={
 "
 " Custom Statusline {{{
 set statusline=
-set statusline+=\ ❖
 set statusline+=\ %<%t
 set statusline+=\ %r%h%m
 set statusline+=%=
 set statusline+=\ %{AleStatus()}
-set statusline+=\ ❖
 set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set

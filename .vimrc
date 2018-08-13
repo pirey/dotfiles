@@ -163,7 +163,6 @@ set laststatus=2 " always show statusline
 " TODO:
 if (g:statusline_set < 1)
     set statusline=
-    set statusline+=\ ❖
     set statusline+=\ %<%t
     set statusline+=\ %r%h%m
 endif
