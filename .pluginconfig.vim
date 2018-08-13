@@ -220,17 +220,6 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " }}}
 
-" Fugitive {{{
-" simpler than fugitive#statusline()
-function! FugitiveStatusline(...) abort
-  if !exists('b:git_dir')
-    return ''
-  endif
-  return fugitive#head(7).' |'
-endfunction
-
-" }}}
-
 " Git Gutter {{{
 
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
@@ -278,7 +267,7 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrows = 1
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeStatusline = "FILES"
+let g:NERDTreeStatusline = " ❖ FILES"
 
 " nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
@@ -441,18 +430,16 @@ let g:vrc_curl_opts={
 " }}}
 
 " }}}
-
+"
 " Custom Statusline {{{
 set statusline=
-set statusline+=\ %<%f
+set statusline+=\ ❖
+set statusline+=\ %<%t
 set statusline+=\ %r%h%m
 set statusline+=%=
-set statusline+=\ %{AleStatus()}\ \|
-set statusline+=\ %{FugitiveStatusline()}
-set statusline+=\ %1.(%l:%c%)\ \|
-set statusline+=\ %P
+set statusline+=\ %{AleStatus()}
+set statusline+=\ ❖
 set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set
 let g:statusline_set = 1
-" }}}

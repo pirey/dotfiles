@@ -158,22 +158,16 @@ nnoremap <C-n> :set relativenumber!<CR>
 set showmatch " highlight matching [{()}]
 
 " Statusline
-" set laststatus=2 " always show statusline
+set laststatus=2 " always show statusline
 " set statusline if not yet set in plugin configuration
 " TODO:
 if (g:statusline_set < 1)
     set statusline=
-    set statusline+=\ %<%f
+    set statusline+=\ ❖
+    set statusline+=\ %<%t
     set statusline+=\ %r%h%m
-    set statusline+=%=
-    set statusline+=\ %6.(%l:%c%)\ \|
-    set statusline+=\ %P
-    set statusline+=\ " trailing space
 endif
 set showtabline=0
-
-" let's go crazy simple and hide everything
-set laststatus=0 " never show statusline
 
 " cursorline only for active window
 augroup CurrentCursorline
