@@ -20,6 +20,7 @@ if !has('nvim')
 endif
 
 set fileencoding=utf-8
+set confirm
 set noswapfile
 set hidden
 set autoread
