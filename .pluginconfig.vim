@@ -40,7 +40,7 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Plug 'elmcast/elm-vim'
 " Plug 'lepture/vim-jinja'
 
-" Plug 'itchyny/vim-haskell-indent'
+Plug 'itchyny/vim-haskell-indent'
 Plug 'neovimhaskell/haskell-vim'
 " Plug 'Twinside/vim-haskellConceal'
 
