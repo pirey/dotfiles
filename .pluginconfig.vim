@@ -40,7 +40,10 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Plug 'elmcast/elm-vim'
 " Plug 'lepture/vim-jinja'
 
-Plug 'itchyny/vim-haskell-indent'
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+Plug 'itchyny/vim-haskell-indent'                             " haskell
 Plug 'neovimhaskell/haskell-vim'
 " Plug 'Twinside/vim-haskellConceal'
 
@@ -97,7 +100,7 @@ Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer
 Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
-" Plug 'Tagbar'                                               " List tags in sidebar
+Plug 'majutsushi/tagbar'                                      " List tags in sidebar
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 " Plug 'mhinz/vim-grepper'                                      " Searching tool
@@ -113,6 +116,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status withi
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 " Plug 'Shougo/vimshell.vim'                                  " NOTE: this is already built-in feature in vim 8 so no need to install it
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
 
 " Fancy stuff for fun
 " Plug 'mhinz/vim-startify'                                   " Fancy start screen
@@ -143,7 +149,12 @@ call plug#end()
 " }}}
 
 " Plugin Settings {{{
-"
+
+" vim-go {{{
+" disable `K` as lookup doc
+let g:go_doc_keywordprg_enabled = 0
+" }}}
+
 " PHP.vim {{{
 
 let php_sql_query = 1
