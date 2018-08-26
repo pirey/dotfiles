@@ -426,6 +426,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
 
     " highlight Error ctermbg=1 ctermfg=0
     highlight link ALEErrorLine Error
+    highlight ALEWarning cterm=NONE
 endif
 " }}}
 
