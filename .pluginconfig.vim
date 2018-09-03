@@ -29,6 +29,7 @@ Plug 'vim-scripts/JavaScript-Indent'
 Plug 'neoclide/vim-jsx-improve'                               " React's jsx
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 Plug 'ianks/vim-tsx'
 Plug 'purescript-contrib/purescript-vim'
 
