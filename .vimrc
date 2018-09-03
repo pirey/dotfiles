@@ -303,6 +303,11 @@ nnoremap K 10gk
 vnoremap J 10gj
 vnoremap K 10gk
 
+" preserve cursor in the middle when scrolling
+nnoremap <C-f> <C-f>M
+nnoremap <C-b> <C-b>M
+
+
 " Easier window movement
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
