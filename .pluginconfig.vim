@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-" Plug 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript'                                " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jelera/vim-javascript-syntax'
@@ -38,7 +38,7 @@ Plug 'StanAngeloff/php.vim'                                   " PHP
 Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-" Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 " Plug 'lepture/vim-jinja'
 
 
@@ -448,8 +448,9 @@ if (v:version >= 800 && (has('python') || has('python3')))
     endfunction
 
     " highlight Error ctermbg=1 ctermfg=0
-    highlight link ALEErrorLine Error
-    highlight ALEWarning cterm=NONE
+    highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
+    " highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+    " highlight ALEWarning cterm=NONE
 endif
 " }}}
 
