@@ -169,7 +169,7 @@ bindsym XF86MonBrightnessDown exec light -U 15
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
 # init
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/galaxy.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/silver.png
 exec --no-startup-id compton -f -i 0.4 --inactive-dim 0.4
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
