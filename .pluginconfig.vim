@@ -60,7 +60,7 @@ Plug 'tomasiser/vim-code-dark'
 
 " UI
 Plug 'severin-lemaignan/vim-minimap'
-" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 " Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
 " Plug 'junegunn/limelight.vim'                                 " Distraction free++
@@ -70,6 +70,7 @@ Plug 'severin-lemaignan/vim-minimap'
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
@@ -216,10 +217,6 @@ let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirou
 "\   call SuperTabChain(&omnifunc, "<c-p>") |
 "\ endif
 "" }}}
-
-" Buftabline {{{
-let g:buftabline_indicators = 1
-" }}}
 
 " Bclose {{{
 
@@ -478,3 +475,8 @@ set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set
 let g:statusline_set = 1
+" }}}
+
+" Buftabline {{{
+let g:buftabline_indicators = 1
+" }}}

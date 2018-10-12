@@ -29,6 +29,7 @@ set cursorline
 set noerrorbells
 set novisualbell
 set backspace=indent,eol,start " normalize backspace behaviour
+set ttimeoutlen=10
 " set iskeyword-=_
 
 " Limit syntax highlighting
@@ -159,7 +160,7 @@ nnoremap <C-n> :set relativenumber!<CR>
 set showmatch " highlight matching [{()}]
 
 " Statusline
-set laststatus=2 " always show statusline
+set laststatus=0 " always show statusline
 " set statusline if not yet set in plugin configuration
 " TODO:
 if (g:statusline_set < 1)
@@ -364,4 +365,12 @@ hi Visual ctermbg=18 ctermfg=NONE
 hi Folded ctermbg=18
 hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
 hi StatusLine ctermfg=8 ctermbg=18
+" }}}
+
+" BufTabLine {{{
+" TODO: move this to plugin file
+hi BufTabLineCurrent ctermbg=18 ctermfg=8
+hi BufTabLineActive ctermbg=0 ctermfg=8
+hi BufTabLineHidden ctermbg=0 ctermfg=8
+hi BufTabLineFill ctermbg=0
 " }}}
