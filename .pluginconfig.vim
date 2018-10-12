@@ -434,6 +434,7 @@ if (v:version >= 800 && (has('python') || has('python3')))
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
     let g:ale_completion_enabled = 0
+    let g:ale_javascript_eslint_suppress_missing_config = 1
     function! AleStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
 
