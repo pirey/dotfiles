@@ -61,7 +61,7 @@ Plug 'tomasiser/vim-code-dark'
 " UI
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
 " Plug 'junegunn/limelight.vim'                                 " Distraction free++
 " Plug 'guns/xterm-color-table.vim'
@@ -378,6 +378,7 @@ nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
 "let g:indentLine_char = '┊'
 let g:indentLine_char = '·'
+let g:indentLine_concealcursor=0
 "let g:indentLine_enabled = 0
 "let g:indentLine_leadingSpaceChar = '·'
 "let g:indentLine_leadingSpaceEnabled = 1
