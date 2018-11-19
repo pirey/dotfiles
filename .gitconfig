@@ -28,7 +28,8 @@
     pager = true
 [alias]
     #l = log --oneline --graph --decorate
-    l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ; l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    l = log --pretty=format:'%Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset' --abbrev-commit
     #la = log --oneline --graph --decorate --all
     la = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
 

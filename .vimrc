@@ -25,7 +25,7 @@ set noswapfile
 set hidden
 set autoread
 set nocursorcolumn
-set cursorline
+set nocursorline
 set noerrorbells
 set novisualbell
 set backspace=indent,eol,start " normalize backspace behaviour
@@ -171,11 +171,11 @@ endif
 set showtabline=0
 
 " cursorline only for active window
-augroup CurrentCursorline
-    autocmd!
-    autocmd WinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
+" augroup CurrentCursorline
+"     autocmd!
+"     autocmd WinEnter * setlocal cursorline
+"     autocmd WinLeave * setlocal nocursorline
+" augroup END
 
 " }}}
 

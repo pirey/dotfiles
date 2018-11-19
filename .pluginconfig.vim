@@ -21,45 +21,44 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
 
 " Language & Syntax
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'                                " Javascript
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'vim-scripts/JavaScript-Indent'
-Plug 'neoclide/vim-jsx-improve'                               " React's jsx
-Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'ianks/vim-tsx'
-Plug 'purescript-contrib/purescript-vim'
+" Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                                " Javascript
+" Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'vim-scripts/JavaScript-Indent', { 'for': 'javascript' }
+Plug 'neoclide/vim-jsx-improve', { 'for': 'javascript' }                               " React's jsx
+" Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 
-Plug 'StanAngeloff/php.vim'                                   " PHP
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
 " Plug 'evidens/vim-twig'                                     " Twig
-Plug 'jwalton512/vim-blade'                                   " Laravel's Blade
-Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  " Laravel's Blade
+Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " Plug 'lepture/vim-jinja'
 
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 
-Plug 'itchyny/vim-haskell-indent'                             " haskell
-Plug 'neovimhaskell/haskell-vim'
+Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
 " Plug 'Twinside/vim-haskellConceal'
 
 " Colorscheme
 " Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
-Plug 'tomasiser/vim-code-dark'
+" Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
+" Plug 'tomasiser/vim-code-dark'
 " Plug 'nightsense/seabird'
 " Plug 'arcticicestudio/nord-vim'                               " Nord
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
 
 " UI
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
@@ -467,15 +466,15 @@ let g:vrc_curl_opts={
 " }}}
 "
 " Custom Statusline {{{
-set statusline=
-set statusline+=\ %<%t
-set statusline+=\ %r%h%m
-set statusline+=%=
-set statusline+=\ %{AleStatus()}
-set statusline+=\ " trailing space
+" set statusline=
+" set statusline+=\ %<%t
+" set statusline+=\ %r%h%m
+" set statusline+=%=
+" set statusline+=\ %{AleStatus()}
+" set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set
-let g:statusline_set = 1
+" let g:statusline_set = 1
 " }}}
 
 " Buftabline {{{
