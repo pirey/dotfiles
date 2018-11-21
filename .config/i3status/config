@@ -9,6 +9,7 @@
 general {
     colors = true
     interval = 1
+    separator = " ❖ "
 }
 
 order += "battery 1"
@@ -24,6 +25,6 @@ battery 1 {
 }
 
 tztime local {
-    # format = " %Y-%m-%d %H:%M:%S "
-    format = " %H:%M:%S "
+    # see man strftime
+    format = " %d %b ❖ %H:%M:%S "
 }
