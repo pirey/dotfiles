@@ -17,10 +17,11 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Util
+" Util {{{
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
+" }}}
 
-" Language & Syntax
+" Language & Syntax {{{
 " Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                                " Javascript
 " Plug 'othree/javascript-libraries-syntax.vim'
@@ -29,6 +30,7 @@ Plug 'vim-scripts/JavaScript-Indent', { 'for': 'javascript' }
 Plug 'neoclide/vim-jsx-improve', { 'for': 'javascript' }                               " React's jsx
 " Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'flowtype/vim-flow'
 Plug 'Quramy/tsuquyomi', { 'do': 'make', 'for': 'typescript' }
 Plug 'ianks/vim-tsx', { 'for': 'typescript' }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
@@ -40,15 +42,13 @@ Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
 " Plug 'digitaltoad/vim-pug'                                    " Pug template engine
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " Plug 'lepture/vim-jinja'
-
-
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
 " Plug 'Twinside/vim-haskellConceal'
+" }}}
 
-" Colorscheme
+" Colorscheme {{{
 " Plug 'NLKNguyen/papercolor-theme'
 Plug 'chriskempson/base16-vim'
 " Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
@@ -57,15 +57,17 @@ Plug 'chriskempson/base16-vim'
 " Plug 'arcticicestudio/nord-vim'                               " Nord
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
+" }}}
 
-" UI
+" UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
 " Plug 'junegunn/limelight.vim'                                 " Distraction free++
 " Plug 'guns/xterm-color-table.vim'
+" }}}
 
-" Editing
+" Editing {{{
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
@@ -83,9 +85,9 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " Plug 'delimitMate.vim'                                      " Auto add matching [({''})]
 " Plug 'MatchTag'                                             " Highlight matching html tag
 " Plug 'ervandew/supertab'                                    " Auto complete <tab>
+" }}}
 
-
-" Completion & Snippet
+" Completion & Snippet {{{
 
 " fancy feature for fancy vim
 if (v:version >= 800 && (has('python') || has('python3')))
@@ -96,8 +98,11 @@ if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'SirVer/ultisnips'                                   " Snippet Engine
     Plug 'honza/vim-snippets'                                 " Snippets collections
 endif
+" }}}
 
-" Navigation
+Plug 'metakirby5/codi.vim' " vscode's quokka.js in vim
+
+" Navigation {{{
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
@@ -106,14 +111,16 @@ Plug 'majutsushi/tagbar'                                      " List tags in sid
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 " Plug 'mhinz/vim-grepper'                                      " Searching tool
+" }}}
 
-" Git
+" Git {{{
 Plug 'tpope/vim-fugitive'                                     " Git wrapper
 Plug 'junegunn/gv.vim'                                        " Git commit browser
 Plug 'airblade/vim-gitgutter'                                 " Git changes sign
 Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
+" }}}
 
-" ETC
+" ETC {{{
 " Plug 'tpope/vim-dispatch'
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
@@ -121,8 +128,9 @@ Plug 'vim-utils/vim-man'                                      " View other progr
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
+" }}}
 
-" Fancy stuff for fun
+" Fancy stuff for fun {{{
 " Plug 'mhinz/vim-startify'                                   " Fancy start screen
 " Plug 'edkolev/tmuxline.vim'                                 " Statusline for tmux
 " Plug 'textutil.vim'                                         " Open rtf, doc, rtfd, wordml as plain text (Mac only)
@@ -133,7 +141,9 @@ Plug 'xolox/vim-easytags'                                     " auto generate ta
 " Plug 'bling/vim-airline'                                    " Statusline
 " Plug 'vim-airline/vim-airline-themes'                       " Themes for airline plugin
 " Plug 'ryanoasis/vim-devicons'                               " Fancy icons, require patched font (nerd font)
+" }}}
 
+" Search {{{
 if executable('rg')
     Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
 elseif executable('ag')
@@ -143,8 +153,8 @@ else
         Plug 'mileszs/ack.vim'                                " Better than grep, they said http://beyondgrep.com
         Plug 'tyok/nerdtree-ack'                              " Find in folder, from nerdtree
     endif
-
 endif
+" }}}
 
 " Initialize plugin system
 call plug#end()
@@ -475,6 +485,10 @@ let g:vrc_curl_opts={
 
 " notify vimrc that statusline is already set
 " let g:statusline_set = 1
+" }}}
+
+" Prettier {{{
+let g:prettier#exec_cmd_async = 1
 " }}}
 
 " Buftabline {{{
