@@ -61,7 +61,7 @@ Plug 'chriskempson/base16-vim'
 
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/goyo.vim'                                      " Distraction free
 " Plug 'junegunn/limelight.vim'                                 " Distraction free++
 " Plug 'guns/xterm-color-table.vim'
@@ -71,7 +71,6 @@ Plug 'ap/vim-buftabline'                                    " Show buffer name o
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
@@ -413,50 +412,28 @@ let g:elm_setup_keybindings = 0 " disable mapping
 if (v:version >= 800 && (has('python') || has('python3')))
     " let g:ale_sign_error = '●'
     let g:ale_sign_error = 'E'
-    " let g:ale_open_list = 1
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
     let g:ale_linters = {
-                \'typescript': ['tsserver'],
+                \'typescript': ['tsserver', 'tslint'],
                 \'javascript': ['eslint'],
-                \'haskell': ['hlint']
                 \}
-    " let g:ale_linters = {
-    "             \'typescript': ['tslint'],
-    "             \'javascript': ['standard'],
-    "             \'haskell': ['hlint']
-    "             \}
-    " if (executable('standard'))
-    "     let g:ale_javascript_standard_executable = 'standard'
-    "     let g:ale_javascript_standard_use_global = 1
-    " endif
-    " let g:ale_fixers = {
-    "             \'typescript': 'tslint',
-    "             \'javascript': 'standard'
-    "             \}
     let g:ale_fixers = {
                 \'typescript': 'tslint',
                 \'javascript': 'eslint'
                 \}
+    let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
-    let g:ale_completion_enabled = 0
+    let g:ale_completion_enabled = 1
     let g:ale_javascript_eslint_suppress_missing_config = 1
-    function! AleStatus() abort
-        let l:counts = ale#statusline#Count(bufnr(''))
-
-        let l:all_errors = l:counts.error + l:counts.style_error
-        let l:all_non_errors = l:counts.total - l:all_errors
-
-        return l:counts.total == 0 ? '' : printf(
-                    \   '%dE %dW',
-                    \   all_errors,
-                    \   all_non_errors
-                    \)
-    endfunction
+    let g:ale_set_highlights = 0
+    let g:ale_set_loclist = 0
+    let g:ale_set_quickfix = 1
+    let g:ale_open_list = 1
 
     " highlight Error ctermbg=1 ctermfg=0
-    highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
+    " highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
     " highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
     " highlight ALEWarning cterm=NONE
 endif
@@ -480,7 +457,6 @@ let g:vrc_curl_opts={
 " set statusline+=\ %<%t
 " set statusline+=\ %r%h%m
 " set statusline+=%=
-" set statusline+=\ %{AleStatus()}
 " set statusline+=\ " trailing space
 
 " notify vimrc that statusline is already set
