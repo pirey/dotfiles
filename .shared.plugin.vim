@@ -1,0 +1,93 @@
+" Shared plugins for both vim and neovim
+
+" Vim Plug {{{
+
+" Language & Syntax {{{
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
+
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
+Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  " Laravel's Blade
+Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
+Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
+" }}}
+
+" Colorscheme {{{
+Plug 'chriskempson/base16-vim'
+" }}}
+
+" UI {{{
+Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+Plug 'Yggdroot/indentLine'
+" }}}
+
+" Editing {{{
+if (v:version >= 800 && (has('python') || has('python3')))
+    Plug 'w0rp/ale'                                               " linter
+endif
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
+Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
+Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
+Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
+Plug 'tpope/vim-surround'                                     " Surrounder `cs*`
+Plug 'godlygeek/tabular'                                      " Aligning tool :Tabular /{pattern}
+Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
+Plug 'Olical/vim-enmasse'                                     " Edit all files in the quickfix list
+Plug 'editorconfig/editorconfig-vim'                          " Editor config
+" }}}
+
+" Completion & Snippet {{{
+
+" fancy feature for fancy vim
+if (v:version >= 800 && (has('python') || has('python3')))
+    " Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
+endif
+" }}}
+
+" Navigation {{{
+Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
+Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
+Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
+Plug 'majutsushi/tagbar'                                      " List tags in sidebar
+Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
+Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
+" }}}
+
+" Git {{{
+Plug 'tpope/vim-fugitive'                                     " Git wrapper
+Plug 'junegunn/gv.vim'                                        " Git commit browser
+Plug 'airblade/vim-gitgutter'                                 " Git changes sign
+Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
+" }}}
+
+" ETC {{{
+Plug 'diepm/vim-rest-console'                                 " making rest api call
+Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
+Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
+" }}}
+
+" Search {{{
+if executable('rg')
+    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
+elseif executable('ag')
+    Plug 'rking/ag.vim'                                       " The Silver Searcher https://github.com/ggreer/the_silver_searcher
+else
+    if executable('ack') || executable('ack-grep')
+        Plug 'mileszs/ack.vim'                                " Better than grep, they said http://beyondgrep.com
+        Plug 'tyok/nerdtree-ack'                              " Find in folder, from nerdtree
+    endif
+endif
+" }}}
+
+" }}}
+

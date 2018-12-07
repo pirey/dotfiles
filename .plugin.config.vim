@@ -13,25 +13,24 @@
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+    let g:ale_completion_enabled = 1
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Util {{{
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}                    " Async library
-" }}}
-
 " Language & Syntax {{{
-" Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                                " Javascript
-" Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'vim-scripts/JavaScript-Indent', { 'for': 'javascript' }
 Plug 'neoclide/vim-jsx-improve', { 'for': 'javascript' }                               " React's jsx
-" Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'flowtype/vim-flow'
-Plug 'Quramy/tsuquyomi', { 'do': 'make', 'for': 'typescript' }
+if has('nvim')
+    Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+else
+    " Plug 'Quramy/tsuquyomi', { 'do': 'make', 'for': 'typescript' }
+endif
 Plug 'ianks/vim-tsx', { 'for': 'typescript' }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 
@@ -68,9 +67,16 @@ Plug 'Yggdroot/indentLine'
 " }}}
 
 " Editing {{{
+if has('nvim')
+    " For async completion
+    Plug 'Shougo/deoplete.nvim'
+    " For Denite features
+    Plug 'Shougo/denite.nvim'
+endif
 if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'w0rp/ale'                                               " linter
 endif
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'simnalamburt/vim-mundo'                                 " Undo tree
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
@@ -90,7 +96,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 
 " fancy feature for fancy vim
 if (v:version >= 800 && (has('python') || has('python3')))
-    Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
+    " Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
 
     " while we're at it, why don't use snippet engine?
 
@@ -98,8 +104,6 @@ if (v:version >= 800 && (has('python') || has('python3')))
     Plug 'honza/vim-snippets'                                 " Snippets collections
 endif
 " }}}
-
-Plug 'metakirby5/codi.vim' " vscode's quokka.js in vim
 
 " Navigation {{{
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
@@ -120,10 +124,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status withi
 " }}}
 
 " ETC {{{
-" Plug 'tpope/vim-dispatch'
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
-" Plug 'Shougo/vimshell.vim'                                  " NOTE: this is already built-in feature in vim 8 so no need to install it
+Plug 'metakirby5/codi.vim' " vscode's quokka.js in vim
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
@@ -210,21 +213,6 @@ if has('gui_running')
 
 endif
 " }}}
-
-" javascript-libraries-syntax.vim {{{
-let g:used_javascript_libs = 'jquery,underscore,angularjs,angularui,angularuirouter,react,vue'
-" }}}
-
-"" Supertab {{{
-"" set default action to keyword completion
-"let g:SuperTabDefaultCompletionType = '<c-p>'
-"let g:SuperTabRetainCompletionDuration = 'session'
-"let g:SuperTabCrMapping = 1
-"autocmd FileType *
-"\ if &omnifunc != '' |
-"\   call SuperTabChain(&omnifunc, "<c-p>") |
-"\ endif
-"" }}}
 
 " Bclose {{{
 
@@ -419,23 +407,24 @@ if (v:version >= 800 && (has('python') || has('python3')))
                 \'javascript': ['eslint'],
                 \}
     let g:ale_fixers = {
-                \'typescript': 'tslint',
-                \'javascript': 'eslint'
+                \'json': 'prettier',
+                \'typescript': ['tslint'],
+                \'javascript': ['eslint'],
                 \}
     let g:ale_linters_explicit = 1
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
-    let g:ale_completion_enabled = 1
     let g:ale_javascript_eslint_suppress_missing_config = 1
     let g:ale_set_highlights = 0
-    let g:ale_set_loclist = 0
-    let g:ale_set_quickfix = 1
-    let g:ale_open_list = 1
 
-    " highlight Error ctermbg=1 ctermfg=0
-    " highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
-    " highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
-    " highlight ALEWarning cterm=NONE
+    " see why :h ale-completion-completopt-bug
+    set completeopt=menu,menuone,preview,noselect,noinsert
+
+    highlight Error ctermbg=1 ctermfg=0
+    highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
+    highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+    highlight ALEWarning cterm=NONE
+    highlight AleErrorSign cterm=NONE ctermbg=1 ctermfg=0
 endif
 " }}}
 
@@ -464,9 +453,65 @@ let g:vrc_curl_opts={
 " }}}
 
 " Prettier {{{
+let g:prettier#config#semi = 'false'
 let g:prettier#exec_cmd_async = 1
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " }}}
 
 " Buftabline {{{
 let g:buftabline_indicators = 1
 " }}}
+
+" nvim-typescript {{{
+if has('nvim')
+    autocmd FileType typescript nnoremap <buffer> <C-]> :TSTypeDef<CR>
+endif
+" }}}
+
+" Deoplete {{{
+if has('nvim')
+    let g:deoplete#enable_at_startup = 1
+    " Use smartcase.
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 0,
+    \ 'smart_case': v:true,
+    \ 'delimiters': ['/', '.'],
+    \ })
+endif
+" }}}
+
+" Denite {{{
+if has('nvim')
+    call denite#custom#var('file/rec', 'command',
+                \ ['rg', '--files', '--glob', '!.git'])
+
+	call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-j>',
+	      \ '<denite:move_to_next_line>',
+	      \ 'noremap'
+	      \)
+	call denite#custom#map(
+	      \ 'insert',
+	      \ '<C-k>',
+	      \ '<denite:move_to_previous_line>',
+	      \ 'noremap'
+	      \)
+endif
+" }}}
+
+" Easytags {{{
+let g:easytags_async = 1
+" }}}
+
+" " tsuquyomi {{{
+" let g:tsuquyomi_completion_detail = 1
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:tsuquyomi_save_onrename = 1
+" let g:tsuquyomi_single_quote_import = 1
+" let g:tsuquyomi_semicolon_import = 0
+" let g:tsuquyomi_shortest_import_path = 1
+" let g:tsuquyomi_use_local_typescript = 0
+" autocmd FileType typescript setlocal completeopt+=preview
+" " }}}
