@@ -1,18 +1,13 @@
-" Plugin Settings {{{
-
 " vim-go {{{
 " disable `K` as lookup doc
 let g:go_doc_keywordprg_enabled = 0
 " }}}
 
 " Bclose {{{
-
 nnoremap <leader>x :Bclose<CR>
-
 " }}}
 
 " Tagbar {{{
-
 nnoremap <leader>t :TagbarToggle<CR>
 
 " support for typescript
@@ -35,11 +30,9 @@ let g:tagbar_type_typescript = {
             \ ],
             \ 'sort' : 0
             \ }
-
 " }}}
 
 " Git Gutter {{{
-
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
 let g:gitgutter_max_signs = 250
@@ -53,11 +46,9 @@ nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 " hunk stage = <leader>hs
 " hunk revert stage (unstage) = <leader>hr
-
 " }}}
 
 " NERDTree {{{
-
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
@@ -80,7 +71,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
-
 " }}}
 
 " NERDCommenter {{{
@@ -93,12 +83,6 @@ let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 
-" Set a language to use its alternate delimiters by default
-" let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 
@@ -107,8 +91,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
 " CtrlP {{{
-"
-" No need to reindex files when reopen CtrlP.
+" no need to reindex files when reopen CtrlP.
+" but the downside is, we have to manually refresh the list each time there is an update
 " NOTE: to refresh search list, use <F5>
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
@@ -151,16 +135,15 @@ if (v:version >= 800 && (has('python') || has('python3')))
     let g:ale_fix_on_save = 1
     let g:ale_lint_on_enter = 1
     let g:ale_javascript_eslint_suppress_missing_config = 1
-    let g:ale_set_highlights = 0
 
     " see why :h ale-completion-completopt-bug
     set completeopt=menu,menuone,preview,noselect,noinsert
 
-    highlight Error ctermbg=1 ctermfg=0
-    highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
-    highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
-    highlight ALEWarning cterm=NONE
-    highlight AleErrorSign cterm=NONE ctermbg=1 ctermfg=0
+    " highlight Error ctermbg=1 ctermfg=0
+    " highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
+    " highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+    " highlight ALEWarning cterm=NONE
+    " highlight AleErrorSign cterm=NONE ctermbg=1 ctermfg=0
 endif
 " }}}
 
@@ -200,6 +183,4 @@ let g:easytags_async = 1
 " let g:tsuquyomi_use_local_typescript = 0
 " autocmd FileType typescript setlocal completeopt+=preview
 " " }}}
-
-" }}}
 

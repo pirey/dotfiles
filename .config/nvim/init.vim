@@ -5,20 +5,21 @@ let &packpath = &runtimepath
 " put this first because a lot of plugin mapping using <leader>
 let mapleader = ","
 
+" plugin {{{
 call plug#begin('~/.vim/plugged')
 
 source ~/.plugin.vim
 
-" neovim specific plugins here
-
 source ~/.nvim.plugin.vim
 
 call plug#end()
-
-source ~/.plugin.config.vim
-" neovim plugin config {{{
-
-source ~/.nvim.plugin.config.vim
-
 " }}}
+
+" plugin config {{{
+source ~/.plugin.config.vim
+source ~/.nvim.plugin.config.vim
+" }}}
+
+" config {{{
 source ~/.config.vim
+" }}}
