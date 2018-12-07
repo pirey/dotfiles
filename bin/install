@@ -27,8 +27,8 @@ echo "-> creating symlinks..."
 mkdir -p $HOME/.config
 
 ln -sf $DOTFILES/.vimrc ~/.vimrc
-ln -sf $DOTFILES/.shared.plugin.vim ~/.shared.plugin.vim
-ln -sf $DOTFILES/.shared.plugin.config.vim ~/.shared.plugin.config.vim
+ln -sf $DOTFILES/.plugin.vim ~/.plugin.vim
+ln -sf $DOTFILES/.plugin.config.vim ~/.plugin.config.vim
 ln -sf $DOTFILES/.nvim.plugin.vim ~/.nvim.plugin.vim
 ln -sf $DOTFILES/.nvim.plugin.config.vim ~/.nvim.plugin.config.vim
 ln -sf $DOTFILES/.config.vim ~/.config.vim
@@ -49,6 +49,8 @@ ln -sf $DOTFILES/.config/i3/config ~/.config/i3/config
 ln -sf $DOTFILES/.config/i3status/config ~/.config/i3status/config
 ln -sf $DOTFILES/.config/volumeicon/volumeicon ~/.config/volumeicon/volumeicon
 ln -sf $DOTFILES/.config/rofi/config ~/.config/rofi/config
+mkdir -p $HOME/.local/bin
+ln -sf $DOTFILES/.local/bin/fuzzy_lock.sh ~/.local/bin/fuzzy_lock.sh
 echo "OK symlinks created"
 
 # VIM

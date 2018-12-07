@@ -7,7 +7,7 @@ let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 
-source ~/.shared.plugin.vim
+source ~/.plugin.vim
 
 " neovim specific plugins here
 
@@ -15,7 +15,7 @@ source ~/.nvim.plugin.vim
 
 call plug#end()
 
-source ~/.shared.plugin.config.vim
+source ~/.plugin.config.vim
 " neovim plugin config {{{
 
 source ~/.nvim.plugin.config.vim

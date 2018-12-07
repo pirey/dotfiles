@@ -1,217 +1,8 @@
-" This is an additional file for my .vimrc
-" I separated the main vimrc and plugin setting for easier maintenance
-"
-" Name:     .pluginconfig.vim
-" Author:   Yeri <arifyeripratama@gmail.com>
-" URL:      https://github.com/pirey/dotfiles
-" License:  MIT license
-" Created:  2015
-" Modified: Frequently
-" NOTE:     Press <space> to open/close folds
-
-" Vim Plug {{{
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-    let g:ale_completion_enabled = 1
-call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-
-" Language & Syntax {{{
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }                                " Javascript
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'vim-scripts/JavaScript-Indent', { 'for': 'javascript' }
-Plug 'neoclide/vim-jsx-improve', { 'for': 'javascript' }                               " React's jsx
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-Plug 'flowtype/vim-flow'
-if has('nvim')
-    Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-else
-    " Plug 'Quramy/tsuquyomi', { 'do': 'make', 'for': 'typescript' }
-endif
-Plug 'ianks/vim-tsx', { 'for': 'typescript' }
-Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
-
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
-" Plug 'evidens/vim-twig'                                     " Twig
-Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  " Laravel's Blade
-Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
-" Plug 'digitaltoad/vim-pug'                                    " Pug template engine
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
-" Plug 'lepture/vim-jinja'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
-" Plug 'Twinside/vim-haskellConceal'
-" }}}
-
-" Colorscheme {{{
-" Plug 'NLKNguyen/papercolor-theme'
-Plug 'chriskempson/base16-vim'
-" Plug 'flazz/vim-colorschemes'                                 " A bunch of colorschemes
-" Plug 'tomasiser/vim-code-dark'
-" Plug 'nightsense/seabird'
-" Plug 'arcticicestudio/nord-vim'                               " Nord
-" Plug 'whatyouhide/vim-gotham'
-" Plug 'vim-scripts/ScrollColors'                               " colorscheme explorer
-" }}}
-
-" UI {{{
-Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-Plug 'Yggdroot/indentLine'
-" Plug 'junegunn/goyo.vim'                                      " Distraction free
-" Plug 'junegunn/limelight.vim'                                 " Distraction free++
-" Plug 'guns/xterm-color-table.vim'
-" }}}
-
-" Editing {{{
-if has('nvim')
-    " For async completion
-    Plug 'Shougo/deoplete.nvim'
-    " For Denite features
-    Plug 'Shougo/denite.nvim'
-endif
-if (v:version >= 800 && (has('python') || has('python3')))
-    Plug 'w0rp/ale'                                               " linter
-endif
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'simnalamburt/vim-mundo'                                 " Undo tree
-Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
-Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
-Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
-Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
-Plug 'tpope/vim-surround'                                     " Surrounder `cs*`
-Plug 'godlygeek/tabular'                                      " Aligning tool :Tabular /{pattern}
-Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
-Plug 'Olical/vim-enmasse'                                     " Edit all files in the quickfix list
-Plug 'editorconfig/editorconfig-vim'                          " Editor config
-" Plug 'delimitMate.vim'                                      " Auto add matching [({''})]
-" Plug 'MatchTag'                                             " Highlight matching html tag
-" Plug 'ervandew/supertab'                                    " Auto complete <tab>
-" }}}
-
-" Completion & Snippet {{{
-
-" fancy feature for fancy vim
-if (v:version >= 800 && (has('python') || has('python3')))
-    " Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
-
-    " while we're at it, why don't use snippet engine?
-
-    Plug 'SirVer/ultisnips'                                   " Snippet Engine
-    Plug 'honza/vim-snippets'                                 " Snippets collections
-endif
-" }}}
-
-" Navigation {{{
-Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
-Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
-Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
-Plug 'majutsushi/tagbar'                                      " List tags in sidebar
-Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
-Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
-" Plug 'mhinz/vim-grepper'                                      " Searching tool
-" }}}
-
-" Git {{{
-Plug 'tpope/vim-fugitive'                                     " Git wrapper
-Plug 'junegunn/gv.vim'                                        " Git commit browser
-Plug 'airblade/vim-gitgutter'                                 " Git changes sign
-Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
-" }}}
-
-" ETC {{{
-Plug 'diepm/vim-rest-console'                                 " making rest api call
-Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
-Plug 'metakirby5/codi.vim' " vscode's quokka.js in vim
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
-" }}}
-
-" Fancy stuff for fun {{{
-" Plug 'mhinz/vim-startify'                                   " Fancy start screen
-" Plug 'edkolev/tmuxline.vim'                                 " Statusline for tmux
-" Plug 'textutil.vim'                                         " Open rtf, doc, rtfd, wordml as plain text (Mac only)
-" Plug 'EasyGrep'                                             " Easy find and replace
-" Plug 'terryma/vim-expand-region'                            " Select region
-" Plug 'itchyny/calendar.vim'                                 " Calendar app
-" Plug 'vitalk/vim-simple-todo'                               " Simple todo app
-" Plug 'bling/vim-airline'                                    " Statusline
-" Plug 'vim-airline/vim-airline-themes'                       " Themes for airline plugin
-" Plug 'ryanoasis/vim-devicons'                               " Fancy icons, require patched font (nerd font)
-" }}}
-
-" Search {{{
-if executable('rg')
-    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
-elseif executable('ag')
-    Plug 'rking/ag.vim'                                       " The Silver Searcher https://github.com/ggreer/the_silver_searcher
-else
-    if executable('ack') || executable('ack-grep')
-        Plug 'mileszs/ack.vim'                                " Better than grep, they said http://beyondgrep.com
-        Plug 'tyok/nerdtree-ack'                              " Find in folder, from nerdtree
-    endif
-endif
-" }}}
-
-" Initialize plugin system
-call plug#end()
-" }}}
-
 " Plugin Settings {{{
 
 " vim-go {{{
 " disable `K` as lookup doc
 let g:go_doc_keywordprg_enabled = 0
-" }}}
-
-" PHP.vim {{{
-
-let php_sql_query = 1
-
-"function! PhpSyntaxOverride()
-"  hi! def link phpDocTags  phpDefine
-"  hi! def link phpDocParam phpType
-"endfunction
-"
-"augroup phpSyntaxOverride
-"  autocmd!
-"  autocmd FileType php call PhpSyntaxOverride()
-"augroup END
-
-" }}}
-
-" Goyo - Limelight {{{
-set showcmd
-
-function! GoyoEnterHandler()
-    Limelight
-    set wrap
-endfunction
-
-function! GoyoLeaveHandler()
-    Limelight!
-    set nowrap
-endfunction
-
-autocmd! User GoyoEnter call GoyoEnterHandler()
-autocmd! User GoyoLeave call GoyoLeaveHandler()
-
-" Color name (:help cterm-colors) or ANSI code
-"let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_default_coefficient = 0.8
-
-if has('gui_running')
-    " Color name (:help gui-colors) or RGB color
-    "let g:limelight_conceal_guifg = 'DarkGray'
-    let g:limelight_conceal_guifg = '#777777'
-
-endif
 " }}}
 
 " Bclose {{{
@@ -265,26 +56,6 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " }}}
 
-" Vim Airline & Tmuxline {{{
-"let g:airline#extensions#tabline#enabled =1 " enable tabline
-"let g:airline#extensions#tabline#fnamemod = ':t' " show only the file name
-
-" User patched font to display icons
-"let g:airline_powerline_fonts = 1
-
-" If you don't have patched font installed,
-" I recommend using this setting for nice & simple appearance
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
-
-" Tmuxline
-"let g:tmuxline_powerline_separators = 1
-"let g:airline#extensions#tmuxline#enabled = 0 " Use custom theme for tmuxline
-"let g:tmuxline_theme = 'airline'
-"let g:tmuxline_preset = 'full'
-
-" }}}
-
 " NERDTree {{{
 
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
@@ -335,20 +106,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
-" Emmet {{{
-"
-" }}}
-
-" Surround {{{
-"
-" cs"'
-" cs'<q>
-" cst"
-" ds"
-" S<p class="something">
-"
-" }}}
-
 " CtrlP {{{
 "
 " No need to reindex files when reopen CtrlP.
@@ -372,33 +129,12 @@ let g:ctrlp_match_window = 'bottom,order:btt,max:30'
 " Indent Line {{{
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
-"let g:indentLine_char = '┊'
 let g:indentLine_char = '·'
 let g:indentLine_concealcursor=0
-"let g:indentLine_enabled = 0
-"let g:indentLine_leadingSpaceChar = '·'
-"let g:indentLine_leadingSpaceEnabled = 1
-" }}}
-
-" ultisnip {{{
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger       = '<c-l>'
-let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsListSnippets        = '<c-s>'
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-" }}}
-
-" Elm {{{
-let g:elm_setup_keybindings = 0 " disable mapping
 " }}}
 
 " ALE (linter) {{{
 if (v:version >= 800 && (has('python') || has('python3')))
-    " let g:ale_sign_error = '●'
     let g:ale_sign_error = 'E'
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
@@ -439,19 +175,6 @@ let g:vrc_curl_opts={
     \}
 " }}}
 
-" }}}
-"
-" Custom Statusline {{{
-" set statusline=
-" set statusline+=\ %<%t
-" set statusline+=\ %r%h%m
-" set statusline+=%=
-" set statusline+=\ " trailing space
-
-" notify vimrc that statusline is already set
-" let g:statusline_set = 1
-" }}}
-
 " Prettier {{{
 let g:prettier#config#semi = 'false'
 let g:prettier#exec_cmd_async = 1
@@ -461,44 +184,6 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 " Buftabline {{{
 let g:buftabline_indicators = 1
-" }}}
-
-" nvim-typescript {{{
-if has('nvim')
-    autocmd FileType typescript nnoremap <buffer> <C-]> :TSTypeDef<CR>
-endif
-" }}}
-
-" Deoplete {{{
-if has('nvim')
-    let g:deoplete#enable_at_startup = 1
-    " Use smartcase.
-    call deoplete#custom#option({
-    \ 'auto_complete_delay': 0,
-    \ 'smart_case': v:true,
-    \ 'delimiters': ['/', '.'],
-    \ })
-endif
-" }}}
-
-" Denite {{{
-if has('nvim')
-    call denite#custom#var('file/rec', 'command',
-                \ ['rg', '--files', '--glob', '!.git'])
-
-	call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-j>',
-	      \ '<denite:move_to_next_line>',
-	      \ 'noremap'
-	      \)
-	call denite#custom#map(
-	      \ 'insert',
-	      \ '<C-k>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
-endif
 " }}}
 
 " Easytags {{{
@@ -515,3 +200,6 @@ let g:easytags_async = 1
 " let g:tsuquyomi_use_local_typescript = 0
 " autocmd FileType typescript setlocal completeopt+=preview
 " " }}}
+
+" }}}
+
