@@ -3,10 +3,7 @@ autocmd BufNewFile,BufRead *.ts,*.tsx setlocal filetype=typescript
 " }}}
 
 " deoplete {{{
-
 let g:deoplete#enable_at_startup = 1
-
-" use smartcase.
 call deoplete#custom#option({
             \ 'auto_complete_delay': 0,
             \ 'smart_case': v:true,
