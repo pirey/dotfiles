@@ -24,6 +24,7 @@ Plug 'chriskempson/base16-vim'
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
+Plug 'chrisbra/unicode.vim'
 " }}}
 
 " Editing {{{

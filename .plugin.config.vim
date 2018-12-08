@@ -119,7 +119,8 @@ let g:indentLine_concealcursor=0
 
 " ALE (linter) {{{
 if (v:version >= 800 && (has('python') || has('python3')))
-    let g:ale_sign_error = 'E'
+    let g:ale_sign_error = '●'
+    let g:ale_sign_warning = '●'
     let g:ale_lint_delay = 50
     let g:ale_sign_column_always = 1
     let g:ale_linters = {
@@ -139,11 +140,6 @@ if (v:version >= 800 && (has('python') || has('python3')))
     " see why :h ale-completion-completopt-bug
     set completeopt=menu,menuone,preview,noselect,noinsert
 
-    " highlight Error ctermbg=1 ctermfg=0
-    " highlight ALEError cterm=NONE ctermbg=1 ctermfg=0
-    " highlight ALEErrorLine cterm=NONE ctermbg=NONE ctermfg=NONE
-    " highlight ALEWarning cterm=NONE
-    " highlight AleErrorSign cterm=NONE ctermbg=1 ctermfg=0
 endif
 " }}}
 
