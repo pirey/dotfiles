@@ -2,7 +2,7 @@
 nnoremap <C-p> :Denite buffer file/rec<CR>
 nnoremap : :Denite command<CR>
 if executable('rg')
-  call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('file_rec', 'command', ['rg', '--files', '-F', '--color', 'never', '--hidden', '--glob', '!.git'])
   call denite#custom#var('grep',     'command', ['rg'])
   call denite#custom#var('grep',     'default_opts', ['--hidden', '--vimgrep', '--no-heading', '-S'])
   call denite#custom#var('grep',     'recursive_opts', [])
