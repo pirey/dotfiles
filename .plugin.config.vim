@@ -78,26 +78,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
-" CtrlP {{{
-" no need to reindex files when reopen CtrlP.
-" but the downside is, we have to manually refresh the list each time there is an update
-" NOTE: to refresh search list, use <F5>
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_show_hidden = 1
-
-let g:user_command_async = 1
-if executable('rg')
-  let g:ctrlp_user_command = 'rg --files -F --color never --hidden --follow --glob "!.git/*" %s'
-elseif executable('ag')
-  "let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = "ag --hidden --nocolor --ignore .git -l -g '' %s"
-endif
-
-let g:ctrlp_line_prefix = '▸ '
-let g:ctrlp_match_window = 'bottom,order:btt,max:30'
-
-" }}}
-
 " Indent Line {{{
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1

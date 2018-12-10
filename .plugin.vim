@@ -61,7 +61,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " navigation {{{
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
-Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
 Plug 'majutsushi/tagbar'                                      " List tags in sidebar
@@ -88,13 +87,6 @@ Plug 'xolox/vim-easytags'                                     " auto generate ta
 " Search {{{
 if executable('rg')
     Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
-elseif executable('ag')
-    Plug 'rking/ag.vim'                                       " The Silver Searcher https://github.com/ggreer/the_silver_searcher
-else
-    if executable('ack') || executable('ack-grep')
-        Plug 'mileszs/ack.vim'                                " Better than grep, they said http://beyondgrep.com
-        Plug 'tyok/nerdtree-ack'                              " Find in folder, from nerdtree
-    endif
 endif
 " }}}
 
