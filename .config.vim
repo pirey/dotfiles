@@ -341,7 +341,7 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 endif
 
-" custom highlight config (solarized)
+" custom highlight {{{
 hi Normal cterm=NONE ctermbg=NONE
 hi EndOfBuffer ctermfg=0
 hi SignColumn cterm=NONE ctermbg=NONE
@@ -353,7 +353,8 @@ hi Visual ctermbg=18 ctermfg=NONE
 hi Folded ctermbg=18
 hi StatusLineNC cterm=NONE ctermfg=0 ctermbg=0
 hi StatusLine ctermfg=8 ctermbg=18
-" }}}
+
+hi Search cterm=NONE ctermfg=NONE ctermbg=18
 
 " custom highlight for plugins {{{
 " TODO: move this to plugin file
@@ -371,5 +372,6 @@ hi BufTabLineActive ctermbg=0 ctermfg=8
 hi BufTabLineHidden ctermbg=0 ctermfg=8
 hi BufTabLineFill ctermbg=0
 " }}}
-
 " }}}
+"}}}
+

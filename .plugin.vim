@@ -3,18 +3,27 @@
 " Vim Plug {{{
 
 " Language & Syntax {{{
+" js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
+" }}}
 
+" php {{{
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
 Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  " Laravel's Blade
 Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
+" }}}
+" elm {{{
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
+" }}}
+" go {{{
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
+" }}}
+" haskell
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
+" }}}
 " }}}
 
 " Colorscheme {{{
@@ -29,7 +38,7 @@ Plug 'chrisbra/unicode.vim'
 
 " Editing {{{
 if (v:version >= 800 && (has('python') || has('python3')))
-    " Plug 'w0rp/ale'                                               " linter
+    Plug 'w0rp/ale'                                               " linter
 endif
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
@@ -43,15 +52,14 @@ Plug 'Olical/vim-enmasse'                                     " Edit all files i
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " }}}
 
-" Completion & Snippet {{{
-
-" fancy feature for fancy vim
-if (v:version >= 800 && (has('python') || has('python3')))
-    " Plug 'maralla/completor.vim', { 'do': 'make js' }         " this is just better than YCM
-endif
+" completion {{{
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp', { 'do': 'npm i -g typescript-language-server' }
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " }}}
 
-" Navigation {{{
+" navigation {{{
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'ctrlpvim/ctrlp.vim'                                     " File fuzzy finder <c-p>
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w

@@ -52,13 +52,9 @@ nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
-"let NERDTreeWinSize=40
-"let g:NERDTreeDirArrows = 1
-"let g:NERDTreeDirArrowExpandable = '▸'
-"let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeStatusline = " FILES"
 
-" nerdtree-git-plugin
+" nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "M",
     \ "Staged"    : "S",
@@ -72,21 +68,13 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 " }}}
+" }}}
 
 " NERDCommenter {{{
-" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
@@ -140,6 +128,12 @@ if (v:version >= 800 && (has('python') || has('python3')))
     " see why :h ale-completion-completopt-bug
     set completeopt=menu,menuone,preview,noselect,noinsert
 
+    " custom highlight for ALE {{{
+    highlight ALEError cterm=NONE ctermbg=18 ctermfg=6
+    highlight ALEErrorSign cterm=NONE ctermbg=0 ctermfg=6
+    highlight ALEWarning cterm=NONE ctermbg=18 ctermfg=4
+    highlight ALEWarningSign cterm=NONE ctermbg=0 ctermfg=4
+    " }}}
 endif
 " }}}
 
@@ -169,14 +163,26 @@ let g:buftabline_indicators = 1
 let g:easytags_async = 1
 " }}}
 
-" " tsuquyomi {{{
-" let g:tsuquyomi_completion_detail = 1
-" let g:tsuquyomi_disable_quickfix = 1
-" let g:tsuquyomi_save_onrename = 1
-" let g:tsuquyomi_single_quote_import = 1
-" let g:tsuquyomi_semicolon_import = 0
-" let g:tsuquyomi_shortest_import_path = 1
-" let g:tsuquyomi_use_local_typescript = 0
-" autocmd FileType typescript setlocal completeopt+=preview
-" " }}}
+" vim-lsp {{{
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+endif
 
+let g:lsp_signs_error = {'text': '●'}
+let g:lsp_signs_warning = {'text': '●'}
+" let g:lsp_signs_info = {'text': '●'}
+let g:lsp_signs_hint = {'text': '●'}
+
+highlight LspErrorText cterm=NONE ctermbg=0 ctermfg=6
+highlight LspWarningText cterm=NONE ctermbg=NONE ctermfg=4
+highlight LspHintText cterm=NONE ctermbg=NONE ctermfg=6
+highlight LspInformationText cterm=NONE ctermbg=NONE ctermfg=6
+autocmd FileType typescript,typescript.tsx nnoremap <buffer> <C-]> :LspDefinition<CR>
+" }}}

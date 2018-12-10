@@ -6,9 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 source ~/.plugin.vim
 
-" vim specific plugins here
-" Plug 'Quramy/tsuquyomi', { 'do': 'make', 'for': 'typescript' }
-
 call plug#end()
 " }}}
 
