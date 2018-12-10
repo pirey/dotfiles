@@ -29,7 +29,7 @@ Plug 'chrisbra/unicode.vim'
 
 " Editing {{{
 if (v:version >= 800 && (has('python') || has('python3')))
-    Plug 'w0rp/ale'                                               " linter
+    " Plug 'w0rp/ale'                                               " linter
 endif
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
