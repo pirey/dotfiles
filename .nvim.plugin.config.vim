@@ -3,6 +3,8 @@ nnoremap <C-p> :Denite buffer file/rec<CR>
 nnoremap <leader>; :Denite command<CR>
 nnoremap <leader>f :Denite grep<CR>
 nnoremap <leader>/ :Denite line<CR>
+nnoremap <leader>h :Denite help<CR>
+
 if executable('rg')
   call denite#custom#var('file_rec', 'command', ['rg', '--files', '-F', '--color', 'never', '--hidden', '--glob', '!.git'])
   call denite#custom#var('file/rec', 'command', ['rg', '--files', '-F', '--color', 'never', '--hidden', '--glob', '!.git'])

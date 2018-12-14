@@ -367,7 +367,7 @@ hi GitGutterDelete ctermfg=1 ctermbg=0
 " }}}
 
 " BufTabLine {{{
-hi BufTabLineCurrent ctermbg=18 ctermfg=8
+hi BufTabLineCurrent ctermbg=18 ctermfg=7
 hi BufTabLineActive ctermbg=0 ctermfg=8
 hi BufTabLineHidden ctermbg=0 ctermfg=8
 hi BufTabLineFill ctermbg=0

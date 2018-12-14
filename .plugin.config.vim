@@ -33,25 +33,20 @@ let g:tagbar_type_typescript = {
 " }}}
 
 " Git Gutter {{{
+let g:gitgutter_map_keys = 0
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
 let g:gitgutter_max_signs = 250
 
-" let g:gitgutter_sign_added = '●'
-" let g:gitgutter_sign_modified = '●'
-" let g:gitgutter_sign_removed = '●'
-" let g:gitgutter_sign_modified_removed = 'ww'
-
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
-" hunk stage = <leader>hs
-" hunk revert stage (unstage) = <leader>hr
 " }}}
 
 " NERDTree {{{
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
 let g:NERDTreeStatusline = " FILES"
 
 " nerdtree-git-plugin {{{
