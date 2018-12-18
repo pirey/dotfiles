@@ -71,6 +71,10 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+" underscore (_) are treated as slash (/)
+nmap <C-_> <plug>NERDCommenterToggle
+vmap <C-_> <plug>NERDCommenterToggle
 " }}}
 
 " Indent Line {{{
