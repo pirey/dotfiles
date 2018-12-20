@@ -131,7 +131,7 @@ let g:vrc_curl_opts={
 let g:prettier#config#semi = 'false'
 let g:prettier#exec_cmd_async = 1
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " }}}
 
 " Buftabline {{{
@@ -164,4 +164,6 @@ highlight LspWarningText cterm=NONE ctermbg=NONE ctermfg=4
 highlight LspHintText cterm=NONE ctermbg=NONE ctermfg=6
 highlight LspInformationText cterm=NONE ctermbg=NONE ctermfg=6
 autocmd FileType typescript,typescript.tsx nnoremap <buffer> <C-]> :LspDefinition<CR>
+autocmd FileType typescript,typescript.tsx nnoremap <buffer> go :LspDocumentSymbol<CR>
+autocmd FileType typescript,typescript.tsx nnoremap <buffer> ge :LspDocumentDiagnostics<CR>
 " }}}
