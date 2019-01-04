@@ -54,7 +54,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 
 " completion {{{
 Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp', { 'do': 'npm i -g typescript-language-server' }
+Plug 'prabirshrestha/vim-lsp', { 'do': 'npm i -g typescript-language-server flow-bin' }
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " }}}
