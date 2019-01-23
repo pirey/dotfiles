@@ -5,6 +5,7 @@
 " Language & Syntax {{{
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 " }}}
