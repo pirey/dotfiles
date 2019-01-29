@@ -58,5 +58,6 @@ alias pyserve="python -m SimpleHTTPServer"
 alias hs="http-server -c-1 -d"
 
 # react & react native
+alias cra="create-react-app"
 alias cra-ts="create-react-app --scripts-version=react-scripts-ts"
 alias rn-reverse="adb reverse tcp:8081 tcp:8081"

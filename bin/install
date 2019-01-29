@@ -26,19 +26,30 @@ echo "-> creating symlinks..."
 # make sure there is .config folder
 mkdir -p $HOME/.config
 
+# vim
 ln -sf $DOTFILES/.vimrc ~/.vimrc
 ln -sf $DOTFILES/.plugin.vim ~/.plugin.vim
 ln -sf $DOTFILES/.plugin.config.vim ~/.plugin.config.vim
 ln -sf $DOTFILES/.nvim.plugin.vim ~/.nvim.plugin.vim
 ln -sf $DOTFILES/.nvim.plugin.config.vim ~/.nvim.plugin.config.vim
 ln -sf $DOTFILES/.config.vim ~/.config.vim
+
+# tmux
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+
+# global config
 ln -sf $DOTFILES/.agignore ~/.agignore
-ln -sf $DOTFILES/.aliases ~/.aliases
 ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
-ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.editorconfig ~/.editorconfig
+ln -sf $DOTFILES/.npmrc ~/.npmrc
+
+# sh
+ln -sf $DOTFILES/.aliases ~/.aliases
+ln -sf $DOTFILES/.zshrc ~/.zshrc
+
+# .config
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/i3status
@@ -49,13 +60,20 @@ ln -sf $DOTFILES/.config/i3/config ~/.config/i3/config
 ln -sf $DOTFILES/.config/i3status/config ~/.config/i3status/config
 ln -sf $DOTFILES/.config/volumeicon/volumeicon ~/.config/volumeicon/volumeicon
 ln -sf $DOTFILES/.config/rofi/config ~/.config/rofi/config
+
+# custom scripts
 mkdir -p $HOME/.local/bin
 ln -sf $DOTFILES/.local/bin/fuzzy_lock.sh ~/.local/bin/fuzzy_lock.sh
+
+
 echo "OK symlinks created"
 
-# VIM
-echo "-> installing vim plugins..."
-vim "+PlugInstall! | qa!"
-echo "OK vim plugins installed"
+# echo "-> installing vim plugins..."
+# vim "+PlugInstall! | qa!"
+# echo "OK vim plugins installed"
+
+echo "-> installing neovim plugins..."
+nvim "+PlugInstall! | qa!"
+echo "OK neovim plugins installed"
 
 echo "OK All clear"
