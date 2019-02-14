@@ -67,6 +67,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <le
 Plug 'majutsushi/tagbar'                                      " List tags in sidebar
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " }}}
 
 " Git {{{

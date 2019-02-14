@@ -187,3 +187,9 @@ autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <b
 autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <buffer> go :LspDocumentSymbol<CR>
 autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <buffer> ge :LspDocumentDiagnostics<CR>
 " }}}
+
+" fzf {{{
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <c-p> :FZF<CR>
+let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
+" }}}
