@@ -40,6 +40,8 @@ let g:gitgutter_max_signs = 250
 
 nnoremap <leader>g :GitGutterToggle<CR>
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap ]g :GitGutterNextHunk<CR>
+nnoremap [g :GitGutterPrevHunk<CR>
 " }}}
 
 " NERDTree {{{
@@ -153,11 +155,21 @@ if executable('typescript-language-server')
                 \ 'whitelist': ['typescript', 'typescript.tsx'],
                 \ })
 endif
-if executable('flow')
+"
+" if executable('flow')
+"     au User lsp_setup call lsp#register_server({
+"                 \ 'name': 'flow',
+"                 \ 'cmd': {server_info->['flow', 'lsp']},
+"                 \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+"                 \ 'whitelist': ['javascript', 'javascript.jsx'],
+"                 \ })
+" endif
+
+if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
-                \ 'name': 'flow',
-                \ 'cmd': {server_info->['flow', 'lsp']},
-                \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+                \ 'name': 'javascript-typescript-stdio',
+                \ 'cmd': {server_info->['javascript-typescript-stdio']},
+                \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
                 \ 'whitelist': ['javascript', 'javascript.jsx'],
                 \ })
 endif

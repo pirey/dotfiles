@@ -96,8 +96,7 @@ source $ZSH/oh-my-zsh.sh
 #
 source ~/.aliases
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
-export PATH=$HOME/tools/node-v8.10.0-linux-x64/bin:$PATH
-# export PATH=$HOME/tools/node-v10.15.0-linux-x64/bin:$PATH
+
 export PATH=$HOME/tools/adminer/bin:$PATH
 
 export JAVA_HOME=$HOME/tools/jdk1.8.0_161
@@ -131,15 +130,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 # echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 # watchman shutdown-server
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 export GOROOT=$HOME/tools/go
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
-
-# local npm binaries
-export PATH="./node_modules/.bin:$PATH"
 
 # psc-package
 export PATH=$HOME/tools/psc-package:$PATH
@@ -162,3 +156,9 @@ export PATH=/home/pirey/.deno/bin:$PATH
 
 # screenkey
 export PATH=/home/pirey/tools/screenkey:$PATH
+
+# Node.js
+export PATH=$HOME/tools/node-v10.15.0-linux-x64/bin:$PATH
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="./node_modules/.bin:$PATH" # local npm binaries
+export PATH=$HOME/.npm-packages/bin:$PATH
