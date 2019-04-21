@@ -99,6 +99,7 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
 export PATH=$HOME/tools/bin:$PATH
 export PATH=$HOME/tools/adminer/bin:$PATH
+export PATH=$HOME/tools/circleci-cli_0.1.5389_linux_amd64:$PATH
 
 export JAVA_HOME=$HOME/tools/jdk1.8.0_161
 export PATH=$JAVA_HOME/bin:$PATH
