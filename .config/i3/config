@@ -150,7 +150,7 @@ bar {
 
 # autolock
 bindsym Ctrl+$mod+l exec "~/.local/bin/fuzzy_lock.sh"
-exec xautolock -time 15 -locker '~/.local/bin/fuzzy_lock.sh' &
+# exec xautolock -time 15 -locker '~/.local/bin/fuzzy_lock.sh' &
 
 # keyboard
 exec_always --no-startup-id xset r rate 250 60
