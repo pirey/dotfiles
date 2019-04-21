@@ -165,14 +165,14 @@ endif
 "                 \ })
 " endif
 
-if executable('javascript-typescript-stdio')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'javascript-typescript-stdio',
-                \ 'cmd': {server_info->['javascript-typescript-stdio']},
-                \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-                \ 'whitelist': ['javascript', 'javascript.jsx'],
-                \ })
-endif
+" if executable('javascript-typescript-stdio')
+"     au User lsp_setup call lsp#register_server({
+"                 \ 'name': 'javascript-typescript-stdio',
+"                 \ 'cmd': {server_info->['javascript-typescript-stdio']},
+"                 \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+"                 \ 'whitelist': ['javascript', 'javascript.jsx'],
+"                 \ })
+" endif
 
 let g:lsp_signs_error = {'text': '●'}
 let g:lsp_signs_warning = {'text': '●'}
@@ -191,5 +191,6 @@ autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <b
 " fzf {{{
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <c-p> :FZF<CR>
+nnoremap <c-b> :Buffers<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
