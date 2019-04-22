@@ -69,15 +69,6 @@ endif
 set laststatus=0 " do not show statusline
 set showtabline=0
 
-" cursorline only for active window
-" and only if there are multiple window
-" augroup CurrentCursorline
-"     autocmd!
-"     autocmd WinEnter * setlocal cursorline
-autocmd WinEnter * exe winnr('$')>1 ? "setlocal cursorline" : "setlocal nocursorline"
-autocmd WinLeave * setlocal nocursorline
-" augroup END
-
 " }}}
 
 " Space - Tab - Indent {{{
@@ -122,7 +113,10 @@ set foldlevelstart=10 " open most folds by default
 set foldnestmax=10    " 10 nested fold max
 set foldmethod=indent " fold based on indent level
 
-autocmd FileType vim setlocal foldmethod=marker
+augroup vim_fold
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 " }}}
 
