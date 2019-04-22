@@ -86,38 +86,6 @@ let g:indentLine_char = '·'
 let g:indentLine_concealcursor=0
 " }}}
 
-" ALE (linter) {{{
-if (v:version >= 800 && (has('python') || has('python3')))
-    let g:ale_sign_error = '●'
-    let g:ale_sign_warning = '●'
-    let g:ale_lint_delay = 50
-    let g:ale_sign_column_always = 1
-    let g:ale_linters = {
-                \'typescript': ['tsserver', 'tslint'],
-                \'javascript': ['eslint'],
-                \}
-    let g:ale_fixers = {
-                \'json': 'prettier',
-                \'typescript': ['tslint'],
-                \'javascript': ['eslint'],
-                \}
-    let g:ale_linters_explicit = 1
-    let g:ale_fix_on_save = 1
-    let g:ale_lint_on_enter = 1
-    let g:ale_javascript_eslint_suppress_missing_config = 1
-
-    " see why :h ale-completion-completopt-bug
-    set completeopt=menu,menuone,preview,noselect,noinsert
-
-    " custom highlight for ALE {{{
-    highlight ALEError cterm=NONE ctermbg=18 ctermfg=6
-    highlight ALEErrorSign cterm=NONE ctermbg=0 ctermfg=6
-    highlight ALEWarning cterm=NONE ctermbg=18 ctermfg=4
-    highlight ALEWarningSign cterm=NONE ctermbg=0 ctermfg=4
-    " }}}
-endif
-" }}}
-
 " vim-rest-console {{{
 let g:vrc_allow_get_request_body = 1
 let g:vrc_elasticsearch_support = 1
@@ -144,53 +112,23 @@ let g:buftabline_indicators = 1
 let g:easytags_async = 1
 " }}}
 
-" vim-lsp {{{
-let g:lsp_signs_enabled = 1         " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'typescript-language-server',
-                \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-                \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-                \ 'whitelist': ['typescript', 'typescript.tsx'],
-                \ })
-endif
-"
-" if executable('flow')
-"     au User lsp_setup call lsp#register_server({
-"                 \ 'name': 'flow',
-"                 \ 'cmd': {server_info->['flow', 'lsp']},
-"                 \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-"                 \ 'whitelist': ['javascript', 'javascript.jsx'],
-"                 \ })
-" endif
-
-" if executable('javascript-typescript-stdio')
-"     au User lsp_setup call lsp#register_server({
-"                 \ 'name': 'javascript-typescript-stdio',
-"                 \ 'cmd': {server_info->['javascript-typescript-stdio']},
-"                 \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-"                 \ 'whitelist': ['javascript', 'javascript.jsx'],
-"                 \ })
-" endif
-
-let g:lsp_signs_error = {'text': '●'}
-let g:lsp_signs_warning = {'text': '●'}
-" let g:lsp_signs_info = {'text': '●'}
-let g:lsp_signs_hint = {'text': '●'}
-
-highlight LspErrorText cterm=NONE ctermbg=0 ctermfg=6
-highlight LspWarningText cterm=NONE ctermbg=NONE ctermfg=4
-highlight LspHintText cterm=NONE ctermbg=NONE ctermfg=6
-highlight LspInformationText cterm=NONE ctermbg=NONE ctermfg=6
-autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <buffer> <C-]> :LspDefinition<CR>
-autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <buffer> go :LspDocumentSymbol<CR>
-autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nnoremap <buffer> ge :LspDocumentDiagnostics<CR>
-" }}}
-
 " fzf {{{
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <c-p> :FZF<CR>
 nnoremap <c-b> :Buffers<CR>
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
+" }}}
+
+" coc.nvim {{{
+augroup coc_keymaps
+    autocmd!
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
+augroup END
 " }}}

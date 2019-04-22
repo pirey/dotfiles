@@ -38,9 +38,6 @@ Plug 'chrisbra/unicode.vim'
 " }}}
 
 " Editing {{{
-if (v:version >= 800 && (has('python') || has('python3')))
-    Plug 'w0rp/ale'                                               " linter
-endif
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
@@ -53,11 +50,11 @@ Plug 'Olical/vim-enmasse'                                     " Edit all files i
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " }}}
 
-" completion {{{
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp', { 'do': 'npm i -g typescript-language-server flow-bin javascript-typescript-stdio' }
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" completion / intellisense {{{
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 " }}}
 
 " navigation {{{

@@ -55,7 +55,7 @@ nnoremap ; :
 vnoremap ; :
 
 " Save a file as sudo when we forgot to start vim using sudo.
-nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
+" nnoremap <leader>suw :w !sudo tee > /dev/null %<CR>
 
 if has('nvim')
 else
