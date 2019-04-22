@@ -13,10 +13,11 @@ call plug#end()
 " }}}
 
 " plugin config {{{
-runtime init/plugin.config.vim
+runtime init/plugin-setting.vim
 " }}}
 
 " config {{{
-runtime init/general.vim
+runtime init/option.vim
+runtime init/mapping.vim
 runtime init/highlight.vim
 " }}}
