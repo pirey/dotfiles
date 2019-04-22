@@ -9,6 +9,20 @@ fi
 # uninstall first
 $DOTFILES/bin/uninstall
 
+# installing vim-plug plugin manager for vim
+echo "-> checking vim-plug (plugin manager)"
+# make sure there is .vim-plug directory
+mkdir -p $HOME/.vim-plug
+if [ ! -e "$HOME/.vim-plug/autoload/plug.vim" ]; then
+    echo "-> installing vim-plug..."
+    curl -fLo $HOME/.vim-plug/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "OK vim-plug installed"
+else
+    echo "OK vim-plug already installed"
+fi
+
+
 # TODO get all files dynamically
 echo "-> creating symlinks..."
 
@@ -16,30 +30,30 @@ echo "-> creating symlinks..."
 mkdir -p $HOME/.config
 
 # tmux
-ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
 
 # global config
-ln -sf $DOTFILES/home/.agignore ~/.agignore
-ln -sf $DOTFILES/home/.ctags ~/.ctags
-ln -sf $DOTFILES/home/.gitconfig ~/.gitconfig
-ln -sf $DOTFILES/home/.gitignore_global ~/.gitignore_global
-ln -sf $DOTFILES/home/.editorconfig ~/.editorconfig
-ln -sf $DOTFILES/home/.npmrc ~/.npmrc
+ln -sf $DOTFILES/home/.agignore $HOME/.agignore
+ln -sf $DOTFILES/home/.ctags $HOME/.ctags
+ln -sf $DOTFILES/home/.gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/home/.gitignore_global $HOME/.gitignore_global
+ln -sf $DOTFILES/home/.editorconfig $HOME/.editorconfig
+ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
 
 # sh
-ln -sf $DOTFILES/home/.aliases ~/.aliases
-ln -sf $DOTFILES/home/.zshrc ~/.zshrc
+ln -sf $DOTFILES/home/.aliases $HOME/.aliases
+ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 
 # .config
-ln -sf $DOTFILES/home/.config/nvim ~/.config
-ln -sf $DOTFILES/home/.config/i3 ~/.config
-ln -sf $DOTFILES/home/.config/i3status ~/.config
-ln -sf $DOTFILES/home/.config/volumeicon ~/.config
-ln -sf $DOTFILES/home/.config/rofi ~/.config
+ln -sf $DOTFILES/home/.config/nvim $HOME/.config
+ln -sf $DOTFILES/home/.config/i3 $HOME/.config
+ln -sf $DOTFILES/home/.config/i3status $HOME/.config
+ln -sf $DOTFILES/home/.config/volumeicon $HOME/.config
+ln -sf $DOTFILES/home/.config/rofi $HOME/.config
 
 # custom scripts
 mkdir -p $HOME/.local/bin
-ln -sf $DOTFILES/home/.local/bin/fuzzy_lock.sh ~/.local/bin/fuzzy_lock.sh
+ln -sf $DOTFILES/home/.local/bin/fuzzy_lock.sh $HOME/.local/bin/fuzzy_lock.sh
 
 
 echo "OK symlinks created"

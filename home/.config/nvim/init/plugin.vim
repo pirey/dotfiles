@@ -1,7 +1,3 @@
-" Shared plugins for both vim and neovim
-
-" Vim Plug {{{
-
 " Language & Syntax {{{
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
@@ -24,7 +20,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 " haskell
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
-" }}}
 " }}}
 
 " Colorscheme {{{
@@ -87,9 +82,7 @@ Plug 'xolox/vim-easytags'                                     " auto generate ta
 " Search {{{
 if executable('rg')
     Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
+else
+    echo 'woy, why not have the rg ah?'
 endif
 " }}}
-
-" }}}
-
-

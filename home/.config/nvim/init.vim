@@ -1,12 +1,11 @@
-" connecting neovim with .vim directory
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
+" this directory is to store vim-plug plugins
+set runtimepath^=~/.vim-plug
 
 " put this first because a lot of plugin mapping using <leader>
 let mapleader = ","
 
 " plugin {{{
-call plug#begin('~/.vim-plug')
+call plug#begin('~/.vim-plug/plugged')
 
 runtime init/plugin.vim
 
