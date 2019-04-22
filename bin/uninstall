@@ -12,12 +12,6 @@ echo "-> removing files..."
 
 # TODO get file names dynamically
 remove_file ~/.local/bin/fuzzy_lock.sh
-remove_file ~/.vimrc
-remove_file ~/.plugin.vim
-remove_file ~/.plugin.config.vim
-remove_file ~/.nvim.plugin.vim
-remove_file ~/.nvim.plugin.config.vim
-remove_file ~/.config.vim
 remove_file ~/.agignore
 remove_file ~/.aliases
 remove_file ~/.zshrc
