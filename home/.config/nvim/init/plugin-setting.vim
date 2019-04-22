@@ -116,6 +116,7 @@ let g:easytags_async = 1
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <c-p> :FZF<CR>
 nnoremap <c-b> :Buffers<CR>
+let $FZF_DEFAULT_OPTS = '--color fg:8,bg:0,fg+:7,bg+:0,pointer:4'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
