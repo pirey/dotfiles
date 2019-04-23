@@ -1,7 +1,7 @@
-if exists('g:neat_fold_loaded')
+if exists('g:loaded_neat_fold')
     finish
 endif
 
-let g:neat_fold_loaded = 1
+let g:loaded_neat_fold = 1
 
 set foldtext=neat_fold#NeatFoldText()

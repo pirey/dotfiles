@@ -56,7 +56,6 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
-Plug 'majutsushi/tagbar'                                      " List tags in sidebar
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -74,9 +73,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status withi
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'                                     " auto generate tags file (ctags)
 " }}}
 
 " Search {{{

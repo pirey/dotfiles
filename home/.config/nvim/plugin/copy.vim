@@ -1,8 +1,8 @@
-if exists('g:copy_loaded')
+if exists('g:loaded_copy')
     finish
 endif
 
-let g:copy_loaded = 1
+let g:loaded_copy = 1
 
 if has('clipboard')
 
