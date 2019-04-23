@@ -4,5 +4,6 @@
   "diagnostic.infoSign": "🞛",
   "diagnostic.hintSign": "🞛",
   "diagnostic.messageTarget": "echo",
-  "diagnostic.checkCurrentLine": true
+  "diagnostic.checkCurrentLine": true,
+  "eslint.filetypes": ["javascript", "javascript.jsx"]
 }

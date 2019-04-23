@@ -55,7 +55,7 @@ vmap <C-_> <plug>NERDCommenterToggle
 " }}}
 
 " Indent Line {{{
-nnoremap <leader>i :IndentLinesToggle<CR>
+nnoremap <leader><leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
 let g:indentLine_char = '·'
 let g:indentLine_concealcursor=0
@@ -99,6 +99,7 @@ augroup coc_keymaps
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
     autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
