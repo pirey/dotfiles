@@ -25,6 +25,8 @@ nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let g:NERDTreeStatusline = " FILES"
+let g:NERDTreeDirArrowExpandable = ' '
+let g:NERDTreeDirArrowCollapsible = ' '
 
 " nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {
@@ -102,6 +104,7 @@ augroup coc_keymaps
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>l :CocList<CR>
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>

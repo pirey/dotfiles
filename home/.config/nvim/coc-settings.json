@@ -5,5 +5,7 @@
   "diagnostic.hintSign": "🞛",
   "diagnostic.messageTarget": "echo",
   "diagnostic.checkCurrentLine": true,
-  "eslint.filetypes": ["javascript", "javascript.jsx"]
+  "eslint.filetypes": ["javascript", "javascript.jsx"],
+  "list.source.grep.command": "rg",
+  "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"]
 }

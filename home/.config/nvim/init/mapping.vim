@@ -54,7 +54,7 @@ nnoremap yP yyP
 vnoremap $ $h
 
 " toggle list
-nnoremap <leader>l :set list!<CR>
+" nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
 nnoremap <C-n> :set relativenumber!<CR>
 
