@@ -94,14 +94,23 @@ let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " coc.nvim {{{
 augroup coc_keymaps
     autocmd!
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
-    autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
+
+    " LSP
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
+
+    " snippets
+    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
+    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+    let g:coc_snippet_next = '<c-j>'
+    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+    let g:coc_snippet_prev = '<c-k>'
 augroup END
 " }}}

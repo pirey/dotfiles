@@ -45,12 +45,17 @@ Plug 'Olical/vim-enmasse'                                     " Edit all files i
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " }}}
 
-" completion / intellisense {{{
+" completion / snippets / intellisense {{{
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'justinj/vim-react-snippets'
 " }}}
 
 " navigation {{{
