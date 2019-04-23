@@ -22,11 +22,13 @@ nnoremap [g :GitGutterPrevHunk<CR>
 " NERDTree {{{
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-let g:NERDTreeStatusline = " FILES"
-let g:NERDTreeDirArrowExpandable = '🗀'
-let g:NERDTreeDirArrowCollapsible = '🗁'
+let NERDTreeMapOpenExpl = ''
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeStatusline = ' FILES'
+let NERDTreeDirArrowExpandable = ' '
+let NERDTreeDirArrowCollapsible = ' '
+let NERDTreeHighlightCursorline = 0
 
 " nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {

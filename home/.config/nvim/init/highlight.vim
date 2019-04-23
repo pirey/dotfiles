@@ -36,3 +36,6 @@ hi CocInfoSign cterm=NONE ctermbg=NONE ctermfg=8
 hi CocHintSign cterm=NONE ctermbg=NONE ctermfg=8
 " }}}
 
+" nerdtree {{{
+hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
+" }}}
