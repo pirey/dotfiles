@@ -25,8 +25,8 @@ nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let g:NERDTreeStatusline = " FILES"
-" let g:NERDTreeDirArrowExpandable = ' '
-" let g:NERDTreeDirArrowCollapsible = ' '
+let g:NERDTreeDirArrowExpandable = '🗀'
+let g:NERDTreeDirArrowCollapsible = '🗁'
 
 " nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {
