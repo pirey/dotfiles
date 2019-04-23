@@ -119,3 +119,7 @@ augroup coc_keymaps
     let g:coc_snippet_prev = '<c-k>'
 augroup END
 " }}}
+
+" vim-easymotion-segments {{{
+let g:EasyMotionSegments_key = 'w'
+" }}}

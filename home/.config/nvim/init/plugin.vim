@@ -62,6 +62,7 @@ Plug 'justinj/vim-react-snippets'
 " navigation {{{
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
+Plug 'aykamko/vim-easymotion-segments'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
