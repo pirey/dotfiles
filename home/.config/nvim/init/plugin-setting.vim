@@ -28,7 +28,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeStatusline = ' FILES'
 let NERDTreeDirArrowExpandable = ' '
 let NERDTreeDirArrowCollapsible = ' '
-let NERDTreeHighlightCursorline = 0
 
 " nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {
