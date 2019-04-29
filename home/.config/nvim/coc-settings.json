@@ -6,5 +6,16 @@
   "diagnostic.messageTarget": "echo",
   "diagnostic.checkCurrentLine": true,
   "list.source.grep.command": "rg",
-  "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"]
+  "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"],
+  "languageserver": {
+    "golang": {
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
+    }
+  }
 }

@@ -15,7 +15,7 @@ Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " }}}
 " go {{{
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 " }}}
 " haskell
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell

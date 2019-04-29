@@ -99,16 +99,16 @@ augroup coc_keymaps
     autocmd!
 
     " LSP
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>l :CocList<CR>
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>r <Plug>(coc-rename)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>a <Plug>(coc-codeaction)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx vmap <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>i <Plug>(coc-diagnostic-info)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>l :CocList<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>e :CocList diagnostics<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>o :CocList outline<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <leader>s :CocList --interactive symbols<CR>
 
     " snippets
     autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
