@@ -164,3 +164,6 @@ export PATH=$HOME/tools/node-v10.15.0-linux-x64/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="./node_modules/.bin:$PATH" # local npm binaries
 export PATH=$HOME/.npm-packages/bin:$PATH
+
+# haskell
+export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH

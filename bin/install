@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# ========================
+# DOTFILES
+
 # doftiles directory
 DOTFILES="$HOME/dotfiles"
 if [ "$1" != "" ]; then

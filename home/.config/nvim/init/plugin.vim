@@ -18,8 +18,9 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 " }}}
 " haskell
-Plug 'itchyny/vim-haskell-indent', { 'for': 'haskel' }                             " haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskel' }
+Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }                             " haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " }}}
 
 " Colorscheme {{{

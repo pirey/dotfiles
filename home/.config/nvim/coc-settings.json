@@ -16,6 +16,12 @@
         "diagnosticsEnabled": true,
         "lintTool": "golint"
       }
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "rootPatterns": ["*.cabal", ".stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
+      "initializationOptions": {}
     }
   }
 }
