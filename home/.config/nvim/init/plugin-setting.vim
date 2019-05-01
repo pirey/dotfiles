@@ -99,20 +99,21 @@ augroup coc_keymaps
     autocmd!
 
     " LSP
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>r <Plug>(coc-rename)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>a <Plug>(coc-codeaction)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx vmap <buffer> <leader>a <Plug>(coc-codeaction-selected)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>i <Plug>(coc-diagnostic-info)
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>l :CocList<CR>
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>e :CocList diagnostics<CR>
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>o :CocList outline<CR>
-    autocmd FileType hs,lhs,haskell,go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>s :CocList --interactive symbols<CR>
-    autocmd FileType hs,lhs,haskell nmap <buffer> <leader>p :call CocAction('format')<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <C-]> <Plug>(coc-definition)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <c-^> <Plug>(coc-references)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>r <Plug>(coc-rename)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>a <Plug>(coc-codeaction)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx vmap <buffer> <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>i <Plug>(coc-diagnostic-info)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>l :CocList<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>e :CocList diagnostics<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>o :CocList outline<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>s :CocList --interactive symbols<CR>
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>p :call CocAction('format')<CR>
 
     " snippets
-    autocmd FileType json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
+    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
+
     " Use <C-j> for jump to next placeholder, it's default of coc.nvim
     let g:coc_snippet_next = '<c-j>'
     " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
