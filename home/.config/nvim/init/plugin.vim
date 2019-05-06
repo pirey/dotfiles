@@ -80,6 +80,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status withi
 " }}}
 
 " ETC {{{
+Plug 'wakatime/vim-wakatime'
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
