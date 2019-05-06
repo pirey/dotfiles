@@ -1,13 +1,17 @@
-" vim-go {{{
+" elmcast/vim-elm {{{
+let g:elm_setup_keybindings = 0
+" }}}
+
+" fatih/vim-go {{{
 " disable `K` as lookup doc
 let g:go_doc_keywordprg_enabled = 0
 " }}}
 
-" Bclose {{{
+" chrismccord/bclose {{{
 nnoremap <leader>x :Bclose<CR>
 " }}}
 
-" Git Gutter {{{
+" airblade/vim-gitgutter {{{
 let g:gitgutter_map_keys = 0
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
@@ -19,7 +23,7 @@ nnoremap ]g :GitGutterNextHunk<CR>
 nnoremap [g :GitGutterPrevHunk<CR>
 " }}}
 
-" NERDTree {{{
+" scrooloose/nerdtree {{{
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeMapOpenExpl = ''
@@ -45,7 +49,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " }}}
 " }}}
 
-" NERDCommenter {{{
+" scrooloose/nerdcommenter {{{
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -57,14 +61,14 @@ nmap <C-_> <plug>NERDCommenterToggle
 vmap <C-_> <plug>NERDCommenterToggle
 " }}}
 
-" Indent Line {{{
+" Yggdroot/indentLine {{{
 nnoremap <leader><leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
 let g:indentLine_char = '·'
 let g:indentLine_concealcursor=0
 " }}}
 
-" vim-rest-console {{{
+" diepm/vim-rest-console {{{
 let g:vrc_allow_get_request_body = 1
 let g:vrc_elasticsearch_support = 1
 let g:vrc_curl_opts={
@@ -75,18 +79,18 @@ let g:vrc_curl_opts={
     \}
 " }}}
 
-" Prettier {{{
+" prettier/vim-prettier {{{
 let g:prettier#config#semi = 'false'
 let g:prettier#exec_cmd_async = 1
 let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " }}}
 
-" Buftabline {{{
+" ap/vim-buftabline {{{
 let g:buftabline_indicators = 1
 " }}}
 
-" fzf {{{
+" junegunn/fzf {{{
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <c-p> :FZF<CR>
 nnoremap <c-b> :Buffers<CR>
@@ -94,7 +98,7 @@ let $FZF_DEFAULT_OPTS = '--color fg:8,bg:0,fg+:7,bg+:0,pointer:4'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
-" coc.nvim {{{
+" neoclide/coc.nvim {{{
 augroup coc_keymaps
     autocmd!
 
@@ -121,6 +125,6 @@ augroup coc_keymaps
 augroup END
 " }}}
 
-" vim-easymotion-segments {{{
+" aykamko/vim-easymotion-segments {{{
 let g:EasyMotionSegments_key = 'w'
 " }}}
