@@ -1,3 +1,7 @@
+" slashmili/alchemist.vim {{{
+let g:alchemist_mappings_disable = 1
+" }}}
+
 " elmcast/vim-elm {{{
 let g:elm_setup_keybindings = 0
 " }}}

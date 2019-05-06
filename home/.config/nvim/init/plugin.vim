@@ -1,4 +1,9 @@
 " Language & Syntax {{{
+" elixir {{{
+Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" }}}
+
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
