@@ -109,7 +109,7 @@ augroup coc_keymaps
     autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>e :CocList diagnostics<CR>
     autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>o :CocList outline<CR>
     autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>s :CocList --interactive symbols<CR>
-    autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx nmap <buffer> <leader>p :call CocAction('format')<CR>
+    autocmd FileType go nmap <buffer> <leader>p :call CocAction('format')<CR>
 
     " snippets
     autocmd FileType go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
