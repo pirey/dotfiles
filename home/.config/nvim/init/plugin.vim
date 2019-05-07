@@ -89,6 +89,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
+Plug 'christoomey/vim-tmux-navigator'
 " }}}
 
 " Search {{{
