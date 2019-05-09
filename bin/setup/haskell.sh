@@ -26,5 +26,5 @@ echo "Done..."
 
 # common tools/packages
 echo "Installing common tools..."
-cabal new-install hindent
+cabal new-install hindent hoogle
 echo "Done..."

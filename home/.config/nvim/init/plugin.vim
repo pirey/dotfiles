@@ -25,6 +25,7 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " haskell
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }                             " haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " }}}
 
