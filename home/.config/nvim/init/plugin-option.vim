@@ -12,7 +12,6 @@ let g:go_doc_keywordprg_enabled = 0
 " }}}
 
 " chrismccord/bclose {{{
-nnoremap <leader>x :Bclose<CR>
 " }}}
 
 " airblade/vim-gitgutter {{{
@@ -20,16 +19,9 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_realtime = 0 " disable realtime update, in hope vim doesn't lag
 let g:gitgutter_eager = 0
 let g:gitgutter_max_signs = 250
-
-nnoremap <leader>g :GitGutterToggle<CR>
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
-nnoremap ]g :GitGutterNextHunk<CR>
-nnoremap [g :GitGutterPrevHunk<CR>
 " }}}
 
 " scrooloose/nerdtree {{{
-nnoremap <silent> <leader>d :NERDTreeToggle<CR>
-nnoremap <silent> <leader>D :NERDTreeFind<CR>
 let NERDTreeMapOpenExpl = ''
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
@@ -61,12 +53,9 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " underscore (_) are treated as slash (/)
-nmap <C-_> <plug>NERDCommenterToggle
-vmap <C-_> <plug>NERDCommenterToggle
 " }}}
 
 " Yggdroot/indentLine {{{
-nnoremap <leader><leader>i :IndentLinesToggle<CR>
 let g:indentLine_faster = 1
 let g:indentLine_char = '·'
 let g:indentLine_concealcursor=0
@@ -95,9 +84,6 @@ let g:buftabline_indicators = 1
 " }}}
 
 " junegunn/fzf {{{
-nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <c-p> :FZF<CR>
-nnoremap <c-b> :Buffers<CR>
 let $FZF_DEFAULT_OPTS = '--color fg:8,bg:0,fg+:7,bg+:0,pointer:4'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}

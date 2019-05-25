@@ -12,12 +12,16 @@ runtime init/plugin.vim
 call plug#end()
 " }}}
 
-" plugin config {{{
-runtime init/plugin-setting.vim
-" }}}
-
 " config {{{
 runtime init/option.vim
+runtime init/plugin-option.vim
+" }}}
+
+" mapping {{{
 runtime init/mapping.vim
+runtime init/plugin-mapping.vim
+" }}}
+
+" highlight {{{
 runtime init/highlight.vim
 " }}}
