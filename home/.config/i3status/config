@@ -9,7 +9,7 @@
 general {
     colors = true
     interval = 1
-    separator = " ❖ "
+    separator = "  "
 }
 
 order += "battery 1"
@@ -20,11 +20,12 @@ battery 1 {
     status_chr = ""
     status_bat = ""
     status_full = "FULL"
-    low_threshold = 45
+    low_threshold = 50
+    last_full_capacity = true # max is 100%
     integer_battery_capacity = true
 }
 
 tztime local {
     # see man strftime
-    format = " %d %b ❖ %H:%M:%S "
+    format = " %A, %d %b %G · %H:%M:%S "
 }

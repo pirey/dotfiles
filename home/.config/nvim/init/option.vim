@@ -115,7 +115,7 @@ set foldmethod=indent " fold based on indent level
 
 augroup vim_fold
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim,tmux setlocal foldmethod=marker
 augroup END
 
 " }}}

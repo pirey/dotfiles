@@ -1,0 +1,1 @@
+- [ ] write script for reproducible build dependencies and tools on fresh machine
