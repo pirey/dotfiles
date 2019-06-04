@@ -38,8 +38,8 @@
     co = checkout
     # list-files = show --format=\"\" --name-status
     list-files = diff-tree --no-commit-id --name-status -r
-    br = branch
-    branch = branch -v
+    # show all branch order by last commit
+    br = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     stash = stash -u
     rlog = reflog --date=local
     logno = log --no-merges

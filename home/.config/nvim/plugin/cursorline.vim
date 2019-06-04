@@ -1,3 +1,9 @@
+if exists('g:loaded_cursorline')
+    finish
+endif
+
+let g:loaded_cursorline = 1
+
 " cursorline only for active window
 " and only if there are multiple window
 augroup CurrentCursorline

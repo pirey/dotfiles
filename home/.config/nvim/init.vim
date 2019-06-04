@@ -25,3 +25,5 @@ runtime init/plugin-mapping.vim
 " highlight {{{
 runtime init/highlight.vim
 " }}}
+
+let g:loaded_cursorline = 1
