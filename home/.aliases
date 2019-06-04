@@ -24,6 +24,7 @@ alias ls-dir="ls -d */"
 alias proses="ps aux | grep"
 
 # typo sucks
+alias vim='nvim'
 alias vm='vim'
 alias visudo="sudo vim -u NONE"
 alias vi='vim'
