@@ -8,6 +8,7 @@ rofi.opacity: 80
 rofi.bw: 0
 rofi.font: Courier 18
 rofi.color-enabled
+rofi.separator-style: none
 
 ! purple-ish
 ! rofi.color-window: #772953,#000000,#772953
