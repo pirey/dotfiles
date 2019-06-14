@@ -1,7 +1,6 @@
 *~
 .DS_Store
 
-tags
 node_modules/*
 bower_modules/*
 .phalcon
