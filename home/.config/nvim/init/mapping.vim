@@ -96,11 +96,11 @@ vnoremap B 20h
 " vnoremap J <C-d>
 " vnoremap K <C-u>
 
-" Soft scroll, scroll 10 lines
-nnoremap J 10gj
-nnoremap K 10gk
-vnoremap J 10gj
-vnoremap K 10gk
+" Soft scroll
+nnoremap J 12gj
+nnoremap K 12gk
+vnoremap J 12gj
+vnoremap K 12gk
 
 " preserve cursor in the middle when scrolling
 nnoremap <C-f> <C-f>M
