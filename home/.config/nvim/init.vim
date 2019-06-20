@@ -22,6 +22,10 @@ runtime init/mapping.vim
 runtime init/plugin-mapping.vim
 " }}}
 
+" command {{{
+runtime init/command.vim
+" }}}
+
 " highlight {{{
 runtime init/highlight.vim
 " }}}

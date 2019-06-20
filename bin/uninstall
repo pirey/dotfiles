@@ -20,6 +20,7 @@ remove_file ~/.gitconfig
 remove_file ~/.gitignore_global
 remove_file ~/.tmux.conf
 remove_file ~/.npmrc
+remove_file ~/.prettierrc
 # remove_file ~/.bashrc
 remove_file ~/.editorconfig
 remove_file ~/.config/nvim

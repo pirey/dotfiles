@@ -42,6 +42,7 @@ ln -sf $DOTFILES/home/.gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/home/.gitignore_global $HOME/.gitignore_global
 ln -sf $DOTFILES/home/.editorconfig $HOME/.editorconfig
 ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
+ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
 
 # sh
 ln -sf $DOTFILES/home/.aliases $HOME/.aliases
