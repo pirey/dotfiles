@@ -12,7 +12,7 @@ runtime init/plugin.vim
 call plug#end()
 " }}}
 
-" config {{{
+" option {{{
 runtime init/option.vim
 runtime init/plugin-option.vim
 " }}}
@@ -30,5 +30,5 @@ runtime init/command.vim
 runtime init/highlight.vim
 " }}}
 
-set re=1
+" set re=1
 let g:loaded_cursorline = 1
