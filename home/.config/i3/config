@@ -134,7 +134,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 
-        font pango:ubuntu mono 20
+        font pango:Liberation Mono 12
         mode hide
         modifier $mod
         status_command i3status

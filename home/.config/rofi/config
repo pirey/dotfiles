@@ -6,7 +6,7 @@ rofi.width: 100
 rofi.padding: 300
 rofi.opacity: 80
 rofi.bw: 0
-rofi.font: Courier 18
+rofi.font: Liberation Mono 18
 rofi.color-enabled
 rofi.separator-style: none
 
