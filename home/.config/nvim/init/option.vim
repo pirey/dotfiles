@@ -45,7 +45,7 @@ endif
 " UI {{{
 
 set nonumber                " don't really need line numbers
-set noruler                 " don't display number and colon in bottom right
+set ruler                   " number and colon in bottom right
 set norelativenumber        " use no relative numbering.
 set showcmd                 " show command in bottom bar
 set showmode                " show current mode (insert, visual, bla bla)
