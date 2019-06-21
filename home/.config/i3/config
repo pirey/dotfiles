@@ -136,7 +136,7 @@ bar {
         mode hide
         modifier $mod
         status_command i3status
-        position bottom
+        position top
         colors {
                 background #efefef
                 statusline #333333
