@@ -9,7 +9,7 @@
 general {
     colors = true
     interval = 1
-    separator = "  "
+    separator = ""
 }
 
 order += "battery 1"

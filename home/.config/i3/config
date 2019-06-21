@@ -136,15 +136,15 @@ bar {
         position top
         colors {
                 background #efefef
-                statusline #222222
-                separator #666666
+                statusline #333333
+                separator #efefef
 
                                             #border         #bg         #text
-                focused_workspace           #efefef         #efefef     #222222
+                focused_workspace           #cfcfcf         #cfcfcf     #222222
                 active_workspace            #efefef         #efefef     #222222
                 inactive_workspace          #efefef         #efefef     #999999
                 urgent_workspace            #2f343a         #900000     #ffffff
-                binding_mode                #2f343a         #900000     #ffffff
+                binding_mode                #efefef         #efefef     #222222
         }
 }
 
@@ -170,7 +170,7 @@ bindsym XF86MonBrightnessDown exec light -U 15
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
 # init
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/ubuntu.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/sunset.jpg
 exec --no-startup-id compton -f -i 0.4 --inactive-dim 0.4
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
@@ -178,6 +178,6 @@ exec --no-startup-id volumeicon
 
 # i3-gaps
 for_window [class="^.*"] border pixel 0
-smart_gaps on
+# smart_gaps on
 gaps inner 10
-# gaps outer 10
+gaps outer 0
