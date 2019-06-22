@@ -12,14 +12,15 @@ general {
     separator = ""
 }
 
-order += "battery 1"
 order += "tztime local"
+order += "battery 1"
 
 battery 1 {
     format = " %status %percentage "
-    status_chr = ""
+    status_chr = "🔌 "
     status_bat = ""
-    status_full = "FULL"
+    # status_full = ""
+    status_full = "FULL "
     low_threshold = 50
     last_full_capacity = true # max is 100%
     integer_battery_capacity = true
@@ -27,5 +28,5 @@ battery 1 {
 
 tztime local {
     # see man strftime
-    format = " %a, %d %b · %H:%M:%S "
+    format = " %a, %d %b %H:%M:%S "
 }
