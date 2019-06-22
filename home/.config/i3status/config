@@ -27,5 +27,5 @@ battery 1 {
 
 tztime local {
     # see man strftime
-    format = " %A, %d %b %G · %H:%M:%S "
+    format = " %a, %d %b · %H:%M:%S "
 }

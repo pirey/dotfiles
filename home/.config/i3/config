@@ -133,6 +133,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        # only in i3-gaps
+        height 30
 
         font pango:Liberation Mono 12
         mode hide
@@ -179,10 +181,11 @@ exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/sunset.jpg
 exec --no-startup-id compton -f -i 0.4 --inactive-dim 0.4
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
+exec --no-startup-id i3-battery-popup -n
 
+for_window [class="^.*"] border pixel 0
 
 # i3-gaps
-for_window [class="^.*"] border pixel 0
 smart_gaps on
 gaps inner 10
 gaps outer 0
