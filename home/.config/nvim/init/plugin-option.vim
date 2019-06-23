@@ -44,6 +44,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 " }}}
+
 " }}}
 
 " scrooloose/nerdcommenter {{{
@@ -81,6 +82,7 @@ let g:prettier#autoformat = 0
 " }}}
 
 " ap/vim-buftabline {{{
+let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 " }}}
 

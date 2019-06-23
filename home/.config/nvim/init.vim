@@ -27,13 +27,8 @@ runtime init/command.vim
 " }}}
 
 
-" I guess i have to turn off highlighting until I upgrade my laptop :(
-" syntax highlight is too sloooooowwww...
-syntax off
-
 " highlight {{{
 runtime init/highlight.vim
 " }}}
 
-" set re=1
 let g:loaded_cursorline = 1

@@ -1,4 +1,3 @@
-
 # option {{{
 set $mod Mod1
 set $terminal i3-sensible-terminal
@@ -184,7 +183,7 @@ bar {
 # init {{{
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/abstract-nature.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/wallhaven.jpg
 
 # touchpad & natural scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
