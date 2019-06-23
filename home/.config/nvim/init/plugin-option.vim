@@ -22,6 +22,7 @@ let g:gitgutter_max_signs = 250
 " }}}
 
 " scrooloose/nerdtree {{{
+let g:NERDTreeNodeDelimiter = "\u00a0"
 let NERDTreeMapOpenExpl = ''
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
@@ -84,7 +85,7 @@ let g:buftabline_indicators = 1
 " }}}
 
 " junegunn/fzf {{{
-let $FZF_DEFAULT_OPTS = '--color fg:8,bg:0,fg+:7,bg+:0,pointer:4'
+let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
