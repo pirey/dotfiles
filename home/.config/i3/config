@@ -183,7 +183,8 @@ bar {
 # init {{{
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/pictures/abstract-nature.jpg
+set $wallpaper 'forest.jpg'
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
