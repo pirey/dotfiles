@@ -17,6 +17,11 @@ alias api="vim ~/api.rest"
 
 alias pp_json="python -m json.tool"
 
+# wifi
+alias lswifi="nmcli device wifi"
+alias upwifi="nmcli connection up" # <SSID>
+alias conwifi="nmcli device wifi connect" # <SSID> [password password]
+
 # mac
 alias sizeof="du -h -d 0"
 
