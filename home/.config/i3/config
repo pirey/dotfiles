@@ -159,7 +159,8 @@ set $urgent-bg-color     #900000
 set $urgent-text-color   #ffffff
 
 bar {
-    font pango:Liberation Mono 12
+    font pango:Monaco 12
+    # font pango:Liberation Mono 12
     mode dock
     modifier $mod
     status_command i3status
