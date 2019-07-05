@@ -18,6 +18,14 @@
         "lintTool": "golint"
       }
     },
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
     /* "haskell": { */
     /*   "command": "hie-wrapper", */
     /*   "rootPatterns": ["*.cabal", ".stack.yaml", "cabal.config", "package.yaml"], */
