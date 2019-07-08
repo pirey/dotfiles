@@ -1,0 +1,9 @@
+*~
+.DS_Store
+
+node_modules/*
+bower_modules/*
+.phalcon
+.vscode
+.vs
+.vimrc.local

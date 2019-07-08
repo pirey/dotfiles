@@ -1,0 +1,19 @@
+! this config uses .Xresources format
+rofi.lines: 5
+rofi.hide-scrollbar: true
+rofi.eh: 2
+rofi.width: 100
+rofi.padding: 300
+rofi.opacity: 80
+rofi.bw: 0
+rofi.font: Liberation Mono 18
+rofi.color-enabled
+rofi.separator-style: none
+
+! purple-ish
+! rofi.color-window: #772953,#000000,#772953
+! rofi.color-normal: #772953,#ffffff,#772953,#ffffff,#772953
+
+! silver-ish
+rofi.color-window: #ffffff,#000000,#000000
+rofi.color-normal: #ffffff,#555555,#fafafa,#555555,#fafafa

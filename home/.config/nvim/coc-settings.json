@@ -1,0 +1,36 @@
+{
+  "diagnostic.errorSign": "🞛",
+  "diagnostic.warningSign": "🞛",
+  "diagnostic.infoSign": "🞛",
+  "diagnostic.hintSign": "🞛",
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.checkCurrentLine": true,
+  "list.source.grep.command": "rg",
+  "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"],
+  "javascript.suggest.enabled": false,
+  "languageserver": {
+    "golang": {
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
+      }
+    },
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
+    /* "haskell": { */
+    /*   "command": "hie-wrapper", */
+    /*   "rootPatterns": ["*.cabal", ".stack.yaml", "cabal.config", "package.yaml"], */
+    /*   "filetypes": ["hs", "lhs", "haskell"], */
+    /*   "initializationOptions": {} */
+    /* } */
+  }
+}
