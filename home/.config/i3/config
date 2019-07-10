@@ -159,7 +159,7 @@ set $urgent-bg-color     #900000
 set $urgent-text-color   #ffffff
 
 bar {
-    font pango:Monaco 12
+    font pango:Hermit 12
     # font pango:Liberation Mono 12
     mode dock
     modifier $mod
