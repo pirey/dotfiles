@@ -79,10 +79,11 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 " Git {{{
-Plug 'tpope/vim-fugitive'                                     " Git wrapper
-Plug 'junegunn/gv.vim'                                        " Git commit browser
-Plug 'airblade/vim-gitgutter'                                 " Git changes sign
-Plug 'Xuyuanp/nerdtree-git-plugin'                            " Git status within nerdtree
+Plug 'tpope/vim-fugitive'                                     		" Git wrapper
+Plug 'junegunn/gv.vim'                                        		" Git commit browser
+Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
+Plug 'Xuyuanp/nerdtree-git-plugin'                            		" Git status within nerdtree
+Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'} 	" .gitignore generator
 " }}}
 
 " ETC {{{

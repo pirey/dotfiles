@@ -91,6 +91,10 @@ let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
+" fszymanski/fzf-gitignore {{{
+let g:fzf_gitignore_no_maps = 1
+" }}}
+
 " neoclide/coc.nvim {{{
 augroup coc_keymaps
     autocmd!

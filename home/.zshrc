@@ -167,3 +167,9 @@ export PATH=$HOME/.npm-packages/bin:$PATH
 
 # haskell
 export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
+
+# qutebrowser
+export PATH=$HOME/tools/qutebrowser/bin:$PATH
+
+# gitignore generator
+function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
