@@ -36,6 +36,7 @@ mkdir -p $HOME/.config
 ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
 
 # global config
+ln -sf $DOTFILES/home/.toprc $HOME/.toprc
 ln -sf $DOTFILES/home/.agignore $HOME/.agignore
 ln -sf $DOTFILES/home/.ctags $HOME/.ctags
 ln -sf $DOTFILES/home/.gitconfig $HOME/.gitconfig

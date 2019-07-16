@@ -12,6 +12,7 @@ echo "-> removing files..."
 
 # TODO get file names dynamically
 remove_file ~/.local/bin/fuzzy_lock.sh
+remove_file ~/.toprc
 remove_file ~/.agignore
 remove_file ~/.aliases
 remove_file ~/.zshrc
