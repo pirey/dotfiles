@@ -33,7 +33,7 @@ echo "-> creating symlinks..."
 mkdir -p $HOME/.config
 
 # tmux
-ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
+ln -sf $DOTFILES/home/.tmux.conf $HOME/.tmux.conf
 
 # global config
 ln -sf $DOTFILES/home/.toprc $HOME/.toprc

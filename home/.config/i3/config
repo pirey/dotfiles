@@ -196,7 +196,7 @@ exec --no-startup-id volumeicon
 
 # keyboard
 exec_always --no-startup-id xset r rate 250 60
-exec_always --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 
 # }}}
 
