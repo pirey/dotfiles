@@ -173,3 +173,9 @@ export PATH=$HOME/tools/qutebrowser/bin:$PATH
 
 # gitignore generator
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
+
+# sqlite
+export PATH=$HOME/tools/sqlite/3.29.0:$PATH
+
+# rubygems
+export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
