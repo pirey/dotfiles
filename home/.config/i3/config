@@ -184,7 +184,7 @@ bar {
 # init {{{
 
 # wallpaper
-set $wallpaper 'forest.jpg'
+set $wallpaper 'vaporwave.jpg'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
