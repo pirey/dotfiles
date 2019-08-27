@@ -160,7 +160,8 @@ set $urgent-text-color   #ffffff
 
 bar {
     # font pango:Hermit 12
-    font pango:Fira Mono 12
+    # font pango:Fira Mono 12
+    font pango:Larabiefont 12
     mode dock
     modifier $mod
     status_command i3status
