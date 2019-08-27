@@ -133,4 +133,6 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 endif
 
+colo neonwave
+
 " }}}
