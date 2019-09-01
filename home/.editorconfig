@@ -19,7 +19,7 @@ tab_width                = 4
 indent_style             = tab
 tab_width                = 2
 
-[*.{hs,rb,rest,jade,pug,yml,json,html,js,jsx,ts,tsx,njk}]
+[*.{hs,rb,rest,jade,pug,yml,json,html,css,js,jsx,ts,tsx,njk}]
 indent_size              = 2
 
 [*.{elm}]
