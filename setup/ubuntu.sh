@@ -4,14 +4,14 @@
 # tested on ubuntu 18.04 bionic beaver
 ######################################
 
-setupdir=$(dirname "${0}") 
+setupdir=$(dirname "${0}")
 
 # configure keyboard delay speed
 # swap capslock to escape
 
 # apt packages
 echo "installing apt packages..."
-sudo -S apt -y install git zsh neovim tmux curl ripgrep
+sudo -S apt -y install git zsh neovim tmux curl ripgrep postgresql
 
 # php
 sudo -S apt -y install php php-xml php-mbstring php-bcmath php-pgsql php-xml php-json php-tokenizer php-mysql
