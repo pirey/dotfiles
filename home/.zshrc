@@ -97,31 +97,17 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
-export PATH=$HOME/tools/bin:$PATH
-export PATH=$HOME/tools/adminer/bin:$PATH
-export PATH=$HOME/tools/circleci-cli_0.1.5389_linux_amd64:$PATH
+# TODO
+# export JAVA_HOME=$HOME/tools/jdk1.8.0_161
+# export PATH=$JAVA_HOME/bin:$PATH
+# export PATH=$JAVA_HOME/jre/bin:$PATH
 
-export JAVA_HOME=$HOME/tools/jdk1.8.0_161
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH=$JAVA_HOME/jre/bin:$PATH
-
-# android standalone sdk
-# export ANDROID_HOME=$HOME/tools/android
+# android sdk with studio
+# export ANDROID_HOME=$HOME/Android/Sdk
 # export PATH=$ANDROID_HOME/tools:$PATH
 # export PATH=$ANDROID_HOME/tools/bin:$PATH
 # export PATH=$ANDROID_HOME/platform-tools:$PATH
 # export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
-
-
-# android sdk with studio
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
-
-# rust
-export PATH=$HOME/.cargo/bin:$PATH
 
 # z
 . $HOME/z/z.sh
@@ -131,14 +117,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 # echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
 # echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 # watchman shutdown-server
-
-export GOROOT=$HOME/tools/go
-export GOPATH=$HOME/go
-export PATH=$HOME/go/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
-
-# psc-package
-export PATH=$HOME/tools/psc-package:$PATH
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -153,29 +131,15 @@ alias luac=luac5.3
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# deno
-export PATH=/home/pirey/.deno/bin:$PATH
-
-# screenkey
-export PATH=/home/pirey/tools/screenkey:$PATH
-
 # Node.js
-export PATH=$HOME/tools/node-v10.15.0-linux-x64/bin:$PATH
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
 export PATH="./node_modules/.bin:$PATH" # local npm binaries
-export PATH=$HOME/.npm-packages/bin:$PATH
 
 # haskell
 export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 
-# qutebrowser
-export PATH=$HOME/tools/qutebrowser/bin:$PATH
-
 # gitignore generator
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
-
-# sqlite
-export PATH=$HOME/tools/sqlite/3.29.0:$PATH
 
 # rvm ruby
 # source $HOME/.rvm/scripts/rvm
