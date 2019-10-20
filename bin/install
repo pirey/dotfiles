@@ -15,7 +15,7 @@ $DOTFILES/bin/uninstall
 # installing vim-plug plugin manager for vim
 echo "-> checking vim-plug (plugin manager)"
 # make sure there is .vim-plug directory
-vimplugdir=$HOME/.local/opt/vim-plug
+vimplugdir=$HOME/.vim-plug
 mkdir -p $vimplugdir
 if [ ! -e "$vimplugdir/autoload/plug.vim" ]; then
     echo "-> installing vim-plug..."

@@ -63,7 +63,6 @@ function echo_if {
 # ============================================== Functions
 
 # checklists
-echo "$(echo_if $(program_is_installed base16_apathy)) base16_apathy"
 echo "$(echo_if $(program_is_installed git)) git"
 echo "$(echo_if $(program_is_installed nvim)) nvim"
 echo "$(echo_if $(program_is_installed fzf)) fzf"
@@ -91,7 +90,7 @@ echo "$(echo_if $(program_is_installed http-server)) http-server"
 # printf "\n...\n"
 # echo "i3wm"
 # printf "...\n"
-# 
+#
 # echo "$(echo_if $(program_is_installed i3)) i3"
 # echo "$(echo_if $(program_is_installed i3lock)) i3lock"
 # echo "$(echo_if $(program_is_installed i3status)) i3status"
