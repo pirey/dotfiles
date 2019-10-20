@@ -30,6 +30,10 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " }}}
 
+" nginx {{{
+Plug 'chr4/nginx.vim'
+" }}}
+
 " Colorscheme {{{
 Plug 'chriskempson/base16-vim'
 " }}}

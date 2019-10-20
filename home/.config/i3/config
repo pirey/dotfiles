@@ -185,7 +185,7 @@ bar {
 # init {{{
 
 # wallpaper
-set $wallpaper 'vaporwave.jpg'
+set $wallpaper 'forest.jpg'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
@@ -201,7 +201,9 @@ exec_always --no-startup-id xset r rate 250 60
 # caps lock to escape
 exec_always --no-startup-id setxkbmap -option caps:swapescape
 # swap mouse button (useful when mouse is broken)
-exec_always --no-startup-id xmodmap -e "pointer = 1 2 3"
+exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
+# restore mouse button
+# exec_always --no-startup-id xmodmap -e "pointer = 1 2 3"
 # }}}
 
 # }}}
