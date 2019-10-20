@@ -11,7 +11,7 @@ setupdir=$(dirname "${0}")
 
 # apt packages
 echo "installing apt packages..."
-sudo -S apt -y install git zsh neovim tmux curl ripgrep postgresql
+sudo -S apt -y install git zsh neovim tmux curl ripgrep postgresql pgmodeler
 
 # php
 sudo -S apt -y install php php-xml php-mbstring php-bcmath php-pgsql php-xml php-json php-tokenizer php-mysql
