@@ -15,10 +15,11 @@ $DOTFILES/bin/uninstall
 # installing vim-plug plugin manager for vim
 echo "-> checking vim-plug (plugin manager)"
 # make sure there is .vim-plug directory
-mkdir -p $HOME/.vim-plug
-if [ ! -e "$HOME/.vim-plug/autoload/plug.vim" ]; then
+vimplugdir=$HOME/.local/opt/vim-plug
+mkdir -p $vimplugdir
+if [ ! -e "$vimplugdir/autoload/plug.vim" ]; then
     echo "-> installing vim-plug..."
-    curl -fLo $HOME/.vim-plug/autoload/plug.vim --create-dirs \
+    curl -fLo $vimplugdir/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo "OK vim-plug installed"
 else
@@ -51,21 +52,9 @@ ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 
 # .config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
-ln -sf $DOTFILES/home/.config/i3 $HOME/.config
-ln -sf $DOTFILES/home/.config/i3status $HOME/.config
-ln -sf $DOTFILES/home/.config/volumeicon $HOME/.config
-ln -sf $DOTFILES/home/.config/rofi $HOME/.config
-
-# custom scripts
-mkdir -p $HOME/.local/bin
-ln -sf $DOTFILES/home/.local/bin/fuzzy_lock.sh $HOME/.local/bin/fuzzy_lock.sh
 
 
 echo "OK symlinks created"
-
-# echo "-> installing vim plugins..."
-# vim "+PlugInstall! | qa!"
-# echo "OK vim plugins installed"
 
 echo "-> installing neovim plugins..."
 nvim "+PlugInstall! | qa!"

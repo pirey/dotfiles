@@ -11,7 +11,6 @@ remove_file () {
 echo "-> removing files..."
 
 # TODO get file names dynamically
-remove_file ~/.local/bin/fuzzy_lock.sh
 remove_file ~/.toprc
 remove_file ~/.agignore
 remove_file ~/.aliases
@@ -25,9 +24,5 @@ remove_file ~/.prettierrc
 # remove_file ~/.bashrc
 remove_file ~/.editorconfig
 remove_file ~/.config/nvim
-remove_file ~/.config/i3
-remove_file ~/.config/i3status
-remove_file ~/.config/volumeicon
-remove_file ~/.config/rofi
 
 echo "OK files removed"
