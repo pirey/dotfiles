@@ -124,7 +124,7 @@ export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
 # z
-. $HOME/tools/z/z.sh
+. $HOME/z/z.sh
 
 # watchman
 # echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
@@ -178,4 +178,4 @@ function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
 export PATH=$HOME/tools/sqlite/3.29.0:$PATH
 
 # rvm ruby
-source $HOME/.rvm/scripts/rvm
+# source $HOME/.rvm/scripts/rvm

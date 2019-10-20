@@ -46,6 +46,10 @@ if [ ! -d ~/dotfiles ]; then
     git clone git@github.com:pirey/dotfiles.git ~/dotfiles
 fi
 
+# z
+if [ ! -d ~/z ]; then
+    git clone git@github.com:rupa/z.git ~/z
+fi
 
 
 
