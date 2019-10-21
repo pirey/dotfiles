@@ -143,3 +143,7 @@ function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
 
 # rvm ruby
 # source $HOME/.rvm/scripts/rvm
+
+if [ -d $HOME/.opt-sources ] ; then
+    $HOME/.opt-sources
+fi
