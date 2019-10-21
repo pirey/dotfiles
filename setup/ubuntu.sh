@@ -21,6 +21,7 @@ setupdir=$(dirname "${0}")
 "${setupdir}"/composer.sh
 "${setupdir}"/zsh.sh
 "${setupdir}"/nodejs.sh
+"${setupdir}"/node-packages.sh
 "${setupdir}"/base16.sh
 "${setupdir}"/z.sh
 
