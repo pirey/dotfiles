@@ -13,6 +13,12 @@ setupdir=$(dirname "${0}")
 echo "installing apt packages..."
 sudo -S apt -y install git zsh neovim tmux curl ripgrep postgresql pgmodeler
 
+# python
+# mostly used for python support for neovim
+sudo -S apt -y install python-pip python3-pip
+pip2 install pynvim
+pip3 install pynvim
+
 # php
 sudo -S apt -y install php php-xml php-mbstring php-bcmath php-pgsql php-xml php-json php-tokenizer php-mysql
 "${setupdir}"/composer.sh
