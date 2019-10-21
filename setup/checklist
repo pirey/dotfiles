@@ -63,15 +63,19 @@ function echo_if {
 # ============================================== Functions
 
 # checklists
+echo "$(echo_if $(program_is_installed curl)) curl"
+echo "$(echo_if $(program_is_installed zsh)) zsh"
 echo "$(echo_if $(program_is_installed git)) git"
 echo "$(echo_if $(program_is_installed nvim)) nvim"
 echo "$(echo_if $(program_is_installed fzf)) fzf"
 echo "$(echo_if $(program_is_installed tmux)) tmux"
 echo "$(echo_if $(program_is_installed rg)) rg"
+echo "$(echo_if $(program_is_installed ruby)) ruby"
 echo "$(echo_if $(program_is_installed python)) python"
 echo "$(echo_if $(program_is_installed python3)) python3"
 
 echo "$(echo_if $(program_is_installed psql)) psql"
+echo "$(echo_if $(program_is_installed pgmodeler)) pgmodeler"
 echo "$(echo_if $(program_is_installed mysql)) mysql"
 
 printf "\n...\n"
@@ -85,7 +89,9 @@ echo "node.js"
 printf "...\n"
 echo "$(echo_if $(program_is_installed node)) node"
 echo "$(echo_if $(program_is_installed npm)) npm"
+echo "$(echo_if $(program_is_installed yarn)) yarn"
 echo "$(echo_if $(program_is_installed http-server)) http-server"
+echo "$(echo_if $(program_is_installed intelephense)) intelephense"
 
 # printf "\n...\n"
 # echo "i3wm"

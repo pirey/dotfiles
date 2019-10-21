@@ -6,10 +6,10 @@ if [ "$1" != "" ]; then
     DOTFILES=$1
 fi
 
-$DOTFILES/bin/i3-uninstall
+$DOTFILES/setup/unlink-i3-config.sh
 
-# base install script
-$DOTFILES/bin/install
+# link base config files
+$DOTFILES/setup/link-config.sh
 
 echo "symlinking config for i3wm..."
 ln -sf $DOTFILES/home/.config/i3 $HOME/.config

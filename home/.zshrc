@@ -135,6 +135,9 @@ alias luac=luac5.3
 export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
 export PATH="./node_modules/.bin:$PATH" # local npm binaries
 
+# neovim
+export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
+
 # haskell
 export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 

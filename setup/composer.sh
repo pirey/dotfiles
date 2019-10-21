@@ -15,5 +15,11 @@ if [ ! -d ~/.composer ] ; then
 	php composer-setup.php --filename=composer
 	RESULT=$?
 	rm composer-setup.php
+
+    # TODO check if setup success
+    if [ -f ./composer ]; then
+        sudo -S mv ./composer /usr/local/bin
+    fi
+
 	exit $RESULT
 fi

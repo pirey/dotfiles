@@ -6,59 +6,27 @@
 
 setupdir=$(dirname "${0}")
 
+"${setupdir}"/dotfiles.sh
+"${setupdir}"/link-config.sh
+
+"${setupdir}"/apt-packages.sh
+
+# neovim
+# the apt package 'neovim' above is only meant to install usefull dependencies
+# in current ubuntu version (18.04), neovim is outdated, so we need to install from release
+"${setupdir}"/neovim.sh
+
+"${setupdir}"/python.sh
+"${setupdir}"/php.sh
+"${setupdir}"/composer.sh
+"${setupdir}"/zsh.sh
+"${setupdir}"/nodejs.sh
+"${setupdir}"/base16.sh
+"${setupdir}"/z.sh
+
+######################################
+# TODO
+######################################
 # configure keyboard delay speed
 # swap capslock to escape
 
-# apt packages
-echo "installing apt packages..."
-sudo -S apt -y install git zsh neovim tmux curl ripgrep postgresql pgmodeler
-
-# python
-# mostly used for python support for neovim
-sudo -S apt -y install python-pip python3-pip
-pip2 install pynvim
-pip3 install pynvim
-
-# php
-sudo -S apt -y install php php-xml php-mbstring php-bcmath php-pgsql php-xml php-json php-tokenizer php-mysql
-"${setupdir}"/composer.sh
-if [ -f ./composer ]; then
-	sudo -S mv composer /usr/local/bin
-fi
-
-# setup zsh
-echo "setup zsh..."
-if [ ! -d ~/.oh-my-zsh ] ; then
-	touch ~/.zshrc # prevent zsh initial greeting
-	echo "change default shell for current user ($(logname))..."
-	chsh $(logname) -s $(which zsh)
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-else
-	echo "directory ~/.oh-my-zsh already exists..."
-fi
-
-# nodejs
-"${setupdir}"/nodejs.sh
-
-# base16
-if [ ! -d ~/.config/base16-shell ]; then
-    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-fi
-
-# installing dotfiles
-if [ ! -d ~/dotfiles ]; then
-    # TODO dynamic repo
-    # make sure ssh key is already setup for github access
-    git clone git@github.com:pirey/dotfiles.git ~/dotfiles
-fi
-
-# z
-if [ ! -d ~/z ]; then
-    git clone git@github.com:rupa/z.git ~/z
-fi
-
-
-
-
-# i3 specifics
-# install light (xbacklight alternative)

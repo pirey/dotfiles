@@ -9,8 +9,8 @@ if [ "$1" != "" ]; then
     DOTFILES=$1
 fi
 
-# uninstall first
-$DOTFILES/bin/uninstall
+# unlink files first
+$DOTFILES/setup/unlink-config.sh
 
 # installing vim-plug plugin manager for vim
 echo "-> checking vim-plug (plugin manager)"
