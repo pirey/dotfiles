@@ -110,7 +110,7 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 # export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 
 # z
-. $HOME/z/z.sh
+. $HOME/.local/opt/z/z.sh
 
 # watchman
 # echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
