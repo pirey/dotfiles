@@ -12,8 +12,24 @@ if [ ! -f ~/.local/opt/neovim/0.4.2/bin/nvim ] ; then
     rm nvim.appimage
     rm -rf ./squashfs-root
 
-	echo "neovim successfully installed..."
+	echo "OK neovim successfully installed..."
 	echo "make sure you add ~/.local/opt/neovim/0.4.2/bin to your \$PATH"
+
+    # installing vim-plug plugin manager for vim
+    echo "checking vim-plug..."
+    # make sure there is .vim-plug directory
+    vimplugdir=$HOME/.vim-plug
+    mkdir -p $vimplugdir
+    if [ ! -e "$vimplugdir/autoload/plug.vim" ]; then
+        echo "-> installing vim-plug..."
+        curl -fLo $vimplugdir/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    echo "OK vim-plug installed"
+
+    echo "-> installing neovim plugins..."
+    nvim "+PlugInstall | qa!"
+    echo "OK neovim plugins installed"
 else
 	echo "directory ~/.local/opt/neovim already exists..."
 fi

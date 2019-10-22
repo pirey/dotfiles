@@ -4,9 +4,9 @@
 # tested on ubuntu 18.04 bionic beaver
 ######################################
 
-ubuntudir=$(dirname $0)
+currentscript=$(realpath $0)
+ubuntudir=$(dirname $currentscript)
 setupdir=$(dirname $ubuntudir)
-
 
 $setupdir/dotfiles.sh
 $setupdir/link-config.sh

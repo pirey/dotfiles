@@ -12,22 +12,6 @@ fi
 # unlink files first
 $DOTFILES/setup/unlink-config.sh
 
-# installing vim-plug plugin manager for vim
-echo "-> checking vim-plug (plugin manager)"
-# make sure there is .vim-plug directory
-vimplugdir=$HOME/.vim-plug
-mkdir -p $vimplugdir
-if [ ! -e "$vimplugdir/autoload/plug.vim" ]; then
-    echo "-> installing vim-plug..."
-    curl -fLo $vimplugdir/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "OK vim-plug installed"
-else
-    echo "OK vim-plug already installed"
-fi
-
-
-# TODO get all files dynamically
 echo "-> creating symlinks..."
 
 # make sure there is .config folder
@@ -53,11 +37,4 @@ ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 # .config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
 
-
-echo "OK symlinks created"
-
-echo "-> installing neovim plugins..."
-nvim "+PlugInstall! | qa!"
-echo "OK neovim plugins installed"
-
-echo "OK All clear"
+echo "OK config files linked"
