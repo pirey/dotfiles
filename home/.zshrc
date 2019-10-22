@@ -150,6 +150,6 @@ export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
 # rvm ruby
 # source $HOME/.rvm/scripts/rvm
 
-if [ -d $HOME/.zshrc.local ] ; then
+if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
