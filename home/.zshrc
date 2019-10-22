@@ -144,6 +144,9 @@ export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 # gitignore generator
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
 
+# adminer
+export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
+
 # rvm ruby
 # source $HOME/.rvm/scripts/rvm
 
