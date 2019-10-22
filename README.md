@@ -18,4 +18,4 @@
 
 
 ## ubuntu (18.04)
-+ there is dedicated setup script for ubuntu (18.04), run `setup/ubuntu.sh` (need sudo access)
++ there is dedicated setup script for ubuntu (18.04), run `setup/ubuntu-18.04/setup.sh` (need sudo access)
