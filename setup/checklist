@@ -71,6 +71,7 @@ echo "$(echo_if $(program_is_installed fzf)) fzf"
 echo "$(echo_if $(program_is_installed tmux)) tmux"
 echo "$(echo_if $(program_is_installed rg)) rg"
 echo "$(echo_if $(program_is_installed ruby)) ruby"
+echo "$(echo_if $(program_is_installed rvm)) rvm"
 echo "$(echo_if $(program_is_installed python)) python"
 echo "$(echo_if $(program_is_installed python3)) python3"
 

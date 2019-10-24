@@ -11,5 +11,8 @@ if [ ! -f $rvmbin ]; then
 
     rvm install 2.7
     rvm docs generate-ri
+
+    gem install neovim
+    gem environment
 fi
 
