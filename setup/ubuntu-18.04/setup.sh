@@ -28,6 +28,7 @@ $setupdir/nodejs.sh
 $setupdir/node-packages.sh
 $setupdir/base16.sh
 $setupdir/z.sh
+$setupdir/adminer.sh
 
 ######################################
 # TODO

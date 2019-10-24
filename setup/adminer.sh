@@ -51,7 +51,7 @@ ADMINER_INDEX
     cat << 'ADMINER_START' > $adminerdir/adminer
     #!/bin/sh
 
-    php -S localhost:9999
+    php -S localhost:9999 -t $(dirname $0)
 ADMINER_START
 
     sudo -S chmod u+x $adminerdir/adminer
