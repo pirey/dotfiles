@@ -33,7 +33,7 @@ if [ ! -d $adminerdir ]; then
 		// Specify enabled plugins here.
 		$plugins = [
 			// AdminerTheme has to be the last one!
-			new AdminerTheme(),
+			new AdminerTheme('default-blue'),
 
 			// Color variant can by specified in constructor parameter.
 			// new AdminerTheme("default-orange"),
