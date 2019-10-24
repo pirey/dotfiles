@@ -4,4 +4,4 @@
 # run this after npm is installed
 #################################
 
-npm i -g intelephense neovim
+npm i -g intelephense neovim http-server yarn

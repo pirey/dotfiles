@@ -11,6 +11,8 @@ setupdir=$(dirname $ubuntudir)
 $setupdir/dotfiles.sh
 $setupdir/link-config.sh
 
+source ~/.zshrc
+
 $ubuntudir/common-packages.sh
 
 $ubuntudir/python.sh
