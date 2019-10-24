@@ -148,8 +148,11 @@ function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
 export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
 
 # rvm ruby
-# source $HOME/.rvm/scripts/rvm
+source $HOME/.rvm/scripts/rvm
 
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
