@@ -83,12 +83,14 @@ let g:prettier#autoformat = 0
 
 " ap/vim-buftabline {{{
 let g:buftabline_show = 1
+let g:buftabline_number = 2
 let g:buftabline_indicators = 1
 " }}}
 
 " junegunn/fzf {{{
 let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
+nnoremap <c-m> :History<CR>
 " }}}
 
 " junnegunn/vim-slash {{{
