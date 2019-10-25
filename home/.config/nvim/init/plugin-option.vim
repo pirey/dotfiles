@@ -91,6 +91,13 @@ let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
+" junnegunn/vim-slash {{{
+if has('timers')
+  " Blink 2 times with 50ms interval
+  noremap <expr> <plug>(slash-after) 'zz'.slash#blink(2, 50)
+endif
+" }}}
+
 " fszymanski/fzf-gitignore {{{
 let g:fzf_gitignore_no_maps = 1
 " }}}

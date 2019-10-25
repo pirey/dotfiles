@@ -81,6 +81,7 @@ Plug 'chrismccord/bclose.vim'                                 " Close a buffer w
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-slash'
 " }}}
 
 " Git {{{

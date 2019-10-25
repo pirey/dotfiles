@@ -5,15 +5,12 @@ alias l="ls -alh"
 alias x="exit"
 alias lsln="find . -maxdepth 1 -type l" # list symlinks
 alias cari="find ./ -name"
-alias help="man"
 
 alias ..="cd .."
 alias cd..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-
-alias api="vim ~/api.rest"
 
 alias pp_json="python -m json.tool"
 
@@ -22,14 +19,14 @@ alias lswifi="nmcli device wifi"
 alias upwifi="nmcli connection up" # <SSID>
 alias conwifi="nmcli device wifi connect" # <SSID> [password password]
 
-# mac
 alias sizeof="du -h -d 0"
 
 alias ls-dir="ls -d */"
-alias proses="ps aux | grep"
+alias findproc="ps aux | grep"
 
 # typo sucks
 # alias nvim='~/tools/neovim/nvim.appimage'
+alias nvi='nvim'
 alias vim='nvim'
 alias vm='vim'
 alias visudo="sudo vim -u NONE"
