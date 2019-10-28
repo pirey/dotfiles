@@ -1,8 +1,12 @@
 {
-  "diagnostic.errorSign": "🞛",
-  "diagnostic.warningSign": "🞛",
-  "diagnostic.infoSign": "🞛",
-  "diagnostic.hintSign": "🞛",
+  "diagnostic.errorSign": "●",
+  "diagnostic.warningSign": "●",
+  "diagnostic.infoSign": "●",
+  "diagnostic.hintSign": "●",
+  /* "diagnostic.errorSign": "E", */
+  /* "diagnostic.warningSign": "W", */
+  /* "diagnostic.infoSign": "I", */
+  /* "diagnostic.hintSign": "H", */
   "diagnostic.messageTarget": "echo",
   "diagnostic.checkCurrentLine": true,
   "list.source.grep.command": "rg",
