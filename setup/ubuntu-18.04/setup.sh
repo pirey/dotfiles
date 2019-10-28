@@ -23,9 +23,10 @@ $ubuntudir/php.sh
 # in current ubuntu version (18.04), neovim is outdated, so we need to install from release
 $setupdir/neovim.sh
 $setupdir/composer.sh
+$setupdir/composer-packages.sh
 $setupdir/zsh.sh
 $setupdir/nodejs.sh
-$setupdir/node-packages.sh
+$setupdir/npm-packages.sh
 $setupdir/base16.sh
 $setupdir/z.sh
 $setupdir/adminer.sh
