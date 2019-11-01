@@ -8,9 +8,6 @@ fi
 
 $DOTFILES/setup/unlink-i3-config.sh
 
-# link base config files
-$DOTFILES/setup/link-config.sh
-
 echo "symlinking config for i3wm..."
 ln -sf $DOTFILES/home/.config/i3 $HOME/.config
 ln -sf $DOTFILES/home/.config/i3status $HOME/.config

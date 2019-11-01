@@ -201,7 +201,7 @@ exec_always --no-startup-id xset r rate 250 60
 # caps lock to escape
 exec_always --no-startup-id setxkbmap -option caps:swapescape
 # swap mouse button (useful when mouse is broken)
-exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
+# exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 # restore mouse button
 # exec_always --no-startup-id xmodmap -e "pointer = 1 2 3"
 # }}}
@@ -214,7 +214,7 @@ exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 # }}}
 
 # i3-gaps {{{
-smart_gaps on
-gaps inner 10
-gaps outer 0
+# smart_gaps on
+# gaps inner 10
+# gaps outer 0
 # }}}

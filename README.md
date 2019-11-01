@@ -18,4 +18,8 @@
 
 
 ## ubuntu (18.04)
-+ there is dedicated setup script for ubuntu (18.04), run `setup/ubuntu-18.04/setup.sh` (need sudo access)
+
+there are dedicated setup script for ubuntu (18.04)
+
++ `setup/ubuntu-18.04/setup.sh` for default desktop
++ `setup/ubuntu-18.04/setup-i3.sh` for i3 wm

@@ -30,10 +30,3 @@ $setupdir/npm-packages.sh
 $setupdir/base16.sh
 $setupdir/z.sh
 $setupdir/adminer.sh
-
-######################################
-# TODO
-######################################
-# configure keyboard delay speed
-# swap capslock to escape
-
