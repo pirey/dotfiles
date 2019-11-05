@@ -1,1 +1,1 @@
-set wrap
+setlocal wrap
