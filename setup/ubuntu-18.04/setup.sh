@@ -21,7 +21,8 @@ $ubuntudir/php.sh
 # neovim
 # the apt package 'neovim' inside common-packages.sh is only meant to install usefull dependencies for neovim
 # in current ubuntu version (18.04), neovim is outdated, so we need to install from release
-$setupdir/neovim.sh
+$ubuntudir/neovim.sh
+
 $setupdir/composer.sh
 $setupdir/composer-packages.sh
 $setupdir/zsh.sh

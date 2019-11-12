@@ -96,6 +96,26 @@ source $ZSH/oh-my-zsh.sh
 
 #
 source ~/.aliases
+
+# z
+. $HOME/.local/opt/z/z.sh
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# gitignore generator
+function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
+
+####################
+# PATH
+####################
+
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
 # TODO
@@ -110,31 +130,16 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 # export PATH=$ANDROID_HOME/platform-tools:$PATH
 # export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 
-# z
-. $HOME/.local/opt/z/z.sh
-
 # watchman
 # echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
 # echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
 # echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 # watchman shutdown-server
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-# lua
-alias lua=lua5.3
-alias luac=luac5.3
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Node.js
 export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
 export PATH="./node_modules/.bin:$PATH" # local npm binaries
+export PATH="$HOME/.npm-packages/bin:$PATH"
 
 # neovim
 export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
@@ -142,18 +147,17 @@ export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
 # haskell
 export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 
-# gitignore generator
-function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
-
 # adminer
 export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
 
-# rvm ruby
-source $HOME/.rvm/scripts/rvm
+if [ -f $HOME/.rvm/scripts/rvm ] ; then
+    # rvm ruby
+    source $HOME/.rvm/scripts/rvm
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
 
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

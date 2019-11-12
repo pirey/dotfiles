@@ -22,7 +22,8 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # program launcher
-bindsym $mod+d exec rofi -show run
+# bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -161,7 +162,7 @@ set $urgent-text-color   #ffffff
 bar {
     # font pango:Hermit 12
     # font pango:Fira Mono 12
-    font pango:Larabiefont 12
+    font pango:Larabiefont 11
     mode dock
     modifier $mod
     status_command i3status
