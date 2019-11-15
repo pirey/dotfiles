@@ -31,6 +31,7 @@ ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
 ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
 
 # sh
+ln -sf $DOTFILES/home/.paths $HOME/.paths
 ln -sf $DOTFILES/home/.aliases $HOME/.aliases
 ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 

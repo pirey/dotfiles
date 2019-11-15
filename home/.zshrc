@@ -2,12 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="avit"
 
 # Set list of themes to load
@@ -78,6 +77,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,8 +94,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#
 source ~/.aliases
+source ~/.paths
 
 # z
 . $HOME/.local/opt/z/z.sh
@@ -112,54 +112,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # gitignore generator
 function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
 
-####################
-# PATH
-####################
-
-export PATH=$HOME/.config/composer/vendor/bin:$PATH
-
-# TODO
-# export JAVA_HOME=$HOME/tools/jdk1.8.0_161
-# export PATH=$JAVA_HOME/bin:$PATH
-# export PATH=$JAVA_HOME/jre/bin:$PATH
-
-# android sdk with studio
-# export ANDROID_HOME=$HOME/Android/Sdk
-# export PATH=$ANDROID_HOME/tools:$PATH
-# export PATH=$ANDROID_HOME/tools/bin:$PATH
-# export PATH=$ANDROID_HOME/platform-tools:$PATH
-# export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
-
-# watchman
-# echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
-# echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
-# echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
-# watchman shutdown-server
-
-# Node.js
-export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
-export PATH="./node_modules/.bin:$PATH" # local npm binaries
-export PATH="$HOME/.npm-packages/bin:$PATH"
-
-# neovim
-export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
-
-# haskell
-export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
-
-# adminer
-export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
-
-if [ -f $HOME/.rvm/scripts/rvm ] ; then
-    # rvm ruby
-    source $HOME/.rvm/scripts/rvm
-    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-    export PATH="$PATH:$HOME/.rvm/bin"
-fi
-
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
-
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
-

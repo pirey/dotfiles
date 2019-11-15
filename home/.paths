@@ -1,0 +1,47 @@
+# composer
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
+
+# Node.js
+export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
+export PATH="./node_modules/.bin:$PATH" # local npm binaries
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
+# neovim
+# use this if installed from release archive
+export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
+
+# haskell
+export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
+
+# adminer
+export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
+
+# rvm ruby version manager
+if [ -f $HOME/.rvm/scripts/rvm ] ; then
+    # rvm ruby
+    source $HOME/.rvm/scripts/rvm
+    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+
+# for arch linux ruby
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+
+# TODO
+# export JAVA_HOME=$HOME/tools/jdk1.8.0_161
+# export PATH=$JAVA_HOME/bin:$PATH
+# export PATH=$JAVA_HOME/jre/bin:$PATH
+
+# android sdk with studio
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$ANDROID_HOME/tools:$PATH
+# export PATH=$ANDROID_HOME/tools/bin:$PATH
+# export PATH=$ANDROID_HOME/platform-tools:$PATH
+# export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
+
+# watchman
+# echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
+# echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_queued_events
+# echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
+# watchman shutdown-server
+
