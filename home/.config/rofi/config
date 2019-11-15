@@ -15,5 +15,5 @@ rofi.separator-style: none
 ! rofi.color-normal: #772953,#ffffff,#772953,#ffffff,#772953
 
 ! silver-ish
-rofi.color-window: #ffffff,#000000,#000000
-rofi.color-normal: #ffffff,#555555,#fafafa,#555555,#fafafa
+rofi.color-window: #efefef,#000000,#000000
+rofi.color-normal: #efefef,#555555,#efefef,#555555,#efefef
