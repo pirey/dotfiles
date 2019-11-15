@@ -157,6 +157,8 @@ if [ -f $HOME/.rvm/scripts/rvm ] ; then
     export PATH="$PATH:$HOME/.rvm/bin"
 fi
 
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
