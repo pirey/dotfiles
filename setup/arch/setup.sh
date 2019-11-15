@@ -11,7 +11,7 @@ setupdir=$(dirname $archdir)
 $setupdir/link-config.sh
 $setupdir/link-i3-config.sh
 
-sudo -S pacman --noconfirm -Syu zsh neovim tmux fzf ripgrep postgresql php php-pgsql composer mariadb nodejs npm ruby feh network-manager-applet volumeicon compton scrot
+sudo -S pacman --noconfirm -Syu zsh neovim tmux fzf ripgrep postgresql php php-pgsql composer mariadb nodejs npm ruby feh network-manager-applet volumeicon compton scrot thunar python-pynvim xclip
 
 $setupdir/zsh.sh
 
