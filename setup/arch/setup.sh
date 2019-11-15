@@ -11,11 +11,11 @@ setupdir=$(dirname $archdir)
 $setupdir/link-config.sh
 $setupdir/link-i3-config.sh
 
-sudo -S pacman --noconfirm -Syu
-sudo -S pacman --noconfirm -S zsh neovim tmux fzf ripgrep postgresql php php-pgsql composer mariadb nodejs npm ruby feh network-manager-applet volumeicon compton scrot
+sudo -S pacman --noconfirm -Syu zsh neovim tmux fzf ripgrep postgresql php php-pgsql composer mariadb nodejs npm ruby feh network-manager-applet volumeicon compton scrot
 
 $setupdir/zsh.sh
 
+$setupdir/composer-packages.sh
 $setupdir/adminer.sh
 $setupdir/base16.sh
 $setupdir/z.sh
