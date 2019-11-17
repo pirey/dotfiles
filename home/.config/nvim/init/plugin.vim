@@ -6,7 +6,7 @@ Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
