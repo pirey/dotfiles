@@ -182,13 +182,13 @@ bar {
 # init {{{
 
 # wallpaper
-set $wallpaper 'archlinux.png'
+set $wallpaper 'hisoka.jpg'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
-# exec --no-startup-id compton -f -D 5 -i 0.8
+exec --no-startup-id compton
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
@@ -203,6 +203,10 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 # exec_always --no-startup-id xmodmap -e "pointer = 1 2 3"
 # }}}
 
+# }}}
+
+# manually set display resolution for virtualbox {{{
+# exec_always --no-startup-id xrandr --output Virtual-1 --auto --mode 1360x768
 # }}}
 
 # multi monitor {{{
