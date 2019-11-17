@@ -24,4 +24,5 @@
 
 ## arch linux
 
++ follow instruction from [here](https://gist.github.com/pirey/847c7a212db91d1337a35673d610f8ea)
 + `setup/arch/setup.sh`
