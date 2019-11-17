@@ -37,5 +37,6 @@ ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 
 # .config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
+ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
 
 echo "OK config files linked"

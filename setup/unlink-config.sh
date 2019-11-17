@@ -24,5 +24,6 @@ remove_file ~/.prettierrc
 # remove_file ~/.bashrc
 remove_file ~/.editorconfig
 remove_file ~/.config/nvim
+remove_file ~/.config/alacritty
 
 echo "OK files removed"
