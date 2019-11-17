@@ -1,8 +1,8 @@
 ! this config uses .Xresources format
 
 rofi.hide-scrollbar: true
-rofi.width: 100
-rofi.padding: 500
+! rofi.width: 100
+rofi.padding: 50
 rofi.bw: 0
 rofi.color-enabled
 rofi.separator-style: none
