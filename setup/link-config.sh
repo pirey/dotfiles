@@ -29,11 +29,13 @@ ln -sf $DOTFILES/home/.gitignore_global $HOME/.gitignore_global
 ln -sf $DOTFILES/home/.editorconfig $HOME/.editorconfig
 ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
 ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
+ln -sf $DOTFILES/home/.xinitrc $HOME/.xinitrc
 
 # sh
 ln -sf $DOTFILES/home/.paths $HOME/.paths
 ln -sf $DOTFILES/home/.aliases $HOME/.aliases
 ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
+ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 
 # .config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config

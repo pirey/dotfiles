@@ -206,7 +206,7 @@ exec_always --no-startup-id setxkbmap -option caps:swapescape
 # }}}
 
 # manually set display resolution for virtualbox {{{
-# exec_always --no-startup-id xrandr --output Virtual-1 --auto --mode 1360x768
+# exec_always --no-startup-id xrandr --output Virtual1 --auto --mode 1360x768
 # }}}
 
 # multi monitor {{{
