@@ -11,7 +11,6 @@ remove_file () {
 echo "-> removing files..."
 
 # TODO get file names dynamically
-remove_file ~/.local/bin/fuzzy_lock.sh
 remove_file ~/.config/i3
 remove_file ~/.config/i3status
 remove_file ~/.config/volumeicon

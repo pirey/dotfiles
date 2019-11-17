@@ -14,8 +14,4 @@ ln -sf $DOTFILES/home/.config/i3status $HOME/.config
 ln -sf $DOTFILES/home/.config/volumeicon $HOME/.config
 ln -sf $DOTFILES/home/.config/rofi $HOME/.config
 
-# custom scripts
-mkdir -p $HOME/.local/bin
-ln -sf $DOTFILES/home/.local/bin/fuzzy_lock.sh $HOME/.local/bin/fuzzy_lock.sh
-
 echo "completed"

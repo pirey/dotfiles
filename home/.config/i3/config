@@ -66,7 +66,7 @@ bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+Ctrl+q exec --no-startup-id poweroff
 
 # lock screen
-# bindsym Ctrl+$mod+l exec "~/.local/bin/fuzzy_lock.sh"
+bindsym Ctrl+$mod+l exec "~/.config/i3/fuzzy_lock.sh"
 
 # Screen brightness controls with notification
 bindsym XF86MonBrightnessUp exec light -A 15
