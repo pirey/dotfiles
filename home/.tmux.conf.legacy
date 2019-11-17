@@ -1,22 +1,18 @@
-#=========================
-# tmux v2.9a
-#=========================
-
 # general {{{
 
-# set-option -g utf8 on
-# set-option -g status-utf8 on
+# set -g utf8 on
+# set -g status-utf8 on
 
 # eliminate escape delay
-set-option -sg escape-time 0
+set -sg escape-time 0
 
 # increase scrollback buffer size
-set-option -g history-limit 50000
+set -g history-limit 50000
 
-set-option -g default-terminal "screen-256color"
+set -g default-terminal "screen-256color"
 
 # change prefix
-set-option -g prefix C-Space
+set -g prefix C-Space
 unbind C-b
 bind-key C-Space send-prefix
 
@@ -25,7 +21,7 @@ bind-key C-Space send-prefix
 bind-key R source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 
 # toggle status line
-bind-key S set-option -g status
+bind-key S set -g status
 
 # }}}
 
@@ -62,17 +58,24 @@ bind-key < swap-window -t -1
 
 # clipboard {{{
 
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-selection
-bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+# for v2.4 or above
+# bind-key P paste-buffer
+# bind-key -T copy-mode-vi v send-keys -X begin-selection
+# bind-key -T copy-mode-vi y send-keys -X copy-selection
+# bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+bind-key P paste-buffer
+# bind-key -t vi-copy 'v' begin-selection
+# bind-key -t vi-copy 'y' copy-selection
+# bind-key -t vi-copy 'r' rectangle-toggle
+
 # copy to system clipboard
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
-bind-key P run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
+# bind-key -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 # }}}
 
 # ui {{{
-set-option -g status-justify left
+set -g status-justify left
 
 set-window-option -g status-right ""
 set-window-option -g status-left ""
@@ -80,20 +83,24 @@ set-window-option -g window-status-format " #I:#W "
 set-window-option -g window-status-current-format " #I:#W:#F"
 
 # color
-set-option -g status-style bg=colour0,fg=colour8
-set-option -g pane-border-style fg=colour0
-set-option -g pane-active-border-style fg=colour18
-set-window-option -g status-left-style fg=colour8,bg=colour18
-set-window-option -g status-right-style fg=colour8,bg=colour18
+set -g status-bg colour0
+set -g status-fg colour8
+set -g pane-border-fg colour0
+set -g pane-active-border-fg colour18
+set-window-option -g status-left-fg colour8
+set-window-option -g status-left-bg colour18
+set-window-option -g status-right-fg colour8
+set-window-option -g status-right-bg colour18
 # set-window-option -g status-right-bg colour0
 # set-window-option -g status-right-bg colour18
-set-window-option -g window-status-current-style fg=colour8,bg=colour18
+set-window-option -g window-status-current-fg colour8
+set-window-option -g window-status-current-bg colour18
 
 set-option -sa terminal-overrides ',screen-256color:RGB'
 
 # }}}
 
 # plugins {{{
-# set-option -g @plugin 'tmux-plugins/tmux-resurrect' # persistent tmux session after reboot
+# set -g @plugin 'tmux-plugins/tmux-resurrect' # persistent tmux session after reboot
 # run '~/.tmux/plugins/tpm/tpm'
 # }}}
