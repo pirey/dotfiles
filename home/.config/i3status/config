@@ -30,5 +30,6 @@ tztime local {
     # see man strftime
     # format = " %a, %d %b %H:%M:%S "
     # format = " %A %H:%M:%S "
-    format = " %A, %d %b %H:%M "
+    # format = " %A, %d %b %H:%M "
+    format = " %H:%M:%S "
 }
