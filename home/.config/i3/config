@@ -159,9 +159,6 @@ set $urgent-bg-color     #900000
 set $urgent-text-color   #ffffff
 
 bar {
-    # font pango:Hermit 12
-    # font pango:Fira Mono 12
-    # font pango:Larabiefont 11
     mode dock
     modifier $mod
     status_command i3status
@@ -185,13 +182,13 @@ bar {
 # init {{{
 
 # wallpaper
-set $wallpaper 'forest.jpg'
+set $wallpaper 'archlinux.png'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
 exec --no-startup-id synclient HorizTwoFingerScroll=1 HorizScrollDelta=-50 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
-exec --no-startup-id compton -f -D 5 -i 0.8
+# exec --no-startup-id compton -f -D 5 -i 0.8
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
