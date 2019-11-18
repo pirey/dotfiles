@@ -1,12 +1,18 @@
 ! this config uses .Xresources format
 
 rofi.hide-scrollbar: true
-! rofi.width: 100
+rofi.width: 400
 rofi.padding: 50
 rofi.bw: 0
 rofi.color-enabled
 rofi.separator-style: none
 
-! silver-ish
-rofi.color-window: #efefef,#000000,#000000
-rofi.color-normal: #efefef,#555555,#efefef,#555555,#efefef
+!=============================!
+! color                       !
+!=============================!
+
+!                   bg          border          separator
+rofi.color-window:  #aa000000,  #000000,        #000000
+
+!                   bg          fg          bgalt           hlbg            hlfg
+rofi.color-normal:  #00000000,  #dfdfdf,    #00000000,      #33ffffff,      #dfdfdf
