@@ -22,7 +22,7 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # program launcher
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
