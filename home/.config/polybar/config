@@ -187,9 +187,9 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = ""
+label = " "
 
-bar-width = 10
+bar-width = 5
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
@@ -276,13 +276,14 @@ label = %date%%time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume =  %percentage%%
+; label-volume =  %percentage%%
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 5
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.foreground}
