@@ -338,7 +338,7 @@ full-at = 98
 
 format-charging = "  <animation-charging> <label-charging>"
 
-format-discharging = <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
 
 format-full-prefix = "FULL  "
 format-full-prefix-foreground = ${colors.foreground}
@@ -346,6 +346,7 @@ format-full-prefix-foreground = ${colors.foreground}
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
+ramp-capacity-3 = " "
 ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = " "
