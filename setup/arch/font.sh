@@ -2,6 +2,12 @@
 
 # fonts
 
+currentscript=$(realpath $0)
+archdir=$(dirname $currentscript)
+setupdir=$(dirname $archdir)
+dotfilesdir=$(dirname $setupdir)
+
 mkdir -p ~/.local/share/fonts
 
-sudo -S pacman --noconfirm -Syu ttf-fira-code
+cp $dotfilesdir/fonts/* ~/.local/share/fonts
+fc-cache
