@@ -30,6 +30,7 @@ ln -sf $DOTFILES/home/.editorconfig $HOME/.editorconfig
 ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
 ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
 ln -sf $DOTFILES/home/.xinitrc $HOME/.xinitrc
+ln -sf $DOTFILES/home/.ncmpcpp $HOME/.ncmpcpp
 
 # sh
 ln -sf $DOTFILES/home/.paths $HOME/.paths
@@ -41,5 +42,6 @@ ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
 ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
 ln -sf $DOTFILES/home/.config/polybar $HOME/.config
+ln -sf $DOTFILES/home/.config/mpd $HOME/.config
 
 echo "OK config files linked"

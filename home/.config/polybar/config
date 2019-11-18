@@ -57,10 +57,8 @@ font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:size=10;1
 
 modules-left = i3 xwindow
-modules-right = mpd xbacklight pulseaudio battery date powermenu
-; modules-left = bspwm i3
-; modules-center = mpd
-; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = mpd
+modules-right = xbacklight pulseaudio battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -84,7 +82,7 @@ cursor-click = pointer
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:...%
+label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -174,14 +172,16 @@ label-urgent-padding = 5
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+interval = 1
+format-online = <icon-prev>     <icon-stop>     <toggle>     <icon-next>      <label-song>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
+label-song = %title%
 label-song-maxlen = 25
 label-song-ellipsis = true
 
