@@ -333,14 +333,14 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT1
-adapter = AC
+adapter = ACAD
 full-at = 98
 
 format-charging = "  <animation-charging> <label-charging>"
 
 format-discharging = <ramp-capacity>
 
-format-full-prefix = " "
+format-full-prefix = "FULL  "
 format-full-prefix-foreground = ${colors.foreground}
 
 ramp-capacity-0 = " "
@@ -350,7 +350,8 @@ ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = " "
 animation-charging-1 = " "
-animation-charging-2 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
