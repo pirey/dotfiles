@@ -56,7 +56,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:size=10;1
 
-modules-left = i3
+modules-left = i3 xwindow
 modules-right = mpd xbacklight pulseaudio wlan battery date powermenu
 ; modules-left = bspwm i3
 ; modules-center = mpd
@@ -82,7 +82,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -187,7 +187,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = ""
 
 bar-width = 10
 bar-indicator = |
@@ -195,7 +195,7 @@ bar-indicator-foreground = #fff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${colors.foreground}
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
