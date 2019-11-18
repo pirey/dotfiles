@@ -389,6 +389,8 @@ menu-0-0 = Reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = Power Off
 menu-0-1-exec = menu-open-2
+menu-0-2 = Logout
+menu-0-2-exec = menu-open-3
 
 menu-1-0 = Cancel
 menu-1-0-exec = menu-open-0
@@ -399,6 +401,11 @@ menu-2-0 = Power Off
 menu-2-0-exec = poweroff
 menu-2-1 = Cancel
 menu-2-1-exec = menu-open-0
+
+menu-3-0 = Logout
+menu-3-0-exec = i3-msg exit
+menu-3-1 = Cancel
+menu-3-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
