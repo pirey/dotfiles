@@ -13,6 +13,7 @@ $setupdir/link-i3-config.sh
 
 $archdir/essentials.sh
 $archdir/extra.sh
+$archdir/font.sh
 
 $setupdir/zsh.sh
 

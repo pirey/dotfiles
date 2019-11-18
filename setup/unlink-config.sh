@@ -28,5 +28,6 @@ remove_file ~/.zprofile
 remove_file ~/.editorconfig
 remove_file ~/.config/nvim
 remove_file ~/.config/alacritty
+remove_file ~/.config/polybar
 
 echo "OK files removed"

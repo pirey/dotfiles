@@ -40,5 +40,6 @@ ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 # .config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
 ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
+ln -sf $DOTFILES/home/.config/polybar $HOME/.config
 
 echo "OK config files linked"
