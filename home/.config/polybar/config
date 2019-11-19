@@ -366,9 +366,9 @@ format = <menu> <label-toggle>
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.foreground}
 label-close =   Cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.foreground}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
