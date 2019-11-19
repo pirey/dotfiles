@@ -18,8 +18,8 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #33000000
-background-alt = #66000000
+background = #55000000
+background-alt = #88000000
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
@@ -51,17 +51,16 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Ubuntu Condensed:pixelsize=10;1
+font-0 = Larabiefont:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:size=10;1
 
 modules-left = i3 xwindow
-modules-center = mpd
-modules-right = xbacklight pulseaudio battery date powermenu
+modules-right = mpd xbacklight pulseaudio battery date powermenu
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -97,7 +96,7 @@ format-prefix-underline = ${colors.secondary}
 label-layout = %layout%
 label-layout-underline = ${colors.secondary}
 
-label-indicator-padding = 2
+label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
@@ -121,7 +120,7 @@ enable-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 20
+label-mode-padding = 6
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.background-alt}
 
@@ -129,12 +128,12 @@ label-mode-background = ${colors.background-alt}
 label-focused = %index%
 label-focused-background = ${colors.background}
 label-focused-underline= #00000000
-label-focused-padding = 4
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
 label-unfocused-foreground = ${colors.foreground-alt}
-label-unfocused-padding = 4
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -145,7 +144,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 4
+label-urgent-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -154,7 +153,7 @@ label-urgent-padding = 4
 [module/mpd]
 type = internal/mpd
 interval = 1
-format-online = <icon-prev>     <icon-stop>     <toggle>     <icon-next>      <label-song>
+format-online = "♫ <label-song>  <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
 
 icon-prev = 
 icon-stop = 
@@ -368,14 +367,13 @@ type = custom/menu
 expand-right = false
 
 format = <menu> <label-toggle>
-format-spacing = 1
 
-label-open = 
+label-open = ""
 label-open-foreground = ${colors.foreground}
-label-close =   Cancel
+label-close = " Cancel"
 label-close-foreground = ${colors.foreground}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator = " / "
+label-separator-foreground = ${colors.foreground}
 
 menu-0-0 = Reboot
 menu-0-0-exec = menu-open-1
