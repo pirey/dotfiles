@@ -1,6 +1,6 @@
 # option {{{
 set $mod Mod1
-set $terminal i3-sensible-terminal
+set $terminal alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -147,6 +147,7 @@ bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel 
 
 # polybar {{{
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
 # }}}
 
 # bar {{{
