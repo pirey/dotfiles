@@ -186,11 +186,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # init {{{
 
 # wallpaper
-set $wallpaper 'abstract-nature.jpg'
+set $wallpaper 'archlinux.jpeg'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
-exec_always --no-startup-id synclient TapButton1=1 TapButton2=1 MaxSpeed=1.2 HorizTwoFingerScroll=1 HorizScrollDelta=-30 VertScrollDelta=-30 VertEdgeScroll=0 HorizEdgeScroll=0
+exec_always --no-startup-id synclient TapButton1=1 TapButton2=3 TapButton3=2 MinSpeed=1 MaxSpeed=1.2 HorizTwoFingerScroll=1 HorizScrollDelta=-30 VertScrollDelta=-30 VertEdgeScroll=0 HorizEdgeScroll=0 FingerHigh=0.1 FingerLow=0.1 MaxTapMove=100
 
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
