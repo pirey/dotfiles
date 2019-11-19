@@ -82,6 +82,7 @@ Plug 'tpope/vim-unimpaired'                                   " pairs of handy b
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
+Plug 'psliwka/vim-smoothie'                                   " smooth scroll
 " }}}
 
 " Git {{{
