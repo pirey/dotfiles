@@ -255,8 +255,8 @@ label = %date%%time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <bar-volume>
-; label-volume =  %percentage%%
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+label-volume = %percentage%%
 ; label-volume-foreground = ${root.foreground}
 
 ; Only applies if <ramp-volume> is used
