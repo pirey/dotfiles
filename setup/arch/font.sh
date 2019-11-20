@@ -11,3 +11,5 @@ mkdir -p ~/.local/share/fonts
 
 cp $dotfilesdir/fonts/* ~/.local/share/fonts
 fc-cache
+
+sudo pacman -S ttf-fira-mono
