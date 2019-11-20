@@ -428,7 +428,7 @@ menu-3-1-exec = menu-open-0
 
 [module/title]
 type = custom/text
-content = "   START  "
+content = "     "
 click-left = rofi -show drun
 
 [settings]
