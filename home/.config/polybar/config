@@ -232,7 +232,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #00000000
-label-connected = %essid%
+label-connected = %essid%  %downspeed%  %upspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
