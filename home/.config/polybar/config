@@ -168,7 +168,7 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
+format = <label><bar>
 label = " "
 
 bar-width = 5
@@ -247,10 +247,10 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = "  %Y-%m-%d"
+date-alt = " %Y-%m-%d"
 
 ; time = %H:%M:%S
-time = "  %H:%M"
+time = " %H:%M"
 time-alt =
 
 label = %date%%time%
@@ -322,9 +322,9 @@ battery = BAT1
 adapter = ACAD
 full-at = 98
 
-format-charging = "  <animation-charging> <label-charging>"
+format-charging = " <animation-charging><label-charging>"
 
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity><label-discharging>
 
 format-full-prefix = "FULL  "
 format-full-prefix-foreground = ${colors.foreground}
