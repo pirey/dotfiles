@@ -86,7 +86,7 @@ bottom = true
 tray-position = none
 inherit = bar/top
 modules-left = mpd
-modules-right = xkeyboard filesystem cpu memory wlan eth temperature
+modules-right = xkeyboard filesystem cpu memory temperature wlan eth
 
 [module/xwindow]
 type = internal/xwindow
@@ -191,7 +191,7 @@ type = internal/xbacklight
 
 format = <label><bar>
 label = " "
-label-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.foreground}
 
 bar-width = 5
 bar-indicator = |
@@ -295,7 +295,7 @@ label-volume = %percentage%%
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.foreground-alt}
+ramp-volume-foreground = ${colors.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
@@ -427,6 +427,10 @@ menu-3-0 = Logout
 menu-3-0-exec = i3-msg exit
 menu-3-1 = Cancel
 menu-3-1-exec = menu-open-0
+
+[module/title]
+type = custom/text
+content = "    ARCH  "
 
 [settings]
 screenchange-reload = true
