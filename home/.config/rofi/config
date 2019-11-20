@@ -1,5 +1,6 @@
 ! this config uses .Xresources format
 
+rofi.font: Fantasque Sans Mono 11
 rofi.hide-scrollbar: true
 rofi.width: 400
 rofi.padding: 50
