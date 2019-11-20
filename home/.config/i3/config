@@ -146,10 +146,10 @@ bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel 
 # }}}
 
 # polybar {{{
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
-bindsym $mod+p exec --no-startup-id "polybar-msg -p $(cat /tmp/polybar-top.pid) cmd toggle"
-bindsym $mod+Shift+p exec --no-startup-id "polybar-msg -p $(cat /tmp/polybar-bottom.pid) cmd toggle"
+bindsym $mod+p exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
+bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
 # }}}
 
 # bar {{{
