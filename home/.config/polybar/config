@@ -85,7 +85,7 @@ enable-ipc = true
 bottom = true
 tray-position = none
 inherit = bar/top
-modules-left = mpd
+modules-left = title mpd
 modules-right = xkeyboard filesystem cpu memory temperature wlan eth
 
 [module/xwindow]
@@ -433,7 +433,8 @@ menu-3-1-exec = menu-open-0
 
 [module/title]
 type = custom/text
-content = "    ARCH  "
+content = "   START  "
+click-left = rofi -show drun
 
 [settings]
 screenchange-reload = true
