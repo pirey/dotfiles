@@ -429,7 +429,7 @@ menu-3-1-exec = menu-open-0
 [module/title]
 type = custom/text
 content = "     "
-click-left = rofi -show drun
+click-left = rofi -show drun -location 7
 
 [settings]
 screenchange-reload = true
