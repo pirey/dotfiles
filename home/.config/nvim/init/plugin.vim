@@ -1,7 +1,7 @@
 " Language & Syntax {{{
 " elixir {{{
-Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
+" Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " }}}
 
 " js / ts {{{
@@ -95,7 +95,6 @@ Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'} 	" .gitignore ge
 
 " ETC {{{
 Plug 'diepm/vim-rest-console'                                 " making rest api call
-Plug 'vim-utils/vim-man'                                      " View other program's manual page in vim :Man
 Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
 " Plug 'wakatime/vim-wakatime'
 " }}}
@@ -104,6 +103,6 @@ Plug 'metakirby5/codi.vim'                                    " vscode's quokka.
 if executable('rg')
     Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
 else
-    echo 'woy, why not have the rg ah?'
+    echo 'WARNING: missing rg executable'
 endif
 " }}}
