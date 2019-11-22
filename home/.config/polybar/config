@@ -193,7 +193,7 @@ format = <label><bar>
 label = " "
 label-foreground = ${colors.foreground}
 
-bar-width = 6
+bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
@@ -291,15 +291,16 @@ label-volume = %percentage%%
 ; label-volume-foreground = ${root.foreground}
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 
+; ramp-volume-0 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-foreground = ${colors.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 6
+bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.foreground}
@@ -349,6 +350,8 @@ type = internal/battery
 battery = BAT1
 adapter = ACAD
 full-at = 98
+
+poll-interval = 3
 
 format-charging = " <animation-charging><label-charging>"
 
