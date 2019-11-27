@@ -1,6 +1,6 @@
 # option {{{
 set $mod Mod1
-set $terminal alacritty
+set $terminal kitty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
