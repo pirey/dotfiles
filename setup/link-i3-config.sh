@@ -13,5 +13,6 @@ ln -sf $DOTFILES/home/.config/i3 $HOME/.config
 ln -sf $DOTFILES/home/.config/i3status $HOME/.config
 ln -sf $DOTFILES/home/.config/volumeicon $HOME/.config
 ln -sf $DOTFILES/home/.config/rofi $HOME/.config
+ln -sf $DOTFILES/home/.config/picom $HOME/.config
 
 echo "completed"

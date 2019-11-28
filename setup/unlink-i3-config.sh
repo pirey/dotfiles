@@ -15,6 +15,7 @@ remove_file ~/.config/i3
 remove_file ~/.config/i3status
 remove_file ~/.config/volumeicon
 remove_file ~/.config/rofi
+remove_file ~/.config/picom
 
 echo "OK files removed"
 
