@@ -189,7 +189,7 @@ bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
 # init {{{
 
 # wallpaper
-set $wallpaper 'archlinux.jpeg'
+set $wallpaper 'archlinux-aside.png'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad & natural scrolling
