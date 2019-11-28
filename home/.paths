@@ -49,3 +49,4 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 # echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 # watchman shutdown-server
 
+export PATH=$HOME/Postman:$PATH
