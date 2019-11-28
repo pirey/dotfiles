@@ -17,8 +17,14 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #55000000
+; color from nordtheme.com
+nord-polar-night-0 = #2e3440
+nord-polar-night-1 = #3b4252
+nord-polar-night-2 = #434c5e
+nord-polar-night-3 = #4c566a
+
+; background = #55000000
+background = ${colors.nord-polar-night-0}
 background-alt = #88000000
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
