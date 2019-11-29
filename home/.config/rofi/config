@@ -14,7 +14,8 @@ rofi.show-icons: true
 !=============================!
 
 !                   bg          border          separator
-rofi.color-window:  #aa000000,  #000000,        #000000
+! rofi.color-window:  #aa000000,  #000000,        #000000
+rofi.color-window:  #2e3440,  #000000,        #000000
 
 !                   bg          fg          bgalt           hlbg            hlfg
 rofi.color-normal:  #00000000,  #dfdfdf,    #00000000,      #33ffffff,      #dfdfdf

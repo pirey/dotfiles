@@ -50,3 +50,4 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 # watchman shutdown-server
 
 export PATH=$HOME/Postman:$PATH
+export PATH=$HOME/android-studio/bin:$PATH
