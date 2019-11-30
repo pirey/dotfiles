@@ -7,9 +7,8 @@ adminerdir=~/.local/opt/adminer/4.7.4
 if [ ! -d $adminerdir ]; then
     mkdir -p $adminerdir
 
-    git clone https://github.com/pematon/adminer-theme
-    mv adminer-theme/lib/* $adminerdir
-    rm -rf ./adminer-theme
+    git clone https://github.com/pematon/adminer-theme /tmp/adminer-theme
+    mv /tmp/adminer-theme/lib/* $adminerdir
 
     # adminer engine
     curl -o $adminerdir/adminer.php -L https://github.com/vrana/adminer/releases/download/v4.7.4/adminer-4.7.4.php
