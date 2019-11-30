@@ -31,17 +31,12 @@ fi
 # for arch linux ruby
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
-# TODO
-# export JAVA_HOME=$HOME/tools/jdk1.8.0_161
-# export PATH=$JAVA_HOME/bin:$PATH
-# export PATH=$JAVA_HOME/jre/bin:$PATH
-
 # android sdk with studio
-# export ANDROID_HOME=$HOME/Android/Sdk
-# export PATH=$ANDROID_HOME/tools:$PATH
-# export PATH=$ANDROID_HOME/tools/bin:$PATH
-# export PATH=$ANDROID_HOME/platform-tools:$PATH
-# export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/tools/bin:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 
 # watchman
 # echo 256 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
