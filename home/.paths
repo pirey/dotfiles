@@ -47,4 +47,4 @@ export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 export PATH=$HOME/.local/opt/Postman:$PATH
 
 # android-studio
-export PATH=$HOME/.local/opt/android-studio:$PATH
+export PATH=$HOME/.local/opt/android-studio/bin:$PATH
