@@ -18,6 +18,8 @@ for_window [class="^.*"] border pixel 0
 # start a terminal
 bindsym $mod+Return exec $terminal
 
+bindsym $mod+Shift+o exec "~/.config/i3/scaffold.sh"
+
 # kill focused window
 bindsym $mod+q kill
 
