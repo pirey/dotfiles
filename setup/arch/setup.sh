@@ -25,3 +25,4 @@ $setupdir/z.sh
 $setupdir/npm-packages.sh
 $setupdir/ruby-gems.sh
 $setupdir/neovim-plugin.sh
+$setupdir/tmux-plugin.sh
