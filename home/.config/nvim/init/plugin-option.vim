@@ -88,7 +88,21 @@ let g:buftabline_indicators = 1
 " }}}
 
 " junegunn/fzf {{{
-let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
+function! FloatingFZF()
+  let width = float2nr(&columns * 1 / 3)
+  let height = float2nr(&lines * 1 / 3)
+  let opts = { 'relative': 'editor',
+             \ 'row': (&lines - height) / 2,
+             \ 'col': (&columns - width) / 2,
+             \ 'width': width,
+             \ 'height': height }
+
+  let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+endfunction
+
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+let $FZF_DEFAULT_OPTS = '--layout=reverse --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
