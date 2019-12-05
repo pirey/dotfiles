@@ -110,7 +110,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # gitignore generator
-function gi() { curl -sLw "\n" https://www.gitignore.io/api/\$@ ;}
+function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
 
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
