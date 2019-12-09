@@ -11,7 +11,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 
 
-[*.{c,h,go}]
+[*.{c,cpp,h,go}]
 indent_style             = tab
 tab_width                = 4
 

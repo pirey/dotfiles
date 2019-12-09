@@ -201,6 +201,9 @@ exec --no-startup-id picom
 exec --no-startup-id nm-applet
 # exec --no-startup-id volumeicon
 
+# auto mounting
+exec --no-startup-id udiskie
+
 # keyboard {{{
 # keyboard speed
 exec_always --no-startup-id xset r rate 250 60
