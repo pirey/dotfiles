@@ -32,7 +32,7 @@ fi
 
 # start some nice programs {{{
 # keyboard speed
-xset r rate & 250 60
+xset r rate 250 60
 # caps lock to escape
 setxkbmap -option caps:swapescape
 # }}}
