@@ -34,7 +34,7 @@ fi
 # keyboard speed
 xset r rate & 250 60
 # caps lock to escape
-setxkbmap -option caps:swapescape &
+setxkbmap -option caps:swapescape
 # }}}
 
 # Here i3 is kept as default

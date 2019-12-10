@@ -36,6 +36,7 @@ Plug 'chr4/nginx.vim'
 
 " Colorscheme {{{
 Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim.git'
 " }}}
 
 " UI {{{
