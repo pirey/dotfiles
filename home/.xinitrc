@@ -23,14 +23,19 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
  done
  unset f
 fi
+
+# start some nice programs {{{
+# keyboard speed
+xset r rate & 250 60
+# caps lock to escape
+setxkbmap -option caps:swapescape &
+# }}}
 
 # Here i3 is kept as default
 session=${1:-i3}
@@ -48,4 +53,3 @@ case $session in
     # No known session, try to run it as command
     * ) exec $1;;
 esac
-

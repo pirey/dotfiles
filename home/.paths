@@ -44,7 +44,11 @@ export PATH=$ANDROID_HOME/platform-tools/bin:$PATH
 # echo 65536 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
 # watchman shutdown-server
 
+# postman
 export PATH=$HOME/.local/opt/Postman:$PATH
+
+# vscode
+export PATH=$HOME/.local/opt/vscode/bin:$PATH
 
 # android-studio
 export PATH=$HOME/.local/opt/android-studio/bin:$PATH
