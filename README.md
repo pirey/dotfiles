@@ -1,5 +1,7 @@
 ![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot.png)
 
+![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot-blended.png)
+
 ## link config files
 + `git clone https://github.com/pirey/dotfiles`
 + go to cloned directory, then `./setup/link-config.sh [<dotfiles_dir>]`, where `dotfiles_dir` is directory where you clone this repo (default is `~/dotfiles`). **it will do these automatically for you**:
