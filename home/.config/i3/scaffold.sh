@@ -11,5 +11,5 @@ if ! pidof -x firefox; then
 fi
 
 if ! pidof -x gnome-system-monitor; then
-    i3-msg 'workspace 0; exec gnome-system-monitor'
+    i3-msg 'workspace 10; exec gnome-system-monitor'
 fi
