@@ -9,3 +9,7 @@ fi
 if ! pidof -x firefox; then
     i3-msg 'workspace 2; exec firefox'
 fi
+
+if ! pidof -x gnome-system-monitor; then
+    i3-msg 'workspace 0; exec gnome-system-monitor'
+fi
