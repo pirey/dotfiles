@@ -1,3 +1,5 @@
+*.keystore
+
 *~
 .DS_Store
 
