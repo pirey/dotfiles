@@ -4,7 +4,7 @@
 alias l="ls -alh"
 alias x="exit"
 alias lsln="find . -maxdepth 1 -type l" # list symlinks
-alias cari="find ./ -name"
+alias cari="rg --hidden --files -g"
 
 alias ..="cd .."
 alias cd..="cd .."
