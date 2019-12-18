@@ -200,7 +200,7 @@ exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 # touchpad (libinput)
 exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 0.5
+exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 0.3
 
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
