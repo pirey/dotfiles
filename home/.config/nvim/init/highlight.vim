@@ -7,6 +7,7 @@ hi VertSplit cterm=NONE ctermbg=NONE
 hi NonText ctermfg=NONE
 hi LineNr ctermfg=NONE ctermbg=NONE
 hi Visual ctermbg=18 ctermfg=NONE
+hi CursorLine ctermbg=18 ctermfg=NONE
 hi Folded ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=NONE ctermbg=NONE
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=NONE

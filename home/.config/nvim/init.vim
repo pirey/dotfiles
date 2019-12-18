@@ -31,4 +31,4 @@ runtime init/command.vim
 runtime init/highlight.vim
 " }}}
 
-let g:loaded_cursorline = 1
+" let g:loaded_cursorline = 1
