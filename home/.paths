@@ -52,3 +52,6 @@ export PATH=$HOME/.local/opt/vscode/bin:$PATH
 
 # android-studio
 export PATH=$HOME/.local/opt/android-studio/bin:$PATH
+
+# godot game engine
+export PATH=$HOME/.local/opt/godot:$PATH
