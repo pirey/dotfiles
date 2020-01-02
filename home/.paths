@@ -55,3 +55,6 @@ export PATH=$HOME/.local/opt/android-studio/bin:$PATH
 
 # godot game engine
 export PATH=$HOME/.local/opt/godot:$PATH
+
+# wordpress cli
+export PATH=$HOME/.local/opt/wordpress:$PATH
