@@ -2,7 +2,7 @@
 
 sudo -S su -l postgres
 
-initdb -D /var/lib/postgres/data
+initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data
 
 exit
 
