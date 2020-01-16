@@ -1,2 +1,0 @@
-- [x] write script for reproducible build dependencies and tools on fresh machine
-- [ ] add script to install fonts

@@ -7,9 +7,8 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
-mkdir -p ~/.local/share/fonts
+sudo pacman -S ttf-fantasque-sans-mono
 
+mkdir -p ~/.local/share/fonts
 cp $dotfilesdir/fonts/* ~/.local/share/fonts
 fc-cache
-
-sudo pacman -S ttf-fira-mono ttf-fantasque-sans-mono

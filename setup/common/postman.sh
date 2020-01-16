@@ -4,9 +4,6 @@
 # postman
 ######################################
 
-currentscript=$(realpath $0)
-archdir=$(dirname $currentscript)
-setupdir=$(dirname $archdir)
 installdir=~/.local/opt/Postman
 desktopdir=~/.local/share/applications
 

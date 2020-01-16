@@ -1,11 +1,13 @@
 #!/bin/sh
 
 ######################################
-# android file transfer
+# package from external sources
 ######################################
 
 currentscript=$(realpath $0)
 archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
+aurdir=$archdir/aur
 
-sudo -S pacman --noconfirm -Syu android-file-transfer android-udev
+$aurdir/polybar.sh
+$aurdir/screenkey.sh

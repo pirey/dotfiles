@@ -2,6 +2,7 @@
 
 ######################################
 # android dev tools
+# TODO tidy up things
 ######################################
 
 currentscript=$(realpath $0)

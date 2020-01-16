@@ -3,6 +3,19 @@
 # Base16 Shell template by Chris Kempson (http://chriskempson.com)
 # Nord scheme by arcticicestudio
 
+
+
+
+#================================================
+# NOTE:
+# this is temporarily workaround for nord theme
+# to use correct color, copy this file manually to ~/.config/base16-shell/scripts
+#================================================
+
+
+
+
+
 color00="2E/34/40" # Base 00 - Black
 color01="BF/61/6A" # Base 08 - Red
 color02="A3/BE/8C" # Base 0B - Green

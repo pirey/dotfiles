@@ -11,18 +11,12 @@ setupdir=$(dirname $archdir)
 $setupdir/link-config.sh
 $setupdir/link-i3-config.sh
 
+# refresh PATH
+source ~/.paths
+
 $archdir/essentials.sh
 $archdir/dev-tools.sh
 $archdir/extra.sh
 $archdir/font.sh
-
-$setupdir/zsh.sh
-
-$setupdir/composer-packages.sh
-$setupdir/adminer.sh
-$setupdir/base16.sh
-$setupdir/z.sh
-$setupdir/npm-packages.sh
-$setupdir/ruby-gems.sh
-$setupdir/neovim-plugin.sh
-$setupdir/tmux-plugin.sh
+$archdir/external.sh
+$archdir/aur.sh

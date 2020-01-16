@@ -4,9 +4,6 @@
 # vscode
 ######################################
 
-currentscript=$(realpath $0)
-archdir=$(dirname $currentscript)
-setupdir=$(dirname $archdir)
 desktopdir=~/.local/share/applications
 
 mkdir -p $desktopdir
