@@ -11,6 +11,7 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
+Plug 'leafOfTree/vim-svelte-plugin', { 'for': 'svelte' }
 " }}}
 
 " php {{{
