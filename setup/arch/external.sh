@@ -4,6 +4,10 @@
 # package from external sources
 ######################################
 
+echo "======================================"
+echo "Installing External packages..."
+echo "======================================"
+
 currentscript=$(realpath $0)
 archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)

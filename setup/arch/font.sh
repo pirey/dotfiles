@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# fonts
+echo "======================================"
+echo "Installing fonts..."
+echo "======================================"
 
 currentscript=$(realpath $0)
 archdir=$(dirname $currentscript)

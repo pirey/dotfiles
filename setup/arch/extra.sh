@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# extra packages for arch linux
+echo "======================================"
+echo "Installing Extra packages..."
+echo "======================================"
+
 currentscript=$(realpath $0)
 archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
