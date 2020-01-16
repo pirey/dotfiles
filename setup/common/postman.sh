@@ -12,9 +12,12 @@ mkdir -p $installdir
 
 downloadurl="https://dl.pstmn.io/download/latest/linux64"
 
-curl -o /tmp/postman.tar.gz -L $downloadurl
-tar -zxf /tmp/postman.tar.gz
-mv /tmp/postman $installdir
+if [ ! -f /tmp/postman.tar.gz ]; then
+    curl -o /tmp/postman.tar.gz -L $downloadurl
+    tar -zxf /tmp/postman.tar.gz
+    mv /tmp/postman $installdir
+fi
+
 
 cat << 'POSTMAN' > /tmp/postman.desktop
 [Desktop Entry]
