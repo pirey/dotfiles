@@ -18,6 +18,7 @@ fi
 
 cd /tmp
 tar -zxf /tmp/vscode.tar.gz
+rm -rf $installdir/*
 mv /tmp/VSCode-linux-x64/* $installdir
 cd -
 

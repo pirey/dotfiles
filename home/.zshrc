@@ -115,3 +115,7 @@ function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/pirey/.sdkman"
+[[ -s "/home/pirey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/pirey/.sdkman/bin/sdkman-init.sh"

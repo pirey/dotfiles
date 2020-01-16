@@ -18,6 +18,7 @@ fi
 
 cd /tmp
 tar -zxf /tmp/postman.tar.gz
+rm -rf $installdir/*
 mv /tmp/Postman/* $installdir
 cd -
 
