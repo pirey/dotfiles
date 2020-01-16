@@ -18,7 +18,7 @@ fi
 
 cd /tmp
 tar -zxf /tmp/postman.tar.gz
-mv /tmp/Postman $installdir
+mv /tmp/Postman/* $installdir
 cd -
 
 cat << 'POSTMAN' > /tmp/postman.desktop

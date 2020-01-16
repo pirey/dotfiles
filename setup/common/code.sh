@@ -1,16 +1,28 @@
 #!/bin/sh
 
-git clone https://aur.archlinux.org/visual-studio-code-bin.git /tmp/vscode-aur
-cd /tmp/vscode-aur
-makepkg -si --noconfirm
-cd -
+######################################
+# vscode
+######################################
 
-
-# setup launcher
-
+installdir=~/.local/opt/vscode
 desktopdir=~/.local/share/applications
 
 mkdir -p $desktopdir
+mkdir -p $installdir
+
+downloadurl="https://go.microsoft.com/fwlink/?LinkID=620884"
+
+if [ ! -f /tmp/vscode.tar.gz ]; then
+    curl -o /tmp/vscode.tar.gz -L $downloadurl
+fi
+
+cd /tmp
+tar -zxf /tmp/vscode.tar.gz
+mv /tmp/VSCode-linux-x64/* $installdir
+cd -
+
+
+# launcher
 
 if [ -f /tmp/code.desktop ]; then
     rm /tmp/code.desktop
