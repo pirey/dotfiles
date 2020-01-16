@@ -15,7 +15,6 @@ commondir=$setupdir/common
 
 $commondir/adminer.sh
 $commondir/base16.sh
-$commondir/code.sh
 $commondir/composer-packages.sh
 $commondir/neovim-plugin.sh
 $commondir/npm-packages.sh

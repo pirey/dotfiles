@@ -1,14 +1,20 @@
 #!/bin/sh
 
-######################################
-# vscode
-######################################
+git clone https://aur.archlinux.org/visual-studio-code-bin.git /tmp/vscode-aur
+cd /tmp/vscode-aur
+makepkg -si --noconfirm
+cd -
+
+
+# setup launcher
 
 desktopdir=~/.local/share/applications
 
 mkdir -p $desktopdir
 
-rm /tmp/code.desktop
+if [ -f /tmp/code.desktop ]; then
+    rm /tmp/code.desktop
+fi
 
 echo "[Desktop Entry]" >> /tmp/code.desktop
 echo "Version=1.0" >> /tmp/code.desktop
