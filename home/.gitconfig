@@ -6,7 +6,7 @@
     smudge = git lfs smudge %f
     required = true
 [core]
-    editor = "vim -u NONE"
+    editor = "nvim -u NONE"
     excludesfile = ~/.gitignore_global
 [merge]
     tool = vimdiff
