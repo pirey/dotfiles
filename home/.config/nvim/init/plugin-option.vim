@@ -2,6 +2,10 @@
 let g:alchemist_mappings_disable = 1
 " }}}
 
+" posva/vim-vue {{{
+let g:vue_pre_processors = []
+" }}}
+
 " elmcast/vim-elm {{{
 let g:elm_setup_keybindings = 0
 " }}}
