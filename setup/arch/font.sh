@@ -9,7 +9,7 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
-sudo pacman -S ttf-fantasque-sans-mono
+sudo pacman -S ttf-fantasque-sans-mono adobe-source-code-pro-fonts
 
 mkdir -p ~/.local/share/fonts
 cp $dotfilesdir/fonts/* ~/.local/share/fonts
