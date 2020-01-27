@@ -13,3 +13,8 @@ fi
 if ! pidof -x gnome-system-monitor; then
     i3-msg 'workspace 10; exec gnome-system-monitor'
 fi
+
+if ! pidof -x code; then
+    i3-msg 'workspace 3; exec code'
+fi
+
