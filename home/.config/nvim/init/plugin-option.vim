@@ -159,11 +159,15 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = '☰'
-" let g:airline_symbols.maxlinenr = ''
-" let g:airline_symbols.dirty='⚡'
+
+if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
+
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+
 let g:airline_mode_map = {
             \ '__'     : '-',
             \ 'c'      : 'C',
@@ -185,4 +189,12 @@ let g:airline_mode_map = {
             \ ''     : 'V',
             \ }
 let g:airline_focuslost_inactive=1
+let g:airline_highlighting_cache = 1
+let g:airline_section_c = '%t'
+" }}}
+
+" brooth/far.vim {{{
+if executable('rg')
+    let g:far#source = 'rg'
+endif
 " }}}
