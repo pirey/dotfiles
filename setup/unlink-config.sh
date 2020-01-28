@@ -22,6 +22,7 @@ remove_file ~/.npmrc
 remove_file ~/.prettierrc
 remove_file ~/.xinitrc
 remove_file ~/.ncmpcpp
+remove_file ~/.spacemacs
 
 # remove_file ~/.bashrc
 remove_file ~/.zshrc

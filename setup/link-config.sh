@@ -31,6 +31,7 @@ ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
 ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
 ln -sf $DOTFILES/home/.xinitrc $HOME/.xinitrc
 ln -sf $DOTFILES/home/.ncmpcpp $HOME/.ncmpcpp
+ln -sf $DOTFILES/home/.spacemacs $HOME/.spacemacs
 
 # sh
 ln -sf $DOTFILES/home/.paths $HOME/.paths
