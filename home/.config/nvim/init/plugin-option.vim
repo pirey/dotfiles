@@ -159,9 +159,11 @@ let g:airline_powerline_fonts = 1
  " let g:airline_left_alt_sep = ''
  " let g:airline_right_sep = ''
  " let g:airline_right_alt_sep = ''
-" let g:airline_left_sep = ''
-let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
 
@@ -191,6 +193,7 @@ let g:airline_mode_map = {
             \ 'V'      : 'V',
             \ ''     : 'V',
             \ }
+
 let g:airline_focuslost_inactive=1
 let g:airline_highlighting_cache = 1
 let g:airline_section_c = '%t'
