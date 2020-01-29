@@ -42,7 +42,7 @@ Plug 'arcticicestudio/nord-vim'
 " }}}
 
 " UI {{{
-Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
