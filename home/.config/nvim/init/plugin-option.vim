@@ -153,6 +153,8 @@ let g:EasyMotionSegments_key = 'w'
 " }}}
 
 " vim-airline/vim-airline {{{
+set laststatus=2
+set noshowmode
 let g:airline_powerline_fonts = 1
 " powerline symbols
  " let g:airline_left_sep = ''
@@ -169,7 +171,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 
 if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
