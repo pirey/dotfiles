@@ -89,6 +89,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-slash'
 Plug 'psliwka/vim-smoothie'                                   " smooth scroll
 Plug 'brooth/far.vim'
+Plug 'dhruvasagar/vim-zoom'
+Plug 'ripxorip/aerojump.nvim', { 'do': 'UpdateRemotePlugins' }
 " }}}
 
 " Git {{{
