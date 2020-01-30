@@ -1,9 +1,8 @@
-" Language & Syntax {{{
+" language & Syntax {{{
 " elixir {{{
-" Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
-" Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " }}}
-
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
@@ -13,7 +12,9 @@ Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 " }}}
-
+" reasonml {{{
+Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
+" }}}
 " php {{{
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
 Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  " Laravel's Blade
@@ -25,18 +26,18 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " go {{{
 " Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 " }}}
-" haskell
+" haskell {{{
 Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }                             " haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " }}}
-
 " nginx {{{
 Plug 'chr4/nginx.vim'
 " }}}
+" }}}
 
-" Colorscheme {{{
+" colorscheme {{{
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 " }}}
@@ -44,10 +45,9 @@ Plug 'arcticicestudio/nord-vim'
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
-Plug 'chrisbra/unicode.vim'
 " }}}
 
-" Editing {{{
+" editing {{{
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
@@ -91,7 +91,15 @@ Plug 'brooth/far.vim'
 Plug 'ripxorip/aerojump.nvim', { 'do': 'UpdateRemotePlugins' }
 " }}}
 
-" Git {{{
+" search {{{
+if executable('rg')
+    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
+else
+    echo 'WARNING: missing rg executable'
+endif
+" }}}
+
+" git {{{
 Plug 'tpope/vim-fugitive'                                     		" Git wrapper
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
@@ -99,16 +107,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                            		" Git status wit
 Plug 'fszymanski/fzf-gitignore', {'do': 'UpdateRemotePlugins'} 	    " .gitignore generator
 " }}}
 
-" ETC {{{
+" etc {{{
 Plug 'diepm/vim-rest-console'                                 " making rest api call
 Plug 'metakirby5/codi.vim'                                    " vscode's quokka.js in vim
 Plug 'wakatime/vim-wakatime'
 " }}}
 
-" Search {{{
-if executable('rg')
-    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
-else
-    echo 'WARNING: missing rg executable'
-endif
-" }}}
