@@ -69,7 +69,7 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " toggle fold
-nnoremap <space> za
+" nnoremap <space> za
 
 " movement {{{
 " faster horizontal scroll

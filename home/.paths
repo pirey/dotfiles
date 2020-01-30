@@ -2,6 +2,9 @@
 # Custom $PATH
 #===========================
 
+# common
+export PATH=$HOME/.local/bin:$PATH
+
 # composer
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 

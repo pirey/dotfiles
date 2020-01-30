@@ -152,62 +152,6 @@ augroup END
 let g:EasyMotionSegments_key = 'w'
 " }}}
 
-" vim-airline/vim-airline {{{
-set laststatus=2
-set noshowmode
-let g:airline_powerline_fonts = 1
-" powerline symbols
- " let g:airline_left_sep = ''
- " let g:airline_left_alt_sep = ''
- " let g:airline_right_sep = ''
- " let g:airline_right_alt_sep = ''
-" let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-
-if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
-
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-
-let g:airline_mode_map = {
-            \ '__'     : '-',
-            \ 'c'      : 'C',
-            \ 'i'      : 'I',
-            \ 'ic'     : 'I',
-            \ 'ix'     : 'I',
-            \ 'n'      : 'N',
-            \ 'multi'  : 'M',
-            \ 'ni'     : 'N',
-            \ 'no'     : 'N',
-            \ 'R'      : 'R',
-            \ 'Rv'     : 'R',
-            \ 's'      : 'S',
-            \ 'S'      : 'S',
-            \ ''     : 'S',
-            \ 't'      : 'T',
-            \ 'v'      : 'V',
-            \ 'V'      : 'V',
-            \ ''     : 'V',
-            \ }
-
-let g:airline_focuslost_inactive=1
-let g:airline_highlighting_cache = 1
-let g:airline_section_c = '%t'
-" }}}
-
 " brooth/far.vim {{{
 if executable('rg')
     let g:far#source = 'rg'
