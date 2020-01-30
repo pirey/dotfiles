@@ -39,5 +39,5 @@ hi CocHintSign cterm=NONE ctermbg=NONE ctermfg=8
 " }}}
 
 " scrooloose/nerdtree {{{
-" hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
+hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
 " }}}

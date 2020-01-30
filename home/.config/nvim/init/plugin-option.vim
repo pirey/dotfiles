@@ -30,9 +30,9 @@ let NERDTreeMapOpenExpl = ''
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeStatusline = ' FILES'
-" let NERDTreeDirArrowExpandable = ' '
-" let NERDTreeDirArrowCollapsible = ' '
-" let g:NERDTreeNodeDelimiter = "\u00a0"
+let NERDTreeDirArrowExpandable = ' '
+let NERDTreeDirArrowCollapsible = ' '
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " nerdtree-git-plugin {{{
 let g:NERDTreeIndicatorMapCustom = {
