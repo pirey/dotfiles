@@ -115,3 +115,6 @@ function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
+
+# opam
+source ~/.opam-helper

@@ -40,6 +40,10 @@
       "command": "ocaml-language-server",
       "args": ["--stdio"],
       "filetypes": ["reason"]
+    },
+    "reason": {
+      "command": "reason-language-server",
+      "filetypes": ["reason"]
     }
     /* "haskell": { */
     /*   "command": "hie-wrapper", */

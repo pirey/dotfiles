@@ -61,6 +61,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " }}}
 
 " completion / snippets / intellisense {{{
+Plug 'neoclide/jsonc.vim', {'for': 'jsonc'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -69,7 +70,7 @@ Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/jsonc.vim', {'for': 'jsonc'}
+Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'

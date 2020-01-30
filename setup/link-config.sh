@@ -32,6 +32,7 @@ ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
 ln -sf $DOTFILES/home/.xinitrc $HOME/.xinitrc
 ln -sf $DOTFILES/home/.ncmpcpp $HOME/.ncmpcpp
 ln -sf $DOTFILES/home/.spacemacs $HOME/.spacemacs
+ln -sf $DOTFILES/home/.opam-helper $HOME/.opam-helper
 
 # sh
 ln -sf $DOTFILES/home/.paths $HOME/.paths
