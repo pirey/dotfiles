@@ -61,7 +61,8 @@ nmap <leader>0 <Plug>BufTabLine.Go(-1)
 " junegunn/fzf {{{
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <c-p> :FZF<CR>
-nnoremap <c-b> :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>h :History<CR>
 nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>? :Lines<CR>
 " }}}

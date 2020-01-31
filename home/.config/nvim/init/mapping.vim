@@ -24,7 +24,7 @@ endif
 nnoremap <leader>w <C-w>c
 
 " Open previous buffer
-nnoremap <leader>b :b#<CR>
+nnoremap <leader>B :b#<CR>
 
 " Force close all buffers, clean things up!
 nnoremap <leader><leader>x :bufdo bd!<CR>
@@ -97,10 +97,10 @@ vnoremap B 20h
 " vnoremap K <C-u>
 
 " Soft scroll
-nnoremap J 12gj
-nnoremap K 12gk
-vnoremap J 12gj
-vnoremap K 12gk
+nnoremap J 16gj
+nnoremap K 16gk
+vnoremap J 16gj
+vnoremap K 16gk
 
 " preserve cursor in the middle when scrolling
 nnoremap <C-f> <C-f>M
