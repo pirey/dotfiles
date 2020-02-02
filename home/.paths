@@ -23,16 +23,8 @@ export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 # adminer
 export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
 
-# rvm ruby version manager
-if [ -f $HOME/.rvm/scripts/rvm ] ; then
-    # rvm ruby
-    source $HOME/.rvm/scripts/rvm
-    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-    export PATH="$PATH:$HOME/.rvm/bin"
-fi
-
 # for arch linux ruby
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 
 # android sdk with studio
 export ANDROID_HOME=$HOME/Android/Sdk
