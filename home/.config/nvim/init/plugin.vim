@@ -86,12 +86,12 @@ Plug 'chrismccord/bclose.vim'                                 " Close a buffer w
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-slash'
 Plug 'psliwka/vim-smoothie'                                   " smooth scroll
 Plug 'ripxorip/aerojump.nvim', { 'do': 'UpdateRemotePlugins' }
 " }}}
 
 " search {{{
+Plug 'osyo-manga/vim-anzu'
 if executable('rg')
     Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
 else
