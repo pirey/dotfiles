@@ -152,12 +152,6 @@ augroup END
 let g:EasyMotionSegments_key = 'w'
 " }}}
 
-" brooth/far.vim {{{
-if executable('rg')
-    let g:far#source = 'rg'
-endif
-" }}}
-
 " ripxorip/aerojump.nvim {{{
 nmap <leader>as <Plug>(AerojumpSpace)
 nmap <leader>ab <Plug>(AerojumpBolt)
