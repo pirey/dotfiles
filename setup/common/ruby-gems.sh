@@ -4,4 +4,4 @@
 # run this after ruby / rubygem is installed
 #################################
 
-gem install neovim irb
+gem install neovim irb solargraph
