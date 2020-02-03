@@ -120,4 +120,4 @@ fi
 source ~/.opam-helper
 
 # rvm
-source $HOME/.rvm/scripts/rvm
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm

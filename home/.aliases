@@ -31,6 +31,7 @@ alias nvi='nvim'
 alias vim='nvim'
 alias vm='vim'
 alias vi='vim'
+alias v='vim'
 alias hosts="sudo vim -u NONE /etc/hosts"
 
 # git
