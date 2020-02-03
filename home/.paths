@@ -26,6 +26,9 @@ export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
 # for arch linux ruby
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 
+# ruby version manager
+export PATH=$HOME/.rvm/bin:$PATH
+
 # android sdk with studio
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$ANDROID_HOME/tools:$PATH
