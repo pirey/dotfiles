@@ -118,3 +118,6 @@ fi
 
 # opam
 source ~/.opam-helper
+
+# rvm
+source $HOME/.rvm/scripts/rvm
