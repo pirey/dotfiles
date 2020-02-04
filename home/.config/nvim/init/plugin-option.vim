@@ -106,7 +106,8 @@ function! FloatingFZF()
 endfunction
 
 " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-let $FZF_DEFAULT_OPTS = '--color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
+let g:fzf_layout = { 'window': { 'width': 0.3, 'height': 0.5 } }
+let $FZF_DEFAULT_OPTS = '--reverse --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " }}}
 
