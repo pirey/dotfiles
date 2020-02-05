@@ -159,3 +159,11 @@ nmap <leader>ab <Plug>(AerojumpBolt)
 nmap <leader>aa <Plug>(AerojumpFromCursorBolt)
 nmap <leader>ad <Plug>(AerojumpDefault)
 " }}}
+
+" liuchengxu/vim-clap {{{
+" experimental, this could replace fzf if mature enough
+" can setup optimized keymaps for this later
+let g:clap_layout = { 'relative': 'editor', 'width': '30%', 'col': '35%' }
+let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" }}}

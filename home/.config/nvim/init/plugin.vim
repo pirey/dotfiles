@@ -45,6 +45,7 @@ Plug 'arcticicestudio/nord-vim'
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 " }}}
 
 " editing {{{
