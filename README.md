@@ -1,5 +1,3 @@
-![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot.png)
-
 ![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot-blended.png)
 
 ## link config files
