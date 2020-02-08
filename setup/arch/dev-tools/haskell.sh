@@ -7,3 +7,5 @@ echo "Installing devtools packages..."
 echo "======================================"
 
 sudo -S pacman --noconfirm -Syu stack
+
+stack install hlint hindent

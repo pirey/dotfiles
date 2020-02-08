@@ -127,20 +127,20 @@ augroup coc_keymaps
     autocmd!
 
     " LSP
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <C-]> <Plug>(coc-definition)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <c-^> <Plug>(coc-references)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>r <Plug>(coc-rename)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>a <Plug>(coc-codeaction)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact vmap <buffer> <leader>a <Plug>(coc-codeaction-selected)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>i <Plug>(coc-diagnostic-info)
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>l :CocList<CR>
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>e :CocList diagnostics<CR>
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>o :CocList outline<CR>
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>s :CocList --interactive symbols<CR>
-    autocmd FileType ocaml,reason,c,cpp,h,go nmap <buffer> <leader>p :call CocAction('format')<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <C-]> <Plug>(coc-definition)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <c-^> <Plug>(coc-references)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>r <Plug>(coc-rename)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>a <Plug>(coc-codeaction)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact vmap <buffer> <leader>a <Plug>(coc-codeaction-selected)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>i <Plug>(coc-diagnostic-info)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>l :CocList<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>e :CocList diagnostics<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>o :CocList outline<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>s :CocList --interactive symbols<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,go nmap <buffer> <leader>p :call CocAction('format')<CR>
 
     " snippets
-    autocmd FileType ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
 
     " Use <C-j> for jump to next placeholder, it's default of coc.nvim
     let g:coc_snippet_next = '<c-j>'
