@@ -48,7 +48,7 @@ set nonumber                " don't really need line numbers
 set ruler                   " number and colon in bottom right
 set norelativenumber        " use no relative numbering.
 set showcmd                 " show command in bottom bar
-set showmode                " show current mode (insert, visual, bla bla)
+set noshowmode              " don't show current mode (insert, visual, bla bla)
 set wildmenu                " visual autocomplete in command mode
 set formatoptions-=cro      " disable auto comment
 set nowrap                  " don't wrap line, let them flow..
