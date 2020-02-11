@@ -133,7 +133,6 @@ set scrolloff=1 " Show 1 lines after / before scrolling
 "     source ~/.vimrc_background
 " endif
 
-let g:nord_uniform_diff_background = 1
 colo nord
 
 " }}}
