@@ -1,4 +1,5 @@
 ![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot-blended.png)
+![](https://raw.githubusercontent.com/pirey/dotfiles/master/scrot/scrot-solarized.png)
 
 ## link config files
 + `git clone https://github.com/pirey/dotfiles`
