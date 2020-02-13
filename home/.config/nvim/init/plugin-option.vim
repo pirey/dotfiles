@@ -172,3 +172,7 @@ let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "li
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 " }}}
+
+" jremmen/vim-ripgrep {{{
+let g:rg_command = 'rg --no-heading --vimgrep --hidden --glob "!.git"'
+" }}}
