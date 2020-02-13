@@ -10,6 +10,7 @@ setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
 sudo pacman -S ttf-fantasque-sans-mono \
+    ttf-cascadia-code \
     ttf-jetbrains-mono \
     powerline-fonts \
     ttf-nerd-fonts-symbols
