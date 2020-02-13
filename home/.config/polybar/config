@@ -23,9 +23,11 @@ nord-polar-night-1 = #3b4252
 nord-polar-night-2 = #434c5e
 nord-polar-night-3 = #4c566a
 
+solarized-0 = #88002b36
+
 ; background = #55000000
 ; solarized
-background = #88002b36
+background = ${colors.solarized-0}
 ; background = ${colors.nord-polar-night-0}
 background-alt = #88000000
 ;foreground = ${xrdb:color7:#222}

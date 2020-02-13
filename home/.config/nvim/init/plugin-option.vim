@@ -26,12 +26,12 @@ let g:gitgutter_max_signs = 250
 " }}}
 
 " scrooloose/nerdtree {{{
-let NERDTreeMapOpenExpl = ''
+" let NERDTreeMapOpenExpl = ''
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeStatusline = ' FILES'
-let NERDTreeDirArrowExpandable = ' '
-let NERDTreeDirArrowCollapsible = ' '
+let NERDTreeDirArrowExpandable = ''
+let NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " nerdtree-git-plugin {{{
@@ -166,4 +166,9 @@ nmap <leader>ad <Plug>(AerojumpDefault)
 let g:clap_layout = { 'relative': 'editor', 'width': '30%', 'col': '35%' }
 let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
 let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" }}}
+
+" ryanoasis/vim-devicons {{{
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 " }}}
