@@ -128,11 +128,11 @@ set scrolloff=1 " Show 1 lines after / before scrolling
 " colorscheme {{{
 
 " use colorscheme config helper from base16 shell
-" if filereadable(expand("~/.vimrc_background"))
-"     let base16colorspace=256
-"     source ~/.vimrc_background
-" endif
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
-colo nord
+" colo nord
 
 " }}}

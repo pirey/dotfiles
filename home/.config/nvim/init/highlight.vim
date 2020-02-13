@@ -13,7 +13,7 @@ hi StatusLine cterm=NONE ctermfg=NONE ctermbg=NONE
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=NONE
 
 hi Search cterm=NONE ctermfg=NONE ctermbg=18
-hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=8
+hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=18
 "}}}
 
 " airblade/vim-gitgutter {{{
