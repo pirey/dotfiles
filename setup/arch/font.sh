@@ -9,11 +9,12 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
-sudo pacman -S ttf-fantasque-sans-mono \
+sudo pacman -S fontforge \
+    ttf-fantasque-sans-mono \
     ttf-cascadia-code \
     ttf-jetbrains-mono \
-    powerline-fonts \
-    ttf-nerd-fonts-symbols
+    ttf-nerd-fonts-symbols \
+    powerline-fonts
 
 mkdir -p ~/.local/share/fonts
 cp $dotfilesdir/fonts/* ~/.local/share/fonts
