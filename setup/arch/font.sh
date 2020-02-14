@@ -11,8 +11,6 @@ dotfilesdir=$(dirname $setupdir)
 
 sudo pacman -S fontforge \
     ttf-fantasque-sans-mono \
-    ttf-cascadia-code \
-    ttf-jetbrains-mono \
     ttf-nerd-fonts-symbols \
     powerline-fonts
 
