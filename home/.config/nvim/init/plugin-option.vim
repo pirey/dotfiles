@@ -137,7 +137,7 @@ augroup coc_keymaps
     autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>e :CocList diagnostics<CR>
     autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>o :CocList outline<CR>
     autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact nmap <buffer> <leader>s :CocList --interactive symbols<CR>
-    autocmd FileType haskell,ocaml,reason,c,cpp,h,go nmap <buffer> <leader>p :call CocAction('format')<CR>
+    autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go nmap <buffer> <leader>p :call CocAction('format')<CR>
 
     " snippets
     autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
