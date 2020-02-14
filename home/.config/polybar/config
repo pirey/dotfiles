@@ -62,7 +62,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 ; font-0 = Fantasque Sans Mono:pixelsize=12;1
-font-0 = Liga InputMonoCondensed:pixelsize=12;1
+font-0 = Liga InputMonoCondensed:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:pixelsize=11:antialias=false;0
 font-2 = siji:pixelsize=11;1
 font-3 = FontAwesome:pixelsize=11;1
