@@ -8,6 +8,7 @@ hi NonText ctermfg=NONE
 hi LineNr ctermfg=NONE ctermbg=NONE
 hi Visual ctermbg=18 ctermfg=NONE
 hi CursorLine ctermbg=18 ctermfg=NONE
+hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=6
 hi Folded ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=NONE ctermbg=NONE
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=NONE
