@@ -1,6 +1,7 @@
 ! this config uses .Xresources format
 
-rofi.font            : Fantasque Sans Mono 11
+! rofi.font            : Fantasque Sans Mono 11
+rofi.font            : Liga InputMonoCondensed 11
 rofi.matching        : fuzzy
 rofi.lines           : 7
 rofi.hide-scrollbar  : true
