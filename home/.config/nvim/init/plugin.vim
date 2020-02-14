@@ -1,19 +1,19 @@
 " language & Syntax {{{
 " elixir {{{
-Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
+" Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " }}}
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
-Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
-Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
-Plug 'posva/vim-vue', { 'for': 'vue' }
+" Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
+" Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
+" Plug 'posva/vim-vue', { 'for': 'vue' }
 " }}}
 " reasonml {{{
-Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
+" Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
 " }}}
 " php {{{
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
@@ -21,7 +21,7 @@ Plug 'jwalton512/vim-blade', { 'for': 'php' }                                  "
 Plug 'captbaritone/better-indent-support-for-php-with-html', { 'for': 'php' }
 " }}}
 " elm {{{
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
+" Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " }}}
 " go {{{
 " Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
@@ -33,7 +33,7 @@ Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " }}}
 " nginx {{{
-Plug 'chr4/nginx.vim'
+" Plug 'chr4/nginx.vim'
 " }}}
 " }}}
 
@@ -45,7 +45,7 @@ Plug 'arcticicestudio/nord-vim'
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 " }}}
 
 " editing {{{
@@ -76,7 +76,6 @@ Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
-Plug 'justinj/vim-react-snippets'
 " }}}
 
 " navigation {{{
@@ -88,8 +87,6 @@ Plug 'chrismccord/bclose.vim'                                 " Close a buffer w
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'psliwka/vim-smoothie'                                   " smooth scroll
-Plug 'ripxorip/aerojump.nvim', { 'do': 'UpdateRemotePlugins' }
 " }}}
 
 " search {{{
@@ -106,7 +103,6 @@ Plug 'tpope/vim-fugitive'                                     		" Git wrapper
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
 Plug 'Xuyuanp/nerdtree-git-plugin'                            		" Git status within nerdtree
-Plug 'fszymanski/fzf-gitignore', {'do': 'UpdateRemotePlugins'} 	    " .gitignore generator
 " }}}
 
 " etc {{{

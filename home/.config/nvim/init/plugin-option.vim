@@ -1,18 +1,18 @@
 " slashmili/alchemist.vim {{{
-let g:alchemist_mappings_disable = 1
+" let g:alchemist_mappings_disable = 1
 " }}}
 
 " posva/vim-vue {{{
-let g:vue_pre_processors = []
+" let g:vue_pre_processors = []
 " }}}
 
 " elmcast/vim-elm {{{
-let g:elm_setup_keybindings = 0
+" let g:elm_setup_keybindings = 0
 " }}}
 
 " fatih/vim-go {{{
 " disable `K` as lookup doc
-let g:go_doc_keywordprg_enabled = 0
+" let g:go_doc_keywordprg_enabled = 0
 " }}}
 
 " chrismccord/bclose {{{
@@ -118,10 +118,6 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
-" fszymanski/fzf-gitignore {{{
-let g:fzf_gitignore_no_maps = 1
-" }}}
-
 " neoclide/coc.nvim {{{
 augroup coc_keymaps
     autocmd!
@@ -164,9 +160,9 @@ nmap <leader>ad <Plug>(AerojumpDefault)
 " experimental, this could replace fzf if mature enough
 " can setup optimized keymaps for this later
 " let g:clap_layout = { 'relative': 'editor', 'width': '30%', 'col': '35%' }
-nnoremap <c-c> :Clap files \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
-let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
-let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" nnoremap <c-c> :Clap files \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
 " }}}
 
 " ryanoasis/vim-devicons {{{
