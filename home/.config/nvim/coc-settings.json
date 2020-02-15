@@ -14,15 +14,15 @@
   "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"],
   "javascript.suggest.enabled": false,
   "languageserver": {
-    "golang": {
-      "command": "go-langserver",
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "gocodeCompletionEnabled": true,
-        "diagnosticsEnabled": true,
-        "lintTool": "golint"
-      }
-    },
+    /* "golang": { */
+    /*   "command": "go-langserver", */
+    /*   "filetypes": ["go"], */
+    /*   "initializationOptions": { */
+    /*     "gocodeCompletionEnabled": true, */
+    /*     "diagnosticsEnabled": true, */
+    /*     "lintTool": "golint" */
+    /*   } */
+    /* }, */
     "intelephense": {
       "command": "intelephense",
       "args": ["--stdio"],
@@ -31,27 +31,27 @@
         "storagePath": "/tmp/intelephense"
       }
     },
-    "clangd": {
-      "command": "clangd",
-      "args": ["--background-index"],
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
-    },
-    "ocaml": {
-      "command": "ocaml-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["reason"]
-    },
-    "reason": {
-      "command": "reason-language-server",
-      "filetypes": ["reason"]
-    },
+    /* "clangd": { */
+    /*   "command": "clangd", */
+    /*   "args": ["--background-index"], */
+    /*   "rootPatterns": [ */
+    /*     "compile_flags.txt", */
+    /*     "compile_commands.json", */
+    /*     ".vim/", */
+    /*     ".git/", */
+    /*     ".hg/" */
+    /*   ], */
+    /*   "filetypes": ["c", "cpp", "objc", "objcpp"] */
+    /* }, */
+    /* "ocaml": { */
+    /*   "command": "ocaml-language-server", */
+    /*   "args": ["--stdio"], */
+    /*   "filetypes": ["reason"] */
+    /* }, */
+    /* "reason": { */
+    /*   "command": "reason-language-server", */
+    /*   "filetypes": ["reason"] */
+    /* }, */
     "haskell": {
       "command": "hie-wrapper",
       "args": ["--lsp"],
