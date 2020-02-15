@@ -34,6 +34,9 @@ alias vi='vim'
 alias v='vim'
 alias hosts="sudo vim -u NONE /etc/hosts"
 
+# fzf
+alias vzf='vim $(fzf)'
+
 # git
 alias gconf="vim $HOME/.gitconfig"
 alias gst="git status"

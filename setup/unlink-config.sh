@@ -14,6 +14,8 @@ echo "-> removing files..."
 remove_file ~/.toprc
 remove_file ~/.agignore
 remove_file ~/.aliases
+remove_file ~/.paths
+remove_file ~/.env
 remove_file ~/.ctags
 remove_file ~/.gitconfig
 remove_file ~/.gitignore_global

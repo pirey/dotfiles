@@ -74,10 +74,13 @@ nnoremap <space><tab> <plug>(fzf-maps-n)
 nnoremap <space>f :FZF<CR>
 nnoremap <space>b :Buffers<CR>
 nnoremap <space>h :History<CR>
-nnoremap <space>g :Commits<CR>
 nnoremap <space>w :Windows<CR>
 nnoremap <space>/ :BLines<CR>
 nnoremap <space>? :Lines<CR>
+
+" fullscreen for better preview
+nnoremap <space>gs :call fzf#vim#gitfiles('?', 1)<CR>
+nnoremap <space>gl :call fzf#vim#commits(1)<CR>
 " }}}
 
 " neoclide/coc.nvim {{{

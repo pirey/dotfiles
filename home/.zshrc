@@ -96,6 +96,7 @@ export EDITOR='vim'
 
 source ~/.aliases
 source ~/.paths
+source ~/.env
 
 # z
 . $HOME/.local/opt/z/z.sh

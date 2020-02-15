@@ -11,6 +11,7 @@ sudo -S pacman --noconfirm -Syu openssh \
     neovim \
     tmux \
     fzf \
+    bat \
     ripgrep \
     feh \
     network-manager-applet \
