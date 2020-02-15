@@ -91,17 +91,17 @@ let g:buftabline_number = 2
 let g:buftabline_indicators = 1
 " }}}
 
+" liuchengxu/vim-clap {{{
+" let g:clap_layout = { 'relative': 'editor', 'width': '30%', 'col': '35%' }
+" let g:clap_layout = { 'relative': 'editor' }
+" let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
+" }}}
+
 " junegunn/fzf {{{
 let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 let $FZF_DEFAULT_OPTS = '--reverse --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
-" }}}
-
-" osyo-manga/vim-anzu {{{
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
 " neoclide/coc.nvim {{{
@@ -123,32 +123,16 @@ augroup coc_keymaps
 
     " snippets
     autocmd FileType haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx imap <C-l> <Plug>(coc-snippets-expand)
-
-    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-    let g:coc_snippet_next = '<c-j>'
-    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-    let g:coc_snippet_prev = '<c-k>'
 augroup END
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 " }}}
 
 " aykamko/vim-easymotion-segments {{{
 let g:EasyMotionSegments_key = 'w'
-" }}}
-
-" ripxorip/aerojump.nvim {{{
-nmap <leader>as <Plug>(AerojumpSpace)
-nmap <leader>ab <Plug>(AerojumpBolt)
-nmap <leader>aa <Plug>(AerojumpFromCursorBolt)
-nmap <leader>ad <Plug>(AerojumpDefault)
-" }}}
-
-" liuchengxu/vim-clap {{{
-" experimental, this could replace fzf if mature enough
-" can setup optimized keymaps for this later
-" let g:clap_layout = { 'relative': 'editor', 'width': '30%', 'col': '35%' }
-" nnoremap <c-c> :Clap files \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
-" let g:clap_current_selection_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
-" let g:clap_selected_sign = { 'text': '> ', 'texthl': "ClapCurrentSelection", "linehl": "ClapCurrentSelection" }
 " }}}
 
 " ryanoasis/vim-devicons {{{

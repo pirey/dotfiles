@@ -58,8 +58,19 @@ nmap <leader>0 <Plug>BufTabLine.Go(10)
 nmap <leader>0 <Plug>BufTabLine.Go(-1)
 " }}}
 
+" liuchengxu/vim-clap {{{
+" nnoremap <space><space> :Clap<CR>
+" nnoremap <space>f :Clap files \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space>b :Clap buffers \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space>h :Clap history \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space>w :Clap windows \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space>g :Clap commits \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space>/ :Clap blines \+\+finder='rg --files-with-matches --hidden --glob "!.git" "."'<CR>
+" nnoremap <space><tab> :Clap maps<CR>
+" }}}
+
 " junegunn/fzf {{{
-nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <space><tab> <plug>(fzf-maps-n)
 nnoremap <space>f :FZF<CR>
 nnoremap <space>b :Buffers<CR>
 nnoremap <space>h :History<CR>
@@ -73,5 +84,19 @@ nnoremap <space>? :Lines<CR>
 " }}}
 
 " aykamko/vim-easymotion-segments {{{
+" }}}
+
+" osyo-manga/vim-anzu {{{
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" }}}
+
+" ripxorip/aerojump.nvim {{{
+nmap <leader>as <Plug>(AerojumpSpace)
+nmap <leader>ab <Plug>(AerojumpBolt)
+nmap <leader>aa <Plug>(AerojumpFromCursorBolt)
+nmap <leader>ad <Plug>(AerojumpDefault)
 " }}}
 

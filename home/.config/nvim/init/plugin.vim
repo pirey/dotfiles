@@ -45,7 +45,6 @@ Plug 'arcticicestudio/nord-vim'
 " UI {{{
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 " }}}
 
 " editing {{{
@@ -85,6 +84,7 @@ Plug 'aykamko/vim-easymotion-segments'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
+" Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
