@@ -43,5 +43,5 @@ hi CocCodeLens ctermfg=18
 
 " scrooloose/nerdtree {{{
 hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
-hi NerdTreeFlags ctermfg=8
+hi NerdTreeFlags ctermfg=4
 " }}}
