@@ -24,7 +24,7 @@ endif
 nnoremap <leader>w <C-w>c
 
 " Open previous buffer
-nnoremap <leader>B :b#<CR>
+nnoremap <leader>b :b#<CR>
 
 " Force close all buffers, clean things up!
 nnoremap <leader><leader>x :bufdo bd!<CR>

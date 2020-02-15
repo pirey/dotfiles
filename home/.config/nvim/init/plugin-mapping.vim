@@ -60,11 +60,13 @@ nmap <leader>0 <Plug>BufTabLine.Go(-1)
 
 " junegunn/fzf {{{
 nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <c-p> :FZF<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>h :History<CR>
-nnoremap <leader>/ :BLines<CR>
-nnoremap <leader>? :Lines<CR>
+nnoremap <space>f :FZF<CR>
+nnoremap <space>b :Buffers<CR>
+nnoremap <space>h :History<CR>
+nnoremap <space>g :Commits<CR>
+nnoremap <space>w :Windows<CR>
+nnoremap <space>/ :BLines<CR>
+nnoremap <space>? :Lines<CR>
 " }}}
 
 " neoclide/coc.nvim {{{
