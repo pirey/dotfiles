@@ -15,8 +15,8 @@ $setupdir/link-i3-config.sh
 source ~/.paths
 
 $archdir/essentials.sh
-$archdir/dev-tools.sh
 $archdir/extra.sh
 $archdir/font.sh
-$archdir/external.sh
-$archdir/aur.sh
+$archdir/dev-tools/setup.sh
+$archdir/aur/setup.sh
+$archdir/external/setup.sh

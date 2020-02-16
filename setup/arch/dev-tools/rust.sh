@@ -9,4 +9,4 @@ echo "======================================"
 sudo -S pacman --noconfirm -Syu rustup
 
 # NOTE: further toolchain installation needed
-# see help
+# man rustup

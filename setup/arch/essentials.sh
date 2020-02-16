@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# essentials packages for arch linux
-
 echo "======================================"
 echo "Installing essentials packages..."
 echo "======================================"
@@ -43,5 +41,3 @@ sudo -S pacman --noconfirm -Syu openssh \
     android-file-transfer \
     android-udev \
     httpie
-
-# if you want to use Gnome or other DE, add it accordingly

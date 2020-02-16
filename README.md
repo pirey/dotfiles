@@ -16,11 +16,6 @@
     - In tmux session, `prefix + I` to install listed plugins
 
 
-## ubuntu (18.04)
-
-+ `setup/ubuntu-18.04/setup.sh` for default desktop
-+ `setup/ubuntu-18.04/setup-i3.sh` for i3 wm
-
 ## arch linux
 
 + follow instruction from [here](https://gist.github.com/pirey/847c7a212db91d1337a35673d610f8ea)

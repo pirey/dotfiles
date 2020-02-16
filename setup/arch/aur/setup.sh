@@ -9,9 +9,7 @@ echo "Installing AUR packages..."
 echo "======================================"
 
 currentscript=$(realpath $0)
-archdir=$(dirname $currentscript)
-setupdir=$(dirname $archdir)
-aurdir=$archdir/aur
+currentdir=$(dirname $currentscript)
 
-$aurdir/polybar.sh
-$aurdir/screenkey.sh
+$currentdir/polybar.sh
+$currentdir/screenkey.sh

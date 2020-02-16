@@ -9,4 +9,16 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 
 
-sudo -S pacman --noconfirm -Syu chromium firefox lxappearance arc-gtk-theme arc-icon-theme vlc cmus mpd ncmpcpp libreoffice-still gimp gimp-help-en inkscape
+sudo -S pacman --noconfirm -Syu chromium \
+    firefox \
+    lxappearance \
+    arc-gtk-theme \
+    arc-icon-theme \
+    vlc \
+    cmus \
+    mpd \
+    ncmpcpp \
+    libreoffice-still \
+    gimp \
+    inkscape
+    # gimp-help-en \
