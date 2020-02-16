@@ -70,7 +70,7 @@ nmap <leader>0 <Plug>BufTabLine.Go(-1)
 " }}}
 
 " junegunn/fzf {{{
-nnoremap <space><tab> <plug>(fzf-maps-n)
+nnoremap <space><tab> :Maps<CR>
 nnoremap <space>f :FZF<CR>
 nnoremap <space>b :Buffers<CR>
 nnoremap <space>h :History<CR>
