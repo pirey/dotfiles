@@ -63,6 +63,7 @@ Plug 'editorconfig/editorconfig-vim'                          " Editor config
 " completion / snippets / intellisense {{{
 Plug 'neoclide/jsonc.vim', {'for': 'jsonc'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
