@@ -109,6 +109,10 @@ let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 " option above already set from environment variables, intentionally
 " duplicated here until I acustomized to setting fzf config via env vars
 " see $HOME/.env
+augroup custom_fzf
+    autocmd!
+    autocmd FileType fzf execute 'IndentLinesDisable'
+augroup END
 " }}}
 
 " neoclide/coc.nvim {{{
