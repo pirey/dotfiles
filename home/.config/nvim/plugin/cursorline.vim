@@ -10,7 +10,7 @@ let g:loaded_cursorline = 1
 " NOTE this can raise a performance issue somehow
 augroup CurrentCursorline
     autocmd!
-    autocmd WinEnter * exe winnr('$')>1 ? "setlocal cursorline" : "setlocal nocursorline"
-    autocmd WinLeave * setlocal nocursorline
+    autocmd InsertLeave,WinEnter * exe winnr('$')>1 ? "setlocal cursorline" : "setlocal nocursorline"
+    autocmd InsertEnter,WinLeave * setlocal nocursorline
 augroup END
 
