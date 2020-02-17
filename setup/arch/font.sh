@@ -9,7 +9,8 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
-sudo pacman -Syu fontforge \
+sudo pacman -Syu gucharmap \
+    fontforge \
     ttf-fantasque-sans-mono \
     ttf-nerd-fonts-symbols \
     powerline-fonts
