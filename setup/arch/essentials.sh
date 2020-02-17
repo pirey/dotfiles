@@ -40,4 +40,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     usbutils \
     android-file-transfer \
     android-udev \
-    httpie
+    httpie \
+    xcape
