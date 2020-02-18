@@ -10,7 +10,7 @@ hi Visual ctermbg=18 ctermfg=NONE
 hi CursorLine ctermbg=18 ctermfg=NONE
 hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=6
 hi Folded ctermbg=NONE
-hi StatusLine cterm=NONE ctermfg=NONE ctermbg=NONE
+hi StatusLine cterm=NONE ctermfg=0 ctermbg=8
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=NONE
 
 hi Search cterm=NONE ctermfg=NONE ctermbg=18

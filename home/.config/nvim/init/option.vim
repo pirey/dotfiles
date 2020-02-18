@@ -66,7 +66,7 @@ endif
 "set lazyredraw
 
 " Statusline
-set laststatus=0 " do not show statusline
+set laststatus=1
 set showtabline=0
 
 " }}}
