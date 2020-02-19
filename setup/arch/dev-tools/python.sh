@@ -13,4 +13,4 @@ echo "======================================"
 echo "Installing pip packages..."
 echo "======================================"
 
-pip install --user django autopep8 pynvim
+pip install --user django autopep8 pynvim pipenv
