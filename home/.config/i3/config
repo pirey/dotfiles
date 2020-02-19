@@ -210,11 +210,11 @@ exec --no-startup-id nm-applet
 # auto mounting
 exec --no-startup-id udiskie
 
-# keyboard {{{
+# keyboard (moved to xinitrc) {{{
 # keyboard speed
-exec_always --no-startup-id xset r rate 250 60
+# exec_always --no-startup-id xset r rate 250 60
 # caps lock to escape
-exec_always --no-startup-id setxkbmap -option caps:swapescape
+# exec_always --no-startup-id setxkbmap -option caps:swapescape
 # caps lock to ctrl and escape
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 # exec_always --no-startup-id xcape -e 'Control_L=Escape'

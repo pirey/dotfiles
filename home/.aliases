@@ -12,6 +12,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# python
+alias django="python manage.py"
 alias pp_json="python -m json.tool"
 
 alias tmux="tmux -u"
