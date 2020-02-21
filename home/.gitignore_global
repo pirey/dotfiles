@@ -14,6 +14,9 @@ bower_modules/*
 # Created by https://www.gitignore.io/api/c
 # Edit at https://www.gitignore.io/?templates=c
 
+# python
+.venv
+
 ### C ###
 # Prerequisites
 *.d
