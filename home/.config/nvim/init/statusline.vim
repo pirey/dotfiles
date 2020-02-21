@@ -20,6 +20,6 @@ endfunction
 function! GitStatus()
     let [a,m,r] = GitGutterGetHunkSummary()
     let gutter = printf('+%d ~%d -%d', a, m, r)
-    let fugitive = fugitive#head()
-    return '[' . fugitive . ' ' . gutter . ']'
+    let head = fugitive#head()
+    return empty(head) ? '' : '[' . head . ' ' . gutter . ']'
 endfunction
