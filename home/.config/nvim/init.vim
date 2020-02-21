@@ -26,6 +26,9 @@ runtime init/plugin-mapping.vim
 runtime init/command.vim
 " }}}
 
+" statusline {{{
+runtime init/statusline.vim
+" }}}
 
 " highlight {{{
 runtime init/highlight.vim
