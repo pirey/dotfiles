@@ -236,7 +236,7 @@ exec --no-startup-id udiskie
 # }}}
 
 # i3-gaps {{{
-smart_gaps on
-gaps inner 10
-gaps outer 0
+# smart_gaps on
+# gaps inner 10
+# gaps outer 0
 # }}}
