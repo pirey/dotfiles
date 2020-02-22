@@ -15,6 +15,7 @@ alias .....="cd ../../../.."
 # python
 alias django="python manage.py"
 alias pp_json="python -m json.tool"
+alias venv="source .venv/bin/activate"
 
 alias tmux="tmux -u"
 
