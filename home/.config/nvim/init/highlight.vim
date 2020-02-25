@@ -2,7 +2,7 @@
 hi Normal cterm=NONE ctermbg=NONE
 hi EndOfBuffer ctermfg=0
 hi SignColumn cterm=NONE ctermbg=NONE
-hi VertSplit cterm=NONE ctermbg=NONE
+hi VertSplit cterm=NONE ctermbg=NONE ctermfg=18
 
 hi NonText ctermfg=NONE
 hi LineNr ctermfg=NONE ctermbg=NONE
