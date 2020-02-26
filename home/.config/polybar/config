@@ -66,6 +66,7 @@ font-0 = Liga InputMonoCondensed:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:pixelsize=11:antialias=false;0
 font-2 = siji:pixelsize=11;1
 font-3 = FontAwesome:pixelsize=11;1
+font-4 = Symbols Nerd Font:pixelsize=11;1
 
 modules-left = i3 xwindow
 modules-right = xbacklight pulseaudio battery date powermenu
@@ -445,7 +446,7 @@ menu-3-1-exec = menu-open-0
 
 [module/title]
 type = custom/text
-content = "     "
+content = "     "
 click-left = rofi -show drun -location 7
 
 [settings]
