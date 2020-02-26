@@ -50,6 +50,7 @@ Plug 'Yggdroot/indentLine'
 " editing {{{
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
+Plug 'pirey/underscored.vim'                                  " <c-g><Space> swap space with underscore
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`
 Plug 'tpope/vim-repeat'                                       " Repeat last plugin command
@@ -114,4 +115,3 @@ Plug 'metakirby5/codi.vim'                                    " vscode's quokka.
 Plug 'wakatime/vim-wakatime'
 Plug 'ryanoasis/vim-devicons'
 " }}}
-
