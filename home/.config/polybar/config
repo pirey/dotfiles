@@ -286,10 +286,10 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %Y-%m-%d"
+date-alt = " %d-%m-%Y"
 
 ; time = %H:%M:%S
-time = " %H:%M"
+time = " %d  %H:%M"
 time-alt =
 
 label = %date%%time%
