@@ -116,4 +116,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-w>f <C-w>vgf
 nnoremap <C-w>f <C-w>vgf
 nnoremap <C-w><c-f> <C-w>vgf
+
+nnoremap <silent> <Up> 5<C-W>+
+nnoremap <silent> <Right> 5<C-W>>
+nnoremap <silent> <Down> 5<C-W>-
+nnoremap <silent> <Left> 5<C-W><
 " }}}
