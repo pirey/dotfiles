@@ -163,3 +163,7 @@ let g:rg_command = 'rg --no-heading --vimgrep --hidden --glob "!.git"'
 " for small screen
 command! GST :10Gstatus
 " }}}
+
+" dhruvasagar/vim-zoom {{{
+let g:zoom#statustext = '[Z]'
+" }}}
