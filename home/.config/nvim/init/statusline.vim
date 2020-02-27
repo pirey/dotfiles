@@ -2,7 +2,7 @@
 let g:loaded_cursorline = 1
 
 set laststatus=2
-set statusline=\ %t\ %{GitStatus()}%=--\ %l,%c%V\ of\ %L\ --\ %P"
+set statusline=\ %t\ %{GitStatus()}\ %m%=--\ %l,%c%V\ of\ %L\ --\ %P"
 
 function! DiagnosticStatus() abort
     let info = get(b:, 'coc_diagnostic_info', {})
