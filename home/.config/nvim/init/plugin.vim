@@ -35,6 +35,9 @@ Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " nginx {{{
 " Plug 'chr4/nginx.vim'
 " }}}
+" python {{{
+Plug 'tweekmonster/django-plus.vim'
+" }}}
 " }}}
 
 " colorscheme {{{
