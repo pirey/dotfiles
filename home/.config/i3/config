@@ -231,8 +231,10 @@ exec --no-startup-id udiskie
 # }}}
 
 # multi monitor {{{
-# xrandr --output VGA-1 --auto --right-of LVDS-1
-# xrandr --output VGA-1 --auto --same-as LVDS-1
+# xrandr --output VGA1 --auto --right-of LVDS1
+#
+# xrandr --output VGA1 --mode 1024x768
+# xrandr --output LVDS1 --mode 1024x768
 # }}}
 
 # i3-gaps {{{
