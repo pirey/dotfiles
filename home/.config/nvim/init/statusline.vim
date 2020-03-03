@@ -2,7 +2,7 @@
 let g:loaded_cursorline = 1
 
 set laststatus=2
-set statusline=\ %t\ %{StatuslineGit()}\ %m%{zoom#statusline()}%=--\ %l,%c%V\ of\ %L\ --\ %P"
+set statusline=\ %{StatuslineGit()}\ %m%{zoom#statusline()}\ %t%=--\ %l,%c%V\ of\ %L\ --\ %P"
 
 """ statusline 'widget' functions {{{
 function! StatuslineDiagnostic() abort
