@@ -2,9 +2,10 @@
 let g:loaded_cursorline = 1
 
 set laststatus=2
-set statusline=\ %t\ %{GitStatus()}\ %m%{zoom#statusline()}%=--\ %l,%c%V\ of\ %L\ --\ %P"
+set statusline=\ %t\ %{StatuslineGit()}\ %m%{zoom#statusline()}%=--\ %l,%c%V\ of\ %L\ --\ %P"
 
-function! DiagnosticStatus() abort
+""" statusline 'widget' functions {{{
+function! StatuslineDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
     if empty(info) | return '' | endif
     let msgs = []
@@ -17,9 +18,27 @@ function! DiagnosticStatus() abort
     return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
 
-function! GitStatus()
+function! StatuslineGit()
     let [a,m,r] = GitGutterGetHunkSummary()
     let gutter = printf('+%d ~%d -%d', a, m, r)
     let head = fugitive#head()
     return empty(head) ? '' : '[' . head . ' ' . gutter . ']'
 endfunction
+""" }}}
+
+""" highlight {{{
+function! s:statusline_highlight()
+    if winnr('$') == 1
+        " use subtle bg color if there's only one window
+        hi StatusLine cterm=NONE ctermfg=8 ctermbg=0
+    else
+        " use distinctive bg color when there are more windows
+        hi StatusLine cterm=NONE ctermfg=18 ctermbg=8
+    endif
+endfunction
+
+augroup statusline_highlight
+    autocmd!
+    autocmd VimEnter,VimResized,WinEnter,WinLeave * call s:statusline_highlight()
+augroup END
+""" }}}
