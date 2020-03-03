@@ -49,6 +49,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'pirey/dynaline.vim'
 " }}}
 
 " editing {{{
