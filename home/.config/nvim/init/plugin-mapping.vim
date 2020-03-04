@@ -103,3 +103,6 @@ nmap <leader>aa <Plug>(AerojumpFromCursorBolt)
 nmap <leader>ad <Plug>(AerojumpDefault)
 " }}}
 
+" t9md/vim-choosewin {{{
+nnoremap - :ChooseWin<CR>
+" }}}

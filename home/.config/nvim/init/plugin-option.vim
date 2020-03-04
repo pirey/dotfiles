@@ -167,3 +167,7 @@ command! GST :10Gstatus
 " dhruvasagar/vim-zoom {{{
 let g:zoom#statustext = '[Z]'
 " }}}
+
+" t9md/vim-choosewin {{{
+let g:choosewin_overlay_enable = 1
+" }}}

@@ -85,6 +85,7 @@ Plug 'epilande/vim-es2015-snippets'
 " }}}
 
 " navigation {{{
+Plug 't9md/vim-choosewin'                                     " tmux-like window navigation
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
 Plug 'aykamko/vim-easymotion-segments'
