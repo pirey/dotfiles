@@ -15,3 +15,4 @@ $currentdir/postman.sh
 $currentdir/tmux-plugin.sh
 $currentdir/z.sh
 $currentdir/zsh.sh
+$currentdir/elm.sh
