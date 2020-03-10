@@ -33,7 +33,9 @@ function! s:statusline_highlight()
         hi StatusLine cterm=NONE ctermfg=8 ctermbg=0
     else
         " use distinctive bg color when there are more windows
-        hi StatusLine cterm=NONE ctermfg=18 ctermbg=8
+        " hi StatusLine cterm=NONE ctermfg=18 ctermbg=8
+        hi StatusLine cterm=NONE ctermfg=7 ctermbg=18
+        hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=0
     endif
 endfunction
 
