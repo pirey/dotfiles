@@ -21,7 +21,7 @@ export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
 export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 
 # adminer
-export PATH=$HOME/.local/opt/adminer/4.7.4:$PATH
+export PATH=$HOME/.local/opt/adminer/4.7.6:$PATH
 
 # for arch linux ruby
 export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH

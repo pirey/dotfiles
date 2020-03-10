@@ -2,22 +2,27 @@
 
 echo "installing adminer..."
 
-adminerdir=~/.local/opt/adminer/4.7.4
+adminer_dir=$HOME/.local/opt/adminer/4.7.6
+adminer_download_url="https://github.com/vrana/adminer/releases/download/v4.7.6/adminer-4.7.6.php"
+adminer_default_plugin_url="https://raw.githubusercontent.com/vrana/adminer/master/plugins/plugin.php"
+adminer_theme_url="https://github.com/pematon/adminer-theme"
 
-if [ ! -d $adminerdir ]; then
-    mkdir -p $adminerdir
+if [ ! -d $adminer_dir ]; then
+    mkdir -p $adminer_dir
 
-    git clone https://github.com/pematon/adminer-theme /tmp/adminer-theme
-    mv /tmp/adminer-theme/lib/* $adminerdir
+    if [ ! -d /tmp/adminer-theme ]; then
+        git clone $adminer_theme_url /tmp/adminer-theme
+    fi
+    cp -r /tmp/adminer-theme/lib/* $adminer_dir
 
     # adminer engine
-    curl -o $adminerdir/adminer.php -L https://github.com/vrana/adminer/releases/download/v4.7.4/adminer-4.7.4.php
+    curl -o $adminer_dir/adminer.php -L $adminer_download_url
 
     # adminer default plugin
-    curl -o $adminerdir/plugins/plugin.php -L https://raw.githubusercontent.com/vrana/adminer/master/plugins/plugin.php
+    curl -o $adminer_dir/plugins/plugin.php -L $adminer_default_plugin_url
 
     # adminer index
-    cat << 'ADMINER_INDEX' > $adminerdir/index.php
+    cat << 'ADMINER_INDEX' > $adminer_dir/index.php
     <?php
     function adminer_object()
 	{
@@ -47,12 +52,12 @@ if [ ! -d $adminerdir ]; then
 	include "./adminer.php";
 ADMINER_INDEX
 
-    cat << 'ADMINER_START' > $adminerdir/adminer
+    cat << 'ADMINER_START' > $adminer_dir/adminer
     #!/bin/sh
 
     php -S localhost:9999 -t $(dirname $0)
 ADMINER_START
 
-    sudo -S chmod u+x $adminerdir/adminer
+    chmod u+x $adminer_dir/adminer
 fi
 
