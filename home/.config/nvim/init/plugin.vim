@@ -78,7 +78,7 @@ Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile; yarn build'}
 
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
