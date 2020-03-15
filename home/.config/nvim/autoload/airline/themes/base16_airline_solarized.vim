@@ -7,7 +7,7 @@ let g:airline#themes#base16_airline_solarized#palette = {}
 
 " normal {{{
 let s:airline_a_normal   = [ '' , '' , 18  , 7   ]
-let s:airline_b_normal   = [ '' , '' , 18, 19 ]
+let s:airline_b_normal   = [ '' , '' , 7, 18 ]
 let s:airline_c_normal   = [ '' , '' , 7  , 0 ]
 let g:airline#themes#base16_airline_solarized#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 let g:airline#themes#base16_airline_solarized#palette.normal_modified = {
