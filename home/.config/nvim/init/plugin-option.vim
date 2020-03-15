@@ -191,7 +191,7 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
-let g:airline_theme='pirey_solarized'
+let g:airline_theme='base16_airline_solarized'
 
 let g:airline_mode_map = {
             \ '__'     : '-',
@@ -226,5 +226,5 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 
 hi StatusLine ctermbg=0
 
-let g:airline_section_c = '%t'
+let g:airline_section_c = '%m %t'
 " }}}
