@@ -11,7 +11,7 @@ let s:airline_b_normal   = [ '' , '' , 18, 19 ]
 let s:airline_c_normal   = [ '' , '' , 7  , 0 ]
 let g:airline#themes#base16_airline_solarized#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 let g:airline#themes#base16_airline_solarized#palette.normal_modified = {
-      \ 'airline_c': [ '#875faf' , '' , 5 , 0 , '' ] ,
+      \ 'airline_c': [ '#875faf' , '' , 3 , 0 , '' ] ,
       \ }
 
 " inactive {{{
@@ -20,20 +20,20 @@ let s:airline_b_inactive = [ '' , '' , 7 , 18 , '' ]
 let s:airline_c_inactive = [ '' , '' , 7 , 18 , '' ]
 let g:airline#themes#base16_airline_solarized#palette.inactive = airline#themes#generate_color_map(s:airline_a_inactive, s:airline_b_inactive, s:airline_c_inactive)
 let g:airline#themes#base16_airline_solarized#palette.inactive_modified = {
-      \ 'airline_c': [ '' , '' , 5, '' , '' ] ,
+      \ 'airline_c': [ '' , '' , 3, '' , '' ] ,
       \ }
 " }}}
 
 " insert {{{
-let s:airline_a_insert = [ '' , '' , 18  , 5   ]
+let s:airline_a_insert = [ '' , '' , 18  , 3   ]
 let s:airline_b_insert = [ '' , '' , 7 , 18 ]
 let s:airline_c_insert = [ '' , '' , 7  , 0 ]
 let g:airline#themes#base16_airline_solarized#palette.insert = airline#themes#generate_color_map(s:airline_a_insert, s:airline_b_insert, s:airline_c_insert)
 let g:airline#themes#base16_airline_solarized#palette.insert_modified = {
-      \ 'airline_c': [ '' , '' , 5     , 0      , ''     ] ,
+      \ 'airline_c': [ '' , '' , 3     , 0      , ''     ] ,
       \ }
 let g:airline#themes#base16_airline_solarized#palette.insert_paste = {
-      \ 'airline_a': [ s:airline_a_insert[0]   , s:airline_a_insert[1] , 18 , 5     , ''     ] ,
+      \ 'airline_a': [ s:airline_a_insert[0]   , s:airline_a_insert[1] , 18 , 3     , ''     ] ,
       \ }
 " }}}
 
@@ -56,7 +56,7 @@ let g:airline#themes#base16_airline_solarized#palette.insert_paste = g:airline#t
 " }}}
 
 " command {{{
-let s:airline_a_commandline = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , 18 , 3, '']
+let s:airline_a_commandline = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , 18 , 5, '']
 let s:airline_b_commandline = s:airline_b_insert
 let s:airline_c_commandline = s:airline_c_insert
 let g:airline#themes#base16_airline_solarized#palette.commandline = airline#themes#generate_color_map(s:airline_a_commandline, s:airline_b_commandline, s:airline_c_commandline)
