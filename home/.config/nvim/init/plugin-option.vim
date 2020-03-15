@@ -171,3 +171,60 @@ let g:zoom#statustext = '[Z]'
 " t9md/vim-choosewin {{{
 let g:choosewin_overlay_enable = 1
 " }}}
+
+" vim-airline/vim-airline {{{
+" disable auto cursorline
+let g:loaded_cursorline = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+
+let g:airline_theme='pirey_solarized'
+
+let g:airline_mode_map = {
+            \ '__'     : '-',
+            \ 'c'      : 'C',
+            \ 'i'      : 'I',
+            \ 'ic'     : 'I',
+            \ 'ix'     : 'I',
+            \ 'n'      : 'N',
+            \ 'multi'  : 'M',
+            \ 'ni'     : 'N',
+            \ 'no'     : 'N',
+            \ 'R'      : 'R',
+            \ 'Rv'     : 'R',
+            \ 's'      : 'S',
+            \ 'S'      : 'S',
+            \ ''     : 'S',
+            \ 't'      : 'T',
+            \ 'v'      : 'V',
+            \ 'V'      : 'V',
+            \ ''     : 'V',
+            \ }
+
+let g:airline#extensions#capslock#enabled = 1
+let g:airline#extensions#coc#enabled = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t:.'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+hi StatusLine ctermbg=0
+
+let g:airline_section_c = '%t'
+" }}}

@@ -12,8 +12,13 @@ hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=6
 hi Folded ctermbg=NONE
 
 " clearer statusline
-hi StatusLine cterm=NONE ctermfg=18 ctermbg=8
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=18
+if exists('g:loaded_airline')
+    hi StatusLine ctermbg=0
+else
+    hi StatusLine cterm=NONE ctermfg=18 ctermbg=18
+endif
+
 
 " simpler statusline
 " hi StatusLine cterm=NONE ctermfg=8 ctermbg=18
