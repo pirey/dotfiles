@@ -173,9 +173,6 @@ let g:choosewin_overlay_enable = 1
 " }}}
 
 " vim-airline/vim-airline {{{
-" disable auto cursorline
-let g:loaded_cursorline = 1
-
 let g:airline_section_c = '%m %t'
 let g:airline_theme='base16_airline_solarized'
 
