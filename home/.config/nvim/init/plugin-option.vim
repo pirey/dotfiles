@@ -231,8 +231,8 @@ let g:airline#extensions#capslock#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#error_symbol = '● '
 
-let g:airline#extensions#branch#displayed_head_limit = 8
-let g:airline#extensions#branch#sha1_len = 8
+let g:airline#extensions#branch#displayed_head_limit = 10
+" let g:airline#extensions#branch#sha1_len = 10
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t:.'
