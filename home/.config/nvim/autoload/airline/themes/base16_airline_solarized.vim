@@ -5,40 +5,56 @@ scriptencoding utf-8
 
 let g:airline#themes#base16_airline_solarized#palette = {}
 
+let s:base16_colors = {
+      \ 'black'  : 0,
+      \ 'red'    : 1,
+      \ 'green'  : 2,
+      \ 'yellow' : 3,
+      \ 'blue'   : 4,
+      \ 'purple' : 5,
+      \ 'cyan'   : 6,
+      \ 'white'  : 7,
+      \ 'gray'   : 8,
+      \ 'light'  : 18
+      \}
+
+let s:modified_fg_color = s:base16_colors['yellow']
+let s:modified_bg_color = s:base16_colors['black']
+
 " normal {{{
-let s:airline_a_normal   = [ '' , '' , 18  , 7   ]
-let s:airline_b_normal   = [ '' , '' , 7, 18 ]
-let s:airline_c_normal   = [ '' , '' , 7  , 0 ]
+let s:airline_a_normal   = [ '' , '' , s:base16_colors['light']  , s:base16_colors['white'] ]
+let s:airline_b_normal   = [ '' , '' , s:base16_colors['white'], s:base16_colors['light'] ]
+let s:airline_c_normal   = [ '' , '' , s:base16_colors['white']  , s:base16_colors['black'] ]
 let g:airline#themes#base16_airline_solarized#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 let g:airline#themes#base16_airline_solarized#palette.normal_modified = {
-      \ 'airline_c': [ '#875faf' , '' , 3 , 0 , '' ] ,
+      \ 'airline_c': [ '' , '' , s:modified_fg_color , s:modified_bg_color ],
       \ }
 
 " inactive {{{
-let s:airline_a_inactive = [ '' , '' , 7 , 18 , '' ]
-let s:airline_b_inactive = [ '' , '' , 7 , 18 , '' ]
-let s:airline_c_inactive = [ '' , '' , 7 , 18 , '' ]
+let s:airline_a_inactive = [ '' , '' , s:base16_colors['white'] , s:base16_colors['light'] ]
+let s:airline_b_inactive = [ '' , '' , s:base16_colors['white'] , s:base16_colors['light'] ]
+let s:airline_c_inactive = [ '' , '' , s:base16_colors['white'] , s:base16_colors['light'] ]
 let g:airline#themes#base16_airline_solarized#palette.inactive = airline#themes#generate_color_map(s:airline_a_inactive, s:airline_b_inactive, s:airline_c_inactive)
 let g:airline#themes#base16_airline_solarized#palette.inactive_modified = {
-      \ 'airline_c': [ '' , '' , 3, '' , '' ] ,
+      \ 'airline_c': [ '' , '' , s:base16_colors['yellow'], '' , '' ] ,
       \ }
 " }}}
 
 " insert {{{
-let s:airline_a_insert = [ '' , '' , 18  , 3   ]
-let s:airline_b_insert = [ '' , '' , 7 , 18 ]
-let s:airline_c_insert = [ '' , '' , 7  , 0 ]
+let s:airline_a_insert = [ '' , '' , s:base16_colors['light']  , s:base16_colors['yellow'] ]
+let s:airline_b_insert = [ '' , '' , s:base16_colors['white'] , s:base16_colors['light'] ]
+let s:airline_c_insert = [ '' , '' , s:base16_colors['white']  , s:base16_colors['black'] ]
 let g:airline#themes#base16_airline_solarized#palette.insert = airline#themes#generate_color_map(s:airline_a_insert, s:airline_b_insert, s:airline_c_insert)
 let g:airline#themes#base16_airline_solarized#palette.insert_modified = {
-      \ 'airline_c': [ '' , '' , 3     , 0      , ''     ] ,
+      \ 'airline_c': [ '' , '' , s:modified_fg_color , s:modified_bg_color ] ,
       \ }
 let g:airline#themes#base16_airline_solarized#palette.insert_paste = {
-      \ 'airline_a': [ s:airline_a_insert[0]   , s:airline_a_insert[1] , 18 , 3     , ''     ] ,
+      \ 'airline_a': s:airline_a_insert
       \ }
 " }}}
 
 " replace {{{
-let s:airline_a_replace = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , 18 , 1, '']
+let s:airline_a_replace = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , s:base16_colors['light'] , s:base16_colors['red'], '']
 let s:airline_b_replace = s:airline_b_insert
 let s:airline_c_replace = s:airline_c_insert
 let g:airline#themes#base16_airline_solarized#palette.replace = airline#themes#generate_color_map(s:airline_a_replace, s:airline_b_replace, s:airline_c_replace)
@@ -47,7 +63,7 @@ let g:airline#themes#base16_airline_solarized#palette.insert_paste = g:airline#t
 " }}}
 
 " visual {{{
-let s:airline_a_visual = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , 18 , 2, '']
+let s:airline_a_visual = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , s:base16_colors['light'] , s:base16_colors['green'], '']
 let s:airline_b_visual = s:airline_b_insert
 let s:airline_c_visual = s:airline_c_insert
 let g:airline#themes#base16_airline_solarized#palette.visual = airline#themes#generate_color_map(s:airline_a_visual, s:airline_b_visual, s:airline_c_visual)
@@ -56,7 +72,7 @@ let g:airline#themes#base16_airline_solarized#palette.insert_paste = g:airline#t
 " }}}
 
 " command {{{
-let s:airline_a_commandline = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , 18 , 5, '']
+let s:airline_a_commandline = [ s:airline_b_insert[0]   , s:airline_b_insert[1] , s:base16_colors['light'] , s:base16_colors['purple'], '']
 let s:airline_b_commandline = s:airline_b_insert
 let s:airline_c_commandline = s:airline_c_insert
 let g:airline#themes#base16_airline_solarized#palette.commandline = airline#themes#generate_color_map(s:airline_a_commandline, s:airline_b_commandline, s:airline_c_commandline)

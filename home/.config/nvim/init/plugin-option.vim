@@ -224,15 +224,18 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'x': 88,
             \ 'y': 88,
             \ 'z': 60,
-            \ 'warning': 80,
+            \ 'warning': 90,
             \ 'error': 80,
             \ }
 
 " extensions
 let g:airline#extensions#capslock#enabled = 1
+
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#error_symbol = '● '
-let g:airline#extensions#whitespace#enabled = 0
+
+let g:airline#extensions#branch#displayed_head_limit = 8
+let g:airline#extensions#branch#sha1_len = 8
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t:.'
