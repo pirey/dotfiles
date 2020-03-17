@@ -115,6 +115,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # gitignore generator
 function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
+function gi_init() { gi $@ > .gitignore; ginit }
 
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
