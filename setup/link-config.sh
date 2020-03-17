@@ -39,6 +39,7 @@ ln -sf $DOTFILES/home/.opam-helper $HOME/.opam-helper
 ln -sf $DOTFILES/home/.paths $HOME/.paths
 ln -sf $DOTFILES/home/.env $HOME/.env
 ln -sf $DOTFILES/home/.aliases $HOME/.aliases
+ln -sf $DOTFILES/home/.functions $HOME/.functions
 ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
 ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 

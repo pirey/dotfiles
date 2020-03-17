@@ -100,6 +100,10 @@ export EDITOR='vim'
 source ~/.aliases
 source ~/.paths
 source ~/.env
+source ~/.functions
+
+# opam
+source ~/.opam-helper
 
 # z
 . $HOME/.local/opt/z/z.sh
@@ -113,16 +117,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# gitignore generator
-function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
-function gi_init() { gi $@ > .gitignore; ginit }
-
 if [ -f $HOME/.zshrc.local ] ; then
     $HOME/.zshrc.local
 fi
 
-# opam
-source ~/.opam-helper
 
 # rvm
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+
+source_virtualenv

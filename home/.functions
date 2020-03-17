@@ -1,0 +1,12 @@
+# vim:ft=sh
+
+# gitignore generator
+function gi() { curl -sLw "\n" "https://www.gitignore.io/api/$@" ;}
+function gi_init() { gi $@ > .gitignore; ginit }
+
+# python virtualenv
+function source_virtualenv {
+    if [ -d .venv ]; then
+        source .venv/bin/activate
+    fi
+}
