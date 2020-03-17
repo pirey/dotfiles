@@ -12,6 +12,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias gensecret="openssl rand -hex 32"
+
 # python
 alias django="python manage.py"
 alias pp_json="python -m json.tool"
