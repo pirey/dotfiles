@@ -161,7 +161,7 @@ let g:rg_command = 'rg --no-heading --vimgrep --hidden --glob "!.git"'
 
 " tpope/vim-fugitive {{{
 " for small screen
-command! GST :10Gstatus
+" command! GST :10Gstatus
 " }}}
 
 " dhruvasagar/vim-zoom {{{
