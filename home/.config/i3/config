@@ -136,6 +136,7 @@ bindsym $mod+r mode "resize"
 
 # capture entire screen and auto save
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures'
+bindsym $mod+p exec --no-startup-id scrot -e 'mv $f ~/Pictures'
 
 # capture entire screen and copy to clipboard
 bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -sel clip -t image/png $f && rm $f'
@@ -145,14 +146,15 @@ bindsym --release Shift+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures
 
 # crop and copy to clipboard
 bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f && rm $f'
+bindsym --release $mod+Shift+p exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f && rm $f'
 
 # }}}
 
 # polybar {{{
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
-bindsym $mod+p exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
-bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
+# bindsym $mod+p exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
+# bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
 # }}}
 
 # bar {{{
