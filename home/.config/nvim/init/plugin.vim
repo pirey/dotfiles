@@ -3,6 +3,10 @@
 " Plug 'elixir-editors/vim-elixir', {'for': 'elixir' }
 " Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 " }}}
+" markdown {{{
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" }}}
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
