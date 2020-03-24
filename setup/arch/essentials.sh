@@ -41,4 +41,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     android-file-transfer \
     android-udev \
     httpie \
-    xcape
+    xcape \
+    git tk
