@@ -135,18 +135,18 @@ bindsym $mod+r mode "resize"
 # screenshots {{{
 
 # capture entire screen and auto save
-bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures'
-bindsym $mod+p exec --no-startup-id scrot -e 'mv $f ~/Pictures'
+bindsym Print exec --no-startup-id scrot -q 100 -e 'mv $f ~/Pictures'
+bindsym $mod+p exec --no-startup-id scrot -q 100 -e 'mv $f ~/Pictures'
 
 # capture entire screen and copy to clipboard
-bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -sel clip -t image/png $f && rm $f'
+bindsym Ctrl+Print exec --no-startup-id scrot -q 100 -e 'xclip -sel clip -t image/png $f && rm $f'
 
 # crop and save
-bindsym --release Shift+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures'
+bindsym --release Shift+Print exec --no-startup-id scrot -q 100 -s -e 'mv $f ~/Pictures'
 
 # crop and copy to clipboard
-bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f && rm $f'
-bindsym --release $mod+Shift+p exec --no-startup-id scrot -s -e 'xclip -sel clip -t image/png $f && rm $f'
+bindsym --release Ctrl+Shift+Print exec --no-startup-id scrot -q 100 -s -e 'xclip -sel clip -t image/png $f && rm $f'
+bindsym --release $mod+Shift+p exec --no-startup-id scrot -q 100 -s -e 'xclip -sel clip -t image/png $f && rm $f'
 
 # }}}
 
