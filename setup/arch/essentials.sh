@@ -42,4 +42,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     android-udev \
     httpie \
     xcape \
+    tree \
     git tk
