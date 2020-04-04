@@ -43,4 +43,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     httpie \
     xcape \
     tree \
+    cloc \
     git tk
