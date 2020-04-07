@@ -13,6 +13,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias prettier-here="prettier --write --ignore-path .gitignore"
+
 alias gensecret="openssl rand -hex 32"
 
 # python
