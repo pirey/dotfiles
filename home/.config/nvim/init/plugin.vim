@@ -14,7 +14,8 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 " Plug 'purescript-contrib/purescript-vim', { 'for': 'purescript' }
 " Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handelbars' }
-" Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'evanleck/vim-svelte', { 'for': 'svelte' }
 " }}}
 " reasonml {{{
 " Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
