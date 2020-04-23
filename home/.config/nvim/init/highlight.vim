@@ -16,7 +16,7 @@ hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=18
 if exists('g:loaded_airline')
     hi StatusLine ctermbg=0
 else
-    hi StatusLine cterm=NONE ctermfg=8 ctermbg=18
+    hi StatusLine cterm=NONE ctermfg=7 ctermbg=18
 endif
 
 
