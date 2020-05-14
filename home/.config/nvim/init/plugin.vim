@@ -18,7 +18,7 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'evanleck/vim-svelte', { 'for': 'svelte' }
 " }}}
 " reasonml {{{
-" Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
+Plug 'reasonml-editor/vim-reason-plus', { 'for' : 'reason' }
 " }}}
 " php {{{
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }                                   " PHP
@@ -85,6 +85,7 @@ Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile; yarn build'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
