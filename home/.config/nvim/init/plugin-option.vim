@@ -62,9 +62,11 @@ let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
 " Yggdroot/indentLine {{{
-let g:indentLine_faster = 1
-let g:indentLine_char = '·'
+" let g:indentLine_faster = 1
+" let g:indentLine_char = '·'
 " let g:indentLine_concealcursor=0
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 18
 " }}}
 
 " diepm/vim-rest-console {{{

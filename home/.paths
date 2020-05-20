@@ -56,3 +56,6 @@ export PATH=$HOME/.local/opt/godot:$PATH
 
 # wordpress cli
 export PATH=$HOME/.local/opt/wordpress:$PATH
+
+# rust cargo
+export PATH=$HOME/.cargo/bin:$PATH
