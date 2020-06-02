@@ -11,7 +11,7 @@ rofi.bw              : 0
 rofi.color-enabled
 rofi.separator-style : none
 rofi.show-icons      : false
-rofi.theme           : .config/rofi/nord.rasi
+rofi.theme           : ~/.config/rofi/nord.rasi
 
 !=============================!
 ! color                       !
