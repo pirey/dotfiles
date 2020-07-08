@@ -62,11 +62,17 @@ let g:NERDTrimTrailingWhitespace = 1
 " }}}
 
 " Yggdroot/indentLine {{{
-" let g:indentLine_faster = 1
-" let g:indentLine_char = '·'
+let g:indentLine_faster = 1
+let g:indentLine_char = '·'
 " let g:indentLine_concealcursor=0
-let g:indentLine_char = '│'
+" let g:indentLine_char = '│'
 let g:indentLine_color_term = 18
+
+" disable indentline when opening fzf
+augroup custom_fzf
+    autocmd!
+    autocmd FileType fzf execute 'IndentLinesDisable'
+augroup END
 " }}}
 
 " diepm/vim-rest-console {{{
@@ -117,10 +123,6 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler showtabline=0
 " option above already set from environment variables, intentionally
 " duplicated here until I acustomized to setting fzf config via env vars
 " see $HOME/.env
-augroup custom_fzf
-    autocmd!
-    autocmd FileType fzf execute 'IndentLinesDisable'
-augroup END
 " }}}
 
 " neoclide/coc.nvim {{{
