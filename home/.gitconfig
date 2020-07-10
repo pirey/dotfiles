@@ -42,3 +42,5 @@
     committer = shortlog -s -n --all
 [credential]
 	helper = cache
+[pull]
+	rebase = false
