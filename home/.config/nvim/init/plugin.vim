@@ -41,7 +41,8 @@ Plug 'alx741/vim-hindent', { 'for': 'haskell' }
 " Plug 'chr4/nginx.vim'
 " }}}
 " python {{{
-Plug 'tweekmonster/django-plus.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'tweekmonster/django-plus.vim'
 " }}}
 " }}}
 
