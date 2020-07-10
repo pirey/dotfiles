@@ -56,3 +56,7 @@ hi CocCodeLens ctermfg=18
 hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
 hi NerdTreeFlags ctermfg=4
 " }}}
+
+" numirias/semshi {{{
+hi semshiImported ctermfg=7
+" }}}
