@@ -126,6 +126,10 @@ set scrolloff=1 " Show n lines after / before scrolling
 set scrolloff=1 " Show 1 lines after / before scrolling
 " }}}
 
+" Language / Environment {{{
+let g:python3_host_prog = '/usr/bin/python'
+" }}}
+
 " colorscheme {{{
 
 " use colorscheme config helper from base16 shell
