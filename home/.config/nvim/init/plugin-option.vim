@@ -271,3 +271,5 @@ let g:choosewin_overlay_enable = 1
 "
 " hi StatusLine ctermbg=0
 " }}}
+
+let g:python_highlight_all = 1
