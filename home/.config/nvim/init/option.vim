@@ -33,7 +33,7 @@ let g:matchparen_insert_timeout = 20
 
 syntax enable " enable syntax processing
 set background=dark
-set t_Co=256
+" set t_Co=256
 if !has('gui_running')
     if !has('nvim')
         set term=screen-256color
@@ -44,9 +44,9 @@ endif
 
 " UI {{{
 
-set nonumber                " don't really need line numbers
+set number                " don't really need line numbers
 set ruler                   " number and colon in bottom right
-set norelativenumber        " use no relative numbering.
+set relativenumber        " use no relative numbering.
 set showcmd                 " show command in bottom bar
 set noshowmode              " don't show current mode (insert, visual, bla bla)
 set wildmenu                " visual autocomplete in command mode
@@ -133,11 +133,14 @@ let g:python3_host_prog = '/usr/bin/python'
 " colorscheme {{{
 
 " use colorscheme config helper from base16 shell
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+"     let base16colorspace=256
+"     source ~/.vimrc_background
+" endif
 
-" colo nord
+set termguicolors
+colorscheme nord
+
+hi VertSplit cterm=NONE gui=NONE
 
 " }}}

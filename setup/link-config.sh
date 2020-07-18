@@ -19,6 +19,7 @@ mkdir -p $HOME/.config
 
 # tmux
 ln -sf $DOTFILES/home/.tmux.conf $HOME/.tmux.conf
+ln -sf $DOTFILES/home/.tmuxline.conf $HOME/.tmuxline.conf
 
 # global config
 ln -sf $DOTFILES/home/.toprc $HOME/.toprc

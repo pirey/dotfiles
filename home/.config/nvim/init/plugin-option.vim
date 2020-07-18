@@ -66,7 +66,7 @@ let g:indentLine_faster = 1
 let g:indentLine_char = '·'
 " let g:indentLine_concealcursor=0
 " let g:indentLine_char = '│'
-let g:indentLine_color_term = 18
+" let g:indentLine_color_term = 18
 
 " disable indentline when opening fzf
 augroup custom_fzf
@@ -94,10 +94,10 @@ let g:prettier#autoformat = 0
 " }}}
 
 " ap/vim-buftabline {{{
-set showtabline=2
-let g:buftabline_show = 2
-let g:buftabline_number = 2
-let g:buftabline_indicators = 1
+" set showtabline=2
+" let g:buftabline_show = 2
+" let g:buftabline_number = 2
+" let g:buftabline_indicators = 1
 " }}}
 
 " liuchengxu/vim-clap {{{
@@ -117,7 +117,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
 
 " hide statusline and tabline
 autocmd! FileType fzf set laststatus=0 noshowmode noruler showtabline=0
-            \| autocmd BufLeave <buffer> set ruler laststatus=2 showtabline=0
+            \| autocmd BufLeave <buffer> set ruler laststatus=2 showtabline=2
 
 " NOTE:
 " option above already set from environment variables, intentionally
@@ -138,7 +138,7 @@ augroup coc_keymaps
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>i <Plug>(coc-diagnostic-info)
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>l :CocList<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>E :CocList diagnostics<CR>
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>e :lopen<CR>
+    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>e :CocDiagnostics<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>o :CocList outline<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>s :CocList --interactive symbols<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,rust nmap <buffer> <leader>p :call CocAction('format')<CR>
@@ -180,44 +180,44 @@ let g:choosewin_overlay_enable = 1
 " }}}
 
 " vim-airline/vim-airline {{{
-" let g:airline_section_c = '%m %t'
-" let g:airline_theme='base16_airline_solarized'
-"
-" " powerline symbols
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = '☰'
-" let g:airline_symbols.maxlinenr = ''
-" let g:airline_symbols.dirty='⚡'
+let g:airline_section_c = '%m %t'
+let g:airline_theme='custom_nord'
+
+" powerline symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
 " let g:airline_left_sep = ''
 " let g:airline_left_alt_sep = ''
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = ''
-"
-" " let g:airline_mode_map = {
-" "             \ '__'     : '-',
-" "             \ 'c'      : 'C',
-" "             \ 'i'      : 'I',
-" "             \ 'ic'     : 'I',
-" "             \ 'ix'     : 'I',
-" "             \ 'n'      : 'N',
-" "             \ 'multi'  : 'M',
-" "             \ 'ni'     : 'N',
-" "             \ 'no'     : 'N',
-" "             \ 'R'      : 'R',
-" "             \ 'Rv'     : 'R',
-" "             \ 's'      : 'S',
-" "             \ 'S'      : 'S',
-" "             \ ''     : 'S',
-" "             \ 't'      : 'T',
-" "             \ 'v'      : 'V',
-" "             \ 'V'      : 'V',
-" "             \ ''     : 'V',
-" "             \ }
-" "
+
+" let g:airline_mode_map = {
+"             \ '__'     : '-',
+"             \ 'c'      : 'C',
+"             \ 'i'      : 'I',
+"             \ 'ic'     : 'I',
+"             \ 'ix'     : 'I',
+"             \ 'n'      : 'N',
+"             \ 'multi'  : 'M',
+"             \ 'ni'     : 'N',
+"             \ 'no'     : 'N',
+"             \ 'R'      : 'R',
+"             \ 'Rv'     : 'R',
+"             \ 's'      : 'S',
+"             \ 'S'      : 'S',
+"             \ ''     : 'S',
+"             \ 't'      : 'T',
+"             \ 'v'      : 'V',
+"             \ 'V'      : 'V',
+"             \ ''     : 'V',
+"             \ }
+
 " let g:airline_mode_map = {
 "             \ '__'     : ' ',
 "             \ 'c'      : ' ',
@@ -238,38 +238,48 @@ let g:choosewin_overlay_enable = 1
 "             \ 'V'      : ' ',
 "             \ ''     : ' ',
 "             \ }
-"
-" let g:airline#extensions#default#layout = [
-"             \ [ 'a', 'b', 'c' ],
-"             \ [ 'x', 'z', 'warning', 'error' ]
-"             \ ]
-"
-" let g:airline#extensions#default#section_truncate_width = {
-"             \ 'b': 79,
-"             \ 'x': 88,
-"             \ 'y': 88,
-"             \ 'z': 60,
-"             \ 'warning': 90,
-"             \ 'error': 80,
-"             \ }
-"
-" " extensions
-" let g:airline#extensions#capslock#enabled = 1
-"
-" let g:airline#extensions#coc#enabled = 1
-" let airline#extensions#coc#error_symbol = '● '
-"
-" let g:airline#extensions#branch#displayed_head_limit = 10
-" " let g:airline#extensions#branch#sha1_len = 10
-"
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t:.'
+
+let g:airline#extensions#default#layout = [
+            \ [ 'a', 'b', 'c' ],
+            \ [ 'x', 'z', 'warning', 'error' ]
+            \ ]
+
+let g:airline#extensions#default#section_truncate_width = {
+            \ 'b': 79,
+            \ 'x': 88,
+            \ 'y': 88,
+            \ 'z': 60,
+            \ 'warning': 90,
+            \ 'error': 80,
+            \ }
+
+" extensions
+let g:airline#extensions#capslock#enabled = 1
+
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = '● '
+
+let g:airline#extensions#branch#displayed_head_limit = 10
+" let g:airline#extensions#branch#sha1_len = 10
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t:.'
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
-"
+
+" prevent airilne from overriding tmux conf
+let g:airline#extensions#tmuxline#enabled = 0
+
 " hi StatusLine ctermbg=0
+" }}}
+
+" arcticicestudio/nord-vim {{{
+let g:nord_uniform_status_lines = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
 " }}}
 
 let g:python_highlight_all = 1

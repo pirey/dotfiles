@@ -27,8 +27,8 @@ solarized-0 = #002b36
 
 ; background = #55000000
 ; solarized
-background = ${colors.solarized-0}
-; background = ${colors.nord-polar-night-0}
+; background = ${colors.solarized-0}
+background = ${colors.nord-polar-night-0}
 background-alt = #88000000
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf

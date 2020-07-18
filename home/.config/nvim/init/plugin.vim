@@ -50,15 +50,18 @@ Plug 'vim-python/python-syntax'
 " colorscheme {{{
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'bluz71/vim-nightfly-guicolors'
 " }}}
 
 " UI {{{
-Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
+" Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'dhruvasagar/vim-zoom'
 " Plug 'pirey/dynaline.vim'
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 " }}}
 
 " editing {{{

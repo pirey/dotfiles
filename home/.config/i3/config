@@ -194,7 +194,7 @@ bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
 # init {{{
 
 # wallpaper
-set $wallpaper 'solarized-bg.png'
+set $wallpaper 'arch-aside.png'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad (synaptic)
