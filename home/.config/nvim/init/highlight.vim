@@ -1,7 +1,11 @@
 " Different highlight for different color mode
 if has('termguicolors')
     hi TablineFill guibg=NONE
+
+    " NORD
     hi EndOfBuffer guifg=#2E3440
+    hi StatusLine guibg=#4C566A
+    hi StatusLineNC guibg=#4C566A
 else
     " chriskempson/base16-vim {{{
     hi Normal cterm=NONE ctermbg=NONE
