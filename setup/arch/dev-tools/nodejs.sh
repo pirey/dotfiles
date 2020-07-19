@@ -14,6 +14,7 @@ npm i -g intelephense \
     neovim \
     http-server \
     yarn \
+    pnpm \
     prettier \
     @prettier/plugin-php \
     eslint \
