@@ -146,7 +146,7 @@ label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.background-alt}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.background}
 label-focused-underline= #00000000
 label-focused-padding = 1
@@ -170,6 +170,12 @@ label-urgent-padding = 1
 ; Separator in between workspaces
 ; label-separator = |
 
+; ws-icon-0 = 1;♚
+; ws-icon-1 = 2;♛
+; ws-icon-2 = 3;♜
+; ws-icon-3 = 4;♝
+; ws-icon-4 = 5;♞
+ws-icon-default = 
 
 [module/mpd]
 type = internal/mpd
