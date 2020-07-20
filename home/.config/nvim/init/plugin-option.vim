@@ -160,6 +160,7 @@ let g:EasyMotionSegments_key = 'w'
 " ryanoasis/vim-devicons {{{
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
 " }}}
 
 " jremmen/vim-ripgrep {{{
@@ -268,6 +269,11 @@ let g:airline#extensions#tabline#fnamemod = ':t:.'
 " let g:airline#extensions#tabline#left_alt_sep = ''
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
 
 " prevent airilne from overriding tmux conf
 let g:airline#extensions#tmuxline#enabled = 0
