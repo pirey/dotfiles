@@ -198,10 +198,10 @@ let g:airline_symbols.dirty='⚡'
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = ''
 "
-let g:airline_left_sep = '' "
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = '' "''
-let g:airline_right_alt_sep = ''
+" let g:airline_left_sep = '' "
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = '' "''
+" let g:airline_right_alt_sep = ''
 
 " let g:airline_mode_map = {
 "             \ '__'     : '-',
@@ -275,15 +275,15 @@ let g:airline#extensions#tabline#fnamemod = ':t:.'
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
 "
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-
-" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = ''
-" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
 
 " prevent airilne from overriding tmux conf
 let g:airline#extensions#tmuxline#enabled = 0
