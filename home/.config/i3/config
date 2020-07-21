@@ -49,7 +49,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+a focus parent
@@ -153,8 +153,8 @@ bindsym --release $mod+Shift+p exec --no-startup-id scrot -q 100 -s -e 'xclip -s
 # polybar {{{
 exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
-# bindsym $mod+p exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
-# bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
+bindsym $mod+s exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
+bindsym $mod+Shift+s exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
 # }}}
 
 # bar {{{
