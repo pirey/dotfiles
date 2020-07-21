@@ -44,4 +44,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     xcape \
     tree \
     cloc \
-    git tk
+    git tk \
+    mdp
