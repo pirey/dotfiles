@@ -78,9 +78,12 @@ nnoremap <space>w :Windows!<CR>
 nnoremap <space>/ :BLines!<CR>
 nnoremap <space>? :Lines!<CR>
 
-" fullscreen for better preview
+" git status with preview
 nnoremap <space>gs :call fzf#vim#gitfiles('?', 1)<CR>
+" git log all files
 nnoremap <space>gl :call fzf#vim#commits(1)<CR>
+" git log current file buffer
+nnoremap <space>gbl :Glog -- %<CR>
 " }}}
 
 " neoclide/coc.nvim {{{
