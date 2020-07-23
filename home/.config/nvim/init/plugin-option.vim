@@ -67,12 +67,6 @@ let g:indentLine_char = '·'
 " let g:indentLine_concealcursor=0
 " let g:indentLine_char = '│'
 " let g:indentLine_color_term = 18
-
-" disable indentline when opening fzf
-augroup custom_fzf
-    autocmd!
-    autocmd FileType fzf execute 'IndentLinesDisable'
-augroup END
 " }}}
 
 " diepm/vim-rest-console {{{
@@ -114,10 +108,6 @@ let g:loaded_fzf_win_resizer = 1
 " let g:fzf_layout = { 'window': { 'width': g:fzf_win_resizer_width, 'height': g:fzf_win_resizer_height } }
 let $FZF_DEFAULT_OPTS = '--reverse --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
 let $FZF_DEFAULT_COMMAND = 'rg --files-with-matches --hidden "." --glob "!.git"'
-
-" hide statusline and tabline
-autocmd! FileType fzf set laststatus=0 noshowmode noruler showtabline=0
-            \| autocmd BufLeave <buffer> set ruler laststatus=2 showtabline=2
 
 " NOTE:
 " option above already set from environment variables, intentionally
