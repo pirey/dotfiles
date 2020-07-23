@@ -6,8 +6,9 @@ if has('termguicolors')
     hi EndOfBuffer guifg=#2E3440
     hi StatusLine guibg=#3B4252
     hi StatusLineNC guibg=#3B4252
-
     hi Visual guibg=#3B4252
+
+    hi NERDTreeCWD guifg=#2E3440
 else
     " chriskempson/base16-vim {{{
     hi Normal cterm=NONE ctermbg=NONE
