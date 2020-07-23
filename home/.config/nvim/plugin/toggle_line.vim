@@ -45,6 +45,6 @@ endif
 
 nnoremap <silent> <Plug>ToggleLine  :call <SID>toggle()<CR>
 
-if empty(mapcheck("<space>s", "n"))
+if empty(mapcheck("<space>ts", "n"))
   nmap <space>s <Plug>ToggleLine
 endif
