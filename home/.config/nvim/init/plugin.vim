@@ -59,9 +59,10 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'dhruvasagar/vim-zoom'
-" Plug 'pirey/dynaline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
+Plug 'pirey/toggle-line.vim'
+" Plug 'pirey/dynaline.vim'
 " }}}
 
 " editing {{{
