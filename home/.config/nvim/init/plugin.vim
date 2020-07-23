@@ -52,6 +52,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'lifepillar/vim-colortemplate'
 " }}}
 
 " UI {{{
