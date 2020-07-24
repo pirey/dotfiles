@@ -12,6 +12,7 @@ let s:nord0_gui = "#2E3440"
 let s:nord1_gui = "#3B4252"
 let s:nord2_gui = "#434C5E"
 let s:nord3_gui = "#4C566A"
+let s:nord3_gui_bright = "#616E88"
 let s:nord4_gui = "#D8DEE9"
 let s:nord5_gui = "#E5E9F0"
 let s:nord6_gui = "#ECEFF4"
@@ -41,6 +42,30 @@ let s:nord12_term = "11"
 let s:nord10_term = "12"
 let s:nord7_term = "14"
 let s:nord6_term = "15"
+
+let s:nord3_gui_brightened = [
+  \ s:nord3_gui,
+  \ "#4e586d",
+  \ "#505b70",
+  \ "#525d73",
+  \ "#556076",
+  \ "#576279",
+  \ "#59647c",
+  \ "#5b677f",
+  \ "#5d6982",
+  \ "#5f6c85",
+  \ "#616e88",
+  \ "#63718b",
+  \ "#66738e",
+  \ "#687591",
+  \ "#6a7894",
+  \ "#6d7a96",
+  \ "#6f7d98",
+  \ "#72809a",
+  \ "#75829c",
+  \ "#78859e",
+  \ "#7b88a1",
+\ ]
 
 let s:NMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord8_term]
 let s:NRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
@@ -80,14 +105,11 @@ let g:airline#themes#nord_subtle#palette.visual.airline_error = s:VError
 
 let s:IAMain = [s:nord1_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
 let s:IARight = [s:nord1_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
-if g:nord_uniform_status_lines == 0
-  let s:IAMiddle = [s:nord4_gui, s:nord1_gui, s:nord5_term, s:nord1_term]
-else
-  let s:IAMiddle = [s:nord4_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
-endif
+let s:IAMiddle = [s:nord3_gui_bright, s:nord1_gui, s:nord5_term, s:nord1_term]
 let s:IAWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
 let s:IAError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
 let g:airline#themes#nord_subtle#palette.inactive = airline#themes#generate_color_map(s:IAMain, s:IARight, s:IAMiddle)
+let g:airline#themes#nord_subtle#palette.inactive.airline_x = s:IAMain
 let g:airline#themes#nord_subtle#palette.inactive.airline_warning = s:IAWarn
 let g:airline#themes#nord_subtle#palette.inactive.airline_error = s:IAError
 
