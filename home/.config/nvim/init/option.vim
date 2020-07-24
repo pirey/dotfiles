@@ -29,19 +29,6 @@ let g:matchparen_insert_timeout = 20
 
 " }}}
 
-" Colors {{{
-
-syntax enable " enable syntax processing
-set background=dark
-" set t_Co=256
-if !has('gui_running')
-    if !has('nvim')
-        set term=screen-256color
-    endif
-endif
-
-" }}}
-
 " UI {{{
 
 set number                " don't really need line numbers
@@ -138,13 +125,25 @@ let g:python3_host_prog = '/usr/bin/python'
 "     source ~/.vimrc_background
 " endif
 
-set termguicolors
+" Colors {{{
+
+syntax enable " enable syntax processing
+
+if has('termguicolors')
+    set termguicolors
+else
+    set term=screen-256color
+endif
+
 
 let g:nord_uniform_status_lines = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 
+set background=dark
 colorscheme nord
+
+" }}}
 
 " }}}
