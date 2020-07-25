@@ -9,6 +9,8 @@ if has('termguicolors')
         hi StatusLineNC guibg=#3B4252
         hi Visual guibg=#3B4252
 
+        hi link QuickFixLine Visual
+
         hi NERDTreeCWD guifg=#2E3440
     endif
 else
