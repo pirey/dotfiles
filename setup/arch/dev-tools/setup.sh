@@ -14,5 +14,6 @@ $currentdir/nodejs.sh
 $currentdir/php.sh
 $currentdir/python.sh
 $currentdir/ruby-rvm.sh
+$currentdir/redis.sh
 # $currentdir/rust.sh
 # $currentdir/android.sh
