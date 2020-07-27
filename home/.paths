@@ -59,3 +59,6 @@ export PATH=$HOME/.local/opt/wordpress:$PATH
 
 # rust cargo
 export PATH=$HOME/.cargo/bin:$PATH
+
+# golang
+export PATH=$HOME/go/bin:$PATH
