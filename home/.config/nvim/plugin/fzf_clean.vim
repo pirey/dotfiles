@@ -19,6 +19,11 @@ function! s:fzf_enter()
     if &showtabline == 0
         let b:skip_tabline = 1
     endif
+
+    " clear command output
+    echom ''
+
+    setlocal nonumber norelativenumber
     set laststatus=0
     set showtabline=0
     set noshowmode noruler
@@ -38,6 +43,7 @@ function! s:fzf_leave()
         set showtabline=2
     endif
 
+    " set nonumber norelativenumber
     set noshowmode noruler
 
     execute 'IndentLinesEnable'
