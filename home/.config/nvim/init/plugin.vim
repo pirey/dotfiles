@@ -116,11 +116,7 @@ Plug 'junegunn/fzf.vim'
 
 " search {{{
 Plug 'osyo-manga/vim-anzu'
-if executable('rg')
-    Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
-else
-    echo 'WARNING: missing rg executable'
-endif
+Plug 'jremmen/vim-ripgrep'                                " ripgrep https://github.com/BurntSushi/ripgrep
 " }}}
 
 " git {{{
