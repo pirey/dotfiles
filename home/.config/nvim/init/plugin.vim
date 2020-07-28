@@ -79,6 +79,7 @@ Plug 'godlygeek/tabular'                                      " Aligning tool :T
 Plug 'chrisbra/NrrwRgn'                                       " edit selected text to a new window
 Plug 'Olical/vim-enmasse'                                     " Edit all files in the quickfix list
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
+Plug 'FooSoft/vim-argwrap'
 " }}}
 
 " completion / snippets / intellisense {{{

@@ -284,4 +284,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 " hi StatusLine ctermbg=0
 " }}}
 
+" FooSoft/vim-argwrap {{{
+nnoremap <silent> <space>zc :ArgWrap<CR>
+" }}}
+
 let g:python_highlight_all = 1
