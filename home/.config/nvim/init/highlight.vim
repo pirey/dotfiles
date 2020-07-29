@@ -87,6 +87,7 @@ if has('termguicolors')
         call s:hi('StatusLineNC', '', s:nord1_gui, '', '', '', '')
         call s:hi('Visual', '', s:nord1_gui, '', '', '', '')
         call s:hi('Search', 'NONE', s:nord1_gui, '', '', '', '')
+        call s:hi('IncSearch', 'NONE', s:nord1_gui, '', '', '', '')
         call s:hi('ErrorMsg', s:nord11_gui, 'NONE', '', '', '', '')
 
         hi link QuickFixLine Visual
