@@ -50,9 +50,7 @@ Plug 'vim-python/python-syntax'
 " colorscheme {{{
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'lifepillar/vim-colortemplate'
-Plug 'NLKNguyen/papercolor-theme'
 " }}}
 
 " UI {{{
