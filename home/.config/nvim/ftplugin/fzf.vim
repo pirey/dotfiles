@@ -1,8 +1,5 @@
 " clear fzf message
-echom ''
+silent! echom ''
 
-setlocal nonumber norelativenumber
-setlocal laststatus=0
-setlocal showtabline=0
-setlocal noshowmode noruler
-execute 'IndentLinesDisable'
+silent! setlocal nonumber norelativenumber laststatus=0 showtabline=0 noshowmode noruler
+silent! execute 'IndentLinesDisable'
