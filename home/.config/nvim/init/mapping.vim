@@ -56,7 +56,7 @@ vnoremap $ $h
 " toggle list
 " nnoremap <leader>l :set list!<CR>
 " toggle relative numbering
-nnoremap <C-n> :set relativenumber!<CR>
+nnoremap <C-n> :set relativenumber! number!<CR>
 
 " in visual mode, press * to search for selected text, instead of jumping the
 " selection
