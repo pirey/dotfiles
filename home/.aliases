@@ -24,7 +24,7 @@ alias django="python manage.py"
 alias pp_json="python -m json.tool"
 
 # tmux
-alias tks="tmux kill-server"
+alias tkill="tmux kill-server"
 alias tmain="tmux a -t main"
 alias tmux="tmux -u"
 
