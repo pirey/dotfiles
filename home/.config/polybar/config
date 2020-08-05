@@ -155,7 +155,7 @@ label-mode-background = ${colors.background-alt}
 
 ; focused = Active workspace on focused monitor
 ; label-focused = %icon%
-label-focused = %index%
+label-focused = "■"
 label-focused-background = ${colors.background}
 label-focused-underline= #00000000
 label-focused-padding = 1
