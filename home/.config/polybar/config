@@ -393,7 +393,7 @@ label-warn-foreground = ${colors.nord11}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.nord11}
+ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
