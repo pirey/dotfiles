@@ -18,24 +18,30 @@
 
 [colors]
 ; color from nordtheme.com
-nord-polar-night-0 = #2e3440
-nord-polar-night-1 = #3b4252
-nord-polar-night-2 = #434c5e
-nord-polar-night-3 = #4c566a
+nord0 = "#2E3440"
+nord1 = "#3B4252"
+nord2 = "#434C5E"
+nord3 = "#4C566A"
+nord3_bright = "#616E88"
+nord4 = "#D8DEE9"
+nord5 = "#E5E9F0"
+nord6 = "#ECEFF4"
+nord7 = "#8FBCBB"
+nord8 = "#88C0D0"
+nord9 = "#81A1C1"
+nord10 = "#5E81AC"
+nord11 = "#BF616A"
+nord12 = "#D08770"
+nord13 = "#EBCB8B"
+nord14 = "#A3BE8C"
+nord15 = "#B48EAD"
 
-solarized-0 = #002b36
-
-; background = #55000000
-; solarized
-; background = ${colors.solarized-0}
-background = ${colors.nord-polar-night-0}
-background-alt = #88000000
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = ${colors.nord0}
+background-alt = ${colors.nord0}
+foreground = ${colors.nord4}
+foreground-alt = ${colors.nord2}
+secondary = ${colors.background}
+alert = ${colors.nord11}
 
 [bar/top]
 monitor = ${env:MONITOR:}
@@ -74,7 +80,7 @@ modules-right = xbacklight pulseaudio battery date powermenu
 
 tray-position = right
 tray-padding = 1
-;tray-background = #0063ff
+tray-background = ${colors.background}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -99,8 +105,10 @@ monitor = ${env:MONITOR:}
 bottom = true
 tray-position = none
 inherit = bar/top
-modules-left = title mpd
-modules-right = xkeyboard filesystem cpu memory temperature wlan eth
+modules-left =
+modules-center = xkeyboard filesystem cpu memory temperature wlan eth
+; modules-right = mpd
+modules-right =
 
 [module/xwindow]
 type = internal/xwindow
@@ -110,7 +118,7 @@ label = %title:0:75:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = #00000000
 
@@ -268,19 +276,19 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-5 = 
 
-ramp-signal-0-foreground = #F01616
-ramp-signal-1-foreground = #F57E08
-ramp-signal-2-foreground = #F0F027
-ramp-signal-3-foreground = #1AD620
-ramp-signal-4-foreground = #1AD620
-ramp-signal-5-foreground = #1AD620
+ramp-signal-0-foreground = ${colors.nord11}
+ramp-signal-1-foreground = ${colors.nord12}
+ramp-signal-2-foreground = ${colors.nord13}
+ramp-signal-3-foreground = ${colors.nord14}
+ramp-signal-4-foreground = ${colors.nord14}
+ramp-signal-5-foreground = ${colors.nord14}
 
 [module/eth]
 type = internal/network
 interface = enp0s3
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.background}
 format-connected-prefix = "ETH "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -314,7 +322,6 @@ label-volume = %percentage%%
 ; label-volume-foreground = ${root.foreground}
 
 ; Only applies if <ramp-volume> is used
-; ramp-volume-0 = 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -332,40 +339,11 @@ bar-volume-foreground-4 = ${colors.foreground}
 bar-volume-foreground-5 = ${colors.foreground}
 bar-volume-foreground-6 = ${colors.foreground}
 bar-volume-gradient = false
-; bar-volume-indicator = |
 bar-volume-indicator =
 bar-volume-indicator-font = 2
 bar-volume-fill = ▪
 bar-volume-fill-font = 2
 bar-volume-empty = ▪
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -410,12 +388,12 @@ format-warn-underline = #00000000
 label = %temperature-c%
 label-foreground = ${colors.foreground}
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.nord11}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${colors.nord11}
 
 [module/powermenu]
 type = custom/menu
