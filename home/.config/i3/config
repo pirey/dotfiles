@@ -8,10 +8,10 @@ set $terminal kitty
 font pango:Liga InputMonoCondensed 11
 
 floating_modifier $mod
-hide_edge_borders none
+hide_edge_borders smart
 force_xinerama yes
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 # }}}
 
 # keybinding {{{
@@ -189,6 +189,37 @@ bindsym $mod+Shift+s exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
 
 # }}}
 
+# color {{{
+
+# nord reference
+# nord0 = "#2E3440"
+# nord1 = "#3B4252"
+# nord2 = "#434C5E"
+# nord3 = "#4C566A"
+# nord3_bright = "#616E88"
+# nord4 = "#D8DEE9"
+# nord5 = "#E5E9F0"
+# nord6 = "#ECEFF4"
+# nord7 = "#8FBCBB"
+# nord8 = "#88C0D0"
+# nord9 = "#81A1C1"
+# nord10 = "#5E81AC"
+# nord11 = "#BF616A"
+# nord12 = "#D08770"
+# nord13 = "#EBCB8B"
+# nord14 = "#A3BE8C"
+# nord15 = "#B48EAD"
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #434C5E #2E3440 #2E3440 #2E3440   #434C5E
+client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440   #2E3440
+client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440   #2E3440
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+# client.background       #ffffff
+# }}}
+
 # init {{{
 
 # wallpaper
@@ -238,7 +269,7 @@ exec --no-startup-id udiskie
 # }}}
 
 # i3-gaps {{{
-# smart_gaps on
-# gaps inner 10
-# gaps outer 0
+smart_gaps on
+gaps inner 10
+gaps outer 0
 # }}}
