@@ -75,8 +75,8 @@ bindsym Ctrl+$mod+l exec "~/.config/i3/fuzzy_lock.sh"
 bindsym XF86MonBrightnessUp exec light -A 15
 bindsym XF86MonBrightnessDown exec light -U 15
 
-bindsym $mod+plus exec --no-startup-id pamixer -i 5
-bindsym $mod+minus exec --no-startup-id pamixer -d 5
+bindsym $mod+plus exec --no-startup-id pamixer -i 10
+bindsym $mod+minus exec --no-startup-id pamixer -d 10
 bindsym $mod+Shift+minus exec --no-startup-id pamixer -t
 
 # }}}
