@@ -75,6 +75,10 @@ bindsym Ctrl+$mod+l exec "~/.config/i3/fuzzy_lock.sh"
 bindsym XF86MonBrightnessUp exec light -A 15
 bindsym XF86MonBrightnessDown exec light -U 15
 
+bindsym $mod+plus exec --no-startup-id pamixer -i 5
+bindsym $mod+minus exec --no-startup-id pamixer -d 5
+bindsym $mod+Shift+minus exec --no-startup-id pamixer -t
+
 # }}}
 
 # window {{{
@@ -236,7 +240,6 @@ exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput
 
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
-# exec --no-startup-id volumeicon
 
 # auto mounting
 exec --no-startup-id udiskie

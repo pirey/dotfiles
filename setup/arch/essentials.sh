@@ -35,6 +35,7 @@ sudo -S pacman --noconfirm -Syu openssh \
     rofi \
     kitty \
     pulseaudio \
+    pamixer \
     pavucontrol \
     udisks2 \
     udiskie \
