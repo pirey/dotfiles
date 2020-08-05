@@ -34,6 +34,7 @@ remove_file ~/.zshrc
 remove_file ~/.oh-my-zsh/custom/themes/pirey.zsh-theme
 remove_file ~/.zprofile
 remove_file ~/.editorconfig
+remove_file ~/.config/Dharkael
 remove_file ~/.config/nvim
 remove_file ~/.config/alacritty
 remove_file ~/.config/kitty

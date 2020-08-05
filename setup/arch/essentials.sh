@@ -16,6 +16,7 @@ sudo -S pacman --noconfirm -Syu openssh \
     volumeicon \
     picom \
     scrot \
+    flameshot \
     xclip \
     imagemagick \
     p7zip \

@@ -46,6 +46,7 @@ ln -sf $DOTFILES/home/.oh-my-zsh/custom/themes/pirey.zsh-theme $HOME/.oh-my-zsh/
 ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 
 # .config
+ln -sf $DOTFILES/home/.config/Dharkael $HOME/.config
 ln -sf $DOTFILES/home/.config/nvim $HOME/.config
 ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
 ln -sf $DOTFILES/home/.config/kitty $HOME/.config
