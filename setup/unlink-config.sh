@@ -31,6 +31,7 @@ remove_file ~/.opam-helper
 
 # remove_file ~/.bashrc
 remove_file ~/.zshrc
+remove_file ~/.oh-my-zsh/custom/themes/pirey.zsh-theme
 remove_file ~/.zprofile
 remove_file ~/.editorconfig
 remove_file ~/.config/nvim

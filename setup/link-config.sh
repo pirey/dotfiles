@@ -42,6 +42,7 @@ ln -sf $DOTFILES/home/.env $HOME/.env
 ln -sf $DOTFILES/home/.aliases $HOME/.aliases
 ln -sf $DOTFILES/home/.functions $HOME/.functions
 ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
+ln -sf $DOTFILES/home/.oh-my-zsh/custom/themes/pirey.zsh-theme $HOME/.oh-my-zsh/custom/themes/pirey.zsh-theme
 ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
 
 # .config
