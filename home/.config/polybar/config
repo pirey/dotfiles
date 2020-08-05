@@ -219,7 +219,7 @@ bar-progress-empty = ─
 type = internal/xbacklight
 
 format = <label><bar>
-label = " "
+label = " "
 label-foreground = ${colors.foreground}
 
 bar-width = 10
