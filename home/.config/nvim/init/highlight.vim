@@ -103,6 +103,14 @@ if has('termguicolors')
 
         hi! link javascriptVariable Function
         hi! link javascriptMethod Function
+
+        " ap/vim-buftabline {{{
+        " call s:hi('BufTabLineCurrent', s:nord4_gui, s:nord2_gui, '', '', '', '')
+        " call s:hi('BufTabLineActive', s:nord4_gui, 'NONE', '', '', '', '')
+        " call s:hi('BufTabLineHidden', s:nord4_gui, 'NONE', '', '', '', '')
+        " hi BufTabLineFill guibg=NONE
+        " hi TabLineFill guibg=NONE
+        " }}}
     endif
 else
     " chriskempson/base16-vim {{{
