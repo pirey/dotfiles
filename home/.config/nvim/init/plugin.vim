@@ -59,7 +59,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'pirey/toggle-line.vim'
 " Plug 'pirey/dynaline.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
