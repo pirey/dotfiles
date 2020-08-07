@@ -67,14 +67,15 @@ let s:nord3_gui_brightened = [
   \ "#7b88a1",
 \ ]
 
-let s:NMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord8_term]
-let s:NRight = [s:nord4_gui, s:nord0_gui, s:nord1_term, s:nord9_term]
+let s:NMain = [s:nord4_gui, s:nord3_gui, s:nord1_term, s:nord8_term]
+let s:NRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
 let s:NMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
 let s:NWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
 let s:NError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
 let g:airline#themes#nord_subtle#palette.normal = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
 let g:airline#themes#nord_subtle#palette.normal.airline_warning = s:NWarn
 let g:airline#themes#nord_subtle#palette.normal.airline_error = s:NError
+let g:airline#themes#nord_subtle#palette.normal.airline_z = s:NRight
 
 let s:IMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord6_term]
 let s:IRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
