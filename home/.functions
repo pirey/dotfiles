@@ -19,3 +19,8 @@ function source_virtualenv {
         source .venv/bin/activate
     fi
 }
+
+function cdir {
+    mkdir -p -- "$1" &&
+        cd -P -- "$1"
+}
