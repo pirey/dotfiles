@@ -12,7 +12,7 @@ dotfilesdir=$(dirname $setupdir)
 sudo pacman -Syu gucharmap \
     xorg-xfd \
     fontforge \
-    ttf-fantasque-sans-mono \
+    ttf-jetbrains-mono \
     ttf-nerd-fonts-symbols \
     powerline-fonts
 

@@ -2,7 +2,8 @@
 
 ! rofi.font            : Fantasque Sans Mono 11
 ! rofi.font            : DejaVu Sans Mono 11
-rofi.font            : Liga InputMonoCondensed 9.5
+! rofi.font            : Liga InputMonoCondensed 9.5
+rofi.font            : JetBrains Mono NL 9.5
 rofi.matching        : fuzzy
 rofi.lines           : 7
 rofi.hide-scrollbar  : true
