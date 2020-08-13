@@ -1,6 +1,8 @@
 " buttermilk.nvim - A bitter way of using the terminal in Neovim.
 " Maintainer:	Adam P. Regasz-Rethy (RRethy) <rethy.spud@gmail.com>
 
+finish
+
 if exists('g:loaded_buttermilk')
     finish
 endif
