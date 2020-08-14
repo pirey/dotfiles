@@ -63,6 +63,9 @@ alias gc="git commit -m"
 alias gp="git push"
 
 alias art="php artisan"
+alias aserve="php artisan serve"
+alias atinker="php artisan tinker"
+alias atest="php artisan test"
 
 # a litle twist :D
 alias nano="vim -u ~/.simple.vimrc"
