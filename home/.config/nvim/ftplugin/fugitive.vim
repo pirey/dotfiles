@@ -1,1 +1,0 @@
-silent! setlocal norelativenumber nonumber

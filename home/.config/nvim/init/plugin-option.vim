@@ -288,4 +288,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 nnoremap <silent> <space>zc :ArgWrap<CR>
 " }}}
 
+" pirey/nonu.vim {{{
+let g:nonu_filetypes = ['git', 'gitcommit', 'fzf', 'fugitive', 'vim-plug', 'rest']
+" }}}
+
 let g:python_highlight_all = 1
