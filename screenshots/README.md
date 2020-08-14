@@ -7,4 +7,4 @@ In frame:
 - neovim
 - nord theme
 
-![](screenshots/nord-simple.png)
+![](nord-simple.png)
