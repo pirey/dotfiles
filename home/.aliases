@@ -62,9 +62,9 @@ alias gcn="git commit --amend --no-edit"
 alias gc="git commit -m"
 alias gp="git push"
 
-alias art="php artisan"
-alias aserve="php artisan serve"
-alias atinker="php artisan tinker"
+alias a="php artisan"
+alias aser="php artisan serve"
+alias atink="php artisan tinker"
 alias atest="php artisan test"
 
 # a litle twist :D
