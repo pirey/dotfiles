@@ -178,25 +178,6 @@ if g:colors_name == 'nord'
     let g:airline_theme='nord_subtle'
 endif
 
-" powerline symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-"
-let g:airline_left_sep = '' "
-" let g:airline_left_alt_sep = ''
-let g:airline_right_sep = '' "''
-" let g:airline_right_alt_sep = ''
-
 " let g:airline_mode_map = {
 "             \ '__'     : '-',
 "             \ 'c'      : 'C',
@@ -264,23 +245,35 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t:.'
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = ''
-" let g:airline#extensions#tabline#right_sep = ''
-" let g:airline#extensions#tabline#right_alt_sep = ''
-"
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = ''
-" let g:airline#extensions#tabline#right_sep = ''
-" let g:airline#extensions#tabline#right_alt_sep = ''
-
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
 
 " prevent airilne from overriding tmux conf
 let g:airline#extensions#tmuxline#enabled = 0
+
+" powerline symbols {{{
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+
+
+"    
+"    
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+"
+" }}}
 
 " hi StatusLine ctermbg=0
 " }}}
