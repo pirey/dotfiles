@@ -263,14 +263,14 @@ let g:airline_symbols.dirty='⚡'
 "    
 "    
 
-let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
+let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
-let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 "
 " }}}
@@ -284,6 +284,16 @@ nnoremap <silent> <space>zc :ArgWrap<CR>
 
 " pirey/nonu.vim {{{
 let g:nonu_filetypes = ['git', 'gitcommit', 'fzf', 'fugitive', 'vim-plug', 'rest']
+" }}}
+
+" jwalton512/vim-blade {{{
+" Define some single Blade directives. This variable is used for highlighting only.
+let g:blade_custom_directives = ['csrf', 'method']
+
+" Define pairs of Blade directives. This variable is used for highlighting and indentation.
+let g:blade_custom_directives_pairs = {
+            \   'error': 'enderror',
+            \ }
 " }}}
 
 let g:python_highlight_all = 1
