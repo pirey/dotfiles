@@ -17,4 +17,4 @@ echo "======================================"
 echo "Installing composer packages..."
 echo "======================================"
 
-composer global require laravel/installer
+composer global require laravel/installer emsifa/stuble:dev-master

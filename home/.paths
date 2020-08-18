@@ -5,8 +5,9 @@
 # common
 export PATH=$HOME/.local/bin:$PATH
 
-# composer
+# composer php
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
+export STUBLE_HOME=$HOME/.stuble
 
 # Node.js
 export PATH=$HOME/.local/opt/nodejs/10.16.3/bin:$PATH
