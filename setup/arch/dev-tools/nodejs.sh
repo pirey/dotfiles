@@ -14,6 +14,8 @@ npm i -g intelephense \
     neovim \
     http-server \
     yarn \
+    hexo-cli \
+    gatsby-cli \
     pnpm \
     prettier \
     @prettier/plugin-php \
