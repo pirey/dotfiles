@@ -35,7 +35,7 @@ let NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " nerdtree-git-plugin {{{
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "M",
     \ "Staged"    : "S",
     \ "Untracked" : "+",
