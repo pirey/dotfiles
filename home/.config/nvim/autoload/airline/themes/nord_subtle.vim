@@ -67,15 +67,29 @@ let s:nord3_gui_brightened = [
   \ "#7b88a1",
 \ ]
 
+" NOTE: this theme is designed to be used for true color,
+" TODO: highlight still jumpy
+" TODO: need further adjustment if you want to use other color depth
+
 let s:NMain = [s:nord4_gui, s:nord3_gui, s:nord1_term, s:nord8_term]
 let s:NRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
+
+" middle transparent
 let s:NMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
+
+" middle line
+let s:NMiddle = [s:nord5_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
+
+let s:NTabfill = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
+let s:NTabhid = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
 let s:NWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
 let s:NError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
 let g:airline#themes#nord_subtle#palette.normal = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
 let g:airline#themes#nord_subtle#palette.normal.airline_warning = s:NWarn
 let g:airline#themes#nord_subtle#palette.normal.airline_error = s:NError
 let g:airline#themes#nord_subtle#palette.normal.airline_z = s:NRight
+let g:airline#themes#nord_subtle#palette.normal.airline_tabfill = s:NTabfill
+let g:airline#themes#nord_subtle#palette.normal.airline_tabhid = s:NTabhid
 
 let s:IMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord6_term]
 let s:IRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
@@ -119,3 +133,4 @@ let g:airline#themes#nord_subtle#palette.insert.airline_term = s:IMiddle
 let g:airline#themes#nord_subtle#palette.replace.airline_term = s:RMiddle
 let g:airline#themes#nord_subtle#palette.visual.airline_term = s:VMiddle
 let g:airline#themes#nord_subtle#palette.inactive.airline_term = s:IAMiddle
+
