@@ -51,5 +51,10 @@ ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
 ln -sf $DOTFILES/home/.config/kitty $HOME/.config
 ln -sf $DOTFILES/home/.config/polybar $HOME/.config
 ln -sf $DOTFILES/home/.config/mpd $HOME/.config
+ln -sf $DOTFILES/home/.config/awesome $HOME/.config
+ln -sf $DOTFILES/home/.config/i3 $HOME/.config
+ln -sf $DOTFILES/home/.config/i3status $HOME/.config
+ln -sf $DOTFILES/home/.config/rofi $HOME/.config
+ln -sf $DOTFILES/home/.config/picom $HOME/.config
 
 echo "OK config files linked"

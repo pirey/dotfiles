@@ -39,5 +39,10 @@ remove_file ~/.config/alacritty
 remove_file ~/.config/kitty
 remove_file ~/.config/polybar
 remove_file ~/.config/mpd
+remove_file ~/.config/awesome
+remove_file ~/.config/i3
+remove_file ~/.config/i3status
+remove_file ~/.config/rofi
+remove_file ~/.config/picom
 
 echo "OK files removed"

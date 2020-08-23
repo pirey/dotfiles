@@ -31,6 +31,7 @@ sudo -S pacman --noconfirm -Syu openssh \
     xorg-xbacklight \
     xautolock \
     i3 \
+    awesome \
     rofi \
     kitty \
     pulseaudio \

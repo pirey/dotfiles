@@ -45,6 +45,9 @@ case $session in
     i3|i3wm )
         exec i3
         ;;
+    awesome )
+        exec awesome
+        ;;
     # gnome )
     #     export XDG_SESSION_TYPE=x11
     #     export GDK_BACKEND=x11

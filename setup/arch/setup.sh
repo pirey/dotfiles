@@ -9,7 +9,6 @@ archdir=$(dirname $currentscript)
 setupdir=$(dirname $archdir)
 
 $setupdir/link-config.sh
-$setupdir/link-i3-config.sh
 
 # refresh PATH
 source ~/.paths
