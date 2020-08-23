@@ -12,7 +12,6 @@ echo "-> removing files..."
 
 # TODO get file names dynamically
 remove_file ~/.toprc
-remove_file ~/.agignore
 remove_file ~/.aliases
 remove_file ~/.functions
 remove_file ~/.paths

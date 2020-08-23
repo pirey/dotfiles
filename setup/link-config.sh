@@ -23,7 +23,6 @@ ln -sf $DOTFILES/home/.tmuxline.conf $HOME/.tmuxline.conf
 
 # global config
 ln -sf $DOTFILES/home/.toprc $HOME/.toprc
-ln -sf $DOTFILES/home/.agignore $HOME/.agignore
 ln -sf $DOTFILES/home/.ctags $HOME/.ctags
 ln -sf $DOTFILES/home/.gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/home/.gitignore_global $HOME/.gitignore_global
