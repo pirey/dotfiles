@@ -1,0 +1,75 @@
+# internet connection
+systemctl start iwd
+iwctl
+# device list
+# station <device> connect <SSID>
+# quit
+systemctl restart dhcpcd
+
+# synchronize time
+timedatectl set-ntp true
+
+# partition
+cfdisk /dev/sda
+
+# create fs
+mkfs.ext4 /dev/sda1
+
+# mount
+mount /dev/sda1 /mnt
+
+# adjust mirror
+# vim /etc/pacman.d/mirrorlist
+
+# pacstrap, see pacstrap.sh
+
+# fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# chroot
+arch-chroot /mnt
+
+# timezone
+ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+hwclock --systohc
+
+# adjust locale
+# vim /etc/locale.gen
+
+# generate locale
+locale-gen
+
+# hostname
+echo pirey-arch >> /etc/hostname
+
+cat << 'HOSTS' >> /etc/hosts
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	pirey-arch.localdomain	pirey-arch
+HOSTS
+
+# set root passwd
+passwd
+
+# useradd
+useradd -m -G wheel -s /bin/bash pirey
+passwd pirey
+
+pacman -S grub --noconfirm
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# visudo, grant sudo access
+
+# if using lightdm
+# systemctl enable lightdm
+systemctl enable NetworkManager
+
+# remove the goddamned beep sound
+rmmod pcspkr
+
+exit
+
+umount /mnt
+
+reboot

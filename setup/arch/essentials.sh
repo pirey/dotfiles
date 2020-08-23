@@ -47,4 +47,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     tree \
     cloc \
     git tk \
-    mdp
+    mdp \
+    gnome-system-monitor
