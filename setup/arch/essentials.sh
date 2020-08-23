@@ -13,7 +13,6 @@ sudo -S pacman --noconfirm -Syu openssh \
     ripgrep \
     feh \
     network-manager-applet \
-    volumeicon \
     picom \
     scrot \
     flameshot \

@@ -104,7 +104,6 @@ echo "$(echo_if $(program_is_installed feh)) feh"
 echo "$(echo_if $(program_is_installed flameshot)) flameshot"
 echo "$(echo_if $(program_is_installed rofi)) rofi"
 echo "$(echo_if $(program_is_installed nm-applet)) nm-applet"
-echo "$(echo_if $(program_is_installed volumeicon)) volumeicon-alsa"
 # echo "$(echo_if $(program_is_installed xbacklight)) xbacklight"
 echo "$(echo_if $(program_is_installed light)) light" # alternative if xbacklight is not working
 echo "$(echo_if $(program_is_installed lxappearance)) lxappearance"
