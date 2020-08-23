@@ -42,7 +42,6 @@ sudo -S pacman --noconfirm -Syu openssh \
     android-file-transfer \
     android-udev \
     httpie \
-    xcape \
     tree \
     cloc \
     git tk \

@@ -36,7 +36,6 @@ xset r rate 250 60
 # caps lock to escape
 setxkbmap -option caps:swapescape
 # setxkbmap -option ctrl:nocaps
-# xcape -e 'Control_L=Escape'
 # }}}
 
 # Here i3 is kept as default
