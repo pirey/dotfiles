@@ -13,4 +13,4 @@ sudo -S pacman --noconfirm -Syu go
 # echo "Installing go packages..."
 # echo "======================================"
 
-# TODO install awesome golang packages here
+# TODO install golang packages here
