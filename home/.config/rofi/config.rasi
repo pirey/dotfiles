@@ -1,0 +1,7 @@
+configuration {
+    font: "JetBrains Mono NL 9.5";
+}
+
+@import "nord.rasi"
+
+/* vim:ft=css
