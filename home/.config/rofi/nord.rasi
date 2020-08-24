@@ -16,7 +16,7 @@
     nord14: #a3be8c;
     nord15: #b48ead;
 
-    background-color: @nord1;
+    background-color: @nord0;
     border: 0px;
     margin: 0px;
     padding: 0px;
@@ -26,19 +26,17 @@
 #window {
     location: center;
     width: 33%;
-    border: 3px;
-    border-color: @nord3;
+    padding: 30% 33%;
 }
 #inputbar {
     text-color: @nord3;
-    padding: 6px;
+    padding: 12px 0;
     margin: 0px 0px 2px;
     children: [ entry ];
 }
 #entry {
-    background-color: @nord3;
+    background-color: @nord0;
     text-color: @nord4;
-    padding: 5px;
 }
 #message {
     border: 0px 0px 1px;
@@ -49,16 +47,16 @@
     spacing: 0;
     lines: 7;
     padding: 2px 0px 0px;
-    scrollbar: true;
+    scrollbar: false;
     dynamic: true;
 }
 #element {
-    padding: 12px 6px;
+    padding: 12px 0;
     margin: 0px 0px 5px 0px;
-    text-color: @nord4;
+    text-color: @nord3;
 }
 #element.normal.normal {
-    text-color: @nord4;
+    text-color: @nord3;
 }
 #element.normal.urgent {
     text-color: @nord11;
@@ -67,7 +65,7 @@
     text-color: @nord10;
 }
 #element.alternate.normal {
-    text-color: @nord4;
+    text-color: @nord3;
 }
 #element.alternate.urgent {
     text-color: @nord11;
@@ -76,15 +74,15 @@
     text-color: @nord10;
 }
 #element.selected.normal {
-    background-color: @nord3;
+    background-color: @nord0;
     text-color: @nord4;
 }
 #element.selected.urgent {
-    background-color: @nord11;
+    background-color: @nord0;
     text-color: @nord4;
 }
 #element.selected.active {
-    background-color: @nord10;
+    background-color: @nord0;
     text-color: @nord4;
 }
 #scrollbar {
