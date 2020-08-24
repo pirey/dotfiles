@@ -46,4 +46,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     cloc \
     git tk \
     mdp \
-    gnome-system-monitor
+    gnome-system-monitor \
+    dunst

@@ -43,5 +43,6 @@ remove_file ~/.config/i3
 remove_file ~/.config/i3status
 remove_file ~/.config/rofi
 remove_file ~/.config/picom
+remove_file ~/.config/dunst
 
 echo "OK files removed"

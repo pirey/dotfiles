@@ -241,6 +241,7 @@ exec_always --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput
 
 exec --no-startup-id picom
 exec --no-startup-id nm-applet
+exec --no-startup-id dunst
 
 # auto mounting
 exec --no-startup-id udiskie
