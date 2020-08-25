@@ -1,4 +1,4 @@
 #!/bin/sh
 
-git push origin master
-git push gitlab master
+git push origin master --tags
+git push gitlab master --tags
