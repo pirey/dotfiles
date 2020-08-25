@@ -124,7 +124,8 @@ Plug 'whiteinge/diffconflicts'                                      " Git merget
 Plug 'rhysd/conflict-marker.vim'                                    " Git conflict marker highlight (and more)
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
-" Plug 'APZelos/blamer.nvim'
+Plug 'rhysd/git-messenger.vim'
+Plug 'APZelos/blamer.nvim'
 " }}}
 
 " etc {{{

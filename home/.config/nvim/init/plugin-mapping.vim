@@ -13,8 +13,8 @@ nnoremap <leader>x :Bclose<CR>
 " }}}
 
 " airblade/vim-gitgutter {{{
-nnoremap <leader>g :GitGutterToggle<CR>
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap <leader>gg :GitGutterToggle<CR>
+nnoremap <leader>gG :GitGutterLineHighlightsToggle<CR>
 nnoremap ]g :GitGutterNextHunk<CR>
 nnoremap [g :GitGutterPrevHunk<CR>
 " }}}
@@ -104,4 +104,8 @@ nmap <leader>ad <Plug>(AerojumpDefault)
 
 " t9md/vim-choosewin {{{
 nnoremap - :ChooseWin<CR>
+" }}}
+
+" rhysd/git-messenger.vim {{{
+nmap <space>gm <Plug>(git-messenger)
 " }}}

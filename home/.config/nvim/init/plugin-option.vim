@@ -266,4 +266,17 @@ let g:blade_custom_directives_pairs = {
             \ }
 " }}}
 
+" rhysd/git-messenger.vim {{{
+let g:git_messenger_no_default_mappings = 1
+let g:git_messenger_always_into_popup = 1
+let g:git_messenger_include_diff = 'current'
+" }}}
+
+" APZelos/blamer.nvim {{{
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_prefix = '  '
+let g:blamer_relative_time = 1
+" }}}
+
 let g:python_highlight_all = 1

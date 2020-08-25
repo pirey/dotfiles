@@ -80,8 +80,6 @@ if has('termguicolors')
                     \ "#7b88a1",
                     \ ]
 
-        hi TablineFill guibg=NONE
-
         call s:hi('EndOfBuffer', s:nord0_gui, '', '', '', '', '')
         call s:hi('StatusLine', '', s:nord1_gui, '', '', '', '')
         call s:hi('StatusLineNC', '', s:nord1_gui, '', '', '', '')
@@ -91,81 +89,19 @@ if has('termguicolors')
         call s:hi('ErrorMsg', s:nord11_gui, 'NONE', '', '', '', '')
         call s:hi('WarningMsg', s:nord13_gui, 'NONE', '', '', '', '')
 
+        hi TablineFill guibg=NONE
         hi link QuickFixLine Visual
 
-        " NOTE: awaiting for PR to be merged
-        " https://github.com/arcticicestudio/nord-vim/pull/218
-        hi! link phpClass phpClasses
-        hi! link phpMethod Function
-        hi! link phpFunction Function
-
+        " nord quirks
         hi! link javascriptVariable Function
         hi! link javascriptMethod Function
 
-        " ap/vim-buftabline {{{
-        " call s:hi('BufTabLineCurrent', s:nord4_gui, s:nord2_gui, '', '', '', '')
-        " call s:hi('BufTabLineActive', s:nord4_gui, 'NONE', '', '', '', '')
-        " call s:hi('BufTabLineHidden', s:nord4_gui, 'NONE', '', '', '', '')
-        " hi BufTabLineFill guibg=NONE
-        " hi TabLineFill guibg=NONE
+        " rhysd/git-messenger.vim {{{
+        call s:hi('gitmessengerPopupNormal', '', s:nord1_gui, '', '', '', '')
+        " }}}
+
+        " APZelos/blamer.nvim {{{
+        call s:hi('Blamer', s:nord2_gui, '', '', '', '', '')
         " }}}
     endif
-else
-    " chriskempson/base16-vim {{{
-    hi Normal cterm=NONE ctermbg=NONE
-    hi EndOfBuffer ctermfg=0
-    hi SignColumn cterm=NONE ctermbg=NONE
-    hi VertSplit cterm=NONE ctermbg=NONE ctermfg=18
-
-    hi NonText ctermfg=NONE
-    hi LineNr ctermfg=NONE ctermbg=NONE
-    hi Visual ctermbg=18 ctermfg=NONE
-    hi CursorLine ctermbg=18 ctermfg=NONE
-    hi FoldColumn cterm=NONE ctermbg=NONE ctermfg=6
-    hi Folded ctermbg=NONE
-
-    " clearer statusline
-    hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=18
-    if exists('g:loaded_airline')
-        hi StatusLine ctermbg=0
-    else
-        hi StatusLine cterm=NONE ctermfg=7 ctermbg=18
-    endif
-
-
-    " simpler statusline
-    " hi StatusLine cterm=NONE ctermfg=8 ctermbg=18
-    " hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=NONE
-
-    hi Search cterm=NONE ctermfg=NONE ctermbg=18
-    hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=18
-    "}}}
-
-    " airblade/vim-gitgutter {{{
-    hi GitGutterAdd ctermfg=2 ctermbg=NONE
-    hi GitGutterChange ctermfg=4 ctermbg=NONE
-    hi GitGutterChangeDelete ctermfg=5 ctermbg=NONE
-    hi GitGutterDelete ctermfg=1 ctermbg=NONE
-    " }}}
-
-    " ap/vim-buftabline {{{
-    hi BufTabLineCurrent ctermbg=18 ctermfg=7
-    hi BufTabLineActive ctermbg=NONE ctermfg=8
-    hi BufTabLineHidden ctermbg=NONE ctermfg=8
-    hi BufTabLineFill cterm=NONE ctermbg=NONE
-    hi TabLineFill cterm=NONE ctermbg=NONE
-    " }}}
-
-    " neoclide/coc.nvim {{{
-    hi CocErrorSign cterm=NONE ctermbg=NONE ctermfg=6
-    hi CocErrorHighlight cterm=NONE ctermbg=18 ctermfg=6
-    hi CocWarningSign cterm=NONE ctermbg=NONE ctermfg=4
-    hi CocInfoSign cterm=NONE ctermbg=NONE ctermfg=8
-    hi CocHintSign cterm=NONE ctermbg=NONE ctermfg=8
-    hi CocCodeLens ctermfg=18
-    " }}}
-
-    " numirias/semshi {{{
-    hi semshiImported ctermfg=7
-    " }}}
 endif
