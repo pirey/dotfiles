@@ -120,10 +120,6 @@ let g:coc_snippet_prev = '<c-k>'
 let g:EasyMotionSegments_key = 'w'
 " }}}
 
-" ryanoasis/vim-devicons {{{
-let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
-" }}}
-
 " jremmen/vim-ripgrep {{{
 let g:rg_command = 'rg --no-heading --vimgrep --hidden --glob "!.git"'
 " }}}
@@ -139,6 +135,10 @@ let g:zoom#statustext = '[Z]'
 
 " t9md/vim-choosewin {{{
 let g:choosewin_overlay_enable = 1
+" }}}
+
+" ryanoasis/vim-devicons {{{
+let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
 " }}}
 
 " vim-airline/vim-airline {{{
@@ -203,6 +203,11 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'warning': 90,
             \ 'error': 80,
             \ }
+
+let g:airline_filetype_overrides = {
+            \ 'coc-explorer': [ 'EXPLORER', '' ],
+            \ }
+
 
 " extensions
 let g:airline#extensions#capslock#enabled = 1

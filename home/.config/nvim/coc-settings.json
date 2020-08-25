@@ -6,11 +6,6 @@
   "explorer.icon.enableVimDevicons": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "l": "expand",
-    "s": "open:vsplit",
-    "b": false
-  },
   "diagnostic.errorSign": "●",
   "diagnostic.warningSign": "●",
   "diagnostic.infoSign": "●",
