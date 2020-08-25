@@ -1,5 +1,16 @@
 {
-  /* "codeLens.enable": true, */
+  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.file.showHiddenFiles": true,
+  "explorer.focus": true,
+  "explorer.file.autoReveal": false,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "l": "expand",
+    "s": "open:vsplit",
+    "b": false
+  },
   "diagnostic.errorSign": "●",
   "diagnostic.warningSign": "●",
   "diagnostic.infoSign": "●",
@@ -14,9 +25,7 @@
   "list.source.grep.args": ["--no-heading", "--vimgrep", "--hidden"],
   "javascript.suggest.enabled": false,
   "python.jediEnabled": false,
-  "python.analysis.disabled": [
-    "inherit-non-class"
-  ],
+  "python.analysis.disabled": ["inherit-non-class"],
 
   "languageserver": {
     /* "golang": { */

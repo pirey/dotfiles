@@ -95,6 +95,7 @@ Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile; yarn build'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
@@ -105,7 +106,6 @@ Plug 't9md/vim-choosewin'                                     " tmux-like window
 Plug 'vim-scripts/BufOnly.vim'                                " Close all buffer but current one.
 Plug 'easymotion/vim-easymotion'                              " Jumping over places <leader><leader>w
 Plug 'aykamko/vim-easymotion-segments'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " File browser <leader>d
 Plug 'chrismccord/bclose.vim'                                 " Close a buffer without closing split window
 Plug 'tpope/vim-unimpaired'                                   " pairs of handy bracket mappings
 " Plug 'liuchengxu/vim-clap'
@@ -124,7 +124,7 @@ Plug 'whiteinge/diffconflicts'                                      " Git merget
 Plug 'rhysd/conflict-marker.vim'                                    " Git conflict marker highlight (and more)
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
-Plug 'Xuyuanp/nerdtree-git-plugin'                            		" Git status within nerdtree
+" Plug 'APZelos/blamer.nvim'
 " }}}
 
 " etc {{{

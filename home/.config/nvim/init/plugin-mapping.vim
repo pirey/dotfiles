@@ -19,14 +19,6 @@ nnoremap ]g :GitGutterNextHunk<CR>
 nnoremap [g :GitGutterPrevHunk<CR>
 " }}}
 
-" scrooloose/nerdtree {{{
-nnoremap <silent> <leader>d :NERDTreeToggle<CR>
-nnoremap <silent> <leader>D :NERDTreeFind<CR>
-
-" nerdtree-git-plugin {{{
-" }}}
-" }}}
-
 " scrooloose/nerdcommenter {{{
 " underscore (_) are treated as slash (/)
 nmap <C-_> <plug>NERDCommenterToggle
@@ -88,6 +80,9 @@ nnoremap <space>gbl :Glog -- %<CR>
 
 " neoclide/coc.nvim {{{
 nnoremap <space>/ :CocSearch --hidden -S<space>
+nnoremap <space>l :CocList<CR>
+nnoremap <space>d :CocCommand explorer<CR>
+nnoremap <leader>d :CocCommand explorer<CR>
 " }}}
 
 " aykamko/vim-easymotion-segments {{{

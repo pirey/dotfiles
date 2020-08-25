@@ -25,32 +25,6 @@ let g:gitgutter_eager = 0
 let g:gitgutter_max_signs = 250
 " }}}
 
-" scrooloose/nerdtree {{{
-" let NERDTreeMapOpenExpl = ''
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeStatusline = ' FILES'
-let NERDTreeDirArrowExpandable = ''
-let NERDTreeDirArrowCollapsible = ''
-let g:NERDTreeNodeDelimiter = "\u00a0"
-
-" nerdtree-git-plugin {{{
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "M",
-    \ "Staged"    : "S",
-    \ "Untracked" : "+",
-    \ "Renamed"   : "R",
-    \ "Unmerged"  : "!",
-    \ "Deleted"   : "D",
-    \ "Dirty"     : "!",
-    \ "Clean"     : "-",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-" }}}
-
-" }}}
-
 " scrooloose/nerdcommenter {{{
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -124,15 +98,13 @@ augroup coc_keymaps
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <C-]> <Plug>(coc-definition)
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <c-^> <Plug>(coc-references)
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>r <Plug>(coc-rename)
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>a <Plug>(coc-codeaction)
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust vmap <buffer> <space>a <Plug>(coc-codeaction-selected)
+    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>a <Plug>(coc-codeaction-line)
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>i <Plug>(coc-diagnostic-info)
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>l :CocList<CR>
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>E :CocList diagnostics<CR>
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>e :CocDiagnostics<CR>
+    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>e :CocList diagnostics<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>o :CocList outline<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>s :CocList --interactive symbols<CR>
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,rust nmap <buffer> <leader>p :call CocAction('format')<CR>
+    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,rust nmap <buffer> <leader>p <Plug>(coc-format)
 
     " snippets
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,rust imap <C-l> <Plug>(coc-snippets-expand)
@@ -149,8 +121,6 @@ let g:EasyMotionSegments_key = 'w'
 " }}}
 
 " ryanoasis/vim-devicons {{{
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
 " }}}
 

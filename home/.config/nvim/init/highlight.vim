@@ -93,8 +93,6 @@ if has('termguicolors')
 
         hi link QuickFixLine Visual
 
-        call s:hi('NERDTreeCWD', s:nord0_gui, '', '', '', '', '')
-
         " NOTE: awaiting for PR to be merged
         " https://github.com/arcticicestudio/nord-vim/pull/218
         hi! link phpClass phpClasses
@@ -165,11 +163,6 @@ else
     hi CocInfoSign cterm=NONE ctermbg=NONE ctermfg=8
     hi CocHintSign cterm=NONE ctermbg=NONE ctermfg=8
     hi CocCodeLens ctermfg=18
-    " }}}
-
-    " scrooloose/nerdtree {{{
-    hi NERDTreeCWD cterm=NONE ctermbg=NONE ctermfg=0
-    hi NerdTreeFlags ctermfg=4
     " }}}
 
     " numirias/semshi {{{
