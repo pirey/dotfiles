@@ -27,7 +27,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        . ~/.config/i3/fuzzy_lock.sh
+        . ~/.config/i3/scripts/fuzzy_lock.sh
         ;;
     $suspend)
         # mpc -q pause

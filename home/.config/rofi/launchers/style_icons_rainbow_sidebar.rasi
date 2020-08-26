@@ -41,7 +41,7 @@ configuration {
 
 * {
     background-color: @bg;
-    font: "FantasqueSansMono Nerd Font 36";
+    font: "JetBrains Mono 36";
 }
 
 window {

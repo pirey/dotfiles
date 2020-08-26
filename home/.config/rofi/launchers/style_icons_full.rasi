@@ -35,7 +35,7 @@ configuration {
 
 * {
     background-color: #00000000;
-    font: "FantasqueSansMono Nerd Font 48";
+    font: "JetBrains Mono 48";
 }
 
 window {
@@ -83,7 +83,7 @@ prompt {
 }
 
 entry {
-    font: "FantasqueSansMono Nerd Font 12";
+    font: "JetBrains Mono 12";
     text-color: @txt;
     padding: 8 12 8 12;
 }

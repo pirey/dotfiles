@@ -20,7 +20,7 @@ for_window [class="^.*"] border pixel 2
 # start a terminal
 bindsym $mod+Return exec $terminal
 
-bindsym $mod+Shift+o exec "~/.config/i3/launch.sh"
+bindsym $mod+Shift+o exec "~/.config/i3/scripts/launch_favorites.sh"
 
 # kill focused window
 bindsym $mod+q kill
@@ -71,7 +71,7 @@ bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+Ctrl+q exec --no-startup-id poweroff
 
 # lock screen
-bindsym Ctrl+$mod+l exec "~/.config/i3/fuzzy_lock.sh"
+bindsym Ctrl+$mod+l exec "~/.config/i3/scripts/fuzzy_lock.sh"
 
 # Screen brightness controls with notification
 bindsym XF86MonBrightnessUp exec light -A 15
@@ -155,10 +155,10 @@ bindsym $mod+Shift+p exec --no-startup-id flameshot gui
 # }}}
 
 # polybar {{{
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+exec_always --no-startup-id "$HOME/.config/polybar/scripts/launch.sh"
 bindsym $mod+Shift+f exec --no-startup-id "polybar-msg cmd toggle"
-bindsym $mod+s exec --no-startup-id $HOME/.config/polybar/toggle_top.sh
-bindsym $mod+Shift+s exec --no-startup-id $HOME/.config/polybar/toggle_bottom.sh
+bindsym $mod+s exec --no-startup-id $HOME/.config/polybar/scripts/toggle_top.sh
+bindsym $mod+Shift+s exec --no-startup-id $HOME/.config/polybar/scripts/toggle_bottom.sh
 # }}}
 
 # bar {{{

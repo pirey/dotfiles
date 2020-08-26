@@ -70,7 +70,7 @@ module-margin-right = 2
 ; font-0 = Fantasque Sans Mono:pixelsize=12;1
 ; font-0 = Liga InputMonoCondensed:pixelsize=9.5;1
 ; font-0 = DejaVu Sans Mono:pixelsize=11;1
-font-0 = JetBrains Mono NL:pixelsize=9.5;1
+font-0 = JetBrains Mono NL:pixelsize=9.5:weight=bold;1
 font-1 = unifont:fontformat=truetype:pixelsize=11:antialias=false;0
 font-2 = siji:pixelsize=11;1
 font-3 = FontAwesome:pixelsize=11;1
@@ -220,7 +220,7 @@ bar-progress-empty = ─
 type = internal/xbacklight
 
 format = <label><bar>
-label = " "
+label = "%{A1:~/.config/polybar/scripts/optimal_backlight.sh:} %{A}"
 label-foreground = ${colors.foreground}
 
 bar-width = 10
@@ -319,7 +319,7 @@ type = internal/pulseaudio
 interval = 10
 
 format-volume = <ramp-volume> <label-volume> <bar-volume>
-label-volume = %percentage%%
+label-volume = "%{A1:pavucontrol:}%percentage%%{A}"
 ; label-volume-foreground = ${root.foreground}
 
 ; Only applies if <ramp-volume> is used

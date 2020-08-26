@@ -46,8 +46,6 @@ configuration {
   width: 50%;
   height: 60%;
   padding: 40px;
-  border: 3px;
-  border-color: @background-light;
 }
 
 * {

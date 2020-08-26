@@ -8,7 +8,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch top bar
-$HOME/.config/polybar/toggle_top.sh
+$HOME/.config/polybar/scripts/toggle_top.sh
 
 # Launch bottom bar
-# $HOME/.config/polybar/toggle_bottom.sh
+# $HOME/.config/polybar/scripts/toggle_bottom.sh
