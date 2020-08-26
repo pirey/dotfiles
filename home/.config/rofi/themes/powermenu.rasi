@@ -13,7 +13,7 @@
 
 * {
   /* General */
-  text-font:                            "Comfortaa 12";
+  text-font:                            "JetBrains Mono 9.5";
   icon-font:                            "Hurmit Nerd Font Mono 32";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
 

@@ -10,6 +10,9 @@
 configuration {
     drun-display-format: "{icon} {name}";
     display-drun: "Applications";
+    display-run: "Commands";
+    display-ssh: "SSH";
+    display-window: "Windows";
 	show-icons: true;
 	icon-theme: "Papirus";
 	location: 0;
@@ -26,7 +29,7 @@ configuration {
 @import "colors.rasi"
 
 * {
-  text-font:                            "Iosevka 14";
+  text-font:                            "JetBrains Mono 14";
 
   inputbar-margin:                      3px 3px;
   prompt-padding:                       15px 20px;

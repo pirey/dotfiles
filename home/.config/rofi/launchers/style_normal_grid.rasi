@@ -10,6 +10,9 @@
 configuration {
     drun-display-format: "{icon} {name}";
     display-drun: "Applications";
+    display-run: "Commands";
+    display-ssh: "SSH";
+    display-window: "Windows";
 	show-icons: true;
 	icon-theme: "Papirus";
 	location: 0;
@@ -21,14 +24,13 @@ configuration {
 	bw: 0;
     fullscreen: false;
     show-icons: true;
-	terminal: "termite";
 	sidebar-mode: false;
 }
 
 @import "colors.rasi"
 
 * {
-  text-font:                            "Iosevka 12";
+  text-font:                            "JetBrains Mono 12";
 
   inputbar-margin:                      3px 3px;
   prompt-padding:                       10px 10px;
@@ -43,7 +45,9 @@ configuration {
 #window {
   width: 50%;
   height: 60%;
-  padding: 40px 40px;
+  padding: 40px;
+  border: 3px;
+  border-color: @background-light;
 }
 
 * {
@@ -72,7 +76,7 @@ entry {
 
 #textbox-prompt-colon {
   expand: false;
-  str: "  ::  ";
+  str: " ";
   padding: @apps-textbox-prompt-colon-padding;
 }
 
