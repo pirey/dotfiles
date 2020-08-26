@@ -10,99 +10,92 @@
 configuration {
     drun-display-format: "{icon}";
     display-drun: "Apps";
-	show-icons: true;
-	icon-theme: "Papirus";
-	location: 1;
-	yoffset: 0;
-    xoffset: 0;	
-	fake-transparency: false;
-	hide-scrollbar: true;
-	bw: 0;
+    show-icons: true;
+    icon-theme: "Papirus";
+    location: 1;
+    yoffset: 0;
+    xoffset: 0;
+    fake-transparency: false;
+    hide-scrollbar: true;
+    bw: 0;
     fullscreen: false;
     show-icons: true;
-	terminal: "termite";
-	sidebar-mode: false;
+    terminal: "termite";
+    sidebar-mode: false;
 }
 
 /* colors */
 * {
-red: #EC5250;
-blue: #25B1CA;
-green: #2ABB9C;
-purple: #5537D2;
+    red: #bf616a;
+    blue: #8fbcbb;
+    green: #a3be8c;
+    purple: #b48ead;
+    white: #d8dee9;
 }
 
-// black
 * {
-bg: #000000cc;
-bg-sel: #00000066;
-fg: #ffffff;
+    bg: #3b4252;
+    bg-sel: #4c566a;
+    fg: #d8dee9;
 }
 
-// white
-/*
 * {
-bg: #ffffffa6;
-bg-sel: #ffffff8c;
-fg: #ffffff;
-}
-*/
-
-* {
-  background-color: #00000000;
-  font: "FantasqueSansMono Nerd Font 36";
+    background-color: @bg;
+    font: "FantasqueSansMono Nerd Font 36";
 }
 
 window {
-  height: 100%;
-  width: 20%;
-  transparency: "real";
+    height: 100%;
+    width: 20%;
+    transparency: "real";
 }
 
 mainbox {
-  children: [ inputbar, listview ];
-  padding: 0% 0% 0% 0%;
-  background-color: @bg;
-  border: 0;
-  border-radius: 0;
-  border-color: @bg;
+    children: [ inputbar, listview ];
+    padding: 0% 0% 0% 0%;
+    background-color: @bg;
+    border: 0;
+    border-radius: 0;
+    border-color: @bg;
 }
 
 listview {
-  columns: 3;
-  padding: 8;
-  spacing: 10;
+    columns: 3;
+    padding: 8;
+    spacing: 10;
 }
 
 element {
-  border: 0;
-  text-color: @fg;
-  orientation: vertical;
-  padding: 12 12 12 16;
-  border-radius: 8;
+    border: 0;
+    text-color: @fg;
+    orientation: vertical;
+    padding: 12 12 12 16;
+    border-radius: 8;
 }
 
 element selected {
-  background-color: @bg-sel;
-  border-color: @bg;
-  text-color: @fg;
+    background-color: @bg-sel;
+    border-color: @bg;
+    text-color: @fg;
 }
 
 inputbar {
-  children: [entry];
-  padding: 4 4 4 4;
-  /* change this colors to change style*/
-  background-color: @red;
-  border: 0 0 0 0;
-  border-color: @fg;
+    children: [entry];
+    padding: 4 4 4 4;
+    /* change this colors to change style*/
+    background-color: @bg;
+    border: 0 0 0 0;
+    border-color: @fg;
 }
 
 prompt {
-  enabled: false;
+    enabled: false;
 }
 
 entry {
-  font: "FantasqueSansMono Nerd Font 12";
-  text-color: @fg;
-  padding: 8 12 8 12;
+    font: "JetBrains Mono 12";
+    text-color: @fg;
+    padding: 8 12 8 12;
 }
+
+/* vim:ft=css
