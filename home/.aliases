@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# archlinux
+alias paman="sudo pacman"
+
 # Commons
 alias l="ls -alh"
 alias x="exit"
