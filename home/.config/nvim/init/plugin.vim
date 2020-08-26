@@ -6,6 +6,7 @@
 " markdown {{{
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'jxnblk/vim-mdx-js'
 " }}}
 " js / ts {{{
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
