@@ -45,7 +45,4 @@ sudo -S pacman --noconfirm -Syu openssh \
     tree \
     cloc \
     git tk \
-    mdp \
-    gnome-system-monitor \
     dunst \
-    pcmanfm

@@ -20,5 +20,8 @@ sudo -S pacman --noconfirm -Syu chromium \
     ncmpcpp \
     libreoffice-still \
     gimp \
-    inkscape
+    inkscape \
+    pcmanfm \
+    viewnior \
+    gnome-system-monitor
     # gimp-help-en \
