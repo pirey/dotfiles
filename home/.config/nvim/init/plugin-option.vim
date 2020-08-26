@@ -279,7 +279,7 @@ let g:git_messenger_include_diff = 'current'
 
 " APZelos/blamer.nvim {{{
 let g:blamer_enabled = 1
-let g:blamer_delay = 500
+let g:blamer_delay = 1000
 let g:blamer_prefix = '  '
 let g:blamer_relative_time = 1
 " }}}
