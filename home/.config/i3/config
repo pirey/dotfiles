@@ -229,7 +229,7 @@ client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440   #2E3440
 # init {{{
 
 # wallpaper
-set $wallpaper 'arch-aside.png'
+set $wallpaper 'polar-friends.png'
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/$wallpaper
 
 # touchpad (synaptic)
