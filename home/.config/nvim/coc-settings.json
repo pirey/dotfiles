@@ -9,6 +9,17 @@
   "explorer.icon.enableVimDevicons": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    /* some mapping adapted from nerdtree */
+    "s": "open:vsplit",
+    "mm": "rename",
+    "mc": "copyFile",
+    "C": "copyFile",
+    "md": "delete",
+    "D": "delete",
+    "ma": "addFile",
+    "mA": "addDirectory",
+  },
   "diagnostic.errorSign": "●",
   "diagnostic.warningSign": "●",
   "diagnostic.infoSign": "●",
