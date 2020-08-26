@@ -26,7 +26,8 @@ bindsym $mod+Shift+o exec "~/.config/i3/launch.sh"
 bindsym $mod+q kill
 
 # program launcher
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec "~/.config/rofi/launchers/launcher.sh"
+bindsym $mod+Shift+q exec "~/.config/rofi/scripts/menu_powermenu.sh"
 
 # change focus
 bindsym $mod+h focus left

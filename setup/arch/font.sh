@@ -10,7 +10,6 @@ setupdir=$(dirname $archdir)
 dotfilesdir=$(dirname $setupdir)
 
 sudo pacman -Syu gucharmap \
-    xorg-xfd \
     fontforge \
     ttf-jetbrains-mono \
     ttf-nerd-fonts-symbols \

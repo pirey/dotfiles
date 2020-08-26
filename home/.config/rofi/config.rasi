@@ -1,8 +1,9 @@
+/** Configured For Applets **/
+
 configuration {
-    font: "JetBrains Mono NL 9.5";
-    fullscreen: true;
+  show-icons:         true;
+  icon-theme:         "Papirus";
+  location: 3;
+  yoffset: 50;
+  xoffset: -20;
 }
-
-@import "nord.rasi"
-
-/* vim:ft=css
