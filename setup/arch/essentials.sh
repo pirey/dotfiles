@@ -47,4 +47,5 @@ sudo -S pacman --noconfirm -Syu openssh \
     git tk \
     mdp \
     gnome-system-monitor \
-    dunst
+    dunst \
+    pcmanfm
