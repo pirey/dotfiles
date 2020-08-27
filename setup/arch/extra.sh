@@ -22,6 +22,7 @@ sudo -S pacman --noconfirm -Syu chromium \
     gimp \
     inkscape \
     pcmanfm \
+    ranger w3m \
     viewnior \
     gnome-system-monitor
     # gimp-help-en \
