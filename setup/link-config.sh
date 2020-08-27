@@ -16,11 +16,9 @@ echo "-> creating symlinks..."
 # make sure there is .config folder
 mkdir -p $HOME/.config
 
-# tmux
+# home
 link_home .tmux.conf
 link_home .tmuxline.conf
-
-# global config
 link_home .toprc
 link_home .ctags
 link_home .gitconfig
@@ -42,6 +40,7 @@ link_home .functions
 link_home .zshrc
 link_home .zprofile
 
+# etc config
 link_file $DOTFILES/home/.oh-my-zsh/custom/themes/pirey.zsh-theme $HOME/.oh-my-zsh/custom/themes/pirey.zsh-theme
 
 # .config
