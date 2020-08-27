@@ -18,12 +18,8 @@
     "md": "delete",
     "D": "delete",
     "ma": "addFile",
-    "mA": "addDirectory",
+    "mA": "addDirectory"
   },
-
-
-
-
   /* "diagnostic.errorSign": "E", */
   /* "diagnostic.warningSign": "W", */
   /* "diagnostic.infoSign": "I", */
