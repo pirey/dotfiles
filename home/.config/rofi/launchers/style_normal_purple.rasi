@@ -18,7 +18,7 @@ configuration {
 	bw: 0;
     fullscreen: true;
     show-icons: true;
-	terminal: "termite";
+	terminal: "kitty";
 	sidebar-mode: false;
 }
 

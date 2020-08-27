@@ -53,10 +53,10 @@ case $chosen in
 		fi 
         ;;
     $bmon)
-        termite -e bmon
+        kitty -e bmon
         ;;
     $launch_cli)
-        termite -e nmtui
+        kitty -e nmtui
         ;;
     $launch)
         nm-connection-editor
