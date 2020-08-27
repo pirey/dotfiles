@@ -3,14 +3,13 @@
 # ========================
 # DOTFILES
 
+source "$(dirname $0)/helpers.sh"
+
 # doftiles directory
 DOTFILES="$HOME/dotfiles"
 if [ "$1" != "" ]; then
     DOTFILES=$1
 fi
-
-# unlink files first
-$DOTFILES/setup/unlink-config.sh
 
 echo "-> creating symlinks..."
 
@@ -18,43 +17,45 @@ echo "-> creating symlinks..."
 mkdir -p $HOME/.config
 
 # tmux
-ln -sf $DOTFILES/home/.tmux.conf $HOME/.tmux.conf
-ln -sf $DOTFILES/home/.tmuxline.conf $HOME/.tmuxline.conf
+link_home .tmux.conf
+link_home .tmuxline.conf
 
 # global config
-ln -sf $DOTFILES/home/.toprc $HOME/.toprc
-ln -sf $DOTFILES/home/.ctags $HOME/.ctags
-ln -sf $DOTFILES/home/.gitconfig $HOME/.gitconfig
-ln -sf $DOTFILES/home/.gitignore_global $HOME/.gitignore_global
-ln -sf $DOTFILES/home/.editorconfig $HOME/.editorconfig
-ln -sf $DOTFILES/home/.npmrc $HOME/.npmrc
-ln -sf $DOTFILES/home/.prettierrc $HOME/.prettierrc
-ln -sf $DOTFILES/home/.xinitrc $HOME/.xinitrc
-ln -sf $DOTFILES/home/.ncmpcpp $HOME/.ncmpcpp
-ln -sf $DOTFILES/home/.spacemacs $HOME/.spacemacs
-ln -sf $DOTFILES/home/.railsrc $HOME/.railsrc
-ln -sf $DOTFILES/home/.opam-helper $HOME/.opam-helper
+link_home .toprc
+link_home .ctags
+link_home .gitconfig
+link_home .gitignore_global
+link_home .editorconfig
+link_home .npmrc
+link_home .prettierrc
+link_home .xinitrc
+link_home .ncmpcpp
+link_home .spacemacs
+link_home .railsrc
+link_home .opam-helper
 
 # sh
-ln -sf $DOTFILES/home/.paths $HOME/.paths
-ln -sf $DOTFILES/home/.env $HOME/.env
-ln -sf $DOTFILES/home/.aliases $HOME/.aliases
-ln -sf $DOTFILES/home/.functions $HOME/.functions
-ln -sf $DOTFILES/home/.zshrc $HOME/.zshrc
-ln -sf $DOTFILES/home/.oh-my-zsh/custom/themes/pirey.zsh-theme $HOME/.oh-my-zsh/custom/themes/pirey.zsh-theme
-ln -sf $DOTFILES/home/.zprofile $HOME/.zprofile
+link_home .paths
+link_home .env
+link_home .aliases
+link_home .functions
+link_home .zshrc
+link_home .zprofile
+
+link_file $DOTFILES/home/.oh-my-zsh/custom/themes/pirey.zsh-theme $HOME/.oh-my-zsh/custom/themes/pirey.zsh-theme
 
 # .config
-ln -sf $DOTFILES/home/.config/Dharkael $HOME/.config
-ln -sf $DOTFILES/home/.config/nvim $HOME/.config
-ln -sf $DOTFILES/home/.config/alacritty $HOME/.config
-ln -sf $DOTFILES/home/.config/kitty $HOME/.config
-ln -sf $DOTFILES/home/.config/polybar $HOME/.config
-ln -sf $DOTFILES/home/.config/mpd $HOME/.config
-ln -sf $DOTFILES/home/.config/i3 $HOME/.config
-ln -sf $DOTFILES/home/.config/i3status $HOME/.config
-ln -sf $DOTFILES/home/.config/rofi $HOME/.config
-ln -sf $DOTFILES/home/.config/picom $HOME/.config
-ln -sf $DOTFILES/home/.config/dunst $HOME/.config
+link_xdg_config Dharkael
+link_xdg_config nvim
+link_xdg_config alacritty
+link_xdg_config kitty
+link_xdg_config polybar
+link_xdg_config mpd
+link_xdg_config i3
+link_xdg_config i3status
+link_xdg_config rofi
+link_xdg_config picom
+link_xdg_config dunst
+link_xdg_config ranger
 
 echo "OK config files linked"
