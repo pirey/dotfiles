@@ -54,5 +54,9 @@ link_xdg_config rofi
 link_xdg_config picom
 link_xdg_config dunst
 link_xdg_config ranger
+link_xdg_config gtk-2.0
+link_xdg_config gtk-3.0
+link_xdg_config mimeapps.list
+link_xdg_config user-dirs.dirs
 
 echo "OK config files linked"
