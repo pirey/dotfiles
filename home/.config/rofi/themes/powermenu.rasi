@@ -32,6 +32,8 @@
 #window {
   width: 29%;
   height: 20%;
+  border: 2px;
+  border-color: @background-light;
 }
 
 /* ########### */
