@@ -11,15 +11,15 @@ link_file () {
     target=$2
 
     if [ ! -e "$1" ]; then
-        echo "Skip linking $1: File doesn't exists"
+        echo "[X]  Skip linking $1: File doesn't exists"
         return
     fi
-
-    echo "Linking $src to $target"
 
     remove_file $target
 
     ln -sf $src $target
+
+    echo "[OK] Linked $src --> $target"
 }
 
 link_home () {

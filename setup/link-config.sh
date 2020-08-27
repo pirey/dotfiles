@@ -11,7 +11,7 @@ if [ "$1" != "" ]; then
     DOTFILES=$1
 fi
 
-echo "-> creating symlinks..."
+echo "-> CREATING SYMLINKS..."
 
 # make sure there is .config folder
 mkdir -p $HOME/.config
@@ -58,5 +58,3 @@ link_xdg_config gtk-2.0
 link_xdg_config gtk-3.0
 link_xdg_config mimeapps.list
 link_xdg_config user-dirs.dirs
-
-echo "OK config files linked"
