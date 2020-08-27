@@ -11,6 +11,7 @@ echo "Installing npm packages..."
 echo "======================================"
 
 npm i -g intelephense \
+    purescript spago \
     neovim \
     http-server \
     yarn \
