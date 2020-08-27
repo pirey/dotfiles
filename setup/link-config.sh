@@ -58,3 +58,4 @@ link_xdg_config gtk-2.0
 link_xdg_config gtk-3.0
 link_xdg_config mimeapps.list
 link_xdg_config user-dirs.dirs
+link_xdg_config screenkey.json

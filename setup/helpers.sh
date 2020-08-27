@@ -42,7 +42,7 @@ link_xdg_config () {
 
 remove_file () {
     if [ ! -e "$1" ]; then
-        echo "Skip removing $1: File doesn't exists"
+        echo "[-]  Skip removing $1: File doesn't exists"
     else
         rm -rf "$1"
     fi
