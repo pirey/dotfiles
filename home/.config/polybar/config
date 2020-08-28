@@ -220,7 +220,7 @@ format = <label><bar>
 label = "%{A1:~/.config/polybar/scripts/optimal_backlight.sh:} %{A}"
 label-foreground = ${colors.foreground}
 
-bar-width = 10
+bar-width = 6
 bar-indicator =
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
@@ -328,7 +328,7 @@ ramp-volume-foreground = ${colors.foreground}
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 6
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.foreground}
