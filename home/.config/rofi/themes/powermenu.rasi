@@ -30,7 +30,7 @@
 /* ########### */
 
 #window {
-  width: 29%;
+  width: 30%;
   height: 20%;
   border: 2px;
   border-color: @background-light;
