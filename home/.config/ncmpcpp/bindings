@@ -554,3 +554,9 @@ def_key "k"
 
 def_key "l"
  next_column
+
+def_key "J"
+ page_down
+
+def_key "K"
+ page_up
