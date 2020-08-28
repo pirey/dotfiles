@@ -23,11 +23,11 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+o exec "~/.config/i3/scripts/launch_favorites.sh"
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+x kill
 
 # program launcher
 bindsym $mod+d exec "~/.config/rofi/launchers/launcher.sh"
-bindsym $mod+Shift+q exec "~/.config/rofi/scripts/menu_powermenu.sh"
+bindsym $mod+q exec "~/.config/rofi/scripts/powermenu.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -67,11 +67,6 @@ bindsym $mod+space focus mode_toggle
 
 # restart i3
 bindsym $mod+Shift+r restart
-
-# exit i3 (logout)
-bindsym $mod+Shift+e exec i3-msg exit
-
-# bindsym $mod+Shift+Ctrl+q exec --no-startup-id poweroff
 
 # lock screen
 bindsym Ctrl+$mod+l exec "~/.config/i3/scripts/fuzzy_lock.sh"
