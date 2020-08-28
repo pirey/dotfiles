@@ -21,7 +21,7 @@ sudo -S pacman --noconfirm -Syu chromium \
     libreoffice-still \
     gimp \
     inkscape \
-    pcmanfm \
+    pcmanfm gvfs \
     ranger w3m \
     viewnior \
     gnome-system-monitor
