@@ -16,8 +16,7 @@ sudo -S pacman --noconfirm -Syu chromium \
     arc-icon-theme \
     vlc \
     cmus \
-    mpd \
-    ncmpcpp \
+    mpd mpc ncmpcpp \
     libreoffice-still \
     gimp \
     inkscape \
