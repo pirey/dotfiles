@@ -4,7 +4,7 @@ action=$1
 
 pidfile=/tmp/record.pid
 
-rofi_command="rofi -theme themes/record.rasi"
+rofi_command="rofi -theme themes/record.rasi -dmenu"
 
 record_screencast () {
     savedir="$HOME/Videos/screencasts"
@@ -65,7 +65,7 @@ stop_recording () {
 confirm_end () {
     yes=""
     no=""
-    response=$(echo -e "$no\n$yes" | $rofi_command -dmenu -p "Stop Recording?")
+    response=$(echo -e "$no\n$yes" | $rofi_command -p "Stop Recording?")
 
     if [[ "$response" = "$yes" ]]; then
         stop_recording
@@ -81,7 +81,7 @@ main () {
     screencast=""
     video=""
     audio=""
-    choice=$(echo -e "$screencast\n$video\n$audio" | $rofi_command -dmenu -p "Start Recording")
+    choice=$(echo -e "$screencast\n$video\n$audio" | $rofi_command -p "Start Recording")
 
     case "$choice" in
         $screencast) record_screencast;;

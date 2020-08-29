@@ -13,7 +13,7 @@
 
 * {
   /* General */
-  text-font:                            "JetBrains Mono 12";
+  text-font:                            "JetBrains Mono 9.5";
   icon-font:                            "Hurmit Nerd Font Mono 32";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
 
@@ -30,8 +30,8 @@
 /* ########### */
 
 #window {
-  width: 22%;
-  height: 21%;
+  width: 18.5%;
+  height: 20%;
   border: 2px;
   border-color: @background-light;
 }
@@ -94,7 +94,6 @@ textbox-prompt-colon {
 }
 #listview {
   spacing: @option-6-listview-spacing;
-  lines: 6;
 }
 #element {
   font: @icon-font;
