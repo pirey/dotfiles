@@ -74,7 +74,7 @@ font-3 = FontAwesome:pixelsize=11;1
 font-4 = Symbols Nerd Font:pixelsize=11;1
 
 modules-left = i3 xwindow
-modules-right = xbacklight pulseaudio battery date powermenu
+modules-right = xbacklight pulseaudio battery date record powermenu
 
 tray-position = right
 tray-padding = 1
@@ -398,6 +398,14 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = ~/.config/rofi/scripts/powermenu.sh
+
+[module/record]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+click-left = ~/.config/rofi/scripts/record.sh
 
 [module/title]
 type = custom/text
