@@ -20,4 +20,4 @@ style="style_icons_full"
 # style="style_normal_grid"
 # style="style_normal_grid_full"
 
-rofi -no-lazy-grab -show drun -theme launchers/"$style".rasi
+rofi -no-lazy-grab -modi 'drun' -show drun -theme launchers/"$style".rasi
