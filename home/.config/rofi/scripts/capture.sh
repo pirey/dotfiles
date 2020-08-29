@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 recording_pidfile=/tmp/recording.pid
+recording_savepath=/tmp/recording.path
 
 rofi_command="rofi -theme themes/capture.rasi -dmenu"
 
@@ -18,6 +19,8 @@ capture_window () {
 
 record_screencast () {
     savedir="$HOME/Videos/screencasts"
+    savefile="$savedir/screencast-$(date '+%y%m%d-%H%M-%S').mp4"
+
     mkdir -p $savedir
 
     ffmpeg -y \
@@ -31,13 +34,16 @@ record_screencast () {
         -c:a aac \
         -c:v libx264 -pix_fmt yuv420p -qp 18 -q:v 1 \
         -threads 4 \
-        "$savedir/screencast-$(date '+%y%m%d-%H%M-%S').mp4" &
+        $savefile &
 
-    echo $! > ~/.recordingpid
+    echo $! > $recording_pidfile
+    echo $savefile > $recording_savepath
 }
 
 record_video () {
     savedir="$HOME/Videos/screencasts"
+    savefile="$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4"
+
     mkdir -p $savedir
 
     ffmpeg \
@@ -47,13 +53,16 @@ record_video () {
         -i :0.0+0,0 \
         -c:v libx264 -pix_fmt yuv420p -preset veryfast -q:v 1 \
         -threads 4 \
-        "$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4" &
+        $savefile &
 
     echo $! > $recording_pidfile
+    echo $savefile > $recording_savepath
 }
 
 record_audio () {
     savedir="$HOME/Music/recordings"
+    savefile="$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4"
+
     mkdir -p $savedir
 
     ffmpeg \
@@ -62,14 +71,16 @@ record_audio () {
         "$savedir/recording-$(date '+%y%m%d-%H%M-%S').flac" &
 
     echo $! > $recording_pidfile
+    echo $savefile > $recording_savepath
 }
 
 stop_recording () {
+    notify-send "Recording Finished!" "File saved at $(cat "$recording_savepath")"
     pid="$(cat $recording_pidfile)"
     # kill with SIGTERM, allowing finishing touches.
     kill -15 "$pid"
-    rm -f $recording_pidfile
-    exit
+    rm -f $recording_pidfile $recording_savepath
+    t
 }
 
 confirm_end () {

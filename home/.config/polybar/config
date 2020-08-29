@@ -400,10 +400,11 @@ content-foreground = ${colors.foreground}
 click-left = ~/.config/rofi/scripts/powermenu.sh
 
 [module/capture]
-type = custom/text
-content = ""
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
+type = custom/script
+exec = ~/.config/polybar/scripts/capture.sh
+interval = 1
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 
 click-left = ~/.config/rofi/scripts/capture.sh
 
