@@ -28,7 +28,7 @@ bindsym $mod+Shift+q exec "~/.config/rofi/scripts/powermenu.sh"
 # program launcher
 bindsym $mod+Shift+o exec "~/.config/i3/scripts/launch_favorites.sh"
 bindsym $mod+d exec "~/.config/rofi/launchers/launcher.sh"
-bindsym $mod+v exec "~/.config/rofi/scripts/record.sh"
+bindsym $mod+c exec "~/.config/rofi/scripts/capture.sh"
 
 # change focus
 bindsym $mod+h focus left

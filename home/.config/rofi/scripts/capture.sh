@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
-action=$1
+recording_pidfile=/tmp/recording.pid
 
-pidfile=/tmp/record.pid
+rofi_command="rofi -theme themes/capture.rasi -dmenu"
 
-rofi_command="rofi -theme themes/record.rasi -dmenu"
+capture_full () {
+    maim ~/Pictures/capture-$(date +%s).png
+}
+
+capture_area () {
+    maim -s ~/Pictures/capture-$(date +%s).png
+}
+
+capture_window () {
+    maim -i $(xdotool getactivewindow) ~/Pictures/capture-$(date +%s).png
+}
 
 record_screencast () {
     savedir="$HOME/Videos/screencasts"
@@ -27,7 +37,7 @@ record_screencast () {
 }
 
 record_video () {
-    savedir="$HOME/Videos/recordings"
+    savedir="$HOME/Videos/screencasts"
     mkdir -p $savedir
 
     ffmpeg \
@@ -39,7 +49,7 @@ record_video () {
         -threads 4 \
         "$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4" &
 
-    echo $! > $pidfile
+    echo $! > $recording_pidfile
 }
 
 record_audio () {
@@ -51,14 +61,14 @@ record_audio () {
         -c:a flac \
         "$savedir/recording-$(date '+%y%m%d-%H%M-%S').flac" &
 
-    echo $! > $pidfile
+    echo $! > $recording_pidfile
 }
 
 stop_recording () {
-    pid="$(cat $pidfile)"
+    pid="$(cat $recording_pidfile)"
     # kill with SIGTERM, allowing finishing touches.
     kill -15 "$pid"
-    rm -f $pidfile
+    rm -f $recording_pidfile
     exit
 }
 
@@ -72,8 +82,8 @@ confirm_end () {
     fi
 }
 
-main () {
-    if [[ -f $pidfile ]]; then
+show_menu () {
+    if [[ -f $recording_pidfile ]]; then
         confirm_end
         exit
     fi
@@ -81,18 +91,28 @@ main () {
     screencast=""
     video=""
     audio=""
-    choice=$(echo -e "$screencast\n$video\n$audio" | $rofi_command -p "Start Recording")
+    capture_full=""
+    capture_area=""
+    capture_window=""
+    choice=$(echo -e "$screencast\n$video\n$audio\n$capture_full\n$capture_area\n$capture_window" | $rofi_command -p "Capture")
 
     case "$choice" in
         $screencast) record_screencast;;
         $video) record_video;;
         $audio) record_audio;;
+        $capture_full) sleep 1; capture_full;;
+        $capture_area) capture_area;;
+        $capture_window) sleep 1; capture_window;;
     esac
 }
 
+action=$1
 case "$action" in
   "screencast") record_screencast;;
   "audio") record_audio;;
   "video") record_video;;
-  *) main;;
+  "capture_full") capture_full;;
+  "capture_area") capture_area;;
+  "capture_window") capture_window;;
+  *) show_menu;;
 esac
