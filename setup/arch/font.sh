@@ -14,6 +14,7 @@ sudo pacman -Syu gucharmap \
     fontforge \
     ttf-jetbrains-mono \
     ttf-nerd-fonts-symbols \
+    ttf-font-awesome \
     powerline-fonts
 
 mkdir -p ~/.local/share/fonts

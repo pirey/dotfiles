@@ -4,7 +4,12 @@ action=$1
 
 pidfile=/tmp/record.pid
 
+rofi_command="rofi -theme themes/record.rasi"
+
 record_screencast () {
+    savedir="$HOME/Videos/screencasts"
+    mkdir -p $savedir
+
     ffmpeg -y \
         -f x11grab \
         -framerate 30 \
@@ -16,28 +21,35 @@ record_screencast () {
         -c:a aac \
         -c:v libx264 -pix_fmt yuv420p -qp 18 -q:v 1 \
         -threads 4 \
-        "$HOME/Videos/recording/screencast-$(date '+%y%m%d-%H%M-%S').mp4" &
+        "$savedir/screencast-$(date '+%y%m%d-%H%M-%S').mp4" &
 
     echo $! > ~/.recordingpid
 }
 
 record_video () {
+    savedir="$HOME/Videos/recordings"
+    mkdir -p $savedir
+
     ffmpeg \
         -f x11grab \
         -framerate 30 \
         -s $(xrandr | grep '*' | awk '{print $1;}') \
         -i :0.0+0,0 \
-        -c:v libx264 \
-        "$HOME/Videos/recording/recording-$(date '+%y%m%d-%H%M-%S').mp4" &
+        -c:v libx264 -pix_fmt yuv420p -preset veryfast -q:v 1 \
+        -threads 4 \
+        "$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4" &
 
     echo $! > $pidfile
 }
 
 record_audio () {
+    savedir="$HOME/Music/recordings"
+    mkdir -p $savedir
+
     ffmpeg \
         -f pulse -i default \
         -c:a flac \
-        "$HOME/Music/recording/audio-$(date '+%y%m%d-%H%M-%S').flac" &
+        "$savedir/recording-$(date '+%y%m%d-%H%M-%S').flac" &
 
     echo $! > $pidfile
 }
@@ -51,9 +63,9 @@ stop_recording () {
 }
 
 confirm_end () {
-    yes="YES"
-    no="NO"
-    response=$(echo -e "$no\n$yes" | rofi -dmenu -p "STOP RECORDING?")
+    yes=""
+    no=""
+    response=$(echo -e "$no\n$yes" | $rofi_command -dmenu -p "Stop Recording?")
 
     if [[ "$response" = "$yes" ]]; then
         stop_recording
@@ -66,10 +78,10 @@ main () {
         exit
     fi
 
-    screencast="SCREENCAST"
-    video="VIDEO"
-    audio="AUDIO"
-    choice=$(echo -e "$screencast\n$video\n$audio" | rofi -dmenu -p "RECORD")
+    screencast=""
+    video=""
+    audio=""
+    choice=$(echo -e "$screencast\n$video\n$audio" | $rofi_command -dmenu -p "Start Recording")
 
     case "$choice" in
         $screencast) record_screencast;;
