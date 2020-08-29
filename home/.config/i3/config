@@ -20,14 +20,15 @@ for_window [class="^.*"] border pixel 2
 # start a terminal
 bindsym $mod+Return exec $terminal
 
-bindsym $mod+Shift+o exec "~/.config/i3/scripts/launch_favorites.sh"
 
 # kill focused window
-bindsym $mod+x kill
+bindsym $mod+q kill
+bindsym $mod+Shift+q exec "~/.config/rofi/scripts/powermenu.sh"
 
 # program launcher
+bindsym $mod+Shift+o exec "~/.config/i3/scripts/launch_favorites.sh"
 bindsym $mod+d exec "~/.config/rofi/launchers/launcher.sh"
-bindsym $mod+q exec "~/.config/rofi/scripts/powermenu.sh"
+bindsym $mod+v exec "~/.config/rofi/scripts/record.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -45,10 +46,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+v split h
+bindsym $mod+Shift+semicolon split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+semicolon split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
