@@ -61,14 +61,14 @@ record_video () {
 
 record_audio () {
     savedir="$HOME/Music/recordings"
-    savefile="$savedir/recording-$(date '+%y%m%d-%H%M-%S').mp4"
+    savefile="$savedir/recording-$(date '+%y%m%d-%H%M-%S').flac"
 
     mkdir -p $savedir
 
     ffmpeg \
         -f pulse -i default \
         -c:a flac \
-        "$savedir/recording-$(date '+%y%m%d-%H%M-%S').flac" &
+        $savefile &
 
     echo $! > $recording_pidfile
     echo $savefile > $recording_savepath
