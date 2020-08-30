@@ -20,6 +20,10 @@
     "ma": "addFile",
     "mA": "addDirectory"
   },
+  "diagnostic.errorSign": "●",
+  "diagnostic.warningSign": "●",
+  "diagnostic.infoSign": "●",
+  "diagnostic.hintSign": "●",
   /* "diagnostic.errorSign": "E", */
   /* "diagnostic.warningSign": "W", */
   /* "diagnostic.infoSign": "I", */
