@@ -10,7 +10,7 @@ if [ -f $recording_pidfile ]; then
 
     # use the stamp to alternate blinking
     if [ $((stamp%2)) -eq 0 ]; then
-        echo "REC ●"
+        echo "REC %{F#ff0000}●%{F-}"
     else
         echo "     "
     fi
