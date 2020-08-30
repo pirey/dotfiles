@@ -2,6 +2,7 @@
 
 recording_pidfile=/tmp/recording.pid
 recording_savepath=/tmp/recording.path
+logfile=/tmp/recording.log
 
 rofi_command="rofi -theme themes/capture.rasi -dmenu"
 
@@ -28,16 +29,19 @@ record_screencast () {
         -framerate 30 \
         -s $(xrandr | grep '*' | awk '{print $1;}') \
         -i :0.0+0,0 \
-        -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor \
-        -f pulse -i alsa_input.pci-0000_00_1b.0.analog-stereo \
-        -filter_complex amix=inputs=2 \
-        -c:a aac \
-        -c:v libx264 -pix_fmt yuv420p -qp 18 -q:v 1 \
+        -f pulse -i default \
+        -c:v libx264 \
         -threads 4 \
-        $savefile &
+        $savefile >> $logfile 2>&1 &
 
     echo $! > $recording_pidfile
     echo $savefile > $recording_savepath
+
+    # -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor \
+    # -f pulse -i alsa_input.pci-0000_00_1b.0.analog-stereo \
+    # -filter_complex amix=inputs=2 \
+    # -c:a aac \
+    # -c:v libx264 -pix_fmt yuv420p -qp 18 -q:v 1 \
 }
 
 record_video () {
@@ -53,7 +57,7 @@ record_video () {
         -i :0.0+0,0 \
         -c:v libx264 -pix_fmt yuv420p -preset veryfast -q:v 1 \
         -threads 4 \
-        $savefile &
+        $savefile >> $logfile 2>&1 &
 
     echo $! > $recording_pidfile
     echo $savefile > $recording_savepath
@@ -71,7 +75,7 @@ record_audio () {
         $savefile &
 
     echo $! > $recording_pidfile
-    echo $savefile > $recording_savepath
+    echo $savefile >> $logfile 2>&1 &
 }
 
 stop_recording () {
