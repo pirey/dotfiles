@@ -14,6 +14,7 @@
 * {
   /* General */
   text-font:                            "JetBrains Mono 9.5";
+  text-font-bold:                       "JetBrains Mono Bold 9.5";
   icon-font:                            "Hurmit Nerd Font Mono 32";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
 
@@ -82,6 +83,7 @@ textbox-prompt-colon {
   margin: @menu-prompt-margin;
   background-color: @background-light;
   text-color: @accent;
+  font: @text-font-bold;
 }
 #textbox-prompt-colon {
   expand: false;
