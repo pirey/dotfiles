@@ -6,7 +6,7 @@
 ## Reddit : @adi1090x
 
 rofi_command="rofi -theme themes/powermenu.rasi"
-uptime=$(uptime -p | sed -e 's/up //g')
+username="$(logname | awk '{ print toupper($0) }')"
 
 # Options
 shutdown="襤"
@@ -18,7 +18,7 @@ logout=""
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p "$username" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
         poweroff

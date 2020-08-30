@@ -85,9 +85,11 @@ textbox-prompt-colon {
 }
 #textbox-prompt-colon {
   expand: false;
-  str: "System";
+  str: "";
   background-color: @accent;
   text-color: @background;
+  font: @icon-font-small;
+  padding: 5px 15px;
 }
 #horibox {
   padding: 0px;
