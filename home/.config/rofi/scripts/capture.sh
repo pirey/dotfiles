@@ -79,7 +79,7 @@ record_audio () {
 }
 
 stop_recording () {
-    notify-send "Recording Finished!" "File saved at $(cat "$recording_savepath")"
+    notify-send "Recording Finished!" "File saved to $(cat "$recording_savepath")"
     pid="$(cat $recording_pidfile)"
     # kill with SIGTERM, allowing finishing touches.
     kill -15 "$pid"
