@@ -16,6 +16,7 @@ title_align center
 workspace_layout tabbed
 
 for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] title_format "%class"
 # }}}
 
 # keybinding {{{
@@ -219,7 +220,7 @@ bindsym $mod+Shift+s exec --no-startup-id $HOME/.config/polybar/scripts/toggle_b
 # nord15 = "#B48EAD"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #434C5E #2E3440 #2E3440 #2E3440   #434C5E
+client.focused          #434C5E #2E3440 #D8DEE9 #2E3440   #434C5E
 client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440   #2E3440
 client.unfocused        #2E3440 #2E3440 #4C566A #2E3440   #2E3440
 # client.urgent           #2f343a #900000 #ffffff #900000   #900000
