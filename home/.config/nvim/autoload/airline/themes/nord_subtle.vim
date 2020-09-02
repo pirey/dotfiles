@@ -73,17 +73,12 @@ let s:nord3_gui_brightened = [
 
 let s:NMain = [s:nord4_gui, s:nord3_gui, s:nord1_term, s:nord8_term]
 let s:NRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
-
-" middle transparent
-let s:NMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
-
-" middle line
 let s:NMiddle = [s:nord5_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
-
 let s:NTabfill = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
 let s:NTabhid = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
 let s:NWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
 let s:NError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
+
 let g:airline#themes#nord_subtle#palette.normal = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
 let g:airline#themes#nord_subtle#palette.normal.airline_warning = s:NWarn
 let g:airline#themes#nord_subtle#palette.normal.airline_error = s:NError
@@ -91,32 +86,17 @@ let g:airline#themes#nord_subtle#palette.normal.airline_z = s:NRight
 let g:airline#themes#nord_subtle#palette.normal.airline_tabfill = s:NTabfill
 let g:airline#themes#nord_subtle#palette.normal.airline_tabhid = s:NTabhid
 
-let s:IMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord6_term]
-let s:IRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
-let s:IMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
-let s:IWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
-let s:IError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
-let g:airline#themes#nord_subtle#palette.insert = airline#themes#generate_color_map(s:IMain, s:IRight, s:IMiddle)
-let g:airline#themes#nord_subtle#palette.insert.airline_warning = s:IWarn
-let g:airline#themes#nord_subtle#palette.insert.airline_error = s:IError
+let g:airline#themes#nord_subtle#palette.insert = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
+let g:airline#themes#nord_subtle#palette.insert.airline_warning = s:NWarn
+let g:airline#themes#nord_subtle#palette.insert.airline_error = s:NError
 
-let s:RMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord14_term]
-let s:RRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
-let s:RMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
-let s:RWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
-let s:RError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
-let g:airline#themes#nord_subtle#palette.replace = airline#themes#generate_color_map(s:RMain, s:RRight, s:RMiddle)
-let g:airline#themes#nord_subtle#palette.replace.airline_warning = s:RWarn
-let g:airline#themes#nord_subtle#palette.replace.airline_error = s:RError
+let g:airline#themes#nord_subtle#palette.replace = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
+let g:airline#themes#nord_subtle#palette.replace.airline_warning = s:NWarn
+let g:airline#themes#nord_subtle#palette.replace.airline_error = s:NError
 
-let s:VMain = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord7_term]
-let s:VRight = [s:nord4_gui, s:nord1_gui, s:nord1_term, s:nord9_term]
-let s:VMiddle = [s:nord5_gui, s:nord0_gui, s:nord5_term, s:nord3_term]
-let s:VWarn = [s:nord1_gui, s:nord13_gui, s:nord3_term, s:nord13_term]
-let s:VError = [s:nord0_gui, s:nord11_gui, s:nord1_term, s:nord11_term]
-let g:airline#themes#nord_subtle#palette.visual = airline#themes#generate_color_map(s:VMain, s:VRight, s:VMiddle)
-let g:airline#themes#nord_subtle#palette.visual.airline_warning = s:VWarn
-let g:airline#themes#nord_subtle#palette.visual.airline_error = s:VError
+let g:airline#themes#nord_subtle#palette.visual = airline#themes#generate_color_map(s:NMain, s:NRight, s:NMiddle)
+let g:airline#themes#nord_subtle#palette.visual.airline_warning = s:NWarn
+let g:airline#themes#nord_subtle#palette.visual.airline_error = s:NError
 
 let s:IAMain = [s:nord1_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
 let s:IARight = [s:nord1_gui, s:nord1_gui, s:nord5_term, s:nord3_term]
@@ -129,8 +109,8 @@ let g:airline#themes#nord_subtle#palette.inactive.airline_warning = s:IAWarn
 let g:airline#themes#nord_subtle#palette.inactive.airline_error = s:IAError
 
 let g:airline#themes#nord_subtle#palette.normal.airline_term = s:NMiddle
-let g:airline#themes#nord_subtle#palette.insert.airline_term = s:IMiddle
-let g:airline#themes#nord_subtle#palette.replace.airline_term = s:RMiddle
-let g:airline#themes#nord_subtle#palette.visual.airline_term = s:VMiddle
-let g:airline#themes#nord_subtle#palette.inactive.airline_term = s:IAMiddle
+let g:airline#themes#nord_subtle#palette.insert.airline_term = s:NMiddle
+let g:airline#themes#nord_subtle#palette.replace.airline_term = s:NMiddle
+let g:airline#themes#nord_subtle#palette.visual.airline_term = s:NMiddle
+let g:airline#themes#nord_subtle#palette.inactive.airline_term = s:NMiddle
 
