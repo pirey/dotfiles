@@ -260,8 +260,7 @@ let g:lightline = {
 \    'left' :[[ 'mode', 'paste' ],
 \             [ 'gitbranch', 'readonly' ],
 \             [ 'filename', 'modified' ]],
-\    'right':[[ 'percent', 'lineinfo' ],
-\             [ 'filetype' ] ]
+\    'right':[[ 'filetype', 'percent', 'lineinfo' ] ]
 \   },
 \   'tab': {
 \     'active': ['tabnum'],
@@ -269,7 +268,7 @@ let g:lightline = {
 \   },
 \   'tabline': {
 \     'left': [['buffers']],
-\     'right': [['string1'], ['string2', 'smarttabs']]
+\     'right': [['string2', 'smarttabs']]
 \   },
 \   'separator': {
 \     'left': '', 'right': ''
@@ -277,11 +276,10 @@ let g:lightline = {
 \   'subseparator': {
 \     'left': '', 'right': ''
 \   },
-\   'component': {
-\     'lineinfo': ' %3l:%-2v',
-\     'filename': '%<%f'
-\   },
 \   'component_function': {
+\     'percent': 'LightlinePercent',
+\     'lineinfo': 'LightlineLineinfo',
+\     'filename': 'LightlineFilename',
 \     'mode': 'LightlineMode',
 \     'gitbranch': 'LightlineFugitive',
 \     'readonly': 'LightlineReadonly',
@@ -290,7 +288,6 @@ let g:lightline = {
 \   },
 \   'component_expand': {
 \     'buffers': 'lightline#bufferline#buffers',
-\     'string1': 'String1',
 \     'string2': 'String2',
 \     'smarttabs': 'SmartTabsIndicator',
 \     'trailing': 'lightline#trailing_whitespace#component'
@@ -301,21 +298,56 @@ let g:lightline = {
 \   }
 \}
 
-function! LightlineModified()
+function! LightlinePercent() abort
+    if winwidth(0) < 86
+        return ''
+    endif
+
+    let l:percent = line('.') * 100 / line('$') . '%'
+    return printf('%-4s', l:percent)
+endfunction
+
+function! LightlineLineinfo() abort
+    if winwidth(0) < 86
+        return ''
+    endif
+
+    let l:current_line = printf('%-3s', line('.'))
+    let l:max_line = printf('%-3s', line('$'))
+    let l:lineinfo = ' ' . l:current_line . '/' . l:max_line
+    return l:lineinfo
+endfunction
+
+function! LightlineFilename() abort
+    let l:relative = @%
+    let l:tail = expand('%:t')
+
+    if winwidth(0) < 50
+        return ''
+    endif
+
+    if winwidth(0) < 86
+        return l:tail ==# '' ? '[NO NAME]' : l:tail
+    endif
+
+    return l:relative ==# '' ? '[NO NAME]' : l:relative
+endfunction
+
+function! LightlineModified() abort
     return &modified ? '' : ''
 endfunction
 
-function! LightlineMode()
+function! LightlineMode() abort
     return &filetype ==# 'coc-explorer' ? 'EXPLORER' :
                 \ &filetype ==# 'fugitive' ? 'FUGITIVE' :
                 \ lightline#mode()
 endfunction
 
-function! LightlineReadonly()
+function! LightlineReadonly() abort
     return &readonly ? '' : ''
 endfunction
 
-function! LightlineFugitive()
+function! LightlineFugitive() abort
     if winwidth(0) < 86
         return ''
     endif
@@ -327,19 +359,15 @@ function! LightlineFugitive()
     return fugitive#head()
 endfunction
 
-function! LightlineFiletype()
-    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! String1()
-    return ' BANDITHIJO.GITHUB.IO'
+function! LightlineFiletype() abort
+    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : ' ? ') : ''
 endfunction
 
 function! String2()
     return 'BUFFERS'
 endfunction
 
-function! SmartTabsIndicator()
+function! SmartTabsIndicator() abort
     let tabs = lightline#tab#tabnum(tabpagenr())
     let tab_total = tabpagenr('$')
     return tabpagenr('$') > 1 ? ('TABS ' . tabs . '/' . tab_total) : ''
@@ -348,7 +376,7 @@ endfunction
 " autoreload
 command! LightlineReload call LightlineReload()
 
-function! LightlineReload()
+function! LightlineReload() abort
     call lightline#init()
     call lightline#colorscheme()
     call lightline#update()
@@ -365,7 +393,7 @@ let g:lightline#bufferline#more_buffers = "..."
 let g:lightline#bufferline#modified = " "
 let g:lightline#bufferline#read_only = " "
 let g:lightline#bufferline#shorten_path = 1
-let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#show_number = 0
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#unicode_symbols = 1
 " }}}
