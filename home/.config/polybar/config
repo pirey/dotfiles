@@ -74,7 +74,7 @@ font-3 = FontAwesome:pixelsize=11;1
 font-4 = Symbols Nerd Font:pixelsize=11;1
 
 modules-left = i3 xwindow
-modules-right = xbacklight pulseaudio battery date capture powermenu
+modules-right = recording xbacklight pulseaudio battery date powermenu
 
 tray-position = right
 tray-padding = 1
@@ -398,6 +398,13 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = ~/.config/rofi/scripts/powermenu.sh
+
+[module/recording]
+type = custom/script
+exec = ~/.config/polybar/scripts/recording.sh
+interval = 1
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 
 [module/capture]
 type = custom/script
