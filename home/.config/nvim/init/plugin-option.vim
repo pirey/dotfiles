@@ -253,6 +253,36 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 " hi StatusLine ctermbg=0
 " }}}
 
+" itchyny/lightline.vim {{{
+let g:lightline = {}
+let g:lightline.colorscheme = 'nord_subtle'
+let g:lightline.active = {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \           [ 'gitbranh', 'readonly', 'filename', 'modified' ] ],
+            \ 'right': [ [ 'percent', 'lineinfo' ], [ 'filetype' ] ] }
+let g:lightline.inactive = {
+            \'left': [ ['filename'] ],
+            \'right': []
+            \}
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
+
+let g:lightline.component_function = {
+            \'mode': 'LightlineMode',
+            \'gitbranh': 'FugitiveHead'
+            \}
+
+function! LightlineGitbranch()
+    return ' ' . FugitiveHead() . ' '
+endfunction
+
+function! LightlineMode()
+  return &filetype ==# 'coc-explorer' ? 'EXPLORER' :
+        \ &filetype ==# 'fugitive' ? 'FUGITIVE' :
+        \ lightline#mode()
+endfunction
+" }}}
+
 " FooSoft/vim-argwrap {{{
 nnoremap <silent> <space>zc :ArgWrap<CR>
 " }}}
