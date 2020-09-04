@@ -254,35 +254,121 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 " }}}
 
 " itchyny/lightline.vim {{{
-let g:lightline = {}
-let g:lightline.colorscheme = 'nord_subtle'
-let g:lightline.active = {
-            \ 'left': [ [ 'mode', 'paste' ],
-            \           [ 'gitbranh', 'readonly', 'filename', 'modified' ] ],
-            \ 'right': [ [ 'percent', 'lineinfo' ], [ 'filetype' ] ] }
-let g:lightline.inactive = {
-            \'left': [ ['filename'] ],
-            \'right': []
-            \}
-let g:lightline.separator = { 'left': '', 'right': '' }
-let g:lightline.subseparator = { 'left': '', 'right': '' }
+let g:lightline = {
+\   'colorscheme': 'nord_subtle',
+\   'active': {
+\    'left' :[[ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly' ],
+\             [ 'filename', 'modified' ]],
+\    'right':[[ 'percent', 'lineinfo' ],
+\             [ 'filetype' ] ]
+\   },
+\   'tab': {
+\     'active': ['tabnum'],
+\     'inactive': ['tabnum']
+\   },
+\   'tabline': {
+\     'left': [['buffers']],
+\     'right': [['string1'], ['string2', 'smarttabs']]
+\   },
+\   'separator': {
+\     'left': '', 'right': ''
+\   },
+\   'subseparator': {
+\     'left': '', 'right': ''
+\   },
+\   'component': {
+\     'lineinfo': ' %3l:%-2v',
+\     'filename': '%<%f'
+\   },
+\   'component_function': {
+\     'mode': 'LightlineMode',
+\     'gitbranch': 'LightlineFugitive',
+\     'readonly': 'LightlineReadonly',
+\     'modified': 'LightlineModified',
+\     'filetype': 'LightlineFiletype',
+\   },
+\   'component_expand': {
+\     'buffers': 'lightline#bufferline#buffers',
+\     'string1': 'String1',
+\     'string2': 'String2',
+\     'smarttabs': 'SmartTabsIndicator',
+\     'trailing': 'lightline#trailing_whitespace#component'
+\   },
+\   'component_type': {
+\     'buffers': 'tabsel',
+\     'trailing': 'warning'
+\   }
+\}
 
-let g:lightline.component_function = {
-            \'mode': 'LightlineMode',
-            \'gitbranh': 'FugitiveHead'
-            \}
-
-function! LightlineGitbranch()
-    return ' ' . FugitiveHead() . ' '
+function! LightlineModified()
+    return &modified ? '' : ''
 endfunction
 
 function! LightlineMode()
-  return &filetype ==# 'coc-explorer' ? 'EXPLORER' :
-        \ &filetype ==# 'fugitive' ? 'FUGITIVE' :
-        \ lightline#mode()
+    return &filetype ==# 'coc-explorer' ? 'EXPLORER' :
+                \ &filetype ==# 'fugitive' ? 'FUGITIVE' :
+                \ lightline#mode()
 endfunction
+
+function! LightlineReadonly()
+    return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+    if winwidth(0) < 86
+        return ''
+    endif
+
+    if exists('*fugitive#head')
+        let branch = fugitive#head()
+        return branch !=# '' ? ' '.branch : ''
+    endif
+    return fugitive#head()
+endfunction
+
+function! LightlineFiletype()
+    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! String1()
+    return ' BANDITHIJO.GITHUB.IO'
+endfunction
+
+function! String2()
+    return 'BUFFERS'
+endfunction
+
+function! SmartTabsIndicator()
+    let tabs = lightline#tab#tabnum(tabpagenr())
+    let tab_total = tabpagenr('$')
+    return tabpagenr('$') > 1 ? ('TABS ' . tabs . '/' . tab_total) : ''
+endfunction
+
+" autoreload
+command! LightlineReload call LightlineReload()
+
+function! LightlineReload()
+    call lightline#init()
+    call lightline#colorscheme()
+    call lightline#update()
+endfunction
+
+let g:lightline#trailing_whitespace#indicator = ""
 " }}}
 
+" mengelbrecht/lightline-bufferline {{{
+set showtabline=2
+let g:lightline#bufferline#unnamed = "[NO NAME]"
+let g:lightline#bufferline#filename_modifier= ":."
+let g:lightline#bufferline#more_buffers = "..."
+let g:lightline#bufferline#modified = " "
+let g:lightline#bufferline#read_only = " "
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#unicode_symbols = 1
+" }}}
 " FooSoft/vim-argwrap {{{
 nnoremap <silent> <space>zc :ArgWrap<CR>
 " }}}
