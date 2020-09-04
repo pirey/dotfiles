@@ -24,7 +24,7 @@ let s:nord13 = ["#EBCB8B", 3]
 let s:nord14 = ["#A3BE8C", 2]
 let s:nord15 = ["#B48EAD", 5]
 
-let s:p.normal.left = [ [ s:nord4, s:nord3 ], [ s:nord4, s:nord1 ] ]
+let s:p.normal.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
 let s:p.normal.middle = [ [ s:nord4, s:nord1 ] ]
 let s:p.normal.right = [ [ s:nord4, s:nord3 ], [ s:nord4, s:nord1 ] ]
 let s:p.normal.warning = [ [ s:nord1, s:nord13 ] ]
