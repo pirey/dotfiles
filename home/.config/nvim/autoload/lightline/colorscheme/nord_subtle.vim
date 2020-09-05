@@ -40,7 +40,7 @@ let s:p.visual.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
 
 let s:p.tabline.left = [ [ s:nord4, s:nord1, 'bold' ] ]
 let s:p.tabline.middle = [ [ s:nord0, s:nord0 ] ]
-let s:p.tabline.right = [ [ s:nord4, s:nord1, 'bold' ] ]
+let s:p.tabline.right = [ [ s:nord4, s:nord3, 'bold' ] ]
 let s:p.tabline.tabsel = [ [ s:nord4, s:nord3, 'bold' ] ]
 
 let g:lightline#colorscheme#nord_subtle#palette = lightline#colorscheme#flatten(s:p)

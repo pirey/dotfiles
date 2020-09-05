@@ -258,7 +258,7 @@ let g:lightline = {
 \   'colorscheme': 'nord_subtle',
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ],
-\             [ 'gitbranch', 'readonly' ],
+\             [ 'readonly' ],
 \             [ 'filename', 'modified' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ] ]
 \   },
@@ -268,7 +268,7 @@ let g:lightline = {
 \   },
 \   'tabline': {
 \     'left': [['buffers']],
-\     'right': [['string2', 'smarttabs']]
+\     'right': [['gitbranch', 'smarttabs']]
 \   },
 \   'separator': {
 \     'left': '', 'right': ''
@@ -288,7 +288,6 @@ let g:lightline = {
 \   },
 \   'component_expand': {
 \     'buffers': 'lightline#bufferline#buffers',
-\     'string2': 'String2',
 \     'smarttabs': 'SmartTabsIndicator',
 \     'trailing': 'lightline#trailing_whitespace#component'
 \   },
@@ -297,6 +296,11 @@ let g:lightline = {
 \     'trailing': 'warning'
 \   }
 \}
+
+function! s:trim(maxlen, str) abort
+    let trimed = len(a:str) > a:maxlen ? a:str[0:a:maxlen] . '..' : a:str
+    return trimed
+endfunction
 
 function! LightlinePercent() abort
     if winwidth(0) < 60
@@ -319,6 +323,7 @@ function! LightlineLineinfo() abort
 endfunction
 
 function! LightlineFilename() abort
+    let l:maxlen = winwidth(0) - winwidth(0) / 3
     let l:relative = @%
     let l:tail = expand('%:t')
     let l:noname = '[No Name]'
@@ -328,10 +333,10 @@ function! LightlineFilename() abort
     endif
 
     if winwidth(0) < 86
-        return l:tail ==# '' ? l:noname : l:tail
+        return l:tail ==# '' ? l:noname : s:trim(l:maxlen, l:tail)
     endif
 
-    return l:relative ==# '' ? l:noname : l:relative
+    return l:relative ==# '' ? l:noname : s:trim(l:maxlen, l:relative)
 endfunction
 
 function! LightlineModified() abort
@@ -349,15 +354,10 @@ function! LightlineReadonly() abort
 endfunction
 
 function! LightlineFugitive() abort
-    if winwidth(0) < 60
-        return ''
-    endif
-
     if exists('*fugitive#head')
-        let maxlen = 10
+        let maxlen = 20
         let branch = fugitive#head()
-        let trimed = len(branch) > maxlen ? branch[0:maxlen] . '..' : branch
-        return trimed !=# '' ? ' '.trimed : ''
+        return branch !=# '' ? ' '. s:trim(maxlen, branch) : ''
     endif
     return fugitive#head()
 endfunction
