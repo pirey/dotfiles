@@ -321,16 +321,17 @@ endfunction
 function! LightlineFilename() abort
     let l:relative = @%
     let l:tail = expand('%:t')
+    let l:noname = '[No Name]'
 
     if winwidth(0) < 50
         return ''
     endif
 
     if winwidth(0) < 86
-        return l:tail ==# '' ? '[NO NAME]' : l:tail
+        return l:tail ==# '' ? l:noname : l:tail
     endif
 
-    return l:relative ==# '' ? '[NO NAME]' : l:relative
+    return l:relative ==# '' ? l:noname : l:relative
 endfunction
 
 function! LightlineModified() abort
@@ -382,16 +383,16 @@ function! LightlineReload() abort
     call lightline#update()
 endfunction
 
-let g:lightline#trailing_whitespace#indicator = ""
+let g:lightline#trailing_whitespace#indicator = ''
 " }}}
 
 " mengelbrecht/lightline-bufferline {{{
 set showtabline=2
-let g:lightline#bufferline#unnamed = "[NO NAME]"
-let g:lightline#bufferline#filename_modifier= ":."
-let g:lightline#bufferline#more_buffers = "..."
-let g:lightline#bufferline#modified = " ●"
-let g:lightline#bufferline#read_only = " "
+let g:lightline#bufferline#unnamed = '[No Name]'
+let g:lightline#bufferline#filename_modifier= ':.'
+let g:lightline#bufferline#more_buffers = '...'
+let g:lightline#bufferline#modified = ' ●'
+let g:lightline#bufferline#read_only = ' '
 let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#show_number = 0
 let g:lightline#bufferline#enable_devicons = 1
