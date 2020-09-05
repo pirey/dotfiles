@@ -299,7 +299,7 @@ let g:lightline = {
 \}
 
 function! LightlinePercent() abort
-    if winwidth(0) < 86
+    if winwidth(0) < 60
         return ''
     endif
 
@@ -349,13 +349,15 @@ function! LightlineReadonly() abort
 endfunction
 
 function! LightlineFugitive() abort
-    if winwidth(0) < 86
+    if winwidth(0) < 60
         return ''
     endif
 
     if exists('*fugitive#head')
+        let maxlen = 10
         let branch = fugitive#head()
-        return branch !=# '' ? ' '.branch : ''
+        let trimed = len(branch) > maxlen ? branch[0:maxlen] . '..' : branch
+        return trimed !=# '' ? ' '.trimed : ''
     endif
     return fugitive#head()
 endfunction

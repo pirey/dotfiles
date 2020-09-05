@@ -34,14 +34,14 @@ let s:p.inactive.left =  [ [ s:nord3, s:nord1 ], [ s:nord1, s:nord1 ] ]
 let s:p.inactive.middle = [ [ s:nord1, s:nord1 ] ]
 let s:p.inactive.right = [ [ s:nord1, s:nord1 ], [ s:nord1, s:nord1 ] ]
 
-let s:p.insert.left = [ [ s:nord4, s:nord3 ], [ s:nord4, s:nord1 ] ]
-let s:p.replace.left = [ [ s:nord4, s:nord3 ], [ s:nord4, s:nord1 ] ]
-let s:p.visual.left = [ [ s:nord4, s:nord3 ], [ s:nord4, s:nord1 ] ]
+let s:p.insert.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
+let s:p.replace.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
+let s:p.visual.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
 
-let s:p.tabline.left = [ [ s:nord4, s:nord1 ] ]
+let s:p.tabline.left = [ [ s:nord4, s:nord1, 'bold' ] ]
 let s:p.tabline.middle = [ [ s:nord0, s:nord0 ] ]
-let s:p.tabline.right = [ [ s:nord4, s:nord1 ] ]
-let s:p.tabline.tabsel = [ [ s:nord4, s:nord3 ] ]
+let s:p.tabline.right = [ [ s:nord4, s:nord1, 'bold' ] ]
+let s:p.tabline.tabsel = [ [ s:nord4, s:nord3, 'bold' ] ]
 
 let g:lightline#colorscheme#nord_subtle#palette = lightline#colorscheme#flatten(s:p)
 
