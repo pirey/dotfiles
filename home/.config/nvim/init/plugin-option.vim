@@ -361,7 +361,8 @@ function! LightlineFugitive() abort
 endfunction
 
 function! LightlineFiletype() abort
-    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : ' ? ') : ''
+    let l:icon = WebDevIconsGetFileTypeSymbol()
+    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
 endfunction
 
 function! String2()
