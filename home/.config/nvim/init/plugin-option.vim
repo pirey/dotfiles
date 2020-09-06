@@ -39,8 +39,9 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:indentLine_faster = 1
 let g:indentLine_char = '·'
 " let g:indentLine_concealcursor=0
-" let g:indentLine_char = '│'
-" let g:indentLine_color_term = 18
+let g:indentLine_char = '│'
+let g:indentLine_color_gui = '#3B4252'
+let g:indentLine_bgcolor_gui = '#2E3440'
 " }}}
 
 " diepm/vim-rest-console {{{
@@ -303,19 +304,16 @@ function! s:trim(maxlen, str) abort
     return trimed
 endfunction
 
-let g:coc_explorer_open = 0
-
 function! s:coc_explorer_is_open() abort
     return get(g:, 'coc_explorer_open', 0)
 endfunction
 
-function! s:coc_explorer_state(s) abort
-    echom 'state ' . a:s
+function! s:coc_explorer_set_open_state(s) abort
     let g:coc_explorer_open = a:s
 endfunction
 
-autocmd BufEnter *coc-explorer* call s:coc_explorer_state(1)
-autocmd BufHidden *coc-explorer* call s:coc_explorer_state(0)
+autocmd BufEnter *coc-explorer* call s:coc_explorer_set_open_state(1)
+autocmd BufHidden *coc-explorer* call s:coc_explorer_set_open_state(0)
 
 function! LightlineCocExplorerLeftpad() abort
     if &co < 86

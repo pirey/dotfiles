@@ -57,7 +57,7 @@ Plug 'lifepillar/vim-colortemplate'
 " UI {{{
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
 Plug 'Yggdroot/indentLine'
-" Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'dhruvasagar/vim-zoom'
 " Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
