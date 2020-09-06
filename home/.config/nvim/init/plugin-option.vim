@@ -267,7 +267,7 @@ let g:lightline = {
 \     'inactive': ['tabnum']
 \   },
 \   'tabline': {
-\     'left': [['buffers']],
+\     'left': [['explorer_pad', 'buffers']],
 \     'right': [['gitbranch', 'smarttabs']]
 \   },
 \   'separator': {
@@ -277,6 +277,7 @@ let g:lightline = {
 \     'left': '', 'right': ''
 \   },
 \   'component_function': {
+\     'explorer_pad': 'LightlineCocExplorerLeftpad',
 \     'percent': 'LightlinePercent',
 \     'lineinfo': 'LightlineLineinfo',
 \     'filename': 'LightlineFilename',
@@ -300,6 +301,32 @@ let g:lightline = {
 function! s:trim(maxlen, str) abort
     let trimed = len(a:str) > a:maxlen ? a:str[0:a:maxlen] . '..' : a:str
     return trimed
+endfunction
+
+let g:coc_explorer_open = 0
+
+function! s:coc_explorer_is_open() abort
+    return get(g:, 'coc_explorer_open', 0)
+endfunction
+
+function! s:coc_explorer_state(s) abort
+    echom 'state ' . a:s
+    let g:coc_explorer_open = a:s
+endfunction
+
+autocmd BufEnter *coc-explorer* call s:coc_explorer_state(1)
+autocmd BufHidden *coc-explorer* call s:coc_explorer_state(0)
+
+function! LightlineCocExplorerLeftpad() abort
+    if &co < 86
+        return ''
+    endif
+
+    if s:coc_explorer_is_open()
+        return printf('%-29s', '') . '⎟'
+    endif
+
+    return ''
 endfunction
 
 function! LightlinePercent() abort
