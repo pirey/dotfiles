@@ -1,0 +1,3 @@
+" aykamko/vim-easymotion-segments {{{
+" }}}
+

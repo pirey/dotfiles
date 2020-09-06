@@ -7,23 +7,23 @@ let mapleader = ","
 " plugin {{{
 call plug#begin('~/.vim-plug/plugged')
 
-runtime init/plugin.vim
+runtime plugs.vim
 
 call plug#end()
 " }}}
 
 " option {{{
-runtime init/option.vim
-runtime init/plugin-option.vim
+runtime options.vim
+runtime! plugin-options/*.vim
 " }}}
 
 " mapping {{{
-runtime init/mapping.vim
-runtime init/plugin-mapping.vim
+runtime mappings.vim
+runtime! plugin-mappings/*.vim
 " }}}
 
 " command {{{
-runtime init/command.vim
+runtime commands.vim
 " }}}
 
 " DIY statusline {{{
@@ -31,7 +31,7 @@ runtime init/command.vim
 " }}}
 
 " highlight {{{
-runtime init/highlight.vim
+runtime highlights.vim
 " }}}
 
 let g:loaded_cursorline = 1
