@@ -48,24 +48,15 @@ function! s:trim(maxlen, str) abort
     return trimed
 endfunction
 
-function! s:coc_explorer_is_open() abort
-    return get(g:, 'coc_explorer_open', 0)
-endfunction
-
-function! s:coc_explorer_set_open_state(s) abort
-    let g:coc_explorer_open = a:s
-endfunction
-
-autocmd BufEnter *coc-explorer* call s:coc_explorer_set_open_state(1)
-autocmd BufHidden *coc-explorer* call s:coc_explorer_set_open_state(0)
-
 function! LightlineCocExplorerLeftpad() abort
     if &co < 86
         return ''
     endif
 
-    if s:coc_explorer_is_open()
-        return printf('%-29s', '') . '⎟'
+    if CocIsReady()
+        if CocAction('runCommand', 'explorer.getNodeInfo', 'closest') isnot# v:null
+            return printf('%-29s', '') . '⎟'
+        endif
     endif
 
     return ''
