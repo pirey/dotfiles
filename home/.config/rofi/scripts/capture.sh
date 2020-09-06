@@ -7,15 +7,18 @@ logfile=/tmp/recording.log
 rofi_command="rofi -theme themes/capture.rasi -dmenu"
 
 capture_full () {
-    maim ~/Pictures/capture-$(date +%s).png
+    mkdir -p ~/Pictures/shots
+    maim ~/Pictures/shots/capture-$(date +%s).png
 }
 
 capture_area () {
-    maim -s ~/Pictures/capture-$(date +%s).png
+    mkdir -p ~/Pictures/shots
+    maim -s ~/Pictures/shots/capture-$(date +%s).png
 }
 
 capture_window () {
-    maim -i $(xdotool getactivewindow) ~/Pictures/capture-$(date +%s).png
+    mkdir -p ~/Pictures/shots
+    maim -i $(xdotool getactivewindow) ~/Pictures/shots/capture-$(date +%s).png
 }
 
 record_screencast () {
