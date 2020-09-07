@@ -4,7 +4,9 @@ recording_pidfile=/tmp/recording.pid
 recording_savepath=/tmp/recording.path
 logfile=/tmp/recording.log
 
-rofi_command="rofi -theme themes/capture.rasi -dmenu"
+# rofi_command="rofi -theme themes/capture.rasi -dmenu"
+# TODO broken theme after upgrade to 1.6.0
+rofi_command="rofi -dmenu"
 
 capture_full () {
     mkdir -p ~/Pictures/shots
@@ -112,6 +114,14 @@ show_menu () {
     capture_full=""
     capture_area=""
     capture_window=""
+
+    screencast="screencast"
+    video="video"
+    audio="audio"
+    capture_full="screenshot full"
+    capture_area="screenshot crop"
+    capture_window="screenshot window"
+
     choice=$(echo -e "$screencast\n$video\n$audio\n$capture_full\n$capture_area\n$capture_window" | $rofi_command -p "Capture")
 
     case "$choice" in

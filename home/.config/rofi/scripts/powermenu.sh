@@ -5,7 +5,9 @@
 ## Github : @adi1090x
 ## Reddit : @adi1090x
 
-rofi_command="rofi -theme themes/powermenu.rasi"
+# rofi_command="rofi -theme themes/powermenu.rasi"
+# TODO broken theme after upgrade to 1.6.0
+rofi_command="rofi"
 username="$(logname | awk '{ print toupper($0) }')"
 
 # Options
@@ -14,6 +16,12 @@ reboot="ﰇ"
 lock=""
 suspend="鈴"
 logout=""
+
+shutdown="shutdown"
+reboot="reboot"
+lock="lock"
+suspend="suspend"
+logout="logout"
 
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
