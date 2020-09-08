@@ -3,9 +3,8 @@ let g:lightline = {
 \   'colorscheme': 'nord_subtle',
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ],
-\             [ 'readonly' ],
-\             [ 'filename', 'modified' ]],
-\    'right':[[ 'filetype', 'percent', 'lineinfo' ] ]
+\             [ 'readonly', 'filename', 'modified' ]],
+\    'right':[[ 'filetype', 'percent', 'lineinfo' ]]
 \   },
 \   'tab': {
 \     'active': ['tabnum'],
@@ -114,9 +113,11 @@ function! LightlineModified() abort
 endfunction
 
 function! LightlineMode() abort
-    return &filetype ==# 'coc-explorer' ? 'EXPLORER' :
-                \ &filetype ==# 'fugitive' ? 'FUGITIVE' :
-                \ lightline#mode()
+    let ftmap = {
+                \ 'coc-explorer': 'EXPLORER',
+                \ 'fugitive': 'FUGITIVE'
+                \ }
+    return get(ftmap, &filetype, lightline#mode())
 endfunction
 
 function! LightlineReadonly() abort
