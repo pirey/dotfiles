@@ -71,6 +71,9 @@ nnoremap N Nzz
 " toggle fold
 " nnoremap <space> za
 
+" insert timestamp
+inoremap <c-t> <c-r>=strftime("%FT%T%z")<cr>
+
 " movement {{{
 " faster horizontal scroll
 nnoremap zh 20zh
