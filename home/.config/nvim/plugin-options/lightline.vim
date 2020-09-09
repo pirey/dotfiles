@@ -6,10 +6,6 @@ let g:lightline = {
 \             [ 'readonly', 'filename', 'modified' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
-\   'tab': {
-\     'active': ['tabnum'],
-\     'inactive': ['tabnum']
-\   },
 \   'tabline': {
 \     'left': [['explorer_pad', 'buffers']],
 \     'right': [['gitbranch', 'smarttabs']]
@@ -21,12 +17,12 @@ let g:lightline = {
 \     'left': '', 'right': ''
 \   },
 \   'component_function': {
-\     'explorer_pad': 'LightlineCocExplorerLeftpad',
+\     'explorer_pad': 'LightlineCocExplorerPad',
 \     'percent': 'LightlinePercent',
 \     'lineinfo': 'LightlineLineinfo',
 \     'filename': 'LightlineFilename',
 \     'mode': 'LightlineMode',
-\     'gitbranch': 'LightlineFugitive',
+\     'gitbranch': 'LightlineGitbranch',
 \     'readonly': 'LightlineReadonly',
 \     'modified': 'LightlineModified',
 \     'filetype': 'LightlineFiletype',
@@ -60,16 +56,54 @@ endfunction
 autocmd BufEnter *coc-explorer* call s:coc_explorer_set_open_state(1)
 autocmd BufHidden *coc-explorer* call s:coc_explorer_set_open_state(0)
 
-function! LightlineCocExplorerLeftpad() abort
+function! s:get_tabline_right_section_len() abort
+    " TODO let user specify right section len
+    " 20 is maxlen of gitbranch component
+    return 20
+endfunction
+
+function! s:get_pad_len() abort
+    " TODO make this configurable
+    return 30
+endfunction
+
+function! s:get_buffers_len() abort
+    let l:buffers = lightline#bufferline#buffers()
+    let l:buffers_len = 0
+    for item in l:buffers
+        for _item in item
+            let l:buffers_len += len(_item)
+        endfor
+    endfor
+
+    return l:buffers_len
+endfunction
+
+function! s:has_space_for_pad() abort
+    let l:right_section_len = s:get_tabline_right_section_len()
+    let l:pad_len = s:get_pad_len()
+    let l:buffers_len = s:get_buffers_len()
+    let l:remaining_space = &columns - l:buffers_len - l:right_section_len
+    return l:remaining_space > l:pad_len
+endfunction
+
+function! LightlineCocExplorerPad() abort
+    if !s:coc_explorer_is_open()
+        return ''
+    endif
+
     if &co < 86
         return ''
     endif
 
-    if s:coc_explorer_is_open()
-        return printf('%-29s', '') . '⎟'
+    if !s:has_space_for_pad()
+        return ''
     endif
 
-    return ''
+    " TODO handle explorer on the right
+    let l:separator = '⎟'
+    let l:space_len = s:get_pad_len() - 1
+    return printf('%-' . l:space_len . 'S', '') . l:separator
 endfunction
 
 function! LightlineCoc() abort
@@ -133,7 +167,7 @@ function! LightlineReadonly() abort
     return &readonly ? '' : ''
 endfunction
 
-function! LightlineFugitive() abort
+function! LightlineGitbranch() abort
     if exists('*fugitive#head')
         let maxlen = 20
         let branch = fugitive#head()
