@@ -4,7 +4,7 @@ let g:lightline = {
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ],
 \             [ 'readonly', 'filename', 'modified' ]],
-\    'right':[[ 'filetype', 'percent', 'lineinfo' ]]
+\    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tab': {
 \     'active': ['tabnum'],
@@ -30,6 +30,7 @@ let g:lightline = {
 \     'readonly': 'LightlineReadonly',
 \     'modified': 'LightlineModified',
 \     'filetype': 'LightlineFiletype',
+\     'cocstatus': 'LightlineCoc',
 \   },
 \   'component_expand': {
 \     'buffers': 'lightline#bufferline#buffers',
@@ -69,6 +70,14 @@ function! LightlineCocExplorerLeftpad() abort
     endif
 
     return ''
+endfunction
+
+function! LightlineCoc() abort
+    if winwidth(0) < 60
+        return ''
+    endif
+
+    return coc#status()
 endfunction
 
 function! LightlinePercent() abort
