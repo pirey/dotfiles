@@ -1,0 +1,2 @@
+execute 'IndentLinesDisable'
+execute 'IndentBlanklineDisable'
