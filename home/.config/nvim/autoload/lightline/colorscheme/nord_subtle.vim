@@ -32,7 +32,7 @@ let s:p.normal.right = [ [ s:nord4, s:nord3 ] ]
 let s:p.normal.warning = [ [ s:nord1, s:nord13 ] ]
 let s:p.normal.error = [ [ s:nord1, s:nord11 ] ]
 
-let s:p.inactive.left =  [ [ s:nord3, s:nord1 ], [ s:nord1, s:nord1 ] ]
+let s:p.inactive.left =  [ [ s:nord3_bright, s:nord1 ], [ s:nord1, s:nord1 ] ]
 let s:p.inactive.middle = [ [ s:nord1, s:nord1 ] ]
 let s:p.inactive.right = [ [ s:nord1, s:nord1 ], [ s:nord1, s:nord1 ] ]
 
