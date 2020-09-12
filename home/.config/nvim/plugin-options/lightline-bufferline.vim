@@ -1,6 +1,6 @@
 " mengelbrecht/lightline-bufferline {{{
 set showtabline=2
-let g:lightline#bufferline#unnamed = '[No Name]'
+let g:lightline#bufferline#unnamed = 'No Name'
 let g:lightline#bufferline#filename_modifier= ':.'
 let g:lightline#bufferline#more_buffers = '...'
 let g:lightline#bufferline#modified = ' ●'

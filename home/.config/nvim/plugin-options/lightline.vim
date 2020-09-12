@@ -76,7 +76,7 @@ function! LightlineFilename() abort
     let l:maxlen = winwidth(0) - winwidth(0) / 3
     let l:relative = @%
     let l:tail = expand('%:t')
-    let l:noname = '[No Name]'
+    let l:noname = 'No Name'
 
     if winwidth(0) < 50
         return ''
