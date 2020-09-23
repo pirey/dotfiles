@@ -56,8 +56,8 @@ Plug 'lifepillar/vim-colortemplate'
 
 " UI {{{
 " Plug 'ap/vim-buftabline'                                    " Show buffer name on top of screen
-Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'Yggdroot/indentLine'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'dhruvasagar/vim-zoom'
 " Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
@@ -128,7 +128,8 @@ Plug 'rhysd/conflict-marker.vim'                                    " Git confli
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
 Plug 'rhysd/git-messenger.vim'
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim'
+Plug '~/src/github.com/pirey/blamer.nvim'
 " }}}
 
 " etc {{{

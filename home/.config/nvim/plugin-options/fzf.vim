@@ -12,4 +12,3 @@ let g:fzf_preview_window = ''
 " duplicated here until I acustomized to setting fzf config via env vars
 " see $HOME/.env
 " }}}
-

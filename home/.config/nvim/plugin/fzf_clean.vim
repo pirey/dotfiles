@@ -27,7 +27,7 @@ function! s:fzf_enter()
     set laststatus=0
     set showtabline=0
     set noshowmode noruler
-    execute 'IndentLinesDisable'
+    " execute 'IndentLinesDisable'
 endfunction
 
 function! s:fzf_leave()
@@ -46,7 +46,7 @@ function! s:fzf_leave()
     " set nonumber norelativenumber
     set noshowmode noruler
 
-    execute 'IndentLinesEnable'
+    " execute 'IndentLinesEnable'
 endfunction
 
 augroup custom_fzf
