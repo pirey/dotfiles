@@ -43,6 +43,6 @@ sudo -S pacman --noconfirm -Syu openssh \
     android-udev \
     httpie \
     tree \
-    cloc \
+    cloc tokei \
     git tk \
     dunst \

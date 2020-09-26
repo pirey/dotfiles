@@ -66,6 +66,7 @@ alias gca="git add . && git commit --amend"
 alias gcn="git commit --amend --no-edit"
 alias gc="git commit -m"
 alias gp="git push"
+alias gprun="git fetch --prune"
 
 alias a="php artisan"
 alias aser="php artisan serve"
