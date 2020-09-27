@@ -45,11 +45,9 @@ case $session in
     i3|i3wm )
         exec i3
         ;;
-    # gnome )
-    #     export XDG_SESSION_TYPE=x11
-    #     export GDK_BACKEND=x11
-    #     exec gnome-session
-    #     ;;
+    cinnamon )
+        exec cinnamon-session
+        ;;
 
     # No known session, try to run it as command
     * ) exec $1;;
