@@ -45,8 +45,13 @@ case $session in
     i3|i3wm )
         exec i3
         ;;
-    cinnamon )
-        exec cinnamon-session
+
+    # cinnamon )
+    #     exec cinnamon-session
+    #     ;;
+
+    xfce )
+        exec startxfce4
         ;;
 
     # No known session, try to run it as command
