@@ -39,7 +39,7 @@ setxkbmap -option caps:swapescape
 # }}}
 
 # Here i3 is kept as default
-session=${1:-i3}
+session=${1:-xfce}
 
 case $session in
     i3|i3wm )
