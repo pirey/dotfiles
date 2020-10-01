@@ -49,6 +49,9 @@ export PATH=$HOME/.local/opt/Postman:$PATH
 # vscode
 export PATH=$HOME/.local/opt/vscode/bin:$PATH
 
+# lite
+export PATH=$HOME/.local/opt/lite:$PATH
+
 # android-studio
 export PATH=$HOME/.local/opt/android-studio/bin:$PATH
 

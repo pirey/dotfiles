@@ -18,5 +18,5 @@ sudo pacman -Syu gucharmap \
     powerline-fonts
 
 mkdir -p ~/.local/share/fonts
-cp $dotfilesdir/fonts/* ~/.local/share/fonts
+cp -r $dotfilesdir/fonts/* ~/.local/share/fonts
 fc-cache
