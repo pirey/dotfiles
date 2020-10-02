@@ -126,3 +126,4 @@ fi
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
 source_virtualenv
+[ -f "/home/pirey/.ghcup/env" ] && source "/home/pirey/.ghcup/env" # ghcup-env

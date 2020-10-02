@@ -19,7 +19,7 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 export PATH=$HOME/.local/opt/neovim/0.4.2/bin:$PATH
 
 # haskell
-export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
+# export PATH=$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
 
 # adminer
 export PATH=$HOME/.local/opt/adminer/4.7.6:$PATH

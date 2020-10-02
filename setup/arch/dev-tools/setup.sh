@@ -8,7 +8,7 @@ currentscript=$(realpath $0)
 currentdir=$(dirname $currentscript)
 
 $currentdir/database.sh
-$currentdir/haskell.sh
+# $currentdir/haskell.sh
 $currentdir/nodejs.sh
 $currentdir/php.sh
 $currentdir/python.sh

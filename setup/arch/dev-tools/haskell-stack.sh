@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "======================================"
-echo "Installing Haskell..."
+echo "Installing Haskell via stack..."
 echo "======================================"
 
 sudo -S pacman --noconfirm -Syu stack
