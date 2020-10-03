@@ -128,8 +128,7 @@ Plug 'rhysd/conflict-marker.vim'                                    " Git confli
 Plug 'junegunn/gv.vim'                                        		" Git commit browser
 Plug 'airblade/vim-gitgutter'                                 		" Git changes sign
 Plug 'rhysd/git-messenger.vim'
-" Plug 'APZelos/blamer.nvim'
-Plug '~/src/github.com/pirey/blamer.nvim'
+Plug 'APZelos/blamer.nvim'
 " }}}
 
 " etc {{{
