@@ -11,4 +11,5 @@ setupdir=$(dirname $archdir)
 
 sudo -S pacman --noconfirm -Syu xfce \
     xfce4-pulseaudio-plugin \
+    xfce4-screenshooter \
     thunar-archive-plugin xarchiver
