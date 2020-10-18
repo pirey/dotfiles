@@ -50,7 +50,7 @@ alias vm='vim'
 alias vi='vim'
 alias v='vim'
 alias vin='/usr/bin/vim'
-alias hosts="sudo vim -u NONE /etc/hosts"
+alias hosts="sudoedit /etc/hosts"
 
 # fzf
 alias vzf='vim $(fzf)'
