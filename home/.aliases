@@ -2,6 +2,7 @@
 
 # archlinux
 alias paman="sudo pacman"
+alias pacup="sudo pacman -Syyu"
 
 # Commons
 alias l="ls -alh"
