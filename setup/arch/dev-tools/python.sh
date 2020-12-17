@@ -13,4 +13,4 @@ echo "======================================"
 echo "Installing pip packages..."
 echo "======================================"
 
-pip install --user django autopep8 pynvim pipenv virtualenv cookiecutter pywal
+pip install --user autopep8 pynvim pipenv virtualenv
