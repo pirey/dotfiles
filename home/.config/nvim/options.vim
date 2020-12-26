@@ -45,8 +45,8 @@ set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
 set nolist                  " do not show listchars
 " Make the vertical split separator 'disappear'
-" set fillchars+=vert:\ " replace separator with whitespace
-set fillchars+=vert:\⎟
+set fillchars+=vert:\ " replace separator with whitespace
+" set fillchars+=vert:\⎟
 if has('linebreak')
     set breakindent   " indent wrapped lines
 endif

@@ -51,7 +51,8 @@ function! lightline#explorer_pad#left_pad() abort
         return ''
     endif
 
-    let l:separator = '⎟'
+    " let l:separator = '⎟'
+    let l:separator = ' '
     let l:space_len = s:get_pad_len() - 1
     return printf('%-' . l:space_len . 'S', '') . l:separator
 endfunction
