@@ -61,9 +61,9 @@ endif
 
 " Space - Tab - Indent {{{
 
-set tabstop=2     " tab width
-set softtabstop=2 " show existing tab with 4 spaces width
-set shiftwidth=2  " when indenting with '>', use 4 spaces width
+set tabstop=4     " tab width
+set softtabstop=4 " show existing tab with 4 spaces width
+set shiftwidth=4  " when indenting with '>', use 4 spaces width
 set expandtab      " when we press tab, tell vim to insert 4 spaces instead
 
 " }}}
@@ -104,6 +104,11 @@ set foldmethod=indent " fold based on indent level
 augroup vim_fold
     autocmd!
     autocmd FileType vim,tmux,conf,rest setlocal foldmethod=marker
+augroup END
+
+augroup neovim_terminal
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
 " }}}
