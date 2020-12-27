@@ -8,7 +8,7 @@ let g:lightline = {
 \   },
 \   'tabline': {
 \     'left': [['explorer_pad', 'buffers']],
-\     'right': [['gitbranch', 'smarttabs']]
+\     'right': [['fullname', 'gitbranch', 'smarttabs']]
 \   },
 \   'separator': {
 \     'left': '', 'right': ''
@@ -21,6 +21,7 @@ let g:lightline = {
 \     'percent': 'LightlinePercent',
 \     'lineinfo': 'LightlineLineinfo',
 \     'filename': 'LightlineFilename',
+\     'fullname': 'LightlineFullname',
 \     'mode': 'LightlineMode',
 \     'gitbranch': 'LightlineGitbranch',
 \     'readonly': 'LightlineReadonly',
@@ -87,6 +88,12 @@ function! LightlineFilename() abort
     endif
 
     return l:relative ==# '' ? l:noname : s:trim(l:maxlen, l:relative)
+endfunction
+
+function! LightlineFullname() abort
+    let l:relative = expand('%')
+
+    return l:relative
 endfunction
 
 function! LightlineModified() abort
