@@ -41,6 +41,7 @@ set formatoptions-=cro      " disable auto comment
 set nowrap                  " don't wrap line, let them flow..
 set diffopt+=vertical      " open diffs in vertical split.
 set splitright              " open new vsplit to the right
+set splitbelow
 set signcolumn=yes          " enable sign gutter by default
 set listchars=tab:▸\ ,eol:¬
 set nolist                  " do not show listchars

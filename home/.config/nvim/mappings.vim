@@ -124,4 +124,10 @@ nnoremap <silent> <Up> 5<C-W>+
 nnoremap <silent> <Right> 5<C-W>>
 nnoremap <silent> <Down> 5<C-W>-
 nnoremap <silent> <Left> 5<C-W><
+
+" Easier window size management
+nnoremap <silent> <c-w><c-j> 5<c-w>-
+nnoremap <silent> <c-w><c-k> 5<c-w>+
+nnoremap <silent> <c-w><c-h> 5<c-w><
+nnoremap <silent> <c-w><c-l> 5<c-w>>
 " }}}

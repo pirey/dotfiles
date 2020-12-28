@@ -25,6 +25,10 @@ runtime! plugin-mappings/*.vim
 " command {{{
 runtime commands.vim
 " }}}
+"
+" autocommand {{{
+runtime autocommands.vim
+" }}}
 
 " DIY statusline {{{
 " runtime init/statusline.vim
