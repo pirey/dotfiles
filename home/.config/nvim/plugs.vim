@@ -83,7 +83,7 @@ Plug 'Olical/vim-enmasse'                                     " Edit all files i
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
 Plug 'FooSoft/vim-argwrap'
 Plug 'bhritchie/vim-toggle-case'
-Plug 'cohama/lexima.vim'
+Plug 'Raimondi/delimitMate'
 " }}}
 
 " completion / snippets / intellisense {{{
