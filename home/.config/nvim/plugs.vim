@@ -82,6 +82,7 @@ Plug 'chrisbra/NrrwRgn'                                       " edit selected te
 Plug 'Olical/vim-enmasse'                                     " Edit all files in the quickfix list
 Plug 'editorconfig/editorconfig-vim'                          " Editor config
 Plug 'FooSoft/vim-argwrap'
+Plug 'bhritchie/vim-toggle-case'
 " }}}
 
 " completion / snippets / intellisense {{{
