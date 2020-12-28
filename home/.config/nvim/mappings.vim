@@ -130,4 +130,7 @@ nnoremap <silent> <c-w><c-j> 5<c-w>-
 nnoremap <silent> <c-w><c-k> 5<c-w>+
 nnoremap <silent> <c-w><c-h> 5<c-w><
 nnoremap <silent> <c-w><c-l> 5<c-w>>
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
 " }}}
