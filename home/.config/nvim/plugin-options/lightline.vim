@@ -3,12 +3,12 @@ let g:lightline = {
 \   'colorscheme': 'nord_subtle',
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ],
-\             [ 'readonly' ]],
+\             [ 'readonly', 'filename' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tabline': {
 \     'left': [['explorer_pad', 'buffers']],
-\     'right': [['fullname', 'gitbranch', 'smarttabs']]
+\     'right': [['gitbranch', 'smarttabs']]
 \   },
 \   'separator': {
 \     'left': '', 'right': ''
@@ -74,8 +74,8 @@ function! LightlineLineinfo() abort
 endfunction
 
 function! LightlineFilename() abort
-    let l:maxlen = winwidth(0) - winwidth(0) / 3
-    let l:relative = expand('%:f')
+    let l:maxlen = winwidth(0) - winwidth(0) / 2
+    let l:relative = expand('%:.')
     let l:tail = expand('%:t')
     let l:noname = 'No Name'
 
