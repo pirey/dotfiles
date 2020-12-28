@@ -13,15 +13,7 @@ augroup coc_keymaps
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascriptreact,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>o :CocList outline<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascriptreact,javascript.jsx,typescript,typescript.tsx,typescriptreact,rust nmap <buffer> <space>s :CocList --interactive symbols<CR>
     autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,rust nmap <buffer> <leader>p <Plug>(coc-format)
-
-    " snippets
-    autocmd FileType python,haskell,ocaml,reason,c,cpp,h,php,go,json,javascript,javascript.jsx,typescript,typescript.tsx,rust imap <C-l> <Plug>(coc-snippets-expand)
 augroup END
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
 " }}}
 
 
