@@ -74,6 +74,7 @@ function! LightlineLineinfo() abort
 endfunction
 
 function! LightlineFilename() abort
+    let l:prefix = expand('%:p') =~? "fugitive://" ? '(git) ' : ''
     let l:maxlen = winwidth(0) - winwidth(0) / 2
     let l:relative = expand('%:.')
     let l:tail = expand('%:t')
@@ -84,10 +85,10 @@ function! LightlineFilename() abort
     endif
 
     if winwidth(0) < 86
-        return l:tail ==# '' ? l:noname : s:trim(l:maxlen, l:tail)
+        return l:tail ==# '' ? l:noname : l:prefix . s:trim(l:maxlen, l:tail)
     endif
 
-    return l:relative ==# '' ? l:noname : s:trim(l:maxlen, l:relative)
+    return l:relative ==# '' ? l:noname : l:prefix . s:trim(l:maxlen, l:relative)
 endfunction
 
 function! LightlineFullname() abort
