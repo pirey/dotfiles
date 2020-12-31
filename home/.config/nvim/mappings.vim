@@ -133,4 +133,7 @@ nnoremap <silent> <c-w><c-l> 5<c-w>>
 
 " Terminal
 tnoremap <expr> <Esc> &ft == 'fzf' ? '<Esc>' : '<C-\><C-n>'
+
+" ETC
+nnoremap <c-s> :w<CR>
 " }}}
