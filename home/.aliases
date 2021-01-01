@@ -45,6 +45,8 @@ alias ls-dir="ls -d */"
 alias findproc="ps aux | grep"
 
 # typo sucks
+alias im='nvim'
+alias vmi='nvim'
 alias nvi='nvim'
 alias vim='nvim'
 alias vm='vim'
