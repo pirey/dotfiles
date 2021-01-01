@@ -74,7 +74,7 @@ function! LightlineLineinfo() abort
 endfunction
 
 function! LightlineFilename() abort
-    let l:prefix = expand('%:p') =~? "fugitive://" ? '(git) ' : ''
+    let l:prefix = expand('%:p') =~? "fugitive://" ? '(fugitive) ' : ''
     let l:maxlen = winwidth(0) - winwidth(0) / 2
     let l:relative = expand('%:.')
     let l:tail = expand('%:t')
