@@ -7,7 +7,7 @@ let g:lightline = {
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tabline': {
-\     'left': [['explorer_pad', 'buffers']],
+\     'left': [['explorer_pad'], ['buffers']],
 \     'right': [['gitbranch', 'smarttabs']]
 \   },
 \   'separator': {
@@ -15,6 +15,9 @@ let g:lightline = {
 \   },
 \   'subseparator': {
 \     'left': '', 'right': ''
+\   },
+\   'component_raw': {
+\     'buffers': 1
 \   },
 \   'component_function': {
 \     'explorer_pad': 'lightline#explorer_pad#left_pad',
