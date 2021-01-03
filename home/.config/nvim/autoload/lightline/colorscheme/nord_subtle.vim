@@ -35,7 +35,7 @@ let s:light_fg = s:nord3
 let s:p.normal.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
 let s:p.normal.middle = [ [ s:nord4, s:nord1 ] ]
 " let s:p.normal.right = [ [ s:nord4, s:light_bg ] ]
-let s:p.normal.right = [ [ s:nord4, s:nord3 ] ]
+let s:p.normal.right = [ [ s:nord4, s:light_bg ] ]
 let s:p.normal.warning = [ [ s:nord1, s:nord13 ] ]
 let s:p.normal.error = [ [ s:nord1, s:nord11 ] ]
 
@@ -54,10 +54,10 @@ let s:p.visual.left = [ [ s:nord4, s:nord3, 'bold' ], [ s:nord4, s:nord1 ] ]
 " let s:p.tabline.tabsel = [ [ s:fg, s:bg, 'bold' ] ]
 
 " tabline no line version
-let s:p.tabline.left = [ [ s:nord2, s:nord0 ], [ s:nord4, s:nord1, 'bold' ] ]
+let s:p.tabline.left = [ [ s:nord2, s:nord0 ], [ s:nord3_bright, s:bg ] ]
 let s:p.tabline.middle = [ [ s:nord0, s:nord0 ] ]
 let s:p.tabline.right = [ [ s:nord3_bright, s:nord0, 'bold' ] ]
-let s:p.tabline.tabsel = [ [ s:nord4, s:nord3, 'bold' ] ]
+let s:p.tabline.tabsel = [ [ s:nord4, s:light_bg, 'bold' ] ]
 
 let g:lightline#colorscheme#nord_subtle#palette = lightline#colorscheme#flatten(s:p)
 
