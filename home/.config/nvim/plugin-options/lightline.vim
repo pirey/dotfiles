@@ -107,7 +107,8 @@ endfunction
 function! LightlineMode() abort
     let ftmap = {
                 \ 'coc-explorer': 'EXPLORER',
-                \ 'fugitive': 'FUGITIVE'
+                \ 'fugitive': 'FUGITIVE',
+                \ 'vista': 'OUTLINE'
                 \ }
     return get(ftmap, &filetype, lightline#mode())
 endfunction
