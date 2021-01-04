@@ -114,7 +114,13 @@ function! LightlineMode() abort
 endfunction
 
 function! LightlineReadonly() abort
-    return &readonly ? '' : ''
+    let ftmap = {
+                \ 'coc-explorer': '',
+                \ 'fugitive': '',
+                \ 'vista': ''
+                \ }
+    let l:char = get(ftmap, &filetype, '')
+    return &readonly ? l:char : ''
 endfunction
 
 function! LightlineGitbranch() abort
