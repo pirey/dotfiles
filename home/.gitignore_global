@@ -3,6 +3,7 @@
 *~
 .DS_Store
 
+.eslintcache
 node_modules/*
 bower_modules/*
 .phalcon

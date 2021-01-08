@@ -1,1 +1,2 @@
-nnoremap <space>o :Vista coc<CR>
+nnoremap <space>O :Vista coc<CR>
+nnoremap <space>o :Vista finder coc<CR>
