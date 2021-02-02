@@ -127,3 +127,6 @@ fi
 
 source_virtualenv
 [ -f "/home/pirey/.ghcup/env" ] && source "/home/pirey/.ghcup/env" # ghcup-env
+
+# phpbrew
+source /home/pirey/.phpbrew/bashrc
