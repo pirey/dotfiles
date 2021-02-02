@@ -72,6 +72,7 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " editing {{{
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'tpope/vim-capslock'                                     " <c-g>c use CAPSLOCK
+Plug 'tpope/vim-abolish'
 Plug 'pirey/underscored.vim'                                  " <c-g><Space> swap space with underscore
 Plug 'scrooloose/nerdcommenter'                               " Commenter `<leader>c<space>`
 Plug 'mattn/emmet-vim'                                        " Emmet for vim `<c-y>,`

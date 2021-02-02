@@ -3,7 +3,7 @@ let g:lightline = {
 \   'colorscheme': 'nord_subtle',
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ],
-\             [ 'readonly', 'filename' ]],
+\             [ 'readonly', 'filename', 'modified' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tabline': {
