@@ -126,7 +126,7 @@ fi
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
 source_virtualenv
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 # phpbrew
 source /home/pirey/.phpbrew/bashrc
