@@ -124,12 +124,12 @@ function! LightlineReadonly() abort
 endfunction
 
 function! LightlineGitbranch() abort
-    if exists('*fugitive#head')
+    if exists('*FugitiveHead')
         let maxlen = 20
-        let branch = fugitive#head()
+        let branch = FugitiveHead()
         return branch !=# '' ? ' '. s:trim(maxlen, branch) : ''
     endif
-    return fugitive#head()
+    return FugitiveHead()
 endfunction
 
 function! LightlineFiletype() abort
