@@ -86,13 +86,7 @@
     isNormalUser = true;
     description = "Yeri";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      unzip
-      papirus-icon-theme
-      nordic
-      nordzy-cursor-theme
-    ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -101,9 +95,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    wget
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    firefox
+    unzip
+    papirus-icon-theme
+    nordic
+    nordzy-cursor-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
