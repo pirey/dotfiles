@@ -15,7 +15,7 @@
     # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+      inputs.neovim-nightly-overlay.overlay
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -33,6 +33,8 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
+
   # Set your username
   home = {
     username = "pirey";
@@ -40,11 +42,16 @@
   };
 
   # Add stuff for your user as you see fit:
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
   # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [
+    nodejs
+    lazygit
+    ripgrep
+    fd
+    gcc
+    neovim-nightly
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
