@@ -35,7 +35,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "nixpkgs"
         ]
       },
@@ -73,7 +73,7 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "hercules-ci-effects",
           "hercules-ci-agent",
           "nixpkgs"
@@ -126,7 +126,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "hercules-ci-effects",
           "hercules-ci-agent",
           "pre-commit-hooks-nix",
@@ -189,7 +189,7 @@
         "flake-parts": "flake-parts_2",
         "hercules-ci-agent": "hercules-ci-agent",
         "nixpkgs": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "nixpkgs"
         ]
       },
@@ -232,7 +232,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "nixpkgs"
         ]
       },
@@ -252,7 +252,7 @@
         "type": "github"
       }
     },
-    "neovim-nightly": {
+    "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -277,7 +277,7 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "hercules-ci-effects",
           "hercules-ci-agent",
           "nixpkgs"
@@ -385,7 +385,7 @@
         "flake-utils": "flake-utils",
         "gitignore": "gitignore",
         "nixpkgs": [
-          "neovim-nightly",
+          "neovim-nightly-overlay",
           "hercules-ci-effects",
           "hercules-ci-agent",
           "nixpkgs"
@@ -409,7 +409,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "neovim-nightly": "neovim-nightly",
+        "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3"
       }
     },
