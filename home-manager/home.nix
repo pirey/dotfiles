@@ -52,6 +52,7 @@
     neovim-nightly
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
+    xcape
   ];
 
   # Enable home-manager and git
