@@ -9,8 +9,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
+    # Add any other flake you might need
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -19,14 +19,17 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       thinkpad = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          ./nixos/configuration.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+        ];
       };
     };
 
