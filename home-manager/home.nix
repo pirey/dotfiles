@@ -64,7 +64,7 @@
     enable = true;
     shellAbbrs = {
       l = "ls -alh";
-      
+
       ".." = "cd ..";
       "cd.." = "cd ..";
       "..." = "cd ../..";
@@ -103,6 +103,7 @@
       gc = "git commit -m";
       gp = "git push";
       gprun = "git fetch --prune";
+      lgit = "lazygit";
     };
   };
 
