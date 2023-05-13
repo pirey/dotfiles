@@ -112,6 +112,11 @@
     enableFishIntegration = true;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   editorconfig = {
     enable = true;
     settings = {
@@ -119,7 +124,7 @@
         end_of_line = "lf";
         insert_final_newline = true;
         indent_style = "space";
-        indent_size = 4;
+        indent_size = 2;
         charset = "utf-8";
         trim_trailing_whitespace = true;
       };
