@@ -153,6 +153,7 @@
       v = "nvim";
 
       # git
+      g = "git";
       gconf = "vim $HOME/.gitconfig";
       gst = "git status";
       gdif = "git diff";
