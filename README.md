@@ -1,4 +1,4 @@
-# Pirey's personal computer configuration
+# My personal computer configuration
 
 ## Project structure
 ```
