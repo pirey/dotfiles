@@ -124,7 +124,6 @@
     enable = true;
     shellAbbrs = {
       l = "ls -alh";
-      z = "zoxide";
 
       ".." = "cd ..";
       "cd.." = "cd ..";
