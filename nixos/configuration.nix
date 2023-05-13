@@ -105,6 +105,8 @@
     papirus-icon-theme
     nordic
     nordzy-cursor-theme
+    xfce.thunar-archive-plugin
+    xarchiver
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
