@@ -40,21 +40,21 @@
     username = "pirey";
     homeDirectory = "/home/pirey";
     stateVersion = "22.11"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-
-    # Add stuff for your user as you see fit:
-    # packages = with pkgs; [ steam ];
-    packages = with pkgs; [
-      nodejs
-      lazygit
-      ripgrep
-      fd
-      gcc
-      neovim-nightly
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      xclip
-      xcape
-    ];
   };
+
+  # Add stuff for your user as you see fit:
+  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [
+    nodejs
+    lazygit
+    ripgrep
+    fd
+    gcc
+    neovim-nightly
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    xclip
+    xcape
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
