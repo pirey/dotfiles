@@ -49,6 +49,10 @@
     stateVersion = "22.11"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   # Add stuff for your user as you see fit:
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [
@@ -61,7 +65,8 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
     xcape
-    unstable.kitty-themes
+    kitty
+    kitty-themes
   ];
 
   # Enable home-manager and git
@@ -128,15 +133,15 @@
     ];
   };
 
-  programs.kitty = {
-    enable = true;
-    font.name = "JetBrainsMono Nerd Font Mono";
-    font.size = 10;
-    settings = {
-      window_padding_width = 0;
-    };
-    # theme = "Tokyo Night Moon";
-  };
+  # programs.kitty = {
+  #   enable = true;
+  #   font.name = "JetBrainsMono Nerd Font Mono";
+  #   font.size = 10;
+  #   settings = {
+  #     window_padding_width = 0;
+  #   };
+  #   # theme = "Tokyo Night Moon";
+  # };
 
   programs.bash = {
     enable = true;
