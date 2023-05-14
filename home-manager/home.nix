@@ -54,7 +54,6 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
     xcape
-    kitty-themes
   ];
 
   # Enable home-manager and git
@@ -121,6 +120,7 @@
     ];
   };
 
+  # TODO: use kitty from unstable pkgs
   programs.kitty = {
     enable = true;
     font.name = "JetBrainsMono Nerd Font Mono";

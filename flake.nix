@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # TODO: add overlay
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -28,7 +29,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
-          # nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
       };
     };
