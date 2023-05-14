@@ -54,6 +54,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
     xcape
+    kitty-themes
   ];
 
   # Enable home-manager and git
@@ -121,10 +122,14 @@
   };
 
   programs.kitty = {
-      enable = true;
-      shellIntegration.enableBashIntegration = true;
-      theme = "tokyo_night_moon";
+    enable = true;
+    font.name = "JetBrainsMono Nerd Font Mono";
+    font.size = 10;
+    settings = {
+      window_padding_width = 0;
     };
+    # theme = "Tokyo Night Moon";
+  };
 
   programs.bash = {
     enable = true;
