@@ -122,9 +122,6 @@
 
   programs.fish = {
     enable = true;
-    shellInit = ''
-      source /etc/profile
-    '';
     shellAbbrs = {
       l = "ls -alh";
 
