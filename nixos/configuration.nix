@@ -45,17 +45,15 @@
     LC_TIME = "id_ID.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
+  # desktop
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
+    displayManager.lightdm.enable = true;
+    desktopManager.xfce.enable = true;
+    libinput.touchpad.tappingDragLock = false;
   };
 
   # Enable CUPS to print documents.
