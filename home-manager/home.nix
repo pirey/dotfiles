@@ -165,6 +165,7 @@
       vm = "nvim";
       vi = "nvim";
       v = "nvim";
+      n = "nvim";
 
       # git
       g = "git";
