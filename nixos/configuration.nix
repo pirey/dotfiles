@@ -51,9 +51,31 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
-    displayManager.lightdm.enable = true;
     desktopManager.xfce.enable = true;
     libinput.touchpad.tappingDragLock = false;
+  };
+
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+    greeters.gtk = with pkgs; {
+      clock-format = null;
+      cursorTheme = {
+        name = "Nordzy-white-cursors";
+        package = nordzy-cursor-theme;
+        size = 16;
+      };
+      enable = true;
+      iconTheme = {
+        name = "Nordic-Polar-standard-buttons";
+        package = nordic;
+      };
+      indicators = null;
+      theme = {
+        name = "Nordic-Polar-standard-buttons";
+        package = nordic;
+      };
+    };
   };
 
   # Enable CUPS to print documents.
