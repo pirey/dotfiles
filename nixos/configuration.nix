@@ -89,8 +89,6 @@
     packages = with pkgs; [];
   };
 
-  users.defaultUserShell = pkgs.fish;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
