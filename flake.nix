@@ -1,5 +1,5 @@
 {
-  description = "Pirey's personal computer configuration";
+  description = "Personal computer configuration";
 
   inputs = {
     # Nixpkgs
@@ -28,7 +28,7 @@
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+          # nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
       };
     };
