@@ -23,6 +23,13 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+      (final: prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          allowUnfree = true;
+        };
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -54,6 +61,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
     xcape
+    unstable.kitty-themes
   ];
 
   # Enable home-manager and git
@@ -120,7 +128,6 @@
     ];
   };
 
-  # TODO: use kitty from unstable pkgs
   programs.kitty = {
     enable = true;
     font.name = "JetBrainsMono Nerd Font Mono";
