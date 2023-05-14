@@ -120,6 +120,12 @@
     ];
   };
 
+  programs.kitty = {
+      enable = true;
+      shellIntegration.enableBashIntegration = true;
+      theme = "tokyo_night_moon";
+    };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -172,63 +178,13 @@
     };
   };
 
-  programs.fish = {
-    enable = true;
-    shellAbbrs = {
-      l = "ls -alh";
-
-      ".." = "cd ..";
-      "cd.." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-      "....." = "cd ../../../..";
-
-      prettier-here = "prettier --write --ignore-path .gitignore";
-
-      # tmux
-      tkill = "tmux kill-server";
-      tmain = "tmux a -t main";
-      tmux = "tmux -u";
-
-      sizeof = "du -h -d 0";
-
-      ls-dir = "ls -d */";
-
-      # typo sucks
-      im = "nvim";
-      vmi = "nvim";
-      nvi = "nvim";
-      vim = "nvim";
-      vm = "nvim";
-      vi = "nvim";
-      v = "nvim";
-
-      # git
-      g = "git";
-      gconf = "vim $HOME/.gitconfig";
-      gst = "git status";
-      gdif = "git diff";
-      ginit = "git init && git add . && git commit -m 'init'";
-      gad = "git add .";
-      gac = "git add . && git commit -m";
-      gca = "git add . && git commit --amend";
-      gcn = "git commit --amend --no-edit";
-      gc = "git commit -m";
-      gp = "git push";
-      gprun = "git fetch --prune";
-      lgit = "lazygit";
-    };
-  };
-
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
     enableBashIntegration = true;
   };
 
   programs.fzf = {
     enable = true;
-    enableFishIntegration = true;
     enableBashIntegration = true;
     colors = {
       fg = "#c0caf5";
@@ -248,7 +204,6 @@
 
   programs.zoxide = {
     enable = true;
-    enableFishIntegration = true;
     enableBashIntegration = true;
   };
 
