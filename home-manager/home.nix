@@ -190,6 +190,7 @@
       gac = "git add . && git commit -m";
       gca = "git add . && git commit --amend";
       gcn = "git commit --amend --no-edit";
+      gco = "git checkout";
       gc = "git commit -m";
       gp = "git push";
       gprun = "git fetch --prune";
