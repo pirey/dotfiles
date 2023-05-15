@@ -66,7 +66,7 @@
     xclip
     xcape
     kitty
-    kitty-themes
+    # unstable.kitty-themes
   ];
 
   # Enable home-manager and git
@@ -135,12 +135,13 @@
 
   # programs.kitty = {
   #   enable = true;
+  #   package = pkgs.unstable.kitty;
   #   font.name = "JetBrainsMono Nerd Font Mono";
   #   font.size = 10;
   #   settings = {
   #     window_padding_width = 0;
   #   };
-  #   # theme = "Tokyo Night Moon";
+  #   theme = "Tokyo Night Moon";
   # };
 
   programs.bash = {
