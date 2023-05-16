@@ -194,6 +194,8 @@
       gco = "git checkout";
       gc = "git commit -m";
       gp = "git push";
+      gb = "git branch";
+      gbr = "git branch -r";
       gprun = "git fetch --prune";
       lgit = "lazygit";
     };
