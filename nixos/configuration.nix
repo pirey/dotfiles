@@ -125,6 +125,7 @@
     nordzy-cursor-theme
     xfce.thunar-archive-plugin
     xarchiver
+    file
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
