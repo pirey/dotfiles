@@ -58,6 +58,7 @@
   home.packages = with pkgs; [
     postman
     nodejs
+    deno
     lazygit
     ripgrep
     fd
