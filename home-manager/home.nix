@@ -69,6 +69,7 @@
     xcape
     kitty
     # unstable.kitty-themes
+    unstable.lua-language-server
   ];
 
   # Enable home-manager and git
