@@ -229,6 +229,7 @@
       gc = "git commit -m";
       gp = "git push";
       gb = "git branch";
+      gba = "git branch --all";
       gbr = "git branch -r";
       gprun = "git fetch --prune";
       lgit = "lazygit";
