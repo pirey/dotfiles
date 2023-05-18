@@ -185,6 +185,11 @@
     profileExtra = ''
       source ~/dotfiles/scripts/keyboard.sh
     '';
+    bashrcExtra = ''
+      if [ -f ~/.bash_impure ] ; then
+        source ~/.bash_impure
+      fi
+    '';
     shellAliases = {
       l = "ls -alh";
 
