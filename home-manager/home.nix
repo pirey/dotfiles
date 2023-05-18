@@ -40,6 +40,9 @@
     };
   };
 
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
   fonts.fontconfig.enable = true;
 
   # Set your username
@@ -71,6 +74,34 @@
     # unstable.kitty-themes
     unstable.lua-language-server
   ];
+
+  editorconfig = {
+    enable = true;
+    settings = {
+      "*" = {
+        end_of_line = "lf";
+        insert_final_newline = true;
+        indent_style = "space";
+        indent_size = 2;
+        charset = "utf-8";
+        trim_trailing_whitespace = true;
+      };
+      "*.{c,cpp,h,go}" = {
+        indent_style = "tab";
+        tab_width = 4;
+      };
+      "*.{coffee}" = {
+        indent_style = "tab";
+        tab_width = 2;
+      };
+      "*.{hs,rb,rest,jade,pug,yml,json,html,css,re,js,jsx,ts,tsx,njk,vue}" = {
+        indent_size = 2;
+      };
+      "*.{elm}" = {
+        indent_size = 4;
+      };
+    };
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -232,34 +263,7 @@
     enableBashIntegration = true;
   };
 
-  editorconfig = {
+  programs.go = {
     enable = true;
-    settings = {
-      "*" = {
-        end_of_line = "lf";
-        insert_final_newline = true;
-        indent_style = "space";
-        indent_size = 2;
-        charset = "utf-8";
-        trim_trailing_whitespace = true;
-      };
-      "*.{c,cpp,h,go}" = {
-        indent_style = "tab";
-        tab_width = 4;
-      };
-      "*.{coffee}" = {
-        indent_style = "tab";
-        tab_width = 2;
-      };
-      "*.{hs,rb,rest,jade,pug,yml,json,html,css,re,js,jsx,ts,tsx,njk,vue}" = {
-        indent_size = 2;
-      };
-      "*.{elm}" = {
-        indent_size = 4;
-      };
-    };
   };
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 }
