@@ -126,6 +126,7 @@
     xfce.thunar-archive-plugin
     xarchiver
     file
+    docker
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
