@@ -73,6 +73,7 @@
     kitty
     # unstable.kitty-themes
     unstable.lua-language-server
+    unstable.supabase-cli
   ];
 
   editorconfig = {
