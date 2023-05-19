@@ -59,6 +59,7 @@
   # Add stuff for your user as you see fit:
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [
+    gnumake
     postman
     nodejs
     deno
