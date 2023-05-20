@@ -108,6 +108,56 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
 
+  programs.tmux = {
+    enable = true;
+    baseIndex = 1;
+    escapeTime = 0;
+    keyMode = "vi";
+    historyLimit = 50000;
+    mouse = true;
+    prefix = "C-space";
+    resizeAmount = 10;
+    terminal = "tmux-256color";
+    extraConfig = ''
+      # toggle status line
+      bind-key S set -g status
+
+      bind-key \\ split-window -h -c '#{pane_current_path}' # split panes horizontal
+      bind-key - split-window -v -c '#{pane_current_path}' # split panes vertically
+
+      bind-key > swap-window -d -t +1
+      bind-key < swap-window -d -t -1
+
+      # clipboard
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send-keys -X copy-selection
+      bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+      # theme
+      # nord bg = #2E3440
+      # tokyonight bg = #222436
+      set -g status-justify "left"
+      set -g status "on"
+      set -g status-left-style "none"
+      set -g message-command-style "fg=#3B4252,bg=#81A1C1"
+      set -g status-right-style "none"
+      set -g pane-active-border-style "fg=#3b4252"
+      set -g status-style "none,bg=#222436"
+      set -g message-style "fg=#3B4252,bg=#81A1C1"
+      set -g pane-border-style "fg=#2e3440"
+      set -g status-right-length "100"
+      set -g status-left-length "100"
+      setw -g window-status-activity-style "none,fg=#8FBCBB,bg=#222436"
+      setw -g window-status-separator ""
+      setw -g window-status-style "none,fg=#E5E9F0,bg=#222436"
+
+      set -g status-left ""
+      set -g status-right " #F #W #[fg=#555555,bg=#222436] #S #[fg=#222436,bg=#222436,nobold,nounderscore,noitalics]"
+      setw -g window-status-format "#[fg=#555555,bg=#222436] #I #[fg=#222436,bg=#222436,nobold,nounderscore,noitalics]"
+      setw -g window-status-current-format "#[fg=#dfdfdf,bg=#222436] ■ #[fg=#81A1C1,bg=#222436,nobold,nounderscore,noitalics]"
+    '';
+  };
+
   programs.git = {
     enable = true;
     extraConfig = {
@@ -215,6 +265,7 @@
       im = "nvim";
       vmi = "nvim";
       nvi = "nvim";
+      nvm = "nvim";
       vim = "nvim";
       vm = "nvim";
       vi = "nvim";
