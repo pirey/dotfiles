@@ -114,6 +114,7 @@
     escapeTime = 0;
     keyMode = "vi";
     historyLimit = 50000;
+    customPaneNavigationAndResize = true;
     mouse = true;
     prefix = "C-space";
     resizeAmount = 10;
