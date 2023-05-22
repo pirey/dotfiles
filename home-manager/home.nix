@@ -72,6 +72,7 @@
     xclip
     xcape
     kitty
+    stylua
     # unstable.kitty-themes
     unstable.lua-language-server
     unstable.supabase-cli
