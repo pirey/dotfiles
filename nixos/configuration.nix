@@ -80,6 +80,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    touchegg
     wget
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -146,4 +147,18 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
+
+  # https://www.reddit.com/r/NixOS/comments/mwbr8t/comment/gvhm2mh/?utm_source=share&utm_medium=web2x&context=3
+  systemd.services.touchegg = {
+    enable = true;
+    description = "Touchégg. The daemon.";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      Group = "input";
+      Restart = "on-failure";
+      RestartSec = 5;
+      ExecStart = "${pkgs.touchegg}/bin/touchegg --daemon";
+    };
+  };
 }
