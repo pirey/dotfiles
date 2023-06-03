@@ -17,6 +17,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -45,46 +48,19 @@
     LC_TIME = "id_ID.UTF-8";
   };
 
-
-  # desktop
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "";
-    desktopManager.xfce.enable = true;
-    libinput.touchpad.tappingDragLock = false;
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.pirey = {
+    isNormalUser = true;
+    description = "Yeri";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [];
   };
 
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
-    greeters.gtk = with pkgs; {
-      clock-format = null;
-      cursorTheme = {
-        name = "Nordzy-white-cursors";
-        package = nordzy-cursor-theme;
-        size = 16;
-      };
-      enable = true;
-      iconTheme = {
-        name = "Nordic-Polar-standard-buttons";
-        package = nordic;
-      };
-      indicators = null;
-      theme = {
-        name = "Nordic-Polar-standard-buttons";
-        package = nordic;
-      };
-    };
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   security.rtkit.enable = true;
+  # Enable sound with pipewire.
   # services.pipewire = {
   #   enable = true;
   #   alsa.enable = true;
@@ -101,17 +77,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.pirey = {
-    isNormalUser = true;
-    description = "Yeri";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -123,9 +88,12 @@
     papirus-icon-theme
     nordic
     nordzy-cursor-theme
-    xfce.thunar-archive-plugin
-    xarchiver
+    # xfce.thunar-archive-plugin
+    # xarchiver
     file
+
+    gnomeExtensions.appindicator
+    gnome.gnome-tweaks
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -140,6 +108,41 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # desktop
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    xkbVariant = "";
+    # desktopManager.xfce.enable = true;
+    libinput.touchpad.tappingDragLock = false;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+  environment.gnome.excludePackages = (with pkgs; [
+      gnome-photos
+      gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    # cheese # webcam tool
+    # gnome-music
+    gnome-terminal
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    # totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
