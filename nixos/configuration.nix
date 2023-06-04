@@ -94,8 +94,8 @@
     file
 
     keyd
-    gnomeExtensions.appindicator
-    gnome.gnome-tweaks
+    # gnomeExtensions.appindicator
+    # gnome.gnome-tweaks
   ];
 
   environment.etc = {
@@ -137,43 +137,44 @@
     xkbVariant = "";
     # desktopManager.xfce.enable = true;
     libinput.touchpad.tappingDragLock = false;
-    # displayManager.sddm.enable = true;
-    # desktopManager.plasma5.enable = true;
   };
 
   # GNOME
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  environment.gnome.excludePackages = (with pkgs; [
-      # gnome-photos
-      gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    # cheese # webcam tool
-    # gnome-music
-    gnome-terminal
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    # totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-  ]);
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  # environment.gnome.excludePackages = (with pkgs; [
+  #     # gnome-photos
+  #     gnome-tour
+  # ]) ++ (with pkgs.gnome; [
+  #   # cheese # webcam tool
+  #   # gnome-music
+  #   gnome-terminal
+  #   gedit # text editor
+  #   epiphany # web browser
+  #   geary # email reader
+  #   evince # document viewer
+  #   gnome-characters
+  #   # totem # video player
+  #   tali # poker game
+  #   iagno # go game
+  #   hitori # sudoku game
+  #   atomix # puzzle game
+  # ]);
 
-  # services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
-  #   # elisa
-  #   # gwenview
-  #   # okular
-  #   oxygen
-  #   khelpcenter
-  #   konsole
-  #   plasma-browser-integration
-  #   # print-manager
-  # ];
+  # KDE
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
+    # elisa
+    # gwenview
+    # okular
+    oxygen
+    khelpcenter
+    konsole
+    plasma-browser-integration
+    # print-manager
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -192,18 +193,18 @@
   virtualisation.docker.enable = true;
 
   # https://www.reddit.com/r/NixOS/comments/mwbr8t/comment/gvhm2mh/?utm_source=share&utm_medium=web2x&context=3
-  # systemd.services.touchegg = {
-  #   enable = true;
-  #   description = "Touchégg. The daemon.";
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig = {
-  #     Type = "simple";
-  #     Group = "input";
-  #     Restart = "on-failure";
-  #     RestartSec = 5;
-  #     ExecStart = "${pkgs.touchegg}/bin/touchegg --daemon";
-  #   };
-  # };
+  systemd.services.touchegg = {
+    enable = true;
+    description = "Touchégg. The daemon.";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      Group = "input";
+      Restart = "on-failure";
+      RestartSec = 5;
+      ExecStart = "${pkgs.touchegg}/bin/touchegg --daemon";
+    };
+  };
   systemd.services.keyd = {
     enable = true;
     description = "keyd. The daemon.";

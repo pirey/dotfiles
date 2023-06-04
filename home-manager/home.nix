@@ -236,9 +236,9 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    profileExtra = ''
-      source ~/dotfiles/scripts/keyboard.sh
-    '';
+    # profileExtra = ''
+    #   source ~/dotfiles/scripts/keyboard.sh
+    # '';
     bashrcExtra = ''
       if [ -f ~/.bash_impure ] ; then
         source ~/.bash_impure
