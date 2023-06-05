@@ -70,13 +70,14 @@
     neovim-nightly
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     xclip
+    wl-clipboard
     xcape
     kitty
     stylua
     chromium
     # unstable.kitty-themes
-    unstable.lua-language-server
-    unstable.supabase-cli
+    lua-language-server
+    supabase-cli
   ];
 
   editorconfig = {

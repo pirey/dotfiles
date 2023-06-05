@@ -80,7 +80,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    touchegg
     wget
     git
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -89,29 +88,25 @@
     papirus-icon-theme
     nordic
     nordzy-cursor-theme
-    # xfce.thunar-archive-plugin
-    # xarchiver
     file
 
-    keyd
+    # xfce.thunar-archive-plugin
+    # xarchiver
+
     # gnomeExtensions.appindicator
     # gnome.gnome-tweaks
   ];
 
-  environment.etc = {
-    "keyd/default.conf".text = ''
-    [ids]
+  # Touchpad gesture
+  services.touchegg.enable = true;
 
-    *
-
-    [main]
-
-    # Maps capslock to escape when pressed and control when held.
-    capslock = overload(control, esc)
-
-    # Remaps the escape key to capslock
-    esc = capslock
-    '';
+  # Key mapping daemon
+  services.keyd.enable = true;
+  services.keyd.settings = {
+    main = {
+      capslock = "overload(control, esc)";
+      esc = "capslock";
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -130,14 +125,38 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # desktop
+  # GUI
   services.xserver = {
     enable = true;
     layout = "us";
     xkbVariant = "";
-    # desktopManager.xfce.enable = true;
     libinput.touchpad.tappingDragLock = false;
   };
+
+  # XFCE
+  # services.xserver.desktopManager.xfce.enable = true;
+  # services.xserver.displayManager.lightdm = {
+  #   enable = true;
+  #   background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+  #   greeters.gtk = with pkgs; {
+  #     clock-format = null;
+  #     cursorTheme = {
+  #       name = "Nordzy-white-cursors";
+  #       package = nordzy-cursor-theme;
+  #       size = 16;
+  #     };
+  #     enable = true;
+  #     iconTheme = {
+  #       name = "Nordic-Polar-standard-buttons";
+  #       package = nordic;
+  #     };
+  #     indicators = null;
+  #     theme = {
+  #       name = "Nordic-Polar-standard-buttons";
+  #       package = nordic;
+  #     };
+  #   };
+  # };
 
   # GNOME
   # services.xserver.displayManager.gdm.enable = true;
@@ -165,7 +184,7 @@
   # KDE
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     # elisa
     # gwenview
     # okular
@@ -191,30 +210,4 @@
   system.stateVersion = "22.11"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
-
-  # https://www.reddit.com/r/NixOS/comments/mwbr8t/comment/gvhm2mh/?utm_source=share&utm_medium=web2x&context=3
-  systemd.services.touchegg = {
-    enable = true;
-    description = "Touchégg. The daemon.";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "simple";
-      Group = "input";
-      Restart = "on-failure";
-      RestartSec = 5;
-      ExecStart = "${pkgs.touchegg}/bin/touchegg --daemon";
-    };
-  };
-  systemd.services.keyd = {
-    enable = true;
-    description = "keyd. The daemon.";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "simple";
-      Group = "input";
-      Restart = "on-failure";
-      RestartSec = 5;
-      ExecStart = "${pkgs.keyd}/bin/keyd";
-    };
-  };
 }
