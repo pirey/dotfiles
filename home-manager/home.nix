@@ -72,10 +72,8 @@
     xclip
     wl-clipboard
     xcape
-    kitty
     stylua
     chromium
-    # unstable.kitty-themes
     lua-language-server
     supabase-cli
   ];
@@ -223,16 +221,19 @@
     ];
   };
 
-  # programs.kitty = {
-  #   enable = true;
-  #   package = pkgs.unstable.kitty;
-  #   font.name = "JetBrainsMono Nerd Font Mono";
-  #   font.size = 10;
-  #   settings = {
-  #     window_padding_width = 0;
-  #   };
-  #   theme = "Tokyo Night Moon";
-  # };
+  programs.kitty = {
+    enable = true;
+    font.name = "JetBrains Mono";
+    font.size = 10;
+    keybindings = {
+      f11 = "toggle_fullscreen";
+    };
+    settings = {
+      window_padding_width = 0;
+      tab_bar_style = "hidden";
+    };
+    theme = "Tokyo Night Moon";
+  };
 
   programs.bash = {
     enable = true;
