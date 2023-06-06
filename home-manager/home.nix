@@ -271,6 +271,7 @@
       im = "nvim";
       vmi = "nvim";
       nvi = "nvim";
+      nv = "nvim";
       nvm = "nvim";
       vim = "nvim";
       vm = "nvim";
