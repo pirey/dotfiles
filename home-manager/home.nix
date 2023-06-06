@@ -223,7 +223,8 @@
 
   programs.kitty = {
     enable = true;
-    font.name = "JetBrains Mono";
+    # use kitty +list-fonts to list font names
+    font.name = "JetBrainsMono Nerd Font";
     font.size = 10;
     keybindings = {
       f11 = "toggle_fullscreen";
