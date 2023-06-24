@@ -93,8 +93,8 @@
     # xfce.thunar-archive-plugin
     # xarchiver
 
-    # gnomeExtensions.appindicator
-    # gnome.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnome.gnome-tweaks
   ];
 
   # Touchpad gesture
@@ -159,41 +159,41 @@
   # };
 
   # GNOME
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  # environment.gnome.excludePackages = (with pkgs; [
-  #     # gnome-photos
-  #     gnome-tour
-  # ]) ++ (with pkgs.gnome; [
-  #   # cheese # webcam tool
-  #   # gnome-music
-  #   gnome-terminal
-  #   gedit # text editor
-  #   epiphany # web browser
-  #   geary # email reader
-  #   evince # document viewer
-  #   gnome-characters
-  #   # totem # video player
-  #   tali # poker game
-  #   iagno # go game
-  #   hitori # sudoku game
-  #   atomix # puzzle game
-  # ]);
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  environment.gnome.excludePackages = (with pkgs; [
+      # gnome-photos
+      gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    # cheese # webcam tool
+    # gnome-music
+    gnome-terminal
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    # totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   # KDE
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    # elisa
-    # gwenview
-    # okular
-    oxygen
-    khelpcenter
-    konsole
-    plasma-browser-integration
-    # print-manager
-  ];
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
+  # environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  #   # elisa
+  #   # gwenview
+  #   # okular
+  #   oxygen
+  #   khelpcenter
+  #   konsole
+  #   plasma-browser-integration
+  #   # print-manager
+  # ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
