@@ -218,6 +218,8 @@
 
       # python
       ".venv"
+
+      "IGNOREME*"
     ];
   };
 
