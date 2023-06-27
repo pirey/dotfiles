@@ -52,3 +52,6 @@ export PATH="$DVM_DIR/bin:$PATH"
 
 export FLUTTER_DIR="$HOME/.local/opt/flutter"
 export PATH="$FLUTTER_DIR/bin:$PATH"
+
+export ANDROID_STUDIO_DIR="$HOME/.local/opt/android-studio"
+export PATH="$ANDROID_STUDIO_DIR/bin:$PATH"
