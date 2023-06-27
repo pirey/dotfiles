@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+currentscript=$(realpath $0)
+currentdir=$(dirname $currentscript)
+
 run_setup() {
 	local command_name="$1"
 	local script="$2"
 
-  echo "======================================================"
   echo "Setting up '$command_name' ..."
 
 	if [[ -x "$(command -v "$command_name")" ]]; then
@@ -36,7 +38,8 @@ run_setup "keyd" "./keyd/setup.sh"
 run_setup "nvm" "./nvm/setup.sh"
 run_setup "starship" "./starship/setup.sh"
 
-source ./font/setup.sh
+source $currentdir/font/setup.sh
 
 # flatpak
 flatpak install flathub com.getpostman.Postman
+flatpak install flathub com.google.Chrome
