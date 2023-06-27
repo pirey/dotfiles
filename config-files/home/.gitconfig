@@ -1,0 +1,39 @@
+[user]
+	name = Yeri
+	email = arifyeripratama@gmail.com
+
+[core]
+    editor = nvim -u NONE
+    excludesfile = ~/.gitignore_global
+
+    ignoredPatterns = *.keystore
+    ignoredPatterns = *~
+    ignoredPatterns = .DS_Store
+    ignoredPatterns = .eslintcache
+    ignoredPatterns = node_modules/*
+    ignoredPatterns = .vscode
+    ignoredPatterns = *.swp
+    ignoredPatterns = .venv
+    ignoredPatterns = IGNOREME*
+
+[pretty]
+    custom = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset
+
+[include]
+    path = ~/.gitconfig.local
+
+[alias]
+    l = log --pretty=custom --abbrev-commit
+    la = log --branches --remotes --tags --oneline --decorate
+    gap = log --left-right --oneline --decorate
+    compare = log --left-right --oneline --decorate
+    co = checkout
+    list-files = diff-tree --no-commit-id --name-status -r
+    br = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    stash = stash -u
+    rlog = reflog --date=local
+    logno = log --no-merges
+    confg = config --global --list
+    committer = shortlog -s -n --all
+    fc = "!f() { git log --pretty=custom --decorate --date=short -S\"$1\"; }; f"
+    fm = "!f() { git log --pretty=custom --decorate --date=short --grep=\"$1\"; }; f"

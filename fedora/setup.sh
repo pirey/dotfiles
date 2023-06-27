@@ -24,10 +24,19 @@ sudo dnf install -y \
   kitty \
   ripgrep \
   wl-clipboard \
-  fd-find
+  fd-find \
+  zoxide \
+  fzf \
+  gcc \
+  gcc-c++ \
+  make
 
 # copr & etc
 run_setup "keyd" "./keyd/setup.sh"
+run_setup "nvm" "./nvm/setup.sh"
+run_setup "starship" "./starship/setup.sh"
+
+source ./font/setup.sh
 
 # flatpak
 flatpak install flathub com.getpostman.Postman
