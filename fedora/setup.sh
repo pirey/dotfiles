@@ -43,4 +43,3 @@ source $currentdir/font/setup.sh
 
 # flatpak
 flatpak install flathub com.getpostman.Postman
-flatpak install flathub com.google.Chrome

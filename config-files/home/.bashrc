@@ -49,3 +49,6 @@ fi
 
 export DVM_DIR="/home/yeri/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
+
+export FLUTTER_DIR="$HOME/.local/opt/flutter"
+export PATH="$FLUTTER_DIR/bin:$PATH"
