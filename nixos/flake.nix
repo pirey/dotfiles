@@ -32,7 +32,7 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/configuration.nix
+          ./system/configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
       };
