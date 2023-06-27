@@ -31,7 +31,8 @@ sudo dnf install -y \
   fzf \
   gcc \
   gcc-c++ \
-  make
+  make \
+  ranger
 
 # copr & etc
 run_setup "keyd" "./keyd/setup.sh"
