@@ -56,4 +56,8 @@ export PATH="$FLUTTER_DIR/bin:$PATH"
 export ANDROID_STUDIO_DIR="$HOME/.local/opt/android-studio"
 export PATH="$ANDROID_STUDIO_DIR/bin:$PATH"
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 export PATH="$PATH":"$HOME/.pub-cache/bin"
