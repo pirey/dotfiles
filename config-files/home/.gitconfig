@@ -3,7 +3,7 @@
 	email = arifyeripratama@gmail.com
 
 [core]
-    editor = nvim -u NONE
+    editor = "$(which nvim) -u NONE"
     excludesfile = ~/.gitignore_global
 
     ignoredPatterns = *.keystore
