@@ -31,7 +31,8 @@ sudo dnf install -y \
   gcc \
   gcc-c++ \
   make \
-  ranger
+  ranger \
+  obs-studio
 
 run_setup "nvim" "./nvim/setup.sh"
 
