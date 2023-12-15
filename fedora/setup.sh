@@ -13,7 +13,7 @@ run_setup() {
     echo "Command '$command_name' is already executable."
   else
     echo "Command '$command_name' is not executable or does not exist. Running script '$script'..."
-    # Run your script here
+    # Run setup script
     source "$script"
   fi
 
@@ -40,6 +40,7 @@ run_setup "nvim" "./nvim/setup.sh"
 run_setup "keyd" "./keyd/setup.sh"
 run_setup "nvm" "./nvm/setup.sh"
 run_setup "starship" "./starship/setup.sh"
+run_setup "emacs" "./emacs/setup.sh"
 
 source $currentdir/font/setup.sh
 
