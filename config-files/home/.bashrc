@@ -27,10 +27,6 @@ fi
 
 unset rc
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 eval "$(zoxide init bash)"
 
 if [ -f ~/.aliases ]; then
@@ -45,7 +41,10 @@ if [[ -x "$(command -v fzf)" ]]; then
   source /usr/share/fzf/shell/key-bindings.bash
 
   # Set FZF color scheme
-  export FZF_DEFAULT_OPTS='--color fg:#c0caf5,bg:#1a1b26,hl:#bb9af7,bg+:#1a1b26,fg+:#c0caf5,hl+:#7dcfff,info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff,marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
+  # tokyonight
+  # export FZF_DEFAULT_OPTS='--color fg:#c0caf5,bg:#1a1b26,hl:#bb9af7,bg+:#1a1b26,fg+:#c0caf5,hl+:#7dcfff,info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff,marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
+  # iceberg
+  export FZF_DEFAULT_OPTS='--color fg:#c6c8d1,bg:#161821,hl:#bb9af7,bg+:#161821,fg+:#c6c8d1,hl+:#7dcfff,info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff,marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
 fi
 
 export DVM_DIR="/home/yeri/.dvm"
@@ -70,3 +69,16 @@ function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@; }
 
 export PATH="$HOME/.phpenv/bin:$PATH"
 eval "$(phpenv init -)"
+
+export PATH="~/.local/opt/nvim/bin:$PATH"
+export PATH="~/.config/emacs/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export PATH=$PATH:/usr/local/go/bin
