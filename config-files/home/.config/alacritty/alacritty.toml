@@ -1,7 +1,9 @@
-[shell]
+# [shell]
 # args = ["--cd ~"]
 # program = "C:\\Windows\\System32\\wsl.exe"
 
+[env]
+TERM="xterm-256color"
 
 [window]
 decorations = "None"
@@ -12,7 +14,7 @@ startup_mode = "Maximized"
 size = 12
 # size = 11.5 # Monaspice
 
-offset = { y = 1 } # for BlexMono
+offset = { y = 2 } # for BlexMono
 # offset = { y = 3 } # for Monaspice
 
 
@@ -191,4 +193,3 @@ white   = '#acb0d0'
 # cyan= "#5FFDFF"
 # white= "#FEFFFF"
 # # ==================== end Iceberg theme
-
