@@ -38,7 +38,7 @@ run_setup "nvim" "./nvim/setup.sh"
 
 # copr & etc
 run_setup "keyd" "./keyd/setup.sh"
-# run_setup "nvm" "./nvm/setup.sh"
+run_setup "nvm" "./nvm/setup.sh"
 run_setup "starship" "./starship/setup.sh"
 # run_setup "emacs" "./emacs/setup.sh"
 

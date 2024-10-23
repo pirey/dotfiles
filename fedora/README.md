@@ -19,3 +19,7 @@
 - Run `./setup.sh`
 - Read the [config file manual](../config-files/README.md)
 
+## GNOME settings
+
+- Mouse: super > mouse > touchpad > adjust pointer speed
+- Keyboard: super > accessibility > repeat keys
