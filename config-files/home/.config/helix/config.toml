@@ -1,0 +1,7 @@
+theme = "tokyonight"
+
+[editor]
+true-color = true
+
+[keys.normal]
+";" = "command_mode"
