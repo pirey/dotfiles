@@ -1,6 +1,5 @@
-# [shell]
-# args = ["--cd ~"]
-# program = "C:\\Windows\\System32\\wsl.exe"
+# [terminal]
+# shell = { program = "C:\\Windows\\System32\\wsl.exe", args = ["--cd ~"] }
 
 [env]
 TERM="xterm-256color"
