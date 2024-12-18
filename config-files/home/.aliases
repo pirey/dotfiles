@@ -1,34 +1,32 @@
-#!/usr/bin/env bash
+# alias l='ls -alh'
 
-alias l='ls -alh'
-
-alias '..'='cd ..'
-alias 'cd..'='cd ..'
-alias '...'='cd ../..'
-alias '....'='cd ../../..'
-alias '.....'='cd ../../../..'
+# alias '..'='cd ..'
+# alias 'cd..'='cd ..'
+# alias '...'='cd ../..'
+# alias '....'='cd ../../..'
+# alias '.....'='cd ../../../..'
 
 alias prettier-here='prettier --write --ignore-path .gitignore'
 
-alias tkill='tmux kill-server'
-alias tmain='tmux a -t main'
-alias tmux='tmux -u'
+# alias tkill='tmux kill-server'
+# alias tmain='tmux a -t main'
+# alias tmux='tmux -u'
 
 alias sizeof='du -h -d 0'
 
 alias ls-dir='ls -d */'
 
-alias im='nvim'
-alias vmi='nvim'
-alias nvi='nvim'
-alias nivm='nvim'
-alias vnim='nvim'
-alias nv='nvim'
-alias vim='nvim'
-alias vm='nvim'
-alias vi='nvim'
-alias v='nvim'
-alias n='nvim'
+# alias im='nvim'
+# alias vmi='nvim'
+# alias nvi='nvim'
+# alias nivm='nvim'
+# alias vnim='nvim'
+# alias nv='nvim'
+# alias vim='nvim'
+# alias vm='nvim'
+# alias vi='nvim'
+# alias v='nvim'
+# alias n='nvim'
 
 alias g='git'
 alias gconf='vim $HOME/.gitconfig'
@@ -48,6 +46,6 @@ alias gbd='git branch -d'
 alias gbD='git branch -D'
 alias gbr='git branch -r'
 alias gprun='git fetch --prune'
-alias lgit='lazygit'
+# alias lgit='lazygit'
 
-# vim: ft=bash
+# vim: ft=sh
