@@ -107,6 +107,10 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
+# alt key
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 export PATH=$PATH:~/.local/opt/nvim/bin
 
 export NVM_DIR="$HOME/.nvm"
