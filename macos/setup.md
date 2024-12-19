@@ -39,3 +39,11 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 - clone nvim config repo
 
 ## setup dotfiles
+
+## desktop & dock
+
+- reduce dock size
+- double-click a window's title bar to: fill
+- automatically hide and show the dock: enable
+- show suggested and recent apps in dock: disable
+- hot corner: assign launchpad to top-left corner
