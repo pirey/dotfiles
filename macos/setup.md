@@ -47,3 +47,7 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 - automatically hide and show the dock: enable
 - show suggested and recent apps in dock: disable
 - hot corner: assign launchpad to top-left corner
+
+## safari
+
+- settings > tabs > tab layout: compact
