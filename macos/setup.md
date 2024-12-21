@@ -48,6 +48,10 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 - show suggested and recent apps in dock: disable
 - hot corner: assign launchpad to top-left corner
 
+## disable autocorrect
+
+- spelling and prediction > disable items
+
 ## safari
 
 - settings > tabs > tab layout: compact
