@@ -1,10 +1,11 @@
-# Setup macos
+# Personal MacOS configuration notes
 
 ## install applications
 
 - alacritty
 - microsoft edge
 - chrome
+- firefox
 
 ### open unverified app (e.g. alacritty)
 
@@ -33,7 +34,7 @@
 ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 ```
 
-## setup nvim
+## setup neovim
 
 - download nvim release
 - clone nvim config repo
@@ -51,7 +52,3 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 ## disable autocorrect
 
 - spelling and prediction > disable items
-
-## safari
-
-- settings > tabs > tab layout: compact
