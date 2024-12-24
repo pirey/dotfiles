@@ -52,3 +52,7 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 ## disable autocorrect
 
 - spelling and prediction > disable items
+
+## finder
+
+- finder > settings > sidebar > enable items
