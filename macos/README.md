@@ -6,6 +6,7 @@
 - microsoft edge
 - chrome
 - firefox
+- shortcat
 
 ### open unverified app (e.g. alacritty)
 
@@ -56,3 +57,7 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 ## finder
 
 - finder > settings > sidebar > enable items
+
+## safari
+
+- adguard

@@ -5,3 +5,4 @@ brew install zoxide
 brew install starship
 brew install neofetch
 brew install wget
+brew install shortcat
