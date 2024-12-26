@@ -7,12 +7,17 @@
 - chrome
 - firefox
 - shortcat
+- localsend
 
 ### open unverified app (e.g. alacritty)
 
 - open app
 - warning popup will appear
 - open system settings > privacy & security > open anyway the specified app
+
+### safari
+
+- adguard
 
 ## setup cli tools (e.g. git, clang, etc)
 
@@ -32,7 +37,7 @@
 ## setup github ssh
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
+ssh-keygen -t rsa -b 4096 -C "mail@host.com"
 ```
 
 ## setup neovim
@@ -57,7 +62,3 @@ ssh-keygen -t rsa -b 4096 -C "mail@yeripratama.com"
 ## finder
 
 - finder > settings > sidebar > enable items
-
-## safari
-
-- adguard
