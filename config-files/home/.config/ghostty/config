@@ -2,7 +2,7 @@
 
 theme = tokyonight
 font-family = "BlexMono Nerd Font"
-font-size = 14
+# font-size = 14
 font-thicken = true
 title = " "
 macos-titlebar-proxy-icon = "hidden"
