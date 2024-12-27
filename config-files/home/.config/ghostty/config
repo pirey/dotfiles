@@ -1,0 +1,10 @@
+# reload config: ctrl+shift+, (Linux) or cmd+shift+, (macOS)
+
+theme = tokyonight
+font-family = "BlexMono Nerd Font"
+font-size = 14
+font-thicken = true
+title = " "
+macos-titlebar-proxy-icon = "hidden"
+# window-decoration = false
+
