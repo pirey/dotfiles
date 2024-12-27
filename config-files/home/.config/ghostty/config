@@ -6,5 +6,6 @@ font-size = 14
 font-thicken = true
 title = " "
 macos-titlebar-proxy-icon = "hidden"
+window-theme = "system"
+macos-titlebar-style = "native"
 # window-decoration = false
-
