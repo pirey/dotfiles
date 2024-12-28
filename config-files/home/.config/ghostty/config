@@ -9,3 +9,11 @@ macos-titlebar-proxy-icon = "hidden"
 window-theme = "system"
 macos-titlebar-style = "native"
 # window-decoration = false
+
+# https://github.com/ghostty-org/ghostty/issues/3320
+# HACK: CTRL-M = CR, CTRL-I = Tab, CTRL-[ = Esc in BusyBox ash, Debian dash, and
+#       GNU bash. fish-shell seems to handle it correctly, or is it Ghostty
+#       handling it incorrectly? Alacritty don't need this hack
+keybind = ctrl+m=text:\x0D
+keybind = ctrl+i=text:\x09
+keybind = ctrl+[=text:\x1B
