@@ -7,5 +7,4 @@ brew install neofetch
 brew install wget
 brew install shortcat
 brew install httpie
-brew install colima
-brew install docker
+brew install colima docker docker-compose

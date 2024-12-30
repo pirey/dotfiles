@@ -62,3 +62,28 @@ ssh-keygen -t rsa -b 4096 -C "mail@host.com"
 ## finder
 
 - finder > settings > sidebar > enable items
+
+## docker
+
+install
+
+```bash
+brew install colima docker docker-compose
+```
+
+run hello world
+
+```bash
+colima start
+docker run -d -p 8080:80 nginx
+```
+
+setup docker-compose
+
+```bash
+mkdir -p ~/.docker/cli-plugins
+ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
+# reload shell and test it
+docker compose
+```
