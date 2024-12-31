@@ -8,3 +8,4 @@ brew install wget
 brew install shortcat
 brew install httpie
 brew install colima docker docker-compose
+brew install luarocks
