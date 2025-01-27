@@ -34,6 +34,11 @@
 - enable karabiner agents and daemon and driver extension
 - add complex rule > import rule `e0da capslock`
 
+- add simple modification
+  - right command -> right shift
+  - right option -> right command
+  - right shift -> right option
+
 ## setup github ssh
 
 ```bash
