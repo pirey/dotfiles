@@ -4,6 +4,8 @@
 
 [env]
 TERM="xterm-256color"
+LANG="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
 
 [window]
 # (Windows/Linux)
@@ -17,12 +19,13 @@ option_as_alt = "Both"
 size = 14
 # size = 11.5 # Monaspice
 
-offset = { y = 2 } # for BlexMono
+# offset = { y = 2, x = 1 } # for BlexMono
 # offset = { y = 3 } # for Monaspice
 
 
+# normal = { family = "Zed Mono", style = "Extended" }
+# normal = { family = "ZedMono Nerd Font", style = "Extended" }
 # normal = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Regular" }
-normal = { family = "BlexMono Nerd Font", style = "Regular" }
 # normal = { family = "MonaspiceNe Nerd Font Mono", style = "Regular" }
 # normal = { family = "MonaspiceAr Nerd Font Mono", style = "Regular" }
 # normal = { family = "MonaspiceXe Nerd Font Mono", style = "Regular" }
@@ -34,7 +37,8 @@ normal = { family = "BlexMono Nerd Font", style = "Regular" }
 # normal = { family = "IntoneMono Nerd Font Mono", style = "Regular" }
 # normal = { family = "CommitMono Nerd Font", style = "Regular" }
 
-
+normal = { family = "BlexMono Nerd Font", style = "Text" }
+italic = { family = "BlexMono Nerd Font", style = "Text Italic" }
 
 [keyboard]
 bindings = [
