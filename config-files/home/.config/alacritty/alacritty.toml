@@ -14,6 +14,8 @@ LC_ALL="en_US.UTF-8"
 
 # (MacOS)
 option_as_alt = "Both"
+title = ""
+dynamic_title = false
 
 [font]
 size = 14
