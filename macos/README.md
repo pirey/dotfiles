@@ -1,9 +1,8 @@
 # Personal MacOS configuration notes
 
-## install applications
+## apps
 
 - alacritty
-- microsoft edge
 - chrome
 - firefox
 - shortcat
@@ -22,6 +21,29 @@
 ## setup cli tools (e.g. git, clang, etc)
 
 - xcode-select --install
+
+### brew
+
+```bash
+brew install \
+  tmux \
+  ripgrep \
+  fzf \
+  zoxide \
+  starship \
+  neofetch \
+  wget \
+  shortcat \
+  httpie \
+  colima \
+  docker \
+  docker-compose \
+  luarocks \
+  cloc \
+  webp \
+  mysql-client \
+  fd
+```
 
 ## install font
 
