@@ -7,6 +7,7 @@ end_of_line = lf
 insert_final_newline = true
 indent_style = space
 indent_size = 2
+tab_width = 2
 charset = utf-8
 trim_trailing_whitespace = true
 
@@ -25,5 +26,5 @@ indent_style = space
 indent_size = 4
 tab_width = 4
 
-[*.{elm}]
+[*.{elm,hs,cabal,project}]
 indent_size              = 4
