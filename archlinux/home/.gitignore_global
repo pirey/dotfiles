@@ -1,5 +1,7 @@
 *.keystore
 
+# macos
+*.dSYM
 *~
 .DS_Store
 
@@ -18,3 +20,7 @@ bower_modules/*
 
 # python
 .venv
+
+.php-cs-fixer.cache
+
+
