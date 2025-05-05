@@ -9,6 +9,7 @@ macos-titlebar-proxy-icon = "hidden"
 window-theme = "system"
 macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
+macos-option-as-alt = right
 # window-decoration = false
 
 # https://github.com/ghostty-org/ghostty/issues/3320
