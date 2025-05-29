@@ -19,5 +19,13 @@
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-tab": "pane::ActivateNextItem"
     }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
   }
 ]
