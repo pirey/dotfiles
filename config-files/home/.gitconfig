@@ -1,6 +1,6 @@
 [user]
 	name = Yeri
-	email = arifyeripratama@gmail.com
+	email = mail@yeripratama.com
 
 [core]
     editor = "$(which nvim) -u NONE"
@@ -17,6 +17,7 @@
     ignoredPatterns = IGNOREME*
     # e.g. conveniently symlink org file to project dir
     ignoredPatterns = symlink.org
+
 
 [pretty]
     custom = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset
@@ -39,3 +40,11 @@
     committer = shortlog -s -n --all
     fc = "!f() { git log --pretty=custom --decorate --date=short -S\"$1\"; }; f"
     fm = "!f() { git log --pretty=custom --decorate --date=short --grep=\"$1\"; }; f"
+
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	; prompt = false
+[diff]
+	tool = nvimdiff
+
