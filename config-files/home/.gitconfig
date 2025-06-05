@@ -47,4 +47,12 @@
 	; prompt = false
 [diff]
 	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c \"wincmd l\" -c \"diffget RE\" -c \"wincmd h\" -c \"diffget LO\"
+	keepBackup = false
+	trustExitCode = true
+[mergetool]
+	prompt = false
 
