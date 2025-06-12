@@ -112,6 +112,8 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
 export PATH=$PATH:~/.local/opt/nvim/bin
+export PATH=$PATH:~/.local/opt/go/bin
+export PATH=$PATH:~/.local/opt/helix
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -125,3 +127,22 @@ source <(fzf --zsh)
 
 eval "$(starship init zsh)"
 
+# bun completions
+[ -s "/Users/yeri/.bun/_bun" ] && source "/Users/yeri/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/Users/yeri/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/yeri/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+[ -f "/Users/yeri/.ghcup/env" ] && . "/Users/yeri/.ghcup/env" # ghcup-env
+
+eval "$(direnv hook zsh)"
+
+export PATH="$HOME/.local/opt/ctags:$PATH"
+
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+export FZF_DEFAULT_OPTS='--reverse --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:-1,prompt:-1,header:-1'
+export FZF_DEFAULT_COMMAND='rg --files-with-matches --hidden "." --glob "!.git"'
