@@ -1,16 +1,15 @@
 # reload config: ctrl+shift+, (Linux) or cmd+shift+, (macOS)
 
-theme = tokyonight
-font-family = "BlexMono Nerd Font"
-# font-size = 14
+theme = iceberg-dark
+# font-family = "BlexMono Nerd Font"
+font-family = "Liga SFMono Nerd Font"
+font-size = 12 # FHD 1920x1080
+# font-size = 13 # macbook pro 14"
 font-thicken = true
 title = " "
-macos-titlebar-proxy-icon = "hidden"
 window-theme = "system"
-macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
-# window-decoration = false
 
 # https://github.com/ghostty-org/ghostty/issues/3320
 # HACK: CTRL-M = CR, CTRL-I = Tab, CTRL-[ = Esc in BusyBox ash, Debian dash, and
