@@ -2,7 +2,9 @@
 
 This is my personal computer configuration files.
 
-For my neovim configuration, checkout <https://github.com/pirey/nvim>
+For my old vim/neovim configuration, checkout [this](https://github.com/pirey/dotfiles/tree/3f5235b/archlinux/home/.config/nvim).
+
+For my new neovim configuration, checkout [this](https://github.com/pirey/nvim).
 
 ## Overview
 
