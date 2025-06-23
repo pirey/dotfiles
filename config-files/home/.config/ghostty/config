@@ -7,15 +7,16 @@ theme = iceberg-dark
 
 # Font size if for FHD 1920x1080
 # For macbook pro 14", increase it by one
-font-family = "Source Code Pro"
-font-size = 13
+# font-family = "Source Code Pro"
+# font-size = 13
 
-# font-family = "Liga SFMono Nerd Font"
-# font-size = 12
+font-family = "Liga SFMono Nerd Font"
+font-size = 12
 
 font-thicken = true
 title = " "
 window-theme = "system"
+macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 
