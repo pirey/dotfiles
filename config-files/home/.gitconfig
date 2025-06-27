@@ -20,7 +20,7 @@
 
 
 [pretty]
-    custom = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset
+    custom = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %Cgreen(%cr)%Creset %s
 
 [include]
     path = ~/.gitconfig.local
