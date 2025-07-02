@@ -1,7 +1,6 @@
-theme = "tokyonight"
+theme = "iceberg-dark"
 
 [editor]
-true-color = true
 
 [keys.normal]
 ";" = "command_mode"
