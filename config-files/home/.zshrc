@@ -144,6 +144,7 @@ export PATH="$HOME/.local/opt/ctags:$PATH"
 
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
 
-export FZF_DEFAULT_OPTS='--reverse --cycle --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:0,prompt:-1,header:-1'
+# export FZF_DEFAULT_OPTS='--reverse --cycle --color=16,fg:8,bg:-1,fg+:7,bg+:-1,gutter:-1,pointer:4,info:-1,border:0,prompt:-1,header:-1'
+export FZF_DEFAULT_OPTS='--reverse --cycle --color=16,fg:8,bg:-1,bg+:-1,gutter:-1,pointer:4,info:-1,border:0,prompt:-1,header:-1'
 export FZF_DEFAULT_COMMAND='fd --type file --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
