@@ -40,19 +40,3 @@
     committer = shortlog -s -n --all
     fc = "!f() { git log --pretty=custom --decorate --date=short -S\"$1\"; }; f"
     fm = "!f() { git log --pretty=custom --decorate --date=short --grep=\"$1\"; }; f"
-
-[difftool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	; prompt = false
-[diff]
-	tool = nvimdiff
-[merge]
-	tool = nvimdiff
-[mergetool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c \"wincmd l\" -c \"diffget RE\" -c \"wincmd h\" -c \"diffget LO\"
-	keepBackup = false
-	trustExitCode = true
-[mergetool]
-	prompt = false
-
