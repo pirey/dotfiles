@@ -141,3 +141,5 @@ Plug 'metakirby5/codi.vim'                                    " vscode's quokka.
 Plug 'wakatime/vim-wakatime'
 Plug 'ryanoasis/vim-devicons'
 " }}}
+"
+" vim: fdm=marker foldlevel=0
