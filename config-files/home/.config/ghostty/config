@@ -1,7 +1,9 @@
 # reload config: ctrl+shift+, (Linux) or cmd+shift+, (macOS)
+# split: cmd+shift+d (macOS)
+# vsplit: cmd+d (macOS)
 
 # theme = tokyonight
-theme = iceberg-dark
+# theme = iceberg-dark
 
 # font-family = "BlexMono Nerd Font"
 
@@ -14,8 +16,8 @@ theme = iceberg-dark
 # font-size = 12
 
 # if icons are not needed, download without nerd font
-font-family = "Monaspace Neon"
-font-size = 12
+# font-family = "Monaspace Neon"
+# font-size = 12
 
 font-thicken = true
 title = " "
