@@ -7,14 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "Iceberg",
+  "theme": "One Dark",
+  "gutter": {
+    "line_numbers": false
+  },
   "agent": {
     "default_model": {
       "provider": "anthropic",
       "model": "claude-3-sonnet-20240229"
     },
-    "enabled": false,
-    "version": "2"
+    "enabled": false
   },
   "telemetry": {
     "metrics": false,
@@ -24,8 +26,11 @@
   "vim": {
     "use_system_clipboard": "never"
   },
-  "ui_font_size": 14,
-  "buffer_font_size": 14,
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  // "buffer_font_family": "Liga SFMono Nerd Font",
+  // "buffer_font_family": "Monaspace Neon",
   "languages": {
     "PHP": {
       "format_on_save": "off"
@@ -40,4 +45,3 @@
     }
   }
 }
-

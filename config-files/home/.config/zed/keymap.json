@@ -21,6 +21,13 @@
     }
   },
   {
+    "context": "vim_mode == normal",
+    "bindings": {
+      ";": "command_palette::Toggle",
+      ":": "vim::RepeatFind"
+    }
+  },
+  {
     "context": "Terminal",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
