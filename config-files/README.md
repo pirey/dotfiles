@@ -1,8 +1,11 @@
 ## Configuration Files
 
 This is raw copy of the config files.
-Copy each file manually to their respective location.
 
-## TODO
+How to use:
 
-- Automate the process
+- Install GNU [stow](https://www.gnu.org/software/stow/)
+- `cd config-files`
+- `stow --adopt -t ~ home`
+
+It may overwrite dotfiles because of the `--adopt` flag, review and adjust changes as necessary.

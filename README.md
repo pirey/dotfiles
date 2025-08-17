@@ -31,3 +31,7 @@ Keyboard map:
 - keyd (Linux)
 - karabiner elements (MacOS)
 - auto hot key (Windows)
+
+## Configuration
+
+See [config-files/README.md](./config-files/README.md)
