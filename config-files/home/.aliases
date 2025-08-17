@@ -27,6 +27,7 @@ alias ls-dir='ls -d */'
 # alias vi='nvim'
 # alias v='nvim'
 # alias n='nvim'
+alias vnim="NVIM_APPNAME=vnim nvim"
 
 alias g='git'
 alias gconf='vim $HOME/.gitconfig'
@@ -47,5 +48,7 @@ alias gbD='git branch -D'
 alias gbr='git branch -r'
 alias gprun='git fetch --prune'
 # alias lgit='lazygit'
+
+alias sail='./vendor/bin/sail'
 
 # vim: ft=sh

@@ -4,8 +4,16 @@
 
 # theme = tokyonight
 # theme = iceberg-dark
+# theme = OneHalfDark
+# theme = Builtin Solarized Light
+# theme = iceberg-light
+# theme = Github-Light-Default
+# theme = NvimDark
+# theme = NvimLight
+# theme = DoomOne
 
 # font-family = "BlexMono Nerd Font"
+# font-size = 13
 
 # Font size if for FHD 1920x1080
 # For macbook pro 14", increase it by one
@@ -15,11 +23,13 @@
 # font-family = "Liga SFMono Nerd Font"
 # font-size = 12
 
-# if icons are not needed, download without nerd font
 # font-family = "Monaspace Neon"
 # font-size = 12
 
-font-thicken = true
+# font-family = "IBM Plex Mono"
+# font-size = 13
+
+# font-thicken = false
 title = " "
 window-theme = "system"
 macos-titlebar-style = "native"

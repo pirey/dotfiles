@@ -18,10 +18,11 @@ title = ""
 dynamic_title = false
 
 [font]
-size = 14
+size = 15
 # size = 11.5 # Monaspice
 
-# offset = { y = 2, x = 1 } # for BlexMono
+# offset = { y = 2, x = 0 } # for BlexMono
+# glyph_offset = { y = 1, x = 0 }
 # offset = { y = 3 } # for Monaspice
 
 
@@ -39,8 +40,10 @@ size = 14
 # normal = { family = "IntoneMono Nerd Font Mono", style = "Regular" }
 # normal = { family = "CommitMono Nerd Font", style = "Regular" }
 
-normal = { family = "BlexMono Nerd Font", style = "Text" }
-italic = { family = "BlexMono Nerd Font", style = "Text Italic" }
+# normal = { family = "BlexMono Nerd Font", style = "Text" }
+# italic = { family = "BlexMono Nerd Font", style = "Text Italic" }
+
+normal = { family = "Liga SFMono Nerd Font", style = "Regular" }
 
 [keyboard]
 bindings = [
@@ -134,4 +137,3 @@ white   = '#acb0d0'
 # cyan= "#5FFDFF"
 # white= "#FEFFFF"
 # # ==================== end Iceberg theme
-

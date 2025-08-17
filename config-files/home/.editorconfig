@@ -28,3 +28,5 @@ tab_width = 4
 
 [*.{elm,hs,cabal,project}]
 indent_size              = 4
+[*.{elm}]
+indent_size              = 4
