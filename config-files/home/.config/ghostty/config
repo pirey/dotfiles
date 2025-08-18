@@ -29,7 +29,9 @@
 # font-family = "IBM Plex Mono"
 # font-size = 13
 
-# font-thicken = false
+font-family = "Lilex"
+
+font-thicken = true
 title = " "
 window-theme = "system"
 macos-titlebar-style = "native"
