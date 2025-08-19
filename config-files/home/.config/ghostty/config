@@ -4,13 +4,11 @@
 
 # theme = tokyonight
 # theme = iceberg-dark
-# theme = OneHalfDark
 # theme = Builtin Solarized Light
 # theme = iceberg-light
 # theme = Github-Light-Default
-# theme = NvimDark
+theme = NvimDark
 # theme = NvimLight
-# theme = DoomOne
 
 # font-family = "BlexMono Nerd Font"
 # font-size = 13
