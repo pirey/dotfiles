@@ -8,9 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "theme": "One Dark",
-  "gutter": {
-    "line_numbers": false
-  },
   "agent": {
     "default_model": {
       "provider": "anthropic",
