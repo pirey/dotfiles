@@ -7,12 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "One Dark",
   "agent": {
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-sonnet-20240229"
-    },
     "enabled": false
   },
   "telemetry": {
