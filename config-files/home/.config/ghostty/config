@@ -2,6 +2,7 @@
 # split: cmd+shift+d (macOS)
 # vsplit: cmd+d (macOS)
 
+# theme = Dark+
 # theme = tokyonight
 # theme = iceberg-dark
 # theme = Builtin Solarized Light
