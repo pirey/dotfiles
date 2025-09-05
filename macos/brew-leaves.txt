@@ -18,7 +18,6 @@ gnu-sed
 gnu-tar
 grep
 htop
-httpie
 imagemagick
 luajit
 luarocks
@@ -28,6 +27,7 @@ mysql-client
 neofetch
 pkgconf
 postgresql@14
+redis
 ripgrep
 sox
 starship
@@ -37,4 +37,5 @@ tmux
 tree
 viu
 wget
+woff2
 zoxide
