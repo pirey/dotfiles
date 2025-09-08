@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "title_bar": {
+    "show_sign_in": false,
+    "show_onboarding_banner": false
+  },
   "agent": {
     "enabled": false
   },
