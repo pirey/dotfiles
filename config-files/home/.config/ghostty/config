@@ -31,7 +31,7 @@
 font-family = "Lilex"
 
 # font-thicken = true
-title = " "
+title = " 👻 Ghostty "
 window-theme = "system"
 macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
