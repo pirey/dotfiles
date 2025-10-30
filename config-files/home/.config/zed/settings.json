@@ -8,11 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "title_bar": {
-    "show_sign_in": false,
-    "show_onboarding_banner": false
-  },
-  "agent": {
-    "enabled": false
+    "show_sign_in": false
   },
   "telemetry": {
     "metrics": false,
@@ -22,11 +18,6 @@
   "vim": {
     "use_system_clipboard": "never"
   },
-  "features": {
-    "edit_prediction_provider": "none"
-  },
-  // "buffer_font_family": "Liga SFMono Nerd Font",
-  // "buffer_font_family": "Monaspace Neon",
   "languages": {
     "PHP": {
       "format_on_save": "off"
