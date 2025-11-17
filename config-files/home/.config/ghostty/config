@@ -8,8 +8,8 @@
 # theme = Builtin Solarized Light
 # theme = iceberg-light
 # theme = Github-Light-Default
-# theme = NvimDark
-# theme = NvimLight
+# theme = "Nvim Dark"
+# theme = "Nvim Light"
 
 # font-family = "BlexMono Nerd Font"
 # font-size = 13

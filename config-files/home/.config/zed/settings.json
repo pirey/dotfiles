@@ -7,8 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "theme": "poimandres",
   "title_bar": {
     "show_sign_in": false
+  },
+  "features": {
+    "edit_prediction_provider": "supermaven"
+  },
+  "agent_servers": {
+    "OpenCode": {
+      "command": "opencode",
+      "args": ["acp"]
+    }
   },
   "telemetry": {
     "metrics": false,
@@ -27,6 +37,17 @@
         "external": {
           "command": "fourmolu",
           "arguments": ["--stdin-input-file", ""]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "preferences": {
+            "importModuleSpecifier": "non-relative"
+          }
         }
       }
     }
