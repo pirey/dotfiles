@@ -28,5 +28,5 @@ tab_width = 4
 
 [*.{elm,hs,cabal,project}]
 indent_size              = 4
-[*.{elm}]
+[*.{elm,swift}]
 indent_size              = 4
