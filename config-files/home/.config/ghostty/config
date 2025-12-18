@@ -32,7 +32,7 @@
 font-family = Lilex
 font-size = 12
 
-font-thicken = true
+# font-thicken = true
 title = " 👻 Ghostty "
 window-theme = "system"
 macos-titlebar-style = "native"
