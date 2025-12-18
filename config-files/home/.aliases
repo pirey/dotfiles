@@ -51,4 +51,6 @@ alias gprun='git fetch --prune'
 
 alias sail='./vendor/bin/sail'
 
+alias rl='rlwrap --always-readline'
+
 # vim: ft=sh
