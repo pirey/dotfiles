@@ -28,10 +28,10 @@
 # font-family = "IBM Plex Mono"
 # font-size = 13
 
-font-family = "Monaspace Neon"
+# font-family = "Monaspace Neon"
 # font-family = Cartograph CF
-# font-family = Lilex
-# font-size = 12
+font-family = Lilex
+font-size = 12
 
 font-thicken = true
 font-thicken-strength = 0
