@@ -30,8 +30,9 @@
 
 # font-family = "Monaspace Neon"
 # font-family = Cartograph CF
-font-family = Lilex
-font-size = 12
+# font-family = Lilex
+font-family = Ioskeley Mono
+font-size = 14
 
 # font-thicken = true
 # font-thicken-strength = 0
