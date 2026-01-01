@@ -46,7 +46,11 @@ brew install \
   cloc \
   webp \
   mysql-client \
-  fd
+  fd \
+  tldr \
+  rlwrap \
+  stow \
+  yt-dlp
 ```
 
 ## install font
