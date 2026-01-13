@@ -12,30 +12,15 @@
 # theme = "Nvim Light"
 
 # font-family = "BlexMono Nerd Font"
-# font-size = 13
-
-# Font size if for FHD 1920x1080
-# For macbook pro 14", increase it by one
-# font-family = "Source Code Pro"
-# font-size = 13
-
 # font-family = "Liga SFMono Nerd Font"
-# font-size = 12
-
 # font-family = "Monaspace Neon"
-# font-size = 12
-
 # font-family = "IBM Plex Mono"
-# font-size = 13
-
 # font-family = "Monaspace Neon"
 # font-family = Cartograph CF
 # font-family = Lilex
 font-family = Ioskeley Mono
 font-size = 11
 
-font-thicken = true
-# font-thicken-strength = 0
 title = " "
 window-theme = "system"
 macos-titlebar-style = "native"
