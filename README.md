@@ -2,9 +2,7 @@
 
 This is my personal computer configuration files.
 
-For my old vim/neovim configuration, checkout [this](https://github.com/pirey/dotfiles/tree/3f5235b/archlinux/home/.config/nvim).
-
-For my new neovim configuration, checkout [this](https://github.com/pirey/nvim).
+Checkout my [neovim](https://github.com/pirey/nvim) configuration.
 
 ## Overview
 
@@ -15,16 +13,18 @@ CLI:
 - tmux
 - fzf
 - ripgrep
+- fd
 - zoxide
 - starship.rs
 
-GUI:
+Terminal:
 
-- alacritty
+- Ghostty
 
 Fonts:
 
 - IBM Plex Mono
+- Ioskeley Mono (Berkeley Mono clone)
 
 Keyboard map:
 
@@ -34,4 +34,12 @@ Keyboard map:
 
 ## Configuration
 
-See [config-files/README.md](./config-files/README.md)
+The following command will create symlinks to the configuration files in the home directory.
+
+- Install GNU [stow](https://www.gnu.org/software/stow/)
+- `cd config-files`
+- `stow --adopt -t ~ home`
+
+It may overwrite dotfiles because of the `--adopt` flag, review and adjust changes as necessary.
+
+Also, it will only create symlinks for config under user home directory, so we need to create symlinks for other config files manually, e.g. keyd to /etc/keyd.

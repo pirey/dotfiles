@@ -55,7 +55,8 @@ brew install \
 
 ## install font
 
-- blex mono nerd font
+- IBM Plex Mono
+- Ioskeley Mono (Berkeley Mono clone)
 
 ## setup keyboard
 
