@@ -1,0 +1,13 @@
+clone-git-repo() {
+    "$HOME/dotfiles/scripts/clone-git-repo.sh" "$@"
+}
+
+mac-check-electron() {
+    "$HOME/dotfiles/scripts/mac-check-electron.sh"
+}
+
+download-neovim-nightly() {
+    "$HOME/dotfiles/scripts/neovim-nightly.sh" "$@"
+}
+
+# vim: ft=sh

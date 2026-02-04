@@ -108,6 +108,10 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
+if [ -f ~/.functions ]; then
+  source ~/.functions
+fi
+
 # alt key
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
