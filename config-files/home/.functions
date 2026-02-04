@@ -7,7 +7,7 @@ mac-check-electron() {
 }
 
 download-neovim-nightly() {
-    "$HOME/dotfiles/scripts/neovim-nightly.sh" "$@"
+    "$HOME/dotfiles/scripts/download-neovim-nightly.sh" "$@"
 }
 
 # vim: ft=sh
