@@ -8,7 +8,7 @@
 # theme = Builtin Solarized Light
 # theme = iceberg-light
 # theme = Github-Light-Default
-# theme = "Nvim Dark"
+theme = "Nvim Dark"
 # theme = "Nvim Light"
 
 # font-family = "BlexMono Nerd Font"
@@ -18,8 +18,8 @@
 # font-family = "Monaspace Neon"
 # font-family = Cartograph CF
 # font-family = Lilex
-font-family = Ioskeley Mono
-font-size = 11
+# font-family = Ioskeley Mono
+# font-size = 11
 
 title = " "
 window-theme = "system"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "one-dark",
+  "theme": "system",
   "model": "opencode/minimax-m2.1-free",
   "keybinds": {
     "messages_half_page_up": "ctrl+u",
