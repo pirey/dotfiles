@@ -8,7 +8,7 @@ insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
 
-[*.{js,jsx,ts,tsx,json,yml,yaml}]
+[*.{js,jsx,ts,tsx,json,yml,yaml,lua}]
 indent_style = space
 indent_size = 2
 tab_width = 2
