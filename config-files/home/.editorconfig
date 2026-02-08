@@ -5,18 +5,15 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
-indent_style = space
-indent_size = 2
-tab_width = 2
 charset = utf-8
 trim_trailing_whitespace = true
 
-[*.{c,cpp,h,go}]
-indent_style = tab
-indent_size = 4
-tab_width = 4
+[*.{js,jsx,ts,tsx,json,yml,yaml}]
+indent_style = space
+indent_size = 2
+tab_width = 2
 
-[Makefile]
+[*.{c,cpp,h,go,odin,Makefile}]
 indent_style = tab
 indent_size = 4
 tab_width = 4
@@ -26,7 +23,5 @@ indent_style = space
 indent_size = 4
 tab_width = 4
 
-[*.{elm,hs,cabal,project}]
-indent_size              = 4
-[*.{elm,swift}]
-indent_size              = 4
+[*.{elm,swift,hs,cabal,project}]
+indent_size = 4
