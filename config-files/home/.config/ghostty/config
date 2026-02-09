@@ -21,7 +21,7 @@ theme = "Nightfox"
 # font-family = Lilex
 font-family = Ioskeley Mono
 
-title = " "
+# title = " "
 window-theme = "system"
 # macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
