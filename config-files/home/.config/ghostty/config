@@ -23,7 +23,7 @@ font-family = Ioskeley Mono
 
 title = " "
 window-theme = "system"
-macos-titlebar-style = "native"
+# macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 
