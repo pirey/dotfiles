@@ -107,7 +107,7 @@
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "e448c72ebc3d7a10d00a865b41b25336122a2c67",
+      "rev": "5e90dc5d06b2155d85eb0dab619137eb4e8b29b8",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {

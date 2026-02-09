@@ -13,18 +13,25 @@ end
 
 local M = {}
 
-local function installed_specs(is_active)
-  local packspecs = vim.iter(vim.pack.get())
-  if is_active ~= nil then
-    packspecs = packspecs:filter(function(x)
-      return x.active == is_active
-    end)
+local installed_specs do
+  local cache = {}
+  function installed_specs(is_active)
+    local key = is_active == nil and "all" or tostring(is_active)
+    if not cache[key] then
+      local packspecs = vim.iter(vim.pack.get())
+      if is_active ~= nil then
+        packspecs = packspecs:filter(function(x)
+          return x.active == is_active
+        end)
+      end
+      cache[key] = packspecs
+        :map(function(x)
+          return x.spec.name
+        end)
+        :totable()
+    end
+    return cache[key]
   end
-  return packspecs
-    :map(function(x)
-      return x.spec.name
-    end)
-    :totable()
 end
 
 function M.list(opts)
@@ -38,8 +45,13 @@ function M.list(opts)
   vim.pack.update(specs, update_opts)
 end
 
-function M.update()
-  local specs = installed_specs(true)
+function M.update(packages)
+  local specs
+  if packages and #packages > 0 then
+    specs = packages
+  else
+    specs = installed_specs(true)
+  end
   vim.pack.update(specs, { force = true })
 end
 
@@ -75,7 +87,19 @@ function M.setup(specs_ext)
   end
 
   -- create user commands
-  vim.api.nvim_create_user_command("PackUpdate", M.update, { desc = "Update all packages" })
+  vim.api.nvim_create_user_command("PackUpdate", function(opts)
+    M.update(opts.fargs)
+  end, {
+    desc = "Update packages",
+    nargs = "*",
+    complete = function(_, opts)
+      local all_specs = installed_specs(true)
+      local selected = vim.list_slice(vim.split(opts, " "), 2)
+      return vim.tbl_filter(function(spec)
+        return not vim.tbl_contains(selected, spec)
+      end, all_specs)
+    end,
+  })
   vim.api.nvim_create_user_command("PackClean", M.clean, { desc = "Clean all packages" })
   vim.api.nvim_create_user_command("PackList", function(opts)
     M.list({ offline = vim.tbl_contains(opts.fargs, "offline") })
