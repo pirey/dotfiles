@@ -13,7 +13,8 @@ end
 
 local M = {}
 
-local installed_specs do
+local installed_specs
+do
   local cache = {}
   function installed_specs(is_active)
     local key = is_active == nil and "all" or tostring(is_active)
@@ -92,10 +93,18 @@ function M.setup(specs_ext)
   end, {
     desc = "Update packages",
     nargs = "*",
-    complete = function(_, opts)
+    complete = function(_, line)
       local all_specs = installed_specs(true)
-      local selected = vim.list_slice(vim.split(opts, " "), 2)
+      local selected = vim.list_slice(vim.split(line, " "), 2)
+      local last = selected[#selected]
+
       return vim.tbl_filter(function(spec)
+        if last ~= "" then
+          -- only match what the user typed
+          return spec:match("^" .. last) and not vim.tbl_contains(selected, spec)
+        end
+
+        -- return remaining specs
         return not vim.tbl_contains(selected, spec)
       end, all_specs)
     end,
