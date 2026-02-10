@@ -1,6 +1,6 @@
 [user]
-	name = Yeri
-	email = mail@yeripratama.com
+    name = Yeri
+    email = mail@yeripratama.com
 
 [core]
     editor = "$(which nvim) -u NONE"

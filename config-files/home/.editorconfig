@@ -7,21 +7,11 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
 
 [*.{js,jsx,ts,tsx,json,yml,yaml,lua}]
-indent_style = space
 indent_size = 2
-tab_width = 2
 
 [*.{c,cpp,h,go,odin,Makefile}]
 indent_style = tab
-indent_size = 4
-tab_width = 4
-
-[*.{php}]
-indent_style = space
-indent_size = 4
-tab_width = 4
-
-[*.{elm,swift,hs,cabal,project}]
-indent_size = 4
