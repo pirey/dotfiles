@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "1ce96a464fdbc24208e24c117e2021794259005d",
+      "rev": "31217271a7314c343606acb4072a94a039a19fb5",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -103,7 +103,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "fa2d0005abc6a66d17a96402ff510dbf6a1160a9",
+      "rev": "954123c9d93b91616eeb49718feea85c32fd21e6",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
