@@ -600,7 +600,7 @@ local theme_onedark = require("themes.onedark")
 local theme_iceberg = require("themes.iceberg")
 local theme_vscode = require("themes.vscode")
 local theme_tokyonight = { src = "folke/tokyonight.nvim" }
-local theme_rosepine = { src = "rose-pine/neovim" }
+local theme_rosepine = { src = "rose-pine/neovim", name = "rose-pine" }
 local theme_modus = { src = "miikanissi/modus-themes.nvim" }
 local theme_nightfox = { src = "EdenEast/nightfox.nvim" }
 local theme_vague = { src = "vague-theme/vague.nvim" }

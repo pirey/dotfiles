@@ -13,7 +13,6 @@ end
 
 local M = {}
 
-local installed_specs
 do
   local cache = {}
   function installed_specs(is_active)
@@ -35,15 +34,56 @@ do
   end
 end
 
-function M.list(opts)
-  local specs = installed_specs()
+local function specs_completion(_, cmd_line, _)
+  local all_specs = installed_specs(true)
+  local selected = vim.list_slice(vim.split(cmd_line, " "), 2)
+  local last = selected[#selected]
 
-  local update_opts = {}
-  if opts and opts.offline then
-    update_opts.offline = true
+  return vim.tbl_filter(function(spec)
+    if last and last ~= "" then
+      return spec:match("^" .. last) and not vim.tbl_contains(selected, spec)
+    end
+    return not vim.tbl_contains(selected, spec)
+  end, all_specs)
+end
+
+local function setup_user_commands()
+  vim.api.nvim_create_user_command("PackUpdate", function(opts)
+    M.update(opts.fargs)
+  end, {
+    desc = "Update packages",
+    nargs = "*",
+    complete = specs_completion,
+  })
+  vim.api.nvim_create_user_command("PackClean", M.clean, { desc = "Clean all packages" })
+  vim.api.nvim_create_user_command("PackInfo", function(opts)
+    M.info({ packages = opts.fargs })
+  end, {
+    desc = "Get package info",
+    nargs = "*",
+    complete = specs_completion,
+  })
+end
+
+local function setup_keymaps()
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("NvimPack", { clear = true }),
+    pattern = { "nvim-pack" },
+    callback = function()
+      vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = true, silent = true })
+    end,
+  })
+end
+
+function M.info(opts)
+  local specs
+  if opts and opts.packages and #opts.packages > 0 then
+    specs = opts.packages
+  else
+    specs = installed_specs()
   end
 
-  vim.pack.update(specs, update_opts)
+  vim.pack.update(specs)
 end
 
 function M.update(packages)
@@ -87,38 +127,8 @@ function M.setup(specs_ext)
     config()
   end
 
-  -- create user commands
-  vim.api.nvim_create_user_command("PackUpdate", function(opts)
-    M.update(opts.fargs)
-  end, {
-    desc = "Update packages",
-    nargs = "*",
-    complete = function(_, line)
-      local all_specs = installed_specs(true)
-      local selected = vim.list_slice(vim.split(line, " "), 2)
-      local last = selected[#selected]
-
-      return vim.tbl_filter(function(spec)
-        if last ~= "" then
-          -- only match what the user typed
-          return spec:match("^" .. last) and not vim.tbl_contains(selected, spec)
-        end
-
-        -- return remaining specs
-        return not vim.tbl_contains(selected, spec)
-      end, all_specs)
-    end,
-  })
-  vim.api.nvim_create_user_command("PackClean", M.clean, { desc = "Clean all packages" })
-  vim.api.nvim_create_user_command("PackList", function(opts)
-    M.list({ offline = vim.tbl_contains(opts.fargs, "offline") })
-  end, {
-    desc = "List all packages",
-    nargs = "*",
-    complete = function()
-      return { "offline" }
-    end,
-  })
+  setup_user_commands()
+  setup_keymaps()
 end
 
 return M
