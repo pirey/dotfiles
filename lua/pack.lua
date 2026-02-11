@@ -13,6 +13,7 @@ end
 
 local M = {}
 
+local installed_specs
 do
   local cache = {}
   function installed_specs(is_active)
