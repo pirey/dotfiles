@@ -476,15 +476,9 @@ local nvim_lint = {
   end,
 }
 local colorizer = {
-  src = "norcalli/nvim-colorizer.lua",
+  src = "catgoose/nvim-colorizer.lua",
   config = function()
-    vim.o.termguicolors = true
-    local old_deprecate = vim.deprecate
-    ---@diagnostic disable-next-line: duplicate-set-field
-    vim.deprecate = function() end
     require("colorizer").setup()
-    ---@diagnostic disable-next-line: duplicate-set-field
-    vim.deprecate = old_deprecate
   end,
 }
 local dadbod_ui = {
