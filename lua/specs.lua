@@ -380,7 +380,7 @@ local grug_far = {
 local blink_cmp = {
   src = "saghen/blink.cmp",
   dependencies = { { src = "rafamadriz/friendly-snippets" } },
-  version = "v1.9.0",
+  version = "v1.9.1",
   config = function()
     require("blink.cmp").setup({
       signature = {
@@ -561,7 +561,7 @@ local opencode = {
   src = "sudo-tee/opencode.nvim",
   dependencies = {
     { src = "nvim-lua/plenary.nvim" },
-    { src = "saghen/blink.cmp", version = "v1.9.0" },
+    { src = "saghen/blink.cmp", version = "v1.9.1" },
     { src = "nvim-mini/mini.pick" },
   },
   config = function()
