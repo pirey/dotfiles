@@ -55,11 +55,6 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
-vim.keymap.set({ "n" }, [[\\]], [[<c-\><c-n><C-w><C-w>]], {
-  silent = true,
-  noremap = true,
-  desc = "Alternate window",
-})
 vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
   silent = true,
   noremap = true,
@@ -74,10 +69,8 @@ vim.cmd("autocmd QuickFixCmdPost grep,grep! copen")
 if vim.fn.has("nvim-0.12") == 1 then
   vim.opt.pumborder = vim.o.winborder
 
-  if vim.env.PLUG ~= "0" then
-    require("pack").setup(require("specs"))
-    vim.cmd.colorscheme("nightfox")
-  end
+  require("pack").setup(require("specs"))
+  vim.cmd.colorscheme("nightfox")
 else
   print("nvim-0.12 is required to use vim.pack")
 end
