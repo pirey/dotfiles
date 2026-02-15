@@ -497,12 +497,6 @@ local dadbod_ui = {
     })
   end,
 }
-local showkeys = {
-  src = "nvzone/showkeys",
-  config = function()
-    require("showkeys").setup()
-  end,
-}
 local curl = {
   src = "oysandvik94/curl.nvim",
   dependencies = { { src = "nvim-lua/plenary.nvim" } },
@@ -590,29 +584,18 @@ local scratch = {
   end,
 }
 
-local theme_onedark = require("themes.onedark")
-local theme_iceberg = require("themes.iceberg")
-local theme_vscode = require("themes.vscode")
-local theme_tokyonight = { src = "folke/tokyonight.nvim" }
-local theme_rosepine = { src = "rose-pine/neovim", name = "rose-pine" }
-local theme_modus = { src = "miikanissi/modus-themes.nvim" }
-local theme_nightfox = { src = "EdenEast/nightfox.nvim" }
-local theme_vague = { src = "vague-theme/vague.nvim" }
-local theme_catppuccin = { src = "catppuccin/nvim", name = "catppuccin" }
-local theme_kanagawa = { src = "rebelot/kanagawa.nvim" }
-
 return {
   -- THEMES
-  theme_onedark,
-  theme_iceberg,
-  theme_vscode,
-  theme_tokyonight,
-  theme_rosepine,
-  theme_modus,
-  theme_nightfox,
-  theme_vague,
-  theme_catppuccin,
-  theme_kanagawa,
+  -- require("themes.onedark"),
+  -- require("themes.iceberg"),
+  -- require("themes.vscode"),
+  -- { src = "folke/tokyonight.nvim" },
+  -- { src = "rose-pine/neovim", name = "rose-pine" },
+  -- { src = "miikanissi/modus-themes.nvim" },
+  -- { src = "vague-theme/vague.nvim" },
+  -- { src = "catppuccin/nvim", name = "catppuccin" },
+  -- { src = "rebelot/kanagawa.nvim" },
+  { src = "EdenEast/nightfox.nvim" },
 
   -- EDITING
   sidescroll,
@@ -649,7 +632,6 @@ return {
   scratch,
   wakatime,
   colorizer,
-  showkeys,
   orgmode,
   dadbod_ui,
   curl,
