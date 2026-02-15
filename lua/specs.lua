@@ -103,21 +103,6 @@ local diffview = {
     )
   end,
 }
-local oil = {
-  src = "stevearc/oil.nvim",
-  config = function()
-    require("oil").setup({
-      view_options = { show_hidden = true },
-      keymaps = {
-        ["<localleader>t"] = { "actions.open_terminal", mode = "n" },
-        [">"] = { "actions.select", mode = "n" },
-        ["<"] = { "actions.parent", mode = "n" },
-      },
-    })
-    vim.keymap.set("n", "-", "<cmd>Oil<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>-", "<cmd>Oil .<cr>", { silent = true })
-  end,
-}
 local treesj = {
   src = "Wansmer/treesj",
   config = function()
@@ -226,7 +211,10 @@ local mini_files = {
   src = "nvim-mini/mini.files",
   config = function()
     local mf = require("mini.files")
-    mf.setup({ content = { prefix = function() end } })
+    mf.setup({
+      content = { prefix = function() end },
+      options = { use_as_default_explorer = true },
+    })
 
     vim.keymap.set("n", "<leader>E", function()
       if not mf.close() then
@@ -240,6 +228,29 @@ local mini_files = {
         mf.reveal_cwd()
       end
     end, { silent = true, desc = "Open file browser (buffer dir)" })
+
+    -- Terminal keymaps via autocmd for mini.files buffers
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesBufferCreate",
+      callback = function(args)
+        local buf_id = args.data.buf_id
+
+        local function open_terminal(key, cmd, desc)
+          vim.keymap.set("n", key, function()
+            local path = mf.get_fs_entry().path
+            local dir = vim.fn.isdirectory(path) == 1 and path or vim.fn.fnamemodify(path, ":h")
+            mf.close()
+            vim.schedule(function()
+              vim.cmd(cmd .. " | lcd " .. dir .. " | term")
+            end)
+          end, { buffer = buf_id, desc = desc })
+        end
+
+        open_terminal("<localleader>tv", "rightbelow vnew", "Open terminal (vertical)")
+        open_terminal("<localleader>ts", "rightbelow new", "Open terminal (horizontal)")
+        open_terminal("<localleader>tt", "tabnew", "Open terminal (tab)")
+      end,
+    })
   end,
 }
 local mini_pick = {
@@ -612,7 +623,6 @@ return {
   winpick,
   winshift,
   diffview,
-  oil,
   outline,
   mini_files,
   mini_pick,
