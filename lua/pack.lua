@@ -56,7 +56,7 @@ local function setup_user_commands()
     nargs = "*",
     complete = specs_completion,
   })
-  vim.api.nvim_create_user_command("PackClean", M.clean, { desc = "Clean all packages" })
+  vim.api.nvim_create_user_command("PackClean", M.clean, { desc = "Clean unused packages" })
   vim.api.nvim_create_user_command("PackInfo", function(opts)
     M.info({ packages = opts.fargs })
   end, {

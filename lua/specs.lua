@@ -597,15 +597,15 @@ local scratch = {
 
 return {
   -- THEMES
-  -- require("themes.onedark"),
-  -- require("themes.iceberg"),
-  -- require("themes.vscode"),
-  -- { src = "folke/tokyonight.nvim" },
-  -- { src = "rose-pine/neovim", name = "rose-pine" },
-  -- { src = "miikanissi/modus-themes.nvim" },
-  -- { src = "vague-theme/vague.nvim" },
-  -- { src = "catppuccin/nvim", name = "catppuccin" },
-  -- { src = "rebelot/kanagawa.nvim" },
+  require("themes.onedark"),
+  require("themes.iceberg"),
+  require("themes.vscode"),
+  { src = "folke/tokyonight.nvim" },
+  { src = "rose-pine/neovim", name = "rose-pine" },
+  { src = "miikanissi/modus-themes.nvim" },
+  { src = "vague-theme/vague.nvim" },
+  { src = "catppuccin/nvim", name = "catppuccin" },
+  { src = "rebelot/kanagawa.nvim" },
   { src = "EdenEast/nightfox.nvim" },
 
   -- EDITING
