@@ -116,10 +116,7 @@ fi
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
-export PATH=$PATH:~/.local/opt/nvim/bin
 export PATH=$PATH:~/.local/share/nvim/mason/bin
-export PATH=$PATH:~/.local/opt/go/bin
-export PATH=$PATH:~/.local/opt/helix
 export PATH=$PATH:~/.local/bin
 
 export NVM_DIR="$HOME/.nvm"
