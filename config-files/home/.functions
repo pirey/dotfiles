@@ -10,4 +10,8 @@ download-neovim-nightly() {
     "$HOME/dotfiles/scripts/download-neovim-nightly.sh" "$@"
 }
 
+download-bin() {
+    "$HOME/dotfiles/scripts/download-binary.sh" "$@"
+}
+
 # vim: ft=sh
