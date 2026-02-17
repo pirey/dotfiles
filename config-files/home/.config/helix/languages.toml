@@ -1,0 +1,7 @@
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server"]

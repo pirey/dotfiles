@@ -7,15 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "poimandres",
+  "edit_predictions": {
+    "provider": "supermaven"
+  },
+  "buffer_font_family": ".ZedMono",
+  "theme": "Nightfox",
   "title_bar": {
     "show_sign_in": false
   },
-  "features": {
-    "edit_prediction_provider": "supermaven"
-  },
   "agent_servers": {
     "OpenCode": {
+      "type": "custom",
       "command": "opencode",
       "args": ["acp"]
     }
