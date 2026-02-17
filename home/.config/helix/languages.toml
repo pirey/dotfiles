@@ -5,3 +5,9 @@ language-servers = ["typescript-language-server"]
 [[language]]
 name = "tsx"
 language-servers = ["typescript-language-server"]
+[language-server.phpactor]
+command = "phpactor"
+args = [ "language-server" ]
+[[language]]
+name = "php"
+language-servers = [ "phpactor" ]
