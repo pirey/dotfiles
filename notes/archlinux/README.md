@@ -1,3 +1,4 @@
+# Archlinux dotfiles (legacy)
 
 ## link config files
 + `git clone https://github.com/pirey/dotfiles`

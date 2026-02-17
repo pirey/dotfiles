@@ -1,3 +1,5 @@
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+
 clone-git-repo() {
     "$HOME/dotfiles/scripts/clone-git-repo.sh" "$@"
 }
@@ -12,6 +14,10 @@ download-neovim-nightly() {
 
 download-bin() {
     "$HOME/dotfiles/scripts/download-binary.sh" "$@"
+}
+
+print-colors() {
+    "$HOME/dotfiles/scripts/print-colors.sh" "$@"
 }
 
 # vim: ft=sh

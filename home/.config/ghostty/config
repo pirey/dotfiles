@@ -1,6 +1,7 @@
 # reload config: ctrl+shift+, (Linux) or cmd+shift+, (macOS)
 # split: cmd+shift+d (macOS)
 # vsplit: cmd+d (macOS)
+# jump split: cmd+] and cmd+[ (macOS)
 
 # theme = Dark+
 # theme = tokyonight

@@ -1,1 +1,0 @@
-test -r /home/pirey/.opam/opam-init/init.zsh && . /home/pirey/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
