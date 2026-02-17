@@ -17,7 +17,7 @@
 ## Install packages
 
 - Run `./setup.sh`
-- Read the [config file manual](../config-files/README.md)
+- Read the [config file manual](../../README.md)
 
 ## GNOME settings
 
