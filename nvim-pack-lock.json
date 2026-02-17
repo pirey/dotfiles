@@ -53,10 +53,6 @@
       "rev": "570d18489cf82d435566dc9e94530b67939e95f4",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
-    "mini.files": {
-      "rev": "fafacfecdd6c5a66bb10d173a749f3c098e84498",
-      "src": "https://github.com/nvim-mini/mini.files"
-    },
     "mini.omnipick": {
       "rev": "a0f764df79c0e0dda1e34e4422660bf1178cd5b1",
       "src": "https://github.com/pirey/mini.omnipick"
@@ -92,6 +88,10 @@
     "nvim-treesitter": {
       "rev": "4d9466677a5ceadef104eaa0fe08d60d91c4e9a7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+      "src": "https://github.com/stevearc/oil.nvim"
     },
     "onedark.nvim": {
       "rev": "213c23ae45a04797572242568d5d51937181792d",
