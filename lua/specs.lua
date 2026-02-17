@@ -112,6 +112,7 @@ local treesj = {
 local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
+    local ts = require("nvim-treesitter")
     local languages = {
       "haskell",
       "nix",
@@ -123,14 +124,28 @@ local treesitter = {
       "blade",
       "php",
     }
-    require("nvim-treesitter").install(languages)
+    local activate_on_ft = vim.tbl_extend("force", languages, {
+      "typescriptreact",
+      "javascriptreact",
+      "opencode_output",
+    })
+
+    local installed = ts.get_installed()
+    local task = ts.install(languages)
+
+    task:await(function(err)
+      if err then
+        vim.notify("Treesitter install failed: " .. err, "error")
+      else
+        local installed_after = ts.get_installed()
+        if #installed ~= #installed_after then
+          vim.notify("Treesitter parsers installed!", "info")
+        end
+      end
+    end)
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = vim.list_extend(languages, {
-        "typescriptreact",
-        "javascriptreact",
-        "opencode_output",
-      }),
+      pattern = activate_on_ft,
       callback = function()
         vim.treesitter.start()
       end,
