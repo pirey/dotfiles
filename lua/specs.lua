@@ -127,7 +127,9 @@ local treesitter = {
     local activate_on_ft = vim.tbl_extend("force", languages, {
       "typescriptreact",
       "javascriptreact",
+      "markdown",
       "opencode_output",
+      "c",
     })
 
     local installed = ts.get_installed()

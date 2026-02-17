@@ -10,9 +10,10 @@ Minimal. Functional.
   "folke/tokyonight.nvim",
   "rose-pine/neovim",
   "miikanissi/modus-themes.nvim",
-  "EdenEast/nightfox.nvim",
   "vague-theme/vague.nvim",
   "catppuccin/nvim",
+  "rebelot/kanagawa.nvim",
+  "EdenEast/nightfox.nvim",
 
   -- EDITING
   "pirey/vim-sidescroll",
@@ -29,7 +30,6 @@ Minimal. Functional.
   "pirey/winpick.nvim",
   "sindrets/winshift.nvim",
   "sindrets/diffview.nvim",
-  "stevearc/oil.nvim",
   "hedyhli/outline.nvim",
   "nvim-mini/mini.files",
   "nvim-mini/mini.pick",
@@ -48,8 +48,7 @@ Minimal. Functional.
   -- ETC
   "pirey/scratch.nvim",
   "wakatime/vim-wakatime",
-  "norcalli/nvim-colorizer.lua",
-  "nvzone/showkeys",
+  "catgoose/nvim-colorizer.lua",
   "nvim-orgmode/orgmode",
   "kristijanhusak/vim-dadbod-ui",
   "oysandvik94/curl.nvim",
