@@ -154,3 +154,9 @@ export FZF_DEFAULT_COMMAND='fd --type file --strip-cwd-prefix --follow --hidden 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 . "$HOME/.cargo/env"
+
+# tmux
+if [ -z "$TMUX" ]; then
+    export PARENT_TERM_PROGRAM="$TERM_PROGRAM"
+fi
+
