@@ -80,11 +80,10 @@ local diffview = {
       default_args = {
         DiffviewFileHistory = { "--max-count=100" },
       },
-      file_panel = { listing_style = "list", win_config = { position = "top", height = 16 } },
-      file_history_panel = { win_config = { position = "top", height = 16 } },
+      file_panel = { listing_style = "list" },
       keymaps = {
         file_panel = {
-          { "n", "cc", "<cmd>Git commit<cr>", { desc = "Commit staged changes" } },
+          { "n", "cc", "<cmd>top Git commit<cr>", { desc = "Commit staged changes" } },
           { "n", "gq", "<cmd>tabclose<cr>", { desc = "Close tab" } },
         },
         file_history_panel = {
@@ -112,27 +111,29 @@ local treesj = {
 }
 local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
-  version = "master",
-  -- build = ":TSUpdate", -- TODO: run :TSUpdate whenever pack updated/installed
   config = function()
-    require("nvim-treesitter.configs").setup({
-      modules = {},
-      sync_install = false,
-      ignore_install = {},
-      auto_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = {
-        "haskell",
-        "nix",
-        "javascript",
-        "typescript",
-        "tsx",
-        "lua",
-        "html",
-        "blade",
-        "php",
-      },
+    local languages = {
+      "haskell",
+      "nix",
+      "javascript",
+      "typescript",
+      "tsx",
+      "lua",
+      "html",
+      "blade",
+      "php",
+    }
+    require("nvim-treesitter").install(languages)
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = vim.list_extend(languages, {
+        "typescriptreact",
+        "javascriptreact",
+        "opencode_output",
+      }),
+      callback = function()
+        vim.treesitter.start()
+      end,
     })
   end,
 }
