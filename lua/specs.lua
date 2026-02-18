@@ -72,19 +72,6 @@ local winshift = {
     vim.keymap.set("n", "<c-w>X", "<cmd>WinShift swap<cr>", { silent = true, desc = "Swap window" })
   end,
 }
--- EXPERIMENTAL
--- :CodeDiff
--- :CodeDiff history
--- :CodeDiff history %
-local codediff = {
-  src = "esmuellert/codediff.nvim",
-  dependencies = { { src = "MunifTanjim/nui.nvim" }},
-  config = function()
-    vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gy", "<cmd>DiffviewFileHistory<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
-  end,
-}
 local diffview = {
   src = "sindrets/diffview.nvim",
   config = function()
@@ -622,7 +609,6 @@ return {
   -- UI
   winpick,
   winshift,
-  codediff,
   diffview,
   outline,
   oil,
