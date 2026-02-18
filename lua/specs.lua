@@ -267,7 +267,8 @@ local mini_pick = {
 
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(items, opts, on_choice)
-      local cursor_anchor = vim.fn.screenrow() < 0.5 * vim.o.lines and "NW" or "SW"
+      local cursor_anchor = "NW"
+      -- local cursor_anchor = vim.fn.screenrow() < 0.5 * vim.o.lines and "NW" or "SW"
       return pick.ui_select(items, opts, on_choice, {
         options = { content_from_bottom = cursor_anchor == "SW" },
         window = {
