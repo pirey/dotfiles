@@ -94,7 +94,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "ca35dc5184327f9e19b70932190a256235acecb1",
+      "rev": "2bd9b9b4f12eed175fba35ca2db8e8584546a4ec",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -106,7 +106,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "4e4be32231c771d9e97ba6371b8f230c1b15aceb",
+      "rev": "05747a21adfeea5c689202758ee845a4094956a1",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
@@ -142,7 +142,7 @@
       "src": "https://github.com/Wansmer/treesj"
     },
     "vague.nvim": {
-      "rev": "e99a0380acc48665e77766d786155e7b126eb34a",
+      "rev": "24cd29d277bf5259ab347c49d223d8cfb9057565",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-abolish": {
