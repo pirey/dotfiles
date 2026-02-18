@@ -78,7 +78,7 @@
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
-      "rev": "a3d17105a79fc12055c2a0d732665d9c2b1c2dc3",
+      "rev": "486474c2ace8d78d28995074dbdbe29011bc63d0",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
