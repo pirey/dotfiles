@@ -86,7 +86,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "ecdae44baefeffceade8b0c752d80ececad28e76",
+      "rev": "3edb01f912867603c2aef9079f208f0244c0885b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -98,11 +98,11 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "3fd1bd6b3513815590c66245de7668269c889c29",
+      "rev": "ba94536734b4f909634aa7d058aa15e7f5151333",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "ccbcb6be070bb8383ed686008f69381f217d8681",
+      "rev": "f3ea61f6d71486c9062d40efe3c882050758e9b3",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
