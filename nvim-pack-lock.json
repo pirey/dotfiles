@@ -98,11 +98,11 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "1b5938805ff3220f07a446e629d6e41d32efe3ac",
+      "rev": "3fd1bd6b3513815590c66245de7668269c889c29",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "26aa4fa26c570da6eb6798fb1b8df364204c3d99",
+      "rev": "ccbcb6be070bb8383ed686008f69381f217d8681",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
