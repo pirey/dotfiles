@@ -236,7 +236,7 @@ local oil = {
         ["h"] = { "actions.parent", mode = "n" },
       },
     })
-    vim.keymap.set("n", "<leader>E", "<cmd>Oil<cr>", { silent = true })
+    vim.keymap.set("n", "-", "<cmd>Oil<cr>", { silent = true })
     vim.keymap.set("n", "<leader>e", "<cmd>Oil .<cr>", { silent = true })
   end,
 }
