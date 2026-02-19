@@ -5,6 +5,12 @@
       "{ children }: { children: ReactNode }"
     ]
   },
+  "className shortcut": {
+    "prefix": "cl",
+    "body": [
+      "className=\"$1\""
+    ]
+  },
   "className prop": {
     "prefix": "className",
     "body": [
