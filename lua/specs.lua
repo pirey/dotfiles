@@ -246,6 +246,47 @@ local oil = {
     vim.keymap.set("n", "<leader>e", "<cmd>Oil .<cr>", { silent = true })
   end,
 }
+local fzf_lua = {
+  src = "ibhagwan/fzf-lua",
+  config = function()
+    local fzf = require("fzf-lua")
+    fzf.setup({
+      winopts = {
+        -- split = "belowright new | wincmd J",
+        -- width = math.min(100 / vim.o.columns, 0.95),
+        -- preview = {
+        --   layout = "flex",
+        --   vertical = "down:60%",
+        -- },
+      },
+      oldfiles = {
+        include_current_session = true,
+        cwd_only = true,
+      },
+    })
+    fzf.register_ui_select()
+
+    vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
+    vim.keymap.set("n", "<leader>f", "<cmd>FzfLua combine pickers=git_status;files<cr>")
+    vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
+    vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
+    vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
+    vim.keymap.set("n", "<leader>s", "<cmd>FzfLua lsp_document_symbols<cr>")
+    vim.keymap.set("n", "<leader>r", "<cmd>FzfLua lsp_references<cr>")
+    vim.keymap.set("n", "<leader>h", "<cmd>FzfLua helptags<cr>")
+    vim.keymap.set("n", "<leader>l", "<cmd>FzfLua highlights<cr>")
+    vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>")
+    vim.keymap.set("n", "<leader>?", "<cmd>FzfLua blines<cr>")
+    vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
+    -- vim.keymap.set("n", "<leader>E", "<cmd>FzfLua lsp_workspace_diagnostics<cr>")
+    vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
+    vim.keymap.set("n", "<leader><leader>d", function()
+      fzf.fzf_exec("fd --type d", {
+        actions = fzf.defaults.actions.files,
+      })
+    end)
+  end,
+}
 local mini_pick = {
   src = "nvim-mini/mini.pick",
   dependencies = {
@@ -290,9 +331,9 @@ local mini_pick = {
       })
     end
 
+    vim.keymap.set("n", "<leader>.", "<cmd>Pick resume<cr>", { silent = true })
     vim.keymap.set("n", "<leader>k", "<cmd>Pick keymaps<cr>", { silent = true })
     vim.keymap.set("n", "<leader>b", "<cmd>Pick buffers<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>.", "<cmd>Pick resume<cr>", { silent = true })
     vim.keymap.set("n", "<leader>d", "<cmd>Pick diagnostic scope='current'<cr>", { silent = true })
     vim.keymap.set("n", "<leader>s", "<cmd>Pick lsp scope='document_symbol'<cr>", { silent = true })
     vim.keymap.set("n", "<leader>r", "<cmd>Pick lsp scope='references'<cr>", { silent = true })
@@ -620,7 +661,8 @@ return {
   diffview,
   outline,
   oil,
-  mini_pick,
+  fzf_lua,
+  -- mini_pick,
   gitsigns,
   grug_far,
 
