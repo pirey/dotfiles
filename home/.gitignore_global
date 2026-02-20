@@ -24,3 +24,5 @@ bower_modules/*
 
 .php-cs-fixer.cache
 dump.rdb
+
+.env
