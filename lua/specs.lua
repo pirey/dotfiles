@@ -253,7 +253,6 @@ local fzf_lua = {
     fzf.setup({
       winopts = {
         backdrop = 100,
-        border = vim.o.winborder,
         -- fullscreen = true,
         -- split = "belowright new | wincmd J",
         -- width = math.min(100 / vim.o.columns, 0.95),
