@@ -633,7 +633,7 @@ local opencode = {
   dependencies = {
     { src = "nvim-lua/plenary.nvim" },
     { src = "saghen/blink.cmp", version = "v1.9.1" },
-    { src = "nvim-mini/mini.pick" },
+    { src = "ibhagwan/fzf-lua" },
   },
   config = function()
     require("opencode").setup({
