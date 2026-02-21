@@ -51,7 +51,7 @@ export PHP_INI_SCAN_DIR="/Users/yeri/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 eval "$(direnv hook zsh)"
 
 # export ESCDELAY=0
-export FZF_DEFAULT_OPTS='--reverse --cycle --color=16,fg:8,fg+:7,bg:-1,bg+:-1,gutter:-1,pointer:7,info:-1,border:8,prompt:-1,header:-1'
+export FZF_DEFAULT_OPTS='--reverse --gutter=" " --cycle --color=16,fg:8,fg+:7,bg:-1,bg+:-1,gutter:-1,pointer:7,info:-1,border:8,prompt:-1,header:-1'
 export FZF_DEFAULT_COMMAND='fd --type file --strip-cwd-prefix --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
