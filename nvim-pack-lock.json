@@ -94,7 +94,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "ba94536734b4f909634aa7d058aa15e7f5151333",
+      "rev": "a67a7daee112314b1e2e40fc42223ccf4f722e13",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
@@ -130,7 +130,7 @@
       "src": "https://github.com/Wansmer/treesj"
     },
     "vague.nvim": {
-      "rev": "24cd29d277bf5259ab347c49d223d8cfb9057565",
+      "rev": "4abd79d6fbaca57bf437763d0b5bed364e4512bd",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-abolish": {
