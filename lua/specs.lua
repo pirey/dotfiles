@@ -252,12 +252,25 @@ local fzf_lua = {
     local fzf = require("fzf-lua")
     fzf.setup({
       winopts = {
+        backdrop = 100,
+        border = vim.o.winborder,
+        -- fullscreen = true,
         -- split = "belowright new | wincmd J",
         -- width = math.min(100 / vim.o.columns, 0.95),
         -- preview = {
-        --   layout = "flex",
+        --   layout = "vertical",
         --   vertical = "down:60%",
         -- },
+      },
+      keymap = {
+        builtin = {
+          ["<c-d>"] = "preview-page-down",
+          ["<c-u>"] = "preview-page-up",
+        },
+        fzf = {
+          ["ctrl-d"] = "preview-page-down",
+          ["ctrl-u"] = "preview-page-up",
+        },
       },
       oldfiles = {
         include_current_session = true,
@@ -267,7 +280,8 @@ local fzf_lua = {
     fzf.register_ui_select()
 
     vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
-    vim.keymap.set("n", "<leader>f", "<cmd>FzfLua combine pickers=git_status;files<cr>")
+    vim.keymap.set("n", "<leader>f", "<cmd>FzfLua combine pickers=oldfiles;files<cr>")
+    vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
     vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
     vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
     vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
@@ -275,16 +289,34 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>r", "<cmd>FzfLua lsp_references<cr>")
     vim.keymap.set("n", "<leader>h", "<cmd>FzfLua helptags<cr>")
     vim.keymap.set("n", "<leader>l", "<cmd>FzfLua highlights<cr>")
-    vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>")
-    vim.keymap.set("n", "<leader>?", "<cmd>FzfLua blines<cr>")
+    vim.keymap.set("n", "<leader>,", "<cmd>FzfLua live_grep<cr>")
+    vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
     vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
-    -- vim.keymap.set("n", "<leader>E", "<cmd>FzfLua lsp_workspace_diagnostics<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
+    -- vim.keymap.set("n", "<leader><leader>d", function()
+    --   fzf.fzf_exec("fd --type d", {
+    --     actions = fzf.defaults.actions.files,
+    --   })
+    -- end)
     vim.keymap.set("n", "<leader><leader>d", function()
       fzf.fzf_exec("fd --type d", {
-        actions = fzf.defaults.actions.files,
+        prompt = "Directories ",
+        actions = {
+          ["default"] = function(selected)
+            vim.cmd("edit " .. selected[1])
+          end,
+          ["ctrl-s"] = function(selected)
+            vim.cmd("split " .. selected[1])
+          end,
+          ["ctrl-v"] = function(selected)
+            vim.cmd("vsplit " .. selected[1])
+          end,
+          ["ctrl-t"] = function(selected)
+            vim.cmd("tabedit " .. selected[1])
+          end,
+        },
       })
-    end)
+    end, { desc = "Find Directories" })
   end,
 }
 local mini_pick = {

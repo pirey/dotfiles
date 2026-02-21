@@ -53,21 +53,9 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mini.extra": {
-      "rev": "570d18489cf82d435566dc9e94530b67939e95f4",
-      "src": "https://github.com/nvim-mini/mini.extra"
-    },
-    "mini.omnipick": {
-      "rev": "a0f764df79c0e0dda1e34e4422660bf1178cd5b1",
-      "src": "https://github.com/pirey/mini.omnipick"
-    },
     "mini.pick": {
       "rev": "4ad37ade984e69c43227b82ccdca5a92a22886de",
       "src": "https://github.com/nvim-mini/mini.pick"
-    },
-    "mini.visits": {
-      "rev": "f6b86565acc690aa111627433906be3d38e2ba81",
-      "src": "https://github.com/nvim-mini/mini.visits"
     },
     "modus-themes.nvim": {
       "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
@@ -90,7 +78,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "3edb01f912867603c2aef9079f208f0244c0885b",
+      "rev": "fcd51bbe9245aa9b79a3930ed9ac42e16e1cf33f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
