@@ -70,7 +70,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "b7dcde3e6195b43476ae799720b177aedc16d44c",
+      "rev": "ab5139c99df944479e5a26495a37840fcbb1d512",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -82,7 +82,7 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "oil.nvim": {
-      "rev": "48fc83a9978c5f25833634700c08be583ee78eb7",
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "onedark.nvim": {
@@ -90,7 +90,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "ee7b443c4e749059713ce232ffe19c5521bc0dad",
+      "rev": "f18d895195adef42b9d321a9049dfea0c397ab6f",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
