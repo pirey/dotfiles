@@ -19,12 +19,6 @@ local fugitive = {
   end,
 }
 local abolish = { src = "tpope/vim-abolish" }
-local autotag = {
-  src = "windwp/nvim-ts-autotag",
-  config = function()
-    require("nvim-ts-autotag").setup()
-  end,
-}
 local mason = {
   src = "mason-org/mason.nvim",
   config = function()
@@ -694,7 +688,6 @@ return {
   surround,
   fugitive,
   abolish,
-  autotag,
   treesj,
   conform,
   nvim_lint,
