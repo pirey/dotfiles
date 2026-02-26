@@ -18,7 +18,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "curl.nvim": {
-      "rev": "3ee14fbafc8169fc803e80562ce7ac5b4474bdff",
+      "rev": "f3c258e57d56a6158733a9e3bb5eeb931f204d19",
       "src": "https://github.com/oysandvik94/curl.nvim"
     },
     "diffview.nvim": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "72ec224172eea757eab6b349775ad5bada7521d7",
+      "rev": "cfc085749d9232373fc6d8cf3a964c5601a7816e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "467e611273b40b47df54c1db1d31d1b9d085e868",
+      "rev": "ae0d66307a5b431c7b633806eb27769334ac5f05",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
@@ -70,11 +70,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ab5139c99df944479e5a26495a37840fcbb1d512",
+      "rev": "a40d22e75d951ad2fcf236ceb013d88f81d2cc9a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "d660b7c002f3922b6bb3da47206645488a698426",
+      "rev": "0f5b204603234a523fafa8f6b860fd36f80a23f6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
