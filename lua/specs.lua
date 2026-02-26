@@ -569,6 +569,7 @@ local nvim_lint = {
 local colorizer = {
   src = "catgoose/nvim-colorizer.lua",
   config = function()
+    vim.cmd("set termguicolors")
     require("colorizer").setup()
   end,
 }
