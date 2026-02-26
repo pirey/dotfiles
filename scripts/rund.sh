@@ -65,7 +65,7 @@ list_dir() {
 if [ "$1" = "--" ]; then
     shift
     [ $# -gt 0 ] || usage
-    base=$(sanitize_name "$*")
+    base=$(printf "%s\n" "$*" | cksum | awk '{print $1}')
     [ -n "$base" ] || base="proc"
     name=$(unique_name "$base")
     run_cmd "$name" -- "$@"
