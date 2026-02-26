@@ -20,4 +20,8 @@ print-colors() {
     "$HOME/dotfiles/scripts/print-colors.sh" "$@"
 }
 
+function rund() {
+    "$HOME/dotfiles/scripts/rund.sh" "$@"
+}
+
 # vim: ft=sh
