@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "d637241b34f2cb012309baebb2e35e440a946d8b",
+      "rev": "29ee11c06e1b8c354cc5a3212e6d24c9b8ed4f22",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -70,11 +70,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "f386df19b145607a33885b6110ef5c04faae42cb",
+      "rev": "f2193125da0bff2e4eae8e0a45e343ec9bca4c72",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "b9171ede5de41b3f2dfa33fe33ebd585d795f928",
+      "rev": "ae2081cfcd3719d74b600f8377e4a99d1ec19c4a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
