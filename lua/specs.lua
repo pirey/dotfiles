@@ -274,15 +274,7 @@ local fzf_lua = {
     fzf.register_ui_select()
 
     vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
-    vim.keymap.set("n", "<leader>f", function()
-      fzf.combine({
-        pickers = "oldfiles;files",
-        winopts = {
-          title = " Files ",
-        }
-      })
-    end)
-    vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
+    vim.keymap.set("n", "<leader>f", '<cmd>FzfLua combine pickers=oldfiles;files winopts.title="\\ Files\\ "<cr>')
     vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
     vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
     vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
@@ -294,11 +286,7 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
     vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
-    -- vim.keymap.set("n", "<leader><leader>d", function()
-    --   fzf.fzf_exec("fd --type d", {
-    --     actions = fzf.defaults.actions.files,
-    --   })
-    -- end)
+    vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
     vim.keymap.set("n", "<leader><leader>d", function()
       fzf.fzf_exec("fd --type d", {
         prompt = "Directories ",
