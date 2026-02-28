@@ -285,8 +285,10 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>,", "<cmd>FzfLua live_grep<cr>")
     vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
     vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
+    vim.keymap.set("n", "<leader>u", "<cmd>FzfLua undotree<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
     vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
+    vim.keymap.set("n", "<leader><leader>j", "<cmd>FzfLua jumps<cr>")
     vim.keymap.set("n", "<leader><leader>d", function()
       fzf.fzf_exec("fd --type d", {
         prompt = "Directories ",
@@ -669,7 +671,18 @@ return {
   { src = "vague-theme/vague.nvim" },
   { src = "catppuccin/nvim", name = "catppuccin" },
   { src = "rebelot/kanagawa.nvim" },
-  { src = "EdenEast/nightfox.nvim" },
+  {
+    src = "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup({
+        groups = {
+          all = {
+
+          }
+        }
+      })
+    end
+  },
 
   -- EDITING
   sidescroll,
