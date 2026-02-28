@@ -232,7 +232,7 @@ local oil = {
     require("oil").setup({
       view_options = { show_hidden = true },
       keymaps = {
-        ["<localleader>t"] = { "actions.open_terminal", mode = "n" },
+        ["<localleader>tt"] = { "actions.open_terminal", mode = "n" },
         ["l"] = { "actions.select", mode = "n" },
         ["h"] = { "actions.parent", mode = "n" },
       },
