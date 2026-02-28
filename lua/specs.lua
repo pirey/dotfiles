@@ -124,13 +124,13 @@ local treesitter = {
       "blade",
       "php",
     }
-    local activate_on_ft = vim.tbl_extend("force", languages, {
+    local activate_on_ft = vim.list_extend({
       "typescriptreact",
       "javascriptreact",
       "markdown",
       "opencode_output",
       "c",
-    })
+    }, languages)
 
     local installed = ts.get_installed()
     local task = ts.install(languages)
