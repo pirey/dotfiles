@@ -7,6 +7,7 @@ return {
           ["@tag.builtin.tsx"] = { link = "Keyword" },
           ["@type.tsx"] = { link = "Keyword" },
           ["@type.javascript"] = { link = "Keyword" },
+          ["@type.typescript"] = { link = "@type.builtin" },
         },
       },
     })
