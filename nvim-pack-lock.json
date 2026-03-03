@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "b56cd2ffbce57bfd9133a645bd02cd86895a7e3f",
+      "rev": "b809639ed4dd63951c107543861ce17ab8bab3f9",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "3c3a9dc9bda4a926bc84b2a1be783374546c252c",
+      "rev": "4770635b4903d849fb30a9e45ac5da5eb5c36a16",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
