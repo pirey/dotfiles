@@ -10,7 +10,7 @@
   "edit_predictions": {
     "provider": "supermaven"
   },
-  "buffer_font_family": ".ZedMono",
+  "buffer_font_family": "Ioskeley Mono",
   "theme": "Nightfox",
   "title_bar": {
     "show_sign_in": false
