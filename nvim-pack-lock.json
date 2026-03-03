@@ -38,7 +38,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
-      "rev": "9370422e5cdd55321c0b8c4880082c5fd4e52e99",
+      "rev": "ac52ee2d87399dfd7b0d59d5b1d2bbaf2a4028f1",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "iceberg.vim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "a6919ed9aadd0a8b2c11f264c9cbd41316dabf73",
+      "rev": "3c3a9dc9bda4a926bc84b2a1be783374546c252c",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
