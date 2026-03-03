@@ -106,7 +106,7 @@ local treesj = {
   src = "Wansmer/treesj",
   config = function()
     require("treesj").setup({ use_default_keymaps = false })
-    vim.keymap.set("n", "<leader>j", "<cmd>TSJToggle<cr>", { silent = true, desc = "Join/split line" })
+    vim.keymap.set("n", "<c-j>", "<cmd>TSJToggle<cr>", { silent = true, desc = "Join/split line" })
   end,
 }
 local treesitter = {
@@ -280,9 +280,9 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
     vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
     vim.keymap.set("n", "<leader>u", "<cmd>FzfLua undotree<cr>")
+    vim.keymap.set("n", "<leader>j", "<cmd>FzfLua jumps<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
     vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
-    vim.keymap.set("n", "<leader><leader>j", "<cmd>FzfLua jumps<cr>")
     vim.keymap.set("n", "<leader><leader>d", function()
       fzf.fzf_exec("fd --type d", {
         prompt = "Directories ",
