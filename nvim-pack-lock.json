@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "catppuccin": {
-      "rev": "0a5de4da015a175f416d6ef1eda84661623e0500",
+      "rev": "c4d475e4b5684747cde9b3f849186af7837d4397",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "21eb58142c8946da56a11341bcb5fe09eed23062",
+      "rev": "1ace5df4a1e55e5bbd8c2b310284d8264aede0fe",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "3e890ae389ae6d01bbb477f32a54216d20c55e47",
+      "rev": "fbad9da6c08dfe794c4d12e42f85f37029fef8a2",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
@@ -122,7 +122,7 @@
       "src": "https://github.com/Wansmer/treesj"
     },
     "vague.nvim": {
-      "rev": "4abd79d6fbaca57bf437763d0b5bed364e4512bd",
+      "rev": "2baf167930cf2fa9c6aa7de08a4522e9fb527b33",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-abolish": {
