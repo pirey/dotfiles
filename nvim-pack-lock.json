@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "1ace5df4a1e55e5bbd8c2b310284d8264aede0fe",
+      "rev": "a267072fa3d0c79c90c4d1af5e3871e51180aa5c",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
@@ -70,7 +70,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "rev": "2b87d107942b9eebef768512f5849330335a9493",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "fbad9da6c08dfe794c4d12e42f85f37029fef8a2",
+      "rev": "cad16eae20755d4dd190b276e61293967277505e",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
