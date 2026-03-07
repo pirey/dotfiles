@@ -74,7 +74,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "ebe76eb800d4e8df754fc96f8a7b84f578224a97",
+      "rev": "4110daee15fdf1a2030a2c989e6f240b31d6f5e6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
