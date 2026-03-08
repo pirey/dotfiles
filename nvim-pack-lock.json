@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "catppuccin": {
-      "rev": "c4d475e4b5684747cde9b3f849186af7837d4397",
+      "rev": "12c004cde3f36cb1d57242f1e6aac46b09a0e5b4",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "1eba927866251bae1b61dffc5b673b8dbd0f3f48",
+      "rev": "d9508cc1d05ffcdc91a32dfd38fc1013a56b20da",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -62,7 +62,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "710b649d795b8661fabad7342a5d2eab2d92184e",
+      "rev": "ef211089af881bea206c7aa3f2693a81feee7e90",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-lint": {
@@ -74,7 +74,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "4110daee15fdf1a2030a2c989e6f240b31d6f5e6",
+      "rev": "5cb05e1b0fa3c469958a2b26f36b3fe930af221c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -142,7 +142,7 @@
       "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
     },
     "vim-fugitive": {
-      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
     },
     "vim-repeat": {
