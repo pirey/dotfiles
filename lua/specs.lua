@@ -278,7 +278,7 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>l", "<cmd>FzfLua highlights<cr>")
     vim.keymap.set("n", "<leader>,", "<cmd>FzfLua live_grep<cr>")
     vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
-    vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles<cr>")
+    vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles include_current_session=true cwd_only=true<cr>")
     vim.keymap.set("n", "<leader>u", "<cmd>FzfLua undotree<cr>")
     vim.keymap.set("n", "<leader>j", "<cmd>FzfLua jumps<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
