@@ -1,5 +1,8 @@
 local wakatime = { src = "wakatime/vim-wakatime" }
-local surround = { src = "tpope/vim-surround", dependencies = { { src = "tpope/vim-repeat" } } }
+local surround = {
+  src = "tpope/vim-surround",
+  dependencies = { { src = "tpope/vim-repeat" } },
+}
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -589,10 +592,10 @@ local scratch = {
 
 return {
   -- THEMES
+  require("themes.nightfox"),
   require("themes.onedark"),
   require("themes.iceberg"),
   require("themes.vscode"),
-  require("themes.nightfox"),
   { src = "folke/tokyonight.nvim" },
   { src = "rose-pine/neovim", name = "rose-pine" },
   { src = "miikanissi/modus-themes.nvim" },
