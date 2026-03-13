@@ -38,7 +38,7 @@ Terminal:
 
 Fonts:
 
-- IBM Plex Mono
+- IBM Plex Mono / Lilex
 - Ioskeley Mono (Berkeley Mono clone)
 
 Keyboard map:
