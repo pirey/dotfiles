@@ -112,6 +112,12 @@ local treesj = {
     vim.keymap.set("n", "<c-j>", "<cmd>TSJToggle<cr>", { silent = true, desc = "Join/split line" })
   end,
 }
+local nvim_ts_autotag = {
+  src = "windwp/nvim-ts-autotag",
+  config = function()
+    require("nvim-ts-autotag").setup()
+  end,
+}
 local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
@@ -628,6 +634,7 @@ return {
   -- TOOLS
   mason,
   treesitter,
+  nvim_ts_autotag,
   lspconfig,
 
   -- AI
