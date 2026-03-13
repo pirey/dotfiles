@@ -11,6 +11,12 @@
       "className=\"$1\""
     ]
   },
+  "twMerge shortcut": {
+    "prefix": "tw",
+    "body": [
+      "className={twMerge(\"$1\")}"
+    ]
+  },
   "className prop": {
     "prefix": "className",
     "body": [
