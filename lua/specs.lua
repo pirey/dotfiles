@@ -132,6 +132,7 @@ local treesitter = {
       "html",
       "blade",
       "php",
+      "diff",
     }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
