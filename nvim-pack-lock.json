@@ -74,7 +74,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "c9fea86a5a3c2d7f52e5cd53448edfaf7953bc75",
+      "rev": "2cc172c28e5550e00e6beead4599b1469469c1c7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
