@@ -9,7 +9,9 @@ local function render()
       name = " [invalid] "
     else
       local buf_name = vim.api.nvim_buf_get_name(bufnr)
-      name = buf_name == "" and "[No Name]" or (vim.fn.fnamemodify(buf_name, ":t") or "[No Name]")
+      local ft = vim.bo[bufnr].filetype
+      local name_from_buf = vim.fn.fnamemodify(buf_name, ":t")
+      name = (buf_name == "" or name_from_buf == "") and (ft ~= "" and ft or "[No Name]") or name_from_buf
       local wins = #vim.api.nvim_tabpage_list_wins(tabpage)
       local win_indicator = wins > 1 and " " .. wins .. " " or ""
       name = " " .. name .. (vim.bo[bufnr].modified and " ●" or "") .. win_indicator .. " "
