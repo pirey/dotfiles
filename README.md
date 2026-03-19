@@ -10,7 +10,7 @@ Checkout my [neovim](https://github.com/pirey/nvim) configuration.
 .
 ├── etc/              # System-wide configs (e.g., keyd)
 ├── home/             # User configs (~)
-│   ├── .config/      # CLI tools (alacritty, ghostty, tmux, starship, etc.)
+│   ├── .config/      # CLI tools (alacritty, kitty, tmux, starship, etc.)
 │   ├── .zshrc        # Shell config
 │   ├── .gitconfig   # Git config
 │   └── ...
@@ -34,7 +34,8 @@ CLI:
 
 Terminal:
 
-- Ghostty
+- Kitty
+- Alacritty
 
 Fonts:
 

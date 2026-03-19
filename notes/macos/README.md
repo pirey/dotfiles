@@ -3,12 +3,13 @@
 ## apps
 
 - alacritty
+- kitty
 - chrome
 - firefox
 - shortcat
 - localsend
 
-### open unverified app (e.g. alacritty)
+### open unverified app (e.g. alacritty, kitty)
 
 - open app
 - warning popup will appear

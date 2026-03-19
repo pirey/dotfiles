@@ -1,0 +1,49 @@
+# # Iceberg Theme
+
+# [colors.primary]
+# # background = "#16171E"
+# background = "#161821"
+# foreground = "#D1D2D3"
+#
+# [colors.cursor]
+#
+# text= "#FEFFFF"
+# cursor= "#c7c7c7"
+#
+# # Normal colors
+# [colors.normal]
+#
+# black= "#161821"
+
+# red= "#E68E8E"
+# green= "#83AC8E"
+# yellow= "#F5B78A"
+# blue= "#9BB8DC"
+# magenta= "#BAACE2"
+# cyan= "#00C5C7"
+# white= "#C7C7C7"
+#
+# [colors.dim]
+#
+# black= "#161821"
+# red= "#E68E8E"
+# green= "#83AC8E"
+
+# yellow= "#F5B78A"
+# blue= "#9BB8DC"
+# magenta= "#BAACE2"
+# cyan= "#00C5C7"
+# white= "#C7C7C7"
+#
+# # Bright colors
+# [colors.bright]
+
+# black= "#676767"
+# red= "#FF6D67"
+# green= "#5FF967"
+# yellow= "#FEFB67"
+# blue= "#6871FF"
+# magenta= "#FF76FF"
+# cyan= "#5FFDFF"
+# white= "#FEFFFF"
+
