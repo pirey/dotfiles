@@ -70,7 +70,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "11f730caa976a00def4387cbacb6183cec7939c7",
+      "rev": "e057806776c8bed91971338d96a78a0f6a313dae",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
