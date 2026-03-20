@@ -6,7 +6,7 @@ import = ["nightfox.toml"]
 option_as_alt = "Both"
 
 [font]
-size = 14.5
+size = 13.5
 normal = { family = "Lilex", style = "Regular" }
 
 [keyboard]
