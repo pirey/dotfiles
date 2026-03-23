@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "catppuccin": {
-      "rev": "384f304c8b04664c9e0091fbfb3923c5f97c1bcf",
+      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "modus-themes.nvim": {
-      "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
+      "rev": "17a64464c27c1be605adca13dbe48f2f402fe107",
       "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
     "nightfox.nvim": {
@@ -74,7 +74,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "e5f65e31a5ec0e8526b2311ff8c7aaea4a581c82",
+      "rev": "875515255192864c33981c3ed66ad94e561b904a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
@@ -90,7 +90,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "945328e557ebcd838eeda5b2dc2f776725b83944",
+      "rev": "760b404b579cdde9ba220637279bf507dcf46983",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
