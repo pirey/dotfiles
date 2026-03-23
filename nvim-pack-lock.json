@@ -74,7 +74,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "875515255192864c33981c3ed66ad94e561b904a",
+      "rev": "6620ae1c44dfa8623b22d0cbf873a9e8d073b849",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
@@ -90,7 +90,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "760b404b579cdde9ba220637279bf507dcf46983",
+      "rev": "285fa75313ac2e1b7632e12ea476c4bdbc9dec0f",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
