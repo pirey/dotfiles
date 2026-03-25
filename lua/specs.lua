@@ -240,6 +240,9 @@ local oil = {
   src = "stevearc/oil.nvim",
   config = function()
     require("oil").setup({
+      columns = {
+        "size",
+      },
       view_options = { show_hidden = true },
       keymaps = {
         ["<localleader>tt"] = { "actions.open_terminal", mode = "n" },
