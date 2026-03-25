@@ -30,11 +30,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "8a79ee54d6216d10b2f153921a12b152be0c1a20",
+      "rev": "3b01dc83a893749f5ae4639f1aa0af523821840a",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
+      "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -118,7 +118,7 @@
       "src": "https://github.com/supermaven-inc/supermaven-nvim"
     },
     "tokyonight.nvim": {
-      "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "treesj": {
