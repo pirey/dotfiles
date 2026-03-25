@@ -8,50 +8,50 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
-    "provider": "supermaven"
+    "provider": "none",
   },
   "buffer_font_family": "Ioskeley Mono",
   "theme": "Nightfox",
   "title_bar": {
-    "show_sign_in": false
+    "show_sign_in": false,
   },
   "agent_servers": {
     "OpenCode": {
       "type": "custom",
       "command": "opencode",
-      "args": ["acp"]
-    }
+      "args": ["acp"],
+    },
   },
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
   "vim_mode": true,
   "vim": {
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
   "languages": {
     "PHP": {
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "Haskell": {
       "formatter": {
         "external": {
           "command": "fourmolu",
-          "arguments": ["--stdin-input-file", ""]
-        }
-      }
-    }
+          "arguments": ["--stdin-input-file", ""],
+        },
+      },
+    },
   },
   "lsp": {
     "vtsls": {
       "settings": {
         "typescript": {
           "preferences": {
-            "importModuleSpecifier": "non-relative"
-          }
-        }
-      }
-    }
-  }
+            "importModuleSpecifier": "non-relative",
+          },
+        },
+      },
+    },
+  },
 }
