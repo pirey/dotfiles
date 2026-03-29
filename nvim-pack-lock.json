@@ -70,7 +70,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "97774019cb17697f35872b28bc020a72b4ca1b51",
+      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -98,7 +98,7 @@
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
-      "rev": "ead1820d49c8e79ce89cab1c2c318981b695c9d2",
+      "rev": "c293eb56db880a0539bf9d85b4a27816960b863e",
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "plenary.nvim": {
