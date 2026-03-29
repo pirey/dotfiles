@@ -18,6 +18,7 @@ vim.opt.tabclose = "left"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 vim.opt.winborder = "rounded"
+vim.opt.pumborder = vim.o.winborder
 vim.opt.fillchars:append({ diff = " " })
 vim.opt.wildoptions:append({ "fuzzy" })
 vim.opt.switchbuf = { "uselast", "useopen", "usetab" }
@@ -65,12 +66,5 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPost grep,grep! copen")
 
--- experimental
-if vim.fn.has("nvim-0.12") == 1 then
-  vim.opt.pumborder = vim.o.winborder
-
-  require("pack").setup(require("specs"))
-  vim.cmd.colorscheme("nightfox")
-else
-  print("nvim-0.12 is required to use vim.pack")
-end
+require("pack").setup(require("specs"))
+vim.cmd.colorscheme("nightfox")
