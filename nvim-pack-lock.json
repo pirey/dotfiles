@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "bde73a6886b607246095aa59f396de5e0d036890",
+      "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
