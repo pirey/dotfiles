@@ -66,7 +66,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
+      "rev": "5492a24edd68f78d8a778edcb8905d0a28993abc",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "2546ca55706e4b559c9abea640566b9add1eb492",
+      "rev": "ed0c07815e867f3b71f4e012de4781cc24fb29e5",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
