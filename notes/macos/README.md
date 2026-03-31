@@ -64,7 +64,7 @@ brew install \
 - install karabiner elements
 - grant permission: settings > general > login items & extensions
 - enable karabiner agents and daemon and driver extension
-- add complex rule > import rule `e0da capslock`
+- ~~add complex rule > import rule `e0da capslock`~~ (already added to home config)
 
 - add simple modification
   - right command -> right shift

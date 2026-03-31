@@ -1,0 +1,113 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "escape->caps_lock; caps_lock+[...keys] -> control+[..keys]; caps_lock -> escape",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [{ "key_code": "caps_lock" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                      "description": "left_option + hjkl to arrow keys (strict)",
+                      "manipulators": [
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "h",
+                            "modifiers": { "mandatory": ["left_option"] }
+                          },
+                          "to": [{ "key_code": "left_arrow" }]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "j",
+                            "modifiers": { "mandatory": ["left_option"] }
+                          },
+                          "to": [{ "key_code": "down_arrow" }]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "k",
+                            "modifiers": { "mandatory": ["left_option"] }
+                          },
+                          "to": [{ "key_code": "up_arrow" }]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "l",
+                            "modifiers": { "mandatory": ["left_option"] }
+                          },
+                          "to": [{ "key_code": "right_arrow" }]
+                        }
+                      ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "right_command" },
+                            "to": [{ "key_code": "right_shift" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_shift" },
+                            "to": [{ "key_code": "right_option" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 24926,
+                        "vendor_id": 7504
+                    },
+                    "ignore": true
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 24926,
+                        "vendor_id": 7504
+                    }
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 1,
+                        "vendor_id": 18003
+                    },
+                    "ignore": true
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
