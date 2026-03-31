@@ -1,0 +1,226 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "nf0": "#192330",
+    "nf1": "#393b44",
+    "nf2": "#c94f6d",
+    "nf3": "#81b29a",
+    "nf4": "#dbc074",
+    "nf5": "#719cd6",
+    "nf6": "#9d79d6",
+    "nf7": "#63cdcf",
+    "nf8": "#dfdfe0",
+    "nf9": "#575860",
+    "nf10": "#d16983",
+    "nf11": "#8ebaa4",
+    "nf12": "#e0c989",
+    "nf13": "#86abdc",
+    "nf14": "#baa1e2",
+    "nf15": "#7ad5d6",
+    "nf16": "#e4e4e5",
+    "nf17": "#f4a261",
+    "nf18": "#d67ad2"
+  },
+  "theme": {
+    "primary": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "secondary": {
+      "dark": "nf6",
+      "light": "nf6"
+    },
+    "accent": {
+      "dark": "nf7",
+      "light": "nf7"
+    },
+    "error": {
+      "dark": "nf2",
+      "light": "nf2"
+    },
+    "warning": {
+      "dark": "nf17",
+      "light": "nf17"
+    },
+    "success": {
+      "dark": "nf3",
+      "light": "nf3"
+    },
+    "info": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "text": {
+      "dark": "nf8",
+      "light": "nf0"
+    },
+    "textMuted": {
+      "dark": "nf9",
+      "light": "nf1"
+    },
+    "background": {
+      "dark": "nf0",
+      "light": "nf16"
+    },
+    "backgroundPanel": {
+      "dark": "#2b3b51",
+      "light": "nf8"
+    },
+    "backgroundElement": {
+      "dark": "#2b3b51",
+      "light": "nf16"
+    },
+    "border": {
+      "dark": "nf1",
+      "light": "nf9"
+    },
+    "borderActive": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "borderSubtle": {
+      "dark": "nf1",
+      "light": "nf9"
+    },
+    "diffAdded": {
+      "dark": "nf3",
+      "light": "nf3"
+    },
+    "diffRemoved": {
+      "dark": "nf2",
+      "light": "nf2"
+    },
+    "diffContext": {
+      "dark": "nf9",
+      "light": "nf9"
+    },
+    "diffHunkHeader": {
+      "dark": "nf9",
+      "light": "nf9"
+    },
+    "diffHighlightAdded": {
+      "dark": "nf3",
+      "light": "nf3"
+    },
+    "diffHighlightRemoved": {
+      "dark": "nf2",
+      "light": "nf2"
+    },
+    "diffAddedBg": {
+      "dark": "#1a3a2a",
+      "light": "#d4eddd"
+    },
+    "diffRemovedBg": {
+      "dark": "#3a1a2a",
+      "light": "#f8d7da"
+    },
+    "diffContextBg": {
+      "dark": "nf0",
+      "light": "nf16"
+    },
+    "diffLineNumber": {
+      "dark": "nf9",
+      "light": "nf1"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#1a3a2a",
+      "light": "#d4eddd"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#3a1a2a",
+      "light": "#f8d7da"
+    },
+    "markdownText": {
+      "dark": "nf8",
+      "light": "nf0"
+    },
+    "markdownHeading": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "markdownLink": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "markdownLinkText": {
+      "dark": "nf7",
+      "light": "nf7"
+    },
+    "markdownCode": {
+      "dark": "nf3",
+      "light": "nf3"
+    },
+    "markdownBlockQuote": {
+      "dark": "nf9",
+      "light": "nf9"
+    },
+    "markdownEmph": {
+      "dark": "nf4",
+      "light": "nf4"
+    },
+    "markdownStrong": {
+      "dark": "nf6",
+      "light": "nf6"
+    },
+    "markdownHorizontalRule": {
+      "dark": "nf9",
+      "light": "nf9"
+    },
+    "markdownListItem": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "markdownListEnumeration": {
+      "dark": "nf7",
+      "light": "nf7"
+    },
+    "markdownImage": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "markdownImageText": {
+      "dark": "nf7",
+      "light": "nf7"
+    },
+    "markdownCodeBlock": {
+      "dark": "nf8",
+      "light": "nf0"
+    },
+    "syntaxComment": {
+      "dark": "nf9",
+      "light": "nf9"
+    },
+    "syntaxKeyword": {
+      "dark": "nf6",
+      "light": "nf6"
+    },
+    "syntaxFunction": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "syntaxVariable": {
+      "dark": "nf8",
+      "light": "nf8"
+    },
+    "syntaxString": {
+      "dark": "nf3",
+      "light": "nf3"
+    },
+    "syntaxNumber": {
+      "dark": "nf17",
+      "light": "nf17"
+    },
+    "syntaxType": {
+      "dark": "nf7",
+      "light": "nf7"
+    },
+    "syntaxOperator": {
+      "dark": "nf5",
+      "light": "nf5"
+    },
+    "syntaxPunctuation": {
+      "dark": "nf8",
+      "light": "nf0"
+    }
+  }
+}
