@@ -61,10 +61,6 @@
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
-    "nvim-colorizer.lua": {
-      "rev": "c8c2c19436d33165ec34fa90c975bc0a739fe3fb",
-      "src": "https://github.com/catgoose/nvim-colorizer.lua"
-    },
     "nvim-lint": {
       "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
       "src": "https://github.com/mfussenegger/nvim-lint"

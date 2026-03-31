@@ -203,6 +203,8 @@ local lspconfig = {
       },
     })
 
+    vim.lsp.document_color.enable(true, {}, { style = "virtual" })
+
     vim.lsp.enable({
       "lua_ls",
       "phpactor",
@@ -212,6 +214,7 @@ local lspconfig = {
       "gopls",
       "rust_analyzer",
       "ols",
+      "cssls",
       -- "hls",
     })
 
@@ -490,13 +493,6 @@ local nvim_lint = {
     end)
   end,
 }
-local colorizer = {
-  src = "catgoose/nvim-colorizer.lua",
-  config = function()
-    vim.cmd("set termguicolors")
-    require("colorizer").setup()
-  end,
-}
 local dadbod_ui = {
   src = "kristijanhusak/vim-dadbod-ui",
   dependencies = {
@@ -648,7 +644,6 @@ return {
   -- ETC
   scratch,
   wakatime,
-  colorizer,
   orgmode,
   dadbod_ui,
   curl,
