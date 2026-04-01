@@ -2,6 +2,10 @@
     name = Yeri
     email = mail@yeripratama.com
 
+[pager]
+    branch = false
+    tag = false
+
 [core]
     editor = "$(which nvim) -u NONE"
     excludesfile = ~/.gitignore_global
