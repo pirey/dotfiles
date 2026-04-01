@@ -70,7 +70,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
+      "rev": "c82bf96f0a773d85304feeb695e1e23b2207ac35",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
@@ -86,7 +86,7 @@
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "2fc30d36fd1c3e6086a7424858e19a52a29ae937",
+      "rev": "1ab7b456020de8bdaed7d8135b5376a0b4419b11",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
