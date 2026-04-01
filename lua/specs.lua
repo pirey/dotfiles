@@ -341,6 +341,7 @@ local gitsigns = {
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>ghX", gs.reset_buffer_index, "Unstage Buffer")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>ghP", gs.preview_hunk, "Preview Hunk")
         map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
