@@ -121,7 +121,7 @@ function M.setup(specs_ext)
   end
 
   -- install packages
-  vim.pack.add(specs)
+  vim.pack.add(specs, { confirm = false })
 
   -- configure packages
   for _, config in ipairs(configs) do

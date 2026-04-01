@@ -1,8 +1,4 @@
 local wakatime = { src = "wakatime/vim-wakatime" }
-local surround = {
-  src = "tpope/vim-surround",
-  dependencies = { { src = "tpope/vim-repeat" } },
-}
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -20,6 +16,10 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>tab Git log --no-merges<cr>", { silent = true })
   end,
+}
+local surround = {
+  src = "tpope/vim-surround",
+  dependencies = { { src = "tpope/vim-repeat" } },
 }
 local abolish = { src = "tpope/vim-abolish" }
 local mason = {
@@ -606,8 +606,8 @@ return {
 
   -- EDITING
   sidescroll,
-  surround,
   fugitive,
+  surround,
   abolish,
   treesj,
   conform,
