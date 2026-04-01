@@ -15,6 +15,10 @@
 - warning popup will appear
 - open system settings > privacy & security > open anyway the specified app
 
+### kitty
+
+change icon https://github.com/igrmk/whiskers
+
 ### alacritty
 
 change icon https://github.com/alacritty/alacritty/issues/3926
