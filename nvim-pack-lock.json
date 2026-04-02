@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "catppuccin": {
-      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
+      "rev": "60cf331ed7ecb19617c32bf61eb0da78c4c7bb05",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
