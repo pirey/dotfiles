@@ -5,6 +5,28 @@ local ft_names = {
   terminal = "Term",
 }
 
+local special_fts = vim.g.tabline_special_filetypes or {
+  fugitive = "Fugitive",
+  DiffviewFiles = "DiffviewFiles",
+  DiffviewFileHistory = "DiffviewFileHistory",
+  dbui = "DBUI",
+}
+
+local function get_tab_title(tabpage)
+  local wins = vim.api.nvim_tabpage_list_wins(tabpage)
+  for _, win in ipairs(wins) do
+    local bufnr = vim.api.nvim_win_get_buf(win)
+    if bufnr ~= 0 and vim.api.nvim_buf_is_valid(bufnr) then
+      local ft = vim.bo[bufnr].filetype
+      local custom_name = special_fts[ft]
+      if custom_name then
+        return true, custom_name
+      end
+    end
+  end
+  return false, nil
+end
+
 local function render()
   local line = ""
   local cur = vim.api.nvim_tabpage_get_number(vim.api.nvim_get_current_tabpage())
@@ -12,8 +34,11 @@ local function render()
   for i, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
     local bufnr = vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage))
     local name
+    local is_special, special_name = get_tab_title(tabpage)
     if bufnr == 0 or not vim.api.nvim_buf_is_valid(bufnr) then
       name = " [invalid] "
+    elseif is_special then
+      name = " " .. special_name .. " "
     else
       local buf_name = vim.api.nvim_buf_get_name(bufnr)
       local ft = vim.bo[bufnr].filetype
@@ -28,12 +53,12 @@ local function render()
       else
         name = ft ~= "" and ft or "[No Name]"
       end
-      local wins = #vim.api.nvim_tabpage_list_wins(tabpage)
-      local win_indicator = wins > 1 and " " .. wins .. " " or ""
-      if ft_names[ft] or ft_names[buftype] then
-        win_indicator = ""
-      end
-      name = " " .. name .. (vim.bo[bufnr].modified and " ●" or "") .. win_indicator .. " "
+      local wins = vim.api.nvim_tabpage_list_wins(tabpage)
+      local has_diff = vim.iter(wins):any(function(win)
+        return vim.wo[win].diff
+      end)
+      local win_indicator = #wins > 1 and " " .. #wins .. " " or ""
+      name = " " .. (has_diff and "Diff: " or "") .. name .. (vim.bo[bufnr].modified and " ●" or "") .. win_indicator .. " "
     end
     line = line .. "%#" .. (i == cur and "TabLineSel" or "TabLine") .. "#%" .. i .. "T" .. name .. "%T"
   end

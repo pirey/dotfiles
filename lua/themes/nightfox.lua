@@ -2,6 +2,7 @@ return {
   src = "EdenEast/nightfox.nvim",
   config = function()
     require("nightfox").setup({
+      -- reduce yellow color usage, make it more blue-ish
       groups = {
         all = {
           ["@tag.builtin.tsx"] = { link = "Keyword" },

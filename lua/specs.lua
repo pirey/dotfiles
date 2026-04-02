@@ -622,7 +622,6 @@ return {
   outline,
   oil,
   fzf_lua,
-  -- mini_pick,
   gitsigns,
   grug_far,
 
