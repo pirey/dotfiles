@@ -65,7 +65,7 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPost grep,grep! copen")
 
 require("pack").setup(require("specs"))
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("kanagawa")
 
 require("vim._core.ui2").enable({
   enable = true, -- Whether to enable or disable the UI.
