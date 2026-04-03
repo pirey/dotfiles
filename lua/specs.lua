@@ -17,6 +17,7 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>tab Git log --no-merges --max-count=100<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gf", "<cmd>tabedit % <bar> 0Gclog<cr>", { silent = true })
   end,
 }
 local surround = {
