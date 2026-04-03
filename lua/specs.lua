@@ -11,7 +11,9 @@ local fugitive = {
       callback = function()
         vim.keymap.set("n", "gq", "<cmd>bd<cr>", { buffer = true })
         vim.opt_local.foldmethod = "syntax"
-        vim.wo.cursorlineopt = "both"
+
+        local winid = vim.api.nvim_get_current_win()
+        vim.wo[winid][0].cursorlineopt = "both"
       end,
     })
 
