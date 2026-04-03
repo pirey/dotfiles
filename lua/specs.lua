@@ -3,14 +3,15 @@ local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
     vim.cmd([[
-          cabbrev <expr> git getcmdtype() == ':' && getcmdline() =~# '^git' ? 'Git' : 'git'
-        ]])
+      cabbrev <expr> git getcmdtype() == ':' && getcmdline() =~# '^git' ? 'Git' : 'git'
+    ]])
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "git", "fugitive" },
       callback = function()
         vim.keymap.set("n", "gq", "<cmd>bd<cr>", { buffer = true })
         vim.opt_local.foldmethod = "syntax"
+        vim.wo.cursorlineopt = "both"
       end,
     })
 
