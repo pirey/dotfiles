@@ -16,8 +16,24 @@ local fugitive = {
 
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gl", "<cmd>tab Git log --no-merges --max-count=100<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>tabedit % <bar> 0Gclog<cr>", { silent = true })
+
+    local log_count = 500
+    vim.keymap.set(
+      "n",
+      "<leader>gl",
+      "<cmd>tab Git log --no-merges --max-count=" .. log_count .. "<cr>",
+      { silent = true }
+    )
+    vim.keymap.set("n", "<leader>gn", function()
+      local prev_pos = vim.fn.getpos(".")
+      vim.cmd("normal! G0")
+      local hash = vim.fn.expand("<cword>")
+      vim.fn.setpos(".", prev_pos)
+      if #hash == 7 and vim.fn.line("$") == log_count then
+        vim.cmd("tab Git log --oneline --no-merges " .. hash .. "^ --max-count=" .. log_count)
+      end
+    end, { silent = true })
   end,
 }
 local surround = {
