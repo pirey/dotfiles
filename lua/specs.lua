@@ -9,6 +9,7 @@ local fugitive = {
       pattern = "git",
       callback = function()
         vim.keymap.set("n", "gq", "<Cmd>bd<CR>", { buffer = true })
+        vim.o.foldmethod = "syntax"
       end,
     })
 
