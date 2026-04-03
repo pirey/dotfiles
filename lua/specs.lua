@@ -22,7 +22,7 @@ local fugitive = {
     vim.keymap.set(
       "n",
       "<leader>gl",
-      "<cmd>tab Git log --no-merges --max-count=" .. log_count .. "<cr>",
+      "<cmd>tab Git log --oneline --no-merges --max-count=" .. log_count .. "<cr>",
       { silent = true }
     )
     vim.keymap.set("n", "<leader>gn", function()
