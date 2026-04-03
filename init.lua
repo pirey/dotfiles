@@ -15,6 +15,7 @@ vim.opt.scrolloff = 3
 vim.opt.tabclose = "left"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
+vim.opt.foldopen:remove("search")
 vim.opt.winborder = "rounded"
 vim.opt.pumborder = vim.o.winborder
 vim.opt.fillchars:append({ diff = " " })
