@@ -9,6 +9,10 @@
       "rev": "9c80820ca77218a8d28e70075d6f44a1609911fe",
       "src": "https://github.com/saghen/blink.indent"
     },
+    "canola.nvim": {
+      "rev": "168a86448423bcf9a71015a233a880cf7e5a9500",
+      "src": "https://github.com/barrettruth/canola.nvim"
+    },
     "catppuccin": {
       "rev": "16408d203973da7e43fab87c6f9d3bf7fa98fa8b",
       "src": "https://github.com/catppuccin/nvim"
@@ -72,10 +76,6 @@
     "nvim-treesitter": {
       "rev": "539abf6da5ee8702e37b82cc953131dadd570da2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "oil.nvim": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
-      "src": "https://github.com/stevearc/oil.nvim"
     },
     "onedark.nvim": {
       "rev": "213c23ae45a04797572242568d5d51937181792d",

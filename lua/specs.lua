@@ -237,7 +237,7 @@ local outline = {
   end,
 }
 local oil = {
-  src = "stevearc/oil.nvim",
+  src = "barrettruth/canola.nvim",
   config = function()
     require("oil").setup({
       columns = {
