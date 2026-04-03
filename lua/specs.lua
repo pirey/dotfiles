@@ -5,18 +5,22 @@ local fugitive = {
     vim.cmd([[
           cabbrev <expr> git getcmdtype() == ':' && getcmdline() =~# '^git' ? 'Git' : 'git'
         ]])
+
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "git",
-      callback = function()
+      pattern = { "git", "fugitive" },
+      callback = function(ev)
+        local ft = ev.match
         vim.keymap.set("n", "gq", "<Cmd>bd<CR>", { buffer = true })
-        vim.o.foldmethod = "syntax"
-        vim.o.foldlevel = 0
+        vim.opt_local.foldmethod = "syntax"
+        if ft == "git" then
+          vim.opt_local.foldlevel = 0
+        end
       end,
     })
 
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gl", "<cmd>tab Git log --no-merges<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gl", "<cmd>tab Git log --no-merges --max-count=100<cr>", { silent = true })
   end,
 }
 local surround = {
