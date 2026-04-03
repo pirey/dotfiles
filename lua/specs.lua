@@ -9,7 +9,7 @@ local fugitive = {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "git", "fugitive" },
       callback = function()
-        vim.keymap.set("n", "gq", "<Cmd>bd<CR>", { buffer = true })
+        vim.keymap.set("n", "gq", "<cmd>bd<cr>", { buffer = true })
         vim.opt_local.foldmethod = "syntax"
       end,
     })
@@ -77,6 +77,7 @@ local winshift = {
     vim.keymap.set("n", "<c-w>X", "<cmd>WinShift swap<cr>", { silent = true, desc = "Swap window" })
   end,
 }
+---@diagnostic disable-next-line: unused-local
 local diffview = {
   src = "sindrets/diffview.nvim",
   config = function()
@@ -214,8 +215,8 @@ local lspconfig = {
       -- "hls",
     })
 
-    vim.keymap.set("n", "<leader>ql", vim.diagnostic.setloclist, { desc = "Open local diagnostics" })
-    vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, { desc = "Open global quickfix diagnostics" })
+    vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open local diagnostics" })
+    vim.keymap.set("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "Open global quickfix diagnostics" })
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -283,7 +284,7 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
     vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
     vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
-    vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
+    vim.keymap.set("n", "<leader>dd", "<cmd>FzfLua lsp_document_diagnostics<cr>")
     vim.keymap.set("n", "<leader>s", "<cmd>FzfLua lsp_document_symbols<cr>")
     vim.keymap.set("n", "<leader>r", "<cmd>FzfLua lsp_references<cr>")
     vim.keymap.set("n", "<leader>h", "<cmd>FzfLua helptags<cr>")
@@ -333,12 +334,10 @@ local gitsigns = {
         end
 
         map("n", "]g", function()
-          ---@diagnostic disable-next-line: param-type-mismatch
-          gs.nav_hunk("next")
+          gs.nav_hunk("next", { target = "all" })
         end, "Next Hunk")
         map("n", "[g", function()
-          ---@diagnostic disable-next-line: param-type-mismatch
-          gs.nav_hunk("prev")
+          gs.nav_hunk("prev", { target = "all" })
         end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
@@ -620,7 +619,7 @@ return {
   -- UI
   winpick,
   winshift,
-  diffview,
+  -- diffview,
   outline,
   oil,
   fzf_lua,

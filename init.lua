@@ -30,7 +30,6 @@ vim.keymap.set({ "n", "v" }, "j", "gj")
 vim.keymap.set({ "n", "v" }, "k", "gk")
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
-vim.keymap.set("n", "<leader>x", "<cmd>confirm bd<cr>", { silent = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
@@ -45,12 +44,15 @@ vim.keymap.set("n", "<localleader>ts", "<cmd>below sp | lcd %:h | term<cr>", { s
 vim.keymap.set("n", "<localleader>t<tab>", "<cmd>tab sp | lcd %:h | term<cr>", { silent = true })
 
 -- tabpage
-vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>l", "<cmd>tabs<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { silent = true })
 vim.keymap.set("n", "]<tab>", "gt", { silent = true })
 vim.keymap.set("n", "[<tab>", "gT", { silent = true })
+
+-- fold
+vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
 
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
