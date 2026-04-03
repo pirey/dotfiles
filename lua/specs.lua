@@ -10,6 +10,7 @@ local fugitive = {
       callback = function()
         vim.keymap.set("n", "gq", "<Cmd>bd<CR>", { buffer = true })
         vim.o.foldmethod = "syntax"
+        vim.o.foldlevel = 0
       end,
     })
 
