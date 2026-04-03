@@ -77,37 +77,6 @@ local winshift = {
     vim.keymap.set("n", "<c-w>X", "<cmd>WinShift swap<cr>", { silent = true, desc = "Swap window" })
   end,
 }
----@diagnostic disable-next-line: unused-local
-local diffview = {
-  src = "sindrets/diffview.nvim",
-  config = function()
-    require("diffview").setup({
-      use_icons = false,
-      default_args = {
-        DiffviewFileHistory = { "--max-count=100" },
-      },
-      file_panel = { listing_style = "list" },
-      keymaps = {
-        file_panel = {
-          { "n", "cc", "<cmd>top Git commit<cr>", { desc = "Commit staged changes" } },
-          { "n", "gq", "<cmd>tabclose<cr>", { desc = "Close tab" } },
-        },
-        file_history_panel = {
-          { "n", "gq", "<cmd>tabclose<cr>", { desc = "Close tab" } },
-        },
-      },
-    })
-    vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gy", "<cmd>DiffviewFileHistory<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
-    vim.keymap.set(
-      "n",
-      "<leader>gt",
-      "<cmd>DiffviewFileHistory -g --range=stash<cr>",
-      { silent = true, desc = "Git latest stash" }
-    )
-  end,
-}
 local treesj = {
   src = "Wansmer/treesj",
   config = function()
@@ -619,7 +588,6 @@ return {
   -- UI
   winpick,
   winshift,
-  -- diffview,
   outline,
   oil,
   fzf_lua,
