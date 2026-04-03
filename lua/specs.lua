@@ -8,13 +8,9 @@ local fugitive = {
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "git", "fugitive" },
-      callback = function(ev)
-        local ft = ev.match
+      callback = function()
         vim.keymap.set("n", "gq", "<Cmd>bd<CR>", { buffer = true })
         vim.opt_local.foldmethod = "syntax"
-        if ft == "git" then
-          vim.opt_local.foldlevel = 0
-        end
       end,
     })
 
