@@ -24,7 +24,7 @@
     custom = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %Cgreen(%cr)%Creset %s
 
 [alias]
-    l = log --pretty=custom --abbrev-commit
+    l = log --pretty=custom --abbrev-commit --no-merges
     la = log --branches --remotes --tags --oneline --decorate
     gap = log --left-right --oneline --decorate
     compare = log --left-right --oneline --decorate
