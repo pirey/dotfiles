@@ -20,6 +20,7 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>tabedit % <bar> 0Gclog<cr>", { silent = true })
+    -- use this to see diff :Gvdiffsplit >!^
 
     local log_count = 500
     local log_str = "log --oneline --no-merges --max-count=" .. log_count
