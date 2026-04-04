@@ -57,8 +57,7 @@ local function render()
       local has_diff = vim.iter(wins):any(function(win)
         return vim.wo[win].diff
       end)
-      local win_indicator = #wins > 1 and " " .. #wins .. " " or ""
-      name = " " .. (has_diff and "Diff: " or "") .. name .. win_indicator .. " "
+      name = " " .. (has_diff and "Diff: " or "") .. name .. " "
     end
     line = line .. "%#" .. (i == cur and "TabLineSel" or "TabLine") .. "#%" .. i .. "T" .. name .. "%T"
   end
