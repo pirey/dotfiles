@@ -8,8 +8,16 @@ local fugitive = {
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "git", "fugitive" },
-      callback = function()
-        vim.keymap.set("n", "gq", "<cmd>bd<cr>", { buffer = true })
+      callback = function(ev)
+        for _, key in ipairs({ "q", "gq", "x", "<c-c>", "<esc>" }) do
+          vim.keymap.set("n", key, "<cmd>bd<cr>", { buffer = true })
+        end
+        vim.keymap.set("n", "o", "gO", { buffer = true, remap = true, silent = true, desc = "Open item in vertical split" })
+        vim.keymap.set("n", "<c-n>", ")", { buffer = true, remap = true, silent = true })
+        vim.keymap.set("n", "<c-p>", "(", { buffer = true, remap = true, silent = true })
+        if ev.match ~= "fugitive" then
+          vim.wo.foldlevel = 0
+        end
         vim.opt_local.foldmethod = "syntax"
 
         local winid = vim.api.nvim_get_current_win()
@@ -19,13 +27,11 @@ local fugitive = {
 
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gf", "<cmd>tabedit % <bar> 0Gclog<cr>", { silent = true })
-    -- use this to see diff :Gvdiffsplit >!^
 
-    local log_count = 500
-    local log_str = "log --oneline --no-merges --max-count=" .. log_count
-    vim.keymap.set("n", "<leader>g;", ":tab Git " .. log_str)
-    vim.keymap.set("n", "<leader>gL", "<cmd>tab Git log<cr>", { silent = true })
+    local log_count = 250
+    local log_format = "--pretty=format:\"%h %<(10,trunc)%an %>(12,trunc)%ar │ %s %d\""
+    local log_str = "log " .. log_format .. " --no-merges --max-count=" .. log_count
+    vim.keymap.set("n", "<leader>gf", "<cmd>tab Git log " .. log_format .. " -- %<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>tab Git " .. log_str .. "<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gn", function()
       local prev_pos = vim.fn.getpos(".")
@@ -33,7 +39,7 @@ local fugitive = {
       local hash = vim.fn.expand("<cword>")
       vim.fn.setpos(".", prev_pos)
       if #hash == 7 and vim.fn.line("$") == log_count then
-        vim.cmd("tab Git " .. log_str .. hash .. "^")
+        vim.cmd("tab Git " .. log_str .. " " .. hash .. "^")
       end
     end, { silent = true })
   end,
@@ -265,7 +271,6 @@ local fzf_lua = {
       require("fzf-lua").combine({
         pickers = { "oldfiles", "files" },
         winopts = { title = " Files " },
-        include_current_session = true,
         cwd_only = true,
       })
     end, { silent = true })
