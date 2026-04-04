@@ -45,9 +45,6 @@ vim.keymap.set("n", "<localleader>ts", "<cmd>below sp | lcd %:h | term<cr>", { s
 vim.keymap.set("n", "<localleader>t<tab>", "<cmd>tab sp | lcd %:h | term<cr>", { silent = true })
 
 -- tabpage
-for _, key in ipairs({ "<leader>q", "<leader>x" }) do
-  vim.keymap.set("n", key, "<cmd>tabclose<cr>", { silent = true })
-end
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>l", "<cmd>tabs<cr>", { silent = true })
