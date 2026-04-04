@@ -22,8 +22,8 @@
 
 [pretty]
     legacy = %Cred%h%Creset - %C(bold blue)<%an>%C(yellow)%d%Creset %Cgreen(%cr)%Creset %s
-    colored = %C(red)%h%Creset %C(magenta)%<(10,trunc)%an%C(reset) %C(cyan)%>(12,trunc)%ar%C(reset) │ %s %C(yellow)%d%C(reset)
-    plain = %h %<(10,trunc)%an %>(12,trunc)%ar │ %s %d
+    colored = %C(red)%h%Creset │ %C(magenta)%<(10,trunc)%an%C(reset) %C(cyan)%>(12,trunc)%ar%C(reset) │ %s %C(yellow)%d%C(reset)
+    plain = %h │ %<(10,trunc)%an %>(12,trunc)%ar │ %s %d
 
 [alias]
     l = log --pretty=colored --no-merges
