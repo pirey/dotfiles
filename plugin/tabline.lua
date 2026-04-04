@@ -1,14 +1,11 @@
 local ft_names = {
   fugitive = "Fugitive",
   fzf = "FZF",
-  git = "Git",
   terminal = "Term",
 }
 
 local special_fts = vim.g.tabline_special_filetypes or {
   fugitive = "Fugitive",
-  DiffviewFiles = "DiffviewFiles",
-  DiffviewFileHistory = "DiffviewFileHistory",
   dbui = "DBUI",
 }
 

@@ -7,13 +7,16 @@ Minimal. Functional.
 ```lua
 {
   -- THEMES
+  "EdenEast/nightfox.nvim",
+  "navarasu/onedark.nvim",
+  "icrawler/iceberg-vim",
+  "kporras07/vscode-nvim",
   "folke/tokyonight.nvim",
   "rose-pine/neovim",
   "miikanissi/modus-themes.nvim",
   "vague-theme/vague.nvim",
   "catppuccin/nvim",
   "rebelot/kanagawa.nvim",
-  "EdenEast/nightfox.nvim",
 
   -- EDITING
   "pirey/vim-sidescroll",
@@ -29,10 +32,9 @@ Minimal. Functional.
   -- UI
   "pirey/winpick.nvim",
   "sindrets/winshift.nvim",
-  "sindrets/diffview.nvim",
   "hedyhli/outline.nvim",
-  "nvim-mini/mini.files",
-  "nvim-mini/mini.pick",
+  "barrettruth/canola.nvim",
+  "ibhagwan/fzf-lua",
   "lewis6991/gitsigns.nvim",
   "MagicDuck/grug-far.nvim",
 
@@ -48,7 +50,6 @@ Minimal. Functional.
   -- ETC
   "pirey/scratch.nvim",
   "wakatime/vim-wakatime",
-  "catgoose/nvim-colorizer.lua",
   "nvim-orgmode/orgmode",
   "kristijanhusak/vim-dadbod-ui",
   "oysandvik94/curl.nvim",
