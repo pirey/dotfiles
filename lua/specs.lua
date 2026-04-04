@@ -12,7 +12,12 @@ local fugitive = {
         for _, key in ipairs({ "q", "gq", "x", "<c-c>", "<esc>" }) do
           vim.keymap.set("n", key, "<cmd>bd<cr>", { buffer = true })
         end
-        vim.keymap.set("n", "o", "gO", { buffer = true, remap = true, silent = true, desc = "Open item in vertical split" })
+        vim.keymap.set(
+          "n",
+          "o",
+          "gO",
+          { buffer = true, remap = true, silent = true, desc = "Open item in vertical split" }
+        )
         vim.keymap.set("n", "<c-n>", ")", { buffer = true, remap = true, silent = true })
         vim.keymap.set("n", "<c-p>", "(", { buffer = true, remap = true, silent = true })
         if ev.match ~= "fugitive" then
@@ -29,7 +34,7 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
 
     local log_count = 1000
-    local log_format = "--pretty=format:\"%h │ %<(10,trunc)%an %>(12,trunc)%ar │ %s %d\""
+    local log_format = '--pretty=format:"%h │ %<(10,trunc)%an %>(12,trunc)%ar │ %s %d"'
     local log_str = "log " .. log_format .. " --no-merges --max-count=" .. log_count
     vim.keymap.set("n", "<leader>gf", "<cmd>tab Git log " .. log_format .. " -- %<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>tab Git " .. log_str .. "<cr>", { silent = true })
@@ -113,18 +118,7 @@ local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
     local ts = require("nvim-treesitter")
-    local languages = {
-      "haskell",
-      "nix",
-      "javascript",
-      "typescript",
-      "tsx",
-      "lua",
-      "html",
-      "blade",
-      "php",
-      "diff",
-    }
+    local languages = { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff" }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
       "javascriptreact",
