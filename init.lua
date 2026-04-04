@@ -69,3 +69,5 @@ vim.cmd("autocmd QuickFixCmdPost grep,grep! copen")
 
 require("pack").setup(require("specs"))
 vim.cmd.colorscheme("nightfox")
+
+require("vim._core.ui2").enable({ enable = true })
