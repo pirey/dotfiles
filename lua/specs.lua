@@ -28,7 +28,7 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
 
-    local log_count = 250
+    local log_count = 1000
     local log_format = "--pretty=format:\"%h %<(10,trunc)%an %>(12,trunc)%ar │ %s %d\""
     local log_str = "log " .. log_format .. " --no-merges --max-count=" .. log_count
     vim.keymap.set("n", "<leader>gf", "<cmd>tab Git log " .. log_format .. " -- %<cr>", { silent = true })
@@ -38,7 +38,7 @@ local fugitive = {
       vim.cmd("normal! G0")
       local hash = vim.fn.expand("<cword>")
       vim.fn.setpos(".", prev_pos)
-      if #hash == 7 and vim.fn.line("$") == log_count then
+      if vim.fn.line("$") == log_count then
         vim.cmd("tab Git " .. log_str .. " " .. hash .. "^")
       end
     end, { silent = true })
