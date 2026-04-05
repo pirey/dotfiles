@@ -30,7 +30,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "abacb0693d7a37de9e85e6fcb2d22d848cb75cef",
+      "rev": "8f5a5ae708451adc3e2ac4d965ac3452dc3ce5a6",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -101,10 +101,6 @@
       "rev": "499176d12df3deb40757542714949d2352164620",
       "src": "https://github.com/pirey/scratch.nvim"
     },
-    "supermaven-nvim": {
-      "rev": "07d20fce48a5629686aefb0a7cd4b25e33947d50",
-      "src": "https://github.com/supermaven-inc/supermaven-nvim"
-    },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
@@ -148,10 +144,6 @@
     "vim-surround": {
       "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
       "src": "https://github.com/tpope/vim-surround"
-    },
-    "vim-wakatime": {
-      "rev": "d7973b157a632d1edeff01818f18d67e584eeaff",
-      "src": "https://github.com/wakatime/vim-wakatime"
     },
     "vscode.nvim": {
       "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",

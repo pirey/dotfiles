@@ -1,4 +1,3 @@
-local wakatime = { src = "wakatime/vim-wakatime" }
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -563,12 +562,6 @@ local opencode = {
     })
   end,
 }
-local supermaven = {
-  src = "supermaven-inc/supermaven-nvim",
-  config = function()
-    require("supermaven-nvim").setup({})
-  end,
-}
 local scratch = {
   src = "pirey/scratch.nvim",
   config = function()
@@ -619,11 +612,9 @@ return {
 
   -- AI
   opencode,
-  supermaven,
 
   -- ETC
   scratch,
-  wakatime,
   orgmode,
   dadbod_ui,
   curl,
