@@ -9,6 +9,11 @@ local special_fts = vim.g.tabline_special_filetypes or {
   dbui = "DBUI",
 }
 
+local function is_git_log(bufnr)
+  local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
+  return first_line:match("^%x+") ~= nil
+end
+
 local function get_tab_title(tabpage)
   local wins = vim.api.nvim_tabpage_list_wins(tabpage)
   for _, win in ipairs(wins) do
@@ -45,6 +50,12 @@ local function render()
         name = ft_names[ft]
       elseif ft_names[buftype] then
         name = ft_names[buftype]
+      elseif ft == "git" then
+        if is_git_log(bufnr) then
+          name = "Git Log"
+        else
+          name = "Git: " .. name_from_buf:sub(1, 7)
+        end
       elseif name_from_buf ~= "" then
         name = name_from_buf
       else
@@ -64,8 +75,13 @@ end
 
 vim.go.tabline = render()
 
-vim.api.nvim_create_autocmd({ "TabEnter", "TabLeave", "BufEnter", "TabNew", "TabClosed", "WinEnter", "WinClosed", "TermOpen", "TermClose" }, {
-  callback = function()
-    vim.defer_fn(function() vim.go.tabline = render() end, 0)
-  end
-})
+vim.api.nvim_create_autocmd(
+  { "TabEnter", "TabLeave", "BufEnter", "TabNew", "TabClosed", "WinEnter", "WinClosed", "TermOpen", "TermClose" },
+  {
+    callback = function()
+      vim.defer_fn(function()
+        vim.go.tabline = render()
+      end, 0)
+    end,
+  }
+)
