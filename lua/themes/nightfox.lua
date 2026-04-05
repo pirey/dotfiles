@@ -4,11 +4,12 @@ return {
     require("nightfox").setup({
       -- reduce yellow color usage, make it more blue-ish
       groups = {
-        all = {
+        nightfox = {
           ["DiffText"] = { bg = "#2f5f73" },
           ["diffAdded"] = { bg = "#26343c" },
           ["diffChanged"] = { bg = "#243244" },
           ["diffRemoved"] = { bg = "#2f2837" },
+          ["diffFile"] = { fg = "palette.cyan", style = "italic,undercurl" },
           ["@tag.builtin.tsx"] = { link = "Keyword" },
           ["@type.tsx"] = { link = "Keyword" },
           ["@type.javascript"] = { link = "Keyword" },
