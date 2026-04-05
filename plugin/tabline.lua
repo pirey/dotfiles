@@ -12,10 +12,10 @@ local special_fts = vim.g.tabline_special_filetypes or {
 local function git_log_hash_range(bufnr)
   local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
   local last_line = vim.api.nvim_buf_get_lines(bufnr, -2, -1, false)[1] or ""
-  local first_hash = first_line:match("^%x+")
-  local last_hash = last_line:match("^%x+")
+  local first_hash = first_line:match("^(%x+)%s")
+  local last_hash  = last_line:match("^(%x+)%s")
 
-  if first_hash == nil then
+  if first_hash == nil or last_hash == nil then
     return false, ""
   else
     return true, first_hash .. "..." .. last_hash
@@ -62,8 +62,10 @@ local function render()
         local is_log, hash_range = git_log_hash_range(bufnr)
         if is_log then
           name = "Git Log: " .. hash_range
-        else
+        elseif #name_from_buf > 7 then
           name = "Git: " .. name_from_buf:sub(1, 7)
+        else
+          name = "Git"
         end
       elseif name_from_buf ~= "" then
         name = name_from_buf
