@@ -9,9 +9,17 @@ local special_fts = vim.g.tabline_special_filetypes or {
   dbui = "DBUI",
 }
 
-local function is_git_log(bufnr)
+local function git_log_hash_range(bufnr)
   local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
-  return first_line:match("^%x+") ~= nil
+  local last_line = vim.api.nvim_buf_get_lines(bufnr, -2, -1, false)[1] or ""
+  local first_hash = first_line:match("^%x+")
+  local last_hash = last_line:match("^%x+")
+
+  if first_hash == nil then
+    return false, ""
+  else
+    return true, first_hash .. "..." .. last_hash
+  end
 end
 
 local function get_tab_title(tabpage)
@@ -51,8 +59,9 @@ local function render()
       elseif ft_names[buftype] then
         name = ft_names[buftype]
       elseif ft == "git" then
-        if is_git_log(bufnr) then
-          name = "Git Log"
+        local is_log, hash_range = git_log_hash_range(bufnr)
+        if is_log then
+          name = "Git Log: " .. hash_range
         else
           name = "Git: " .. name_from_buf:sub(1, 7)
         end
