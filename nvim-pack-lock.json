@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "65275d3b3176a8134d4e944a6867a5f4598761b8",
+      "rev": "cb5584d2b2eb76ea06f9bb4705ada5caf80ff786",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "catppuccin": {
@@ -34,7 +34,7 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "944ef13cc8d8fe8b846c91f36041c8dfb85ca000",
+      "rev": "4ed47e8c4c66c921dc1d6643977e0526e1f44396",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -114,7 +114,7 @@
       "src": "https://github.com/Wansmer/treesj"
     },
     "vague.nvim": {
-      "rev": "8c4643f8a5106dbc492918f86ff6b5c81111ce9a",
+      "rev": "520a7bec9642fe37e4b161c3b1864b35bc15d811",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-abolish": {
