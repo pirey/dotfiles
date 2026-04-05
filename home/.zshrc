@@ -54,6 +54,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # tmux
 if [ -z "$TMUX" ]; then
-    export PARENT_TERM_PROGRAM="$TERM_PROGRAM"
+    export PARENT_TERM_PROGRAM="${TERM_PROGRAM:-$TERM}"
 fi
 
