@@ -9,7 +9,7 @@ return {
           ["diffAdded"] = { bg = "#26343c" },
           ["diffChanged"] = { bg = "#243244" },
           ["diffRemoved"] = { bg = "#2f2837" },
-          ["diffFile"] = { fg = "palette.cyan", style = "italic,undercurl" },
+          ["diffFile"] = { fg = "palette.fg2", style = "standout,reverse" },
           ["@tag.builtin.tsx"] = { link = "Keyword" },
           ["@type.tsx"] = { link = "Keyword" },
           ["@type.javascript"] = { link = "Keyword" },
