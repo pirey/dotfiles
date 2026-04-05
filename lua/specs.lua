@@ -33,7 +33,7 @@ local fugitive = {
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
 
-    local log_count = 1000
+    local log_count = 500
     local log_format = '--pretty=format:"%h │ %<(10,trunc)%an %>(12,trunc)%ar │ %s %d"'
     local log_str = "log " .. log_format .. " --no-merges --max-count=" .. log_count
     vim.keymap.set("n", "<leader>gf", "<cmd>tab Git log " .. log_format .. " -- %<cr>", { silent = true })
