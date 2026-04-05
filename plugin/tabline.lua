@@ -83,7 +83,7 @@ local function render()
     line = line .. hl_group .. "%" .. i .. "T" .. prefix .. name .. "%T"
   end
 
-  return line .. "%#TabLine#"
+  return line .. "%#Normal#"
 end
 
 vim.go.tabline = render()
