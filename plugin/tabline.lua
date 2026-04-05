@@ -76,7 +76,9 @@ local function render()
       end)
       name = " " .. (has_diff and "Diff: " or "") .. name .. " "
     end
-    line = line .. "%#" .. (i == cur and "TabLineSel" or "TabLine") .. "#%" .. i .. "T" .. name .. "%T"
+    local hl_group = i == cur and "%#TabLineSel#" or "%#TabLine#"
+    local prefix = i > 1 and ("%#Normal# " .. hl_group) or ""
+    line = line .. hl_group .. "%" .. i .. "T" .. prefix .. name .. "%T"
   end
 
   return line .. "%#TabLine#"
