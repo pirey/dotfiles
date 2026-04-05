@@ -3,28 +3,14 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
-# theme = Dark+
-# theme = tokyonight
-# theme = iceberg-dark
-# theme = Builtin Solarized Light
-# theme = iceberg-light
-# theme = Github-Light-Default
-# theme = "Nvim Dark"
-# theme = "Nvim Light"
 theme = "Nightfox"
 
-# font-family = "BlexMono Nerd Font"
-# font-family = "Liga SFMono Nerd Font"
-# font-family = "Monaspace Neon"
-# font-family = "IBM Plex Mono"
-# font-family = "Monaspace Neon"
-# font-family = Cartograph CF
-# font-family = Lilex
-font-family = Ioskeley Mono
+font-family = Lilex
+font-size = 14
+font-thicken = true
+adjust-cell-height = 8
 
-# title = " "
 window-theme = "system"
-# macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 
