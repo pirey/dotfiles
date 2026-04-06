@@ -1,3 +1,18 @@
+local gitlinker = {
+  src = "pirey/gitlinker.nvim",
+  config = function()
+    require("gitlinker").setup({
+      router = {
+        browse = {
+          ["gitlab.*"] = require("gitlinker.routers").gitlab_browse,
+        },
+        blame = {
+          ["gitlab.*"] = require("gitlinker.routers").gitlab_blame,
+        },
+      },
+    })
+  end,
+}
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -587,6 +602,7 @@ return {
 
   -- EDITING
   sidescroll,
+  gitlinker,
   fugitive,
   surround,
   abolish,

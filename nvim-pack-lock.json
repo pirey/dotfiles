@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "9b66162cee1b97ded7670747e44d52254a2ed51e",
+      "rev": "2e054d1b1c70f6b1070c554a4462c012f0fd3cad",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "catppuccin": {
@@ -32,6 +32,10 @@
     "fzf-lua": {
       "rev": "9f0432fdd7825ab163520045831a40b6df82ea28",
       "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitlinker.nvim": {
+      "rev": "4ed15e1414a0e03ec2dc5b97abcbc33fff14cc30",
+      "src": "https://github.com/pirey/gitlinker.nvim"
     },
     "gitsigns.nvim": {
       "rev": "db486b42299b2e3f5831809617af21becf268a39",
