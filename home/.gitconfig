@@ -38,5 +38,5 @@
     logno = log --no-merges
     confg = config --global --list
     committer = shortlog -s -n --all
-    fc = "!f() { git log --pretty=colored --decorate --date=short -S\"$1\"; }; f"
-    fm = "!f() { git log --pretty=colored --decorate --date=short --grep=\"$1\"; }; f"
+    search-change = log --pretty=colored --decorate -S
+    search-commit = log --pretty=colored --decorate --grep
