@@ -202,8 +202,8 @@ local lspconfig = {
       -- "hls",
     })
 
-    vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open local diagnostics" })
-    vim.keymap.set("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "Open global quickfix diagnostics" })
+    vim.keymap.set("n", "<leader>Dl", vim.diagnostic.setloclist, { desc = "Open local diagnostics" })
+    vim.keymap.set("n", "<leader>Dq", vim.diagnostic.setqflist, { desc = "Open global quickfix diagnostics" })
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -270,7 +270,7 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
     vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
     vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
-    vim.keymap.set("n", "<leader>dd", "<cmd>FzfLua lsp_document_diagnostics<cr>")
+    vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
     vim.keymap.set("n", "<leader>s", "<cmd>FzfLua lsp_document_symbols<cr>")
     vim.keymap.set("n", "<leader>r", "<cmd>FzfLua lsp_references<cr>")
     vim.keymap.set("n", "<leader>h", "<cmd>FzfLua helptags<cr>")
