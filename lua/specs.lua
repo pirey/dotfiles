@@ -1,5 +1,5 @@
 local gitlinker = {
-  src = "pirey/gitlinker.nvim",
+  src = "linrongbin16/gitlinker.nvim",
   config = function()
     require("gitlinker").setup({
       router = {
