@@ -21,7 +21,7 @@ local fugitive = {
     ]])
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "git", "fugitive" },
+      pattern = { "git", "fugitive", "fugitiveblame" },
       callback = function(ev)
         for _, key in ipairs({ "q", "gq", "x", "<c-c>" }) do
           vim.keymap.set("n", key, "<cmd>bd<cr>", { buffer = true })
