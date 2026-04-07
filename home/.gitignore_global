@@ -14,6 +14,7 @@ bower_modules/*
 .vs
 .vimrc.local
 .vim/*
+Session.vim
 *.swp
 
 # Created by https://www.gitignore.io/api/c
