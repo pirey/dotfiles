@@ -32,8 +32,9 @@ local fugitive = {
           silent = true,
           desc = "vert split",
         })
-        if ev.match ~= "fugitive" then
+        if ev.match == "git" then
           vim.wo.foldlevel = 0
+        elseif ev.match == "fugitive" then
           vim.keymap.set("n", "<tab>", "=", { remap = true })
         end
         vim.opt_local.foldmethod = "syntax"
