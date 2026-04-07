@@ -14,6 +14,8 @@ return {
           ["@type.tsx"] = { link = "Keyword" },
           ["@type.javascript"] = { link = "Keyword" },
           ["@type.typescript"] = { link = "@type.builtin" },
+          ["@type.php"] = { fg = "palette.cyan" },
+          ["@module.php"] = { fg = "palette.yellow" },
         },
       },
     })
