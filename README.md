@@ -9,32 +9,22 @@ Minimal. Functional.
   -- THEMES
   "EdenEast/nightfox.nvim",
   "navarasu/onedark.nvim",
-  "icrawler/iceberg-vim",
-  "kporras07/vscode-nvim",
-  "folke/tokyonight.nvim",
-  "rose-pine/neovim",
-  "miikanissi/modus-themes.nvim",
-  "vague-theme/vague.nvim",
-  "catppuccin/nvim",
-  "rebelot/kanagawa.nvim",
+  "cocopon/iceberg.vim",
 
   -- EDITING
-  "pirey/vim-sidescroll",
-  "tpope/vim-surround",
+  "yorickpeterse/nvim-jump",
   "tpope/vim-fugitive",
+  "tpope/vim-surround",
   "tpope/vim-abolish",
   "Wansmer/treesj",
   "stevearc/conform.nvim",
-  "mfussenegger/nvim-lint",
   "saghen/blink.cmp",
   "saghen/blink.indent",
 
   -- UI
-  "pirey/winpick.nvim",
-  "sindrets/winshift.nvim",
   "hedyhli/outline.nvim",
   "barrettruth/canola.nvim",
-  "ibhagwan/fzf-lua",
+  "dmtrKovalenko/fff.nvim",
   "lewis6991/gitsigns.nvim",
   "MagicDuck/grug-far.nvim",
 
@@ -42,17 +32,6 @@ Minimal. Functional.
   "mason-org/mason.nvim",
   "nvim-treesitter/nvim-treesitter",
   "neovim/nvim-lspconfig",
-
-  -- AI
-  "sudo-tee/opencode.nvim",
-  "supermaven-inc/supermaven-nvim",
-
-  -- ETC
-  "pirey/scratch.nvim",
-  "wakatime/vim-wakatime",
-  "nvim-orgmode/orgmode",
-  "kristijanhusak/vim-dadbod-ui",
-  "oysandvik94/curl.nvim",
 }
 ```
 
