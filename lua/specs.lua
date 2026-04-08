@@ -38,6 +38,22 @@ local fugitive = {
       end,
     })
 
+    local last_pos = { 0, 0 }
+    vim.keymap.set("n", "<leader>gs", function()
+      local tabpage = vim.api.nvim_get_current_tabpage()
+      local wins = vim.api.nvim_tabpage_list_wins(tabpage)
+      for _, win in ipairs(wins) do
+        local bufnr = vim.api.nvim_win_get_buf(win)
+        local ft = vim.bo[bufnr].filetype
+        if ft == "fugitive" then
+          last_pos = vim.api.nvim_win_get_cursor(win)
+          vim.api.nvim_win_close(win, true)
+          return
+        end
+      end
+      vim.cmd("Git")
+      vim.api.nvim_win_set_cursor(vim.api.nvim_tabpage_get_win(tabpage), last_pos)
+    end, { silent = true })
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
 
@@ -257,7 +273,7 @@ local fff = {
       title = "Files",
       layout = {
         prompt_position = "top",
-        flex = { wrap = "bottom" }
+        flex = { wrap = "bottom" },
       },
       keymaps = {
         close = { "<esc>", "<c-c>" },
