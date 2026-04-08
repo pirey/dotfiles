@@ -248,7 +248,7 @@ local fff = {
       layout = { prompt_position = "top" },
       keymaps = {
         close = { "<esc>", "<c-c>" },
-        cycle_grep_modes = "<c-,>",
+        cycle_grep_modes = "<c-g>",
         cycle_previous_query = "<c-k>",
       },
       icons = { enabled = false },
