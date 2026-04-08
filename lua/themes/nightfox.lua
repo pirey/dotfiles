@@ -16,6 +16,7 @@ return {
           ["@type.typescript"] = { link = "@type.builtin" },
           ["@type.php"] = { fg = "palette.cyan" },
           ["@module.php"] = { fg = "palette.yellow" },
+          ["FlashLabel"] = { link = "IncSearch" },
         },
       },
     })

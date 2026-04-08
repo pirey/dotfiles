@@ -1,3 +1,11 @@
+local jump = {
+  src = "yorickpeterse/nvim-jump",
+  config = function()
+    vim.keymap.set({ "n", "x", }, "f", function()
+      require("jump").start()
+    end)
+  end
+}
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -420,6 +428,7 @@ return {
   require("themes.iceberg"),
 
   -- EDITING
+  jump,
   fugitive,
   surround,
   abolish,

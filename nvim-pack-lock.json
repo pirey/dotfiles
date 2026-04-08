@@ -45,6 +45,10 @@
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
+    "nvim-jump": {
+      "rev": "41261ddebbb595decd0302cb9e5eec7ce230e382",
+      "src": "https://github.com/yorickpeterse/nvim-jump"
+    },
     "nvim-lspconfig": {
       "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
       "src": "https://github.com/neovim/nvim-lspconfig"
