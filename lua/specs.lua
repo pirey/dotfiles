@@ -191,8 +191,6 @@ local lspconfig = {
     })
 
     vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
-    vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
-    vim.keymap.set("n", "<leader>s", vim.lsp.buf.document_symbol)
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
