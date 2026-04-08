@@ -206,7 +206,13 @@ local lspconfig = {
 local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
-    require("outline").setup()
+    require("outline").setup({
+      symbols = {
+        icon_fetcher = function()
+          return ""
+        end,
+      },
+    })
     vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", {
       silent = true,
       desc = "Toggle Outline",
@@ -249,7 +255,10 @@ local fff = {
     require("fff").setup({
       prompt = " ",
       title = "Files",
-      layout = { prompt_position = "top" },
+      layout = {
+        prompt_position = "top",
+        flex = { wrap = "bottom" }
+      },
       keymaps = {
         close = { "<esc>", "<c-c>" },
         cycle_grep_modes = "<c-g>",
