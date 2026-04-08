@@ -1,10 +1,10 @@
 local jump = {
   src = "yorickpeterse/nvim-jump",
   config = function()
-    vim.keymap.set({ "n", "x", }, "f", function()
+    vim.keymap.set({ "n", "x" }, "f", function()
       require("jump").start()
     end)
-  end
+  end,
 }
 local fugitive = {
   src = "tpope/vim-fugitive",
@@ -235,8 +235,12 @@ local fff = {
   src = "https://github.com/dmtrKovalenko/fff.nvim",
   config = function()
     vim.api.nvim_create_autocmd("PackChanged", {
-      callback = function(event)
-        if event.data.updated then
+      callback = function(ev)
+        local name, kind = ev.data.spec.name, ev.data.kind
+        if name == "fff.nvim" and (kind == "install" or kind == "update") then
+          if not ev.data.active then
+            vim.cmd.packadd("fff.nvim")
+          end
           require("fff.download").download_or_build_binary()
         end
       end,
