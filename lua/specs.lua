@@ -275,13 +275,7 @@ local fzf_lua = {
     })
     fzf.register_ui_select()
 
-    vim.keymap.set("n", "<leader>f", function()
-      require("fzf-lua").combine({
-        pickers = { "oldfiles", "files" },
-        winopts = { title = " Files " },
-        cwd_only = true,
-      })
-    end, { silent = true })
+    vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>")
     vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
     vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
     vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
@@ -296,7 +290,6 @@ local fzf_lua = {
     vim.keymap.set("n", "<leader>u", "<cmd>FzfLua undotree<cr>")
     vim.keymap.set("n", "<leader>j", "<cmd>FzfLua jumps<cr>")
     vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
-    vim.keymap.set("n", "<leader><leader>f", "<cmd>FzfLua git_status<cr>")
     vim.keymap.set("n", "<leader><leader>d", function()
       fzf.fzf_exec("fd --type d", {
         prompt = "Directories ",
