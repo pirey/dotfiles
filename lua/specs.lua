@@ -1,18 +1,3 @@
-local gitlinker = {
-  src = "linrongbin16/gitlinker.nvim",
-  config = function()
-    require("gitlinker").setup({
-      router = {
-        browse = {
-          ["gitlab.*"] = require("gitlinker.routers").gitlab_browse,
-        },
-        blame = {
-          ["gitlab.*"] = require("gitlinker.routers").gitlab_blame,
-        },
-      },
-    })
-  end,
-}
 local fugitive = {
   src = "tpope/vim-fugitive",
   config = function()
@@ -35,11 +20,12 @@ local fugitive = {
         if ev.match == "git" then
           vim.wo.foldlevel = 0
         elseif ev.match == "fugitive" then
-          vim.keymap.set("n", "<tab>", "=", { remap = true })
+          vim.keymap.set("n", "<tab>", "=", { remap = true, buffer = true })
         end
         vim.opt_local.foldmethod = "syntax"
 
         local winid = vim.api.nvim_get_current_win()
+        vim.wo[winid][0].cursorline = true
         vim.wo[winid][0].cursorlineopt = "both"
       end,
     })
@@ -101,26 +87,6 @@ local mason = {
     end)
   end,
 }
-local sidescroll = { src = "pirey/vim-sidescroll" }
-local winpick = {
-  src = "pirey/winpick.nvim",
-  config = function()
-    require("winpick").setup({
-      border = "none",
-      padding = { x = 3, y = 1 },
-    })
-    vim.keymap.set("n", "<c-w>p", require("winpick").pick, { desc = "Pick window" })
-    vim.keymap.set("n", "<c-w><c-p>", require("winpick").pick, { desc = "Pick window" })
-  end,
-}
-local winshift = {
-  src = "sindrets/winshift.nvim",
-  config = function()
-    vim.keymap.set("n", "<c-w><c-m>", "<cmd>WinShift<cr>", { silent = true })
-    vim.keymap.set("n", "<c-w>m", "<cmd>WinShift<cr>", { silent = true })
-    vim.keymap.set("n", "<c-w>X", "<cmd>WinShift swap<cr>", { silent = true, desc = "Swap window" })
-  end,
-}
 local treesj = {
   src = "Wansmer/treesj",
   config = function()
@@ -137,7 +103,6 @@ local treesitter = {
       "typescriptreact",
       "javascriptreact",
       "markdown",
-      "opencode_output",
       "c",
     }, languages)
 
@@ -146,11 +111,11 @@ local treesitter = {
 
     task:await(function(err)
       if err then
-        vim.notify("Treesitter install failed: " .. err, "error")
+        vim.notify("Treesitter install failed: " .. err, vim.log.levels.ERROR)
       else
         local installed_after = ts.get_installed()
         if #installed ~= #installed_after then
-          vim.notify("Treesitter parsers installed!", "info")
+          vim.notify("Treesitter parsers installed!", vim.log.levels.INFO)
         end
       end
     end)
@@ -217,8 +182,8 @@ local lspconfig = {
       -- "hls",
     })
 
-    vim.keymap.set("n", "<leader>Dl", vim.diagnostic.setloclist, { desc = "Open local diagnostics" })
-    vim.keymap.set("n", "<leader>Dq", vim.diagnostic.setqflist, { desc = "Open global quickfix diagnostics" })
+    vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
+    vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -235,7 +200,10 @@ local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
     require("outline").setup()
-    vim.keymap.set("n", "<leader>O", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
+    vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", {
+      silent = true,
+      desc = "Toggle Outline",
+    })
   end,
 }
 local oil = {
@@ -256,65 +224,35 @@ local oil = {
     vim.keymap.set("n", "<leader>e", "<cmd>Oil .<cr>", { silent = true })
   end,
 }
-local fzf_lua = {
-  src = "ibhagwan/fzf-lua",
+local fff = {
+  src = "https://github.com/dmtrKovalenko/fff.nvim",
   config = function()
-    local fzf = require("fzf-lua")
-    fzf.setup({
-      winopts = { backdrop = 100 },
-      keymap = {
-        builtin = {
-          ["<c-d>"] = "preview-page-down",
-          ["<c-u>"] = "preview-page-up",
-        },
-        fzf = {
-          ["ctrl-d"] = "preview-page-down",
-          ["ctrl-u"] = "preview-page-up",
-        },
-      },
-    })
-    fzf.register_ui_select()
-
-    vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>")
-    vim.keymap.set("n", "<leader>.", "<cmd>FzfLua resume<cr>")
-    vim.keymap.set("n", "<leader>k", "<cmd>FzfLua keymaps<cr>")
-    vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
-    vim.keymap.set("n", "<leader>d", "<cmd>FzfLua lsp_document_diagnostics<cr>")
-    vim.keymap.set("n", "<leader>s", "<cmd>FzfLua lsp_document_symbols<cr>")
-    vim.keymap.set("n", "<leader>r", "<cmd>FzfLua lsp_references<cr>")
-    vim.keymap.set("n", "<leader>h", "<cmd>FzfLua helptags<cr>")
-    vim.keymap.set("n", "<leader>l", "<cmd>FzfLua highlights<cr>")
-    vim.keymap.set("n", "<leader>,", "<cmd>FzfLua live_grep<cr>")
-    vim.keymap.set("n", "<leader>/", "<cmd>FzfLua blines<cr>")
-    vim.keymap.set("n", "<leader>'", "<cmd>FzfLua oldfiles include_current_session=true cwd_only=true<cr>")
-    vim.keymap.set("n", "<leader>u", "<cmd>FzfLua undotree<cr>")
-    vim.keymap.set("n", "<leader>j", "<cmd>FzfLua jumps<cr>")
-    vim.keymap.set("n", "<leader><tab><tab>", "<cmd>FzfLua tabs show_unlisted=true<cr>")
-    vim.keymap.set("n", "<leader><leader>d", function()
-      fzf.fzf_exec("fd --type d", {
-        prompt = "Directories ",
-        actions = {
-          ["default"] = function(selected)
-            vim.cmd("edit " .. selected[1])
-          end,
-          ["ctrl-s"] = function(selected)
-            vim.cmd("split " .. selected[1])
-          end,
-          ["ctrl-v"] = function(selected)
-            vim.cmd("vsplit " .. selected[1])
-          end,
-          ["ctrl-t"] = function(selected)
-            vim.cmd("tabedit " .. selected[1])
-          end,
-        },
-      })
-    end, { desc = "Find Directories" })
-
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      callback = function()
-        vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
+    vim.api.nvim_create_autocmd("PackChanged", {
+      callback = function(event)
+        if event.data.updated then
+          require("fff.download").download_or_build_binary()
+        end
       end,
     })
+
+    require("fff").setup({
+      prompt = " ",
+      title = "Files",
+      layout = { prompt_position = "top" },
+      keymaps = {
+        close = { "<esc>", "<c-c>" },
+        cycle_grep_modes = "<c-,>",
+        cycle_previous_query = "<c-k>",
+      },
+      icons = { enabled = false },
+    })
+
+    vim.keymap.set("n", "<leader>f", function()
+      require("fff").find_files()
+    end)
+    vim.keymap.set("n", "<leader>,", function()
+      require("fff").live_grep()
+    end)
   end,
 }
 local gitsigns = {
@@ -388,7 +326,7 @@ local grug_far = {
 local blink_cmp = {
   src = "saghen/blink.cmp",
   dependencies = { { src = "rafamadriz/friendly-snippets" } },
-  version = "v1.9.1",
+  version = "v1.10.2",
   config = function()
     require("blink.cmp").setup({
       signature = {
@@ -415,16 +353,6 @@ local blink_cmp = {
         ["<C-_>"] = { "show" },
       },
       cmdline = { enabled = false },
-      sources = {
-        per_filetype = {
-          org = { "orgmode", "snippets" },
-          sql = { "dadbod", "snippets" },
-        },
-        providers = {
-          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-          orgmode = { name = "Orgmode", module = "orgmode.org.autocompletion.blink", fallbacks = { "buffer" } },
-        },
-      },
     })
   end,
 }
@@ -467,148 +395,26 @@ local conform = {
     end)
   end,
 }
-local nvim_lint = {
-  src = "mfussenegger/nvim-lint",
-  config = function()
-    local lint = require("lint")
-    lint.linters_by_ft = vim.tbl_extend("force", lint.linters_by_ft, {
-      typescriptreact = { "eslint_d" },
-      typescript = { "eslint_d" },
-      javascript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      php = { "phpcs" },
-    })
-    vim.keymap.set("n", "<leader>L", function()
-      require("lint").try_lint()
-    end)
-  end,
-}
-local dadbod_ui = {
-  src = "kristijanhusak/vim-dadbod-ui",
-  dependencies = {
-    { src = "tpope/vim-dadbod" },
-    { src = "kristijanhusak/vim-dadbod-completion" },
-  },
-  config = function()
-    vim.g.db_ui_execute_on_save = 0
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "sql", "mysql", "plsql" },
-      callback = function()
-        vim.keymap.set("n", "<leader>s", "<Plug>(DBUI_ExecuteQuery)<Cmd>write<CR>", { silent = true })
-      end,
-    })
-  end,
-}
-local curl = {
-  src = "oysandvik94/curl.nvim",
-  dependencies = { { src = "nvim-lua/plenary.nvim" } },
-  config = function()
-    require("curl").setup()
-  end,
-}
-local orgmode = {
-  src = "nvim-orgmode/orgmode",
-  config = function()
-    require("orgmode").setup({
-      org_use_property_inheritance = false,
-      hyperlinks = { sources = {} },
-      mappings = {
-        org = {
-          org_toggle_checkbox = "<leader>o<tab>", -- <c-space> is reserved for tmux prefix
-        },
-      },
-      win_split_mode = "vertical",
-      org_agenda_files = { "~/org/**/*", "~/vault-org/**/*" },
-      org_default_notes_file = "~/org/tasks.org",
-      org_todo_keywords = { "TODO", "STARTED", "|", "DONE" },
-      org_adapt_indentation = false,
-      org_deadline_warning_days = 3,
-      org_capture_templates = {
-        n = {
-          description = "Note",
-          template = "* %?\n  %u",
-          target = "~/org/dropnotes.org",
-        },
-      },
-      org_agenda_custom_commands = {
-        p = {
-          description = "Projects Agenda",
-          types = {
-            {
-              type = "agenda",
-              org_agenda_overriding_header = "Projects Agenda",
-              org_agenda_files = { "~/vault-org/projects/**/*" }, -- Can define files outside of the default org_agenda_files
-            },
-            {
-              type = "tags_todo",
-              org_agenda_overriding_header = "Project TODO",
-              org_agenda_files = { "~/vault-org/projects/**/*" },
-              -- org_agenda_tag_filter_preset = 'NOTES-REFACTOR' -- Show only headlines with NOTES tag that does not have a REFACTOR tag. Same value providad as when pressing `/` in the Agenda view
-            },
-          },
-        },
-      },
-    })
-    vim.keymap.set("n", "<leader>oc", "<cmd>Org capture<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>oa", "<cmd>Org agenda<cr>", { silent = true })
-  end,
-}
-local opencode = {
-  src = "sudo-tee/opencode.nvim",
-  dependencies = {
-    { src = "nvim-lua/plenary.nvim" },
-    { src = "saghen/blink.cmp", version = "v1.9.1" },
-    { src = "ibhagwan/fzf-lua" },
-  },
-  config = function()
-    require("opencode").setup({
-      keymap_prefix = "<leader>a",
-      ui = {
-        output = { auto_scroll = true },
-        icons = { preset = "text" },
-      },
-    })
-  end,
-}
-local scratch = {
-  src = "pirey/scratch.nvim",
-  config = function()
-    require("scratch").setup()
-    vim.keymap.set("n", "<leader><leader>s", "<cmd>tab Scratch<cr>", { silent = true })
-  end,
-}
 
 return {
   -- THEMES
   require("themes.nightfox"),
   require("themes.onedark"),
   require("themes.iceberg"),
-  require("themes.vscode"),
-  { src = "folke/tokyonight.nvim" },
-  { src = "rose-pine/neovim", name = "rose-pine" },
-  { src = "miikanissi/modus-themes.nvim" },
-  { src = "vague-theme/vague.nvim" },
-  { src = "catppuccin/nvim", name = "catppuccin" },
-  { src = "rebelot/kanagawa.nvim" },
 
   -- EDITING
-  sidescroll,
-  gitlinker,
   fugitive,
   surround,
   abolish,
   treesj,
   conform,
-  nvim_lint,
   blink_cmp,
   blink_indent,
 
   -- UI
-  winpick,
-  winshift,
   outline,
   oil,
-  fzf_lua,
+  fff,
   gitsigns,
   grug_far,
 
@@ -616,13 +422,4 @@ return {
   mason,
   treesitter,
   lspconfig,
-
-  -- AI
-  opencode,
-
-  -- ETC
-  scratch,
-  orgmode,
-  dadbod_ui,
-  curl,
 }
