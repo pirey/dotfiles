@@ -261,7 +261,7 @@ local fff = {
       },
       keymaps = {
         close = { "<esc>", "<c-c>" },
-        cycle_grep_modes = "<c-g>",
+        cycle_grep_modes = "<c-_>",
         cycle_previous_query = "<c-k>",
       },
       icons = { enabled = false },
