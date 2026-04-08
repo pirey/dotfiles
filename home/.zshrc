@@ -57,3 +57,6 @@ if [ -z "$TMUX" ]; then
     export PARENT_TERM_PROGRAM="${TERM_PROGRAM:-$TERM}"
 fi
 
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
