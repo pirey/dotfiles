@@ -184,6 +184,7 @@ local lspconfig = {
 
     vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.references)
+    vim.keymap.set("n", "<leader>s", vim.lsp.buf.document_symbol)
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -200,7 +201,7 @@ local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
     require("outline").setup()
-    vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", {
+    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", {
       silent = true,
       desc = "Toggle Outline",
     })
@@ -266,10 +267,26 @@ local gitsigns = {
         end
 
         map("n", "]g", function()
-          gs.nav_hunk("next", { target = "all" })
+          gs.nav_hunk("next", {
+            target = "all",
+            count = 1,
+            foldopen = true,
+            greedy = true,
+            navigation_message = true,
+            wrap = vim.o.wrapscan,
+            preview = true,
+          })
         end, "Next Hunk")
         map("n", "[g", function()
-          gs.nav_hunk("prev", { target = "all" })
+          gs.nav_hunk("prev", {
+            target = "all",
+            count = 1,
+            foldopen = true,
+            greedy = true,
+            navigation_message = true,
+            wrap = vim.o.wrapscan,
+            preview = true,
+          })
         end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
