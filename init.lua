@@ -29,6 +29,9 @@ vim.keymap.set({ "n", "v" }, "k", "gk")
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
 
+vim.keymap.set("n", "<leader>k", ":map<cr>g<")
+vim.keymap.set("n", "<leader>l", ":hi<cr>g<")
+
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>bot term<cr>", { silent = true })
