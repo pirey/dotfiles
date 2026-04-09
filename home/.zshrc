@@ -60,3 +60,6 @@ fi
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
+
+# opencode
+export PATH=/Users/yeri/.opencode/bin:$PATH

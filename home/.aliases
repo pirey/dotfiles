@@ -28,5 +28,6 @@ alias sail='./vendor/bin/sail'
 alias rl='rlwrap --always-readline'
 
 alias v='nvim'
+alias ovim='NVIM_APPNAME=orgnvim nvim'
 
 # vim: ft=sh
