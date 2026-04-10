@@ -29,8 +29,7 @@ local fugitive = {
         })
 
         if ev.match == "git" then
-          vim.wo.foldlevel = 0
-          vim.opt_local.foldmethod = "syntax"
+          vim.wo.foldmethod = "syntax"
         end
 
         if ev.match == "fugitive" then
@@ -372,7 +371,7 @@ local grug_far = {
         },
       },
       openTargetWindow = {
-        preferredLocation = vim.opt.splitright and "right" or "left",
+        preferredLocation = vim.o.splitright and "right" or "left",
       },
     })
     vim.keymap.set("n", "<leader><c-f>", "<cmd>GrugFar<cr>", { silent = true })

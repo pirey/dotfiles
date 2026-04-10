@@ -1,26 +1,26 @@
 vim.g.mapleader = " "
 
-vim.opt.wrap = false
-vim.opt.swapfile = false
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.gdefault = true
+vim.o.wrap = false
+vim.o.swapfile = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.gdefault = true
 
-vim.opt.splitright = true
-vim.opt.number = true
-vim.opt.signcolumn = "yes"
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
-vim.opt.tabclose = "left"
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevelstart = 99
-vim.opt.winborder = "rounded"
-vim.opt.pumborder = vim.o.winborder
-vim.opt.fillchars:append({ diff = " " })
-vim.opt.wildoptions:append({ "fuzzy" })
+vim.o.splitright = true
+vim.o.number = true
+vim.o.signcolumn = "yes"
+vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
+vim.o.tabclose = "left"
+vim.o.foldmethod = "indent"
+vim.o.foldlevelstart = 99
+vim.o.winborder = "rounded"
+vim.o.pumborder = vim.o.winborder
+vim.o.fillchars = "diff: "
+vim.o.wildoptions = "fuzzy"
 
 -- ignore .git by default so we doesn't need to specify it when using --hidden
-vim.opt.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
+vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
 
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
 vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
