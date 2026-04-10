@@ -34,9 +34,3 @@ Minimal. Functional.
   "neovim/nvim-lspconfig",
 }
 ```
-
-## Requirements
-
-- Neovim 0.12
-- ripgrep
-- fd

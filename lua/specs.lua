@@ -1,7 +1,7 @@
 local jump = {
   src = "yorickpeterse/nvim-jump",
   config = function()
-    vim.keymap.set({ "n", "x" }, "f", function()
+    vim.keymap.set({ "n", "x" }, "s", function()
       require("jump").start()
     end)
   end,
@@ -40,14 +40,18 @@ local fugitive = {
 
     local last_pos = { 1, 0 }
     vim.keymap.set("n", "<leader>gs", function()
-      local winid = vim.fn.bufwinid("fugitive")
-      if winid > 0 then
-        last_pos = vim.api.nvim_win_get_cursor(winid)
-        vim.api.nvim_win_close(winid, true)
-      else
-        vim.cmd("Git")
-        vim.api.nvim_win_set_cursor(0, last_pos)
+      local wins = vim.api.nvim_tabpage_list_wins(0)
+      for _, win in ipairs(wins) do
+        local bufnr = vim.api.nvim_win_get_buf(win)
+        local ft = vim.bo[bufnr].filetype
+        if ft == "fugitive" then
+          last_pos = vim.api.nvim_win_get_cursor(win)
+          vim.api.nvim_win_close(win, true)
+          return
+        end
       end
+      vim.cmd("Git")
+      vim.api.nvim_win_set_cursor(vim.api.nvim_tabpage_get_win(0), last_pos)
     end, { silent = true })
     vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })

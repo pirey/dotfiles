@@ -24,13 +24,20 @@ vim.opt.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
 
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
 vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
-vim.keymap.set({ "n", "v" }, "j", "gj")
-vim.keymap.set({ "n", "v" }, "k", "gk")
-vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to clipboard" })
+vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
 
-vim.keymap.set("n", "<leader>k", ":map<cr>g<")
-vim.keymap.set("n", "<leader>l", ":hi<cr>g<")
+-- navigation
+vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
+vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
+vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
+  silent = true,
+  noremap = true,
+  desc = "Alternate window",
+})
+
+vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
@@ -45,8 +52,6 @@ vim.keymap.set("n", "<localleader>ts", "<cmd>below sp | lcd %:h | term<cr>", { s
 vim.keymap.set("n", "<localleader>tt", "<cmd>tab sp | lcd %:h | term<cr>", { silent = true })
 
 -- tabpage
-vim.keymap.set("n", "<leader>w", "<c-w>q", { silent = true })
-vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set("n", "]<tab>", "gt", { silent = true })
 vim.keymap.set("n", "[<tab>", "gT", { silent = true })
@@ -54,19 +59,10 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 -- fold
 vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
 
-vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
-vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
-vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
-  silent = true,
-  noremap = true,
-  desc = "Alternate window",
-})
-
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPost grep,grep! copen")
 
+require("vim._core.ui2").enable()
 require("pack").setup(require("specs"))
 vim.cmd.colorscheme("nightfox")
-
-require("vim._core.ui2").enable({ enable = true })
