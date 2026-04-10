@@ -19,18 +19,23 @@ local fugitive = {
         for _, key in ipairs({ "q", "gq", "x", "<c-c>" }) do
           vim.keymap.set("n", key, "<cmd>bd<cr>", { buffer = true })
         end
+        vim.keymap.set("n", "<c-n>", ")", { remap = true, buffer = true })
+        vim.keymap.set("n", "<c-p>", "(", { remap = true, buffer = true })
         vim.keymap.set("n", "o", "gO", {
           buffer = true,
           remap = true,
           silent = true,
           desc = "vert split",
         })
+
         if ev.match == "git" then
           vim.wo.foldlevel = 0
-        elseif ev.match == "fugitive" then
+          vim.opt_local.foldmethod = "syntax"
+        end
+
+        if ev.match == "fugitive" then
           vim.keymap.set("n", "<tab>", "=", { remap = true, buffer = true })
         end
-        vim.opt_local.foldmethod = "syntax"
 
         local winid = vim.api.nvim_get_current_win()
         vim.wo[winid][0].cursorline = true
