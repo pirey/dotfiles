@@ -46,7 +46,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-jump": {
-      "rev": "79c91e5860b856c66187107d8d3c8d0950261f2c",
+      "rev": "a12a917f4a650292df4ea09c9517095d7f47c5de",
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
