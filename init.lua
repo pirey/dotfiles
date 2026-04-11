@@ -27,13 +27,6 @@ vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
 
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
-vim.keymap.set("n", "]q", ":cnext<cr>zz")
-vim.keymap.set("n", "[l", ":cprevious<cr>zz")
-vim.keymap.set("n", "]l", ":lnext<cr>zz")
-vim.keymap.set("n", "[l", ":lprevious<cr>zz")
-
 -- navigation
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
@@ -41,6 +34,36 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
   silent = true,
   noremap = true,
   desc = "Alternate window",
+})
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "]q", function()
+  vim.cmd("cnext")
+  vim.cmd("normal zz")
+  vim.cmd("cwindow")
+end)
+vim.keymap.set("n", "[q", function()
+  vim.cmd("cprevious")
+  vim.cmd("normal zz")
+  vim.cmd("cwindow")
+end)
+vim.keymap.set("n", "]l", function()
+  vim.cmd("lnext")
+  vim.cmd("normal zz")
+  vim.cmd("lwindow")
+end)
+vim.keymap.set("n", "[l", function()
+  vim.cmd("lprevious")
+  vim.cmd("normal zz")
+  vim.cmd("lwindow")
+end)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
+    vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
+  end,
 })
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
