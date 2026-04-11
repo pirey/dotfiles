@@ -232,9 +232,9 @@ local outline = {
         end,
       },
     })
-    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", {
+    vim.keymap.set("n", "<leader>o", "<cmd>OutlineOpen<CR>", {
       silent = true,
-      desc = "Toggle Outline",
+      desc = "Open Outline",
     })
   end,
 }
