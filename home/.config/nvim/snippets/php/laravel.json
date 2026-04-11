@@ -1,0 +1,56 @@
+{
+  "route get": {
+    "prefix": "route",
+    "body": [
+      "Route::get('${1:/path}', [${2:Controller}::class, '${3:method}']);"
+    ]
+  },
+  "hasMany relation": {
+    "prefix": "hasMany",
+    "body": [
+      "public function ${1:methodName}(): HasMany",
+      "{",
+      "    return \\$this->hasMany(${2:model}::class);",
+      "}"
+    ]
+  },
+  "belongsTo relation": {
+    "prefix": "belongsTo",
+    "body": [
+      "public function ${1:methodName}(): BelongsTo",
+      "{",
+      "    return \\$this->belongsTo(${2:model}::class);",
+      "}"
+    ]
+  },
+  "controller method": {
+    "prefix": "pubHandler",
+    "body": [
+      "public function ${1:methodName}(Request \\$request)",
+      "{",
+      "    ${2:// code}",
+      "}"
+    ]
+  },
+  "model query": {
+    "prefix": "laramodel",
+    "body": [
+      "${1:Model}::where('${2:field}', ${3:\\$value})->${4:get}();"
+    ]
+  },
+  "blade foreach": {
+    "prefix": "foreachblade",
+    "body": [
+      "@foreach (${1:\\$items} as ${2:\\$item})",
+      "    ${3:// code}",
+      "@endforeach"
+    ]
+  },
+  "migration field": {
+    "prefix": "$tablefield",
+    "body": [
+      "\\$table->${1:string}('${2:fieldName}');"
+    ]
+  }
+}
+

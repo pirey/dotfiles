@@ -1,0 +1,21 @@
+{
+  "datetimeiso": {
+    "prefix": "datetimeiso",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}"
+    ],
+    "description": "Insert ISO datetime (YYYY-MM-DDTHH:MM)"
+  },
+  "lorem": {
+    "prefix": "lorem",
+    "body": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit."],
+    "description": "Short lorem text"
+  },
+  "lorem-long": {
+    "prefix": "loremlong",
+    "body": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    ],
+    "description": "Long lorem text"
+  }
+}

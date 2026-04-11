@@ -1,0 +1,14 @@
+{
+  "markdown frontmatter": {
+    "prefix": "frontmatter",
+    "body": [
+      "---",
+      "title: ${1:title}",
+      "date: ${2:date}",
+      "description: ${3:description}",
+      "tags:",
+      "  - ${4:tag}",
+      "---"
+    ]
+  }
+}
