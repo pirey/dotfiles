@@ -10,11 +10,11 @@ Checkout my [neovim](https://github.com/pirey/nvim) configuration.
 .
 ├── etc/              # System-wide configs (e.g., keyd)
 ├── home/             # User configs (~)
-│   ├── .config/      # CLI tools (alacritty, kitty, tmux, starship, etc.)
-│   ├── .zshrc        # Shell config
-│   ├── .gitconfig   # Git config
+│   ├── .config/
+│   ├── .zshrc
+│   ├── .gitconfig
 │   └── ...
-├── notes/            # OS-specific setup guides (archlinux, fedora, macos, nixos, windows)
+├── notes/            # OS-specific setup guides (fedora, macos, nixos, windows)
 ├── scripts/          # Utility scripts
 └── README.md
 ```
