@@ -1,3 +1,0 @@
-" slashmili/alchemist.vim {{{
-" }}}
-

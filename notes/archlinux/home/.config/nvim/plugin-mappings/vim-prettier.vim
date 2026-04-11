@@ -1,3 +1,0 @@
-" prettier/vim-prettier {{{
-" }}}
-

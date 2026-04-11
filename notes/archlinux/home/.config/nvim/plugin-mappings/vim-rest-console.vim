@@ -1,3 +1,0 @@
-" diepm/vim-rest-console {{{
-" }}}
-

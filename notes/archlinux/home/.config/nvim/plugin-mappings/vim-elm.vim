@@ -1,3 +1,0 @@
-" elmcast/vim-elm {{{
-" }}}
-

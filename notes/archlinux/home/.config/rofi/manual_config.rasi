@@ -1,8 +1,0 @@
-configuration {
-    font: "JetBrains Mono NL 9.5";
-    fullscreen: true;
-}
-
-@import "nord.rasi"
-
-/* vim:ft=css
