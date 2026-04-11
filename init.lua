@@ -27,6 +27,13 @@ vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
 
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "]q", ":cnext<cr>zz")
+vim.keymap.set("n", "[l", ":cprevious<cr>zz")
+vim.keymap.set("n", "]l", ":lnext<cr>zz")
+vim.keymap.set("n", "[l", ":lprevious<cr>zz")
+
 -- navigation
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
