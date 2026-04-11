@@ -17,7 +17,7 @@ vim.o.foldlevelstart = 99
 vim.o.winborder = "rounded"
 vim.o.pumborder = vim.o.winborder
 vim.o.fillchars = "diff: "
-vim.o.wildoptions = "fuzzy"
+vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
