@@ -2,8 +2,6 @@
 
 This is my personal computer configuration files.
 
-Checkout my [neovim](https://github.com/pirey/nvim) configuration.
-
 ## File Structure
 
 ```

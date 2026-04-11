@@ -81,11 +81,6 @@ brew install \
 ssh-keygen -t rsa -b 4096 -C "mail@host.com"
 ```
 
-## setup neovim
-
-- download nvim release
-- clone nvim config repo
-
 ## setup dotfiles
 
 ## desktop & dock
