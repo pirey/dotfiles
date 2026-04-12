@@ -46,11 +46,11 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-jump": {
-      "rev": "a12a917f4a650292df4ea09c9517095d7f47c5de",
+      "rev": "7cce9540623ff6c50475dc6d30316dedb074e851",
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "cb5bc0b2b35a6d513e3298d285db81453e791f4f",
+      "rev": "3c156abc4f7912f66d8687512d75b939b14fbc42",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
