@@ -428,6 +428,12 @@ local blink_indent = {
     })
   end,
 }
+local quicker = {
+  src = "stevearc/quicker.nvim",
+  config = function ()
+    require("quicker").setup()
+  end
+}
 local conform = {
   src = "stevearc/conform.nvim",
   dependencies = { { src = "mason-org/mason.nvim" } },
@@ -470,6 +476,7 @@ return {
 
   -- UI
   outline,
+  quicker,
   oil,
   fff,
   gitsigns,
