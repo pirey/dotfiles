@@ -9,6 +9,8 @@ This is my personal computer configuration files.
 ├── etc/              # System-wide configs (e.g., keyd)
 ├── home/             # User configs (~)
 │   ├── .config/
+│   │   ├── nvim/     # Neovim configuration
+│   │   └── ...
 │   ├── .zshrc
 │   ├── .gitconfig
 │   └── ...
