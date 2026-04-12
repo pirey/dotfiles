@@ -12,7 +12,7 @@ return {
         -- REDUCE RED, YELLOW AND ORANGE TO MAKE IT MORE BLUE-ISH
 
         vim.api.nvim_set_hl(0, "CursorLineNr", { bold = true })
-        vim.api.nvim_set_hl(0, "QuickFixLine", { bg = c.bg1, underline = false })
+        vim.api.nvim_set_hl(0, "QuickFixLine", { bg = c.bg1 })
 
         vim.api.nvim_set_hl(0, "Special", { fg = c.cyan })
         vim.api.nvim_set_hl(0, "@constant", { fg = c.fg, italic = true })
@@ -89,7 +89,7 @@ return {
             vim.wo[winnr].cursorlineopt = "both"
 
             vim.api.nvim_win_set_hl_ns(winnr, ns_id)
-            vim.api.nvim_set_hl(ns_id, "CursorLine", { underline = false, bg = c.bg1 })
+            vim.api.nvim_set_hl(ns_id, "CursorLine", { bg = c.bg1 })
           end,
         })
       end,

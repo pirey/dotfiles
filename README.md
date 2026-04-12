@@ -15,6 +15,11 @@ This is my personal computer configuration files.
 │   ├── .gitconfig
 │   └── ...
 ├── notes/            # OS-specific setup guides (fedora, macos, nixos, windows)
+│   ├── fedora/
+│   ├── macos/
+│   ├── nixos/
+│   ├── windows/
+│   └── ...
 ├── scripts/          # Utility scripts
 └── README.md
 ```
