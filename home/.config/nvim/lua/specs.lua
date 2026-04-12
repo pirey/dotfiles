@@ -30,6 +30,7 @@ local fugitive = {
 
         if ev.match == "git" then
           vim.wo.foldmethod = "syntax"
+          vim.wo.foldlevel = 0
         end
 
         if ev.match == "fugitive" then
