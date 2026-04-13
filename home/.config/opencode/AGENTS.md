@@ -1,2 +1,2 @@
-DO NOT DO ANY GIT WRITE OPERATION (e.g. git commit, git push, git stash, etc)!
+DO NOT DO ANY GIT WRITE OPERATION (e.g. git commit, git add, git push, git stash, git restore, etc)!
 

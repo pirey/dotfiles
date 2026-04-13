@@ -1,12 +1,7 @@
-local function is_git_repo()
-  return vim.fn.executable("git") == 1
-    and vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
-end
-
 ---@param path string
----@param out string[]
+---@param items string[]
 ---@param t string? @default "file"
-local function scan(path, out, t)
+local function scan_files(path, items, t)
   local ignore_files = { ".git" }
   t = t or "file"
   local handle = vim.uv.fs_scandir(path)
@@ -28,7 +23,7 @@ local function scan(path, out, t)
     end
 
     if fs_t == t then
-      table.insert(out, {
+      table.insert(items, {
         filename = fullpath,
         lnum = 1,
         col = 1,
@@ -36,36 +31,50 @@ local function scan(path, out, t)
     end
 
     if fs_t == "directory" then
-      scan(fullpath, out, t)
+      scan_files(fullpath, items, t)
     end
 
     ::continue::
   end
 end
 
-local M = {}
+local CHUNK_SIZE = 100
+local ITEMS_DELAY = 10
 
-function M.find_files()
+local M = {}
+M.builtins = {}
+
+function M.builtins.find_files()
+  local title_loading = "Loading..."
+  local title = "Files"
   local items = {}
-  if is_git_repo() then
-    local lines = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
-    items = vim.tbl_map(function(item)
-      return { filename = item, lnum = 1, col = 1 }
-    end, lines)
-  else
-    scan(vim.uv.cwd() or ".", items, "files")
+
+  scan_files(vim.uv.cwd() or ".", items, "file")
+
+  vim.cmd("copen")
+  vim.fn.setqflist({}, " ", { title = title_loading })
+
+  local function add_chunk(idx)
+    local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
+    vim.fn.setqflist({}, "a", { items = chunk })
+    idx = idx + CHUNK_SIZE
+    if idx <= #items then
+      vim.defer_fn(function()
+        add_chunk(idx)
+      end, ITEMS_DELAY)
+    else
+      vim.fn.setqflist({}, "a", { title = title })
+    end
   end
 
-  vim.fn.setqflist({}, " ", { title = "Searching files..." })
-  vim.schedule(function()
-    vim.fn.setqflist({}, " ", {
-      title = "Files",
-      items = items,
-    })
-  end)
-  vim.cmd("copen")
+  vim.defer_fn(function()
+    add_chunk(1)
+  end, 0)
+end
+
+function M.builtins.find_dirs()
 end
 
 vim.api.nvim_create_user_command("FQF", function()
-  M.find_files()
+  M.builtins.find_files()
 end, {})
