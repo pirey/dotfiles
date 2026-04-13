@@ -27,19 +27,16 @@ local function scan(path, out, t)
       goto continue
     end
 
+    if fs_t == t then
+      table.insert(out, {
+        filename = fullpath,
+        lnum = 1,
+        col = 1,
+      })
+    end
+
     if fs_t == "directory" then
-      table.insert(out, {
-        filename = fullpath,
-        lnum = 1,
-        col = 1,
-      })
-      scan(fullpath, out)
-    else
-      table.insert(out, {
-        filename = fullpath,
-        lnum = 1,
-        col = 1,
-      })
+      scan(fullpath, out, t)
     end
 
     ::continue::
@@ -56,7 +53,7 @@ function M.find_files()
       return { filename = item, lnum = 1, col = 1 }
     end, lines)
   else
-    scan(vim.uv.cwd() or ".", items)
+    scan(vim.uv.cwd() or ".", items, "files")
   end
 
   vim.fn.setqflist({}, " ", { title = "Searching files..." })
