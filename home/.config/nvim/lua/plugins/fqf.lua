@@ -13,8 +13,6 @@ local function is_git_repo()
   return vim.v.shell_error == 0
 end
 
--- TODO: properly format lnum and col
-
 ---@param path string
 ---@param items string[]
 ---@param t string? @default "file"
@@ -34,7 +32,6 @@ function M.fs.scan(path, items, t)
 
     local fullpath = path .. "/" .. name
 
-    -- TODO: parse .gitignore
     if vim.tbl_contains(ignore_files, name) then
       goto continue
     end
