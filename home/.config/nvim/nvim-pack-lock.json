@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "dc7e8df07dda96c2ec1f7b0978b3a0afe3aa3c72",
+      "rev": "d8629e9738deef5e5b9c9dddfeeb740c736ab83e",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
-      "rev": "213c23ae45a04797572242568d5d51937181792d",
+      "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "outline.nvim": {
