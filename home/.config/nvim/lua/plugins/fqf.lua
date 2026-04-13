@@ -1,7 +1,17 @@
 local M = {}
 M.builtins = {}
 M.render = {}
+M.source = {}
 M.fs = {}
+
+local function is_git_repo()
+  if vim.fn.executable("git") ~= 1 then
+    return false
+  end
+
+  vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
+  return vim.v.shell_error == 0
+end
 
 -- TODO: properly format lnum and col
 
@@ -45,6 +55,38 @@ function M.fs.scan(path, items, t)
   end
 end
 
+function M.source.fs_files(opts)
+  opts = opts or {}
+  local t = opts.fs_type or "file"
+  local items = {}
+  M.fs.scan(vim.uv.cwd() or ".", items, t)
+  return items
+end
+
+function M.source.git_files()
+  if not is_git_repo() then
+    return {}
+  end
+
+  local lines = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
+
+  if vim.v.shell_error ~= 0 then
+    return {}
+  end
+
+  local items = {}
+
+  for i = 1, #lines do
+    items[#items + 1] = {
+      filename = lines[i],
+      lnum = 1,
+      col = 1,
+    }
+  end
+
+  return items
+end
+
 M.render.default_opts = {
   chunk_size = 100,
   items_delay = 10,
@@ -80,7 +122,11 @@ function M.builtins.find_files()
   local title = "Files"
   local items = {}
 
-  M.fs.scan(vim.uv.cwd() or ".", items, "file")
+  if is_git_repo() then
+    items = M.source.git_files()
+  else
+    items = M.source.fs_files()
+  end
 
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
@@ -93,7 +139,32 @@ function M.builtins.find_dirs()
   local title = "Directories"
   local items = {}
 
-  M.fs.scan(vim.uv.cwd() or ".", items, "directory")
+  if is_git_repo() then
+    local files = M.source.git_files()
+    if not files then
+      return
+    end
+
+    local seen = {}
+
+    for _, f in ipairs(files) do
+      local dir = f.filename:match("(.+)/[^/]+$")
+      while dir do
+        if not seen[dir] then
+          seen[dir] = true
+          items[#items + 1] = {
+            filename = dir,
+            lnum = 1,
+            col = 1,
+          }
+        end
+
+        dir = dir:match("(.+)/[^/]+$")
+      end
+    end
+  else
+    items = M.source.fs_files({ fs_type = "directory" })
+  end
 
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
@@ -148,6 +219,10 @@ function M.builtins.oldfiles(opts)
 end
 
 function M.builtins.git_changes()
+  if not is_git_repo() then
+    return
+  end
+
   local lines = vim.fn.systemlist("git status --porcelain")
 
   local items = {}
