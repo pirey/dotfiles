@@ -196,13 +196,13 @@ end
 function M.builtins.oldfiles(opts)
   opts = opts or {}
   local title = opts.title or "Oldfiles"
-  local current_dir = opts.current_dir ~= false
+  local current_dir = opts.current_dir or true
   local cwd = vim.uv.cwd() or ""
 
   local items = {}
 
   for _, path in ipairs(vim.v.oldfiles) do
-    if not current_dir or path:find(vim.pesc(cwd), 1, true) == 1 then
+    if not current_dir or path:find(cwd, 1, true) == 1 then
       items[#items + 1] = {
         filename = path,
         lnum = 1,
@@ -250,12 +250,6 @@ function M.builtins.git_changes()
 end
 
 function M.setup()
-  vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-    pattern = "grep",
-    callback = function()
-      vim.fn.setqflist({}, "a", { title = "Search Result" })
-    end,
-  })
   vim.api.nvim_create_user_command("FQF", function()
     M.builtins.find_files()
   end, {})
