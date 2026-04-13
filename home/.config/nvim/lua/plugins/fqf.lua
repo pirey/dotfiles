@@ -177,8 +177,8 @@ function M.builtins.grep(opts)
   local prompt = opts.prompt or "Search: "
   local auto_open = opts.auto_open or false
   local silent = opts.silent or true
-  local query = vim.fn.input(prompt)
-  if query == "" then
+  local ok, query = pcall(vim.fn.input, prompt)
+  if query == "" or not ok then
     return
   end
   local title = "Search: " .. query
