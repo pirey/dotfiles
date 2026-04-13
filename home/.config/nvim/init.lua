@@ -66,6 +66,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.o.cursorlineopt = "both"
     vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
     vim.keymap.set("n", "<c-c>", "<cmd>cclose<cr>", { buffer = true })
+    vim.keymap.set("n", ".", function()
+      local line = vim.fn.line(".")
+      vim.fn.setqflist({}, "a", { idx = line })
+    end, { buffer = true })
   end,
 })
 
@@ -97,7 +101,13 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPre grep copen")
 
-vim.keymap.set("n", "<leader>f", "<cmd>FQF<cr>")
+local fqf = require("plugins.fqf")
+fqf.setup()
+vim.keymap.set("n", "<leader>f", fqf.builtins.find_files)
+vim.keymap.set("n", "<leader><leader>f", fqf.builtins.find_dirs)
+vim.keymap.set("n", "<leader>,", fqf.builtins.grep)
+vim.keymap.set("n", "<leader>'", fqf.builtins.oldfiles)
+vim.keymap.set("n", "<leader>gq", fqf.builtins.git_changes)
 
 require("vim._core.ui2").enable()
 require("pack").setup(require("specs"))
