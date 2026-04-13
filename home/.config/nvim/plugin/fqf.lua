@@ -3,31 +3,69 @@ local function is_git_repo()
     and vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
 end
 
+---@param path string
+---@param out string[]
+---@param t string? @default "file"
+local function scan(path, out, t)
+  local ignore_files = { ".git" }
+  t = t or "file"
+  local handle = vim.uv.fs_scandir(path)
+  if not handle then
+    return
+  end
+  while true do
+    local name, fs_t = vim.uv.fs_scandir_next(handle)
+
+    if not name then
+      break
+    end
+
+    local fullpath = path .. "/" .. name
+
+    -- TODO: parse .gitignore
+    if vim.tbl_contains(ignore_files, name) then
+      goto continue
+    end
+
+    if fs_t == "directory" then
+      table.insert(out, {
+        filename = fullpath,
+        lnum = 1,
+        col = 1,
+      })
+      scan(fullpath, out)
+    else
+      table.insert(out, {
+        filename = fullpath,
+        lnum = 1,
+        col = 1,
+      })
+    end
+
+    ::continue::
+  end
+end
+
 local M = {}
 
 function M.find_files()
-  local lines
-
+  local items = {}
   if is_git_repo() then
-    lines = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
+    local lines = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
+    items = vim.tbl_map(function(item)
+      return { filename = item, lnum = 1, col = 1 }
+    end, lines)
   else
-    -- TODO: use vim.uv.fs_scandir
-    lines = vim.fs.find(function(_, path)
-      return not path:match(".git/?.*")
-    end, {
-      path = vim.uv.cwd(),
-      limit = math.huge,
-      type = "file",
-      hidden = true,
-    })
+    scan(vim.uv.cwd() or ".", items)
   end
 
-  -- TODO: chunk items
-  local items = vim.tbl_map(function(f)
-    return { filename = f, lnum = 1, col = 1 }
-  end, lines)
-
-  vim.fn.setqflist({}, "r", { title = "Files", items = items })
+  vim.fn.setqflist({}, " ", { title = "Searching files..." })
+  vim.schedule(function()
+    vim.fn.setqflist({}, " ", {
+      title = "Files",
+      items = items,
+    })
+  end)
   vim.cmd("copen")
 end
 
