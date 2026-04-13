@@ -65,11 +65,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.o.cursorline = true
     vim.o.cursorlineopt = "both"
     vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
+    vim.keymap.set("n", "<c-c>", "<cmd>cclose<cr>", { buffer = true })
   end,
 })
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
+vim.keymap.set("n", "<leader>c", "<cmd>copen<cr>", { silent = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
@@ -94,6 +96,8 @@ vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of 
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPre grep copen")
+
+vim.keymap.set("n", "<leader>f", "<cmd>FQF<cr>")
 
 require("vim._core.ui2").enable()
 require("pack").setup(require("specs"))

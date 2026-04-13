@@ -286,13 +286,6 @@ local fff = {
       },
       icons = { enabled = false },
     })
-
-    vim.keymap.set("n", "<leader>f", function()
-      require("fff").find_files()
-    end)
-    vim.keymap.set("n", "<leader>,", function()
-      require("fff").live_grep()
-    end)
   end,
 }
 local gitsigns = {
