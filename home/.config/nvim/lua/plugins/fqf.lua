@@ -171,7 +171,6 @@ function M.builtins.find_dirs()
   local items = {}
 
   if vim.fn.executable("fd") then
-    vim.notify("using fd for dir")
     items = M.source.fd_files({ fs_type = "directory" })
   elseif is_git_repo() then
     local files = M.source.git_files()

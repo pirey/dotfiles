@@ -69,7 +69,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo[win].cursorline = true
     vim.wo[win].cursorlineopt = "both"
     local close_cmd = wininfo.loclist == 1 and "lclose" or "cclose"
-    vim.notify(close_cmd)
     vim.keymap.set("n", "<cr>", "<cr><cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
     vim.keymap.set("n", "<esc>", "<cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
     vim.keymap.set("n", "<c-c>", "<cmd>" .. close_cmd .."<cr>", { buffer = true, silent = true })
