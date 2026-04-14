@@ -4,6 +4,8 @@ M.render = {}
 M.source = {}
 M.fs = {}
 
+-- TODO: configure vim.o.quickfixtextfunc
+
 local function is_git_repo()
   if vim.fn.executable("git") ~= 1 then
     return false
@@ -249,7 +251,52 @@ function M.builtins.git_changes()
   vim.cmd("copen")
 end
 
-function M.setup()
+function M.ui_select(items, opts, on_choice)
+  opts = opts or {}
+
+  local qf_items = {}
+  local prompt = opts.prompt or "Select"
+  local format_item = opts.format_item or tostring
+  for _, item in ipairs(items) do
+    qf_items[#qf_items + 1] = {
+      text = format_item(item),
+      user_data = item,
+    }
+  end
+
+  vim.fn.setqflist({}, " ", {
+    title = prompt,
+    items = qf_items,
+  })
+
+  vim.cmd("copen")
+
+  local win = vim.fn.getqflist({ winid = 0 }).winid
+  if win == 0 then
+    win = vim.fn.win_getid()
+  end
+
+  local buf = vim.api.nvim_win_get_buf(win)
+
+  vim.keymap.set("n", "<CR>", function()
+    local idx = vim.fn.line(".")
+    local list = vim.fn.getqflist()
+
+    vim.cmd("cclose")
+
+    local item = list[idx] and list[idx].user_data
+    on_choice(item)
+  end, { buffer = buf, silent = true })
+end
+
+function M.setup(opts)
+  opts = opts or {}
+  local register_ui_select = opts.register_ui_select or true
+
+  if register_ui_select then
+    vim.ui.select = M.ui_select
+  end
+
   vim.api.nvim_create_user_command("FQF", function()
     M.builtins.find_files()
   end, {})
