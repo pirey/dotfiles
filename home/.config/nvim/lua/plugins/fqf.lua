@@ -4,7 +4,6 @@ M.render = {}
 M.source = {}
 M.fs = {}
 
--- TODO: configure vim.o.quickfixtextfunc
 -- TODO: scoring and sorting
 -- TODO: fuzzy search
 -- TODO: preview
@@ -161,8 +160,6 @@ function M.builtins.find_files()
   else
     items = M.source.fs_files()
   end
-
-  -- TODO: sorting
 
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
@@ -330,6 +327,52 @@ function M.builtins.git_changes()
   vim.cmd("copen")
 end
 
+function M.set_quickfixtextfunc()
+  vim.cmd([[
+    function! QuickfixTextfunc(what)
+      let items = getqflist({'items': 1}).items
+      let max_fname = 0
+      let max_lnum = 0
+      let max_col = 0
+      for qf in items
+        let fname = bufname(qf.bufnr)
+        if empty(fname)
+          let fname = qf.filename
+        endif
+        let fwidth = strwidth(fname)
+        if fwidth > max_fname
+          let max_fname = fwidth
+        endif
+        let lnum_w = strwidth(string(qf.lnum))
+        if lnum_w > max_lnum
+          let max_lnum = lnum_w
+        endif
+        let col_w = strwidth(string(qf.col))
+        if col_w > max_col
+          let max_col = col_w
+        endif
+      endfor
+      let lines = []
+      for qf in items
+        let fname = bufname(qf.bufnr)
+        if empty(fname)
+          let fname = qf.filename
+        endif
+        if empty(qf.text)
+          call add(lines, fname)
+        else
+          let padded_fname = fname .. repeat(' ', max_fname - strwidth(fname))
+          let padded_lnum = repeat(' ', max_lnum - strwidth(string(qf.lnum))) .. qf.lnum
+          let padded_col = qf.col .. repeat(' ', max_col - strwidth(string(qf.col)))
+          call add(lines, printf('%s |%s:%s| %s', padded_fname, padded_lnum, padded_col, qf.text))
+        endif
+      endfor
+      return lines
+    endfunction
+  ]])
+  vim.o.quickfixtextfunc = 'QuickfixTextfunc'
+end
+
 function M.ui_select(items, opts, on_choice)
   opts = opts or {}
 
@@ -371,9 +414,14 @@ end
 function M.setup(opts)
   opts = opts or {}
   local register_ui_select = opts.register_ui_select or true
+  local override_quickfixtextfunc = opts.override_quickfixtextfunc or true
 
   if register_ui_select then
     vim.ui.select = M.ui_select
+  end
+
+  if override_quickfixtextfunc then
+    M.set_quickfixtextfunc()
   end
 end
 
