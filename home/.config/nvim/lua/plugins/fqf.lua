@@ -211,7 +211,7 @@ function M.builtins.grep(opts)
   opts = opts or {}
   local prompt = opts.prompt or "Search: "
   local auto_open = opts.auto_open or false
-  local silent = opts.silent or true
+  local silent = opts.silent ~= false
   local ok, query = pcall(vim.fn.input, prompt)
   if query == "" or not ok then
     return
@@ -232,9 +232,10 @@ function M.builtins.grep(opts)
 end
 
 function M.builtins.buffer_grep(opts)
+  local win = vim.api.nvim_get_current_win()
   opts = opts or {}
   local prompt = opts.prompt or "/"
-  local use_loclist = opts.use_loclist or true
+  local use_loclist = opts.use_loclist ~= false
   local ok, query = pcall(vim.fn.input, prompt)
   if query == "" or not ok then
     return
@@ -242,27 +243,31 @@ function M.builtins.buffer_grep(opts)
   local title = "/" .. query
   local items = {}
 
-  local lnum = 0
+  local pos = { 0, 0 }
   local buf = vim.api.nvim_get_current_buf()
   local fname = vim.api.nvim_buf_get_name(buf)
+  vim.cmd("normal! ms")
   vim.cmd("normal! gg")
   while true do
-    lnum = vim.fn.search(query, "W")
-    if lnum == 0 then
+    pos = vim.fn.searchpos(query, "W")
+    local lnum = pos[1]
+    local col = pos[2]
+    if lnum == 0 and col == 0 then
       break
     end
     local line = vim.api.nvim_buf_get_lines(buf, lnum - 1, lnum, false)[1]
     items[#items + 1] = {
       filename = fname,
       lnum = lnum,
-      col = vim.fn.match(line, query) + 1,
+      col = col,
       text = line,
     }
   end
+  vim.cmd("normal! 's")
+  vim.cmd("delmarks s")
 
   vim.fn.setreg("/", query)
   if use_loclist then
-    local win = vim.api.nvim_get_current_win()
     vim.fn.setloclist(win, {}, " ", { title = title, items = items })
     vim.cmd("lopen")
   else
@@ -274,7 +279,7 @@ end
 function M.builtins.oldfiles(opts)
   opts = opts or {}
   local title = opts.title or "Oldfiles"
-  local current_dir = opts.current_dir or true
+  local current_dir = opts.current_dir ~= false
   local cwd = vim.uv.cwd() or ""
 
   local items = {}
@@ -329,8 +334,12 @@ end
 
 function M.set_quickfixtextfunc()
   vim.cmd([[
-    function! QuickfixTextfunc(what)
-      let items = getqflist({'items': 1}).items
+    function! QuickfixTextfunc(arg)
+      if a:arg.quickfix
+        let items = getqflist({'items': 1}).items
+      else
+        let items = getloclist(a:arg.winid, {'items': 1}).items
+      endif
       let max_fname = 0
       let max_lnum = 0
       let max_col = 0
@@ -413,8 +422,8 @@ end
 
 function M.setup(opts)
   opts = opts or {}
-  local register_ui_select = opts.register_ui_select or true
-  local override_quickfixtextfunc = opts.override_quickfixtextfunc or true
+  local register_ui_select = opts.register_ui_select ~= false
+  local override_quickfixtextfunc = opts.override_quickfixtextfunc ~= false
 
   if register_ui_select then
     vim.ui.select = M.ui_select
