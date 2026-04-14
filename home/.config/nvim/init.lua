@@ -62,8 +62,9 @@ end)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function()
-    vim.o.cursorline = true
-    vim.o.cursorlineopt = "both"
+    local win = vim.api.nvim_get_current_win()
+    vim.wo[win].cursorline = true
+    vim.wo[win].cursorlineopt = "both"
     vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
     vim.keymap.set("n", "<c-c>", "<cmd>cclose<cr>", { buffer = true })
     vim.keymap.set("n", ".", function()
