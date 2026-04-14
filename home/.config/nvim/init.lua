@@ -67,6 +67,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo[win].cursorlineopt = "both"
     vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
     vim.keymap.set("n", "<c-c>", "<cmd>cclose<cr>", { buffer = true })
+    vim.keymap.set("n", "<esc>", "<cmd>cclose<cr>", { buffer = true })
     vim.keymap.set("n", ".", function()
       local line = vim.fn.line(".")
       vim.fn.setqflist({}, "a", { idx = line })

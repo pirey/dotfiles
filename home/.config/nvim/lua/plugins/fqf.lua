@@ -62,6 +62,30 @@ function M.source.fs_files(opts)
   return items
 end
 
+function M.source.fd_files(opts)
+  opts = opts or {}
+  local t = opts.fs_type or "file"
+  local lines = vim.fn.systemlist({
+    "fd",
+    "--hidden",
+    "--exclude",
+    ".git",
+    "--type",
+    t == "file" and "f" or "d",
+  })
+
+  local items = {}
+  for i = 1, #lines do
+    items[#items + 1] = {
+      filename = lines[i],
+      lnum = 1,
+      col = 1,
+    }
+  end
+
+  return items
+end
+
 function M.source.git_files()
   if not is_git_repo() then
     return {}
@@ -116,12 +140,15 @@ function M.render.make_chunk_render(items, opts)
   return render_chunk
 end
 
+-- TODO: use unified source without dependency checking
 function M.builtins.find_files()
   local title_loading = "Loading..."
   local title = "Files"
   local items = {}
 
-  if is_git_repo() then
+  if vim.fn.executable("fd") then
+    items = M.source.fd_files()
+  elseif is_git_repo() then
     items = M.source.git_files()
   else
     items = M.source.fs_files()
@@ -138,7 +165,10 @@ function M.builtins.find_dirs()
   local title = "Directories"
   local items = {}
 
-  if is_git_repo() then
+  if vim.fn.executable("fd") then
+    vim.notify("using fd for dir")
+    items = M.source.fd_files({ fs_type = "directory" })
+  elseif is_git_repo() then
     local files = M.source.git_files()
     if not files then
       return
