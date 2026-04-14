@@ -225,6 +225,42 @@ function M.builtins.grep(opts)
   end, 0)
 end
 
+function M.builtins.buffer_grep(opts)
+  opts = opts or {}
+  local prompt = opts.prompt or "/"
+  local ok, query = pcall(vim.fn.input, prompt)
+  if query == "" or not ok then
+    return
+  end
+  local title = "/" .. query
+  local items = {}
+
+  local lnum = 0
+  local buf = vim.api.nvim_get_current_buf()
+  local fname = vim.api.nvim_buf_get_name(buf)
+  vim.cmd("normal! gg")
+  while true do
+    lnum = vim.fn.search(query, "W")
+    if lnum == 0 then
+      break
+    end
+    local line = vim.api.nvim_buf_get_lines(buf, lnum - 1, lnum, false)[1]
+    items[#items + 1] = {
+      filename = fname,
+      lnum = lnum,
+      col = vim.fn.match(line, query) + 1,
+      text = line,
+    }
+  end
+
+  vim.fn.setqflist({}, " ", {
+    title = title,
+    items = items,
+  })
+  vim.fn.setreg("/", query)
+  vim.cmd("copen")
+end
+
 function M.builtins.oldfiles(opts)
   opts = opts or {}
   local title = opts.title or "Oldfiles"
