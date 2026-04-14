@@ -22,6 +22,11 @@ end
 ---@param items string[]
 ---@param t string? @default "file"
 function M.fs.scan(path, items, t)
+  local max_items = 1000
+  -- simple fix to prevent crash for now
+  if #items >= max_items then
+    return
+  end
   local ignore_files = { ".git" }
   t = t or "file"
   local handle = vim.uv.fs_scandir(path)
