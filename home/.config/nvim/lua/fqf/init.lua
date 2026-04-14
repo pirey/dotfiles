@@ -332,54 +332,66 @@ function M.builtins.git_changes()
   vim.cmd("copen")
 end
 
-function M.set_quickfixtextfunc()
-  vim.cmd([[
-    function! QuickfixTextfunc(arg)
-      if a:arg.quickfix
-        let items = getqflist({'items': 1}).items
-      else
-        let items = getloclist(a:arg.winid, {'items': 1}).items
-      endif
-      let max_fname = 0
-      let max_lnum = 0
-      let max_col = 0
-      for qf in items
-        let fname = bufname(qf.bufnr)
-        if empty(fname)
-          let fname = qf.filename
-        endif
-        let fwidth = strwidth(fname)
-        if fwidth > max_fname
-          let max_fname = fwidth
-        endif
-        let lnum_w = strwidth(string(qf.lnum))
-        if lnum_w > max_lnum
-          let max_lnum = lnum_w
-        endif
-        let col_w = strwidth(string(qf.col))
-        if col_w > max_col
-          let max_col = col_w
-        endif
-      endfor
-      let lines = []
-      for qf in items
-        let fname = bufname(qf.bufnr)
-        if empty(fname)
-          let fname = qf.filename
-        endif
-        if empty(qf.text)
-          call add(lines, fname)
-        else
-          let padded_fname = fname .. repeat(' ', max_fname - strwidth(fname))
-          let padded_lnum = repeat(' ', max_lnum - strwidth(string(qf.lnum))) .. qf.lnum
-          let padded_col = qf.col .. repeat(' ', max_col - strwidth(string(qf.col)))
-          call add(lines, printf('%s |%s:%s| %s', padded_fname, padded_lnum, padded_col, qf.text))
-        endif
-      endfor
-      return lines
-    endfunction
-  ]])
-  vim.o.quickfixtextfunc = 'QuickfixTextfunc'
+function M.qftf(info)
+  local items
+  if info.quickfix == 1 then
+    items = vim.fn.getqflist({ items = 1 }).items
+  else
+    items = vim.fn.getloclist(info.winid, { items = 1 }).items
+  end
+
+  local max_fname, max_lnum, max_col = 0, 0, 0
+
+  for _, qf in ipairs(items) do
+    local fname = vim.fn.bufname(qf.bufnr)
+    if fname == "" then
+      fname = qf.filename or ""
+    end
+
+    local fwidth = vim.fn.strwidth(fname)
+    if fwidth > max_fname then
+      max_fname = fwidth
+    end
+
+    local lnum_w = vim.fn.strwidth(tostring(qf.lnum or ""))
+    if lnum_w > max_lnum then
+      max_lnum = lnum_w
+    end
+
+    local col_w = vim.fn.strwidth(tostring(qf.col or ""))
+    if col_w > max_col then
+      max_col = col_w
+    end
+  end
+
+  local lines = {}
+
+  for _, qf in ipairs(items) do
+    local fname = vim.fn.bufname(qf.bufnr)
+    if fname == "" then
+      fname = qf.filename or ""
+    end
+
+    if not qf.text or qf.text == "" then
+      table.insert(lines, fname)
+    else
+      local padded_fname = fname .. string.rep(" ", max_fname - vim.fn.strwidth(fname))
+
+      local lnum = tostring(qf.lnum or "")
+      local padded_lnum = string.rep(" ", max_lnum - vim.fn.strwidth(lnum)) .. lnum
+
+      local col = tostring(qf.col or "")
+      local padded_col = col .. string.rep(" ", max_col - vim.fn.strwidth(col))
+
+      table.insert(lines, string.format("%s |%s:%s| %s", padded_fname, padded_lnum, padded_col, qf.text))
+    end
+  end
+
+  return lines
+end
+
+function M.register_quickfixtextfunc()
+  vim.o.quickfixtextfunc = "v:lua.require'fqf'.qftf"
 end
 
 function M.ui_select(items, opts, on_choice)
@@ -423,14 +435,14 @@ end
 function M.setup(opts)
   opts = opts or {}
   local register_ui_select = opts.register_ui_select ~= false
-  local override_quickfixtextfunc = opts.override_quickfixtextfunc ~= false
+  local register_quickfixtextfunc = opts.register_quickfixtextfunc ~= false
 
   if register_ui_select then
     vim.ui.select = M.ui_select
   end
 
-  if override_quickfixtextfunc then
-    M.set_quickfixtextfunc()
+  if register_quickfixtextfunc then
+    M.register_quickfixtextfunc()
   end
 end
 

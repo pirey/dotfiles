@@ -110,7 +110,7 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd QuickFixCmdPre grep copen")
 
-local fqf = require("plugins.fqf")
+local fqf = require("fqf")
 fqf.setup()
 vim.keymap.set("n", "<leader>f", fqf.builtins.find_files)
 vim.keymap.set("n", "<leader><leader>f", fqf.builtins.find_dirs)
