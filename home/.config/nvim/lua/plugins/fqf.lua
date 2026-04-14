@@ -5,6 +5,9 @@ M.source = {}
 M.fs = {}
 
 -- TODO: configure vim.o.quickfixtextfunc
+-- TODO: scoring and sorting
+-- TODO: fuzzy search
+-- TODO: preview
 
 local function is_git_repo()
   if vim.fn.executable("git") ~= 1 then
@@ -154,6 +157,8 @@ function M.builtins.find_files()
     items = M.source.fs_files()
   end
 
+  -- TODO: sorting
+
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
 
@@ -228,6 +233,7 @@ end
 function M.builtins.buffer_grep(opts)
   opts = opts or {}
   local prompt = opts.prompt or "/"
+  local use_loclist = opts.use_loclist or true
   local ok, query = pcall(vim.fn.input, prompt)
   if query == "" or not ok then
     return
@@ -253,12 +259,15 @@ function M.builtins.buffer_grep(opts)
     }
   end
 
-  vim.fn.setqflist({}, " ", {
-    title = title,
-    items = items,
-  })
   vim.fn.setreg("/", query)
-  vim.cmd("copen")
+  if use_loclist then
+    local win = vim.api.nvim_get_current_win()
+    vim.fn.setloclist(win, {}, " ", { title = title, items = items })
+    vim.cmd("lopen")
+  else
+    vim.fn.setqflist({}, " ", { title = title, items = items })
+    vim.cmd("copen")
+  end
 end
 
 function M.builtins.oldfiles(opts)

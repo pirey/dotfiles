@@ -59,15 +59,22 @@ vim.keymap.set("n", "[l", function()
   vim.cmd("lwindow")
 end)
 
+local qfgroup = vim.api.nvim_create_augroup("qf_augroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
+  group = qfgroup,
   callback = function()
     local win = vim.api.nvim_get_current_win()
+    local wininfo = vim.fn.getwininfo(win)[1]
     vim.wo[win].cursorline = true
     vim.wo[win].cursorlineopt = "both"
-    vim.keymap.set("n", "<cr>", "<cr><cmd>cclose<cr>", { buffer = true })
-    vim.keymap.set("n", "<c-c>", "<cmd>cclose<cr>", { buffer = true })
-    vim.keymap.set("n", "<esc>", "<cmd>cclose<cr>", { buffer = true })
+    local close_cmd = wininfo.loclist == 1 and "lclose" or "cclose"
+    vim.notify(close_cmd)
+    vim.keymap.set("n", "<cr>", "<cr><cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
+    vim.keymap.set("n", "<esc>", "<cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
+    vim.keymap.set("n", "<c-c>", "<cmd>" .. close_cmd .."<cr>", { buffer = true, silent = true })
+    vim.keymap.set("n", "<c-w><c-v>", "<c-w><cr><c-w>L<cmd>".. close_cmd .."<cr>", { buffer = true, silent = true })
+    vim.keymap.set("n", "<c-w><c-t>", "<c-w><cr><c-w>T<cmd>".. close_cmd .."<cr>", { buffer = true, silent = true })
     vim.keymap.set("n", ".", function()
       local line = vim.fn.line(".")
       vim.fn.setqflist({}, "a", { idx = line })
@@ -78,6 +85,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader>c", "<cmd>copen<cr>", { silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd>lopen<cr>", { silent = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
