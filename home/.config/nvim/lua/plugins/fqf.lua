@@ -362,10 +362,6 @@ function M.setup(opts)
   if register_ui_select then
     vim.ui.select = M.ui_select
   end
-
-  vim.api.nvim_create_user_command("FQF", function()
-    M.builtins.find_files()
-  end, {})
 end
 
 return M
