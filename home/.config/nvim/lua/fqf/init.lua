@@ -3,9 +3,11 @@ M.builtins = {}
 M.render = {}
 M.source = {}
 M.fs = {}
+M.picker = {}
+M.picker.state = nil
 
--- TODO: scoring and sorting
 -- TODO: fuzzy search
+-- TODO: scoring and sorting
 -- TODO: preview
 
 local function is_git_repo()
@@ -15,6 +17,151 @@ local function is_git_repo()
 
   vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
   return vim.v.shell_error == 0
+end
+
+function M.picker.filter(query)
+  local state = M.picker.state
+  if not state or not state.items or not state.qf_winid or state.qf_winid == 0 then
+    return
+  end
+
+  local filtered = {}
+  local lower_query = query:lower()
+  for _, item in ipairs(state.items) do
+    if item.filename:lower():find(lower_query, 1, true) then
+      filtered[#filtered + 1] = item
+    end
+  end
+
+  vim.fn.setqflist({}, "r")
+
+  state.qf_cursor = 1
+
+  local render_chunk = M.render.make_chunk_render(filtered, {
+    title = query == "" and "Files" or "Files: " .. query,
+  })
+  render_chunk()
+end
+
+local function setup_prompt_keymaps(buf, prompt_win, qfwin, state)
+  vim.keymap.set("i", "<c-w>", "<c-s-w>", { buf = buf })
+  vim.keymap.set("i", "<c-c>", function()
+    if prompt_win and vim.api.nvim_win_is_valid(prompt_win) then
+      vim.api.nvim_win_close(prompt_win, true)
+    end
+    vim.cmd("cclose")
+  end, { buf = buf, silent = true })
+
+  vim.keymap.set("i", "<c-n>", function()
+    local current = vim.fn.win_getid()
+    vim.api.nvim_set_current_win(qfwin)
+    vim.cmd("normal! j")
+    vim.api.nvim_set_current_win(current)
+  end, { buffer = buf, silent = true })
+  vim.keymap.set("i", "<c-p>", function()
+    local current = vim.fn.win_getid()
+    vim.api.nvim_set_current_win(qfwin)
+    vim.cmd("normal! k")
+    vim.api.nvim_set_current_win(current)
+  end, { buffer = buf, silent = true })
+  vim.keymap.set("i", "<cr>", function()
+    local current = vim.fn.win_getid()
+    vim.api.nvim_set_current_win(qfwin)
+    local qfitem = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
+    if qfitem then
+      if prompt_win and vim.api.nvim_win_is_valid(prompt_win) then
+        vim.api.nvim_win_close(prompt_win, true)
+      end
+      vim.cmd("cclose")
+      local fname = vim.fn.bufname(qfitem.bufnr)
+      if fname == "" then
+        fname = qfitem.filename
+      end
+      vim.cmd("edit " .. fname)
+      vim.cmd(tostring(qfitem.lnum))
+    end
+  end, { buffer = buf, silent = true })
+  vim.keymap.set("i", "<esc>", function()
+    if prompt_win and vim.api.nvim_win_is_valid(prompt_win) then
+      vim.api.nvim_win_close(prompt_win, true)
+    end
+    vim.api.nvim_set_current_win(qfwin)
+  end, { buffer = buf, silent = true })
+
+  local pending = false
+  vim.api.nvim_create_autocmd("TextChangedI", {
+    buffer = buf,
+    callback = function()
+      if pending then
+        return
+      end
+      pending = true
+      vim.defer_fn(function()
+        pending = false
+        local prompt_line = vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1] or ""
+        local query = prompt_line:sub(3)
+        M.picker.filter(query)
+      end, 150)
+    end,
+  })
+end
+
+function M.picker.open_prompt(items)
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_set_option_value("buftype", "prompt", { buf = buf })
+  vim.fn.prompt_setprompt(buf, "> ")
+  local qfwin = vim.fn.getqflist({ winid = 0 }).winid
+  local prompt_win = vim.api.nvim_open_win(buf, true, {
+    height = 1,
+    style = "minimal",
+    relative = "win",
+    border = "none",
+    win = qfwin,
+    row = -1,
+    col = 0,
+    width = vim.o.columns,
+  })
+  vim.cmd("startinsert!")
+
+  local state = {
+    items = items,
+    buf = buf,
+    qf_winid = qfwin,
+    prompt_win = prompt_win,
+  }
+  M.picker.state = state
+
+  local qf_buf = vim.api.nvim_win_get_buf(qfwin)
+  vim.keymap.set("n", "/", function()
+    local st = M.picker.state
+    if not st then
+      return
+    end
+    if st.prompt_win and vim.api.nvim_win_is_valid(st.prompt_win) then
+      vim.api.nvim_set_current_win(st.prompt_win)
+    else
+      local b = st.buf
+      local qw = st.qf_winid
+      local pw = vim.api.nvim_open_win(b, true, {
+        height = 1,
+        style = "minimal",
+        relative = "win",
+        border = "none",
+        win = qw,
+        row = -1,
+        col = 0,
+        width = vim.o.columns,
+      })
+      st.prompt_win = pw
+      setup_prompt_keymaps(b, pw, qw, st)
+    end
+    local col = vim.fn.strlen(line)
+    vim.api.nvim_win_set_cursor(0, { 1, col })
+    vim.cmd("startinsert!")
+  end, { buffer = qf_buf, noremap = true, silent = true })
+
+  setup_prompt_keymaps(buf, prompt_win, qfwin, state)
+  M.picker.filter("")
 end
 
 ---@param path string
@@ -163,8 +310,7 @@ function M.builtins.find_files()
 
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
-
-  vim.defer_fn(M.render.make_chunk_render(items, { title = title }), 0)
+  M.picker.open_prompt(items)
 end
 
 function M.builtins.find_dirs()
@@ -203,8 +349,7 @@ function M.builtins.find_dirs()
 
   vim.cmd("copen")
   vim.fn.setqflist({}, " ", { title = title_loading })
-
-  vim.defer_fn(M.render.make_chunk_render(items, { title = title }), 0)
+  M.picker.open_prompt(items)
 end
 
 function M.builtins.grep(opts)
