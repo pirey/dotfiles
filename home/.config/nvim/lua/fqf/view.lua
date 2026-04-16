@@ -66,7 +66,7 @@ function View:open(opts)
     return
   end
 
-  self:open_qf(opts)
+  self:open_qf(vim.tbl_deep_extend("force", self.opts, opts or {}))
   self:open_prompt()
   self:set_qf_keymaps()
   self:set_prompt_keymaps()
@@ -138,7 +138,6 @@ function View:set_prompt_keymaps()
       if fname == "" then
         return
       end
-      -- local fname = qfitem.filename
       vim.cmd("edit " .. fname)
       vim.cmd(tostring(qfitem.lnum))
     end
@@ -165,13 +164,8 @@ function View:set_qf_keymaps()
     if not self.qfopen then
       return
     end
-    -- local b = st.buf
-    -- local qw = st.qf_winid
     self:open_prompt()
     self:set_prompt_keymaps()
-    -- local col = vim.fn.strlen(line)
-    -- vim.api.nvim_win_set_cursor(0, { 1, col })
-    -- vim.cmd("startinsert!")
   end, { buffer = self.qfbuf, noremap = true, silent = true })
 end
 
@@ -204,8 +198,9 @@ function View:filter()
     self.filtered = self.items
   end
 
+  local title = self.opts.title or "Items"
   render_items(self.filtered, {
-    title = self.query == "" and "Files" or "Files: " .. self.query,
+    title = self.query == "" and title or title .. " : " .. self.query,
   })
 end
 

@@ -5,7 +5,6 @@ local H = require("fqf.helpers")
 
 -- TODO: use unified source without dependency checking
 function M.files()
-  local title_loading = "Loading..."
   local title = "Files"
   local items = {}
 
@@ -18,12 +17,10 @@ function M.files()
   end
 
   local view = View:new(items, { title = title })
-  view:open({ title = title })
-  -- view:new().open(items, { title = title })
+  view:open()
 end
 
 function M.dirs()
-  local title_loading = "Loading..."
   local title = "Directories"
   local items = {}
 
@@ -57,8 +54,8 @@ function M.dirs()
   end
 
   vim.cmd("copen")
-  vim.fn.setqflist({}, " ", { title = title_loading })
-  -- View.open_prompt(items)
+  local view = View:new(items, { title = title })
+  view:open()
 end
 
 function M.grep(opts)

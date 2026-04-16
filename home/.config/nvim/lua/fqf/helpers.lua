@@ -1,7 +1,5 @@
 local H = {}
 
--- TODO: fuzzy search
--- TODO: scoring and sorting
 -- TODO: preview
 
 function H.is_git_repo()
