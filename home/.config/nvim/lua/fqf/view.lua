@@ -100,40 +100,42 @@ function View:open_prompt()
   vim.fn.prompt_setprompt(self.promptbuf, self.prompt)
   vim.cmd("startinsert!")
   if self.query then
-    vim.api.nvim_input(self.query)
+    -- vim.api.nvim_input(self.query)
+    vim.api.nvim_feedkeys(self.query, "i", false)
   end
 end
 
 function View:set_prompt_keymaps()
   vim.keymap.set("i", "<c-w>", "<c-s-w>", { buf = self.promptbuf })
   vim.keymap.set("i", "<c-c>", function()
-    -- if win and vim.api.nvim_win_is_valid(win) then
-    --   vim.api.nvim_win_close(win, true)
-    -- end
     self:close()
   end, { buf = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-n>", function()
+    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+      return
+    end
     vim.api.nvim_set_current_win(self.qfwin)
     vim.cmd("normal! j")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-p>", function()
+    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+      return
+    end
     vim.api.nvim_set_current_win(self.qfwin)
     vim.cmd("normal! k")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<cr>", function()
+    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+      return
+    end
     vim.api.nvim_set_current_win(self.qfwin)
     local qfitem = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
-    -- local qfitem = self.view.items[vim.fn.line(".")]
     if qfitem then
-      -- if win and vim.api.nvim_win_is_valid(win) then
-      --   vim.api.nvim_win_close(win, true)
-      -- end
       self:close()
       local fname = vim.fn.bufname(qfitem.bufnr)
       if fname == "" then
-        --   fname = qfitem.filename
         return
       end
       -- local fname = qfitem.filename
@@ -142,11 +144,11 @@ function View:set_prompt_keymaps()
     end
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<esc>", function()
-    -- if prompt_win and vim.api.nvim_win_is_valid(prompt_win) then
-    --   vim.api.nvim_win_close(prompt_win, true)
-    -- end
-    self:close_prompt()
+    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+      return
+    end
     vim.api.nvim_set_current_win(self.qfwin)
+    self:close_prompt()
   end, { buffer = self.promptbuf, silent = true })
 
   vim.api.nvim_buf_attach(self.promptbuf, false, {
@@ -174,6 +176,9 @@ function View:set_qf_keymaps()
 end
 
 function View:close()
+  if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+    return
+  end
   self.qfopen = false
   vim.api.nvim_win_close(self.qfwin, true)
 
