@@ -16,6 +16,7 @@ vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 vim.o.winborder = "rounded"
 vim.o.pumborder = vim.o.winborder
+vim.o.pumheight = 10
 vim.o.fillchars = "diff: "
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.switchbuf = "uselast,useopen,usetab"
