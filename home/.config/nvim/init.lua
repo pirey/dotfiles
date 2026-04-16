@@ -19,7 +19,6 @@ vim.o.pumborder = vim.o.winborder
 vim.o.pumheight = 10
 vim.o.fillchars = "diff: "
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
-vim.o.switchbuf = "uselast,useopen,usetab"
 
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
