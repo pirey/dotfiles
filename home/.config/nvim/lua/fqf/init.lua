@@ -26,11 +26,12 @@ function M.picker.filter(query)
   end
 
   local filtered = {}
-  local lower_query = query:lower()
-  for _, item in ipairs(state.items) do
-    if item.filename:lower():find(lower_query, 1, true) then
-      filtered[#filtered + 1] = item
-    end
+  if #query > 0 then
+    filtered = vim.fn.matchfuzzy(state.items, query, {
+      key = "filename",
+    })
+  else
+    filtered = state.items
   end
 
   vim.fn.setqflist({}, "r")
