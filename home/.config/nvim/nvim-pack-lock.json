@@ -50,7 +50,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "treesj": {
-      "rev": "26bc2a8432ba3ea79ed6aa346fba780a3d372570",
+      "rev": "5fa4e7ba3517f8fe743bb4488f9e9c7ce83330fc",
       "src": "https://github.com/Wansmer/treesj"
     },
     "vim-abolish": {
