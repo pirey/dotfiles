@@ -460,7 +460,7 @@ return {
   treesj,
   conform,
   -- blink_cmp,
-  blink_indent,
+  -- blink_indent,
 
   -- UI
   -- outline,
