@@ -1,7 +1,29 @@
 local H = {}
 
--- TODO: preview
--- TODO: attach to quickfix :copen
+function H.debounce(fn, delay)
+  local timer = vim.loop.new_timer()
+
+  if not timer then
+    return fn
+  end
+
+  return function(...)
+    local args = { ... }
+
+    timer:stop()
+    timer:start(delay, 0, function()
+      vim.schedule(function()
+        if table.unpack then
+          fn(table.unpack(args))
+        else
+          ---@diagnostic disable-next-line: deprecated
+          fn(unpack(args))
+        end
+      end)
+    end)
+  end
+end
+
 
 function H.is_git_repo()
   if vim.fn.executable("git") ~= 1 then

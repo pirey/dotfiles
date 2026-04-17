@@ -1,3 +1,9 @@
+local H = require("fqf.helpers")
+
+-- TODO: preview
+-- TODO: custom action
+-- TODO: attach to quickfix :copen
+
 local function render_items(items, opts)
   opts = vim.tbl_extend("force", {
     loclist_win = 0,
@@ -151,11 +157,11 @@ function View:set_prompt_keymaps()
   end, { buffer = self.promptbuf, silent = true })
 
   vim.api.nvim_buf_attach(self.promptbuf, false, {
-    on_lines = function()
+    on_lines = H.debounce(function()
       local prompt_line = vim.api.nvim_buf_get_lines(self.promptbuf, 0, 1, false)[1] or ""
       self.query = prompt_line:sub(#self.prompt + 1)
       self:filter()
-    end,
+    end, 50),
   })
 end
 
@@ -191,9 +197,13 @@ function View:filter()
 
   self.filtered = {}
   if #self.query > 0 then
-    self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
-      key = "filename",
-    })
+    if type(self.opts.onchange) == "function" then
+      self.filtered = self.opts.onchange(self.query)
+    else
+      self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
+        key = "filename",
+      })
+    end
   else
     self.filtered = self.items
   end

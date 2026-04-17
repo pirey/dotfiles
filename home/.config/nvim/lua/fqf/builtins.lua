@@ -58,6 +58,40 @@ function M.dirs()
   view:open()
 end
 
+function M.live_grep(opts)
+  local title = "Search"
+  local items = {}
+
+  local view = View:new(items, {
+    title = title,
+    onchange = function(query)
+      local lines = vim.fn.systemlist({
+        "rg",
+        "--hidden",
+        "--vimgrep",
+        "--smart-case",
+        "--glob=!.git",
+        query,
+      })
+      local filtered = {}
+      for _, line in ipairs(lines) do
+        local filename, lnum, col, text = line:match("^([^:]+):(%d+):(%d+):(.*)$")
+
+        if filename then
+          filtered[#filtered + 1] = {
+            filename = filename,
+            lnum = tonumber(lnum),
+            col = tonumber(col),
+            text = text,
+          }
+        end
+      end
+      return filtered
+    end,
+  })
+  view:open()
+end
+
 function M.grep(opts)
   opts = opts or {}
   local prompt = opts.prompt or "Search: "
