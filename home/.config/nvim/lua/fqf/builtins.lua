@@ -3,7 +3,6 @@ local sources = require("fqf.sources")
 local View = require("fqf.view")
 local H = require("fqf.helpers")
 
--- TODO: use unified source without dependency checking
 function M.files()
   local title = "Files"
   local items = {}

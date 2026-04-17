@@ -270,7 +270,6 @@ function View:action_open(split)
     if fname == "" then
       return
     end
-    -- TODO: open in split or tab
     vim.cmd(split .. " " .. fname)
     vim.cmd(tostring(list_item.lnum))
     vim.cmd("nohlsearch")
