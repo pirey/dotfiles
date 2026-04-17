@@ -36,50 +36,8 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
   noremap = true,
   desc = "Alternate window",
 })
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
-vim.keymap.set("n", "]q", function()
-  vim.cmd("cwindow")
-  vim.cmd("silent! cnext")
-  vim.cmd("normal zz")
-end)
-vim.keymap.set("n", "[q", function()
-  vim.cmd("cwindow")
-  vim.cmd("silent! cprevious")
-  vim.cmd("normal zz")
-end)
-vim.keymap.set("n", "]l", function()
-  vim.cmd("lwindow")
-  vim.cmd("silent! lnext")
-  vim.cmd("normal zz")
-end)
-vim.keymap.set("n", "[l", function()
-  vim.cmd("lwindow")
-  vim.cmd("silent! lprevious")
-  vim.cmd("normal zz")
-end)
-
-local qfgroup = vim.api.nvim_create_augroup("qf_augroup", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  group = qfgroup,
-  callback = function()
-    local win = vim.api.nvim_get_current_win()
-    local wininfo = vim.fn.getwininfo(win)[1]
-    vim.wo[win].cursorline = true
-    vim.wo[win].cursorlineopt = "both"
-    local close_cmd = wininfo.loclist == 1 and "lclose" or "cclose"
-    vim.keymap.set("n", "<cr>", "<cr><cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
-    vim.keymap.set("n", "<esc>", "<cmd>" .. close_cmd .. "<cr>", { buffer = true, silent = true })
-    vim.keymap.set("n", "<c-c>", "<cmd>" .. close_cmd .."<cr>", { buffer = true, silent = true })
-    vim.keymap.set("n", "<c-w><c-v>", "<c-w><cr><c-w>L<cmd>".. close_cmd .."<cr>", { buffer = true, silent = true })
-    vim.keymap.set("n", "<c-w><c-t>", "<c-w><cr><c-w>T<cmd>".. close_cmd .."<cr>", { buffer = true, silent = true })
-    vim.keymap.set("n", ".", function()
-      local line = vim.fn.line(".")
-      vim.fn.setqflist({}, "a", { idx = line })
-    end, { buffer = true })
-  end,
-})
+vim.keymap.set("n", "n", "nzz", { silent = true })
+vim.keymap.set("n", "N", "Nzz", { silent = true })
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })

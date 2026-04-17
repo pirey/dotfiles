@@ -131,18 +131,16 @@ function View:action_handler(action)
       if not listwin then
         return
       end
-      vim.api.nvim_set_current_win(listwin)
-      vim.cmd("normal! k")
-      vim.api.nvim_set_current_win(self.promptwin)
+      local idx = self:get_current_idx()
+      self:set_current_idx(idx - 1)
     end,
     ["down"] = function()
       local listwin = self:get_list_win()
       if not listwin then
         return
       end
-      vim.api.nvim_set_current_win(listwin)
-      vim.cmd("normal! j")
-      vim.api.nvim_set_current_win(self.promptwin)
+      local idx = self:get_current_idx()
+      self:set_current_idx(idx + 1)
     end,
   }
   local handler = actions[action]
@@ -226,6 +224,22 @@ function View:filter()
   end
 
   self:render_items()
+end
+
+function View:get_current_idx()
+  if self.opts.use_lwin then
+    return vim.fn.getloclist(self.lsourcewin, { idx = 0 }).idx
+  else
+    return vim.fn.getqflist({ idx = 0 }).idx
+  end
+end
+
+function View:set_current_idx(idx)
+  if self.opts.use_lwin then
+    vim.fn.setloclist(self.lsourcewin, {}, 'a', { idx = idx  })
+  else
+    vim.fn.setqflist({}, 'a', { idx = idx })
+  end
 end
 
 function View:get_list_win()
