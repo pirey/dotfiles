@@ -118,7 +118,7 @@ vim.keymap.set("n", "<leader>,", fqf.builtins.live_grep)
 vim.keymap.set("n", "<leader><leader>,", fqf.builtins.grep)
 vim.keymap.set("n", "<leader>'", fqf.builtins.oldfiles)
 vim.keymap.set("n", "<leader>gq", fqf.builtins.git_changes)
-vim.keymap.set("n", "<leader>/", fqf.builtins.buffer_grep)
+vim.keymap.set("n", "<leader>/", fqf.builtins.buffer_lines)
 
 require("vim._core.ui2").enable()
 require("pack").setup(require("specs"))

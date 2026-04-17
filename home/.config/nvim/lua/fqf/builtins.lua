@@ -117,49 +117,21 @@ function M.grep(opts)
   end, 0)
 end
 
-function M.buffer_grep(opts)
-  local win = vim.api.nvim_get_current_win()
-  opts = opts or {}
-  local prompt = opts.prompt or "/"
-  local use_loclist = opts.use_loclist ~= false
-  local ok, query = pcall(vim.fn.input, prompt)
-  if query == "" or not ok then
-    return
-  end
-  local title = "/" .. query
-  local items = {}
-
-  local pos = { 0, 0 }
+function M.buffer_lines(opts)
   local buf = vim.api.nvim_get_current_buf()
-  local fname = vim.api.nvim_buf_get_name(buf)
-  vim.cmd("normal! ms")
-  vim.cmd("normal! gg")
-  while true do
-    pos = vim.fn.searchpos(query, "W")
-    local lnum = pos[1]
-    local col = pos[2]
-    if lnum == 0 and col == 0 then
-      break
-    end
-    local line = vim.api.nvim_buf_get_lines(buf, lnum - 1, lnum, false)[1]
+  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+
+  local items = {}
+  for i = 1, #lines do
     items[#items + 1] = {
-      filename = fname,
-      lnum = lnum,
-      col = col,
-      text = line,
+      filename = lines[i],
+      lnum = 1,
+      col = 1,
     }
   end
-  vim.cmd("normal! 's")
-  vim.cmd("delmarks s")
 
-  vim.fn.setreg("/", query)
-  if use_loclist then
-    vim.fn.setloclist(win, {}, " ", { title = title, items = items })
-    vim.cmd("lopen")
-  else
-    vim.fn.setqflist({}, " ", { title = title, items = items })
-    vim.cmd("copen")
-  end
+  local view = View:new(items, { title = "Search" })
+  view:open()
 end
 
 function M.oldfiles(opts)
