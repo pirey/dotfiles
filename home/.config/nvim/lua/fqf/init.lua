@@ -1,3 +1,5 @@
+local config = require("fqf.config")
+
 local M = {}
 
 M.qftf = require("fqf.qftf").qftf
@@ -5,15 +7,13 @@ M.builtins = require("fqf.builtins")
 M.ui_select = require("fqf.ui_select")
 
 function M.setup(opts)
-  opts = opts or {}
-  local register_ui_select = opts.register_ui_select ~= false
-  local register_quickfixtextfunc = opts.register_quickfixtextfunc ~= false
+  config.opts = vim.tbl_deep_extend("force", config.default, opts or {})
 
-  if register_ui_select then
+  if config.opts.ui_select.enabled then
     vim.ui.select = M.ui_select
   end
 
-  if register_quickfixtextfunc then
+  if config.opts.qftf.enabled then
     vim.o.quickfixtextfunc = "v:lua.require'fqf'.qftf"
   end
 end

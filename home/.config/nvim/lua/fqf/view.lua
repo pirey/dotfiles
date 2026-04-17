@@ -1,59 +1,29 @@
 local H = require("fqf.helpers")
+local config = require("fqf.config")
 
 -- TODO: keymap
--- TODO: open split
 -- TODO: preview
 -- TODO: attach to quickfix :copen
 -- TODO: prompt position
--- TODO: more opts
 
 local View = {}
 View.__index = View
 
-function View:render_items()
-  local items = self.filtered
-  local title = self.opts.title
-  local CHUNK_SIZE = 100
-  local RENDER_DELAY = 10
-  local idx = 1
-
-  if self.opts.use_lwin then
-    vim.fn.setloclist(self.lsourcewin, {}, " ", { title = title })
-  else
-    vim.fn.setqflist({}, " ", { title = title })
-  end
-
-  local function render_chunk_rec()
-    local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
-
-    if self.opts.use_lwin then
-      vim.fn.setloclist(self.lsourcewin, {}, "a", { items = chunk })
-    else
-      vim.fn.setqflist({}, "a", { items = chunk })
-    end
-
-    idx = idx + CHUNK_SIZE
-    if idx <= #items then
-      vim.defer_fn(function()
-        render_chunk_rec()
-      end, RENDER_DELAY)
-    end
-  end
-
-  render_chunk_rec()
-end
+View.default_opts = {
+  use_lwin = false,
+  filterby = "filename",
+  prompt = nil,
+}
 
 function View:new(items, opts)
-  opts = vim.tbl_deep_extend("force", {
-    use_lwin = false,
-    filterby = "filename",
-  }, opts or {})
+  opts = vim.tbl_deep_extend("force", View.default_opts, opts or {})
+  local prompt = opts.prompt ~= nil and opts.prompt or config.opts.prompt
   return setmetatable({
     list_nr = nil,
     promptbuf = nil,
     promptwin = nil,
     promptopen = false,
-    prompt = opts.prompt or "> ",
+    prompt = prompt,
     listopen = false,
     qfbuf = nil,
     qfwin = nil,
@@ -88,10 +58,14 @@ function View:open_list()
     vim.cmd("lopen")
     self.lwin = vim.fn.getloclist(self.lsourcewin, { winid = 0 }).winid
     self.lbuf = vim.api.nvim_win_get_buf(self.lwin)
+    vim.wo[self.lwin].number = config.opts.view.list.number
+    vim.wo[self.lwin].signcolumn = config.opts.view.list.signcolumn
   else
     vim.cmd("copen")
     self.qfwin = vim.fn.getqflist({ winid = 0 }).winid
     self.qfbuf = vim.api.nvim_win_get_buf(self.qfwin)
+    vim.wo[self.qfwin].number = config.opts.view.list.number
+    vim.wo[self.qfwin].signcolumn = config.opts.view.list.signcolumn
   end
 end
 
@@ -117,7 +91,6 @@ function View:open_prompt()
   vim.fn.prompt_setprompt(self.promptbuf, self.prompt)
   vim.cmd("startinsert!")
   if self.query then
-    -- vim.api.nvim_input(self.query)
     vim.api.nvim_feedkeys(self.query, "i", false)
   end
 end
@@ -278,6 +251,39 @@ function View:action_open(split)
     vim.cmd(tostring(list_item.lnum))
     vim.cmd("nohlsearch")
   end
+end
+
+function View:render_items()
+  local items = self.filtered
+  local title = self.opts.title
+  local CHUNK_SIZE = 100
+  local RENDER_DELAY = 10
+  local idx = 1
+
+  if self.opts.use_lwin then
+    vim.fn.setloclist(self.lsourcewin, {}, " ", { title = title })
+  else
+    vim.fn.setqflist({}, " ", { title = title })
+  end
+
+  local function render_chunk_rec()
+    local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
+
+    if self.opts.use_lwin then
+      vim.fn.setloclist(self.lsourcewin, {}, "a", { items = chunk })
+    else
+      vim.fn.setqflist({}, "a", { items = chunk })
+    end
+
+    idx = idx + CHUNK_SIZE
+    if idx <= #items then
+      vim.defer_fn(function()
+        render_chunk_rec()
+      end, RENDER_DELAY)
+    end
+  end
+
+  render_chunk_rec()
 end
 
 return View
