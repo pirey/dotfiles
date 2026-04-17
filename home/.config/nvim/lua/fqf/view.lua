@@ -4,6 +4,8 @@ local H = require("fqf.helpers")
 -- TODO: open split
 -- TODO: preview
 -- TODO: attach to quickfix :copen
+-- TODO: prompt position
+-- TODO: more opts
 
 local View = {}
 View.__index = View
