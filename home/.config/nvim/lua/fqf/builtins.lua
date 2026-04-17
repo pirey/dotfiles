@@ -145,8 +145,8 @@ function M.oldfiles(opts)
     end
   end
 
-  vim.fn.setqflist({}, " ", { items = items, title = title })
-  vim.cmd("copen")
+  local view = View:new(items, { title = title })
+  view:open()
 end
 
 function M.git_changes()
@@ -175,12 +175,8 @@ function M.git_changes()
     end
   end
 
-  vim.fn.setqflist({}, "r", {
-    title = "Git Changes",
-    items = items,
-  })
-
-  vim.cmd("copen")
+  local view = View:new(items, { title = "Git Changes" })
+  view:open()
 end
 
 return M

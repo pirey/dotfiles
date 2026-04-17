@@ -1,6 +1,7 @@
 local H = {}
 
 -- TODO: preview
+-- TODO: attach to quickfix :copen
 
 function H.is_git_repo()
   if vim.fn.executable("git") ~= 1 then
