@@ -177,13 +177,11 @@ function View:set_list_keymaps()
   else
     buf = self.qfbuf
   end
-  vim.keymap.set("n", "/", function()
-    if not self.listopen then
-      return
+  for action, keys in pairs(config.opts.keymaps.list) do
+    for _, key in ipairs(keys) do
+      vim.keymap.set("n", key, self:action_handler(action), { buf = buf })
     end
-    self:open_prompt()
-    self:set_prompt_keymaps() -- prevent redundant keymap set
-  end, { buffer = buf, noremap = true, silent = true })
+  end
 end
 
 function View:close()
