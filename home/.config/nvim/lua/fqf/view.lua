@@ -144,18 +144,16 @@ function View:set_prompt_keymaps()
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<cr>", function()
-    local list_item = self:get_list_item()
-    if list_item then
-      self:close()
-      local fname = vim.fn.bufname(list_item.bufnr)
-      if fname == "" then
-        return
-      end
-      -- TODO: open in split or tab
-      vim.cmd("edit " .. fname)
-      vim.cmd(tostring(list_item.lnum))
-      vim.cmd("nohlsearch")
-    end
+    self:action_open("edit")
+  end, { buffer = self.promptbuf, silent = true })
+  vim.keymap.set("i", "<c-v>", function()
+    self:action_open("vsplit")
+  end, { buffer = self.promptbuf, silent = true })
+  vim.keymap.set("i", "<c-s>", function()
+    self:action_open("split")
+  end, { buffer = self.promptbuf, silent = true })
+  vim.keymap.set("i", "<c-t>", function()
+    self:action_open("tabnew")
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<esc>", function()
     local listwin = self:get_list_win()
@@ -194,6 +192,7 @@ function View:set_list_keymaps()
 end
 
 function View:close()
+  -- TODO: jump to previous window?
   local listwin = self:get_list_win()
   if not self.listopen or not listwin then
     return
@@ -260,6 +259,22 @@ function View:get_list_item()
     list_item = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
   end
   return list_item
+end
+
+function View:action_open(split)
+  split = split or "edit"
+  local list_item = self:get_list_item()
+  if list_item then
+    self:close()
+    local fname = vim.fn.bufname(list_item.bufnr)
+    if fname == "" then
+      return
+    end
+    -- TODO: open in split or tab
+    vim.cmd(split .. " " .. fname)
+    vim.cmd(tostring(list_item.lnum))
+    vim.cmd("nohlsearch")
+  end
 end
 
 return View
