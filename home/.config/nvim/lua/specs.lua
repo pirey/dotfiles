@@ -465,7 +465,7 @@ return {
   -- UI
   -- outline,
   oil,
-  fff,
+  -- fff,
   gitsigns,
   grug_far,
 

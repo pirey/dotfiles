@@ -70,6 +70,7 @@ function M.live_grep(opts)
         "--hidden",
         "--vimgrep",
         "--smart-case",
+        "--fixed-strings",
         "--glob=!.git",
         query,
       })
