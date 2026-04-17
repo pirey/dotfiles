@@ -459,7 +459,7 @@ return {
   abolish,
   treesj,
   conform,
-  -- blink_cmp,
+  blink_cmp,
   -- blink_indent,
 
   -- UI

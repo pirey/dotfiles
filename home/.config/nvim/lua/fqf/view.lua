@@ -1,7 +1,6 @@
 local H = require("fqf.helpers")
 local config = require("fqf.config")
 
--- TODO: keymap
 -- TODO: preview
 -- TODO: attach to quickfix :copen
 -- TODO: prompt position
@@ -95,49 +94,71 @@ function View:open_prompt()
   end
 end
 
+function View:action_handler(action)
+  local actions = {
+    ["open_prompt"] = function()
+      if not self.listopen then
+        return
+      end
+      self:open_prompt()
+      self:set_prompt_keymaps() -- prevent redundant keymap set
+    end,
+    ["close"] = function()
+      self:close()
+    end,
+    ["close_prompt"] = function()
+      local listwin = self:get_list_win()
+      if not listwin then
+        return
+      end
+      vim.api.nvim_set_current_win(listwin)
+      self:close_prompt()
+    end,
+    ["open"] = function()
+      self:action_open("edit")
+    end,
+    ["open_vsplit"] = function()
+      self:action_open("vsplit")
+    end,
+    ["open_split"] = function()
+      self:action_open("split")
+    end,
+    ["open_tab"] = function()
+      self:action_open("tabnew")
+    end,
+    ["up"] = function()
+      local listwin = self:get_list_win()
+      if not listwin then
+        return
+      end
+      vim.api.nvim_set_current_win(listwin)
+      vim.cmd("normal! k")
+      vim.api.nvim_set_current_win(self.promptwin)
+    end,
+    ["down"] = function()
+      local listwin = self:get_list_win()
+      if not listwin then
+        return
+      end
+      vim.api.nvim_set_current_win(listwin)
+      vim.cmd("normal! j")
+      vim.api.nvim_set_current_win(self.promptwin)
+    end,
+  }
+  local handler = actions[action]
+  if handler ~= nil then
+    return handler
+  end
+  return "<Nop>"
+end
+
 function View:set_prompt_keymaps()
+  for action, keys in pairs(config.opts.keymaps.prompt) do
+    for _, key in ipairs(keys) do
+      vim.keymap.set("i", key, self:action_handler(action), { buf = self.promptbuf })
+    end
+  end
   vim.keymap.set("i", "<c-w>", "<c-s-w>", { buf = self.promptbuf })
-  vim.keymap.set("i", "<c-c>", function()
-    self:close()
-  end, { buf = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<c-n>", function()
-    local listwin = self:get_list_win()
-    if not listwin then
-      return
-    end
-    vim.api.nvim_set_current_win(listwin)
-    vim.cmd("normal! j")
-    vim.api.nvim_set_current_win(self.promptwin)
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<c-p>", function()
-    local listwin = self:get_list_win()
-    if not listwin then
-      return
-    end
-    vim.api.nvim_set_current_win(listwin)
-    vim.cmd("normal! k")
-    vim.api.nvim_set_current_win(self.promptwin)
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<cr>", function()
-    self:action_open("edit")
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<c-v>", function()
-    self:action_open("vsplit")
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<c-s>", function()
-    self:action_open("split")
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<c-t>", function()
-    self:action_open("tabnew")
-  end, { buffer = self.promptbuf, silent = true })
-  vim.keymap.set("i", "<esc>", function()
-    local listwin = self:get_list_win()
-    if not listwin then
-      return
-    end
-    vim.api.nvim_set_current_win(listwin)
-    self:close_prompt()
-  end, { buffer = self.promptbuf, silent = true })
 
   vim.api.nvim_buf_attach(self.promptbuf, false, {
     on_lines = H.debounce(function()

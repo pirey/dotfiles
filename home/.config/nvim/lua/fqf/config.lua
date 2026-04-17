@@ -9,8 +9,19 @@ M.default = {
     },
   },
   keymaps = {
-    list = {},
-    prompt = {},
+    list = {
+      ["open_prompt"] = { "/" },
+    },
+    prompt = {
+      ["close"] = { "<c-c>" },
+      ["close_prompt"] = { "<esc>" },
+      ["open"] = { "<cr>" },
+      ["open_vsplit"] = { "<c-v>" },
+      ["open_split"] = { "<c-s>" },
+      ["open_tab"] = { "<c-t>" },
+      ["up"] = { "<c-p>" },
+      ["down"] = { "<c-n>" },
+    },
   },
   ui_select = {
     enabled = true,
