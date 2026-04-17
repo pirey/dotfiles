@@ -1,7 +1,8 @@
 local H = require("fqf.helpers")
 
+-- TODO: keymap
+-- TODO: open split
 -- TODO: preview
--- TODO: custom action
 -- TODO: attach to quickfix :copen
 
 local View = {}
@@ -34,13 +35,6 @@ function View:render_items()
       vim.defer_fn(function()
         render_chunk_rec()
       end, RENDER_DELAY)
-    else
-      -- finish
-      -- if self.opts.use_lwin then
-      --   vim.fn.setloclist(0, {}, "a", { title = title })
-      -- else
-      --   vim.fn.setqflist({}, "a", { title = title })
-      -- end
     end
   end
 
@@ -98,9 +92,11 @@ function View:open_list()
 end
 
 function View:open_prompt()
-  if self.promptopen then
+  local listwin = self:get_list_win()
+  if not listwin or self.promptopen then
     return
   end
+  local listwin_width = vim.api.nvim_win_get_width(listwin)
   self.promptopen = true
   self.promptbuf = vim.api.nvim_create_buf(false, true)
   self.promptwin = vim.api.nvim_open_win(self.promptbuf, true, {
@@ -111,7 +107,7 @@ function View:open_prompt()
     win = self.qfwin,
     row = -1,
     col = 0,
-    width = vim.o.columns, -- TODO: set width for loclist
+    width = listwin_width,
   })
   vim.api.nvim_set_option_value("buftype", "prompt", { buf = self.promptbuf })
   vim.fn.prompt_setprompt(self.promptbuf, self.prompt)
@@ -128,20 +124,20 @@ function View:set_prompt_keymaps()
     self:close()
   end, { buf = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-n>", function()
-    local win = self:get_list_win()
-    if not win then
+    local listwin = self:get_list_win()
+    if not listwin then
       return
     end
-    vim.api.nvim_set_current_win(win)
+    vim.api.nvim_set_current_win(listwin)
     vim.cmd("normal! j")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-p>", function()
-    local win = self:get_list_win()
-    if not win then
+    local listwin = self:get_list_win()
+    if not listwin then
       return
     end
-    vim.api.nvim_set_current_win(win)
+    vim.api.nvim_set_current_win(listwin)
     vim.cmd("normal! k")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
@@ -156,15 +152,15 @@ function View:set_prompt_keymaps()
       -- TODO: open in split or tab
       vim.cmd("edit " .. fname)
       vim.cmd(tostring(list_item.lnum))
-      vim.cmd("set nohlsearch")
+      vim.cmd("nohlsearch")
     end
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<esc>", function()
-    local win = self:get_list_win()
-    if not win then
+    local listwin = self:get_list_win()
+    if not listwin then
       return
     end
-    vim.api.nvim_set_current_win(win)
+    vim.api.nvim_set_current_win(listwin)
     self:close_prompt()
   end, { buffer = self.promptbuf, silent = true })
 
@@ -196,12 +192,12 @@ function View:set_list_keymaps()
 end
 
 function View:close()
-  local win = self:get_list_win()
-  if not self.listopen or not win then
+  local listwin = self:get_list_win()
+  if not self.listopen or not listwin then
     return
   end
   self.listopen = false
-  vim.api.nvim_win_close(win, true)
+  vim.api.nvim_win_close(listwin, true)
 
   self:close_prompt()
 end
@@ -215,8 +211,8 @@ function View:close_prompt()
 end
 
 function View:filter()
-  local win = self:get_list_win()
-  if not self.listopen or not self.items or not win then
+  local listwin = self:get_list_win()
+  if not self.listopen or not self.items or not listwin then
     return
   end
 
@@ -237,24 +233,24 @@ function View:filter()
 end
 
 function View:get_list_win()
-  local win = nil
+  local listwin = nil
   if self.opts.use_lwin then
-    win = self.lwin
+    listwin = self.lwin
   else
-    win = self.qfwin
+    listwin = self.qfwin
   end
-  if not vim.api.nvim_win_is_valid(win) then
+  if not vim.api.nvim_win_is_valid(listwin) then
     return nil
   end
-  return win
+  return listwin
 end
 
 function View:get_list_item()
-  local win = self:get_list_win()
-  if not win then
+  local listwin = self:get_list_win()
+  if not listwin then
     return
   end
-  vim.api.nvim_set_current_win(win)
+  vim.api.nvim_set_current_win(listwin)
   local list_item = nil
   if self.opts.use_lwin then
     list_item = vim.fn.getloclist(self.lsourcewin, { items = 0 }).items[vim.fn.line(".")]
