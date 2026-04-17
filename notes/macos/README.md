@@ -98,6 +98,7 @@ ssh-keygen -t rsa -b 4096 -C "mail@host.com"
 ## finder
 
 - finder > settings > sidebar > enable items
+- finder > settings > advanced > when performing search > search the current folder
 
 ## docker
 
