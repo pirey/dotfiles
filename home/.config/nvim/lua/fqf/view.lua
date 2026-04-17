@@ -144,7 +144,6 @@ function View:set_prompt_keymaps()
       local prompt_line = vim.api.nvim_buf_get_lines(self.promptbuf, 0, 1, false)[1] or ""
       self.query = prompt_line:sub(#self.prompt + 1)
       vim.fn.setreg("/", self.query)
-      vim.cmd("set hlsearch")
       self:filter()
     end, 50),
   })
@@ -249,7 +248,6 @@ function View:action_open(split)
     end
     vim.cmd(split .. " " .. fname)
     vim.cmd(tostring(list_item.lnum))
-    vim.cmd("nohlsearch")
   end
 end
 
