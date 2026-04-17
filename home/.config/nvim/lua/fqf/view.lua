@@ -60,6 +60,7 @@ function View:new(items, opts)
     lwin = nil,
     lbuf = nil,
     lsourcewin = nil,
+    prevwin = nil,
     query = "",
     items = items,
     filtered = items,
@@ -72,6 +73,7 @@ function View:open()
     return
   end
 
+  self.prevwin = vim.api.nvim_get_current_win()
   self:open_list()
   self:open_prompt()
   self:set_list_keymaps()
@@ -192,15 +194,17 @@ function View:set_list_keymaps()
 end
 
 function View:close()
-  -- TODO: jump to previous window?
   local listwin = self:get_list_win()
   if not self.listopen or not listwin then
     return
   end
   self.listopen = false
   vim.api.nvim_win_close(listwin, true)
-
   self:close_prompt()
+
+  if self.prevwin and vim.api.nvim_win_is_valid(self.prevwin) then
+    vim.api.nvim_set_current_win(self.prevwin)
+  end
 end
 
 function View:close_prompt()
