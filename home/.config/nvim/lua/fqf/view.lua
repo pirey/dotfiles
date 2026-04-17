@@ -4,18 +4,18 @@ local H = require("fqf.helpers")
 -- TODO: custom action
 -- TODO: attach to quickfix :copen
 
-local function render_items(items, opts)
-  opts = vim.tbl_extend("force", {
-    loclist_win = 0,
-  }, opts or {})
-  local title = opts.title
-  local loclist_win = opts.loclist_win
+local View = {}
+View.__index = View
+
+function View:render_items()
+  local items = self.filtered
+  local title = self.opts.title
   local CHUNK_SIZE = 100
   local RENDER_DELAY = 10
   local idx = 1
 
-  if loclist_win > 0 then
-    vim.fn.setloclist(loclist_win, {}, " ", { title = title })
+  if self.opts.use_lwin then
+    vim.fn.setloclist(self.lsourcewin, {}, " ", { title = title })
   else
     vim.fn.setqflist({}, " ", { title = title })
   end
@@ -23,8 +23,8 @@ local function render_items(items, opts)
   local function render_chunk_rec()
     local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
 
-    if loclist_win > 0 then
-      vim.fn.setloclist(loclist_win, {}, "a", { items = chunk })
+    if self.opts.use_lwin then
+      vim.fn.setloclist(self.lsourcewin, {}, "a", { items = chunk })
     else
       vim.fn.setqflist({}, "a", { items = chunk })
     end
@@ -36,54 +36,65 @@ local function render_items(items, opts)
       end, RENDER_DELAY)
     else
       -- finish
-      if loclist_win > 0 then
-        vim.fn.setloclist(loclist_win, {}, "a", { title = title })
-      else
-        vim.fn.setqflist({}, "a", { title = title })
-      end
+      -- if self.opts.use_lwin then
+      --   vim.fn.setloclist(0, {}, "a", { title = title })
+      -- else
+      --   vim.fn.setqflist({}, "a", { title = title })
+      -- end
     end
   end
 
   render_chunk_rec()
 end
 
-local View = {}
-View.__index = View
-
 function View:new(items, opts)
+  opts = vim.tbl_deep_extend("force", {
+    use_lwin = false,
+    filterby = "filename",
+  }, opts or {})
   return setmetatable({
     list_nr = nil,
     promptbuf = nil,
     promptwin = nil,
     promptopen = false,
     prompt = opts.prompt or "> ",
-    qfopen = false,
+    listopen = false,
     qfbuf = nil,
     qfwin = nil,
+    lwin = nil,
+    lbuf = nil,
+    lsourcewin = nil,
     query = "",
     items = items,
     filtered = items,
-    opts = opts or {},
+    opts = opts,
   }, View)
 end
 
-function View:open(opts)
-  if self.qfopen and self.promptopen then
+function View:open()
+  if self.listopen and self.promptopen then
     return
   end
 
-  self:open_qf(vim.tbl_deep_extend("force", self.opts, opts or {}))
+  self:open_list()
   self:open_prompt()
-  self:set_qf_keymaps()
+  self:set_list_keymaps()
   self:set_prompt_keymaps()
 end
 
-function View:open_qf(opts)
-  render_items(self.filtered, opts)
-  vim.cmd("copen")
-  self.qfopen = true
-  self.qfwin = vim.fn.getqflist({ winid = 0 }).winid
-  self.qfbuf = vim.api.nvim_win_get_buf(self.qfwin)
+function View:open_list()
+  self:render_items()
+  self.listopen = true
+  if self.opts.use_lwin then
+    self.lsourcewin = vim.api.nvim_get_current_win()
+    vim.cmd("lopen")
+    self.lwin = vim.fn.getloclist(self.lsourcewin, { winid = 0 }).winid
+    self.lbuf = vim.api.nvim_win_get_buf(self.lwin)
+  else
+    vim.cmd("copen")
+    self.qfwin = vim.fn.getqflist({ winid = 0 }).winid
+    self.qfbuf = vim.api.nvim_win_get_buf(self.qfwin)
+  end
 end
 
 function View:open_prompt()
@@ -117,42 +128,43 @@ function View:set_prompt_keymaps()
     self:close()
   end, { buf = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-n>", function()
-    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+    local win = self:get_list_win()
+    if not win then
       return
     end
-    vim.api.nvim_set_current_win(self.qfwin)
+    vim.api.nvim_set_current_win(win)
     vim.cmd("normal! j")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<c-p>", function()
-    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+    local win = self:get_list_win()
+    if not win then
       return
     end
-    vim.api.nvim_set_current_win(self.qfwin)
+    vim.api.nvim_set_current_win(win)
     vim.cmd("normal! k")
     vim.api.nvim_set_current_win(self.promptwin)
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<cr>", function()
-    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
-      return
-    end
-    vim.api.nvim_set_current_win(self.qfwin)
-    local qfitem = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
-    if qfitem then
+    local list_item = self:get_list_item()
+    if list_item then
       self:close()
-      local fname = vim.fn.bufname(qfitem.bufnr)
+      local fname = vim.fn.bufname(list_item.bufnr)
       if fname == "" then
         return
       end
+      -- TODO: open in split or tab
       vim.cmd("edit " .. fname)
-      vim.cmd(tostring(qfitem.lnum))
+      vim.cmd(tostring(list_item.lnum))
+      vim.cmd("set nohlsearch")
     end
   end, { buffer = self.promptbuf, silent = true })
   vim.keymap.set("i", "<esc>", function()
-    if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+    local win = self:get_list_win()
+    if not win then
       return
     end
-    vim.api.nvim_set_current_win(self.qfwin)
+    vim.api.nvim_set_current_win(win)
     self:close_prompt()
   end, { buffer = self.promptbuf, silent = true })
 
@@ -160,38 +172,51 @@ function View:set_prompt_keymaps()
     on_lines = H.debounce(function()
       local prompt_line = vim.api.nvim_buf_get_lines(self.promptbuf, 0, 1, false)[1] or ""
       self.query = prompt_line:sub(#self.prompt + 1)
+      vim.fn.setreg("/", self.query)
+      vim.cmd("set hlsearch")
       self:filter()
     end, 50),
   })
 end
 
-function View:set_qf_keymaps()
+function View:set_list_keymaps()
+  local buf = nil
+  if self.opts.use_lwin and self.lbuf ~= nil then
+    buf = self.lbuf
+  else
+    buf = self.qfbuf
+  end
   vim.keymap.set("n", "/", function()
-    if not self.qfopen then
+    if not self.listopen then
       return
     end
     self:open_prompt()
-    self:set_prompt_keymaps()
-  end, { buffer = self.qfbuf, noremap = true, silent = true })
+    self:set_prompt_keymaps() -- prevent redundant keymap set
+  end, { buffer = buf, noremap = true, silent = true })
 end
 
 function View:close()
-  if not self.qfwin or not vim.api.nvim_win_is_valid(self.qfwin) then
+  local win = self:get_list_win()
+  if not self.listopen or not win then
     return
   end
-  self.qfopen = false
-  vim.api.nvim_win_close(self.qfwin, true)
+  self.listopen = false
+  vim.api.nvim_win_close(win, true)
 
   self:close_prompt()
 end
 
 function View:close_prompt()
+  if not vim.api.nvim_win_is_valid(self.promptwin) then
+    return
+  end
   self.promptopen = false
   vim.api.nvim_win_close(self.promptwin, true)
 end
 
 function View:filter()
-  if not self.qfopen or not self.items or not self.qfwin or self.qfwin == 0 then
+  local win = self:get_list_win()
+  if not self.listopen or not self.items or not win then
     return
   end
 
@@ -201,17 +226,42 @@ function View:filter()
       self.filtered = self.opts.onchange(self.query)
     else
       self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
-        key = "filename",
+        key = self.opts.filterby,
       })
     end
   else
     self.filtered = self.items
   end
 
-  local title = self.opts.title or "Items"
-  render_items(self.filtered, {
-    title = self.query == "" and title or title .. " : " .. self.query,
-  })
+  self:render_items()
+end
+
+function View:get_list_win()
+  local win = nil
+  if self.opts.use_lwin then
+    win = self.lwin
+  else
+    win = self.qfwin
+  end
+  if not vim.api.nvim_win_is_valid(win) then
+    return nil
+  end
+  return win
+end
+
+function View:get_list_item()
+  local win = self:get_list_win()
+  if not win then
+    return
+  end
+  vim.api.nvim_set_current_win(win)
+  local list_item = nil
+  if self.opts.use_lwin then
+    list_item = vim.fn.getloclist(self.lsourcewin, { items = 0 }).items[vim.fn.line(".")]
+  else
+    list_item = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
+  end
+  return list_item
 end
 
 return View

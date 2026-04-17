@@ -58,7 +58,7 @@ function M.dirs()
   view:open()
 end
 
-function M.live_grep(opts)
+function M.live_grep()
   local title = "Search"
   local items = {}
 
@@ -117,20 +117,30 @@ function M.grep(opts)
   end, 0)
 end
 
-function M.buffer_lines(opts)
+function M.buffer_lines()
   local buf = vim.api.nvim_get_current_buf()
   local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  local filename = vim.api.nvim_buf_get_name(buf)
 
   local items = {}
   for i = 1, #lines do
-    items[#items + 1] = {
-      filename = lines[i],
-      lnum = 1,
-      col = 1,
-    }
+    if vim.trim(lines[i]) ~= "" then
+      items[#items + 1] = {
+        filename = filename,
+        text = lines[i],
+        lnum = i,
+        col = 1,
+      }
+    end
   end
 
-  local view = View:new(items, { title = "Search" })
+  local title = "Search"
+
+  local view = View:new(items, {
+    title = title,
+    filterby = "text",
+    use_lwin = true
+  })
   view:open()
 end
 
