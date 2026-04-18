@@ -11,6 +11,8 @@ M.default = {
   keymaps = {
     list = {
       ["focus_prompt"] = { "<tab>" },
+      ["up"] = { "<c-p>" },
+      ["down"] = { "<c-n>" },
     },
     prompt = {
       ["close"] = { "<esc>", "<c-c>" },

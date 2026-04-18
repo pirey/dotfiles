@@ -153,7 +153,9 @@ end
 function View:set_prompt_keymaps()
   for action, keys in pairs(config.opts.keymaps.prompt) do
     for _, key in ipairs(keys) do
-      vim.keymap.set("i", key, self:action_handler(action), { buf = self.promptbuf })
+      if key then
+        vim.keymap.set("i", key, self:action_handler(action), { buf = self.promptbuf })
+      end
     end
   end
   vim.keymap.set("i", "<c-w>", "<c-s-w>", { buf = self.promptbuf })
@@ -180,7 +182,9 @@ function View:set_list_keymaps()
   end
   for action, keys in pairs(config.opts.keymaps.list) do
     for _, key in ipairs(keys) do
-      vim.keymap.set("n", key, self:action_handler(action), { buf = buf })
+      if key then
+        vim.keymap.set("n", key, self:action_handler(action), { buf = buf })
+      end
     end
   end
 end
