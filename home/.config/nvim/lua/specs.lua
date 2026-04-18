@@ -1,3 +1,5 @@
+local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
+
 local jump = {
   src = "yorickpeterse/nvim-jump",
   config = function()
@@ -14,6 +16,7 @@ local fugitive = {
     ]])
 
     vim.api.nvim_create_autocmd("FileType", {
+      group = augroup,
       pattern = { "git", "fugitive", "fugitiveblame" },
       callback = function(ev)
         for _, key in ipairs({ "q", "gq", "x", "<c-c>" }) do
@@ -149,6 +152,7 @@ local treesitter = {
     end)
 
     vim.api.nvim_create_autocmd("FileType", {
+      group = augroup,
       pattern = activate_on_ft,
       callback = function()
         vim.treesitter.start()
@@ -214,6 +218,7 @@ local lspconfig = {
 
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
+      group = augroup,
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client.server_capabilities.semanticTokensProvider then
@@ -261,6 +266,7 @@ local fff = {
   src = "https://github.com/dmtrKovalenko/fff.nvim",
   config = function()
     vim.api.nvim_create_autocmd("PackChanged", {
+      group = augroup,
       callback = function(ev)
         local name, kind = ev.data.spec.name, ev.data.kind
         if name == "fff.nvim" and (kind == "install" or kind == "update") then
@@ -376,7 +382,7 @@ local grug_far = {
 local blink_cmp = {
   src = "saghen/blink.cmp",
   dependencies = { { src = "rafamadriz/friendly-snippets" } },
-  version = "v1.10.2",
+  version = vim.version.range("1.*"),
   config = function()
     require("blink.cmp").setup({
       signature = {

@@ -10,11 +10,11 @@ M.default = {
   },
   keymaps = {
     list = {
-      ["open_prompt"] = { "<tab>" },
+      ["focus_prompt"] = { "<tab>" },
     },
     prompt = {
       ["close"] = { "<esc>", "<c-c>" },
-      ["close_prompt"] = { "<tab>" },
+      ["focus_list"] = { "<tab>" },
       ["open"] = { "<cr>" },
       ["open_vsplit"] = { "<c-v>" },
       ["open_split"] = { "<c-s>" },

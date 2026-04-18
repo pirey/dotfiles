@@ -64,9 +64,14 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 -- fold
 vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
 
-vim.cmd("autocmd TermOpen * startinsert")
-vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
-vim.cmd("autocmd QuickFixCmdPre grep copen")
+vim.cmd([[
+augroup InitAugroup
+  autocmd!
+  autocmd TermOpen * startinsert
+  autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif
+  autocmd QuickFixCmdPre grep copen
+augroup END
+]])
 
 local fqf = require("fqf")
 fqf.setup()

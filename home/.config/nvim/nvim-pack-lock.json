@@ -3,7 +3,7 @@
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
-      "version": "'v1.10.2'"
+      "version": "1.0.0 - 2.0.0"
     },
     "canola.nvim": {
       "rev": "8b7661d7b627976098be832e5925a8eb06b6e5c9",

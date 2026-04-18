@@ -4,6 +4,7 @@ local config = require("fqf.config")
 -- TODO: preview
 -- TODO: attach to quickfix :copen
 -- TODO: prompt position
+-- TODO: cleanup properly
 
 local View = {}
 View.__index = View
@@ -18,6 +19,7 @@ function View:new(items, opts)
   opts = vim.tbl_deep_extend("force", View.default_opts, opts or {})
   local prompt = opts.prompt ~= nil and opts.prompt or config.opts.prompt
   return setmetatable({
+    list_idx = 1,
     list_nr = nil,
     promptbuf = nil,
     promptwin = nil,
@@ -81,7 +83,7 @@ function View:open_prompt()
     style = "minimal",
     relative = "win",
     border = "none",
-    win = self.qfwin,
+    win = listwin,
     row = -1,
     col = 0,
     width = listwin_width,
@@ -96,23 +98,21 @@ end
 
 function View:action_handler(action)
   local actions = {
-    ["open_prompt"] = function()
-      if not self.listopen then
+    ["focus_prompt"] = function()
+      if not self.promptwin or not vim.api.nvim_win_is_valid(self.promptwin) then
         return
       end
-      self:open_prompt()
-      self:set_prompt_keymaps() -- prevent redundant keymap set
+      vim.api.nvim_set_current_win(self.promptwin)
     end,
     ["close"] = function()
       self:close()
     end,
-    ["close_prompt"] = function()
+    ["focus_list"] = function()
       local listwin = self:get_list_win()
       if not listwin then
         return
       end
       vim.api.nvim_set_current_win(listwin)
-      self:close_prompt()
     end,
     ["open"] = function()
       self:action_open("edit")
@@ -131,16 +131,16 @@ function View:action_handler(action)
       if not listwin then
         return
       end
-      local idx = self:get_current_idx()
-      self:set_current_idx(idx - 1)
+      local idx = self:get_list_idx()
+      self:set_list_idx(idx - 1)
     end,
     ["down"] = function()
       local listwin = self:get_list_win()
       if not listwin then
         return
       end
-      local idx = self:get_current_idx()
-      self:set_current_idx(idx + 1)
+      local idx = self:get_list_idx()
+      self:set_list_idx(idx + 1)
     end,
   }
   local handler = actions[action]
@@ -164,6 +164,9 @@ function View:set_prompt_keymaps()
       self.query = prompt_line:sub(#self.prompt + 1)
       vim.fn.setreg("/", self.query)
       self:filter()
+      if self.list_idx ~= 1 then
+        self:set_list_idx(1)
+      end
     end, 50),
   })
 end
@@ -226,7 +229,7 @@ function View:filter()
   self:render_items()
 end
 
-function View:get_current_idx()
+function View:get_list_idx()
   if self.opts.use_lwin then
     return vim.fn.getloclist(self.lsourcewin, { idx = 0 }).idx
   else
@@ -234,11 +237,12 @@ function View:get_current_idx()
   end
 end
 
-function View:set_current_idx(idx)
+function View:set_list_idx(idx)
+  self.list_idx = idx
   if self.opts.use_lwin then
-    vim.fn.setloclist(self.lsourcewin, {}, 'a', { idx = idx  })
+    vim.fn.setloclist(self.lsourcewin, {}, "a", { idx = idx })
   else
-    vim.fn.setqflist({}, 'a', { idx = idx })
+    vim.fn.setqflist({}, "a", { idx = idx })
   end
 end
 
