@@ -1,20 +1,9 @@
 local M = {}
 
 M.default = {
-  prompt = " ",
-  view = {
-    list = {
-      number = false,
-      signcolumn = "yes",
-    },
-  },
-  keymaps = {
-    list = {
-      ["focus_prompt"] = { "<tab>" },
-      ["up"] = { "<c-p>" },
-      ["down"] = { "<c-n>" },
-    },
-    prompt = {
+  prompt = {
+    prefix = " ",
+    keymaps = {
       ["close"] = { "<esc>", "<c-c>" },
       ["focus_list"] = { "<tab>" },
       ["open"] = { "<cr>" },
@@ -25,12 +14,18 @@ M.default = {
       ["down"] = { "<c-n>" },
     },
   },
+  list = {
+    keymaps = {
+      ["focus_prompt"] = { "<tab>" },
+      ["up"] = { "<c-p>" },
+      ["down"] = { "<c-n>" },
+    },
+  },
   ui_select = {
     enabled = true,
   },
   qftf = {
     enabled = true,
-    filename_width = nil,
   },
 }
 

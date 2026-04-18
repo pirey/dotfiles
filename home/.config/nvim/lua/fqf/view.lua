@@ -17,7 +17,7 @@ View.default_opts = {
 
 function View:new(items, opts)
   opts = vim.tbl_deep_extend("force", View.default_opts, opts or {})
-  local prompt = opts.prompt ~= nil and opts.prompt or config.opts.prompt
+  local prompt = opts.prompt ~= nil and opts.prompt or config.opts.prompt.prefix
   return setmetatable({
     list_idx = 1,
     list_nr = nil,
@@ -54,19 +54,21 @@ end
 function View:open_list()
   self:render_items()
   self.listopen = true
+  local shownumber = false
+  local showsigncolumn = "yes"
   if self.opts.use_lwin then
     self.lsourcewin = vim.api.nvim_get_current_win()
     vim.cmd("lopen")
     self.lwin = vim.fn.getloclist(self.lsourcewin, { winid = 0 }).winid
     self.lbuf = vim.api.nvim_win_get_buf(self.lwin)
-    vim.wo[self.lwin].number = config.opts.view.list.number
-    vim.wo[self.lwin].signcolumn = config.opts.view.list.signcolumn
+    vim.wo[self.lwin].number = shownumber
+    vim.wo[self.lwin].signcolumn = showsigncolumn
   else
     vim.cmd("copen")
     self.qfwin = vim.fn.getqflist({ winid = 0 }).winid
     self.qfbuf = vim.api.nvim_win_get_buf(self.qfwin)
-    vim.wo[self.qfwin].number = config.opts.view.list.number
-    vim.wo[self.qfwin].signcolumn = config.opts.view.list.signcolumn
+    vim.wo[self.qfwin].number = shownumber
+    vim.wo[self.qfwin].signcolumn = showsigncolumn
   end
 end
 
@@ -151,7 +153,7 @@ function View:action_handler(action)
 end
 
 function View:set_prompt_keymaps()
-  for action, keys in pairs(config.opts.keymaps.prompt) do
+  for action, keys in pairs(config.opts.prompt.keymaps) do
     for _, key in ipairs(keys) do
       if key then
         vim.keymap.set("i", key, self:action_handler(action), { buf = self.promptbuf })
@@ -180,7 +182,7 @@ function View:set_list_keymaps()
   else
     buf = self.qfbuf
   end
-  for action, keys in pairs(config.opts.keymaps.list) do
+  for action, keys in pairs(config.opts.list.keymaps) do
     for _, key in ipairs(keys) do
       if key then
         vim.keymap.set("n", key, self:action_handler(action), { buf = buf })
