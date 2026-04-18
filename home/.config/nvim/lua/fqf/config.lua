@@ -4,7 +4,7 @@ M.default = {
   prompt = {
     prefix = " ",
     keymaps = {
-      ["close"] = { "<c-c>" },
+      ["close"] = { "<esc>", "<c-c>" },
       ["focus_list"] = { "<tab>" },
       ["open"] = { "<cr>" },
       ["open_vsplit"] = { "<c-v>" },
@@ -16,7 +16,7 @@ M.default = {
   },
   list = {
     keymaps = {
-      ["close"] = { "<c-c>" },
+      ["close"] = { "<esc>", "<c-c>" },
       ["focus_prompt"] = { "<tab>" },
       ["open"] = { "<cr>" },
       ["open_vsplit"] = { "<c-v>" },
