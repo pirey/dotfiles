@@ -1,7 +1,7 @@
 local H = {}
 
 function H.debounce(fn, delay)
-  local timer = vim.loop.new_timer()
+  local timer = vim.uv.new_timer()
 
   if not timer then
     return fn, nil

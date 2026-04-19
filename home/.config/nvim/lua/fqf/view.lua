@@ -34,6 +34,8 @@ function View:new(items, opts)
     query = "",
     items = items,
     filtered = items,
+    render_gen = 0,
+    render_timer = nil,
     augroup = vim.api.nvim_create_augroup("FqfView", { clear = true }),
     opts = opts,
   }, View)
@@ -220,6 +222,11 @@ function View:close()
 end
 
 function View:cleanup()
+  if self.render_timer then
+    self.render_timer:close()
+    self.render_timer = nil
+  end
+
   vim.api.nvim_del_augroup_by_id(self.augroup)
   vim.api.nvim_buf_delete(self.promptbuf, { force = true })
   if self.qfbuf then
@@ -243,6 +250,7 @@ function View:cleanup()
   self.lsourcewin = nil
   self.prevwin = nil
   self.query = ""
+  self.render_gen = 0
   self.items = {}
   self.filtered = {}
   self.opts = {}
@@ -261,6 +269,8 @@ function View:filter()
   if not self.listopen or not self.items or not listwin then
     return
   end
+
+  self.render_gen = self.render_gen + 1
 
   self.filtered = {}
   if #self.query > 0 then
@@ -353,10 +363,17 @@ function View:action_open(split)
 end
 
 function View:render_items()
+  if self.render_timer then
+    self.render_timer:close()
+    self.render_timer = nil
+  end
+
   local items = self.filtered
   if not items then
     return
   end
+
+  local gen = self.render_gen
   local title = self.opts.title
   local CHUNK_SIZE = 100
   local RENDER_DELAY = 10
@@ -368,10 +385,16 @@ function View:render_items()
     vim.fn.setqflist({}, " ", { title = title })
   end
 
+  local timer = vim.uv.new_timer()
+  self.render_timer = timer
+
+  if not timer then return end
+
   local function render_chunk_rec()
-    if not items then
+    if gen ~= self.render_gen then
       return
     end
+
     local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
 
     if self.opts.use_lwin then
@@ -382,9 +405,9 @@ function View:render_items()
 
     idx = idx + CHUNK_SIZE
     if idx <= #items then
-      vim.defer_fn(function()
+      timer:start(RENDER_DELAY, 0, function()
         render_chunk_rec()
-      end, RENDER_DELAY)
+      end)
     end
   end
 
