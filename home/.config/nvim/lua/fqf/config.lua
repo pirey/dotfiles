@@ -12,6 +12,7 @@ M.default = {
       ["open_tab"] = { "<c-t>" },
       ["up"] = { "<c-p>" },
       ["down"] = { "<c-n>" },
+      ["cancel"] = { "<c-q>" },
     },
   },
   list = {

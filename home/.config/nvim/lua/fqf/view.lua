@@ -167,7 +167,7 @@ function View:action_handler(action)
   if handler ~= nil then
     return handler
   end
-  return "<Nop>"
+  return function() end
 end
 
 function View:set_prompt_keymaps()
@@ -197,11 +197,9 @@ function View:set_prompt_keymaps()
 end
 
 function View:set_list_keymaps()
-  local buf = nil
-  if self.opts.use_lwin and self.lbuf ~= nil then
-    buf = self.lbuf
-  else
-    buf = self.qfbuf
+  local buf = self:get_list_buf()
+  if not buf then
+    return
   end
   for action, keys in pairs(config.opts.list.keymaps) do
     for _, key in ipairs(keys) do
@@ -248,7 +246,6 @@ function View:cleanup()
   self.promptbuf = nil
   self.promptwin = nil
   self.promptopen = false
-  self.prompt = ""
   self.listopen = false
   self.qfbuf = nil
   self.qfwin = nil
@@ -264,7 +261,7 @@ function View:cleanup()
 end
 
 function View:close_prompt()
-  if not vim.api.nvim_win_is_valid(self.promptwin) then
+  if not self.promptwin or not vim.api.nvim_win_is_valid(self.promptwin) then
     return
   end
   self.promptopen = false
@@ -340,12 +337,16 @@ function View:get_list_item()
   if not listwin then
     return
   end
-  vim.api.nvim_set_current_win(listwin)
+
+  local line = vim.api.nvim_win_call(listwin, function()
+    return vim.fn.line(".")
+  end)
+
   local list_item = nil
   if self.opts.use_lwin then
-    list_item = vim.fn.getloclist(self.lsourcewin, { items = 0 }).items[vim.fn.line(".")]
+    list_item = vim.fn.getloclist(self.lsourcewin, { items = 0 }).items[line]
   else
-    list_item = vim.fn.getqflist({ items = 0 }).items[vim.fn.line(".")]
+    list_item = vim.fn.getqflist({ items = 0 }).items[line]
   end
   return list_item
 end
@@ -383,7 +384,7 @@ function View:render_items()
   local gen = self.render_gen
   local title = self.opts.title
   local CHUNK_SIZE = 100
-  local RENDER_DELAY = 10
+  local RENDER_DELAY = 100
   local idx = 1
 
   if self.opts.use_lwin then
@@ -395,14 +396,16 @@ function View:render_items()
   local timer = vim.uv.new_timer()
   self.render_timer = timer
 
-  if not timer then return end
+  if not timer then
+    return
+  end
 
   local function render_chunk_rec()
     if gen ~= self.render_gen then
       return
     end
 
-    local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
+    local chunk = vim.list_slice(items, idx, math.min(idx + math.max(1, CHUNK_SIZE) - 1, #items))
 
     if self.opts.use_lwin then
       vim.fn.setloclist(self.lsourcewin, {}, "a", { items = chunk })
@@ -412,9 +415,13 @@ function View:render_items()
 
     idx = idx + CHUNK_SIZE
     if idx <= #items then
-      timer:start(RENDER_DELAY, 0, function()
-        render_chunk_rec()
-      end)
+      timer:start(
+        RENDER_DELAY,
+        0,
+        vim.schedule_wrap(function()
+          render_chunk_rec()
+        end)
+      )
     end
   end
 
