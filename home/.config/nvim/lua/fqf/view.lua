@@ -173,6 +173,9 @@ function View:set_prompt_keymaps()
 
   vim.api.nvim_buf_attach(self.promptbuf, false, {
     on_lines = H.debounce(function()
+      if not self.promptbuf or not vim.api.nvim_buf_is_valid(self.promptbuf) then
+        return
+      end
       local prompt_line = vim.api.nvim_buf_get_lines(self.promptbuf, 0, 1, false)[1] or ""
       self.query = prompt_line:sub(#self.prompt + 1)
       vim.fn.setreg("/", self.query)
@@ -351,6 +354,9 @@ end
 
 function View:render_items()
   local items = self.filtered
+  if not items then
+    return
+  end
   local title = self.opts.title
   local CHUNK_SIZE = 100
   local RENDER_DELAY = 10
@@ -363,6 +369,9 @@ function View:render_items()
   end
 
   local function render_chunk_rec()
+    if not items then
+      return
+    end
     local chunk = vim.list_slice(items, idx, math.min(idx + CHUNK_SIZE - 1, #items))
 
     if self.opts.use_lwin then

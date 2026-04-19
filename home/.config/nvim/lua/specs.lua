@@ -455,8 +455,6 @@ local conform = {
 return {
   -- THEMES
   require("themes.nightfox"),
-  require("themes.onedark"),
-  require("themes.iceberg"),
 
   -- EDITING
   -- jump,
@@ -473,7 +471,7 @@ return {
   oil,
   -- fff,
   gitsigns,
-  grug_far,
+  -- grug_far,
 
   -- TOOLS
   mason,

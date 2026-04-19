@@ -4,10 +4,10 @@ function H.debounce(fn, delay)
   local timer = vim.loop.new_timer()
 
   if not timer then
-    return fn
+    return fn, nil
   end
 
-  return function(...)
+  local wrapped = function(...)
     local args = { ... }
 
     timer:stop()
@@ -22,6 +22,8 @@ function H.debounce(fn, delay)
       end)
     end)
   end
+
+  return wrapped, timer
 end
 
 
