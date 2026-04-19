@@ -4,7 +4,6 @@ local config = require("fqf.config")
 -- TODO: preview
 -- TODO: attach to quickfix :copen
 -- TODO: prompt position
--- TODO: cleanup properly
 
 local View = {}
 View.__index = View
@@ -35,6 +34,7 @@ function View:new(items, opts)
     query = "",
     items = items,
     filtered = items,
+    augroup = vim.api.nvim_create_augroup("FqfView", { clear = true }),
     opts = opts,
   }, View)
 end
@@ -70,6 +70,15 @@ function View:open_list()
     vim.wo[self.qfwin].number = shownumber
     vim.wo[self.qfwin].signcolumn = showsigncolumn
   end
+
+  local listbuf = self:get_list_buf()
+  vim.api.nvim_create_autocmd("WinClosed", {
+    group = self.augroup,
+    buffer = listbuf,
+    callback = function()
+      self:close_prompt()
+    end,
+  })
 end
 
 function View:open_prompt()
@@ -203,6 +212,37 @@ function View:close()
   if self.prevwin and vim.api.nvim_win_is_valid(self.prevwin) then
     vim.api.nvim_set_current_win(self.prevwin)
   end
+
+  self:cleanup()
+end
+
+function View:cleanup()
+  vim.api.nvim_del_augroup_by_id(self.augroup)
+  vim.api.nvim_buf_delete(self.promptbuf, { force = true })
+  if self.qfbuf then
+    vim.api.nvim_buf_delete(self.qfbuf, { force = true })
+  end
+  if self.lbuf then
+    vim.api.nvim_buf_delete(self.lbuf, { force = true })
+  end
+
+  self.list_idx = 1
+  self.list_nr = nil
+  self.promptbuf = nil
+  self.promptwin = nil
+  self.promptopen = false
+  self.prompt = ""
+  self.listopen = false
+  self.qfbuf = nil
+  self.qfwin = nil
+  self.lwin = nil
+  self.lbuf = nil
+  self.lsourcewin = nil
+  self.prevwin = nil
+  self.query = ""
+  self.items = {}
+  self.filtered = {}
+  self.opts = {}
 end
 
 function View:close_prompt()
@@ -250,6 +290,16 @@ function View:set_list_idx(idx)
   else
     vim.fn.setqflist({}, "a", { idx = idx })
   end
+end
+
+function View:get_list_buf()
+  local listbuf = nil
+  if self.opts.use_lwin then
+    listbuf = self.lbuf
+  else
+    listbuf = self.qfbuf
+  end
+  return listbuf
 end
 
 function View:get_list_win()
