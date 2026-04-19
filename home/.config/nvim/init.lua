@@ -36,8 +36,6 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
   noremap = true,
   desc = "Alternate window",
 })
-vim.keymap.set("n", "n", "nzz", { silent = true })
-vim.keymap.set("n", "N", "Nzz", { silent = true })
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })

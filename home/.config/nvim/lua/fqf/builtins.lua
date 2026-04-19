@@ -60,15 +60,23 @@ end
 function M.live_grep()
   local title = "Search"
   local items = {}
+  local current_job = nil
 
   local view = View:new(items, {
     title = title,
     filter_debounce = 200,
-    on_change = function(query)
+    chunk_size = nil,
+    on_change = function(query, done)
+      if current_job then
+        current_job:kill(9)
+        current_job = nil
+      end
+
       if #query < 3 then
+        done(items)
         return
       end
-      local lines = vim.fn.systemlist({
+      local cmd = {
         "rg",
         "--hidden",
         "--vimgrep",
@@ -76,21 +84,34 @@ function M.live_grep()
         "--fixed-strings",
         "--glob=!.git",
         query,
-      })
-      local filtered = {}
-      for _, line in ipairs(lines) do
-        local filename, lnum, col, text = line:match("^([^:]+):(%d+):(%d+):(.*)$")
+      }
+      current_job = vim.system(
+        cmd,
+        { text = true },
+        vim.schedule_wrap(function(obj)
+          current_job = nil
 
-        if filename then
-          filtered[#filtered + 1] = {
-            filename = filename,
-            lnum = tonumber(lnum),
-            col = tonumber(col),
-            text = text,
-          }
-        end
-      end
-      return filtered
+          if not obj or obj.signal ~= 0 or obj.code ~= 0 then
+            return
+          end
+
+          local filtered = {}
+          ---TODO: use coroutine and strip line by line and yield it?
+          for line in (obj.stdout or ""):gmatch("[^\n]+") do
+            local filename, lnum, col, text = line:match("^([^:]+):(%d+):(%d+):(.*)$")
+
+            if filename then
+              filtered[#filtered + 1] = {
+                filename = filename,
+                lnum = tonumber(lnum),
+                col = tonumber(col),
+                text = text,
+              }
+            end
+          end
+          done(filtered)
+        end)
+      )
     end,
   })
   view:open()

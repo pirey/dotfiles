@@ -12,11 +12,14 @@ View.default_opts = {
   use_lwin = false,
   filter_by = "filename",
   filter_debounce = 50,
+  chunk_size = 100,
   prompt = nil,
 }
 
 function View:new(items, opts)
-  opts = vim.tbl_deep_extend("force", View.default_opts, opts or {})
+  opts = vim.tbl_deep_extend("force", View.default_opts, opts or {}, {
+    chunk_size = View.default_opts.chunk_size,
+  })
   local prompt = opts.prompt ~= nil and opts.prompt or config.opts.prompt.prefix
   return setmetatable({
     list_idx = 1,
@@ -26,6 +29,7 @@ function View:new(items, opts)
     promptopen = false,
     prompt = prompt,
     listopen = false,
+    listfocus = false,
     qfbuf = nil,
     qfwin = nil,
     lwin = nil,
@@ -35,6 +39,7 @@ function View:new(items, opts)
     query = "",
     items = items,
     filtered = items,
+    render_idx = 1,
     render_gen = 0,
     render_timer = nil,
     augroup = vim.api.nvim_create_augroup("FqfView", { clear = true }),
@@ -124,9 +129,8 @@ function View:action_handler(action)
         return
       end
       vim.api.nvim_set_current_win(self.promptwin)
-    end,
-    ["close"] = function()
-      self:close()
+      self.listfocus = false
+      self:render_items()
     end,
     ["focus_list"] = function()
       local listwin = self:get_list_win()
@@ -134,6 +138,11 @@ function View:action_handler(action)
         return
       end
       vim.api.nvim_set_current_win(listwin)
+      self.listfocus = true
+      self:render_items()
+    end,
+    ["close"] = function()
+      self:close()
     end,
     ["open"] = function()
       self:action_open("edit")
@@ -255,6 +264,7 @@ function View:cleanup()
   self.lsourcewin = nil
   self.prevwin = nil
   self.query = ""
+  self.render_idx = 1
   self.render_gen = 0
   self.items = {}
   self.filtered = {}
@@ -278,18 +288,26 @@ function View:filter()
   self.render_gen = self.render_gen + 1
 
   self.filtered = {}
-  if #self.query > 0 then
-    if type(self.opts.on_change) == "function" then
-      self.filtered = self.opts.on_change(self.query)
-    else
-      self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
-        key = self.opts.filter_by,
-      })
-    end
-  else
+  if #self.query <= 0 then
     self.filtered = self.items
+    self.render_idx = 1
+    self:render_items()
   end
 
+  if type(self.opts.on_change) == "function" then
+    self.opts.on_change(self.query, function(result)
+      self.filtered = result
+      self.render_idx = 1
+      self:render_items()
+    end)
+    return
+  end
+
+  self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
+    key = self.opts.filter_by,
+  })
+
+  self.render_idx = 1
   self:render_items()
 end
 
@@ -327,7 +345,7 @@ function View:get_list_win()
   else
     listwin = self.qfwin
   end
-  if not vim.api.nvim_win_is_valid(listwin) then
+  if not listwin or not vim.api.nvim_win_is_valid(listwin) then
     return nil
   end
   return listwin
@@ -384,14 +402,14 @@ function View:render_items()
 
   local gen = self.render_gen
   local title = self.opts.title
-  local CHUNK_SIZE = 100
   local RENDER_DELAY = 100
-  local idx = 1
 
-  if self.opts.use_lwin then
-    vim.fn.setloclist(self.lsourcewin, {}, " ", { title = title })
-  else
-    vim.fn.setqflist({}, " ", { title = title })
+  if self.render_idx == 1 then
+    if self.opts.use_lwin then
+      vim.fn.setloclist(self.lsourcewin, {}, " ", { title = title })
+    else
+      vim.fn.setqflist({}, " ", { title = title })
+    end
   end
 
   local timer = vim.uv.new_timer()
@@ -406,7 +424,11 @@ function View:render_items()
       return
     end
 
-    local chunk = vim.list_slice(items, idx, math.min(idx + math.max(1, CHUNK_SIZE) - 1, #items))
+    local chunk = {}
+    local end_idx = math.min(self.render_idx + self.opts.chunk_size - 1, #items)
+    for i = self.render_idx, end_idx do
+      chunk[#chunk + 1] = items[i]
+    end
 
     if self.opts.use_lwin then
       vim.fn.setloclist(self.lsourcewin, {}, "a", { items = chunk })
@@ -414,8 +436,9 @@ function View:render_items()
       vim.fn.setqflist({}, "a", { items = chunk })
     end
 
-    idx = idx + CHUNK_SIZE
-    if idx <= #items then
+    self.render_idx = self.render_idx + self.opts.chunk_size
+    local max = self.listfocus and #items or math.min(self.opts.chunk_size, #items)
+    if self.render_idx <= max then
       timer:start(
         RENDER_DELAY,
         0,
