@@ -183,7 +183,7 @@ function M.oldfiles(opts)
   for _, path in ipairs(vim.v.oldfiles) do
     if not current_dir or path:find(cwd, 1, true) == 1 then
       items[#items + 1] = {
-        filename = path,
+        filename = vim.fn.fnamemodify(path, ":."),
         lnum = 1,
         col = 1,
       }
