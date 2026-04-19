@@ -111,6 +111,13 @@ end
 
 function View:action_handler(action)
   local actions = {
+    ["cancel"] = function()
+      self.render_gen = self.render_gen + 1
+      if self.render_timer then
+        self.render_timer:close()
+        self.render_timer = nil
+      end
+    end,
     ["focus_prompt"] = function()
       if not self.promptwin or not vim.api.nvim_win_is_valid(self.promptwin) then
         return

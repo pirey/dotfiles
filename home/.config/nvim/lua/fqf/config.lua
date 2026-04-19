@@ -16,6 +16,7 @@ M.default = {
   },
   list = {
     keymaps = {
+      ["cancel"] = { "<c-q>" },
       ["close"] = { "<esc>", "<c-c>" },
       ["focus_prompt"] = { "<tab>" },
       ["open"] = { "<cr>" },
