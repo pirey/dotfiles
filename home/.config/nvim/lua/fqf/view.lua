@@ -334,6 +334,11 @@ function View:action_open(split)
   split = split or "edit"
   local list_item = self:get_list_item()
   if list_item then
+    if self.opts.onselect then
+      self.opts.onselect(list_item)
+      self:close()
+      return
+    end
     self:close()
     local fname = vim.fn.bufname(list_item.bufnr)
     if fname == "" then

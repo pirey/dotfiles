@@ -121,6 +121,7 @@ end
 
 function M.buffer_lines()
   local buf = vim.api.nvim_get_current_buf()
+  local win = vim.api.nvim_get_current_win()
   local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
   local filename = vim.api.nvim_buf_get_name(buf)
 
@@ -141,7 +142,10 @@ function M.buffer_lines()
   local view = View:new(items, {
     title = title,
     filterby = "text",
-    use_lwin = true
+    use_lwin = true,
+    onselect = function(item)
+      vim.api.nvim_win_set_cursor(win, { item.lnum, 1 })
+    end,
   })
   view:open()
 end
