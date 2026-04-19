@@ -10,7 +10,8 @@ View.__index = View
 
 View.default_opts = {
   use_lwin = false,
-  filterby = "filename",
+  filter_by = "filename",
+  filter_debounce = 50,
   prompt = nil,
 }
 
@@ -192,7 +193,7 @@ function View:set_prompt_keymaps()
       if self.list_idx ~= 1 then
         self:set_list_idx(1)
       end
-    end, 50),
+    end, self.opts.filter_debounce),
   })
 end
 
@@ -282,7 +283,7 @@ function View:filter()
       self.filtered = self.opts.on_change(self.query)
     else
       self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
-        key = self.opts.filterby,
+        key = self.opts.filter_by,
       })
     end
   else

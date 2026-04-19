@@ -63,6 +63,7 @@ function M.live_grep()
 
   local view = View:new(items, {
     title = title,
+    filter_debounce = 200,
     on_change = function(query)
       if #query < 3 then
         return
@@ -141,7 +142,7 @@ function M.buffer_lines()
 
   local view = View:new(items, {
     title = title,
-    filterby = "text",
+    filter_by = "text",
     use_lwin = true,
     onselect = function(item)
       vim.api.nvim_win_set_cursor(win, { item.lnum, 1 })
