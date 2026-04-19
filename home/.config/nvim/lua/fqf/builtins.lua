@@ -63,7 +63,7 @@ function M.live_grep()
 
   local view = View:new(items, {
     title = title,
-    onchange = function(query)
+    on_change = function(query)
       if #query < 3 then
         return
       end

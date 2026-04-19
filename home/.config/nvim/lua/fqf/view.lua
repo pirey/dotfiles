@@ -274,8 +274,8 @@ function View:filter()
 
   self.filtered = {}
   if #self.query > 0 then
-    if type(self.opts.onchange) == "function" then
-      self.filtered = self.opts.onchange(self.query)
+    if type(self.opts.on_change) == "function" then
+      self.filtered = self.opts.on_change(self.query)
     else
       self.filtered = vim.fn.matchfuzzy(self.items, self.query, {
         key = self.opts.filterby,
