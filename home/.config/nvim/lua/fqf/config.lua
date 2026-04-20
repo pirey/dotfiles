@@ -2,7 +2,7 @@ local M = {}
 
 M.default = {
   prompt = {
-    prefix = " ",
+    prefix = "> ",
     keymaps = {
       ["close"] = { "<esc>", "<c-c>" },
       ["focus_list"] = { "<tab>" },

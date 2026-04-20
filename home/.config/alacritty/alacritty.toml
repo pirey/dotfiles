@@ -4,12 +4,18 @@ import = ["nightfox.toml"]
 [window]
 # (MacOS)
 option_as_alt = "Both"
+startup_mode = "Maximized"
+
+dynamic_padding = true
 
 [font]
-size = 13.5
-normal = { family = "Lilex", style = "Regular" }
+size = 14.5
+normal = { family = "Ioskeley Mono", style = "Regular" }
+offset = { x = 0, y = 16 }
+glyph_offset = { x = 0, y = 8 }
 
 [keyboard]
 bindings = [
-{ key = "Space", mods = "Control", chars = "\u0000" }
+{ key = "Space", mods = "Control", chars = "\u0000" },
+{ key = "Key6", mods = "Control", chars = "\u001e" }
 ]
