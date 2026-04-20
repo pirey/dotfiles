@@ -28,6 +28,10 @@
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "orgmode": {
+      "rev": "a214db3c8ed7eb68cb74924575b91ffc658e7d82",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
     "treesj": {
       "rev": "5fa4e7ba3517f8fe743bb4488f9e9c7ce83330fc",
       "src": "https://github.com/Wansmer/treesj"
