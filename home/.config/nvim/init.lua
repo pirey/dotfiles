@@ -23,6 +23,7 @@ vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
 
+-- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
 vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
@@ -74,7 +75,7 @@ augroup END
 local fqf = require("fqf")
 fqf.setup()
 vim.keymap.set("n", "<leader>f", fqf.builtins.files)
-vim.keymap.set("n", "<leader><leader>f", fqf.builtins.smart_files)
+vim.keymap.set("n", "<leader>p", fqf.builtins.smart_files)
 vim.keymap.set("n", "<leader><leader>d", fqf.builtins.dirs)
 vim.keymap.set("n", "<leader>,", fqf.builtins.live_grep)
 vim.keymap.set("n", "<leader><leader>,", fqf.builtins.grep)
