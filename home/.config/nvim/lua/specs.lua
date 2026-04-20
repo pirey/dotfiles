@@ -21,7 +21,7 @@ local fqf = {
     vim.keymap.set("n", "<leader>'", fqf.builtins.oldfiles)
     vim.keymap.set("n", "<leader>gq", fqf.builtins.git_changes)
     vim.keymap.set("n", "<leader>/", fqf.builtins.buffer_lines)
-  end
+  end,
 }
 local fugitive = {
   src = "tpope/vim-fugitive",
@@ -182,8 +182,8 @@ local lspconfig = {
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
+          diagnostics = {
+            globals = { "vim" },
           },
         },
       },

@@ -64,6 +64,9 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
 
 vim.cmd([[
+cabbrev <expr> f getcmdtype() == ':' && getcmdline() =~# '^f' ? 'find' : 'f'
+cabbrev <expr> vsf getcmdtype() == ':' && getcmdline() =~# '^vsf' ? 'vert sfind' : 'vsf'
+cabbrev <expr> sg getcmdtype() == ':' && getcmdline() =~# '^sg' ? 'silent grep!' : 'sg'
 augroup InitAugroup
   autocmd!
   autocmd TermOpen * startinsert

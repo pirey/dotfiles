@@ -24,14 +24,14 @@ end
 local function get_oldfiles_cwd()
   local cwd = vim.fn.getcwd()
   local result = {}
-
   for _, f in ipairs(vim.v.oldfiles or {}) do
     if f:sub(1, #cwd) == cwd then
       local rel = f:sub(#cwd + 2)
-      table.insert(result, rel)
+      if vim.fn.filereadable(f) == 1 then
+        table.insert(result, rel)
+      end
     end
   end
-
   return result
 end
 
