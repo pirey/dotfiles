@@ -43,7 +43,13 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   pattern = "qf",
-  callback = function() end,
+  callback = function()
+    local win = vim.fn.win_getid()
+    vim.wo[win].cursorline = true
+    vim.wo[win].cursorlineopt = "both"
+    vim.wo[win].signcolumn = "yes"
+    vim.wo[win].number = false
+  end,
 })
 
 vim.ui.select = function(items, opts, on_choice)
