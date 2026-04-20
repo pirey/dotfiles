@@ -11,8 +11,8 @@ dynamic_padding = true
 [font]
 size = 14.5
 normal = { family = "Ioskeley Mono", style = "Regular" }
-offset = { x = 0, y = 16 }
-glyph_offset = { x = 0, y = 8 }
+offset = { x = 0, y = 8 }
+glyph_offset = { x = 0, y = 4 }
 
 [keyboard]
 bindings = [
