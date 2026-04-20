@@ -41,9 +41,15 @@ function M.formatter(info)
     end
 
     if not qf.text or qf.text == "" then
+      -- file picker
       table.insert(lines, fname)
     elseif qf.lnum == 0 and qf.col == 0 then
+      -- ui select
       table.insert(lines, qf.text)
+    elseif qf.lnum == 1 and qf.col == 1 then
+      -- git status
+      local padded_fname = fname .. string.rep(" ", max_fname - vim.fn.strwidth(fname))
+      table.insert(lines, string.format("%s | %s", padded_fname, qf.text))
     else
       local padded_fname = fname .. string.rep(" ", max_fname - vim.fn.strwidth(fname))
 
