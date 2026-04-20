@@ -54,13 +54,13 @@ local function find_glob(cmdarg, cmdcomplete)
   return vim.fn.glob(pat, false, true)
 end
 
-local function find_git_files(cmdarg, cmdcomplete)
+local function find_git_files(cmdarg, _)
   local files = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
   return vim.fn.matchfuzzy(files, cmdarg)
 end
 
-local function find_fd_files(cmdarg, cmdcomplete)
-  local files = vim.fn.systemlist("fd --hidden --exclude .git --type f")
+local function find_fd_files(cmdarg, _)
+  local files = vim.fn.systemlist("fd --hidden --exclude .git")
 
   return vim.fn.matchfuzzy(files, cmdarg)
 end
