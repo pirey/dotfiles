@@ -19,9 +19,7 @@ vim.o.pumborder = vim.o.winborder
 vim.o.pumheight = 10
 vim.o.fillchars = "diff: "
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
-
--- ignore .git by default so we doesn't need to specify it when using --hidden
-vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
+vim.o.completeopt = vim.o.completeopt .. ",fuzzy"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
@@ -67,11 +65,10 @@ vim.cmd([[
 cabbrev <expr> f getcmdtype() == ':' && getcmdline() =~# '^f' ? 'find' : 'f'
 cabbrev <expr> vsf getcmdtype() == ':' && getcmdline() =~# '^vsf' ? 'vert sfind' : 'vsf'
 cabbrev <expr> sg getcmdtype() == ':' && getcmdline() =~# '^sg' ? 'silent grep!' : 'sg'
-augroup InitAugroup
+augroup Init
   autocmd!
   autocmd TermOpen * startinsert
   autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif
-  autocmd QuickFixCmdPre grep copen
 augroup END
 ]])
 
