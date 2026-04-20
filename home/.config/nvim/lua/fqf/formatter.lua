@@ -1,6 +1,6 @@
 local M = {}
 
-function M.qftf(info)
+function M.formatter(info)
   local items
   if info.quickfix == 1 then
     items = vim.fn.getqflist({ items = 1 }).items
@@ -42,6 +42,8 @@ function M.qftf(info)
 
     if not qf.text or qf.text == "" then
       table.insert(lines, fname)
+    elseif qf.lnum == 0 and qf.col == 0 then
+      table.insert(lines, qf.text)
     else
       local padded_fname = fname .. string.rep(" ", max_fname - vim.fn.strwidth(fname))
 

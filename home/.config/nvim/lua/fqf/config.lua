@@ -31,7 +31,7 @@ M.default = {
   ui_select = {
     enabled = true,
   },
-  qftf = {
+  formatter = {
     enabled = true,
   },
 }

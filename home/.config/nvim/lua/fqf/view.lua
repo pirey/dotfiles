@@ -14,6 +14,8 @@ View.default_opts = {
   filter_debounce = 50,
   chunk_size = 100,
   prompt = nil,
+  on_change = nil,
+  on_select = nil,
 }
 
 function View:new(items, opts)
@@ -295,6 +297,7 @@ function View:filter()
     self.filtered = self.items
     self.render_idx = 1
     self:render_items()
+    return
   end
 
   if type(self.opts.on_change) == "function" then
@@ -377,8 +380,8 @@ function View:action_open(split)
   split = split or "edit"
   local list_item = self:get_list_item()
   if list_item then
-    if self.opts.onselect then
-      self.opts.onselect(list_item)
+    if self.opts.on_select then
+      self.opts.on_select(list_item)
       self:close()
       return
     end

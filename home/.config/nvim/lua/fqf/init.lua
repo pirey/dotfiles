@@ -2,7 +2,7 @@ local config = require("fqf.config")
 
 local M = {}
 
-M.qftf = require("fqf.qftf").qftf
+M.formatter = require("fqf.formatter").formatter
 M.builtins = require("fqf.builtins")
 M.ui_select = require("fqf.ui_select")
 
@@ -13,8 +13,8 @@ function M.setup(opts)
     vim.ui.select = M.ui_select
   end
 
-  if config.opts.qftf.enabled then
-    vim.o.quickfixtextfunc = "v:lua.require'fqf'.qftf"
+  if config.opts.formatter.enabled then
+    vim.o.quickfixtextfunc = "v:lua.require'fqf'.formatter"
   end
 end
 

@@ -1,3 +1,5 @@
+local View = require("fqf.view")
+
 local function ui_select(items, opts, on_choice)
   opts = opts or {}
 
@@ -11,29 +13,18 @@ local function ui_select(items, opts, on_choice)
     }
   end
 
-  vim.fn.setqflist({}, " ", {
+  local view = View:new(qf_items, {
     title = prompt,
-    items = qf_items,
+    filter_by = "text",
+    on_select = function(qf_item)
+      local item = qf_item.user_data
+      if not qf_item.user_data then
+        return
+      end
+      on_choice(item)
+    end,
   })
-
-  vim.cmd("copen")
-
-  local win = vim.fn.getqflist({ winid = 0 }).winid
-  if win == 0 then
-    win = vim.fn.win_getid()
-  end
-
-  local buf = vim.api.nvim_win_get_buf(win)
-
-  vim.keymap.set("n", "<CR>", function()
-    local idx = vim.fn.line(".")
-    local list = vim.fn.getqflist()
-
-    vim.cmd("cclose")
-
-    local item = list[idx] and list[idx].user_data
-    on_choice(item)
-  end, { buffer = buf, silent = true })
+  view:open()
 end
 
 return ui_select
