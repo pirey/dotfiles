@@ -17,8 +17,12 @@ function sources.fd_files(opts)
   opts = opts or {}
   local t = opts.fs_type or "file"
   local lines = vim.fn.systemlist({
-    "fd", "--hidden", "--exclude", ".git",
-    "--type", t == "file" and "f" or "d",
+    "fd",
+    "--hidden",
+    "--exclude",
+    ".git",
+    "--type",
+    t == "file" and "f" or "d",
   })
   local items = {}
   for i = 1, #lines do
@@ -28,9 +32,13 @@ function sources.fd_files(opts)
 end
 
 function sources.git_files()
-  if not H.is_git_repo() then return {} end
+  if not H.is_git_repo() then
+    return {}
+  end
   local lines = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
-  if vim.v.shell_error ~= 0 then return {} end
+  if vim.v.shell_error ~= 0 then
+    return {}
+  end
   local items = {}
   for i = 1, #lines do
     items[#items + 1] = { filename = lines[i], lnum = 1, col = 1 }
@@ -39,7 +47,9 @@ function sources.git_files()
 end
 
 function sources.git_changes()
-  if not H.is_git_repo() then return {} end
+  if not H.is_git_repo() then
+    return {}
+  end
   local lines = vim.fn.systemlist("git status --porcelain")
   local items = {}
   for _, line in ipairs(lines) do
@@ -97,7 +107,9 @@ end
 -- Wraps matchfuzzy to preserve the original source order among results.
 -- Without this, matchfuzzy reorders by score, losing the priority of sources.
 local function ordered_fuzzy(items, query, opts)
-  if #query == 0 then return items end
+  if #query == 0 then
+    return items
+  end
   local results = vim.fn.matchfuzzy(items, query, opts)
   -- build a rank map from the original list
   local rank = {}
@@ -169,14 +181,18 @@ function builtins.live_grep()
         { text = true },
         vim.schedule_wrap(function(obj)
           current_job = nil
-          if not obj or obj.signal ~= 0 or obj.code ~= 0 then return end
+          if not obj or obj.signal ~= 0 or obj.code ~= 0 then
+            return
+          end
           local filtered = {}
           for line in (obj.stdout or ""):gmatch("[^\n]+") do
             local filename, lnum, col, text = line:match("^([^:]+):(%d+):(%d+):(.*)$")
             if filename then
               filtered[#filtered + 1] = {
-                filename = filename, lnum = tonumber(lnum),
-                col = tonumber(col), text = text,
+                filename = filename,
+                lnum = tonumber(lnum),
+                col = tonumber(col),
+                text = text,
               }
             end
           end
@@ -190,7 +206,9 @@ end
 function builtins.grep(opts)
   opts = opts or {}
   local ok, query = pcall(vim.fn.input, opts.prompt or "Search: ")
-  if not ok or query == "" then return end
+  if not ok or query == "" then
+    return
+  end
   vim.defer_fn(function()
     local silent = opts.silent ~= false
     local auto_open = opts.auto_open or false
@@ -198,7 +216,9 @@ function builtins.grep(opts)
     vim.cmd("copen")
     vim.fn.setqflist({}, "a", { title = "Search: " .. query })
     vim.fn.setreg("/", query)
-    pcall(function(args) vim.cmd(args) end, "normal! n")
+    pcall(function(args)
+      vim.cmd(args)
+    end, "normal! n")
   end, 0)
 end
 
@@ -230,12 +250,17 @@ function builtins.oldfiles(opts)
 end
 
 function builtins.git_changes()
-  if not H.is_git_repo() then return end
+  if not H.is_git_repo() then
+    return
+  end
   local items = sources.git_changes()
   View:new(items, { title = "Git Changes" }):open()
 end
 
-function builtins.smart_files()
+function builtins.smart_files(opts)
+  opts = vim.tbl_extend("force", {
+    fuzzy_preserve_order = false,
+  }, opts or {})
   if not H.is_git_repo() then
     View:new(sources.fd_files(), { title = "Files" }):open()
     return
@@ -247,11 +272,16 @@ function builtins.smart_files()
     sources.fd_files(),
   })
 
-  View:new(merged, {
-    title = "Smart Files",
+  local on_change = nil
+  if opts.fuzzy_preserve_order then
     on_change = function(query, done)
       done(ordered_fuzzy(merged, query, { key = "filename" }))
-    end,
+    end
+  end
+
+  View:new(merged, {
+    title = "Smart Files",
+    on_change = on_change,
   }):open()
 end
 
