@@ -257,6 +257,7 @@ function builtins.git_changes()
   View:new(items, { title = "Git Changes" }):open()
 end
 
+---PERF: slow startup
 function builtins.smart_files(opts)
   opts = vim.tbl_extend("force", {
     fuzzy_preserve_order = false,
