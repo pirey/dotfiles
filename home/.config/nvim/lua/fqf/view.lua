@@ -59,24 +59,27 @@ function View:open()
   self:set_prompt_keymaps()
 end
 
+function View:set_winopt(win)
+  vim.wo[win].number = false
+  vim.wo[win].signcolumn = "yes"
+  vim.wo[win].cursorline = true
+  vim.wo[win].cursorlineopt = "both"
+end
+
 function View:open_list()
   self:render_items()
   self.listopen = true
-  local shownumber = false
-  local showsigncolumn = "yes"
   if self.opts.use_lwin then
     self.lsourcewin = vim.api.nvim_get_current_win()
     vim.cmd("lopen")
     self.lwin = vim.fn.getloclist(self.lsourcewin, { winid = 0 }).winid
     self.lbuf = vim.api.nvim_win_get_buf(self.lwin)
-    vim.wo[self.lwin].number = shownumber
-    vim.wo[self.lwin].signcolumn = showsigncolumn
+    self:set_winopt(self.lwin)
   else
     vim.cmd("copen")
     self.qfwin = vim.fn.getqflist({ winid = 0 }).winid
     self.qfbuf = vim.api.nvim_win_get_buf(self.qfwin)
-    vim.wo[self.qfwin].number = shownumber
-    vim.wo[self.qfwin].signcolumn = showsigncolumn
+    self:set_winopt(self.qfwin)
   end
 
   local listbuf = self:get_list_buf()
