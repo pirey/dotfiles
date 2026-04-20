@@ -73,7 +73,7 @@ augroup END
 
 local fqf = require("fqf")
 fqf.setup()
-vim.keymap.set("n", "<leader>f", fqf.builtins.files)
+vim.keymap.set("n", "<leader>f", fqf.builtins.smart_files)
 vim.keymap.set("n", "<leader><leader>f", fqf.builtins.dirs)
 vim.keymap.set("n", "<leader>,", fqf.builtins.live_grep)
 vim.keymap.set("n", "<leader><leader>,", fqf.builtins.grep)
