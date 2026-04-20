@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>,", function()
   end, 0)
 end)
 
-local augroup = vim.api.nvim_create_augroup("Init", { clear = true })
+local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   group = augroup,
