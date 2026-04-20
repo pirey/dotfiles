@@ -18,6 +18,8 @@ return {
           ["@module.php"] = { fg = "palette.yellow" },
           ["IncSearch"] = { bg = "palette.yellow", fg = "palette.black" },
           ["FlashLabel"] = { link = "IncSearch" },
+          ["@org.agenda.scheduled"] = { fg = "palette.fg0" },
+          ["@org.keyword.done"] = { fg = "palette.green" },
         },
       },
     })

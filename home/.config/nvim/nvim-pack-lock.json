@@ -1,7 +1,7 @@
 {
   "plugins": {
     "canola.nvim": {
-      "rev": "15ed10dcb95c39ed188184d7351192bd24a938ec",
+      "rev": "54af5ac8aed9926fd19b088162c7555110062c5c",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
