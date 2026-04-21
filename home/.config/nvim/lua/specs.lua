@@ -477,7 +477,7 @@ local orgmode = {
           org_toggle_checkbox = "<leader>o<tab>", -- <c-space> is reserved for tmux prefix
         },
       },
-      win_split_mode = "tabnew",
+      win_split_mode = "vertical",
       org_agenda_files = { "~/org/**/*", "~/vault-org/**/*" },
       org_default_notes_file = "~/org/tasks.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE" },
