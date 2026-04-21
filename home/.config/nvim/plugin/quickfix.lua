@@ -68,6 +68,22 @@ vim.ui.select = function(items, opts, on_choice)
   vim.fn.setqflist({}, " ", {
     title = prompt,
     items = qf_items,
+    quickfixtextfunc = function(info)
+      local qfitems
+      if info.quickfix == 1 then
+        qfitems = vim.fn.getqflist({ items = 1 }).items
+      else
+        qfitems = vim.fn.getloclist(info.winid, { items = 1 }).items
+      end
+
+      local lines = {}
+
+      for _, qf in ipairs(qfitems) do
+        table.insert(lines, qf.text)
+      end
+
+      return lines
+    end,
   })
 
   vim.cmd("copen")
@@ -88,4 +104,14 @@ vim.ui.select = function(items, opts, on_choice)
     local item = list[idx] and list[idx].user_data
     on_choice(item)
   end, { buffer = buf, silent = true })
+
+  vim.api.nvim_create_autocmd("WinLeave", {
+    buffer = buf,
+    once = true,
+    callback = function(ev)
+      vim.keymap.del("n", "<CR>", {
+        buf = buf,
+      })
+    end,
+  })
 end
