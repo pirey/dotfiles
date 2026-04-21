@@ -41,6 +41,7 @@ local function buffer_lines()
 
   vim.fn.setloclist(0, {}, " ", { items = qf, title = prompt .. query })
   vim.cmd("lopen")
+  vim.fn.setreg("/", query)
 end
 
 local function toggle_cwindow()
@@ -57,10 +58,26 @@ local function toggle_cwindow()
   end
 end
 
+local function toggle_lwindow()
+  local winid = vim.fn.getloclist(0, { winid = 0 }).winid
+  if winid ~= 0 then
+    local curwin = vim.fn.win_getid()
+    if curwin == winid then
+      vim.cmd("lclose")
+    else
+      vim.cmd("lopen")
+    end
+  else
+    vim.cmd("lopen")
+  end
+end
+
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
 
 vim.keymap.set("n", "<leader>c", toggle_cwindow)
+
+vim.keymap.set("n", "<leader>l", toggle_lwindow)
 
 vim.keymap.set("n", "<leader>,", grep)
 
