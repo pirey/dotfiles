@@ -1,20 +1,4 @@
--- ignore .git by default so we doesn't need to specify it when using --hidden
-vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
-
-vim.keymap.set("n", "<leader>c", function()
-  local winid = vim.fn.getqflist({ winid = 0 }).winid
-  if winid ~= 0 then
-    local curwin = vim.fn.win_getid()
-    if curwin == winid then
-      vim.cmd("cclose")
-    else
-      vim.cmd("copen")
-    end
-  else
-    vim.cmd("copen")
-  end
-end)
-vim.keymap.set("n", "<leader>,", function()
+local function grep()
   local prompt = "Search: "
   local ok, query = pcall(vim.fn.input, prompt)
   if not ok or query == "" then
@@ -28,7 +12,59 @@ vim.keymap.set("n", "<leader>,", function()
       vim.cmd(args)
     end, "normal! n")
   end, 0)
-end)
+end
+
+local function buffer_lines()
+  local prompt = "Search: "
+  local ok, query = pcall(vim.fn.input, prompt)
+  if not ok or query == "" then
+    return
+  end
+
+  local bufnr = 0
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local filename = vim.api.nvim_buf_get_name(bufnr)
+
+  local matches = vim.fn.matchfuzzy(lines, query)
+
+  local qf = {}
+  for _, line in ipairs(matches) do
+    local lnum = vim.fn.index(lines, line) + 1
+    table.insert(qf, {
+      filename = filename,
+      bufnr = bufnr,
+      lnum = lnum,
+      col = 1,
+      text = line,
+    })
+  end
+
+  vim.fn.setloclist(0, {}, " ", { items = qf, title = prompt .. query })
+  vim.cmd("lopen")
+end
+
+local function toggle_cwindow()
+  local winid = vim.fn.getqflist({ winid = 0 }).winid
+  if winid ~= 0 then
+    local curwin = vim.fn.win_getid()
+    if curwin == winid then
+      vim.cmd("cclose")
+    else
+      vim.cmd("copen")
+    end
+  else
+    vim.cmd("copen")
+  end
+end
+
+-- ignore .git by default so we doesn't need to specify it when using --hidden
+vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
+
+vim.keymap.set("n", "<leader>c", toggle_cwindow)
+
+vim.keymap.set("n", "<leader>,", grep)
+
+vim.keymap.set("n", "<leader>/", buffer_lines)
 
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
@@ -108,7 +144,7 @@ vim.ui.select = function(items, opts, on_choice)
   vim.api.nvim_create_autocmd("WinLeave", {
     buffer = buf,
     once = true,
-    callback = function(ev)
+    callback = function()
       vim.keymap.del("n", "<CR>", {
         buf = buf,
       })
