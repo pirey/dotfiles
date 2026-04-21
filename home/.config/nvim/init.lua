@@ -19,7 +19,8 @@ vim.o.pumborder = vim.o.winborder
 vim.o.pumheight = 10
 vim.o.fillchars = "diff: "
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
-vim.o.completeopt = vim.o.completeopt .. ",fuzzy"
+vim.o.autocomplete = true
+vim.o.autocompletedelay = 100
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
