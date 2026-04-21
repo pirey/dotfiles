@@ -79,7 +79,7 @@ vim.keymap.set("n", "<leader>c", toggle_cwindow)
 
 vim.keymap.set("n", "<leader>l", toggle_lwindow)
 
-vim.keymap.set("n", "<leader>,", grep)
+vim.keymap.set("n", "<leader><leader>,", grep)
 
 vim.keymap.set("n", "<leader>/", buffer_lines)
 
