@@ -1,5 +1,5 @@
 -- ignore .git by default so we doesn't need to specify it when using --hidden
-vim.o.grepprg = "rg --hidden --vimgrep --smart-case --glob=!.git"
+vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
 
 vim.keymap.set("n", "<leader>c", function()
   local winid = vim.fn.getqflist({ winid = 0 }).winid
