@@ -307,6 +307,12 @@ local fff = {
       },
       icons = { enabled = false },
     })
+    vim.keymap.set("n", "<leader>f", function()
+      require("fff").find_files()
+    end)
+    vim.keymap.set("n", "<leader>,", function()
+      require("fff").live_grep()
+    end)
   end,
 }
 local gitsigns = {
@@ -536,14 +542,14 @@ return {
   abolish,
   treesj,
   conform,
-  -- blink_cmp,
+  blink_cmp,
   -- blink_indent,
 
   -- UI
   -- fqf
   -- outline,
   oil,
-  -- fff,
+  fff,
   gitsigns,
   -- grug_far,
 
