@@ -56,6 +56,7 @@ local fugitive = {
         end
 
         local winid = vim.api.nvim_get_current_win()
+        vim.wo[winid][0].number = false
         vim.wo[winid][0].cursorline = true
         vim.wo[winid][0].cursorlineopt = "both"
       end,
