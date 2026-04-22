@@ -209,6 +209,9 @@ local lspconfig = {
     vim.lsp.config("tailwindcss", {
       settings = {
         tailwindCSS = {
+          lint = {
+            suggestCanonicalClasses = "ignore",
+          },
           classFunctions = { "tw", "clsx", "tw\\.[a-z-]+", "twMerge" },
         },
       },
