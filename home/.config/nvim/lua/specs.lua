@@ -233,12 +233,12 @@ local lspconfig = {
       -- "hls",
     })
 
-    vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
-
     -- disable semantic highlight
     vim.api.nvim_create_autocmd("LspAttach", {
       group = augroup,
       callback = function(args)
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { buffer = args.buf })
+
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client.server_capabilities.semanticTokensProvider then
           client.server_capabilities.semanticTokensProvider = nil
