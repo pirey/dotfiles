@@ -13,11 +13,11 @@ local fqf = {
   config = function()
     local fqf = require("fqf")
     fqf.setup()
-    vim.keymap.set("n", "<leader>f", fqf.builtins.files)
-    vim.keymap.set("n", "<leader>p", fqf.builtins.smart_files)
+    -- vim.keymap.set("n", "<leader>f", fqf.builtins.files)
+    -- vim.keymap.set("n", "<leader>p", fqf.builtins.smart_files)
+    -- vim.keymap.set("n", "<leader>,", fqf.builtins.live_grep)
+    vim.keymap.set("n", "<leader><leader>,", fqf.builtins.grep)
     vim.keymap.set("n", "<leader><leader>d", fqf.builtins.dirs)
-    vim.keymap.set("n", "<leader><leader>,", fqf.builtins.live_grep)
-    vim.keymap.set("n", "<leader>,", fqf.builtins.grep)
     vim.keymap.set("n", "<leader>'", fqf.builtins.oldfiles)
     vim.keymap.set("n", "<leader>gq", fqf.builtins.git_changes)
     vim.keymap.set("n", "<leader>/", fqf.builtins.buffer_lines)
@@ -546,7 +546,7 @@ return {
   -- blink_indent,
 
   -- UI
-  -- fqf
+  fqf,
   -- outline,
   oil,
   fff,
