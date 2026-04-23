@@ -40,8 +40,30 @@
 
 (use-package org-journal)
 
+(use-package magit
+  :ensure t
+  :commands (magit-status))
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil) ;; important if you later use evil-collection
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-u-delete t)
+  :config
+  (evil-mode 1))
+
+;; optional but recommended
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 (require 'org)
 (define-key global-map "\C-c\C-a" 'org-agenda)
+
+(global-set-key (kbd "C-c g") #'magit-status)
 
 (setq-default
  indent-tabs-mode nil
@@ -73,13 +95,17 @@
 (global-set-key (kbd "M-z") 'zap-to-char)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
+(set-face-attribute 'default nil :height 180)
+(set-frame-font "Ioskeley Mono" nil t)
+(global-hl-line-mode t)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages '(catppuccin-theme evil evil-collection magit org-journal)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
