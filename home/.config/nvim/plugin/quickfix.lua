@@ -8,9 +8,17 @@ local function grep()
     vim.cmd(string.format("silent grep! '%s'", query))
     vim.fn.setqflist({}, "a", { title = prompt .. query })
     vim.fn.setreg("/", query)
-    pcall(function(args)
-      vim.cmd(args)
-    end, "normal! n")
+    local result = vim.fn.getqflist({ items = 0 }).items
+    if #result > 0 then
+      vim.cmd("copen")
+      pcall(function(args)
+        vim.cmd(args)
+      end, "normal! n")
+      vim.notify("Showing " .. #result .. " result for " .. query)
+    else
+      vim.cmd("cclose")
+      vim.notify("Not found: " .. query)
+    end
   end, 0)
 end
 
@@ -108,14 +116,6 @@ vim.keymap.set("n", "<leader>/", buffer_lines)
 vim.keymap.set("n", "<leader>'", oldfiles)
 
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
-
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-  group = augroup,
-  pattern = "grep",
-  callback = function()
-    vim.cmd("copen")
-  end,
-})
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
