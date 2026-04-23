@@ -10,11 +10,11 @@
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
-      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fff.nvim": {
-      "rev": "4b13a91aa57c5e9ed32ee381d9ee521800818370",
+      "rev": "e00b41df5057dfaf3254cd90aee5e687690a11a5",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "fqf.nvim": {
