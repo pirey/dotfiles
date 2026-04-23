@@ -31,8 +31,8 @@
   (setq org-default-notes-file "~/org/tasks.org")
   (setq org-agenda-files '("~/org/" "~/vault-org/"))
   (setq org-capture-templates
-        '(("n" "Note" entry (file+headline "~/org/dropnotes.org" "Notes")
-           "* %?\n  %u" :empty-lines 1)))
+    '(("n" "Note" entry (file+headline "~/org/dropnotes.org" "Notes")
+         "* %?\n  %u" :empty-lines 1)))
   (setq org-agenda-custom-commands
         '(("p" "Projects Agenda"
             ((agenda)
@@ -61,7 +61,8 @@
   (evil-collection-init))
 
 (require 'org)
-(define-key global-map "\C-c\C-a" 'org-agenda)
+(setq org-agenda-span 1)
+(global-set-key (kbd "C-c a") #'org-agenda)
 
 (global-set-key (kbd "C-c g") #'magit-status)
 
