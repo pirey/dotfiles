@@ -29,6 +29,10 @@
       "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "grug-far.nvim": {
+      "rev": "21604255d0e8f9968322f61f2b6c09e5efe1285a",
+      "src": "https://github.com/MagicDuck/grug-far.nvim"
+    },
     "mason.nvim": {
       "rev": "12ddd182d9efbdc848b540f16484a583d52da0fb",
       "src": "https://github.com/mason-org/mason.nvim"

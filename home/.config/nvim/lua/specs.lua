@@ -555,7 +555,7 @@ return {
   oil,
   fff,
   gitsigns,
-  -- grug_far,
+  grug_far,
 
   -- TOOLS
   mason,

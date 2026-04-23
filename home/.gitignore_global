@@ -28,3 +28,6 @@ Session.vim
 dump.rdb
 
 .env
+
+# emacs
+eln-cache
