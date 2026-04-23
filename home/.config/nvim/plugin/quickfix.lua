@@ -87,6 +87,13 @@ local function oldfiles()
   vim.fn.setqflist({}, ' ', {
     items = items,
     title = "Oldfiles",
+    quickfixtextfunc = function()
+      local lines = {}
+      for _, item in ipairs(items) do
+        table.insert(lines, item.filename)
+      end
+      return lines
+    end,
   })
   vim.cmd("copen")
 end

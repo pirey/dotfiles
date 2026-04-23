@@ -98,10 +98,10 @@ function _G.FindSmartPrompt()
   end)
 
   if ok and input ~= "" then
-    vim.cmd("edit " .. vim.fn.fnameescape(input))
+    vim.cmd("find " .. vim.fn.fnameescape(input))
   end
 end
 
 vim.keymap.set("n", "<leader>f", FindSmartPrompt)
 
-vim.o.findfunc = "v.lua.FindSmart"
+vim.o.findfunc = "v:lua.FindSmart"

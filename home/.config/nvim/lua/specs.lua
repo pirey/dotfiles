@@ -183,8 +183,13 @@ local lspconfig = {
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
-          diagnostics = {
-            globals = { "vim" },
+          runtime = {
+            version = "LuaJIT",
+          },
+          workspace = {
+            library = {
+              vim.env.VIMRUNTIME,
+            },
           },
         },
       },
@@ -297,7 +302,7 @@ local fff = {
       end,
     })
 
-    require("fff").setup({
+    vim.g.fff = {
       prompt = " ",
       title = "Files",
       layout = {
@@ -310,11 +315,11 @@ local fff = {
         cycle_previous_query = "<c-k>",
       },
       icons = { enabled = false },
-    })
+    }
     vim.keymap.set("n", "ff", function()
       require("fff").find_files()
     end)
-    vim.keymap.set("n", "fg", function()
+    vim.keymap.set("n", "f,", function()
       require("fff").live_grep()
     end)
   end,

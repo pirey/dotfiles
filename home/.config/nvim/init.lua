@@ -38,8 +38,8 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
-vim.keymap.set("n", "<leader>c", "<cmd>copen<cr>", { silent = true })
-vim.keymap.set("n", "<leader>l", "<cmd>lopen<cr>", { silent = true })
+vim.keymap.set("n", "<leader>c", "<cmd>silent copen<cr>")
+vim.keymap.set("n", "<leader>l", "<cmd>silent lopen<cr>")
 
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
