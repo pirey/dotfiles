@@ -96,7 +96,7 @@ vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git
 
 vim.keymap.set("n", "<leader>c", toggle_cwindow)
 vim.keymap.set("n", "<leader>l", toggle_lwindow)
-vim.keymap.set("n", "<leader><leader>,", grep)
+vim.keymap.set("n", "<leader>,", grep)
 vim.keymap.set("n", "<leader>/", buffer_lines)
 vim.keymap.set("n", "<leader>'", oldfiles)
 

@@ -311,10 +311,10 @@ local fff = {
       },
       icons = { enabled = false },
     })
-    vim.keymap.set("n", "<leader>f", function()
+    vim.keymap.set("n", "ff", function()
       require("fff").find_files()
     end)
-    vim.keymap.set("n", "<leader>,", function()
+    vim.keymap.set("n", "fg", function()
       require("fff").live_grep()
     end)
   end,

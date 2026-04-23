@@ -85,4 +85,23 @@ function _G.FindSmart(cmdarg, cmdcomplete)
   return files
 end
 
-vim.api.nvim_set_option_value("findfunc", "v:lua.FindSmart", {})
+function _G.FindSmartComplete(arglead)
+  return FindSmart(arglead, 1)
+end
+
+function _G.FindSmartPrompt()
+  local ok, input = pcall(function()
+    return vim.fn.input({
+      prompt = "Find file: ",
+      completion = "customlist,v:lua.FindSmartComplete",
+    })
+  end)
+
+  if ok and input ~= "" then
+    vim.cmd("edit " .. vim.fn.fnameescape(input))
+  end
+end
+
+vim.keymap.set("n", "<leader>f", FindSmartPrompt)
+
+vim.o.findfunc = "v.lua.FindSmart"
