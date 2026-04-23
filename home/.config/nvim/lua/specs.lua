@@ -496,6 +496,7 @@ local orgmode = {
       org_agenda_files = { "~/org/**/*", "~/vault-org/**/*" },
       org_default_notes_file = "~/org/tasks.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE" },
+      org_agenda_span = "day",
       org_log_done = false,
       org_adapt_indentation = false,
       org_deadline_warning_days = 3,
