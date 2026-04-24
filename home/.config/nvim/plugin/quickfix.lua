@@ -23,7 +23,7 @@ local function grep()
 end
 
 local function buffer_lines()
-  local prompt = "Search: "
+  local prompt = "/"
   local ok, query = pcall(vim.fn.input, prompt)
   if not ok or query == "" then
     return
