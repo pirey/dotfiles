@@ -54,32 +54,33 @@ local function find_glob(cmdarg, cmdcomplete)
   return vim.fn.glob(pat, false, true)
 end
 
-local function find_git_files(cmdarg, _)
+local function find_git_files(cmdarg)
   local files = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
+  if cmdarg == "" then return files end
   return vim.fn.matchfuzzy(files, cmdarg)
 end
 
-local function find_fd_files(cmdarg, _)
+local function find_fd_files(cmdarg)
   local files = vim.fn.systemlist("fd --hidden --exclude .git")
-
+  if cmdarg == "" then return files end
   return vim.fn.matchfuzzy(files, cmdarg)
 end
 
 function _G.FindSmart(cmdarg, cmdcomplete)
-  local files = {}
-
-  if vim.fn.executable("fd") then
-    files = find_fd_files(cmdarg, cmdcomplete)
-  elseif in_git_repo() then
-    files = find_git_files(cmdarg, cmdcomplete)
-  else
-    files = find_glob(cmdarg, cmdcomplete)
-  end
-
   if cmdcomplete and cmdarg == "" then
     local modified_files = get_modified_files()
     local oldfiles = get_oldfiles_cwd()
-    return uniq(vim.list_extend(vim.list_extend(modified_files, oldfiles), files))
+    return uniq(vim.list_extend(modified_files, oldfiles))
+  end
+
+  local files = {}
+
+  if vim.fn.executable("fd") then
+    files = find_fd_files(cmdarg)
+  elseif in_git_repo() then
+    files = find_git_files(cmdarg)
+  else
+    files = find_glob(cmdarg, cmdcomplete)
   end
 
   return files
