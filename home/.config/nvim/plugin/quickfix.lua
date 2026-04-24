@@ -106,15 +106,6 @@ local function oldfiles()
   vim.cmd("copen")
 end
 
--- ignore .git by default so we doesn't need to specify it when using --hidden
-vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
-
-vim.keymap.set("n", "<leader>c", toggle_cwindow)
-vim.keymap.set("n", "<leader>l", toggle_lwindow)
-vim.keymap.set("n", "<leader>,", grep)
-vim.keymap.set("n", "<leader>/", buffer_lines)
-vim.keymap.set("n", "<leader>'", oldfiles)
-
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -192,3 +183,13 @@ vim.ui.select = function(items, opts, on_choice)
     end,
   })
 end
+
+-- ignore .git by default so we doesn't need to specify it when using --hidden
+vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
+
+vim.keymap.set("n", "<leader>c", toggle_cwindow)
+vim.keymap.set("n", "<leader>l", toggle_lwindow)
+vim.keymap.set("n", "<leader>,", grep)
+vim.keymap.set("n", "<leader>/", buffer_lines)
+vim.keymap.set("n", "<leader>'", oldfiles)
+vim.cmd("packadd cfilter")
