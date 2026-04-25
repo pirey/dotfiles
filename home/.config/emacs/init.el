@@ -10,7 +10,7 @@
 ;   (package-install 'use-package))
 (require 'use-package)
 
-(use-package catppuccin-theme
+(use-package spacemacs-theme
   :ensure t)
 
 (use-package org
@@ -53,11 +53,17 @@
   :config
   (evil-mode 1))
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode)
+  :init
+  (setq markdown-command "pandoc"))
 
-; (require 'org)
 (global-set-key (kbd "C-c a") #'org-agenda)
 
 (global-set-key (kbd "C-c g") #'magit-status)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq-default
  indent-tabs-mode nil
@@ -74,7 +80,7 @@
 (setq gc-cons-threshold (* 100 1000 1000))
 
 (run-with-idle-timer 0 nil
-  (lambda () (load-theme 'catppuccin t)))
+  (lambda () (load-theme 'spacemacs-dark t)))
 
 (set-frame-font "Ioskeley Mono-18" nil t)
 
@@ -83,4 +89,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(catppuccin-theme evil magit)))
+ '(package-selected-packages '(evil magit markdown-mode spacemacs-theme)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
