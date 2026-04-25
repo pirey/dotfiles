@@ -74,3 +74,4 @@ else
 fi
 
 echo "Cloned to: $target_dir"
+cd $target_dir

@@ -38,8 +38,8 @@ eval "$(starship init zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/Users/yeri/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/Users/yeri/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export PATH="$HOME/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 [ -f "/Users/yeri/.ghcup/env" ] && . "/Users/yeri/.ghcup/env" # ghcup-env
 
