@@ -59,6 +59,10 @@
   :init
   (setq markdown-command "pandoc"))
 
+(use-package php-mode
+  :ensure t
+  :mode "\\.php\\'")
+
 (global-set-key (kbd "C-c a") #'org-agenda)
 
 (global-set-key (kbd "C-c g") #'magit-status)
@@ -69,6 +73,7 @@
  indent-tabs-mode nil
  show-trailing-whitespace t)
 
+(editorconfig-mode 1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -90,7 +95,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil magit markdown-mode spacemacs-theme)))
+ '(package-selected-packages '(evil magit markdown-mode php-mode spacemacs-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
