@@ -559,7 +559,7 @@ return {
   -- fqf,
   -- outline,
   oil,
-  fff,
+  -- fff,
   gitsigns,
   grug_far,
 
