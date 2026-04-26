@@ -17,5 +17,6 @@ glyph_offset = { x = 0, y = 4 }
 [keyboard]
 bindings = [
 { key = "Space", mods = "Control", chars = "\u0000" },
-{ key = "Key6", mods = "Control", chars = "\u001e" }
+{ key = "Key6", mods = "Control", chars = "\u001e" },
+{ key = "F", mods = "Command|Control", action = "ToggleSimpleFullscreen" }
 ]
