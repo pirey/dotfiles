@@ -7,10 +7,7 @@ vim.o.smartcase = true
 vim.o.gdefault = true
 
 vim.o.splitright = true
-vim.o.number = true
 vim.o.signcolumn = "yes"
-vim.o.cursorline = true
-vim.o.cursorlineopt = "number"
 vim.o.tabclose = "left"
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
