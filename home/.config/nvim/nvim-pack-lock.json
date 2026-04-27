@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "canola.nvim": {
-      "rev": "54af5ac8aed9926fd19b088162c7555110062c5c",
+      "rev": "2a7155060f0667bd7d19c16c931295274059670d",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
-      "rev": "21604255d0e8f9968322f61f2b6c09e5efe1285a",
+      "rev": "21790e59dd0109a92a70cb874dd002af186314f5",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mason.nvim": {
@@ -34,7 +34,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "01b503f395cfb81053cc6b4826fe8f06d54b76f6",
+      "rev": "eeef061d58d759b5419c1e20c4b3a5bc3154f871",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
