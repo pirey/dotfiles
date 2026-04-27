@@ -75,7 +75,7 @@ function _G.FindSmart(cmdarg, cmdcomplete)
 
   local files = {}
 
-  if vim.fn.executable("fd") then
+  if vim.fn.executable("fd") == 1 then
     files = find_fd_files(cmdarg)
   elseif in_git_repo() then
     files = find_git_files(cmdarg)
