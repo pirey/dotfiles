@@ -20,10 +20,13 @@ Minimal. Functional.
   -- UI
   "barrettruth/canola.nvim",
   "lewis6991/gitsigns.nvim",
+  "MagicDuck/grug-far.nvim",
 
   -- TOOLS
   "mason-org/mason.nvim",
   "nvim-treesitter/nvim-treesitter",
   "neovim/nvim-lspconfig",
+
+  "nvim-orgmode/orgmode",
 }
 ```
