@@ -228,13 +228,13 @@ local lspconfig = {
     vim.lsp.enable({
       "lua_ls",
       "phpactor",
-      -- "clangd",
       "tailwindcss",
       "vtsls",
-      "gopls",
-      "rust_analyzer",
-      "ols",
       "cssls",
+      -- "gopls",
+      -- "clangd",
+      -- "rust_analyzer",
+      -- "ols",
       -- "hls",
     })
 
