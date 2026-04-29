@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "canola.nvim": {
-      "rev": "2a7155060f0667bd7d19c16c931295274059670d",
+      "rev": "b904468fc8d4f79fe4b4dbbdcccb0e4f44e64857",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
