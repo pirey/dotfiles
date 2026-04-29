@@ -56,13 +56,17 @@ end
 
 local function find_git_files(cmdarg)
   local files = vim.fn.systemlist("git ls-files --cached --others --exclude-standard")
-  if cmdarg == "" then return files end
+  if cmdarg == "" then
+    return files
+  end
   return vim.fn.matchfuzzy(files, cmdarg)
 end
 
 local function find_fd_files(cmdarg)
   local files = vim.fn.systemlist("fd --hidden --exclude .git")
-  if cmdarg == "" then return files end
+  if cmdarg == "" then
+    return files
+  end
   return vim.fn.matchfuzzy(files, cmdarg)
 end
 
@@ -90,19 +94,8 @@ function _G.FindSmartComplete(arglead)
   return FindSmart(arglead, 1)
 end
 
-function _G.FindSmartPrompt()
-  local ok, input = pcall(function()
-    return vim.fn.input({
-      prompt = "Find file: ",
-      completion = "customlist,v:lua.FindSmartComplete",
-    })
-  end)
-
-  if ok and input ~= "" then
-    vim.cmd("find " .. vim.fn.fnameescape(input))
-  end
-end
-
-vim.keymap.set("n", "<leader>f", FindSmartPrompt)
+vim.keymap.set("n", "<leader>f", function()
+  vim.api.nvim_feedkeys(":find " .. vim.keycode("<c-d>"), "n", false)
+end)
 
 vim.o.findfunc = "v:lua.FindSmart"

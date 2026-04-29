@@ -15,7 +15,7 @@ vim.o.winborder = "rounded"
 vim.o.pumborder = vim.o.winborder
 vim.o.pumheight = 10
 vim.o.fillchars = "diff: "
-vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
+vim.o.wildoptions = "pum,tagfile,fuzzy"
 vim.o.switchbuf = "uselast,useopen,usetab"
 
 -- normalize
@@ -59,7 +59,6 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
 
 vim.cmd([[
-cabbrev <expr> f getcmdtype() == ':' && getcmdline() =~# '^f' ? 'find' : 'f'
 cabbrev <expr> vsf getcmdtype() == ':' && getcmdline() =~# '^vsf' ? 'vert sfind' : 'vsf'
 cabbrev <expr> sg getcmdtype() == ':' && getcmdline() =~# '^sg' ? 'silent grep!' : 'sg'
 augroup Init
