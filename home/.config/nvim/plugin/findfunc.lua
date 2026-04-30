@@ -90,10 +90,6 @@ function _G.FindSmart(cmdarg, cmdcomplete)
   return files
 end
 
-function _G.FindSmartComplete(arglead)
-  return FindSmart(arglead, 1)
-end
-
 vim.keymap.set("n", "<leader>f", function()
   vim.api.nvim_feedkeys(":find " .. vim.keycode("<c-d>"), "n", false)
 end)
