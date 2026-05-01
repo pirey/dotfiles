@@ -10,7 +10,7 @@ dynamic_padding = true
 
 [font]
 size = 14.5
-normal = { family = "Ioskeley Mono", style = "Regular" }
+normal = { family = "Lilex", style = "Regular" }
 offset = { x = 0, y = 8 }
 glyph_offset = { x = 0, y = 4 }
 
