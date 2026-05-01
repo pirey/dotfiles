@@ -6,7 +6,7 @@
 theme = "Nightfox"
 
 font-family = Lilex
-font-size = 14
+font-size = 18
 font-thicken = true
 adjust-cell-height = 8
 
