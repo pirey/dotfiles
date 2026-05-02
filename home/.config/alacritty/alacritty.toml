@@ -1,5 +1,5 @@
 [general]
-import = ["nightfox.toml"]
+import = ["onedark.toml"]
 
 [window]
 # (MacOS)
