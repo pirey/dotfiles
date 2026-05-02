@@ -504,7 +504,7 @@ local orgmode = {
         n = {
           description = "Note",
           template = "* %?\n  %u",
-          target = "~/org/dropnotes.org",
+          target = "~/org/inbox.org",
         },
       },
       org_agenda_custom_commands = {
