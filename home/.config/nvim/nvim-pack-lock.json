@@ -50,7 +50,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "orgmode": {
-      "rev": "19f10a627febde24ecb7bb9714d3472ade69949c",
+      "rev": "8c22d44ca8105bcb868847f16c6cf71fa7825eab",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "treesj": {
