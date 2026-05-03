@@ -10,6 +10,8 @@ local function grep()
     vim.fn.setreg("/", query)
     local result = vim.fn.getqflist({ items = 0 }).items
     if #result > 0 then
+      vim.cmd("ccl")
+      vim.cmd("tabnew")
       vim.cmd("copen")
       pcall(function(args)
         vim.cmd(args)
