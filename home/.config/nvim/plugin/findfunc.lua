@@ -93,6 +93,9 @@ end
 vim.keymap.set("n", "<leader>f", function()
   vim.api.nvim_feedkeys(":find " .. vim.keycode("<c-d>"), "n", false)
 end)
+vim.keymap.set("n", "<leader>v", function()
+  vim.api.nvim_feedkeys(":vert sfind " .. vim.keycode("<c-d>"), "n", false)
+end)
 
 vim.o.findfunc = "v:lua.FindSmart"
 vim.cmd([[

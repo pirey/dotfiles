@@ -8,6 +8,8 @@ Minimal. Functional.
 {
   -- THEMES
   "EdenEast/nightfox.nvim",
+  "navarasu/onedark.nvim",
+  "cocopon/iceberg.vim",
 
   -- EDITING
   "tpope/vim-fugitive",
