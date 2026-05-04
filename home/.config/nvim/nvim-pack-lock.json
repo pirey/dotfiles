@@ -34,7 +34,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "nightfox.nvim": {
-      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
+      "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-lspconfig": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "orgmode": {
-      "rev": "8c22d44ca8105bcb868847f16c6cf71fa7825eab",
+      "rev": "260a366dec38c1935bba7d1c883ed6bf24ef8a97",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "treesj": {
