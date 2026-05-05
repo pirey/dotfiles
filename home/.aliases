@@ -20,6 +20,7 @@ alias gb='git branch'
 alias gba='git branch --all'
 alias gbd='git branch -d'
 alias gbD='git branch -D'
+alias gbm='git branch -m'
 alias gbr='git branch -r'
 alias gprun='git fetch --prune'
 
