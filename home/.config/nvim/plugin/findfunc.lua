@@ -91,10 +91,10 @@ function _G.FindSmart(cmdarg, cmdcomplete)
 end
 
 vim.keymap.set("n", "<leader>f", function()
-  vim.api.nvim_feedkeys(":find " .. vim.keycode("<c-d>"), "n", false)
+  vim.api.nvim_feedkeys(":find ", "n", false)
 end)
 vim.keymap.set("n", "<leader>v", function()
-  vim.api.nvim_feedkeys(":vert sfind " .. vim.keycode("<c-d>"), "n", false)
+  vim.api.nvim_feedkeys(":vert sfind ", "n", false)
 end)
 
 vim.o.findfunc = "v:lua.FindSmart"
