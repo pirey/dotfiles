@@ -1,8 +1,8 @@
--- command that has s variant
--- e.g. :sfind :sb etc
-local svariant = { "find", "b" }
-
 local function cmdsplit(mod)
+  -- command that has s variant
+  -- e.g. :sfind :sb etc
+  local svariant = { "find", "b" }
+
   return function()
     local cmd = vim.fn.getcmdline()
 

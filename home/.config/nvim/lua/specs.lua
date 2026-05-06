@@ -396,6 +396,7 @@ local grug_far = {
       icons = { enabled = false },
       transient = true,
       windowCreationCommand = "tab split",
+      resultsSeparatorLineChar = "-",
       engines = {
         ripgrep = {
           extraArgs = "--smart-case --hidden --glob=!.git",
