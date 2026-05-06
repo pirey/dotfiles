@@ -544,8 +544,6 @@ local orgmode = {
 return {
   -- THEMES
   require("themes.nightfox"),
-  require("themes.onedark"),
-  require("themes.iceberg"),
 
   -- EDITING
   -- jump,
