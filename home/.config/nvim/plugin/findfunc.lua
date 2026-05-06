@@ -93,11 +93,5 @@ end
 vim.keymap.set("n", "<leader>f", function()
   vim.api.nvim_feedkeys(":find ", "n", false)
 end)
-vim.keymap.set("n", "<leader>v", function()
-  vim.api.nvim_feedkeys(":vert sfind ", "n", false)
-end)
 
 vim.o.findfunc = "v:lua.FindSmart"
-vim.cmd([[
-  cabbrev <expr> vsf getcmdtype() == ':' && getcmdline() =~# '^vsf' ? 'vert sfind' : 'vsf'
-]])
