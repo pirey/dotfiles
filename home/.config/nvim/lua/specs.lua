@@ -134,6 +134,21 @@ local mason = {
     end)
   end,
 }
+local diffview = {
+  src = "sindrets/diffview.nvim",
+  config = function()
+    require("diffview").setup({
+      use_icons = false,
+      signs = { fold_closed = " ", fold_open = "+" },
+      default_args = { DiffviewFileHistory = { "--max-count=500" } },
+      file_panel = { listing_style = "list" },
+    })
+    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
+  end,
+}
+
 local treesj = {
   src = "Wansmer/treesj",
   config = function()
@@ -548,7 +563,8 @@ return {
 
   -- EDITING
   -- jump,
-  fugitive,
+  diffview,
+  -- fugitive,
   surround,
   abolish,
   treesj,
