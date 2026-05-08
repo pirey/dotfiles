@@ -8,11 +8,9 @@ Minimal. Functional.
 {
   -- THEMES
   "EdenEast/nightfox.nvim",
-  "navarasu/onedark.nvim",
-  "cocopon/iceberg.vim",
 
   -- EDITING
-  "tpope/vim-fugitive",
+  "tpope/vim-repeat",
   "tpope/vim-surround",
   "tpope/vim-abolish",
   "Wansmer/treesj",
@@ -20,6 +18,7 @@ Minimal. Functional.
   "saghen/blink.cmp",
 
   -- UI
+  "sindrets/diffview.nvim",
   "barrettruth/canola.nvim",
   "lewis6991/gitsigns.nvim",
   "MagicDuck/grug-far.nvim",
