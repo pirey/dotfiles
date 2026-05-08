@@ -1,101 +1,5 @@
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
-local jump = {
-  src = "yorickpeterse/nvim-jump",
-  config = function()
-    vim.keymap.set({ "n", "x" }, "s", function()
-      require("jump").start()
-    end)
-  end,
-}
-local fqf = {
-  src = "pirey/fqf.nvim",
-  config = function()
-    local fqf = require("fqf")
-    fqf.setup()
-    vim.keymap.set("n", "<leader>f", fqf.builtins.files)
-    vim.keymap.set("n", "<leader>p", fqf.builtins.smart_files)
-    vim.keymap.set("n", "<leader>,", fqf.builtins.live_grep)
-    vim.keymap.set("n", "<leader><leader>,", fqf.builtins.grep)
-    vim.keymap.set("n", "<leader><leader>d", fqf.builtins.dirs)
-    vim.keymap.set("n", "<leader>'", fqf.builtins.oldfiles)
-    vim.keymap.set("n", "<leader>gq", fqf.builtins.git_changes)
-    vim.keymap.set("n", "<leader>/", fqf.builtins.buffer_lines)
-  end,
-}
-local fugitive = {
-  src = "tpope/vim-fugitive",
-  config = function()
-    vim.cmd([[
-      cabbrev <expr> git getcmdtype() == ':' && getcmdline() =~# '^git' ? 'Git' : 'git'
-    ]])
-
-    vim.api.nvim_create_autocmd("FileType", {
-      group = augroup,
-      pattern = { "git", "fugitive", "fugitiveblame" },
-      callback = function(ev)
-        for _, key in ipairs({ "q", "gq", "x", "<c-c>" }) do
-          vim.keymap.set("n", key, "<cmd>bd<cr>", { buffer = true })
-        end
-        vim.keymap.set("n", "<c-n>", ")", { remap = true, buffer = true })
-        vim.keymap.set("n", "<c-p>", "(", { remap = true, buffer = true })
-        vim.keymap.set("n", "o", "gO", {
-          buffer = true,
-          remap = true,
-          silent = true,
-          desc = "vert split",
-        })
-
-        if ev.match == "git" then
-          vim.wo.foldmethod = "syntax"
-          vim.wo.foldlevel = 0
-        end
-
-        if ev.match == "fugitive" then
-          vim.keymap.set("n", "<tab>", "=", { remap = true, buffer = true })
-        end
-
-        local winid = vim.api.nvim_get_current_win()
-        vim.wo[winid][0].number = false
-        vim.wo[winid][0].cursorline = true
-        vim.wo[winid][0].cursorlineopt = "both"
-      end,
-    })
-
-    local last_pos = { 1, 0 }
-    vim.keymap.set("n", "<leader>gs", function()
-      local wins = vim.api.nvim_tabpage_list_wins(0)
-      for _, win in ipairs(wins) do
-        local bufnr = vim.api.nvim_win_get_buf(win)
-        local ft = vim.bo[bufnr].filetype
-        if ft == "fugitive" then
-          last_pos = vim.api.nvim_win_get_cursor(win)
-          vim.api.nvim_win_close(win, true)
-          return
-        end
-      end
-      vim.cmd("Git")
-      vim.api.nvim_win_set_cursor(vim.api.nvim_tabpage_get_win(0), last_pos)
-    end, { silent = true })
-    vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gv", "<cmd>vert Git<cr>", { silent = true })
-
-    local log_count = 500
-    local log_format = '--pretty=format:"%h │ %<(10,trunc)%an %>(12,trunc)%ar │ %s %d"'
-    local log_str = "log " .. log_format .. " --no-merges --max-count=" .. log_count
-    vim.keymap.set("n", "<leader>gf", "<cmd>tab Git log " .. log_format .. " -- %<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gl", "<cmd>tab Git " .. log_str .. "<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gn", function()
-      local prev_pos = vim.fn.getpos(".")
-      vim.cmd("normal! G0")
-      local hash = vim.fn.expand("<cword>")
-      vim.fn.setpos(".", prev_pos)
-      if vim.fn.line("$") == log_count then
-        vim.cmd("tab Git " .. log_str .. " " .. hash .. "^")
-      end
-    end, { silent = true })
-  end,
-}
 local surround = {
   src = "tpope/vim-surround",
   dependencies = { { src = "tpope/vim-repeat" } },
@@ -134,21 +38,6 @@ local mason = {
     end)
   end,
 }
-local diffview = {
-  src = "sindrets/diffview.nvim",
-  config = function()
-    require("diffview").setup({
-      use_icons = false,
-      signs = { fold_closed = " ", fold_open = "+" },
-      default_args = { DiffviewFileHistory = { "--max-count=500" } },
-      file_panel = { listing_style = "list" },
-    })
-    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
-  end,
-}
-
 local treesj = {
   src = "Wansmer/treesj",
   config = function()
@@ -268,20 +157,18 @@ local lspconfig = {
     })
   end,
 }
-local outline = {
-  src = "hedyhli/outline.nvim",
+local diffview = {
+  src = "sindrets/diffview.nvim",
   config = function()
-    require("outline").setup({
-      symbols = {
-        icon_fetcher = function()
-          return ""
-        end,
-      },
+    require("diffview").setup({
+      use_icons = false,
+      signs = { fold_closed = " ", fold_open = "+" },
+      default_args = { DiffviewFileHistory = { "--max-count=500" } },
+      file_panel = { listing_style = "list" },
     })
-    vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", {
-      silent = true,
-      desc = "Toggle Outline",
-    })
+    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
   end,
 }
 local oil = {
@@ -299,44 +186,6 @@ local oil = {
       },
     })
     vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", { silent = true })
-  end,
-}
-local fff = {
-  src = "https://github.com/dmtrKovalenko/fff.nvim",
-  config = function()
-    vim.api.nvim_create_autocmd("PackChanged", {
-      group = augroup,
-      callback = function(ev)
-        local name, kind = ev.data.spec.name, ev.data.kind
-        if name == "fff.nvim" and (kind == "install" or kind == "update") then
-          if not ev.data.active then
-            vim.cmd.packadd("fff.nvim")
-          end
-          require("fff.download").download_or_build_binary()
-        end
-      end,
-    })
-
-    vim.g.fff = {
-      prompt = " ",
-      title = "Files",
-      layout = {
-        prompt_position = "top",
-        flex = { wrap = "bottom" },
-      },
-      keymaps = {
-        close = { "<esc>", "<c-c>" },
-        cycle_grep_modes = "<c-_>",
-        cycle_previous_query = "<c-k>",
-      },
-      icons = { enabled = false },
-    }
-    vim.keymap.set("n", "ff", function()
-      require("fff").find_files()
-    end)
-    vim.keymap.set("n", "f,", function()
-      require("fff").live_grep()
-    end)
   end,
 }
 local gitsigns = {
@@ -458,22 +307,6 @@ local blink_cmp = {
     })
   end,
 }
-local blink_indent = {
-  src = "saghen/blink.indent",
-  config = function()
-    require("blink.indent").setup({
-      static = {
-        char = "┊",
-      },
-      scope = {
-        char = "│",
-        highlights = {
-          "BlinkIndentScope",
-        },
-      },
-    })
-  end,
-}
 local conform = {
   src = "stevearc/conform.nvim",
   dependencies = { { src = "mason-org/mason.nvim" } },
@@ -562,21 +395,15 @@ return {
   require("themes.nightfox"),
 
   -- EDITING
-  -- jump,
-  diffview,
-  -- fugitive,
   surround,
   abolish,
   treesj,
   conform,
   blink_cmp,
-  -- blink_indent,
 
   -- UI
-  -- fqf,
-  -- outline,
+  diffview,
   oil,
-  -- fff,
   gitsigns,
   grug_far,
 
