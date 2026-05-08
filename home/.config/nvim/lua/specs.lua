@@ -390,7 +390,40 @@ local orgmode = {
   end,
 }
 
-return {
+local function setup(specs_ext)
+  local specs = {}
+  local configs = {}
+
+  local function normalize_src(src)
+    if src:match("^[a-z]+://") then
+      return src
+    end
+    return "https://github.com/" .. src:gsub("^/", "")
+  end
+
+  -- resolve specs and configs
+  for _, spec in ipairs(specs_ext) do
+    if spec.dependencies then
+      for _, dep in ipairs(spec.dependencies) do
+        table.insert(specs, { src = normalize_src(dep.src), version = dep.version })
+      end
+    end
+    table.insert(specs, vim.tbl_extend("force", spec, { src = normalize_src(spec.src) }))
+    if spec.config then
+      table.insert(configs, spec.config)
+    end
+  end
+
+  -- install packages
+  vim.pack.add(specs, { confirm = false })
+
+  -- configure packages
+  for _, config in ipairs(configs) do
+    config()
+  end
+end
+
+setup({
   -- THEMES
   require("themes.nightfox"),
 
@@ -413,4 +446,4 @@ return {
   lspconfig,
 
   orgmode,
-}
+})

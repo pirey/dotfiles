@@ -50,9 +50,6 @@ vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set("n", "]<tab>", "gt", { silent = true })
 vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 
--- fold
-vim.keymap.set({ "n", "x" }, "zk", "zk[z", { silent = true, desc = "To start of prev fold" })
-
 vim.cmd([[
 augroup Init
   autocmd!
@@ -62,5 +59,5 @@ augroup END
 ]])
 
 require("vim._core.ui2").enable()
-require("pack").setup(require("specs"))
+require("specs")
 vim.cmd.colorscheme("nightfox")
