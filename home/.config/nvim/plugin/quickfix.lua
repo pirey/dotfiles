@@ -55,12 +55,7 @@ end
 local function toggle_cwindow()
   local winid = vim.fn.getqflist({ winid = 0 }).winid
   if winid ~= 0 then
-    local curwin = vim.fn.win_getid()
-    if curwin == winid then
-      vim.cmd("cclose")
-    else
-      vim.cmd("copen")
-    end
+    vim.cmd("cclose")
   else
     vim.cmd("copen")
   end
@@ -69,12 +64,7 @@ end
 local function toggle_lwindow()
   local winid = vim.fn.getloclist(0, { winid = 0 }).winid
   if winid ~= 0 then
-    local curwin = vim.fn.win_getid()
-    if curwin == winid then
-      vim.cmd("lclose")
-    else
-      vim.cmd("lopen")
-    end
+    vim.cmd("lclose")
   else
     vim.cmd("lopen")
   end
@@ -121,7 +111,7 @@ local function oldfiles()
       }
     end
   end
-  vim.fn.setqflist({}, ' ', {
+  vim.fn.setqflist({}, " ", {
     items = items,
     title = "Oldfiles",
     quickfixtextfunc = function()

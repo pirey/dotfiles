@@ -1,5 +1,13 @@
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
+local jump = {
+  src = "yorickpeterse/nvim-jump",
+  config = function()
+    vim.keymap.set({ "n", "x" }, "f", function()
+      require("jump").start()
+    end)
+  end,
+}
 local surround = {
   src = "tpope/vim-surround",
   dependencies = { { src = "tpope/vim-repeat" } },
@@ -428,6 +436,7 @@ setup({
   require("themes.nightfox"),
 
   -- EDITING
+  jump,
   surround,
   abolish,
   treesj,
