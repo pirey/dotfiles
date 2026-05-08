@@ -50,7 +50,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "orgmode": {
-      "rev": "af7029dd70e6513cd8c18b6098c4adcc55acd1dc",
+      "rev": "19209e6f2483bbfa61210f24d149a69e78b93bd0",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "treesj": {
