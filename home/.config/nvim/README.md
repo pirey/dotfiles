@@ -18,7 +18,7 @@ Minimal. Functional.
   "saghen/blink.cmp",
 
   -- UI
-  "sindrets/diffview.nvim",
+  "dlyongemallo/diffview.nvim",
   "barrettruth/canola.nvim",
   "lewis6991/gitsigns.nvim",
   "MagicDuck/grug-far.nvim",

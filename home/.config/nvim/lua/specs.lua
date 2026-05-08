@@ -158,7 +158,7 @@ local lspconfig = {
   end,
 }
 local diffview = {
-  src = "sindrets/diffview.nvim",
+  src = "dlyongemallo/diffview.nvim",
   config = function()
     require("diffview").setup({
       use_icons = false,
