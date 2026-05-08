@@ -80,6 +80,35 @@ local function toggle_lwindow()
   end
 end
 
+local function buffers()
+  local items = {}
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(bufnr) and vim.bo[bufnr].buflisted then
+      local name = vim.api.nvim_buf_get_name(bufnr)
+      if name ~= "" then
+        items[#items + 1] = {
+          filename = vim.fn.fnamemodify(name, ":."),
+          bufnr = bufnr,
+          lnum = 1,
+          col = 1,
+        }
+      end
+    end
+  end
+  vim.fn.setqflist({}, " ", {
+    items = items,
+    title = "Buffers",
+    quickfixtextfunc = function()
+      local lines = {}
+      for _, item in ipairs(items) do
+        table.insert(lines, item.filename)
+      end
+      return lines
+    end,
+  })
+  vim.cmd("copen")
+end
+
 local function oldfiles()
   local cwd = vim.uv.cwd() or ""
   local items = {}
@@ -192,4 +221,5 @@ vim.keymap.set("n", "<leader>l", toggle_lwindow)
 vim.keymap.set("n", "<leader>,", grep)
 vim.keymap.set("n", "<leader>/", buffer_lines)
 vim.keymap.set("n", "<leader>'", oldfiles)
+vim.keymap.set("n", "<leader>b", buffers)
 vim.cmd("packadd cfilter")
