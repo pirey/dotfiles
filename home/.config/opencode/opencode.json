@@ -1,9 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "opencode-go/qwen3.6-plus",
+  "small_model": "opencode-go/qwen3.5-plus",
+  "snapshot": false,
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
   "mcp": {
     "fff": {
       "type": "local",
-      "command": ["fff-mcp"],
+      "command": [
+        "fff-mcp"
+      ],
       "enabled": true
     }
   }
