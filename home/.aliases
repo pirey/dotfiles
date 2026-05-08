@@ -23,6 +23,7 @@ alias gbD='git branch -D'
 alias gbm='git branch -m'
 alias gbr='git branch -r'
 alias gprun='git fetch --prune'
+alias gres='git restore '
 
 alias sail='./vendor/bin/sail'
 

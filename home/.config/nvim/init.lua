@@ -60,4 +60,5 @@ augroup END
 
 require("vim._core.ui2").enable()
 require("specs")
+
 vim.cmd.colorscheme("nightfox")
