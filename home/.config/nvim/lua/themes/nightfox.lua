@@ -12,6 +12,7 @@ return {
           ["@type.php"] = { fg = "palette.cyan" },
           ["@module.php"] = { fg = "palette.yellow" },
           ["IncSearch"] = { bg = "palette.yellow", fg = "palette.black" },
+          ["FlashLabel"] = { link = "IncSearch" },
         },
       },
     })

@@ -3,7 +3,7 @@ local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 local jump = {
   src = "yorickpeterse/nvim-jump",
   config = function()
-    vim.keymap.set({ "n", "x" }, "f", function()
+    vim.keymap.set({ "n", "x" }, "s", function()
       require("jump").start()
     end)
   end,
