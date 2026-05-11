@@ -33,10 +33,6 @@
       "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "nightfox.nvim": {
-      "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
-      "src": "https://github.com/EdenEast/nightfox.nvim"
-    },
     "nvim-jump": {
       "rev": "672204397c51507d7a821bc61ba9fad7dbed4303",
       "src": "https://github.com/yorickpeterse/nvim-jump"

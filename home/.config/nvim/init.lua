@@ -52,5 +52,3 @@ vim.keymap.set("n", "[<tab>", "gT", { silent = true })
 
 require("vim._core.ui2").enable()
 require("specs")
-
-vim.cmd.colorscheme("nightfox")

@@ -432,9 +432,6 @@ local function setup(specs_ext)
 end
 
 setup({
-  -- THEMES
-  require("themes.nightfox"),
-
   -- EDITING
   jump,
   surround,
