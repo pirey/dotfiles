@@ -6,6 +6,7 @@ local jump = {
     vim.keymap.set({ "n", "x" }, "s", function()
       require("jump").start()
     end)
+    vim.api.nvim_set_hl(0, "FlashLabel", { link = "IncSearch" })
   end,
 }
 local surround = {
