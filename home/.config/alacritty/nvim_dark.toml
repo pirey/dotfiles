@@ -3,23 +3,23 @@ background = "#14161b"
 foreground = "#e0e2ea"
 
 [colors.normal]
-black   = "#07080d"
-red     = "#ff6b6b"
-green   = "#8ec07c"
-yellow  = "#dcbf85"
-blue    = "#7aa2f7"
-magenta = "#bb9af7"
-cyan    = "#7dcfff"
-white   = "#a9b1d6"
+black   = "#07080d" # NvimDarkGrey1
+red     = "#ffc0b9" # NvimLightRed
+green   = "#b3f6c0" # NvimLightGreen
+yellow  = "#fce094" # NvimLightYellow
+blue    = "#a6dbff" # NvimLightBlue
+magenta = "#ffcaff" # approximated
+cyan    = "#8cf8f7" # NvimLightCyan
+white   = "#e0e2ea" # NvimLightGrey2
 
 [colors.bright]
-black   = "#5c6370"
-red     = "#ff8787"
-green   = "#a6da95"
-yellow  = "#eed49f"
-blue    = "#82aaff"
-magenta = "#c6a0f6"
-cyan    = "#89ddff"
+black   = "#4f5258" # NvimDarkGrey4
+red     = "#ffc0b9"
+green   = "#b3f6c0"
+yellow  = "#fce094"
+blue    = "#a6dbff"
+magenta = "#ffcaff"
+cyan    = "#8cf8f7"
 white   = "#ffffff"
 
 [colors.cursor]
@@ -28,4 +28,4 @@ cursor = "#e0e2ea"
 
 [colors.selection]
 text = "#e0e2ea"
-background = "#2a2f3a"
+background = "#4f5258"
