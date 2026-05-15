@@ -17,34 +17,30 @@ local abolish = { src = "tpope/vim-abolish" }
 local mason = {
   src = "mason-org/mason.nvim",
   config = function()
-    -- stolen from folke's drawer
     require("mason").setup()
-    local registry = require("mason-registry")
-
-    local ensure_installed = {
-      "mmdc",
-      "stylua",
-      "clangd",
-      "lua-language-server",
-      "prettier",
-      "tailwindcss-language-server",
-      "vtsls",
-      "phpactor",
-      "phpcs",
-      "php-cs-fixer",
-      "blade-formatter",
-      "rust-analyzer",
-      "ols",
-    }
-
-    registry.refresh(function()
-      for _, tool in ipairs(ensure_installed) do
-        local p = registry.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-    end)
+    -- local registry = require("mason-registry")
+    --
+    -- local ensure_installed = {
+    --   "mmdc",
+    --   "stylua",
+    --   "lua-language-server",
+    --   "prettier",
+    --   "tailwindcss-language-server",
+    --   "vtsls",
+    --   "phpactor",
+    --   "phpcs",
+    --   "php-cs-fixer",
+    --   "blade-formatter",
+    -- }
+    --
+    -- registry.refresh(function()
+    --   for _, tool in ipairs(ensure_installed) do
+    --     local p = registry.get_package(tool)
+    --     if not p:is_installed() then
+    --       p:install()
+    --     end
+    --   end
+    -- end)
   end,
 }
 local treesj = {
@@ -145,11 +141,6 @@ local lspconfig = {
       "tailwindcss",
       "vtsls",
       "cssls",
-      -- "gopls",
-      -- "clangd",
-      -- "rust_analyzer",
-      -- "ols",
-      -- "hls",
     })
 
     -- disable semantic highlight
