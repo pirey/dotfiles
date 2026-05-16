@@ -42,10 +42,11 @@ Terminal:
 - Kitty
 - Alacritty
 
-Fonts:
+Preferred Fonts:
 
 - IBM Plex Mono / Lilex
 - Ioskeley Mono (Berkeley Mono clone)
+- Hermit
 
 Keyboard map:
 

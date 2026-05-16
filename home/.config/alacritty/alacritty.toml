@@ -10,7 +10,7 @@ dynamic_padding = true
 
 [font]
 size = 14.5
-normal = { family = "Lilex", style = "Regular" }
+normal = { family = "Hermit", style = "Regular" }
 offset = { x = 0, y = 8 }
 glyph_offset = { x = 0, y = 4 }
 
