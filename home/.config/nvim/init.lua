@@ -6,14 +6,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.gdefault = true
 
-vim.o.splitright = true
 vim.o.signcolumn = "yes"
-vim.o.tabclose = "left"
-vim.o.foldmethod = "indent"
-vim.o.foldlevelstart = 99
 vim.o.pumheight = 10
-vim.o.fillchars = "diff: "
-vim.o.wildoptions = "pum,tagfile,fuzzy"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })

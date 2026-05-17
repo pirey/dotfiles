@@ -6,10 +6,8 @@ Minimal. Functional.
 
 ```lua
 {
-  -- THEMES
-  "EdenEast/nightfox.nvim",
-
   -- EDITING
+  "yorickpeterse/nvim-jump",
   "tpope/vim-repeat",
   "tpope/vim-surround",
   "tpope/vim-abolish",

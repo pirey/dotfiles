@@ -194,57 +194,21 @@ local gitsigns = {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
-        map("n", "]g", function()
-          gs.nav_hunk("next", {
-            target = "all",
-            count = 1,
-            foldopen = true,
-            greedy = true,
-            navigation_message = true,
-            wrap = vim.o.wrapscan,
-            preview = true,
-          })
-        end, "Next Hunk")
-        map("n", "[g", function()
-          gs.nav_hunk("prev", {
-            target = "all",
-            count = 1,
-            foldopen = true,
-            greedy = true,
-            navigation_message = true,
-            wrap = vim.o.wrapscan,
-            preview = true,
-          })
-        end, "Prev Hunk")
+        map("n", "]g", function() gs.nav_hunk("next") end, "Next Hunk")
+        map("n", "[g", function() gs.nav_hunk("prev") end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
         map("n", "<leader>ghq", gs.setqflist, "Add hunks to qflist")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghX", gs.reset_buffer_index, "Unstage Buffer")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-        map("n", "<leader>ghP", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-        map("n", "<leader>ghb", function()
-          gs.blame_line({ full = true })
-        end, "Blame Line")
+        map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>ghP", gs.preview_hunk_inline, "Preview Hunk Inline")
+        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
-        map("n", "<leader>ghD", function()
-          ---@diagnostic disable-next-line: param-type-mismatch
-          gs.diffthis("~")
-        end, "Diff This ~")
+        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-        map({ "n" }, "<leader>gb", function()
-          local tabpage = vim.api.nvim_get_current_tabpage()
-          local wins = vim.api.nvim_tabpage_list_wins(tabpage)
-          for _, win in ipairs(wins) do
-            local buf = vim.api.nvim_win_get_buf(win)
-            if vim.bo[buf].filetype == "gitsigns-blame" then
-              vim.api.nvim_set_current_win(win)
-              return
-            end
-          end
-          gs.blame()
-        end, "GitSigns Blame")
+        map({ "n" }, "<leader>gb", gs.blame, "Blame")
       end,
     })
   end,
