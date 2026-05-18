@@ -45,7 +45,7 @@ Terminal:
 Preferred Fonts:
 
 - IBM Plex Mono / Lilex
-- Ioskeley Mono (Berkeley Mono clone)
+- Ioskeley Mono
 - Hermit
 
 Keyboard map:
