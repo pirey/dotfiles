@@ -3,6 +3,11 @@ vim.cmd([[
 ]])
 
 vim.api.nvim_create_user_command("Gcommit", function()
+  local porcelain = vim.fn.system("git status --porcelain 2>/dev/null")
+  if vim.v.shell_error ~= 0 or vim.trim(porcelain) == "" then
+    vim.notify("nothing to commit", vim.log.levels.WARN)
+    return
+  end
   vim.cmd("tabnew | file COMMIT_EDITMSG | setl bufhidden=wipe filetype=gitcommit buftype=acwrite")
   local bufnr = vim.api.nvim_get_current_buf()
   local status = vim.fn.system("git status")
