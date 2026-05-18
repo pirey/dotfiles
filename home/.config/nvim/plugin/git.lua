@@ -58,9 +58,23 @@ vim.api.nvim_create_user_command("GitCommit", function(args)
 end, { nargs = "*" })
 
 vim.api.nvim_create_user_command("GitPush", function(args)
-  vim.fn.system("git push " .. args.args .. " 2>&1")
-end, { nargs = "*" })
+  local stderr = {}
+  vim.fn.jobstart("git push " .. args.args, {
+    stderr_buffered = true,
+    on_stderr = function(_, data)
+      stderr = data
+    end,
+    on_exit = vim.schedule_wrap(function(_, code)
+      if code == 0 then
+        vim.notify("pushed", vim.log.levels.INFO)
+      else
+        vim.notify(table.concat(stderr, "\n"), vim.log.levels.ERROR)
+      end
+    end),
+  })
+end, { nargs = "*", complete = "file" })
 
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
+  cabbrev <expr> gp getcmdtype() == ':' && getcmdline() =~# '^gp' ? 'GitPush' : 'gp'
 ]])
