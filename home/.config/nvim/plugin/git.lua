@@ -57,6 +57,10 @@ vim.api.nvim_create_user_command("GitCommit", function(args)
   end
 end, { nargs = "*" })
 
+vim.api.nvim_create_user_command("GitPush", function(args)
+  vim.fn.system("git push " .. args.args .. " 2>&1")
+end, { nargs = "*" })
+
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
 ]])

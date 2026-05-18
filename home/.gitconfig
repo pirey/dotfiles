@@ -10,6 +10,8 @@
     editor = "$(which nvim) -u NONE"
     excludesfile = ~/.gitignore_global
 
+[push]
+    default = current
     ignoredPatterns = *.keystore
     ignoredPatterns = *~
     ignoredPatterns = .DS_Store

@@ -9,6 +9,7 @@ vim.o.gdefault = true
 vim.o.signcolumn = "yes"
 vim.o.pumheight = 10
 vim.o.splitright = true
+vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
