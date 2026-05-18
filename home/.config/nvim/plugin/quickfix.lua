@@ -66,7 +66,12 @@ local function toggle_lwindow()
   if winid ~= 0 then
     vim.cmd("lclose")
   else
-    vim.cmd("lopen")
+    local ok = pcall(function()
+      vim.cmd("lopen")
+    end)
+    if not ok then
+      vim.notify("No location list")
+    end
   end
 end
 
