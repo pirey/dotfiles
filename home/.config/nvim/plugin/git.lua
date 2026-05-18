@@ -1,8 +1,4 @@
-vim.cmd([[
-  cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'Gcommit' : 'gc'
-]])
-
-vim.api.nvim_create_user_command("Gcommit", function(args)
+vim.api.nvim_create_user_command("GitCommit", function(args)
   local noargs = args.args == ""
   local porcelain = vim.fn.system("git status --porcelain 2>/dev/null")
   if vim.v.shell_error ~= 0 or vim.trim(porcelain) == "" then
@@ -24,15 +20,22 @@ vim.api.nvim_create_user_command("Gcommit", function(args)
       vim.api.nvim_win_set_cursor(0, { 1, 0 })
     end
     vim.api.nvim_create_autocmd("BufWriteCmd", {
-      buffer = bufnr, once = true,
+      buffer = bufnr,
+      once = true,
       callback = function()
         local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
         local msg = {}
         for _, l in ipairs(lines) do
-          if not l:match("^#") then msg[#msg + 1] = l end
+          if not l:match("^#") then
+            msg[#msg + 1] = l
+          end
         end
-        while #msg > 0 and msg[#msg]:match("^%s*$") do msg[#msg] = nil end
-        if #msg == 0 then return end
+        while #msg > 0 and msg[#msg]:match("^%s*$") do
+          msg[#msg] = nil
+        end
+        if #msg == 0 then
+          return
+        end
         local out = vim.fn.system("git commit -F - 2>&1", table.concat(msg, "\n"))
         if vim.v.shell_error ~= 0 then
           vim.cmd("tabnew | setl bufhidden=wipe readonly")
@@ -53,3 +56,7 @@ vim.api.nvim_create_user_command("Gcommit", function(args)
     end
   end
 end, { nargs = "*" })
+
+vim.cmd([[
+  cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
+]])
