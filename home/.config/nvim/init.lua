@@ -1,6 +1,14 @@
 vim.g.mapleader = " "
 
-vim.cmd("set nowrap noswapfile ignorecase smartcase gdefault signcolumn=yes pumheight=10 splitright")
+vim.o.wrap = false
+vim.o.swapfile = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.gdefault = true
+
+vim.o.signcolumn = "yes"
+vim.o.pumheight = 10
+vim.o.splitright = true
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
