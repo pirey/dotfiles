@@ -48,7 +48,10 @@
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
   (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
-  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char))
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+  ;; Let C-n/C-p reach corfu popup instead of evil insert bindings
+  (define-key evil-insert-state-map (kbd "C-n") nil)
+  (define-key evil-insert-state-map (kbd "C-p") nil))
 
 (use-package evil-surround
   :ensure t
@@ -63,7 +66,9 @@
   (corfu-auto t)
   (corfu-preview-current t)
   :config
-  (global-corfu-mode 1))
+  (global-corfu-mode 1)
+  (define-key corfu-map (kbd "C-n") 'corfu-next)
+  (define-key corfu-map (kbd "C-p") 'corfu-previous))
 
 ;;; LSP
 
