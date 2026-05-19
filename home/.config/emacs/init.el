@@ -21,6 +21,8 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (set-frame-font "Ioskeley Mono-15" nil t)
 (setq-default line-spacing 8)
+(setq-default truncate-lines t)
+(setq mouse-wheel-tilt-scroll t)
 (setq use-file-dialog nil)
 (setq confirm-kill-emacs nil)
 (setq ring-bell-function 'ignore)
