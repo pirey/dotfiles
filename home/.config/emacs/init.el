@@ -11,9 +11,9 @@
 
 (require 'use-package)
 
+;;;; Options
 
-;;; UI
-
+(editorconfig-mode 1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -24,14 +24,15 @@
 (setq use-file-dialog nil)
 (setq confirm-kill-emacs nil)
 (setq ring-bell-function 'ignore)
+(setq scroll-error-top-bottom t)
+
+;;; UI
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 (load-theme 'nvim-dark t)
 
 ;;; Editing
-
-(editorconfig-mode 1)
 
 (use-package evil
   :ensure t
@@ -132,8 +133,6 @@
   :config
   (setq vterm-kill-buffer-on-exit t))
 
-(global-set-key (kbd "C-c t") (lambda () (interactive) (vterm)))
-
 (add-hook 'vterm-mode-hook
           (lambda ()
             (evil-emacs-state)
@@ -176,6 +175,7 @@
 
 ;;; Keybindings
 
+(global-set-key (kbd "C-c t") (lambda () (interactive) (vterm)))
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
 (global-set-key (kbd "C-c f") #'eglot-format)
