@@ -71,6 +71,9 @@
   (eglot-autoshutdown t)
   (eglot-send-changes-idle-time 0.5))
 
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions))
+
 (use-package mason
   :ensure t
   :config
@@ -143,7 +146,8 @@
   :ensure t
   :commands (magit-status)
   :config
-  (setq magit-diff-refine-hunk 'all))
+  (setq magit-diff-refine-hunk 'all
+        magit-log-arguments '("--no-graph" "-n256")))
 
 ;;; Org
 
@@ -178,7 +182,8 @@
 (global-set-key (kbd "C-c i") #'imenu)
 (global-set-key (kbd "C-c d") #'flymake-show-buffer-diagnostics)
 (global-set-key (kbd "C-c D") #'flymake-show-project-diagnostics)
-
+(global-set-key (kbd "C-c e") #'flymake-goto-next-error)
+(global-set-key (kbd "C-c E") #'flymake-goto-prev-error)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
