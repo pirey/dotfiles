@@ -2,6 +2,30 @@
 ;; If a package fails to install, run M-x package-refresh-contents first
 ;; Requires Emacs 30+
 
+;;; UI
+
+(add-to-list 'custom-theme-load-path
+             (expand-file-name "themes" user-emacs-directory))
+(load-theme 'nvim-dark t)
+
+;;;; Options
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(editorconfig-mode 1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(fido-vertical-mode 1)
+(set-frame-font "Ioskeley Mono-15" nil t)
+(setq-default line-spacing 8)
+(setq-default truncate-lines t)
+(setq mouse-wheel-flip-direction t)
+(setq mouse-wheel-tilt-scroll t)
+(setq use-file-dialog nil)
+(setq confirm-kill-emacs nil)
+(setq ring-bell-function 'ignore)
+(setq scroll-error-top-bottom t)
+
 ;;; Package management
 
 (require 'package)
@@ -10,29 +34,6 @@
 (package-initialize)
 
 (require 'use-package)
-
-;;;; Options
-
-(editorconfig-mode 1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-(fido-vertical-mode 1)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(set-frame-font "Ioskeley Mono-15" nil t)
-(setq-default line-spacing 8)
-(setq-default truncate-lines t)
-(setq mouse-wheel-tilt-scroll t)
-(setq use-file-dialog nil)
-(setq confirm-kill-emacs nil)
-(setq ring-bell-function 'ignore)
-(setq scroll-error-top-bottom t)
-
-;;; UI
-
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "themes" user-emacs-directory))
-(load-theme 'nvim-dark t)
 
 ;;; Editing
 
