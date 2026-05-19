@@ -95,6 +95,14 @@ ssh-keygen -t rsa -b 4096 -C "mail@host.com"
 
 - spelling and prediction > disable items
 
+## set default app for a file type
+
+- GUI: right-click file > Get Info > "Open with" > select app > "Change All"
+
+## get bundle ID
+
+`osascript -e 'id of app "AppName"'`
+
 ## finder
 
 - finder > settings > sidebar > enable items
