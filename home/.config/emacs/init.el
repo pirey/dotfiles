@@ -23,6 +23,7 @@
 (setq-default line-spacing 8)
 (setq use-file-dialog nil)
 (setq confirm-kill-emacs nil)
+(setq ring-bell-function 'ignore)
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
@@ -45,7 +46,10 @@
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
-  (define-key evil-visual-state-map ":" 'evil-repeat-find-char))
+  (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
+  ;; C-h deletes backward char in insert mode and ex command line
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+  (define-key evil-command-line-map (kbd "C-h") 'evil-ex-delete-backward-char))
 
 (use-package evil-surround
   :ensure t
