@@ -1,4 +1,6 @@
 ;;; init.el --- Minimal Emacs config
+;; If a package fails to install, run M-x package-refresh-contents first
+;; Requires Emacs 30+
 
 ;;; Package management
 
@@ -8,8 +10,6 @@
 (package-initialize)
 
 (require 'use-package)
-;; If a package fails to install, run M-x package-refresh-contents first
-;; Requires Emacs 30+
 
 
 ;;; UI
@@ -42,14 +42,11 @@
         evil-want-C-u-delete t)
   :config
   (evil-mode 1)
-  ;; ; for evil-ex (:), : for repeat-find-char (native ;)
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
   (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
-  ;; C-h deletes backward char in insert mode and ex command line
-  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-  (define-key evil-command-line-map (kbd "C-h") 'evil-ex-delete-backward-char))
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char))
 
 (use-package evil-surround
   :ensure t
