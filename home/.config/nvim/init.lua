@@ -5,10 +5,10 @@ vim.o.swapfile = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.gdefault = true
-
 vim.o.signcolumn = "yes"
 vim.o.pumheight = 10
 vim.o.splitright = true
+vim.o.tabclose = "left"
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 
 -- normalize
