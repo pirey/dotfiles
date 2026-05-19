@@ -194,6 +194,7 @@ local gitsigns = {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
+        -- stylua: ignore start
         map("n", "]g", function() gs.nav_hunk("next") end, "Next Hunk")
         map("n", "[g", function() gs.nav_hunk("prev") end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
@@ -209,6 +210,7 @@ local gitsigns = {
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
         map({ "n" }, "<leader>gb", gs.blame, "Blame")
+        -- stylua: ignore end
       end,
     })
   end,
