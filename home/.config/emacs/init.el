@@ -40,7 +40,8 @@
   (setq evil-want-integration t
         evil-undo-system 'undo-redo
         evil-want-C-u-scroll t
-        evil-want-C-u-delete t)
+        evil-want-C-u-delete t
+        evil-vsplit-window-right t)
   :config
   (evil-mode 1)
   (define-key evil-normal-state-map ";" 'evil-ex)
