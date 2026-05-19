@@ -8,7 +8,7 @@
 - firefox
 - shortcat
 - localsend
-- markview
+- ~markview~ https://markdownviewer.org/
 
 ### open unverified app (e.g. alacritty, kitty)
 
