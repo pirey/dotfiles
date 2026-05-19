@@ -1,57 +1,111 @@
-;;; init.el --- Minimal emacs config for orgmode
+;;; init.el --- Minimal Emacs config
+
+;;; Package management
 
 (require 'package)
 (push '("melpa" . "https://melpa.org/packages/") package-archives)
 (push '("org" . "https://orgmode.org/elpa/") package-archives)
 (package-initialize)
 
-; (unless (package-installed-p 'use-package)
-;   (package-refresh-contents)
-;   (package-install 'use-package))
 (require 'use-package)
+;; If a package fails to install, run M-x package-refresh-contents first
+;; Requires Emacs 30+
 
-(use-package spacemacs-theme
-  :ensure t)
 
-(use-package org
-  :ensure t
-  :config
-  (setq org-use-property-inheritance nil)
-  (setq org-log-done nil)
-  (setq org-adapt-indentation nil)
-  (setq org-deadline-warning-days 3)
-  (setq org-agenda-span 1)
-  (setq org-todo-keywords '((sequence "TODO" "STARTED" "|" "DONE")))
-  (setq org-default-notes-file "~/org/tasks.org")
-  (setq org-agenda-files
-      (append
-       (directory-files-recursively "~/org/" "\\.org$")
-       (directory-files-recursively "~/vault-org/" "\\.org$")))
+;;; UI
 
-  (setq org-capture-templates
-    '(("n" "Note" entry (file+headline "~/org/dropnotes.org" "Notes")
-         "* %?\n  %u" :empty-lines 1)))
-  (setq org-agenda-custom-commands
-        '(("p" "Projects Agenda"
-           ((agenda "")
-            (tags-todo "+TODO=\"TODO\""))
-           ((org-agenda-files
-             (directory-files-recursively
-              "~/vault-org/projects" "\\.org$")))))))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(global-hl-line-mode 1)
+(fido-vertical-mode 1)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(set-frame-font "Ioskeley Mono-15" nil t)
+(setq use-file-dialog nil)
+(setq confirm-kill-emacs nil)
 
-(use-package magit
-  :ensure t
-  :commands (magit-status))
+(load-theme 'spacemacs-dark t)
+
+;;; Editing
+
+(editorconfig-mode 1)
 
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-integration t)
-  (setq evil-undo-system 'undo-redo)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-u-delete t)
+  (setq evil-want-integration t
+        evil-undo-system 'undo-redo
+        evil-want-C-u-scroll t
+        evil-want-C-u-delete t)
   :config
   (evil-mode 1))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+;;; Completion
+
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-preview-current t)
+  :config
+  (global-corfu-mode 1))
+
+;;; LSP
+
+(use-package eglot
+  :ensure nil
+  :custom
+  (eglot-autoshutdown t)
+  (eglot-send-changes-idle-time 0.5))
+
+(use-package mason
+  :ensure t
+  :config
+  (mason-setup))
+
+(setq eglot-server-programs
+      '((php-mode . ("phpactor" "language-server"))
+        (js-mode . ("vtsls" "--stdio"))
+        (tsx-mode . ("vtsls" "--stdio"))
+        (typescript-mode . ("vtsls" "--stdio"))
+        (css-mode . ("css-languageserver" "--stdio"))
+        (lua-mode . ("lua-language-server"))))
+
+(dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook
+                css-mode-hook lua-mode-hook))
+  (add-hook hook 'eglot-ensure))
+
+(setq flymake-fringe-indicator-position 'left-fringe
+      flymake-show-diagnostics-at-end-of-line nil
+      flymake-suppress-zero-counters t)
+
+;;; Programming modes
+
+(dolist (mapping
+         '((js-mode . "\\.m?js\\'")
+           (css-mode . "\\.css\\'")
+           (c-mode . "\\.c\\'")))
+  (add-to-list 'auto-mode-alist (cons (cdr mapping) (car mapping))))
+
+(use-package php-mode
+  :ensure t
+  :mode "\\.php\\'")
+
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'")
+
+;; Derived mode for .tsx/.jsx so eglot sends "typescriptreact" to vtsls
+(define-derived-mode tsx-mode typescript-mode "TSX"
+  "Major mode for TSX/JSX files.")
+(put 'tsx-mode 'eglot-language-id "typescriptreact")
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . tsx-mode))
 
 (use-package markdown-mode
   :ensure t
@@ -59,43 +113,70 @@
   :init
   (setq markdown-command "pandoc"))
 
-(use-package php-mode
+;;; Terminal
+
+(use-package vterm
   :ensure t
-  :mode "\\.php\\'")
+  :commands vterm
+  :config
+  (setq vterm-kill-buffer-on-exit t))
+
+(global-set-key (kbd "C-c t") (lambda () (interactive) (vterm)))
+
+(add-hook 'vterm-mode-hook
+          (lambda ()
+            (evil-emacs-state)
+            (vterm-line-mode 1)
+            (setq-local show-trailing-whitespace nil)))
+
+;;; Git
+
+(use-package magit
+  :ensure t
+  :commands (magit-status)
+  :config
+  (setq magit-diff-refine-hunk 'all))
+
+;;; Org
+
+(use-package org
+  :ensure t
+  :config
+  (setq org-use-property-inheritance nil
+        org-log-done nil
+        org-adapt-indentation nil
+        org-deadline-warning-days 3
+        org-agenda-span 1
+        org-todo-keywords '((sequence "TODO" "STARTED" "|" "DONE"))
+        org-default-notes-file "~/org/tasks.org"
+        org-agenda-files (append
+                          (directory-files-recursively "~/org/" "\\.org$")
+                          (directory-files-recursively "~/vault-org/" "\\.org$"))
+        org-capture-templates
+        '(("n" "Note" entry (file "~/org/inbox.org") "* %?\n  %u"))
+        org-agenda-custom-commands
+        '(("p" "Projects Agenda"
+           ((agenda "")
+            (tags-todo "+TODO=\"TODO\""))
+           ((org-agenda-files
+             (directory-files-recursively
+              "~/vault-org/projects" "\\.org$")))))))
+
+;;; Keybindings
 
 (global-set-key (kbd "C-c a") #'org-agenda)
-
 (global-set-key (kbd "C-c g") #'magit-status)
-
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq-default
- indent-tabs-mode nil
- show-trailing-whitespace t)
-
-(editorconfig-mode 1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-(global-hl-line-mode 1)
-
-(setq use-file-dialog nil)
-(setq confirm-kill-emacs nil)
-
-; (set-frame-font "Ioskeley Mono" nil t)
-(setq gc-cons-threshold (* 100 1000 1000))
-
-(run-with-idle-timer 0 nil
-  (lambda () (load-theme 'spacemacs-dark t)))
-
-(set-frame-font "Ioskeley Mono-18" nil t)
+(global-set-key (kbd "C-c f") #'eglot-format)
+(global-set-key (kbd "C-c i") #'imenu)
+(global-set-key (kbd "C-c d") #'flymake-show-buffer-diagnostics)
+(global-set-key (kbd "C-c D") #'flymake-show-project-diagnostics)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil magit markdown-mode php-mode spacemacs-theme)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
