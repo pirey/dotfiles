@@ -8,6 +8,7 @@
 - firefox
 - shortcat
 - localsend
+- markview
 
 ### open unverified app (e.g. alacritty, kitty)
 
