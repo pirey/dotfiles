@@ -40,7 +40,12 @@
         evil-want-C-u-scroll t
         evil-want-C-u-delete t)
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  ;; ; for evil-ex (:), : for repeat-find-char (native ;)
+  (define-key evil-normal-state-map ";" 'evil-ex)
+  (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
+  (define-key evil-visual-state-map ";" 'evil-ex)
+  (define-key evil-visual-state-map ":" 'evil-repeat-find-char))
 
 (use-package evil-surround
   :ensure t
