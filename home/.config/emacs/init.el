@@ -17,14 +17,16 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
-(global-hl-line-mode 1)
 (fido-vertical-mode 1)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (set-frame-font "Ioskeley Mono-15" nil t)
+(setq-default line-spacing 8)
 (setq use-file-dialog nil)
 (setq confirm-kill-emacs nil)
 
-(load-theme 'spacemacs-dark t)
+(add-to-list 'custom-theme-load-path
+             (expand-file-name "themes" user-emacs-directory))
+(load-theme 'nvim-dark t)
 
 ;;; Editing
 
