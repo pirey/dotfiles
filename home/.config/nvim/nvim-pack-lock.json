@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "2574deb6e4eaaf2ee2f98ea26dc018670a0c8547",
+      "rev": "d52621fe8a0b865e0971389bc36dd9220260cbc3",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
