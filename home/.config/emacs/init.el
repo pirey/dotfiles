@@ -11,7 +11,6 @@
 ;;;; Options
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(editorconfig-mode 1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -34,11 +33,23 @@
 (require 'package)
 (push '("melpa" . "https://melpa.org/packages/") package-archives)
 
+;; Enable package-quickstart for fast package loading
+(setq package-quickstart t)
 (package-initialize)
+
+;; Generate quickstart file on first run
+(when (and (not (file-exists-p package-quickstart-file))
+           (fboundp 'package-quickstart-refresh))
+  (package-quickstart-refresh))
 
 (require 'use-package)
 
 ;;; Editing
+
+(use-package editorconfig
+  :defer 1
+  :config
+  (editorconfig-mode 1))
 
 (use-package evil
   :ensure t
@@ -56,45 +67,32 @@
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
   (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
-  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-  ;; Let C-n/C-p reach corfu popup instead of evil insert bindings
-  (define-key evil-insert-state-map (kbd "C-n") nil)
-  (define-key evil-insert-state-map (kbd "C-p") nil))
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char))
 
 (use-package evil-surround
   :ensure t
   :config
   (global-evil-surround-mode 1))
 
-;;; Completion
-
-(use-package corfu
-  :ensure t
-  :custom
-  (corfu-auto t)
-  (corfu-preview-current t)
-  :config
-  (global-corfu-mode 1)
-  (define-key corfu-map (kbd "C-n") 'corfu-next)
-  (define-key corfu-map (kbd "C-p") 'corfu-previous))
-
 ;;; LSP
 
 (use-package eglot
   :ensure nil
+  :defer t
   :custom
   (eglot-autoshutdown t)
-  (eglot-send-changes-idle-time 0.5))
-
-(with-eval-after-load 'eglot
-    (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
-    (define-key eglot-mode-map (kbd "C-c f") #'eglot-format-buffer)
-    (define-key eglot-mode-map (kbd "C-c r") #'xref-find-references))
+  (eglot-send-changes-idle-time 0.5)
+  :config
+  (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
+  (define-key eglot-mode-map (kbd "C-c f") #'eglot-format-buffer)
+  (define-key eglot-mode-map (kbd "C-c r") #'xref-find-references))
 
 (use-package mason
   :ensure t
   :config
-  (mason-setup))
+  ;; Set up mason LSP paths after Emacs finishes loading
+  ;; Wrapped in lambda because `mason-setup' is a macro, not a function
+  (add-hook 'emacs-startup-hook (lambda () (mason-setup))))
 
 (setq eglot-server-programs
       '((php-mode . ("phpactor" "language-server"))
@@ -165,12 +163,16 @@
 (use-package diff-hl
   :ensure t
   :config
-  (global-diff-hl-mode 1)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
+  ;; Start diff-hl after Emacs finishes loading
+  (add-hook 'emacs-startup-hook
+            (lambda ()
+              (global-diff-hl-mode 1)
+              (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))))
 
 ;;; Org
 
 (use-package org
+  :defer t
   :config
   (setq org-use-property-inheritance nil
         org-log-done nil

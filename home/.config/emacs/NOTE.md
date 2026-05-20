@@ -84,3 +84,35 @@ C-h m            describe current mode
 C-h b            list keybindings for current buffer
 M-x help-with-tutorial-spec  interactive tutorial
 
+## startup optimizations
+
+### early-init.el
+Emacs loads `early-init.el` **before** `init.el` — it's the very first file read at
+startup. Use it for things that need to be set before `init.el` runs:
+
+- `package-enable-at-startup` → set to `nil` so `use-package` controls loading
+- `gc-cons-threshold` → crank up to `most-positive-fixnum` to avoid GC pauses
+- `inhibit-startup-screen` → kill the splash before it renders
+- `file-name-handler-alist` → temporarily nil out for faster file resolution
+
+On macOS, `user-emacs-directory` is `~/.config/emacs/`, so early-init lives at:
+`~/.config/emacs/early-init.el`
+
+### package-quickstart
+Bundles all installed packages' autoloads into **one** file
+(`package-quickstart.el`) so Emacs doesn't scan every `elpa/` directory at
+startup.
+
+- **Without it**: reads 20+ individual `*-autoloads.el` files (one per package)
+- **With it**: reads one merged file — ~2× faster package initialization
+
+Enable it:
+```elisp
+(setq package-quickstart t)
+(package-initialize)
+```
+After installing/updating packages, regenerate:
+```
+M-x package-quickstart-refresh RET
+```
+
