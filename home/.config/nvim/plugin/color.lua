@@ -4,6 +4,8 @@ local function customize_default_colorscheme()
 
   if vim.o.background == "dark" then
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NvimDarkGrey3" })
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = "NvimDarkGrey1" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NvimDarkGrey1", fg = "NvimDarkGrey4" })
   elseif vim.o.background == "light" then
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NvimLightGrey3" })
   end
