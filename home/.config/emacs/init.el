@@ -25,6 +25,7 @@
 (setq confirm-kill-emacs nil)
 (setq ring-bell-function 'ignore)
 (setq scroll-error-top-bottom t)
+(setq auto-save-default nil)
 
 ;;; Package management
 
