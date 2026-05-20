@@ -19,6 +19,7 @@
 (set-frame-font "Ioskeley Mono-15" nil t)
 (setq-default line-spacing 8)
 (setq-default truncate-lines t)
+(setq inhibit-startup-screen t)
 (setq mouse-wheel-flip-direction t)
 (setq mouse-wheel-tilt-scroll t)
 (setq use-file-dialog nil)
