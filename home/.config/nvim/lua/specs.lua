@@ -1,14 +1,5 @@
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
-local jump = {
-  src = "yorickpeterse/nvim-jump",
-  config = function()
-    vim.keymap.set({ "n", "x" }, "s", function()
-      require("jump").start()
-    end)
-    vim.api.nvim_set_hl(0, "FlashLabel", { link = "IncSearch" })
-  end,
-}
 local surround = {
   src = "tpope/vim-surround",
   dependencies = { { src = "tpope/vim-repeat" } },
@@ -393,7 +384,6 @@ end
 
 setup({
   -- EDITING
-  jump,
   surround,
   abolish,
   treesj,

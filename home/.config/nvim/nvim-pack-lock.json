@@ -33,10 +33,6 @@
       "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "nvim-jump": {
-      "rev": "672204397c51507d7a821bc61ba9fad7dbed4303",
-      "src": "https://github.com/yorickpeterse/nvim-jump"
-    },
     "nvim-lspconfig": {
       "rev": "246572944c2a1e2a646c2e7609ff619b0fe74c18",
       "src": "https://github.com/neovim/nvim-lspconfig"
