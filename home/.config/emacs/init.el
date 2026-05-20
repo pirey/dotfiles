@@ -36,6 +36,34 @@
 
 (require 'use-package)
 
+;;; Editing
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t
+        evil-undo-system 'undo-redo
+        evil-want-C-u-scroll t
+        evil-want-C-u-delete t
+        evil-vsplit-window-right t)
+  :config
+  (evil-mode 1)
+  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode))
+    (evil-set-initial-state mode 'emacs))
+  (define-key evil-normal-state-map ";" 'evil-ex)
+  (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
+  (define-key evil-visual-state-map ";" 'evil-ex)
+  (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
+  (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
+  ;; Let C-n/C-p reach corfu popup instead of evil insert bindings
+  (define-key evil-insert-state-map (kbd "C-n") nil)
+  (define-key evil-insert-state-map (kbd "C-p") nil))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
 ;;; Completion
 
 (use-package corfu
@@ -118,6 +146,7 @@
 
 (add-hook 'vterm-mode-hook
           (lambda ()
+            (evil-emacs-state)
             (vterm-line-mode 1)
             (setq-local show-trailing-whitespace nil)))
 
