@@ -48,7 +48,7 @@
         evil-vsplit-window-right t)
   :config
   (evil-mode 1)
-  (evil-set-initial-state 'xref-mode 'emacs)
+  (evil-set-initial-state 'xref--xref-buffer-mode 'emacs)
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
