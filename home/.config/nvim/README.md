@@ -7,7 +7,6 @@ Minimal. Functional.
 ```lua
 {
   -- EDITING
-  "yorickpeterse/nvim-jump",
   "tpope/vim-repeat",
   "tpope/vim-surround",
   "tpope/vim-abolish",
@@ -27,5 +26,6 @@ Minimal. Functional.
   "neovim/nvim-lspconfig",
 
   "nvim-orgmode/orgmode",
+  "SCJangra/table-nvim",
 }
 ```
