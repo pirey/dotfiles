@@ -69,8 +69,7 @@
         (js-mode . ("vtsls" "--stdio"))
         (tsx-mode . ("vtsls" "--stdio"))
         (typescript-mode . ("vtsls" "--stdio"))
-        (css-mode . ("css-languageserver" "--stdio"))
-        (lua-mode . ("lua-language-server"))))
+        (css-mode . ("css-languageserver" "--stdio"))))
 
 (dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook
                 css-mode-hook lua-mode-hook))
