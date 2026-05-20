@@ -27,6 +27,7 @@
 (setq scroll-error-top-bottom t)
 (xterm-mouse-mode 1)
 (setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; Clipboard in TUI: use macOS pbcopy/pbpaste directly (most reliable)
 (unless (display-graphic-p)
@@ -40,11 +41,6 @@
           (with-temp-buffer
             (call-process "pbpaste" nil t)
             (buffer-string)))))
-;(use-package pbcopy
-;  :ensure t
-;  :if (not (display-graphic-p))
-;  :config
-;  (turn-on-pbcopy))
 
 
 ;;; Package management
@@ -191,7 +187,6 @@
             (lambda ()
               (global-diff-hl-mode 1)
               (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))))
-
 ;;; Org
 
 (use-package org
