@@ -28,6 +28,25 @@
 (xterm-mouse-mode 1)
 (setq auto-save-default nil)
 
+;; Clipboard in TUI: use macOS pbcopy/pbpaste directly (most reliable)
+(unless (display-graphic-p)
+  (setq interprogram-cut-function
+        (lambda (text &optional _push)
+          (with-temp-buffer
+            (insert text)
+            (call-process-region (point-min) (point-max) "pbcopy"))))
+  (setq interprogram-paste-function
+        (lambda ()
+          (with-temp-buffer
+            (call-process "pbpaste" nil t)
+            (buffer-string)))))
+;(use-package pbcopy
+;  :ensure t
+;  :if (not (display-graphic-p))
+;  :config
+;  (turn-on-pbcopy))
+
+
 ;;; Package management
 
 (require 'package)
@@ -74,6 +93,17 @@
   :config
   (global-evil-surround-mode 1))
 
+;;; Completion
+
+(use-package company
+  :ensure t
+  :custom
+  (company-idle-delay 0.2)
+  (company-minimum-prefix-length 2)
+  (company-tooltip-limit 10)
+  :config
+  (global-company-mode 1))
+
 ;;; LSP
 
 (use-package eglot
@@ -86,13 +116,6 @@
   (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
   (define-key eglot-mode-map (kbd "C-c f") #'eglot-format-buffer)
   (define-key eglot-mode-map (kbd "C-c r") #'xref-find-references))
-
-(use-package mason
-  :ensure t
-  :config
-  ;; Set up mason LSP paths after Emacs finishes loading
-  ;; Wrapped in lambda because `mason-setup' is a macro, not a function
-  (add-hook 'emacs-startup-hook (lambda () (mason-setup))))
 
 (setq eglot-server-programs
       '((php-mode . ("phpactor" "language-server"))
