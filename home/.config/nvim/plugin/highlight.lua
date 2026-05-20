@@ -1,4 +1,4 @@
-local function customize_default_colorscheme()
+local function set_hl()
   -- stylua: ignore
   if vim.g.colors_name ~= nil then return end
 
@@ -14,12 +14,12 @@ end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "default",
-  callback = customize_default_colorscheme,
+  callback = set_hl,
 })
 
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "background",
-  callback = customize_default_colorscheme,
+  callback = set_hl,
 })
 
-customize_default_colorscheme()
+set_hl()
