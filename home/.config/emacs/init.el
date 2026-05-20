@@ -25,6 +25,7 @@
 (setq confirm-kill-emacs nil)
 (setq ring-bell-function 'ignore)
 (setq scroll-error-top-bottom t)
+(xterm-mouse-mode 1)
 (setq auto-save-default nil)
 
 ;;; Package management
@@ -140,16 +141,15 @@
 
 ;;; Terminal
 
-(use-package vterm
+(use-package eat
   :ensure t
-  :commands vterm
+  :commands (eat)
   :config
-  (setq vterm-kill-buffer-on-exit t))
+  (eat-eshell-mode 1))
 
-(add-hook 'vterm-mode-hook
+(add-hook 'eat-mode-hook
           (lambda ()
             (evil-emacs-state)
-            (vterm-line-mode 1)
             (setq-local show-trailing-whitespace nil)))
 
 ;;; Git
@@ -193,7 +193,7 @@
 
 ;;; Keybindings
 
-(global-set-key (kbd "C-c t") (lambda () (interactive) (vterm)))
+(global-set-key (kbd "C-c t") #'eat)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
 (global-set-key (kbd "C-c i") #'imenu)
