@@ -48,7 +48,7 @@
         evil-vsplit-window-right t)
   :config
   (evil-mode 1)
-  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode))
+  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode))
     (evil-set-initial-state mode 'emacs))
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
@@ -85,7 +85,9 @@
   (eglot-send-changes-idle-time 0.5))
 
 (with-eval-after-load 'eglot
-  (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions))
+    (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
+    (define-key eglot-mode-map (kbd "C-c f") #'eglot-format-buffer)
+    (define-key eglot-mode-map (kbd "C-c r") #'xref-find-references))
 
 (use-package mason
   :ensure t
@@ -188,7 +190,6 @@
 (global-set-key (kbd "C-c t") (lambda () (interactive) (vterm)))
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
-(global-set-key (kbd "C-c f") #'eglot-format)
 (global-set-key (kbd "C-c i") #'imenu)
 (global-set-key (kbd "C-c d") #'flymake-show-buffer-diagnostics)
 (global-set-key (kbd "C-c D") #'flymake-show-project-diagnostics)
