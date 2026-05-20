@@ -48,7 +48,7 @@
         evil-vsplit-window-right t)
   :config
   (evil-mode 1)
-  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode))
+  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode diff-mode))
     (evil-set-initial-state mode 'emacs))
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
@@ -160,6 +160,12 @@
   :config
   (setq magit-diff-refine-hunk 'all
         magit-log-arguments '("--no-graph" "-n256")))
+
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode 1)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
 ;;; Org
 
