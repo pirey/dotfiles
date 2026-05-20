@@ -31,7 +31,7 @@
 
 (require 'package)
 (push '("melpa" . "https://melpa.org/packages/") package-archives)
-(push '("org" . "https://orgmode.org/elpa/") package-archives)
+
 (package-initialize)
 
 (require 'use-package)
@@ -48,7 +48,8 @@
         evil-vsplit-window-right t)
   :config
   (evil-mode 1)
-  (evil-set-initial-state 'xref--xref-buffer-mode 'emacs)
+  (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode))
+    (evil-set-initial-state mode 'emacs))
   (define-key evil-normal-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
   (define-key evil-visual-state-map ";" 'evil-ex)
@@ -162,7 +163,6 @@
 ;;; Org
 
 (use-package org
-  :ensure t
   :config
   (setq org-use-property-inheritance nil
         org-log-done nil
@@ -172,8 +172,8 @@
         org-todo-keywords '((sequence "TODO" "STARTED" "|" "DONE"))
         org-default-notes-file "~/org/tasks.org"
         org-agenda-files (append
-                          (directory-files-recursively "~/org/" "\\.org$")
-                          (directory-files-recursively "~/vault-org/" "\\.org$"))
+                          (directory-files "~/org/" t "\\.org$")
+                          (directory-files-recursively "~/vault-org/projects/" "\\.org$"))
         org-capture-templates
         '(("n" "Note" entry (file "~/org/inbox.org") "* %?\n  %u"))
         org-agenda-custom-commands
@@ -181,8 +181,8 @@
            ((agenda "")
             (tags-todo "+TODO=\"TODO\""))
            ((org-agenda-files
-             (directory-files-recursively
-              "~/vault-org/projects" "\\.org$")))))))
+              (directory-files-recursively
+               "~/vault-org/projects/" "\\.org$")))))))
 
 ;;; Keybindings
 
