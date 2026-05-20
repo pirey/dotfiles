@@ -49,6 +49,10 @@
       "rev": "98b3a2b7ff1475ddd921803df54558da22a0f354",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
+    "table-nvim": {
+      "rev": "816d251963bf4c8c3d765dab40ebac3c259c7b6d",
+      "src": "https://github.com/SCJangra/table-nvim"
+    },
     "treesj": {
       "rev": "5fa4e7ba3517f8fe743bb4488f9e9c7ce83330fc",
       "src": "https://github.com/Wansmer/treesj"

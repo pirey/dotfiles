@@ -44,20 +44,20 @@ Tools consume tokens in two ways:
 - **Tool definitions**: ~500-1000 tokens total (one-time, baked into system prompt)
 - **Tool execution**: Per-call cost (input + output appended to conversation history)
 
-| Tool | Typical Token Cost per Call |
-|------|----------------------------|
-| `read` | ~2000-3000 tokens per 500-line file |
-| `bash` | ~50-2000+ tokens (depends on output) |
-| `grep` | ~100-500 tokens (matching lines) |
-| `glob` | ~50-200 tokens (file paths) |
-| `edit` / `write` | ~100-500 tokens |
-| `lsp` | ~200-1000 tokens |
-| `webfetch` | ~500-3000 tokens (full page content) |
-| `websearch` | ~200-800 tokens |
-| `todowrite` | ~50-200 tokens |
-| `question` | ~100-300 tokens |
-| `apply_patch` | ~100-500 tokens |
-| `skill` | ~200-1000 tokens |
+| Tool             | Typical Token Cost per Call          |
+| ---------------- | ------------------------------------ |
+| `read`           | ~2000-3000 tokens per 500-line file  |
+| `bash`           | ~50-2000+ tokens (depends on output) |
+| `grep`           | ~100-500 tokens (matching lines)     |
+| `glob`           | ~50-200 tokens (file paths)          |
+| `edit` / `write` | ~100-500 tokens                      |
+| `lsp`            | ~200-1000 tokens                     |
+| `webfetch`       | ~500-3000 tokens (full page content) |
+| `websearch`      | ~200-800 tokens                      |
+| `todowrite`      | ~50-200 tokens                       |
+| `question`       | ~100-300 tokens                      |
+| `apply_patch`    | ~100-500 tokens                      |
+| `skill`          | ~200-1000 tokens                     |
 
 **Biggest offenders**: `read` (large files), `bash` (verbose output), `webfetch` (full pages).
 
