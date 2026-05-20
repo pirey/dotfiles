@@ -159,7 +159,7 @@ local diffview = {
     require("diffview").setup({
       use_icons = false,
       signs = { fold_closed = " ", fold_open = "+" },
-      default_args = { DiffviewFileHistory = { "--max-count=500" } },
+      default_args = { DiffviewFileHistory = { "--max-count=500", "--no-merges" } },
       file_panel = { listing_style = "list" },
     })
     vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
