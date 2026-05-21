@@ -342,7 +342,7 @@ local orgmode = {
     })
   end,
 }
-local md_table = {
+local markdown = {
   src = "SCJangra/table-nvim",
   config = function()
     require("table-nvim").setup({})
@@ -365,6 +365,9 @@ local function setup(specs_ext)
     if spec.dependencies then
       for _, dep in ipairs(spec.dependencies) do
         table.insert(specs, { src = normalize_src(dep.src), version = dep.version })
+        if dep.config then
+          table.insert(configs, dep.config)
+        end
       end
     end
     table.insert(specs, vim.tbl_extend("force", spec, { src = normalize_src(spec.src) }))
@@ -378,7 +381,9 @@ local function setup(specs_ext)
 
   -- configure packages
   for _, config in ipairs(configs) do
-    config()
+    if type(config) == "function" then
+      config()
+    end
   end
 end
 
@@ -402,5 +407,5 @@ setup({
   lspconfig,
 
   orgmode,
-  md_table,
+  markdown,
 })
