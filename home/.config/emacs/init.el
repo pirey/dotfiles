@@ -15,7 +15,7 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (fido-vertical-mode 1)
-(set-frame-font "Ioskeley Mono-15" nil t)
+(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
 (setq-default line-spacing 8)
 (setq-default truncate-lines t)
 (setq inhibit-startup-screen t)

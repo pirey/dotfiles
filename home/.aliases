@@ -30,7 +30,13 @@ alias sail='./vendor/bin/sail'
 alias rl='rlwrap --always-readline'
 
 alias v='nvim'
-alias e='emacs -nw'
+alias e='emacsclient -nw -a ""'
+alias ekill='emacsclient -e "(kill-emacs)"'
 alias ovim='NVIM_APPNAME=orgnvim nvim'
+
+ec() {
+    emacsclient -c -n -a "" "$@"
+    osascript -e 'tell application "Emacs" to activate' 2>/dev/null
+}
 
 # vim: ft=sh
