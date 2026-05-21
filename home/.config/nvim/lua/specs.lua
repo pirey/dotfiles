@@ -345,7 +345,7 @@ local orgmode = {
 local markdown = {
   src = "SCJangra/table-nvim",
   config = function()
-    require("table-nvim").setup({})
+    require("table-nvim").setup({ padd_column_separators = false })
   end,
 }
 
