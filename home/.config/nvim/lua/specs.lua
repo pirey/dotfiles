@@ -147,14 +147,10 @@ local lspconfig = {
 local neogit = {
   src = "NeogitOrg/neogit",
   config = function()
-    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "Neogit*",
-      group = vim.api.nvim_create_augroup("CustomNeogitAutocmd", { clear = true }),
-      callback = function()
-        vim.opt_local.cursorline = true
-      end,
+    require("neogit").setup({
+      graph_style = "unicode",
     })
+    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
   end,
 }
 local diffview = {
