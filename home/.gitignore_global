@@ -26,6 +26,7 @@ Session.vim
 .php-cs-fixer.cache
 .phpactor.json
 dump.rdb
+tinker_fiddle
 
 .env
 
