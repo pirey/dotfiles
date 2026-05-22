@@ -144,6 +144,19 @@ local lspconfig = {
     })
   end,
 }
+local neogit = {
+  src = "NeogitOrg/neogit",
+  config = function()
+    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "Neogit*",
+      group = vim.api.nvim_create_augroup("CustomNeogitAutocmd", { clear = true }),
+      callback = function()
+        vim.opt_local.cursorline = true
+      end,
+    })
+  end,
+}
 local diffview = {
   src = "dlyongemallo/diffview.nvim",
   config = function()
@@ -153,7 +166,7 @@ local diffview = {
       default_args = { DiffviewFileHistory = { "--max-count=500", "--no-merges" } },
       file_panel = { listing_style = "list" },
     })
-    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
   end,
@@ -396,6 +409,7 @@ setup({
   blink_cmp,
 
   -- UI
+  neogit,
   diffview,
   oil,
   gitsigns,
