@@ -75,7 +75,7 @@
         evil-want-C-u-delete t
         evil-vsplit-window-right t)
   :config
-  (evil-mode -1)
+  (evil-mode 1)
   (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode diff-mode))
     (evil-set-initial-state mode 'emacs))
   (define-key evil-normal-state-map ";" 'evil-ex)
