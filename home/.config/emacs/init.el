@@ -1,70 +1,47 @@
 ;;; init.el --- Minimal Emacs config
-;; If a package fails to install, run M-x package-refresh-contents first
 ;; Requires Emacs 30+
 
-;;; UI
-
+;;; Theme
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 (load-theme 'nvim-dark t)
 
-;;;; Options
-
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (fido-vertical-mode 1)
-(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
-(setq-default line-spacing 8)
-(setq-default truncate-lines t)
-(setq inhibit-startup-screen t)
-(setq mouse-wheel-flip-direction t)
-(setq mouse-wheel-tilt-scroll t)
-(setq use-file-dialog nil)
-(setq confirm-kill-emacs nil)
-(setq ring-bell-function 'ignore)
-(setq scroll-error-top-bottom t)
 (xterm-mouse-mode 1)
-(setq auto-save-default nil)
-(setq make-backup-files nil)
+(editorconfig-mode 1)
+(setq-default line-spacing 8
+    truncate-lines t)
+(setq inhibit-startup-screen t
+    mouse-wheel-flip-direction t
+    mouse-wheel-tilt-scroll t
+    use-file-dialog nil
+    confirm-kill-emacs nil
+    ring-bell-function 'ignore
+    scroll-error-top-bottom t
+    auto-save-default nil
+    make-backup-files nil)
 
-;; Clipboard in TUI: use macOS pbcopy/pbpaste directly (most reliable)
+;; Clipboard in TUI
 (unless (display-graphic-p)
   (setq interprogram-cut-function
-        (lambda (text &optional _push)
-          (with-temp-buffer
-            (insert text)
-            (call-process-region (point-min) (point-max) "pbcopy"))))
+        (lambda (text &optional _)
+          (with-temp-buffer (insert text) (call-process-region (point-min) (point-max) "pbcopy"))))
   (setq interprogram-paste-function
         (lambda ()
-          (with-temp-buffer
-            (call-process "pbpaste" nil t)
-            (buffer-string)))))
-
+          (with-temp-buffer (call-process "pbpaste" nil t) (buffer-string)))))
 
 ;;; Package management
 
 (require 'package)
 (push '("melpa" . "https://melpa.org/packages/") package-archives)
-
-;; Enable package-quickstart for fast package loading
-(setq package-quickstart t)
-(package-initialize)
-
-;; Generate quickstart file on first run
-(when (and (not (file-exists-p package-quickstart-file))
-           (fboundp 'package-quickstart-refresh))
-  (package-quickstart-refresh))
-
 (require 'use-package)
 
 ;;; Editing
-
-(use-package editorconfig
-  :defer 1
-  :config
-  (editorconfig-mode 1))
 
 (use-package evil
   :ensure t
@@ -86,10 +63,7 @@
 
 (use-package evil-surround
   :ensure t
-  :config
-  (global-evil-surround-mode 1))
-
-;;; Completion
+  :init (global-evil-surround-mode 1))
 
 (use-package company
   :ensure t
@@ -97,13 +71,10 @@
   (company-idle-delay 0.2)
   (company-minimum-prefix-length 2)
   (company-tooltip-limit 10)
-  :config
-  (global-company-mode 1))
+  :init (global-company-mode 1))
 
 ;;; LSP
-
 (use-package eglot
-  :ensure nil
   :defer t
   :custom
   (eglot-autoshutdown t)
@@ -120,8 +91,7 @@
         (typescript-mode . ("vtsls" "--stdio"))
         (css-mode . ("css-languageserver" "--stdio"))))
 
-(dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook
-                css-mode-hook lua-mode-hook))
+(dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook css-mode-hook lua-mode-hook))
   (add-hook hook 'eglot-ensure))
 
 (setq flymake-fringe-indicator-position 'left-fringe
@@ -129,24 +99,10 @@
       flymake-suppress-zero-counters t)
 
 ;;; Programming modes
+(use-package php-mode :ensure t :mode "\\.php\\'")
+(use-package typescript-mode :ensure t :mode "\\.ts\\'")
 
-(dolist (mapping
-         '((js-mode . "\\.m?js\\'")
-           (css-mode . "\\.css\\'")
-           (c-mode . "\\.c\\'")))
-  (add-to-list 'auto-mode-alist (cons (cdr mapping) (car mapping))))
-
-(use-package php-mode
-  :ensure t
-  :mode "\\.php\\'")
-
-(use-package typescript-mode
-  :ensure t
-  :mode "\\.ts\\'")
-
-;; Derived mode for .tsx/.jsx so eglot sends "typescriptreact" to vtsls
-(define-derived-mode tsx-mode typescript-mode "TSX"
-  "Major mode for TSX/JSX files.")
+(define-derived-mode tsx-mode typescript-mode "TSX" "Major mode for TSX/JSX files.")
 (put 'tsx-mode 'eglot-language-id "typescriptreact")
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . tsx-mode))
@@ -154,41 +110,31 @@
 (use-package markdown-mode
   :ensure t
   :mode ("\\.md\\'" . markdown-mode)
-  :init
-  (setq markdown-command "pandoc"))
+  :init (setq markdown-command "pandoc"))
 
 ;;; Terminal
-
 (use-package eat
   :ensure t
   :commands (eat)
   :config
-  (eat-eshell-mode 1))
-
-(add-hook 'eat-mode-hook
-          (lambda ()
-            (evil-emacs-state)
-            (setq-local show-trailing-whitespace nil)))
+  (eat-eshell-mode 1)
+  (add-hook 'eat-mode-hook
+            (lambda ()
+              (evil-emacs-state)
+              (setq-local show-trailing-whitespace nil))))
 
 ;;; Git
-
 (use-package magit
   :ensure t
-  :commands (magit-status)
-  :config
-  (setq magit-diff-refine-hunk 'all
-        magit-log-arguments '("--no-graph" "-n256")))
+  :commands (magit-status))
 
 (use-package diff-hl
   :ensure t
   :config
-  ;; Start diff-hl after Emacs finishes loading
-  (add-hook 'emacs-startup-hook
-            (lambda ()
-              (global-diff-hl-mode 1)
-              (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))))
-;;; Org
+  (global-diff-hl-mode 1)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
+;;; Org
 (use-package org
   :defer t
   :config
@@ -209,11 +155,10 @@
            ((agenda "")
             (tags-todo "+TODO=\"TODO\""))
            ((org-agenda-files
-              (directory-files-recursively
-               "~/vault-org/projects/" "\\.org$")))))))
+             (directory-files-recursively
+              "~/vault-org/projects/" "\\.org$")))))))
 
 ;;; Keybindings
-
 (global-set-key (kbd "C-c t") #'eat)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
