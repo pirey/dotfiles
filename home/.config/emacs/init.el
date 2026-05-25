@@ -23,7 +23,7 @@
 ;; GUI only — applied to new frames (works with emacsclient daemon)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
-(add-to-list 'default-frame-alist '(line-spacing . 8))
+; (add-to-list 'default-frame-alist '(line-spacing . 8))
 
 (defun my-gui-setup (&optional frame)
     (when (display-graphic-p frame)
