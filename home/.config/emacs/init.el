@@ -20,13 +20,18 @@
     auto-save-default nil
     make-backup-files nil)
 
-;; GUI only
-(when (display-graphic-p)
-    (add-to-list 'default-frame-alist '(fullscreen . maximized))
-    (add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1)
-    (setq-default line-spacing 8))
+;; GUI only — applied to new frames (works with emacsclient daemon)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
+(add-to-list 'default-frame-alist '(line-spacing . 8))
+
+(defun my-gui-setup (&optional frame)
+    (when (display-graphic-p frame)
+        (with-selected-frame (or frame (selected-frame))
+            (tool-bar-mode -1)
+            (scroll-bar-mode -1))))
+(my-gui-setup)
+(add-hook 'after-make-frame-functions #'my-gui-setup)
 
 ;; TUI only
 (unless (display-graphic-p)
