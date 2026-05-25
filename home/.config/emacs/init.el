@@ -106,7 +106,12 @@
 
 ;;; Formatting
 (use-package apheleia
-    :ensure t)
+    :ensure t
+    :config
+    (setf (alist-get 'php-cs-fixer apheleia-formatters)
+          '("sh" "-c"
+            "tmp=$(mktemp); cat >\"$tmp\"; php-cs-fixer fix --quiet \"$tmp\"; cat \"$tmp\"; rm \"$tmp\""))
+    (setf (alist-get 'php-mode apheleia-mode-alist) '(php-cs-fixer)))
 
 ;;; Programming modes
 (use-package php-mode :ensure t :mode "\\.php\\'")
