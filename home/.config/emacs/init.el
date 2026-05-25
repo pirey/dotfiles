@@ -47,6 +47,8 @@
 
 (require 'package)
 (push '("melpa" . "https://melpa.org/packages/") package-archives)
+(setq package-quickstart t)
+(package-initialize)
 (require 'use-package)
 
 ;;; Editing
