@@ -88,7 +88,6 @@
     (eglot-send-changes-idle-time 0.5)
     :config
     (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
-    (define-key eglot-mode-map (kbd "C-c f") #'eglot-format-buffer)
     (define-key eglot-mode-map (kbd "C-c r") #'xref-find-references))
 
 (setq eglot-server-programs
@@ -104,6 +103,10 @@
 (setq flymake-fringe-indicator-position 'left-fringe
     flymake-show-diagnostics-at-end-of-line nil
     flymake-suppress-zero-counters t)
+
+;;; Formatting
+(use-package apheleia
+    :ensure t)
 
 ;;; Programming modes
 (use-package php-mode :ensure t :mode "\\.php\\'")
@@ -137,8 +140,7 @@
     :ensure t
     :commands (magit-status)
     :config
-    (setq magit-diff-refine-hunk 'all
-        magit-log-arguments '("--no-graph" "-n256")))
+    (setq magit-log-arguments '("--no-graph" "-n256")))
 
 (use-package diff-hl
     :ensure t
@@ -175,6 +177,7 @@
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
 (global-set-key (kbd "C-c i") #'imenu)
+(global-set-key (kbd "C-c f") #'apheleia-format-buffer)
 (global-set-key (kbd "C-c d") #'flymake-show-buffer-diagnostics)
 (global-set-key (kbd "C-c D") #'flymake-show-project-diagnostics)
 (global-set-key (kbd "C-c e") #'flymake-goto-next-error)
