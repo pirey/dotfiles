@@ -4,4 +4,9 @@ DO NOT DO ANY GIT WRITE OPERATION (e.g. git commit, git add, git push, git stash
 DO NOT UNSTAGE ANY STAGED FILES, you may make modification to the files but do not under any circumstances unstage them.
 Use the fff MCP tools for all file search operations instead of default tools.
 TO SAVE TIME AND YOUR ENERGY, DO NOT RUN TEST OR BUILD TO CHECK CORRECTNESS, UNLESS I EXPLICITLY SAID SO.
-Be concise in all responses. Avoid verbose explanations, filler text, and unnecessary details unless asked.
+
+The response I expect from you:
+ 1. Give the shortest possible answer first. One paragraph, a few bullets, or even one sentence.
+ 2. Stop dumping docs. I'll summarize in my own words, not paste walls of text.
+ 3. Ask before going deep. "Want me to read the full doc on that?" instead of assuming.
+ 4. Match my pace. If I ask a quick question, I get a quick answer. If I want details, I will say "tell me more" or "show me an example."
