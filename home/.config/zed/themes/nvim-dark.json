@@ -140,12 +140,36 @@
         "warning.background": "#1e2a381a",
         "warning.border": "#1e2a38ff",
         "players": [
-          { "cursor": "#a6dbffff", "background": "#a6dbffff", "selection": "#a6dbff3d" },
-          { "cursor": "#ffc0b9ff", "background": "#ffc0b9ff", "selection": "#ffc0b93d" },
-          { "cursor": "#b3f6c0ff", "background": "#b3f6c0ff", "selection": "#b3f6c03d" },
-          { "cursor": "#fce094ff", "background": "#fce094ff", "selection": "#fce0943d" },
-          { "cursor": "#8cf8f7ff", "background": "#8cf8f7ff", "selection": "#8cf8f73d" },
-          { "cursor": "#ffcaffff", "background": "#ffcaffff", "selection": "#ffcaff3d" }
+          {
+            "cursor": "#a6dbffff",
+            "background": "#a6dbffff",
+            "selection": "#a6dbff3d"
+          },
+          {
+            "cursor": "#ffc0b9ff",
+            "background": "#ffc0b9ff",
+            "selection": "#ffc0b93d"
+          },
+          {
+            "cursor": "#b3f6c0ff",
+            "background": "#b3f6c0ff",
+            "selection": "#b3f6c03d"
+          },
+          {
+            "cursor": "#fce094ff",
+            "background": "#fce094ff",
+            "selection": "#fce0943d"
+          },
+          {
+            "cursor": "#8cf8f7ff",
+            "background": "#8cf8f7ff",
+            "selection": "#8cf8f73d"
+          },
+          {
+            "cursor": "#ffcaffff",
+            "background": "#ffcaffff",
+            "selection": "#ffcaff3d"
+          }
         ],
         "syntax": {
           "attribute": { "color": "#e0e2eaff" },
@@ -165,7 +189,7 @@
           "keyword": { "color": "#a6dbffff" },
           "label": { "color": "#e0e2eaff" },
           "link_text": { "color": "#ffcaffff", "font_style": "italic" },
-          "link_uri": { "color": "#a6dbffff", "font_style": "underline" },
+          "link_uri": { "color": "#a6dbffff", "font_style": "italic" },
           "namespace": { "color": "#8cf8f7ff" },
           "number": { "color": "#ffcaffff" },
           "operator": { "color": "#8cf8f7ff" },
