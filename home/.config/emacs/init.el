@@ -23,7 +23,6 @@
 ;; GUI only — applied to new frames (works with emacsclient daemon)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(font . "Ioskeley Mono-15"))
-; (add-to-list 'default-frame-alist '(line-spacing . 8))
 
 (defun my-gui-setup (&optional frame)
     (when (display-graphic-p frame)
@@ -62,7 +61,8 @@
         evil-vsplit-window-right t)
     :config
     (evil-mode 1)
-    (dolist (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode diff-mode))
+    (dolist
+        (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode diff-mode vterm-mode))
         (evil-set-initial-state mode 'emacs))
     (define-key evil-normal-state-map ";" 'evil-ex)
     (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
@@ -111,8 +111,8 @@
     :ensure t
     :config
     (setf (alist-get 'php-cs-fixer apheleia-formatters)
-          '("sh" "-c"
-            "tmp=$(mktemp); cat >\"$tmp\"; php-cs-fixer fix --quiet \"$tmp\"; cat \"$tmp\"; rm \"$tmp\""))
+        '("sh" "-c"
+             "tmp=$(mktemp); cat >\"$tmp\"; php-cs-fixer fix --quiet \"$tmp\"; cat \"$tmp\"; rm \"$tmp\""))
     (setf (alist-get 'php-mode apheleia-mode-alist) '(php-cs-fixer)))
 
 ;;; Programming modes
@@ -130,17 +130,16 @@
     :init (setq markdown-command "pandoc"))
 
 ;;; Terminal
-(use-package eat
+(use-package vterm
     :ensure t
-    :commands (eat)
+    :commands (vterm)
     :config
-    (setq eat-kill-buffer-on-exit t)
-    (add-hook 'eat-mode-hook
+    (setq vterm-kill-buffer-on-exit t)
+    (add-hook 'vterm-mode-hook
         (lambda ()
-            (evil-emacs-state)
             (setq-local show-trailing-whitespace nil)
-            (define-key eat-mode-map (kbd "C-h") 'eat-self-input)
-            (define-key eat-mode-map (kbd "C-u") 'eat-self-input))))
+            (define-key vterm-mode-map (kbd "C-h") 'vterm--self-insert)
+            (define-key vterm-mode-map (kbd "C-u") 'vterm--self-insert))))
 
 ;;; Git
 (use-package magit
@@ -180,7 +179,7 @@
                        "~/vault-org/projects/" "\\.org$")))))))
 
 ;;; Keybindings
-(global-set-key (kbd "C-c t") #'eat)
+(global-set-key (kbd "C-c t") #'vterm)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
 (global-set-key (kbd "C-c i") #'imenu)
