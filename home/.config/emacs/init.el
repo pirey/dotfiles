@@ -49,8 +49,7 @@
 (use-package evil
     :ensure t
     :init
-    (setq evil-want-integration t
-        evil-undo-system 'undo-redo
+    (setq evil-undo-system 'undo-redo
         evil-want-C-u-scroll t
         evil-want-C-u-delete t
         evil-vsplit-window-right t)
@@ -120,11 +119,13 @@
     :ensure t
     :commands (eat)
     :config
-    (eat-eshell-mode 1)
+    (setq eat-kill-buffer-on-exit t)
     (add-hook 'eat-mode-hook
         (lambda ()
             (evil-emacs-state)
-            (setq-local show-trailing-whitespace nil))))
+            (setq-local show-trailing-whitespace nil)
+            (define-key eat-mode-map (kbd "C-h") 'eat-self-input)
+            (define-key eat-mode-map (kbd "C-u") 'eat-self-input))))
 
 ;;; Git
 (use-package magit
