@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "project_panel": {
     "dock": "left"
   },
@@ -28,7 +33,11 @@
     "provider": "none",
   },
   "buffer_font_family": "Ioskeley Mono",
-  "theme": "Nightfox",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Nvim Dark"
+  },
   "title_bar": {
     "show_sign_in": false,
   },

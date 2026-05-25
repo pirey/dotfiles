@@ -10,32 +10,34 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-    }
+    },
   },
   {
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-m": "editor::Newline",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-tab": "pane::ActivateNextItem"
-    }
+      "ctrl-tab": "pane::ActivateNextItem",
+    },
   },
   {
     "context": "vim_mode == normal",
     "bindings": {
       ";": "command_palette::Toggle",
-      ":": "vim::RepeatFind"
-    }
+      ":": "vim::RepeatFind",
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-tab": "pane::ActivateNextItem"
-    }
+      "ctrl-tab": "pane::ActivateNextItem",
+    },
   },
   {
+    "context": "Workspace",
     "bindings": {
       "cmd-alt-o": [
         "agent::NewExternalAgentThread",
@@ -45,12 +47,12 @@
               "name": "OpenCode",
               "command": {
                 "command": "opencode",
-                "args": ["acp"]
-              }
-            }
-          }
-        }
-      ]
-    }
-  }
+                "args": ["acp"],
+              },
+            },
+          },
+        },
+      ],
+    },
+  },
 ]
