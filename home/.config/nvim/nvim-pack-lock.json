@@ -10,11 +10,11 @@
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
-      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "cf217dd5c8a2b6d3c90c6d07c446c9fcac614870",
+      "rev": "e4871fdf697057e036690d6ad9ebba334711cfb6",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "orgmode": {
-      "rev": "cef81ff232f13f39e556be0a13e6b1f0bb64ea85",
+      "rev": "4f02f19b3c9a740828befb51c3d33b3be7aa2e2b",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "table-nvim": {
