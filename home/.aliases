@@ -31,6 +31,7 @@ alias rl='rlwrap --always-readline'
 
 alias v='nvim'
 alias e='emacsclient -nw -a ""'
+alias em='emacs -nw'
 alias ekill='emacsclient -e "(kill-emacs)"'
 alias ovim='NVIM_APPNAME=orgnvim nvim'
 
