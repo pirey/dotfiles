@@ -21,6 +21,7 @@
   },
   "agent": {
     "dock": "right",
+    "sidebar_side": "right",
     "favorite_models": [],
     "model_parameters": [],
   },
