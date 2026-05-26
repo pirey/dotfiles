@@ -149,6 +149,7 @@ local neogit = {
   config = function()
     require("neogit").setup({
       graph_style = "unicode",
+      disable_context_highlighting = true,
     })
     vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
   end,
