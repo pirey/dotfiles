@@ -133,7 +133,9 @@
 ;;; Git
 (use-package magit
     :ensure t
-    :commands (magit-status))
+    :commands (magit-status)
+    :config
+    (setq magit-diff-highlight-hunk-body nil))
 
 ;;; Keybindings
 (global-set-key (kbd "C-c SPC") #'set-mark-command)
