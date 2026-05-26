@@ -52,28 +52,6 @@
 
 ;;; Editing
 
-(use-package evil
-    :ensure t
-    :init
-    (setq evil-undo-system 'undo-redo
-        evil-want-C-u-scroll t
-        evil-want-C-u-delete t
-        evil-vsplit-window-right t)
-    :config
-    (evil-mode 1)
-    (dolist
-        (mode '(xref--xref-buffer-mode Buffer-menu-mode dired-mode flymake-diagnostics-buffer-mode diff-mode vterm-mode))
-        (evil-set-initial-state mode 'emacs))
-    (define-key evil-normal-state-map ";" 'evil-ex)
-    (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
-    (define-key evil-visual-state-map ";" 'evil-ex)
-    (define-key evil-visual-state-map ":" 'evil-repeat-find-char)
-    (define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char))
-
-(use-package evil-surround
-    :ensure t
-    :init (global-evil-surround-mode 1))
-
 (use-package company
     :ensure t
     :custom
