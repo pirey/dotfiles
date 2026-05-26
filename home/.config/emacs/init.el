@@ -136,6 +136,7 @@
     :commands (magit-status))
 
 ;;; Keybindings
+(global-set-key (kbd "C-c SPC") #'set-mark-command)
 (global-set-key (kbd "C-c t") #'vterm)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c g") #'magit-status)
