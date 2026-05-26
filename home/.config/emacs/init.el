@@ -50,16 +50,6 @@
 (package-initialize)
 (require 'use-package)
 
-;;; Editing
-
-(use-package company
-    :ensure t
-    :custom
-    (company-idle-delay 0.2)
-    (company-minimum-prefix-length 2)
-    (company-tooltip-limit 10)
-    :init (global-company-mode 1))
-
 ;;; LSP
 (use-package eglot
     :defer t
