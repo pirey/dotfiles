@@ -112,39 +112,7 @@
 ;;; Git
 (use-package magit
     :ensure t
-    :commands (magit-status)
-    :config
-    (setq magit-log-arguments '("--no-graph" "-n256")))
-
-(use-package diff-hl
-    :ensure t
-    :config
-    (global-diff-hl-mode 1)
-    (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
-
-;;; Org
-(use-package org
-    :defer t
-    :config
-    (setq org-use-property-inheritance nil
-        org-log-done nil
-        org-adapt-indentation nil
-        org-deadline-warning-days 3
-        org-agenda-span 1
-        org-todo-keywords '((sequence "TODO" "STARTED" "|" "DONE"))
-        org-default-notes-file "~/org/tasks.org"
-        org-agenda-files (append
-                             (directory-files "~/org/" t "\\.org$")
-                             (directory-files-recursively "~/vault-org/projects/" "\\.org$"))
-        org-capture-templates
-        '(("n" "Note" entry (file "~/org/inbox.org") "* %?\n  %u"))
-        org-agenda-custom-commands
-        '(("p" "Projects Agenda"
-              ((agenda "")
-                  (tags-todo "+TODO=\"TODO\""))
-              ((org-agenda-files
-                   (directory-files-recursively
-                       "~/vault-org/projects/" "\\.org$")))))))
+    :commands (magit-status))
 
 ;;; Keybindings
 (global-set-key (kbd "C-c t") #'vterm)
