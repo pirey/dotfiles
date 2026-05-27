@@ -135,7 +135,8 @@
     :ensure t
     :commands (magit-status)
     :config
-    (setq magit-diff-highlight-hunk-body nil))
+    (setq magit-diff-highlight-hunk-body nil
+        magit-diff-refine-hunk 'all))
 
 ;;; Keybindings
 (global-set-key (kbd "C-c SPC") #'set-mark-command)
