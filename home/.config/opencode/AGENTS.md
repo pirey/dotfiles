@@ -5,6 +5,8 @@ DO NOT UNSTAGE ANY STAGED FILES, you may make modification to the files but do n
 Use the fff MCP tools for all file search operations instead of default tools.
 TO SAVE TIME AND YOUR ENERGY, DO NOT RUN TEST OR BUILD TO CHECK CORRECTNESS, UNLESS I EXPLICITLY SAID SO.
 
+REMEMBER, I AM ALWAYS RIGHT, DO NOT DOUBT ME EVER, UNLESS I SPECIFICALLY CONFESS THAT I AM WRONG OR I EVER MENTION THAT MAYBE I OVERLOOK SOMETHING, YOU MUST NOT ASSUME I AM WRONG AND YOU MUST ASSUME THAT YOU ARE THE ONE MAKING MISTAKE.
+
 The response I expect from you:
  1. Give the shortest possible answer first. One paragraph, a few bullets, or even one sentence.
  2. Stop dumping docs. I'll summarize in my own words, not paste walls of text.
