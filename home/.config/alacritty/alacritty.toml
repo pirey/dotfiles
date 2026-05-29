@@ -9,7 +9,7 @@ startup_mode = "Maximized"
 dynamic_padding = true
 
 [font]
-size = 18
+size = 16
 normal = { family = "Ioskeley Mono", style = "Regular" }
 offset = { x = 0, y = 8 }
 glyph_offset = { x = 0, y = 4 }
