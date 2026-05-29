@@ -152,6 +152,13 @@ local neogit = {
       disable_context_highlighting = true,
     })
     vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      group = augroup,
+      pattern = { "NeogitStatus", "NeogitLogView", "NeogitCommitView" },
+      callback = function()
+        vim.wo.cursorline = true
+      end
+    })
   end,
 }
 local diffview = {
