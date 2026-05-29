@@ -11,12 +11,13 @@ dynamic_padding = true
 [font]
 size = 16
 normal = { family = "Ioskeley Mono", style = "Regular" }
-offset = { x = 0, y = 8 }
-glyph_offset = { x = 0, y = 4 }
+# offset = { x = 0, y = 4 }
+# glyph_offset = { x = 0, y = 2 }
 
 [keyboard]
 bindings = [
 { key = "Space", mods = "Control", chars = "\u0000" },
 { key = "Key6", mods = "Control", chars = "\u001e" },
+# (MacOS)
 { key = "F", mods = "Command|Control", action = "ToggleSimpleFullscreen" }
 ]
