@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "bccf829022a0e6c4def8ad2de03a9900a4aa8e07",
+      "rev": "06685829495ac5d7367a0693ef02ef0d6b97fda0",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mason.nvim": {
-      "rev": "bb639d4bf385a4d89f478b83af4d770be05ab7eb",
+      "rev": "16ba83bfc8a25f52bb545134f5bee082b195c460",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
