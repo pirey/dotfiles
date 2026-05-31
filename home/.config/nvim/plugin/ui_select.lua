@@ -37,6 +37,7 @@ vim.ui.select = function(items, opts, on_choice)
   })
 
   vim.wo[win].cursorline = true
+  vim.wo[win].cursorlineopt = "both"
   vim.wo[win].number = false
   vim.wo[win].signcolumn = "no"
 
