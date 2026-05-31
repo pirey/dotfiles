@@ -196,8 +196,8 @@ local gitsigns = {
         end
 
         -- stylua: ignore start
-        map("n", "]g", function() gs.nav_hunk("next") end, "Next Hunk")
-        map("n", "[g", function() gs.nav_hunk("prev") end, "Prev Hunk")
+        map("n", "]g", function() gs.nav_hunk("next", { target = "all" }) end, "Next Hunk")
+        map("n", "[g", function() gs.nav_hunk("prev", { target = "all" }) end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
         map("n", "<leader>ghq", gs.setqflist, "Add hunks to qflist")
@@ -297,28 +297,14 @@ local orgmode = {
   src = "nvim-orgmode/orgmode",
   config = function()
     require("orgmode").setup({
+      mappings = { org = { org_toggle_checkbox = "<leader>o<tab>" } },
+      win_split_mode = "tabnew",
       org_use_property_inheritance = false,
-      hyperlinks = { sources = {} },
-      mappings = {
-        org = {
-          org_toggle_checkbox = "<leader>o<tab>", -- <c-space> is reserved for tmux prefix
-        },
-      },
-      win_split_mode = "vertical",
       org_agenda_files = { "~/org/**/*", "~/vault-org/**/*" },
-      org_default_notes_file = "~/org/tasks.org",
+      org_default_notes_file = "~/org/inbox.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE", "INVALID" },
       org_agenda_span = "day",
       org_log_done = false,
-      org_adapt_indentation = false,
-      org_deadline_warning_days = 3,
-      org_capture_templates = {
-        n = {
-          description = "Note",
-          template = "* %?\n  %u",
-          target = "~/org/inbox.org",
-        },
-      },
       org_agenda_custom_commands = {
         p = {
           description = "Projects Agenda",
@@ -326,13 +312,12 @@ local orgmode = {
             {
               type = "agenda",
               org_agenda_overriding_header = "Projects Agenda",
-              org_agenda_files = { "~/vault-org/projects/**/*" }, -- Can define files outside of the default org_agenda_files
+              org_agenda_files = { "~/vault-org/projects/**/*" },
             },
             {
               type = "tags_todo",
               org_agenda_overriding_header = "Project TODO",
               org_agenda_files = { "~/vault-org/projects/**/*" },
-              -- org_agenda_tag_filter_preset = 'NOTES-REFACTOR' -- Show only headlines with NOTES tag that does not have a REFACTOR tag. Same value providad as when pressing `/` in the Agenda view
             },
           },
         },
@@ -340,16 +325,6 @@ local orgmode = {
     })
     vim.keymap.set("n", "<leader>oc", "<cmd>Org capture<cr>", { silent = true })
     vim.keymap.set("n", "<leader>oa", "<cmd>Org agenda<cr>", { silent = true })
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "orgagenda",
-      callback = function()
-        local win = vim.fn.win_getid()
-        vim.wo[win].cursorline = true
-        vim.wo[win].cursorlineopt = "both"
-        vim.wo[win].signcolumn = "yes"
-        vim.wo[win].number = false
-      end,
-    })
   end,
 }
 local markdown = {
