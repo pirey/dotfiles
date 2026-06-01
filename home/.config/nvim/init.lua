@@ -20,7 +20,12 @@ vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
 -- navigation
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
 vim.keymap.set("c", "<C-k>", "<Up>", { noremap = true })
-vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n><C-w><C-w>]], {
+vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-\>]], [[<c-\><c-n>]], {
+  silent = true,
+  noremap = true,
+  desc = "Enter terminal normal mode",
+})
+vim.keymap.set({ "n", "i", "t" }, [[<C-\>w]], [[<c-\><c-n><C-w><C-w>]], {
   silent = true,
   noremap = true,
   desc = "Alternate window",
