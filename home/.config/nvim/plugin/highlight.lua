@@ -1,6 +1,7 @@
 local function set_hl()
-  -- stylua: ignore
-  if vim.g.colors_name ~= nil then return end
+  if vim.g.colors_name ~= nil then
+    return
+  end
 
   if vim.o.background == "dark" then
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NvimDarkGrey3" })

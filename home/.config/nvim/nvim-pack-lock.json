@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "06685829495ac5d7367a0693ef02ef0d6b97fda0",
+      "rev": "1ff9593c4286b78bc42fffbb7b7220173904d963",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "orgmode": {
-      "rev": "4f02f19b3c9a740828befb51c3d33b3be7aa2e2b",
+      "rev": "b6be30158f3471c71cf1d8e51ceb0c9df53f23e2",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "table-nvim": {
