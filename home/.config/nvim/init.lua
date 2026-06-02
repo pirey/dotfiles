@@ -36,6 +36,12 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-u>]], [[<c-\><c-n><C-u>]], {
   desc = "Scroll Up",
 })
 
+-- helix keymap
+vim.keymap.set("n", "gh", "0")
+vim.keymap.set("n", "gl", "$")
+vim.keymap.set("n", "ge", "G")
+vim.keymap.set("n", "ga", "<cmd>b#<cr>")
+
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 
