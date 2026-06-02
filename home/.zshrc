@@ -63,3 +63,6 @@ fi
 
 # opencode
 export PATH=/Users/yeri/.opencode/bin:$PATH
+
+# go
+export PATH=$PATH:$HOME/go/bin

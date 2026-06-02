@@ -20,6 +20,7 @@ local mason = {
       "php-cs-fixer",
       "blade-formatter",
       "stylua",
+      "gopls",
     }
 
     for _, tool in ipairs(ensure_installed) do
@@ -128,6 +129,7 @@ local lspconfig = {
       "tailwindcss",
       "vtsls",
       "cssls",
+      "gopls",
     })
 
     -- disable semantic highlight
@@ -276,6 +278,7 @@ local conform = {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
+        go = { "gofmt" },
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
