@@ -24,4 +24,12 @@ function rund() {
     "$HOME/dotfiles/scripts/rund.sh" "$@"
 }
 
+nv() {
+    if [ -n "$NVIM" ]; then
+        nvim --server "$NVIM" --remote "$1"
+    else
+        nvim "$1"
+    fi
+}
+
 # vim: ft=sh
