@@ -50,6 +50,11 @@
 (package-initialize)
 (require 'use-package)
 
+(use-package viper
+    :init
+    (setq viper-mode t)
+    (setq viper-expert-level 4))
+
 ;;; LSP
 (use-package eglot
     :defer t
