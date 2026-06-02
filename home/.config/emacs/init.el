@@ -22,7 +22,7 @@
 
 ;; GUI only — applied to new frames (works with emacsclient daemon)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-16"))
+(add-to-list 'default-frame-alist '(font . "Ioskeley Mono-14"))
 
 (defun my-gui-setup (&optional frame)
     (when (display-graphic-p frame)
@@ -121,6 +121,7 @@
 (global-set-key (kbd "C-c SPC") #'set-mark-command)
 (global-set-key (kbd "C-c t") #'vterm)
 (global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 (global-set-key (kbd "C-c g") #'magit-status)
 (global-set-key (kbd "C-c i") #'imenu)
 (global-set-key (kbd "C-c f") #'apheleia-format-buffer)
