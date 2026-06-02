@@ -10,6 +10,7 @@ vim.o.pumheight = 10
 vim.o.splitright = true
 vim.o.tabclose = "left"
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
+vim.o.list = true
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
