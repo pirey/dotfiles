@@ -301,8 +301,7 @@ local orgmode = {
     require("orgmode").setup({
       mappings = { org = { org_toggle_checkbox = "<leader>o<tab>" } },
       win_split_mode = "tabnew",
-      org_use_property_inheritance = false,
-      org_agenda_files = { "~/org/**/*", "~/vault-org/**/*" },
+      org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
       org_default_notes_file = "~/org/inbox.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE", "INVALID" },
       org_agenda_span = "day",

@@ -42,7 +42,7 @@ vim.keymap.set({ "n", "v" }, "gh", "0")
 vim.keymap.set({ "n" }, "gl", "$")
 vim.keymap.set({ "v" }, "gl", "$h")
 vim.keymap.set({ "n", "v" }, "ge", "G")
-vim.keymap.set({ "n", "v" }, "mm", "%")
+vim.keymap.set({ "n", "x" }, "mm", "%")
 vim.keymap.set("n", "ga", "<cmd>b#<cr>")
 
 vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
