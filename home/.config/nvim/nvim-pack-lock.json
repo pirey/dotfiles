@@ -46,7 +46,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "orgmode": {
-      "rev": "b6be30158f3471c71cf1d8e51ceb0c9df53f23e2",
+      "rev": "5f7fbf738c500f6cdd15f0353e7fe2ad5e5f7a35",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "table-nvim": {
