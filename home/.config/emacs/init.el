@@ -65,9 +65,10 @@
          (js-mode . ("vtsls" "--stdio"))
          (tsx-mode . ("vtsls" "--stdio"))
          (typescript-mode . ("vtsls" "--stdio"))
-         (css-mode . ("css-languageserver" "--stdio"))))
+         (css-mode . ("css-languageserver" "--stdio"))
+         (go-mode . ("gopls"))))
 
-(dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook css-mode-hook lua-mode-hook))
+(dolist (hook '(php-mode-hook js-mode-hook typescript-mode-hook tsx-mode-hook css-mode-hook lua-mode-hook go-mode-hook))
     (add-hook hook 'eglot-ensure))
 
 (setq flymake-fringe-indicator-position 'left-fringe
@@ -86,6 +87,7 @@
 ;;; Programming modes
 (use-package php-mode :ensure t :mode "\\.php\\'")
 (use-package typescript-mode :ensure t :mode "\\.ts\\'")
+(use-package go-mode :ensure t :mode ("\\.go\\'" . go-mode))
 
 (define-derived-mode tsx-mode typescript-mode "TSX" "Major mode for TSX/JSX files.")
 (put 'tsx-mode 'eglot-language-id "typescriptreact")
