@@ -14,6 +14,7 @@ local mason = {
     local ensure_installed = {
       "lua-language-server",
       "prettier",
+      "prettierd",
       "tailwindcss-language-server",
       "vtsls",
       "phpactor",
@@ -42,7 +43,7 @@ local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
     local ts = require("nvim-treesitter")
-    local languages = { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff" }
+    local languages = { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff", "go" }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
       "javascriptreact",
