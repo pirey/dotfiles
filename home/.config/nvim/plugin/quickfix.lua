@@ -136,11 +136,9 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   pattern = "qf",
   callback = function()
-    local win = vim.fn.win_getid()
-    vim.wo[win].cursorline = true
-    vim.wo[win].cursorlineopt = "both"
-    vim.wo[win].signcolumn = "yes"
-    vim.wo[win].number = false
+    vim.cmd("setl cursorline cursorlineopt=both signcolumn=yes nonumber")
+
+    vim.keymap.set("n", "<CR>", "<CR><Cmd>cclose<CR>", { buf = 0, remap = true })
   end,
 })
 
