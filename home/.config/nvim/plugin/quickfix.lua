@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.cmd("setl cursorline cursorlineopt=both signcolumn=yes nonumber")
 
-    vim.keymap.set("n", "<leader><CR>", "<CR><Cmd>cclose<CR>", { buf = 0, remap = true })
+    vim.keymap.set("n", "<leader><CR>", "<CR><Cmd>cclose<CR><Cmd>lclose<CR>", { buf = 0, remap = true })
   end,
 })
 
