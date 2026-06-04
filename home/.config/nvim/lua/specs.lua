@@ -301,24 +301,33 @@ local orgmode = {
     require("orgmode").setup({
       mappings = { org = { org_toggle_checkbox = "<leader>o<tab>" } },
       win_split_mode = "tabnew",
-      org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
       org_default_notes_file = "~/org/inbox.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE", "INVALID" },
-      org_agenda_span = "day",
       org_log_done = false,
+      org_agenda_span = "day",
+      org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
       org_agenda_custom_commands = {
+        l = {
+          description = "All Items",
+          types = {
+            {
+              type = "tags",
+              org_agenda_overriding_header = "All Items",
+            }
+          }
+        },
         p = {
           description = "Projects Agenda",
           types = {
             {
               type = "agenda",
               org_agenda_overriding_header = "Projects Agenda",
-              org_agenda_files = { "~/vault-org/projects/**/*" },
+              org_agenda_files = { "~/vault-org/projects/**/*.org" },
             },
             {
               type = "tags_todo",
               org_agenda_overriding_header = "Project TODO",
-              org_agenda_files = { "~/vault-org/projects/**/*" },
+              org_agenda_files = { "~/vault-org/projects/**/*.org" },
             },
           },
         },
@@ -326,6 +335,14 @@ local orgmode = {
     })
     vim.keymap.set("n", "<leader>oc", "<cmd>Org capture<cr>", { silent = true })
     vim.keymap.set("n", "<leader>oa", "<cmd>Org agenda<cr>", { silent = true })
+    vim.api.nvim_create_autocmd("FileType", {
+      group = augroup,
+      pattern = "orgagenda",
+      callback = function()
+        vim.notify("orgagenda autocmd run")
+        vim.cmd("setl cursorline")
+      end
+    })
   end,
 }
 local markdown = {
