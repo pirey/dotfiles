@@ -83,7 +83,7 @@ vim.api.nvim_create_user_command("GitPush", function(args)
       end
       vim.api.nvim_echo({}, false, {})
       if code == 0 then
-        vim.notify("pushed", vim.log.levels.INFO)
+        vim.notify("Pushed", vim.log.levels.INFO)
       else
         vim.notify(table.concat(stderr, "\n"), vim.log.levels.ERROR)
       end

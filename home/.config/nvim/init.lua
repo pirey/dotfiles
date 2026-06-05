@@ -60,6 +60,7 @@ vim.keymap.set("n", "<localleader>tt", "<cmd>tab sp | lcd %:h | term<cr>", { sil
 
 -- tabpage
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
+vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "]<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true })
