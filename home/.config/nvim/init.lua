@@ -11,6 +11,7 @@ vim.o.splitright = true
 vim.o.tabclose = "left"
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.list = true
+vim.o.confirm = true
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
@@ -45,9 +46,6 @@ vim.keymap.set({ "n", "v" }, "ge", "G")
 vim.keymap.set({ "n", "x" }, "mm", "%")
 vim.keymap.set("n", "ga", "<cmd>b#<cr>")
 
-vim.keymap.set("n", "<leader>z", "<cmd>confirm bd<cr>", { silent = true })
-vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
-
 -- terminal
 vim.keymap.set("n", "<leader>te", "<cmd>term<cr>", { silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>bot term<cr>", { silent = true })
@@ -61,6 +59,7 @@ vim.keymap.set("n", "<localleader>ts", "<cmd>below sp | lcd %:h | term<cr>", { s
 vim.keymap.set("n", "<localleader>tt", "<cmd>tab sp | lcd %:h | term<cr>", { silent = true })
 
 -- tabpage
+vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "]<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true })

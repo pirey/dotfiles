@@ -43,7 +43,8 @@ local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
     local ts = require("nvim-treesitter")
-    local languages = { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff", "go" }
+    local languages =
+      { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff", "go" }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
       "javascriptreact",
@@ -307,6 +308,9 @@ local orgmode = {
       org_log_done = false,
       org_agenda_span = "day",
       org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
+      org_agenda_time_grid = {
+        times = { 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400 },
+      },
       org_agenda_custom_commands = {
         l = {
           description = "All Items",
@@ -314,8 +318,8 @@ local orgmode = {
             {
               type = "tags",
               org_agenda_overriding_header = "All Items",
-            }
-          }
+            },
+          },
         },
         p = {
           description = "Projects Agenda",
@@ -342,7 +346,7 @@ local orgmode = {
       callback = function()
         vim.notify("orgagenda autocmd run")
         vim.cmd("setl cursorline")
-      end
+      end,
     })
   end,
 }
