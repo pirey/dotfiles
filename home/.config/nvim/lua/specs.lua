@@ -340,13 +340,6 @@ local orgmode = {
     })
   end,
 }
-local markdown = {
-  src = "SCJangra/table-nvim",
-  config = function()
-    require("table-nvim").setup({})
-  end,
-}
-
 local function setup(specs_ext)
   local specs = {}
   local configs = {}
@@ -405,5 +398,4 @@ setup({
   lspconfig,
 
   orgmode,
-  markdown,
 })
