@@ -59,12 +59,15 @@ end, { nargs = "*" })
 
 vim.api.nvim_create_user_command("GitPush", function(args)
   local stderr = {}
+  local remote = vim.split(args.args or "", "%s+")[1] or "origin"
+  local url = vim.trim(vim.fn.system("git remote get-url " .. remote .. " 2>/dev/null") or "")
   local timer = vim.uv.new_timer()
   if timer then
     local dots = 0
+    local msg = "Pushing to " .. (url ~= "" and url or remote)
     timer:start(0, 500, vim.schedule_wrap(function()
       dots = (dots % 3) + 1
-      vim.api.nvim_echo({ { "pushing" .. string.rep(".", dots), "MoreMsg" } }, false, {})
+      vim.api.nvim_echo({ { msg .. string.rep(".", dots), "MoreMsg" } }, false, {})
     end))
   end
   vim.fn.jobstart("git push " .. args.args, {
