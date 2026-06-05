@@ -59,7 +59,8 @@ end, { nargs = "*" })
 
 vim.api.nvim_create_user_command("GitPush", function(args)
   local stderr = {}
-  local remote = vim.split(args.args or "", "%s+")[1] or "origin"
+  local remote = vim.trim(vim.fn.matchstr(args.args, "\\S+"))
+  if remote == "" then remote = "origin" end
   local url = vim.trim(vim.fn.system("git remote get-url " .. remote .. " 2>/dev/null") or "")
   local timer = vim.uv.new_timer()
   if timer then
