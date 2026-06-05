@@ -148,16 +148,6 @@ local lspconfig = {
     })
   end,
 }
-local neogit = {
-  src = "NeogitOrg/neogit",
-  config = function()
-    require("neogit").setup({
-      graph_style = "unicode",
-      disable_context_highlighting = true,
-    })
-    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
-  end,
-}
 local diffview = {
   src = "dlyongemallo/diffview.nvim",
   config = function()
@@ -166,7 +156,7 @@ local diffview = {
       signs = { fold_closed = " ", fold_open = "+" },
       file_panel = { listing_style = "list" },
     })
-    vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
   end,
@@ -404,7 +394,6 @@ setup({
   blink_cmp,
 
   -- UI
-  neogit,
   diffview,
   oil,
   gitsigns,
