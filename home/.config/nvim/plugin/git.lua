@@ -59,12 +59,25 @@ end, { nargs = "*" })
 
 vim.api.nvim_create_user_command("GitPush", function(args)
   local stderr = {}
+  local timer = vim.uv.new_timer()
+  if timer then
+    local dots = 0
+    timer:start(0, 500, vim.schedule_wrap(function()
+      dots = (dots % 3) + 1
+      vim.api.nvim_echo({ { "pushing" .. string.rep(".", dots), "MoreMsg" } }, false, {})
+    end))
+  end
   vim.fn.jobstart("git push " .. args.args, {
     stderr_buffered = true,
     on_stderr = function(_, data)
       stderr = data
     end,
     on_exit = vim.schedule_wrap(function(_, code)
+      if timer then
+        timer:stop()
+        timer:close()
+      end
+      vim.api.nvim_echo({}, false, {})
       if code == 0 then
         vim.notify("pushed", vim.log.levels.INFO)
       else
