@@ -11,4 +11,11 @@ The response I expect from you:
  1. Give the shortest possible answer first. One paragraph, a few bullets, or even one sentence.
  2. Stop dumping docs. I'll summarize in my own words, not paste walls of text.
  3. Ask before going deep. "Want me to read the full doc on that?" instead of assuming.
- 4. Match my pace. If I ask a quick question, I get a quick answer. If I want details, I will say "tell me more" or "show me an example."
+  4. Match my pace. If I ask a quick question, I get a quick answer. If I want details, I will say "tell me more" or "show me an example."
+
+## Heartbeat for caffeinate
+
+Only activate when the current user message literally contains the word "caffeinate". Do not infer or carry over from previous messages.
+
+- When you start working (before making tool calls): `touch /tmp/opencode-active`
+- When work is finished (after all tool calls, before your final response): `rm -f /tmp/opencode-active`
