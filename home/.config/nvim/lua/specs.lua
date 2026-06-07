@@ -246,20 +246,14 @@ local blink_cmp = {
             enabled = false,
           },
         },
-        menu = {
-          draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind" } },
-          },
-        },
-        documentation = {
-          auto_show = true,
-        },
+        menu = { draw = { columns = { { "label", "label_description", gap = 1 }, { "kind" } } } },
+        documentation = { auto_show = true },
       },
       keymap = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      cmdline = { enabled = true, completion = { menu = { auto_show = true } } },
+      cmdline = { enabled = false },
     })
   end,
 }
