@@ -259,7 +259,7 @@ local blink_cmp = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      cmdline = { enabled = false },
+      cmdline = { enabled = true, completion = { menu = { auto_show = true } } },
     })
   end,
 }
