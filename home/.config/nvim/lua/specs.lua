@@ -267,6 +267,7 @@ local conform = {
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
         javascriptreact = { "prettierd", "prettier", stop_after_first = true },
