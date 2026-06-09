@@ -1,5 +1,7 @@
-local function set_hl()
-  if vim.g.colors_name ~= nil then
+local function set_hl(arg)
+  if arg and arg.event == "ColorScheme" and arg.match ~= "default" then
+    return
+  elseif vim.g.colors_name ~= nil then
     return
   end
 
