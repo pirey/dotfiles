@@ -319,6 +319,12 @@ local orgmode = {
               org_agenda_overriding_header = "Project TODO",
               org_agenda_files = { "~/vault-org/projects/**/*.org" },
             },
+            {
+              type = "tags",
+              match = "TODO=\"DONE\"",
+              org_agenda_overriding_header = "Project DONE",
+              org_agenda_files = { "~/vault-org/projects/**/*.org" },
+            },
           },
         },
       },
