@@ -30,7 +30,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mason.nvim": {
-      "rev": "3f24b4ac813d9814850043aa11f0c9cbb0d8c2b0",
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
