@@ -13,9 +13,9 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "diffview.nvim": {
+    "diffview-plus.nvim": {
       "rev": "318a75a8899cdb0894ca432bf471b466adf785d2",
-      "src": "https://github.com/dlyongemallo/diffview.nvim"
+      "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
@@ -32,6 +32,10 @@
     "mason.nvim": {
       "rev": "3f24b4ac813d9814850043aa11f0c9cbb0d8c2b0",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "neogit": {
+      "rev": "99326a1310fb2d616b455d2fd16d01bf00682f06",
+      "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-lspconfig": {
       "rev": "ed19590a3a9792901553c388d1aadafce012f80d",

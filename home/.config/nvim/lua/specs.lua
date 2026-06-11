@@ -148,15 +148,25 @@ local lspconfig = {
     })
   end,
 }
+local neogit = {
+  src = "NeogitOrg/neogit",
+  config = function()
+    require("neogit").setup({
+      graph_style = "unicode",
+      disable_context_highlighting = true,
+    })
+    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
+  end,
+}
 local diffview = {
-  src = "dlyongemallo/diffview.nvim",
+  src = "dlyongemallo/diffview-plus.nvim",
   config = function()
     require("diffview").setup({
       use_icons = false,
       signs = { fold_closed = " ", fold_open = "+" },
       file_panel = { listing_style = "list" },
     })
-    vim.keymap.set("n", "<leader>gg", "<cmd>DiffviewOpen<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
   end,
@@ -319,6 +329,11 @@ local orgmode = {
               org_agenda_overriding_header = "Project TODO",
               org_agenda_files = { "~/vault-org/projects/**/*.org" },
             },
+          },
+        },
+        d = {
+          description = "Projects DONE",
+          types = {
             {
               type = "tags",
               match = "TODO=\"DONE\"",
@@ -387,6 +402,7 @@ setup({
   blink_cmp,
 
   -- UI
+  neogit,
   diffview,
   oil,
   gitsigns,
