@@ -335,7 +335,6 @@ local orgmode = {
       group = augroup,
       pattern = "orgagenda",
       callback = function()
-        vim.notify("orgagenda autocmd run")
         vim.cmd("setl cursorline")
       end,
     })
