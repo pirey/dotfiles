@@ -30,7 +30,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mason.nvim": {
-      "rev": "16ba83bfc8a25f52bb545134f5bee082b195c460",
+      "rev": "3f24b4ac813d9814850043aa11f0c9cbb0d8c2b0",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "nvim-lspconfig": {
