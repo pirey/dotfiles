@@ -60,11 +60,14 @@ vim.keymap.set("n", "<localleader>ts", "<cmd>below sp | lcd %:h | term<cr>", { s
 vim.keymap.set("n", "<localleader>tt", "<cmd>tab sp | lcd %:h | term<cr>", { silent = true })
 
 -- tabpage
-vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "]<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true })
+
+-- etc
+vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
+vim.keymap.set("n", "<leader>X", "<cmd>confirm %bd<cr>", { silent = true })
 
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
