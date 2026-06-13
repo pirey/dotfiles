@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "318a75a8899cdb0894ca432bf471b466adf785d2",
+      "rev": "1551fc496c29e14ebd4cf04543549a59dfe5d0dc",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "friendly-snippets": {
@@ -38,7 +38,7 @@
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-lspconfig": {
-      "rev": "ed19590a3a9792901553c388d1aadafce012f80d",
+      "rev": "a683e0ddf0cf64c6cd689e18ffb480ade3c162b7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -46,7 +46,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "orgmode": {
-      "rev": "b1952f782d00f21f7f3701d83de44c6a40d52de5",
+      "rev": "c8e3d6c42f22c5fb52e30f50fa7f5f962c577097",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "treesj": {
