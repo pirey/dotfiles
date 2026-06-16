@@ -153,7 +153,7 @@ local diffview = {
   config = function()
     require("diffview").setup({
       use_icons = false,
-      signs = { fold_closed = " ", fold_open = "+" },
+      signs = { fold_closed = "❯", fold_open = "+" },
       file_panel = { listing_style = "list" },
     })
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
