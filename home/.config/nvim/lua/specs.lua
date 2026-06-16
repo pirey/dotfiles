@@ -159,6 +159,20 @@ local diffview = {
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
+    vim.api.nvim_create_autocmd("User", {
+      group = augroup,
+      pattern = "DiffviewViewOpened",
+      callback = function()
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          local ft = vim.bo[buf].filetype
+
+          if ft ~= "DiffviewFileHistory" and ft ~= "DiffviewFiles" then
+            vim.wo[win].wrap = true
+          end
+        end
+      end,
+    })
   end,
 }
 local oil = {
