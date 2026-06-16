@@ -18,6 +18,8 @@ vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
 vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
 vim.keymap.set("v", "<c-c>", '"+y', { silent = true, desc = "Copy to system clipboard" })
 vim.keymap.set("n", "gp", "`[v`]", { desc = "Select last pasted text" })
+vim.keymap.set({ "n", "v" }, "j", "gj")
+vim.keymap.set({ "n", "v" }, "k", "gk")
 
 -- navigation
 vim.keymap.set("c", "<C-j>", "<Down>", { noremap = true })
@@ -39,9 +41,9 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-u>]], [[<c-\><c-n><C-u>]], {
 })
 
 -- helix keymap
-vim.keymap.set({ "n", "v" }, "gh", "0")
-vim.keymap.set({ "n" }, "gl", "$")
-vim.keymap.set({ "v" }, "gl", "$h")
+vim.keymap.set({ "n", "v" }, "gh", "g0")
+vim.keymap.set({ "n" }, "gl", "g$")
+vim.keymap.set({ "v" }, "gl", "g$h")
 vim.keymap.set({ "n", "v" }, "ge", "G")
 vim.keymap.set({ "n", "x" }, "mm", "%", { remap = true })
 vim.keymap.set({ "x" }, "am", "a%", { remap = true })
