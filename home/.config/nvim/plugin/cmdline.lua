@@ -16,6 +16,17 @@ local function cmdsplit(mod)
     return "<c-b>" .. mod .. " " .. sprefix .. "<cr>"
   end
 end
+
+local function bufdelete()
+  local cmd = vim.fn.getcmdline()
+  local buf = cmd:match("^b (.+)$")
+  if buf then
+    vim.fn.setcmdline("bd " .. buf)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<cr>", true, false, true), "n", true)
+  end
+end
+
 vim.keymap.set("c", "<c-v>", cmdsplit("vert"), { silent = true, expr = true })
 vim.keymap.set("c", "<c-s>", cmdsplit("hor"), { silent = true, expr = true })
 vim.keymap.set("c", "<c-t>", cmdsplit("tab"), { silent = true, expr = true })
+vim.keymap.set("c", "<c-x>", bufdelete, { silent = true })
