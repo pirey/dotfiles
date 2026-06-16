@@ -20,10 +20,3 @@ The response I expect from you:
 4. Match my pace. If I ask a quick question, I get a quick answer. If I want details, I will say "tell me more" or "show me an example."
 
 You may read files ignored by vcs but do not make any modification because I will lose track of what happen. Instead, if the change requires modifying .env or similar files, you may inform me and I will make the adjustment manually. Unless, I specifically mention to you to do the thing.
-
-## Heartbeat for caffeinate
-
-Only activate when the current user message literally contains the word "caffeinate". Do not infer or carry over from previous messages.
-
-- When you start working (before making tool calls): `touch /tmp/opencode-active`
-- When work is finished (after all tool calls, before your final response): `rm -f /tmp/opencode-active`
