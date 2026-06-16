@@ -340,7 +340,7 @@ local orgmode = {
           types = {
             {
               type = "tags",
-              match = "TODO=\"DONE\"",
+              match = 'TODO="DONE"',
               org_agenda_overriding_header = "Project DONE",
               org_agenda_files = { "~/vault-org/projects/**/*.org" },
             },
