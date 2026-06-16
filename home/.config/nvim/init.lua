@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -11,6 +10,7 @@ vim.o.splitright = true
 vim.o.tabclose = "left"
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.list = true
+vim.o.showbreak = "↪ "
 vim.o.confirm = true
 
 -- normalize
