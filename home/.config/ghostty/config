@@ -3,12 +3,10 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
-theme = "Nightfox"
+theme = "Nvim Dark"
 
-font-family = Lilex
-font-size = 18
+font-family = Ioskeley Mono
 font-thicken = true
-adjust-cell-height = 8
 
 window-theme = "system"
 macos-titlebar-proxy-icon = "hidden"
