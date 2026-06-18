@@ -5,9 +5,15 @@ language-servers = ["typescript-language-server"]
 [[language]]
 name = "tsx"
 language-servers = ["typescript-language-server"]
-[language-server.phpactor]
-command = "phpactor"
-args = [ "language-server" ]
+
 [[language]]
 name = "php"
 language-servers = [ "phpactor" ]
+
+[language-server.phpactor]
+command = "phpactor"
+args = [ "language-server" ]
+
+[language-server.phpactor.config]
+"language_server.diagnostic_ignore_codes" = ["worse.docblock_missing_return_type", "worse.docblock_missing_param", "worse.missing_return_type"]
+
