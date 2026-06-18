@@ -40,8 +40,9 @@
 "ui.tabs" = { fg = "#ffffff", bg = "#1c1e24" }
 "ui.tabs.selected" = { fg = "#ffffff", bg = "#14161b" }
 
-"ui.highlight" = "#3a5a78"
+"ui.highlight" = { bg = "#3a5a78" }
 "ui.highlight.framebox" = "#4a6a88"
+"grep.match" = { fg = "#ffffff", bg = "#5a7a98" }
 
 "warning" = "#fce094"
 "error" = "#ffc0b9"
