@@ -1,0 +1,132 @@
+# Nvim Dark theme for Helix
+# Based on nvim_dark colorscheme from alacritty config
+
+"ui.background" = { bg = "#14161b" }
+"ui.foreground" = { fg = "#e0e2ea" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursor.normal" = { modifiers = ["reversed"] }
+"ui.cursor.insert" = { modifiers = ["reversed"] }
+"ui.cursor.select" = { modifiers = ["reversed"] }
+"ui.cursor.primary" = { modifiers = ["reversed"] }
+"ui.cursor.primary.normal" = { modifiers = ["reversed"] }
+"ui.cursor.primary.insert" = { modifiers = ["reversed"] }
+"ui.cursor.primary.select" = { modifiers = ["reversed"] }
+"ui.cursor.match" = "#3a4f68"
+"ui.linenr" = "#4f5258"
+"ui.linenr.selected" = "#e0e2ea"
+"ui.selection" = { bg = "#4f5258" }
+"ui.selection.primary" = { bg = "#5a5e68" }
+"ui.text" = "#e0e2ea"
+"ui.text.inactive" = "#6b6f7a"
+"ui.virtual.ruler" = "#2a2c34"
+"ui.virtual.whitespace" = "#4f5258"
+"ui.virtual.inlay-hint" = "#6b6f7a"
+"ui.menu" = { fg = "#e0e2ea", bg = "#1e2026" }
+"ui.menu.selected" = { fg = "#ffffff", bg = "#2a4a68", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "#6b6f7a", bg = "#4f5258" }
+"ui.popup" = { fg = "#e0e2ea", bg = "#1e2026" }
+"ui.background.separator" = "#2a2c34"
+"ui.picker.header" = { fg = "#a6dbff", bg = "#1c1e24", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "#a6dbff" }
+"ui.picker.header.column.active" = { fg = "#e0e2ea" }
+"ui.text.focus" = { fg = "#ffffff", bg = "#2a4a68" }
+"ui.window" = "#2a2c34"
+"ui.help" = "#1c1e24"
+"ui.statusline" = { fg = "#e0e2ea", bg = "#07080d" }
+"ui.statusline.inactive" = { fg = "#6b6f7a", bg = "#14161b" }
+"ui.statusline.separator" = "#4f5258"
+"ui.bufferline" = { fg = "#e0e2ea", bg = "#1c1e24" }
+"ui.bufferline.active" = { fg = "#e0e2ea", bg = "#14161b" }
+"ui.tabs" = { fg = "#e0e2ea", bg = "#1c1e24" }
+"ui.tabs.selected" = { fg = "#e0e2ea", bg = "#14161b" }
+
+"ui.highlight" = "#22262e"
+"ui.highlight.framebox" = "#2a2e38"
+
+"warning" = "#fce094"
+"error" = "#ffc0b9"
+"info" = "#a6dbff"
+"hint" = "#6b6f7a"
+
+"diagnostic.hint" = { underline = { color = "#6b6f7a", style = "curl" } }
+"diagnostic.info" = { underline = { color = "#a6dbff", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "#fce094", style = "curl" } }
+"diagnostic.error" = { underline = { color = "#ffc0b9", style = "curl" } }
+
+"markup.heading.1" = { fg = "#a6dbff", modifiers = ["bold"] }
+"markup.heading.2" = "#8cf8f7"
+"markup.heading.3" = "#fce094"
+"markup.heading.4" = "#ffcaff"
+"markup.heading.5" = "#8cf8f7"
+"markup.heading.6" = "#b3f6c0"
+"markup.list" = "#e0e2ea"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "#a6dbff", modifiers = ["italic", "underlined"] }
+"markup.link.text" = { fg = "#ffcaff", modifiers = ["italic"] }
+"markup.quote" = "#b3f6c0"
+"markup.raw" = "#b3f6c0"
+"markup.raw.inline" = "#b3f6c0"
+
+"comment" = { fg = "#6b6f7a", modifiers = ["italic"] }
+
+"constant" = "#ffcaff"
+"constant.builtin" = "#ffcaff"
+"constant.character.escape" = "#8cf8f7"
+
+"constructor" = "#8cf8f7"
+
+"diff.plus" = "#b3f6c0"
+"diff.minus" = "#ffc0b9"
+"diff.delta" = "#fce094"
+
+"function" = "#fce094"
+"function.builtin" = "#fce094"
+"function.method" = "#fce094"
+"function.macro" = "#fce094"
+
+"keyword" = "#a6dbff"
+"keyword.control" = "#a6dbff"
+"keyword.control.conditional" = "#a6dbff"
+"keyword.control.repeat" = "#a6dbff"
+"keyword.control.return" = "#a6dbff"
+"keyword.control.exception" = "#a6dbff"
+"keyword.directive" = "#a6dbff"
+"keyword.function" = "#a6dbff"
+"keyword.operator" = "#8cf8f7"
+"keyword.storage" = "#a6dbff"
+
+"label" = "#e0e2ea"
+
+"namespace" = "#8cf8f7"
+
+"number" = "#ffcaff"
+
+"operator" = "#8cf8f7"
+
+"parameter" = "#e0e2ea"
+
+"property" = "#e0e2ea"
+
+"punctuation" = "#e0e2ea"
+"punctuation.delimiter" = "#e0e2ea"
+"punctuation.bracket" = "#e0e2ea"
+"punctuation.special" = "#fce094"
+
+"string" = "#b3f6c0"
+"string.regexp" = "#fce094"
+"string.special" = "#b3f6c0"
+"string.special.symbol" = "#ffcaff"
+
+"tag" = "#fce094"
+"tag.attribute" = "#e0e2ea"
+"tag.delimiter" = "#6b6f7a"
+
+"type" = "#8cf8f7"
+"type.builtin" = "#8cf8f7"
+"type.enum" = "#8cf8f7"
+
+"variable" = "#e0e2ea"
+"variable.builtin" = "#e0e2ea"
+"variable.member" = "#e0e2ea"
+"variable.parameter" = "#e0e2ea"

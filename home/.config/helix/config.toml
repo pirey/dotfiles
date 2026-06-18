@@ -1,6 +1,10 @@
-theme = "nightfox"
+theme = "nvim_dark"
 
 [editor]
+popup-border = "all"
+
+[editor.file-picker]
+hidden = false
 
 [keys.normal]
 ";" = "command_mode"

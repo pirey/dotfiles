@@ -17,10 +17,6 @@
       "rev": "c65ddb4724cc772a77e9eca1478bff451867b2e2",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
-    "friendly-snippets": {
-      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
-      "src": "https://github.com/rafamadriz/friendly-snippets"
-    },
     "gitsigns.nvim": {
       "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
