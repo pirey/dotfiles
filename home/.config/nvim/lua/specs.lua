@@ -93,7 +93,10 @@ local lspconfig = {
         },
       },
     })
-
+    vim.lsp.config("sourcekit", {
+      cmd = { "xcrun", "sourcekit-lsp" },
+      filetypes = { "swift" },
+    })
     vim.lsp.config("phpactor", {
       init_options = {
         ["language_server.diagnostic_ignore_codes"] = {
@@ -126,6 +129,7 @@ local lspconfig = {
     vim.lsp.document_color.enable(true, {}, { style = "virtual" })
 
     vim.lsp.enable({
+      "sourcekit",
       "lua_ls",
       "phpactor",
       "tailwindcss",
@@ -276,6 +280,7 @@ local conform = {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
+        swift = { "swiftformat" },
         go = { "gofmt" },
         lua = { "stylua" },
         php = { "php_cs_fixer" },
