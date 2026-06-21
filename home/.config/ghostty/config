@@ -5,7 +5,7 @@
 
 theme = "Nvim Dark"
 
-font-family = Ioskeley Mono
+# font-family = Ioskeley Mono
 font-thicken = true
 
 window-theme = "system"
