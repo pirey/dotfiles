@@ -5,6 +5,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "blink.indent": {
+      "rev": "8b69b9262891fe81fe728fe6a52fa2a84dd5d5e0",
+      "src": "https://github.com/saghen/blink.indent"
+    },
     "canola.nvim": {
       "rev": "b6e41f866ae01a1f14e73fd1f57317a15020987a",
       "src": "https://github.com/barrettruth/canola.nvim"

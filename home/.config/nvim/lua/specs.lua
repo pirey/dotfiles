@@ -274,6 +274,22 @@ local blink_cmp = {
     })
   end,
 }
+local blink_indent = {
+  src = "saghen/blink.indent",
+  config = function()
+    require("blink.indent").setup({
+      static = {
+        char = "┊",
+      },
+      scope = {
+        char = "│",
+        highlights = {
+          "BlinkIndentScope",
+        },
+      },
+    })
+  end,
+}
 local conform = {
   src = "stevearc/conform.nvim",
   dependencies = { { src = "mason-org/mason.nvim" } },
@@ -408,6 +424,7 @@ setup({
   treesj,
   conform,
   blink_cmp,
+  blink_indent,
 
   -- UI
   diffview,
