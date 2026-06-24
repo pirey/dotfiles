@@ -13,6 +13,9 @@ vim.o.list = true
 vim.o.showbreak = "↪ "
 vim.o.confirm = true
 
+vim.o.number = true
+vim.o.cursorline = true
+
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
 vim.keymap.set({ "n", "v" }, ":", ";", { desc = "Swap : with ;" })
