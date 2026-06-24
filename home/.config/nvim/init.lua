@@ -15,6 +15,10 @@ vim.o.confirm = true
 
 vim.o.number = true
 vim.o.cursorline = true
+vim.o.foldmethod = "indent"
+vim.o.foldlevelstart = 99
+
+vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
