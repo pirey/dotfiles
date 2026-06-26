@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -17,8 +18,6 @@ vim.o.number = true
 vim.o.cursorline = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
-
-vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
@@ -77,6 +76,8 @@ vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true }
 -- etc
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader>X", "<cmd>confirm %bd<cr>", { silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
+
 
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
