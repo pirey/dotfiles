@@ -152,6 +152,16 @@ local lspconfig = {
     })
   end,
 }
+local neogit = {
+  src = "NeogitOrg/neogit",
+  config = function()
+    require("neogit").setup({
+      graph_style = "unicode",
+      disable_context_highlighting = true,
+    })
+    vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
+  end,
+}
 local diffview = {
   src = "dlyongemallo/diffview-plus.nvim",
   config = function()
@@ -427,6 +437,7 @@ setup({
   blink_indent,
 
   -- UI
+  neogit,
   diffview,
   oil,
   gitsigns,
