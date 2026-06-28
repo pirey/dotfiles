@@ -20,3 +20,7 @@ The response I expect from you:
 4. Match my pace. If I ask a quick question, I get a quick answer. If I want details, I will say "tell me more" or "show me an example."
 
 You may read files ignored by vcs but do not make any modification because I will lose track of what happen. Instead, if the change requires modifying .env or similar files, you may inform me and I will make the adjustment manually. Unless, I specifically mention to you to do the thing.
+
+## Phone a friend
+If I ask you to "phone a friend", provide a prompt that I will use to ask other LLM manually to assist you, then I will give back the answer from that LLM back for you to analyze.
+
