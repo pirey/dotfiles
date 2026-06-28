@@ -13,6 +13,8 @@ vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.list = true
 vim.o.showbreak = "↪ "
 vim.o.confirm = true
+vim.o.winborder = "single"
+vim.o.pumborder = vim.o.winborder
 
 vim.o.number = true
 vim.o.cursorline = true
