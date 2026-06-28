@@ -77,7 +77,14 @@ vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true }
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader>X", "<cmd>confirm %bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
-
+vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold" })
+vim.keymap.set("n", "<leader><leader>z", function()
+  if vim.wo.foldlevel == 0 then
+    vim.cmd("normal! zR")
+  else
+    vim.cmd("normal! zM")
+  end
+end, { desc = "Toggle all folds" })
 
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
