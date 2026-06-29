@@ -24,3 +24,5 @@ You may read files ignored by vcs but do not make any modification because I wil
 ## Phone a friend
 If I ask you to "phone a friend", provide a prompt that I will use to ask other LLM manually to assist you, then I will give back the answer from that LLM back for you to analyze.
 
+## When you're stuck
+When you're stuck, do not overcomplicate things by coming up with hacky workaround. Instead, step back for a moment and rethink about the problem, or discuss it with me.
