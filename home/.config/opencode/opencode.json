@@ -1,7 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "deepseek/deepseek-v4-flash",
-  "small_model": "deepseek/deepseek-v4-flash",
   "snapshot": false,
   "compaction": {
     "auto": true,
