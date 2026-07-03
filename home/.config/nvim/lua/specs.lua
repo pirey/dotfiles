@@ -428,6 +428,10 @@ local function setup(specs_ext)
 end
 
 setup({
+  require("themes.onedark"),
+  require("themes.nightfox"),
+  require("themes.iceberg"),
+
   -- EDITING
   surround,
   abolish,

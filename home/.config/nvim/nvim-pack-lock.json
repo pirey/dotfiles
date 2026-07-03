@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "b6e41f866ae01a1f14e73fd1f57317a15020987a",
+      "rev": "6b21ba0bd5da5e6ea241319d5ea83bd6cdb8742d",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -18,7 +18,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "8cc426835d88238cf59a6812b7ae1b1dc8d33efd",
+      "rev": "bcf4b62b4acc36a7c3d19e423713a220c838a668",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "gitsigns.nvim": {
@@ -29,6 +29,10 @@
       "rev": "c69859c1d5427ab5fc7ed12380ab521b4e336691",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
+    "iceberg.vim": {
+      "rev": "23835d5ed696436f716cbfdb56a93a7850fe3b18",
+      "src": "https://github.com/cocopon/iceberg.vim"
+    },
     "mason.nvim": {
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
@@ -37,6 +41,10 @@
       "rev": "43ea1a0854052e583f647e0b35879f0158a70a78",
       "src": "https://github.com/NeogitOrg/neogit"
     },
+    "nightfox.nvim": {
+      "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "292f44408498103c47996ff5c18fd366293840d8",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -44,6 +52,10 @@
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "onedark.nvim": {
+      "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
+      "src": "https://github.com/navarasu/onedark.nvim"
     },
     "orgmode": {
       "rev": "f32a06d4b5399dad8bf0478c772bf6c513f02dcf",
