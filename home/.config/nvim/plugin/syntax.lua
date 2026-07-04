@@ -1,4 +1,8 @@
 local function set_hl(arg)
+  if vim.g.colors_name ~= nil then
+    return
+  end
+
   if arg and arg.event == "ColorScheme" then
     if arg.match ~= "default" then
       return
@@ -17,9 +21,9 @@ local function set_hl(arg)
     vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NvimDarkGrey1", fg = "NvimDarkGrey4" })
     vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NvimDarkGrey2" })
     vim.api.nvim_set_hl(0, "Whitespace", { fg = "NvimDarkGrey3" })
-    vim.api.nvim_set_hl(0, "DiffAdd", { fg = "NONE", bg = "NvimDarkGreen" })
-    -- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "NONE", bg = "NvimDarkRed" })
-    vim.api.nvim_set_hl(0, "DiffChange", { fg = "NONE", bg = "NvimDarkCyan" })
+    vim.api.nvim_set_hl(0, "DiffAdd", { bg = "NvimDarkGreen" })
+    -- vim.api.nvim_set_hl(0, "DiffDelete", { bg = "NvimDarkRed" })
+    vim.api.nvim_set_hl(0, "DiffChange", { bg = "NvimDarkBlue" })
   elseif vim.o.background == "light" then
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NvimLightGrey3" })
   end
