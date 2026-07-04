@@ -152,6 +152,13 @@ local lspconfig = {
     })
   end,
 }
+local outline = {
+  src = "hedyhli/outline.nvim",
+  config = function()
+    require("outline").setup()
+    vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
+  end,
+}
 local neogit = {
   src = "NeogitOrg/neogit",
   config = function()
@@ -441,6 +448,7 @@ setup({
   blink_indent,
 
   -- UI
+  outline,
   neogit,
   diffview,
   oil,

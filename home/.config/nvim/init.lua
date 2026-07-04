@@ -13,12 +13,13 @@ vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.list = true
 vim.o.showbreak = "↪ "
 vim.o.confirm = true
-vim.o.shortmess = vim.o.shortmess .. "I"
 
 vim.o.number = true
 vim.o.cursorline = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
+vim.o.shortmess = vim.o.shortmess .. "I"
+vim.o.winborder = "single"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
