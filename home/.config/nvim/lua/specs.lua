@@ -155,7 +155,12 @@ local lspconfig = {
 local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
-    require("outline").setup()
+    require("outline").setup({
+      keymaps = {
+        goto_location = '<S-Cr>',
+        goto_and_close = '<Cr>',
+      }
+    })
     vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
   end,
 }
