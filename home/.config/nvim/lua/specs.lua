@@ -157,9 +157,9 @@ local outline = {
   config = function()
     require("outline").setup({
       keymaps = {
-        goto_location = '<S-Cr>',
-        goto_and_close = '<Cr>',
-      }
+        goto_location = "<S-Cr>",
+        goto_and_close = "<Cr>",
+      },
     })
     vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
   end,
@@ -246,6 +246,8 @@ local gitsigns = {
         map({ "n" }, "<leader>gb", gs.blame, "Blame")
         -- stylua: ignore end
       end,
+      current_line_blame = true,
+      current_line_blame_opts = { delay = 500 },
     })
   end,
 }
