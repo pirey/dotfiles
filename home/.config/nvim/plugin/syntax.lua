@@ -19,7 +19,7 @@ local function set_hl(arg)
     vim.api.nvim_set_hl(0, "Whitespace", { fg = "NvimDarkGrey3" })
     vim.api.nvim_set_hl(0, "DiffAdd", { fg = "NONE", bg = "NvimDarkGreen" })
     -- vim.api.nvim_set_hl(0, "DiffDelete", { fg = "NONE", bg = "NvimDarkRed" })
-    vim.api.nvim_set_hl(0, "DiffChange", { fg = "NONE", bg = "NvimDarkBlue" })
+    vim.api.nvim_set_hl(0, "DiffChange", { fg = "NONE", bg = "NvimDarkCyan" })
   elseif vim.o.background == "light" then
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "NvimLightGrey3" })
   end
