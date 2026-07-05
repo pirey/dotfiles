@@ -10,7 +10,7 @@ dynamic_padding = true
 
 [font]
 size = 14
-normal = { family = "JetBrains Mono NL" }
+normal = { family = "Ioskeley Mono" }
 
 [keyboard]
 bindings = [
