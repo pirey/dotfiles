@@ -10,7 +10,7 @@ dynamic_padding = true
 
 [font]
 size = 14
-normal = { family = "Ioskeley Mono", style = "Regular" }
+normal = { family = "Lilex", style = "Regular" }
 
 [keyboard]
 bindings = [

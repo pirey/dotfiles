@@ -28,6 +28,8 @@ return {
         vim.api.nvim_set_hl(0, "@variable.parameter", { fg = c.fg })
         vim.api.nvim_set_hl(0, "@type.builtin", { fg = c.blue })
         vim.api.nvim_set_hl(0, "@markup.heading", { fg = c.fg })
+        vim.api.nvim_set_hl(0, "@markup.heading.1", { fg = c.cyan, bold = true })
+        vim.api.nvim_set_hl(0, "@markup.heading.3", { fg = c.blue, bold = true })
         vim.api.nvim_set_hl(0, "@org.checkbox", { link = "Comment" })
         vim.api.nvim_set_hl(0, "@org.checkbox.checked", { link = "String" })
         vim.api.nvim_set_hl(0, "@org.keyword.done", { fg = "#98c379", bold = true })
