@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "nvim",
+  "theme": "onedark",
   "keybinds": {
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d",

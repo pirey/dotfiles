@@ -1,5 +1,5 @@
 [general]
-import = ["~/dotfiles/home/.config/alacritty/nvim_dark.toml"]
+import = ["~/dotfiles/home/.config/alacritty/onedark.toml"]
 
 [window]
 # (MacOS)
