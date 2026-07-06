@@ -152,6 +152,25 @@ local lspconfig = {
     })
   end,
 }
+local incline = {
+  src = "b0o/incline.nvim",
+  config = function()
+    vim.o.laststatus = 3
+    require("incline").setup({
+      window = {
+        margin = { vertical = 0 },
+        overlap = { borders = true },
+      },
+      highlight = {
+        groups = {
+          InclineNormal = "Visual",
+          InclineNormalNC = "Visual",
+        },
+      },
+    })
+  end,
+}
+
 local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
@@ -455,6 +474,7 @@ setup({
   blink_indent,
 
   -- UI
+  incline,
   outline,
   neogit,
   diffview,
