@@ -163,8 +163,8 @@ local incline = {
       },
       highlight = {
         groups = {
-          InclineNormal = "Cursor",
-          InclineNormalNC = "Visual",
+          InclineNormal = "StatusLine",
+          InclineNormalNC = "StatusLineNC",
         },
       },
     })
