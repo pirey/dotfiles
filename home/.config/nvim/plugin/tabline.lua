@@ -3,8 +3,8 @@ function _G.Tabline()
   local cur = vim.fn.tabpagenr()
 
   for i = 1, vim.fn.tabpagenr("$") do
-    local hl = (i == cur) and "%#Cursor#" or "%#Normal#"
-    s = s .. hl .. "%" .. i .. "T " .. i .. " %T"
+    local hl = (i == cur) and "%#Cursor#" or "%#TabLine#"
+    s = s .. hl .. "%" .. i .. "T " .. "%=" .. i .. "%=" .. " %T"
   end
 
   return s .. "%#Normal#"

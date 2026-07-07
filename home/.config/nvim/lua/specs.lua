@@ -176,7 +176,8 @@ local outline = {
   config = function()
     require("outline").setup({
       keymaps = {
-        goto_location = "<S-Cr>",
+        goto_location = "o",
+        peek_location = "<S-Cr>",
         goto_and_close = "<Cr>",
       },
     })
@@ -204,20 +205,6 @@ local diffview = {
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
-    vim.api.nvim_create_autocmd("User", {
-      group = augroup,
-      pattern = "DiffviewViewOpened",
-      callback = function()
-        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-          local buf = vim.api.nvim_win_get_buf(win)
-          local ft = vim.bo[buf].filetype
-
-          if ft ~= "DiffviewFileHistory" and ft ~= "DiffviewFiles" then
-            vim.wo[win].wrap = true
-          end
-        end
-      end,
-    })
   end,
 }
 local oil = {
@@ -248,8 +235,8 @@ local gitsigns = {
         end
 
         -- stylua: ignore start
-        map("n", "]g", function() gs.nav_hunk("next", { target = "all" }) end, "Next Hunk")
-        map("n", "[g", function() gs.nav_hunk("prev", { target = "all" }) end, "Prev Hunk")
+        map("n", "]g", function() gs.nav_hunk("next") end, "Next Hunk")
+        map("n", "[g", function() gs.nav_hunk("prev") end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
         map("n", "<leader>ghq", gs.setqflist, "Add hunks to qflist")
