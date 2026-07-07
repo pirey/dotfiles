@@ -163,7 +163,7 @@ local incline = {
       },
       highlight = {
         groups = {
-          InclineNormal = "Visual",
+          InclineNormal = "Cursor",
           InclineNormalNC = "Visual",
         },
       },
@@ -461,6 +461,7 @@ setup({
   blink_indent,
 
   -- UI
+  require("plugins.lualine"),
   incline,
   outline,
   neogit,
