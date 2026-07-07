@@ -124,7 +124,7 @@ local winbar_filename = {
 
 local cwd = {
   function()
-    return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+    return "󰉋 " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   end,
 }
 
