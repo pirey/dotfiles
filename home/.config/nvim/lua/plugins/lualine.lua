@@ -128,6 +128,12 @@ local cwd = {
   end,
 }
 
+local rightchevron = {
+  function()
+    return "»"
+  end,
+}
+
 local separator = {
   "%=",
 }
@@ -270,7 +276,7 @@ return {
         },
       },
       sections = {
-        lualine_a = { tabs, cwd },
+        lualine_a = { tabs, cwd, rightchevron },
         lualine_b = {},
         lualine_c = {
           -- filetype_icon,

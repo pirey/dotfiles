@@ -3,7 +3,8 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
-window-theme = "system"
+# window-theme = "system"
+macos-titlebar-style = "native"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 

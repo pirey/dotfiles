@@ -1,5 +1,16 @@
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
+local jump = {
+  src = "yorickpeterse/nvim-jump",
+  config = function()
+    require("jump").setup({
+      label = "IncSearch",
+    })
+    vim.keymap.set({ "n", "x" }, "s", function()
+      require("jump").start()
+    end)
+  end,
+}
 local surround = {
   src = "tpope/vim-surround",
   dependencies = { { src = "tpope/vim-repeat" } },
@@ -153,6 +164,7 @@ local lspconfig = {
   end,
 }
 local illuminate = { src = "RRethy/vim-illuminate" }
+local lualine = require("plugins.lualine")
 local incline = {
   src = "b0o/incline.nvim",
   config = function()
@@ -454,6 +466,7 @@ setup({
   require("themes.iceberg"),
 
   -- EDITING
+  jump,
   surround,
   abolish,
   treesj,
@@ -463,7 +476,7 @@ setup({
 
   -- UI
   illuminate,
-  require("plugins.lualine"),
+  lualine,
   incline,
   outline,
   neogit,
