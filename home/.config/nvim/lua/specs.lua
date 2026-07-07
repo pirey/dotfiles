@@ -152,6 +152,7 @@ local lspconfig = {
     })
   end,
 }
+local illuminate = { src = "RRethy/vim-illuminate" }
 local incline = {
   src = "b0o/incline.nvim",
   config = function()
@@ -461,6 +462,7 @@ setup({
   blink_indent,
 
   -- UI
+  illuminate,
   require("plugins.lualine"),
   incline,
   outline,

@@ -142,7 +142,7 @@ local macro = {
   function()
     local char_register = vim.fn.reg_recording()
     if #char_register > 0 then
-      return "[REC @" .. char_register .. "]"
+      return "REC @" .. char_register
     end
     return ""
   end,
@@ -232,7 +232,7 @@ local tabs = {
   "tabs",
   tabs_color = {
     active = "Cursor",
-    inactive = "Visual",
+    inactive = "StatusLine",
   },
   cond = function()
     local tabcount = #vim.api.nvim_list_tabpages()
@@ -270,7 +270,7 @@ return {
         },
       },
       sections = {
-        lualine_a = { cwd },
+        lualine_a = { tabs, cwd },
         lualine_b = {},
         lualine_c = {
           -- filetype_icon,
@@ -290,7 +290,6 @@ return {
         lualine_z = {
           location,
           progress,
-          tabs,
           -- tmux_char,
         },
       },

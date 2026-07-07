@@ -3,11 +3,6 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
-# theme = "Nvim Dark"
-
-# font-family = Ioskeley Mono
-font-thicken = true
-
 window-theme = "system"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right

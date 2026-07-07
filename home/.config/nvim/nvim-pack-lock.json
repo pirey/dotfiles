@@ -81,6 +81,10 @@
       "rev": "dcbfe065297d31823561ba787f51056c147aa682",
       "src": "https://github.com/tpope/vim-abolish"
     },
+    "vim-illuminate": {
+      "rev": "8629e6b2dfa8c66677b9d489eb02480cbcfa9599",
+      "src": "https://github.com/RRethy/vim-illuminate"
+    },
     "vim-repeat": {
       "rev": "65846025c15494983dafe5e3b46c8f88ab2e9635",
       "src": "https://github.com/tpope/vim-repeat"
