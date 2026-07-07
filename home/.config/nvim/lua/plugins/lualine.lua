@@ -276,7 +276,7 @@ return {
         },
       },
       sections = {
-        lualine_a = { tabs, cwd, rightchevron },
+        lualine_a = { tabs, cwd },
         lualine_b = {},
         lualine_c = {
           -- filetype_icon,

@@ -163,6 +163,7 @@ local lspconfig = {
     })
   end,
 }
+local satellite = { src = "lewis6991/satellite.nvim" }
 local illuminate = { src = "RRethy/vim-illuminate" }
 local lualine = require("plugins.lualine")
 local incline = {
@@ -475,6 +476,7 @@ setup({
   blink_indent,
 
   -- UI
+  satellite,
   illuminate,
   lualine,
   incline,
