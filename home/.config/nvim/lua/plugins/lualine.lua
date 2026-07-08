@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
@@ -22,7 +24,7 @@ local conditions = {
 
 local branch = {
   "branch",
-  icon = "",
+  icon = icons.get("branch"),
   color = { gui = "bold" },
 }
 
@@ -44,15 +46,13 @@ local diff = {
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " ", hint = " " },
-  -- colored = false,
-  -- symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+  symbols = icons.diagnostics_symbols(),
   cond = conditions.screen_width(120),
 }
 
 local cwd = {
   function()
-    return "󰉋 " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+    return icons.get("folder") .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   end,
   color = { gui = "bold" },
 }
@@ -105,10 +105,6 @@ return {
             a = "StatusLine",
             b = "StatusLine",
             c = "StatusLine",
-            -- TODO: find out if these are necessary, remove otherwise
-            -- x = "StatusLine",
-            -- y = "StatusLine",
-            -- z = "StatusLine",
           },
         },
         globalstatus = true,
@@ -127,7 +123,6 @@ return {
           lsp,
           diagnostics,
           selectioncount,
-          -- searchcount,
           macro,
         },
         lualine_y = {
@@ -137,15 +132,6 @@ return {
           progress,
         },
         lualine_z = {},
-      },
-      inactive_sections = {
-        -- these are to remove the defaults
-        lualine_a = {},
-        lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
-        lualine_c = {},
-        lualine_x = {},
       },
     })
   end,

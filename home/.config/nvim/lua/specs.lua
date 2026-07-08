@@ -137,6 +137,19 @@ local lspconfig = {
       },
     })
 
+    local icons = require("icons")
+
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = icons.get("error"),
+          [vim.diagnostic.severity.WARN] = icons.get("warn"),
+          [vim.diagnostic.severity.INFO] = icons.get("info"),
+          [vim.diagnostic.severity.HINT] = icons.get("hint"),
+        },
+      },
+    })
+
     vim.lsp.document_color.enable(true, {}, { style = "virtual" })
 
     vim.lsp.enable({
@@ -213,9 +226,9 @@ local diffview = {
   config = function()
     vim.o.fillchars = "diff: "
 
+    local icons = require("icons")
     require("diffview").setup({
-      use_icons = false,
-      signs = { fold_closed = "❯", fold_open = "+" },
+      use_icons = icons.enabled,
       file_panel = { listing_style = "list" },
     })
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
