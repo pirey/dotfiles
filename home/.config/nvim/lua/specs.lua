@@ -211,6 +211,8 @@ local neogit = {
 local diffview = {
   src = "dlyongemallo/diffview-plus.nvim",
   config = function()
+    vim.o.fillchars = "diff: "
+
     require("diffview").setup({
       use_icons = false,
       signs = { fold_closed = "❯", fold_open = "+" },

@@ -11,7 +11,6 @@ vim.o.splitright = true
 vim.o.tabclose = "left"
 vim.o.wildoptions = vim.o.wildoptions .. ",fuzzy"
 vim.o.list = true
-vim.o.showbreak = "↪ "
 vim.o.confirm = true
 
 vim.o.number = true
@@ -76,9 +75,9 @@ vim.keymap.set({ "n", "t" }, "]<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true })
 
 -- etc
+vim.keymap.set("n", ",x", "<cmd>bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader>X", "<cmd>confirm %bd<cr>", { silent = true })
-vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
 vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold" })
 vim.keymap.set("n", "<leader><leader>z", function()
   if vim.wo.foldlevel == 0 then

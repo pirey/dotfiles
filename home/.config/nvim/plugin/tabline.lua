@@ -10,4 +10,4 @@ function _G.Tabline()
   return s .. "%#Normal#"
 end
 
-vim.o.tabline = "%!v:lua.Tabline()"
+-- vim.o.tabline = "%!v:lua.Tabline()"

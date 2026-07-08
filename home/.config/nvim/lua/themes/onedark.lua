@@ -50,10 +50,6 @@ return {
         vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = float_bg, fg = float_border })
         vim.api.nvim_set_hl(0, "PmenuBorder", { bg = float_bg, fg = float_border })
 
-        --
-        vim.api.nvim_set_hl(0, "DiffAdded", { link = "DiffAdd" })
-        vim.api.nvim_set_hl(0, "DiffRemoved", { link = "DiffDelete" })
-
         -- mini.nvim
         vim.api.nvim_set_hl(0, "MiniPickBorder", { bg = float_bg, fg = float_border })
         vim.api.nvim_set_hl(0, "MiniPickBorderBusy", { bg = float_bg, fg = float_border })

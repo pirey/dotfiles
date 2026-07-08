@@ -1,7 +1,13 @@
+# https://ghostty.org/docs/config/reference
+
 # reload config: ctrl+shift+, (Linux) or cmd+shift+, (macOS)
 # split: cmd+shift+d (macOS)
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
+
+font-size = 13.5
+# font-family = "Ioskeley Mono"
+font-family = "IoskeleyMono Nerd Font"
 
 # window-theme = "system"
 macos-titlebar-style = "native"
