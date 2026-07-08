@@ -93,4 +93,4 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 require("vim._core.ui2").enable()
 require("specs")
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("tokyonight-night")

@@ -1,0 +1,28 @@
+# Colors (Tokyo Night Moon)
+
+# Default colors
+[colors.primary]
+background = '#222436'
+foreground = '#c8d3f5'
+
+# Normal colors
+[colors.normal]
+black   = '#1b1d2b'
+red     = '#ff757f'
+green   = '#c3e88d'
+yellow  = '#ffc777'
+blue    = '#82aaff'
+magenta = '#c099ff'
+cyan    = '#86e1fc'
+white   = '#828bb8'
+
+# Bright colors
+[colors.bright]
+black   = '#444a73'
+red     = '#ff757f'
+green   = '#c3e88d'
+yellow  = '#ffc777'
+blue    = '#82aaff'
+magenta = '#c099ff'
+cyan    = '#86e1fc'
+white   = '#c8d3f5'

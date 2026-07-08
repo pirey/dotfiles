@@ -5,12 +5,13 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
+theme = "tokyonight"
+
 font-size = 13.5
-# font-family = "Ioskeley Mono"
 font-family = "IoskeleyMono Nerd Font"
 
-# window-theme = "system"
-macos-titlebar-style = "native"
+window-padding-balance = true
+window-padding-color = "extend"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 

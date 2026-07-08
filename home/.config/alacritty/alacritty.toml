@@ -1,7 +1,7 @@
 # https://alacritty.org/config-alacritty.html
 
 [general]
-import = ["~/dotfiles/home/.config/alacritty/onedark.toml"]
+import = ["~/dotfiles/home/.config/alacritty/tokyonight.toml"]
 
 [window]
 # (MacOS)
@@ -12,10 +12,10 @@ dynamic_padding = true
 
 [font]
 size = 13.5
-# normal = { family = "IoskeleyMono Nerd Font", style = "Regular" }
-# italic = { family = "IoskeleyMono Nerd Font", style = "Italic" }
-normal = { family = "Lilex Nerd Font Mono", style = "Regular" }
-italic = { family = "Lilex Nerd Font Mono", style = "Italic" }
+normal = { family = "IoskeleyMono Nerd Font", style = "Regular" }
+italic = { family = "IoskeleyMono Nerd Font", style = "Italic" }
+# normal = { family = "Lilex Nerd Font Mono", style = "Regular" }
+# italic = { family = "Lilex Nerd Font Mono", style = "Italic" }
 
 [keyboard]
 bindings = [

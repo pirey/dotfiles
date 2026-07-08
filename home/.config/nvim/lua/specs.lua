@@ -3,9 +3,7 @@ local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 local jump = {
   src = "yorickpeterse/nvim-jump",
   config = function()
-    require("jump").setup({
-      label = "IncSearch",
-    })
+    require("jump").setup()
     vim.keymap.set({ "n", "x" }, "s", function()
       require("jump").start()
     end)
@@ -210,7 +208,6 @@ local lualine = {
     local branch = {
       "branch",
       icon = icons.get("branch"),
-      color = { gui = "bold" },
     }
 
     local filename = {
@@ -239,7 +236,6 @@ local lualine = {
       function()
         return icons.get("folder") .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
       end,
-      color = { gui = "bold" },
     }
 
     local macro = {
@@ -250,12 +246,10 @@ local lualine = {
         end
         return ""
       end,
-      color = "Cursor",
     }
 
     local selectioncount = {
       "selectioncount",
-      color = "Cursor",
     }
 
     local location = {
@@ -268,10 +262,6 @@ local lualine = {
 
     local tabs = {
       "tabs",
-      tabs_color = {
-        active = "Cursor",
-        inactive = "StatusLine",
-      },
       show_modified_status = false,
       cond = function()
         local tabcount = #vim.api.nvim_list_tabpages()
@@ -280,38 +270,54 @@ local lualine = {
     }
     require("lualine").setup({
       options = {
-        theme = {
-          normal = {
-            a = "StatusLine",
-            b = "StatusLine",
-            c = "StatusLine",
-          },
-        },
         globalstatus = true,
         always_divide_middle = false,
         always_show_tabline = false,
         component_separators = "",
-        section_separators = "",
+
+        -- Rounded
+        section_separators = { left = "", right = "" }
+        -- component_separators = { left = "", right = "" }
+
+        -- Powerline
+        -- section_separators = { left = "", right = "" }
+        -- component_separators = { left = "", right = "" }
+
+        -- Slanted
+        -- section_separators = { left = "", right = "" }
+        -- section_separators = { left = "", right = "" }
+
+        -- Mixed slanted
+        -- section_separators = { left = "", right = "" }
+        -- section_separators = { left = "", right = "" }
+
+        -- Thin
+        -- section_separators = { left = "╏", right = "╏" }
+
+        -- Asymmetric
+        -- section_separators = { left = "", right = "" },
+        -- section_separators = { left = "╏", right = "" }
       },
       sections = {
-        lualine_a = { tabs, cwd },
-        lualine_b = {},
+        lualine_a = { cwd },
+        lualine_b = { tabs },
         lualine_c = {
           filename,
         },
         lualine_x = {
           lsp,
-          diagnostics,
-          selectioncount,
-          macro,
+          diff,
         },
         lualine_y = {
-          diff,
+          diagnostics,
           branch,
+        },
+        lualine_z = {
+          selectioncount,
+          macro,
           location,
           progress,
         },
-        lualine_z = {},
       },
     })
   end,
@@ -617,6 +623,7 @@ setup({
   require("themes.onedark"),
   require("themes.nightfox"),
   require("themes.iceberg"),
+  { src = "folke/tokyonight.nvim" },
 
   -- EDITING
   jump,
