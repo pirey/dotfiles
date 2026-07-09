@@ -97,7 +97,3 @@ vim.cmd([[
 ]])
 
 vim.o.findfunc = "v:lua.FindSmart"
-
-vim.cmd([[
-  cabbrev <expr> fd getcmdtype() == ':' && getcmdline() =~# '^fd' ? 'find' : 'fd'
-]])
