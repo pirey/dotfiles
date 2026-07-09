@@ -286,7 +286,7 @@ local lualine = {
       cond = conditions.screen_width(120),
     }
 
-    local preset = vim.g.use_statusline_preset
+    local preset = vim.g.preset_statusline
 
     -- default separators
     local section_seps = { left = "", right = "" }
@@ -362,7 +362,7 @@ local incline = {
   config = function()
     vim.o.laststatus = 3
     local icons = require("icons")
-    local preset = vim.g.use_statusline_preset
+    local preset = vim.g.preset_statusline
     local wrap_char = ({
       bubble = {
         left = icons.sep("round_left_filled"),
@@ -476,6 +476,14 @@ local diffview = {
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>g,", function()
+      local prompt = "Search git: "
+      local ok, query = pcall(vim.fn.input, prompt)
+      if not ok or query == "" then
+        return
+      end
+      vim.cmd("DiffviewFileHistory -S" .. query)
+    end, { silent = true })
   end,
 }
 local oil = {

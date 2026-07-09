@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.use_statusline_preset = "bubble"
+vim.g.preset_statusline = "bubble" -- "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
 
 vim.o.wrap = false
 vim.o.swapfile = false
@@ -19,7 +19,7 @@ vim.o.cursorline = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 vim.o.shortmess = vim.o.shortmess .. "I"
-vim.o.winborder = "single"
+vim.o.winborder = vim.g.preset_statusline == "bubble" and "rounded" or "single"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
@@ -96,4 +96,4 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 require("vim._core.ui2").enable()
 require("specs")
 
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("tokyonight")
