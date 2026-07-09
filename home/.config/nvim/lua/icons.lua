@@ -13,7 +13,8 @@ M.registry = {
   hint = { icon = " ", fallback = "● " },
   fold_closed = { icon = "", fallback = "›" },
   fold_open = { icon = "", fallback = "⌄" },
-  modified = { icon = "●", fallback = "+" },
+  modified = { icon = "●", fallback = "[+]" },
+  readonly = { icon = "", fallback = "[-]" },
 }
 
 function M.get(name)

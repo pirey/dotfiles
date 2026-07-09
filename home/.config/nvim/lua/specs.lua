@@ -213,6 +213,10 @@ local lualine = {
     local filename = {
       "filename",
       path = 1,
+      symbols = {
+        modified = icons.get("modified"),
+        readonly = icons.get("readonly"),
+      }
     }
 
     local lsp = {
