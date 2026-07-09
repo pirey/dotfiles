@@ -190,6 +190,11 @@ local lualine = {
       buffer_empty = function()
         return vim.fn.empty(vim.fn.expand("%:t")) == 1
       end,
+      max_width = function(max_w)
+        return function()
+          return vim.o.columns <= max_w
+        end
+      end,
       screen_width = function(min_w)
         return function()
           return vim.o.columns > min_w
@@ -216,7 +221,7 @@ local lualine = {
       symbols = {
         modified = icons.get("modified"),
         readonly = icons.get("readonly"),
-      }
+      },
     }
 
     local lsp = {
@@ -320,14 +325,12 @@ local lualine = {
       sections = {
         lualine_a = { cwd },
         lualine_b = { tabs },
-        lualine_c = {
-          filename,
-        },
+        lualine_c = { filename },
         lualine_x = {
           lsp,
+          diagnostics,
         },
         lualine_y = {
-          diagnostics,
           diff,
           branch,
         },
@@ -392,9 +395,16 @@ local outline = {
 local neogit = {
   src = "NeogitOrg/neogit",
   config = function()
+    local icons = require("icons")
     require("neogit").setup({
       graph_style = "unicode",
       disable_context_highlighting = true,
+      signs = {
+        -- { CLOSED, OPENED }
+        hunk = { "", "" },
+        item = { icons.get("fold_closed"), icons.get("fold_open") },
+        section = { icons.get("fold_closed"), icons.get("fold_open") },
+      },
     })
     vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
   end,
