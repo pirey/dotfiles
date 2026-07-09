@@ -306,6 +306,19 @@ local lualine = {
       section_seps = { left = icons.sep("round_right_filled"), right = icons.sep("slant_left_upper") }
     end
 
+    local function edge_component(component, side)
+      side = side or "both" -- "left" | "right" | "both"
+      if preset == "bubble" then
+        return vim.tbl_extend("force", component, {
+          separator = {
+            left = side ~= "right" and " " .. icons.sep("round_left_filled") or "",
+            right = side ~= "left" and icons.sep("round_right_filled") .. " " or "",
+          },
+        })
+      end
+      return component
+    end
+
     require("lualine").setup({
       options = {
         globalstatus = true,
@@ -322,7 +335,7 @@ local lualine = {
         } or "auto",
       },
       sections = {
-        lualine_a = { cwd },
+        lualine_a = { edge_component(cwd) },
         lualine_b = { tabs },
         lualine_c = { filename },
         lualine_x = {
@@ -338,7 +351,7 @@ local lualine = {
           selectioncount,
           macro,
           location,
-          progress,
+          edge_component(progress, "right"),
         },
       },
     })
@@ -350,30 +363,40 @@ local incline = {
     vim.o.laststatus = 3
     local icons = require("icons")
     local preset = vim.g.use_statusline_preset
-    local incline_left, incline_right
+    local wrap_char = ({
+      bubble = {
+        left = icons.sep("round_left_filled"),
+        right = icons.sep("round_right_filled"),
+      },
+      slanted = {
+        left = icons.sep("slant_left_filled"),
+        right = icons.sep("slant_right_filled"),
+      },
+      slanted2 = {
+        left = icons.sep("slant_left_upper"),
+        right = icons.sep("slant_right_upper"),
+      },
+      slanted3 = {
+        left = icons.sep("slant_left_filled"),
+        right = icons.sep("slant_right_upper"),
+      },
+      asymmetric = {
+        left = icons.sep("round_left_filled"),
+        right = icons.sep("slant_right_upper"),
+      },
+      asymmetric2 = {
+        left = icons.sep("slant_left_upper"),
+        right = icons.sep("round_right_filled"),
+      },
+    })[preset]
 
-    if preset == "bubble" then
-      incline_left = icons.sep("round_left_filled")
-      incline_right = icons.sep("round_right_filled")
-    elseif preset == "slanted" then
-      incline_left = icons.sep("slant_left_filled")
-      incline_right = icons.sep("slant_right_filled")
-    elseif preset == "slanted2" then
-      incline_left = icons.sep("slant_left_upper")
-      incline_right = icons.sep("slant_right_upper")
-    elseif preset == "slanted3" then
-      incline_left = icons.sep("slant_left_filled")
-      incline_right = icons.sep("slant_right_upper")
-    elseif preset == "asymmetric" then
-      incline_left = icons.sep("round_left_filled")
-      incline_right = icons.sep("slant_right_upper")
-    elseif preset == "asymmetric2" then
-      incline_left = icons.sep("slant_left_upper")
-      incline_right = icons.sep("round_right_filled")
+    if wrap_char == nil then
+      wrap_char = { left = "", right = "" }
     end
 
     require("incline").setup({
       window = {
+        padding = 0,
         margin = { vertical = 0 },
         overlap = { borders = true },
       },
@@ -401,9 +424,9 @@ local incline = {
         end
 
         return {
-          { incline_left },
+          { wrap_char.left },
           { " " .. filename .. " ", gui = "reverse" },
-          { incline_right },
+          { wrap_char.right },
         }
       end,
     })

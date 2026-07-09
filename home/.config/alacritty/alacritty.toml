@@ -7,7 +7,6 @@ import = ["~/dotfiles/home/.config/alacritty/tokyonight.toml"]
 # (MacOS)
 option_as_alt = "Both"
 startup_mode = "Maximized"
-
 dynamic_padding = true
 
 [font]

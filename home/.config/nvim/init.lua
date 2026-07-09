@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.use_statusline_preset = "asymmetric"
+vim.g.use_statusline_preset = "bubble"
 
 vim.o.wrap = false
 vim.o.swapfile = false
@@ -74,6 +74,8 @@ vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { silent = true })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "]<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[<tab>", "<cmd>tabprevious<cr>", { silent = true })
+vim.keymap.set({ "n", "t" }, "]t", "<cmd>tabnext<cr>", { silent = true })
+vim.keymap.set({ "n", "t" }, "[t", "<cmd>tabprevious<cr>", { silent = true })
 
 -- etc
 vim.keymap.set("n", ",x", "<cmd>bd<cr>", { silent = true })
