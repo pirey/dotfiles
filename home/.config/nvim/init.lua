@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.use_statusline_preset = "asymmetric"
 
 vim.o.wrap = false
 vim.o.swapfile = false

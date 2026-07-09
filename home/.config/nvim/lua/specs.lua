@@ -277,56 +277,56 @@ local lualine = {
         return tabcount > 1
       end,
     }
-    local presets = {
-      rounded = {
-        section_separators = { left = icons.sep("round_right_filled"), right = icons.sep("round_left_filled") },
-        component_separators = { left = icons.sep("round_right_thin"), right = icons.sep("round_left_thin") },
-      },
-      powerline = {
-        section_separators = { left = icons.sep("arrow_left_filled"), right = icons.sep("arrow_right_filled") },
-        component_separators = { left = icons.sep("arrow_left_thin"), right = icons.sep("arrow_right_thin") },
-      },
-      slanted = {
-        section_separators = { left = icons.sep("slant_left_filled"), right = icons.sep("slant_right_upper") },
-        component_separators = "",
-      },
-      slanted_reverse = {
-        section_separators = { left = icons.sep("slant_left_upper"), right = icons.sep("slant_right_filled") },
-        component_separators = "",
-      },
-      mixed_slanted = {
-        section_separators = { left = icons.sep("slant_left_filled"), right = icons.sep("slant_right_filled") },
-        component_separators = "",
-      },
-      mixed_slanted_reverse = {
-        section_separators = { left = icons.sep("slant_left_upper"), right = icons.sep("slant_right_upper") },
-        component_separators = "",
-      },
-      thin = {
-        section_separators = { left = icons.sep("bar_thick"), right = icons.sep("bar_thick") },
-        component_separators = "",
-      },
-      asymmetric = {
-        section_separators = { left = icons.sep("slant_right_upper"), right = icons.sep("round_left_filled") },
-        component_separators = "",
-      },
+
+    local orgmode_status = {
+      function()
+        ---@diagnostic disable-next-line: undefined-field
+        return _G.orgmode.statusline()
+      end,
+      cond = conditions.screen_width(120),
     }
 
-    local selected = presets.asymmetric
+    local preset = vim.g.use_statusline_preset
+
+    -- default separators
+    local section_seps = { left = "", right = "" }
+    local component_seps = { left = "", right = "" }
+
+    if preset == "bubble" then
+      section_seps = { left = icons.sep("round_right_filled"), right = icons.sep("round_left_filled") }
+    elseif preset == "slanted" then
+      section_seps = { left = icons.sep("slant_right_filled"), right = icons.sep("slant_left_filled") }
+    elseif preset == "slanted2" then
+      section_seps = { left = icons.sep("slant_right_upper"), right = icons.sep("slant_left_upper") }
+    elseif preset == "slanted3" then
+      section_seps = { left = icons.sep("slant_right_upper"), right = icons.sep("slant_left_filled") }
+    elseif preset == "asymmetric" then
+      section_seps = { left = icons.sep("slant_right_upper"), right = icons.sep("round_left_filled") }
+    elseif preset == "asymmetric2" then
+      section_seps = { left = icons.sep("round_right_filled"), right = icons.sep("slant_left_upper") }
+    end
 
     require("lualine").setup({
       options = {
         globalstatus = true,
         always_divide_middle = false,
         always_show_tabline = false,
-        component_separators = selected.component_separators,
-        section_separators = selected.section_separators,
+        component_separators = component_seps,
+        section_separators = section_seps,
+        theme = not preset and {
+          normal = {
+            a = "StatusLine",
+            b = "StatusLine",
+            c = "StatusLine",
+          },
+        } or "auto",
       },
       sections = {
         lualine_a = { cwd },
         lualine_b = { tabs },
         lualine_c = { filename },
         lualine_x = {
+          orgmode_status,
           lsp,
           diagnostics,
         },
@@ -349,6 +349,29 @@ local incline = {
   config = function()
     vim.o.laststatus = 3
     local icons = require("icons")
+    local preset = vim.g.use_statusline_preset
+    local incline_left, incline_right
+
+    if preset == "bubble" then
+      incline_left = icons.sep("round_left_filled")
+      incline_right = icons.sep("round_right_filled")
+    elseif preset == "slanted" then
+      incline_left = icons.sep("slant_left_filled")
+      incline_right = icons.sep("slant_right_filled")
+    elseif preset == "slanted2" then
+      incline_left = icons.sep("slant_left_upper")
+      incline_right = icons.sep("slant_right_upper")
+    elseif preset == "slanted3" then
+      incline_left = icons.sep("slant_left_filled")
+      incline_right = icons.sep("slant_right_upper")
+    elseif preset == "asymmetric" then
+      incline_left = icons.sep("round_left_filled")
+      incline_right = icons.sep("slant_right_upper")
+    elseif preset == "asymmetric2" then
+      incline_left = icons.sep("slant_left_upper")
+      incline_right = icons.sep("round_right_filled")
+    end
+
     require("incline").setup({
       window = {
         margin = { vertical = 0 },
@@ -362,17 +385,25 @@ local incline = {
       },
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+
         if filename == "" then
           filename = "[No Name]"
         end
+
         local modified = vim.bo[props.buf].modified
+
         if modified then
           filename = icons.get("modified") .. " " .. filename
         end
+
+        if not preset then
+          return { { " " .. filename .. " " } }
+        end
+
         return {
-          { icons.sep("round_left_filled") },
+          { incline_left },
           { " " .. filename .. " ", gui = "reverse" },
-          { icons.sep("round_right_filled") },
+          { incline_right },
         }
       end,
     })
@@ -668,7 +699,7 @@ setup({
   require("themes.onedark"),
   require("themes.nightfox"),
   require("themes.iceberg"),
-  { src = "folke/tokyonight.nvim" },
+  require("themes.tokyonight"),
 
   -- EDITING
   jump,
