@@ -90,9 +90,11 @@ function _G.FindSmart(cmdarg, cmdcomplete)
   return files
 end
 
-vim.keymap.set("n", "<leader>f", function()
-  vim.api.nvim_feedkeys(":find ", "n", false)
-end)
+vim.cmd([[
+  set wildcharm=<c-@>
+  nnoremap <leader>f :find <c-@><c-p>
+  cnoremap fd find <c-@><c-p>
+]])
 
 vim.o.findfunc = "v:lua.FindSmart"
 
