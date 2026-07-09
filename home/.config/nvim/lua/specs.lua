@@ -276,7 +276,7 @@ local lualine = {
         component_separators = "",
 
         -- Rounded
-        section_separators = { left = "", right = "" }
+        -- section_separators = { left = "", right = "" }
         -- component_separators = { left = "", right = "" }
 
         -- Powerline
@@ -295,8 +295,7 @@ local lualine = {
         -- section_separators = { left = "╏", right = "╏" }
 
         -- Asymmetric
-        -- section_separators = { left = "", right = "" },
-        -- section_separators = { left = "╏", right = "" }
+        section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { cwd },
@@ -337,6 +336,18 @@ local incline = {
           InclineNormalNC = "StatusLineNC",
         },
       },
+      render = function(props)
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        if filename == "" then
+          filename = "[No Name]"
+        end
+        local modified = vim.bo[props.buf].modified
+        return {
+          { ""},
+          { filename, gui = modified and "italic,reverse" or "reverse" },
+          { ""},
+        }
+      end,
     })
   end,
 }
