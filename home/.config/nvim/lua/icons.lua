@@ -46,7 +46,10 @@ M.separators = {
   slant_left_filled = { icon = "", fallback = "" },
   slant_right_upper = { icon = "", fallback = "" },
   slant_left_upper = { icon = "", fallback = "" },
+  slant_left_thin = { icon = "", fallback = "" },
+  slant_right_thin = { icon = "", fallback = "" },
   bar_thick = { icon = "╏", fallback = "" },
+  bar_thin = { icon = "│", fallback = "" },
 }
 
 function M.sep(name)

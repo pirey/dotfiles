@@ -321,10 +321,10 @@ local lualine = {
         },
         lualine_x = {
           lsp,
-          diff,
         },
         lualine_y = {
           diagnostics,
+          diff,
           branch,
         },
         lualine_z = {
