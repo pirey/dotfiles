@@ -268,34 +268,50 @@ local lualine = {
         return tabcount > 1
       end,
     }
+    local presets = {
+      rounded = {
+        section_separators = { left = icons.sep("round_right_filled"), right = icons.sep("round_left_filled") },
+        component_separators = { left = icons.sep("round_right_thin"), right = icons.sep("round_left_thin") },
+      },
+      powerline = {
+        section_separators = { left = icons.sep("arrow_left_filled"), right = icons.sep("arrow_right_filled") },
+        component_separators = { left = icons.sep("arrow_left_thin"), right = icons.sep("arrow_right_thin") },
+      },
+      slanted = {
+        section_separators = { left = icons.sep("slant_left_filled"), right = icons.sep("slant_right_upper") },
+        component_separators = "",
+      },
+      slanted_reverse = {
+        section_separators = { left = icons.sep("slant_left_upper"), right = icons.sep("slant_right_filled") },
+        component_separators = "",
+      },
+      mixed_slanted = {
+        section_separators = { left = icons.sep("slant_left_filled"), right = icons.sep("slant_right_filled") },
+        component_separators = "",
+      },
+      mixed_slanted_reverse = {
+        section_separators = { left = icons.sep("slant_left_upper"), right = icons.sep("slant_right_upper") },
+        component_separators = "",
+      },
+      thin = {
+        section_separators = { left = icons.sep("bar_thick"), right = icons.sep("bar_thick") },
+        component_separators = "",
+      },
+      asymmetric = {
+        section_separators = { left = icons.sep("slant_right_upper"), right = icons.sep("round_left_filled") },
+        component_separators = "",
+      },
+    }
+
+    local selected = presets.asymmetric
+
     require("lualine").setup({
       options = {
         globalstatus = true,
         always_divide_middle = false,
         always_show_tabline = false,
-        component_separators = "",
-
-        -- Rounded
-        -- section_separators = { left = "", right = "" }
-        -- component_separators = { left = "", right = "" }
-
-        -- Powerline
-        -- section_separators = { left = "", right = "" }
-        -- component_separators = { left = "", right = "" }
-
-        -- Slanted
-        -- section_separators = { left = "", right = "" }
-        -- section_separators = { left = "", right = "" }
-
-        -- Mixed slanted
-        -- section_separators = { left = "", right = "" }
-        -- section_separators = { left = "", right = "" }
-
-        -- Thin
-        -- section_separators = { left = "╏", right = "╏" }
-
-        -- Asymmetric
-        section_separators = { left = "", right = "" },
+        component_separators = selected.component_separators,
+        section_separators = selected.section_separators,
       },
       sections = {
         lualine_a = { cwd },
@@ -325,6 +341,7 @@ local incline = {
   src = "b0o/incline.nvim",
   config = function()
     vim.o.laststatus = 3
+    local icons = require("icons")
     require("incline").setup({
       window = {
         margin = { vertical = 0 },
@@ -342,10 +359,13 @@ local incline = {
           filename = "[No Name]"
         end
         local modified = vim.bo[props.buf].modified
+        if modified then
+          filename = icons.get("modified") .. " " .. filename
+        end
         return {
-          { ""},
-          { filename, gui = modified and "italic,reverse" or "reverse" },
-          { ""},
+          { icons.sep("round_left_filled") },
+          { " " .. filename .. " ", gui = "reverse" },
+          { icons.sep("round_right_filled") },
         }
       end,
     })
