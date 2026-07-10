@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
-vim.g.preset_statusline = "bubble" -- "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
+vim.g.use_nerd_font = true
+vim.g.preset_statusline = "asymmetric" -- "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
+vim.g.preset_incline = "bubble" -- same as vim.g.preset_statusline
 
 vim.o.wrap = false
 vim.o.swapfile = false

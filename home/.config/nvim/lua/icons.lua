@@ -1,7 +1,7 @@
 local M = {}
 
 function M.init()
-  M.enabled = vim.g.use_nerd_font ~= false
+  M.enabled = vim.g.use_nerd_font
 end
 
 M.registry = {
