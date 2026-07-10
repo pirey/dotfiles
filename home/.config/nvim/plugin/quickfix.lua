@@ -14,7 +14,6 @@ local function grep()
       pcall(function(args)
         vim.cmd(args)
       end, "normal! n")
-      vim.notify("Showing " .. #result .. " result for " .. query)
     else
       vim.cmd("cclose")
       vim.notify("Not found: " .. query)
