@@ -415,17 +415,19 @@ local incline = {
         end
 
         local modified = vim.bo[props.buf].modified
+        local modified_char = nil
 
         if modified then
-          filename = icons.get("modified") .. " " .. filename
+          modified_char = icons.get("modified")
         end
 
         if not preset then
-          return { { " " .. filename .. " " } }
+          return { { modified_char }, { " " .. filename .. " " } }
         end
 
         return {
           { wrap_char.left },
+          { modified_char, gui = "reverse" },
           { " " .. filename .. " ", gui = "reverse" },
           { wrap_char.right },
         }
@@ -689,6 +691,30 @@ local orgmode = {
     })
   end,
 }
+local opencode = {
+  src = "sudo-tee/opencode.nvim",
+  dependencies = {
+    { src = "saghen/blink.cmp", version = vim.version.range("1.*") },
+    {
+      src = "MeanderingProgrammer/render-markdown.nvim",
+      config = function()
+        require("render-markdown").setup({
+          anti_conceal = { enabled = false },
+          file_types = { "markdown", "opencode_output" },
+        })
+      end,
+    },
+  },
+  config = function()
+    require("opencode").setup({
+      keymap_prefix = "<leader>a",
+      ui = {
+        output = { auto_scroll = true },
+        icons = { preset = vim.g.use_nerd_font and "nerdfonts" or "text" },
+      },
+    })
+  end,
+}
 local function setup(specs_ext)
   local specs = {}
   local configs = {}
@@ -760,4 +786,5 @@ setup({
   lspconfig,
 
   orgmode,
+  opencode,
 })
