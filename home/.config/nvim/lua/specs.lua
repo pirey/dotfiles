@@ -216,7 +216,7 @@ local fff = {
       },
       icons = { enabled = false },
     }
-    vim.keymap.set("n", "f;", function()
+    vim.keymap.set("n", "f ", function()
       require("fff").find_files()
     end)
     vim.keymap.set("n", "f,", function()
@@ -760,6 +760,7 @@ local opencode = {
   },
   config = function()
     require("opencode").setup({
+      preferred_picker = 'select',
       keymap_prefix = "<leader>a",
       ui = {
         output = { auto_scroll = true },
