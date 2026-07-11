@@ -1,4 +1,5 @@
 vim.ui.select = function(items, opts, on_choice)
+  vim.cmd.stopinsert()
   opts = opts or {}
   local prompt = opts.prompt or "Select"
   local format_item = opts.format_item or tostring
@@ -9,15 +10,14 @@ vim.ui.select = function(items, opts, on_choice)
   end
 
   local lines = { prompt }
-  for i, item in ipairs(items) do
-    lines[i + 1] = string.format("%d. %s", i, format_item(item))
-  end
-
   local max_width = #prompt
-  for _, line in ipairs(lines) do
+  for i, item in ipairs(items) do
+    local line = string.format("%d. %s", i, format_item(item))
+    lines[i + 1] = line
     max_width = math.max(max_width, #line)
   end
-  local width = math.min(max_width + 4, 80)
+
+  local width = max_width < 80 and math.max(max_width + 4, 80) or max_width
   local height = math.min(#lines, 20)
 
   local buf = vim.api.nvim_create_buf(false, true)
