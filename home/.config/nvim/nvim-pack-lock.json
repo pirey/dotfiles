@@ -21,6 +21,10 @@
       "rev": "3bb7a69e0a1aed30e4d49374a6f928256757b8a7",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
+    "fff.nvim": {
+      "rev": "b4590ca108bdb3501030c971b1ebf65c150bf108",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

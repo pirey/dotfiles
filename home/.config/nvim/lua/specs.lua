@@ -1,3 +1,4 @@
+local config = require("config")
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
 local jump = {
@@ -174,6 +175,56 @@ local lspconfig = {
     })
   end,
 }
+local fff = {
+  src = "dmtrKovalenko/fff.nvim",
+  config = function()
+    vim.api.nvim_create_autocmd("PackChanged", {
+      group = augroup,
+      callback = function(ev)
+        local name, kind = ev.data.spec.name, ev.data.kind
+        if name == "fff.nvim" and (kind == "install" or kind == "update") then
+          if not ev.data.active then
+            vim.cmd.packadd("fff.nvim")
+          end
+          require("fff.download").download_or_build_binary()
+        end
+      end,
+    })
+
+    local layout = {
+        prompt_position = "top",
+        flex = { wrap = "bottom" },
+    }
+
+    if config.preset_fff == "simple" then
+      layout = vim.tbl_extend('force', layout, {
+        width = 0.4,
+        height = 0.5,
+        anchor = "bottom_left",
+      })
+    end
+
+    vim.g.fff = {
+      prompt = " ",
+      title = "Files",
+      layout = layout,
+      preview = { enabled = config.preset_fff ~= "simple" },
+      keymaps = {
+        close = { "<esc>", "<c-c>" },
+        cycle_grep_modes = "<c-_>",
+        cycle_previous_query = "<c-k>",
+      },
+      icons = { enabled = false },
+    }
+    vim.keymap.set("n", "f;", function()
+      require("fff").find_files()
+    end)
+    vim.keymap.set("n", "f,", function()
+      require("fff").live_grep()
+    end)
+    vim.keymap.set("n", "f.", "<cmd>FFFResume<cr>")
+  end,
+}
 local satellite = { src = "lewis6991/satellite.nvim" }
 local illuminate = { src = "RRethy/vim-illuminate" }
 local lualine = {
@@ -286,7 +337,7 @@ local lualine = {
       cond = conditions.screen_width(120),
     }
 
-    local preset = vim.g.preset_statusline
+    local preset = config.preset_statusline
 
     -- default separators
     local section_seps = { left = "", right = "" }
@@ -326,7 +377,7 @@ local lualine = {
         always_show_tabline = false,
         component_separators = component_seps,
         section_separators = section_seps,
-        theme = not preset and {
+        theme = not preset or preset == "simple" and {
           normal = {
             a = "StatusLine",
             b = "StatusLine",
@@ -362,8 +413,8 @@ local incline = {
   config = function()
     vim.o.laststatus = 3
     local icons = require("icons")
-    local preset_statusline = vim.g.preset_statusline
-    local preset = vim.g.preset_incline or preset_statusline
+    local preset_statusline = config.preset_statusline
+    local preset = config.preset_incline or preset_statusline
     local wrap_char = ({
       bubble = {
         left = icons.sep("round_left_filled"),
@@ -391,7 +442,7 @@ local incline = {
       },
     })[preset]
 
-    if wrap_char == nil then
+    if wrap_char == nil or preset == "simple" then
       wrap_char = { left = "", right = "" }
     end
 
@@ -421,7 +472,7 @@ local incline = {
           modified_char = icons.get("modified")
         end
 
-        if not preset then
+        if not preset or preset == "simple" then
           return { { modified_char }, { " " .. filename .. " " } }
         end
 
@@ -712,7 +763,7 @@ local opencode = {
       keymap_prefix = "<leader>a",
       ui = {
         output = { auto_scroll = true },
-        icons = { preset = vim.g.use_nerd_font and "nerdfonts" or "text" },
+        icons = { preset = config.use_nerd_font and "nerdfonts" or "text" },
       },
     })
   end,
@@ -771,6 +822,7 @@ setup({
   blink_indent,
 
   -- UI
+  fff,
   satellite,
   illuminate,
   lualine,

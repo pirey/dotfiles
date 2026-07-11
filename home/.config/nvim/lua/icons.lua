@@ -1,7 +1,8 @@
+local config = require("config")
 local M = {}
 
 function M.init()
-  M.enabled = vim.g.use_nerd_font
+  M.enabled = config.use_nerd_font
 end
 
 M.registry = {

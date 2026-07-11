@@ -1,7 +1,11 @@
+local config = require("config").setup({
+  use_nerd_font = true,
+  preset_statusline = "bubble",
+  preset_incline = "bubble",
+  preset_fff = "simple",
+})
+
 vim.g.mapleader = " "
-vim.g.use_nerd_font = true
-vim.g.preset_statusline = "asymmetric" -- "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
-vim.g.preset_incline = "bubble" -- same as vim.g.preset_statusline
 
 vim.o.wrap = false
 vim.o.swapfile = false
@@ -21,7 +25,7 @@ vim.o.cursorline = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 vim.o.shortmess = vim.o.shortmess .. "I"
-vim.o.winborder = vim.g.preset_statusline == "bubble" and "rounded" or "single"
+vim.o.winborder = config.is_rounded_preset() and "rounded" or "single"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
