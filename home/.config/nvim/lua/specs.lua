@@ -743,7 +743,7 @@ local orgmode = {
   end,
 }
 local opencode = {
-  src = "file:///Users/yeri/code/github.com/pirey/opencode.nvim",
+  src = "pirey/opencode.nvim",
   dependencies = {
     { src = "saghen/blink.cmp", version = vim.version.range("1.*") },
     {
