@@ -74,7 +74,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "3f1baf43ae5011216d147878f7fdc939b38ce226",
+      "rev": "210c8926f2893fd2037f609573643f67d7dedfd4",
       "src": "file:///Users/yeri/code/github.com/pirey/opencode.nvim"
     },
     "orgmode": {
