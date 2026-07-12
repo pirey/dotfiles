@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "f97dff59bcc285e996a454858c3c185d86521ec3",
+      "rev": "afda858df1170719753822edd7a95886bb84b46d",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "b4590ca108bdb3501030c971b1ebf65c150bf108",
+      "rev": "44a5b259570730a4236ecbf06673d43ef7b2263e",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
@@ -106,7 +106,7 @@
       "src": "https://github.com/tpope/vim-abolish"
     },
     "vim-illuminate": {
-      "rev": "8629e6b2dfa8c66677b9d489eb02480cbcfa9599",
+      "rev": "91313e598ca62e110bc71535c49069b66b9883c9",
       "src": "https://github.com/RRethy/vim-illuminate"
     },
     "vim-repeat": {

@@ -688,7 +688,6 @@ local orgmode = {
       org_default_notes_file = "~/org/inbox.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE", "INVALID" },
       org_log_done = false,
-      org_agenda_span = "month",
       org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
       org_agenda_time_grid = {
         times = { 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400 },
@@ -731,8 +730,6 @@ local orgmode = {
         },
       },
     })
-    vim.keymap.set("n", "<leader>oc", "<cmd>Org capture<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>oa", "<cmd>Org agenda<cr>", { silent = true })
     vim.api.nvim_create_autocmd("FileType", {
       group = augroup,
       pattern = "orgagenda",
