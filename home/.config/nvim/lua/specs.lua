@@ -196,11 +196,18 @@ local fff = {
         flex = { wrap = "bottom" },
     }
 
-    if config.preset_fff == "simple" then
+    if config.preset_fff == "corner" then
       layout = vim.tbl_extend('force', layout, {
         width = 0.4,
         height = 0.5,
         anchor = "bottom_left",
+      })
+    end
+
+    if config.preset_fff == "top-down" then
+      layout = vim.tbl_extend("force", layout, {
+        width = 0.4,
+        preview_position = "bottom"
       })
     end
 
@@ -377,7 +384,7 @@ local lualine = {
         always_show_tabline = false,
         component_separators = component_seps,
         section_separators = section_seps,
-        theme = not preset or preset == "simple" and {
+        theme = not preset and {
           normal = {
             a = "StatusLine",
             b = "StatusLine",
@@ -472,7 +479,7 @@ local incline = {
           modified_char = icons.get("modified")
         end
 
-        if not preset or preset == "simple" then
+        if not preset then
           return { { modified_char }, { " " .. filename .. " " } }
         end
 

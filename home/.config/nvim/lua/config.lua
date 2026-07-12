@@ -2,7 +2,7 @@ local default_opts = {
   use_nerd_font = false,
   preset_statusline = nil, -- "simple" | "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
   preset_incline = nil, -- "simple" | "bubble" | "slanted" | "slanted2" | "slanted3" | "asymmetric" | "asymmetric2"
-  preset_fff = "single" -- "simple" | "left-right" | "top-down"
+  preset_fff = "corner" -- "corner" | "left-right" | "top-down"
 }
 
 local M = {}
@@ -13,7 +13,15 @@ function M.setup(opts)
   M.preset_statusline = opts.preset_statusline or vim.g.preset_statusline
   M.preset_incline = opts.preset_incline or vim.g.preset_incline
   M.preset_fff = opts.preset_fff or vim.g.preset_fff
-  return M
+
+  M._set_options()
+end
+
+function M._set_options()
+  if M.is_rounded_preset() then
+    vim.o.winborder = "rounded"
+    vim.o.pumborder = "rounded"
+  end
 end
 
 function M.is_rounded_preset()

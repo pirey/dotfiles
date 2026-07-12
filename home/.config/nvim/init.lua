@@ -1,10 +1,3 @@
-local config = require("config").setup({
-  use_nerd_font = true,
-  preset_statusline = "bubble",
-  preset_incline = "bubble",
-  preset_fff = "simple",
-})
-
 vim.g.mapleader = " "
 
 vim.o.wrap = false
@@ -25,7 +18,7 @@ vim.o.cursorline = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 vim.o.shortmess = vim.o.shortmess .. "I"
-vim.o.winborder = config.is_rounded_preset() and "rounded" or "single"
+vim.o.winborder = "single"
 
 -- normalize
 vim.keymap.set({ "n", "v" }, ";", ":", { desc = "Swap ; with :" })
@@ -99,6 +92,12 @@ end, { desc = "Toggle all folds" })
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 
+require("config").setup({
+  use_nerd_font = true,
+  preset_statusline = nil,
+  preset_incline = nil,
+  preset_fff = "corner",
+})
 require("vim._core.ui2").enable()
 require("specs")
 
