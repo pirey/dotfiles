@@ -94,8 +94,8 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 
 require("config").setup({
   use_nerd_font = true,
-  preset_statusline = nil,
-  preset_incline = nil,
+  preset_statusline = "bubble",
+  preset_incline = "bubble",
   preset_fff = "corner",
 })
 require("vim._core.ui2").enable()
