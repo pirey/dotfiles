@@ -91,9 +91,9 @@ function _G.FindSmart(cmdarg, cmdcomplete)
 end
 
 vim.cmd([[
-  set wildcharm=<c-@>
-  nnoremap <leader>f :find <c-@><c-p>
-  cnoremap fd find <c-@><c-p>
+  set wildcharm=<Nul>
+  nnoremap <leader>f :find <Nul><c-p>
+  cabbrev <expr> fd getcmdtype() == ':' && getcmdline() =~# '^fd' ? 'find' : 'fd'
 ]])
 
 vim.o.findfunc = "v:lua.FindSmart"

@@ -192,12 +192,12 @@ local fff = {
     })
 
     local layout = {
-        prompt_position = "top",
-        flex = { wrap = "bottom" },
+      prompt_position = "top",
+      flex = { wrap = "bottom" },
     }
 
     if config.preset_fff == "corner" then
-      layout = vim.tbl_extend('force', layout, {
+      layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         height = 0.5,
         anchor = "bottom_left",
@@ -207,7 +207,7 @@ local fff = {
     if config.preset_fff == "top-down" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
-        preview_position = "bottom"
+        preview_position = "bottom",
       })
     end
 
@@ -640,10 +640,8 @@ local blink_cmp = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      cmdline = {
-        keymap = { preset = 'inherit' },
-        completion = { menu = { auto_show = true } },
-      },
+      cmdline = { enabled = false },
+      -- cmdline = { completion = { menu = { auto_show = true } } },
     })
   end,
 }
@@ -768,7 +766,7 @@ local opencode = {
   },
   config = function()
     require("opencode").setup({
-      preferred_picker = 'select',
+      preferred_picker = "select",
       keymap_prefix = "<leader>a",
       ui = {
         output = { auto_scroll = true },
