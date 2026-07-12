@@ -215,7 +215,7 @@ local fff = {
       prompt = " ",
       title = "Files",
       layout = layout,
-      preview = { enabled = config.preset_fff ~= "simple" },
+      preview = { enabled = config.preset_fff ~= "corner" },
       keymaps = {
         close = { "<esc>", "<c-c>" },
         cycle_grep_modes = "<c-_>",
@@ -640,7 +640,10 @@ local blink_cmp = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      cmdline = { enabled = false },
+      cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = { menu = { auto_show = true } },
+      },
     })
   end,
 }
