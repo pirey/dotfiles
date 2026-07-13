@@ -674,15 +674,11 @@ local blink_cmp = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      -- cmdline = { enabled = false },
       cmdline = {
+        enabled = config.opts.cmdline_completion == true,
         completion = {
           menu = { auto_show = true },
-          list = {
-            selection = {
-              preselect = false,
-            }
-          }
+          list = { selection = { preselect = false } }
         },
       },
     })

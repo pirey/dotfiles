@@ -1,5 +1,6 @@
 ---@class ConfigOpts
 ---@field use_nerd_font? boolean
+---@field cmdline_completion? boolean
 ---@field preset_statusline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 ---@field preset_incline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 ---@field preset_fff? "corner"|"horizontal"|"vertical"
@@ -7,9 +8,10 @@
 ---@type ConfigOpts
 local default_opts = {
   use_nerd_font = false,
+  cmdline_completion = false,
   preset_statusline = nil,
   preset_incline = nil,
-  preset_fff = "corner",
+  preset_fff = nil,
 }
 
 ---@class ConfigModule
@@ -22,6 +24,7 @@ local default_opts = {
 local M = {
   opts = {
     use_nerd_font = false,
+    cmdline_completion = false,
     preset_statusline = nil,
     preset_incline = nil,
     preset_fff = "corner",
@@ -35,6 +38,7 @@ local M = {
 function M.setup(opts)
   M.opts = vim.tbl_extend('force', default_opts, opts or {})
   M.opts.use_nerd_font = M.opts.use_nerd_font or vim.g.use_nerd_font
+  M.opts.cmdline_completion = M.opts.cmdline_completion or vim.g.cmdline_completion
   M.opts.preset_statusline = M.opts.preset_statusline or vim.g.preset_statusline
   M.opts.preset_incline = M.opts.preset_incline or vim.g.preset_incline
   M.opts.preset_fff = M.opts.preset_fff or vim.g.preset_fff

@@ -1,3 +1,5 @@
+local config = require("config")
+
 local function in_git_repo()
   return vim.fn.executable("git") == 1
     and vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
@@ -71,11 +73,13 @@ local function find_fd_files(cmdarg)
 end
 
 function _G.FindSmart(cmdarg, cmdcomplete)
-  -- if cmdcomplete and cmdarg == "" then
-  --   local modified_files = get_modified_files()
-  --   local oldfiles = get_oldfiles_cwd()
-  --   return uniq(vim.list_extend(modified_files, oldfiles))
-  -- end
+  if not config.opts.cmdline_completion then
+    if cmdcomplete and cmdarg == "" then
+      local modified_files = get_modified_files()
+      local oldfiles = get_oldfiles_cwd()
+      return uniq(vim.list_extend(modified_files, oldfiles))
+    end
+  end
 
   local files = {}
 
@@ -90,9 +94,16 @@ function _G.FindSmart(cmdarg, cmdcomplete)
   return files
 end
 
+if config.opts.cmdline_completion then
+  vim.keymap.set("n", "<leader>f", ":find ")
+else
+  vim.cmd([[
+    set wildcharm=<Nul>
+    nnoremap <leader>f :find <Nul><c-p>
+  ]])
+end
+
 vim.cmd([[
-  set wildcharm=<Nul>
-  nnoremap <leader>f :find <Nul><c-p>
   cabbrev <expr> fd getcmdtype() == ':' && getcmdline() =~# '^fd' ? 'find' : 'fd'
 ]])
 
