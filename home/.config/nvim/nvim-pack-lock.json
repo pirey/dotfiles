@@ -18,7 +18,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "e51af76acc83fe728e9c9dae527bee330d90436d",
+      "rev": "fd688b76e260a26db4b22561af4db16596165e73",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
@@ -78,7 +78,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "32fdadd7dd2e0b887c3cece5d8ad76ebcfbac3c4",
+      "rev": "9d50e8eeb0d9327ae18d796bb1ec4234b63be462",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
