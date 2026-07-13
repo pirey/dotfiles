@@ -295,6 +295,7 @@ local lualine = {
       symbols = {
         modified = icons.get("modified"),
         readonly = icons.get("readonly"),
+        unnamed = "",
       },
     }
 
@@ -535,6 +536,7 @@ local outline = {
   config = function()
     require("outline").setup({
       outline_window = {
+        width = 40,
         relative_width = false,
         auto_close = true,
       }
