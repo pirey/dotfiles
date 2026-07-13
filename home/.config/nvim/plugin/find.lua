@@ -71,11 +71,11 @@ local function find_fd_files(cmdarg)
 end
 
 function _G.FindSmart(cmdarg, cmdcomplete)
-  if cmdcomplete and cmdarg == "" then
-    local modified_files = get_modified_files()
-    local oldfiles = get_oldfiles_cwd()
-    return uniq(vim.list_extend(modified_files, oldfiles))
-  end
+  -- if cmdcomplete and cmdarg == "" then
+  --   local modified_files = get_modified_files()
+  --   local oldfiles = get_oldfiles_cwd()
+  --   return uniq(vim.list_extend(modified_files, oldfiles))
+  -- end
 
   local files = {}
 

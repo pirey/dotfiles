@@ -158,6 +158,7 @@ local lspconfig = {
       "vtsls",
       "cssls",
       "gopls",
+      "clangd",
     })
 
     -- disable semantic highlight
@@ -673,8 +674,17 @@ local blink_cmp = {
         -- same as ctrl+/
         ["<C-_>"] = { "show" },
       },
-      cmdline = { enabled = false },
-      -- cmdline = { completion = { menu = { auto_show = true } } },
+      -- cmdline = { enabled = false },
+      cmdline = {
+        completion = {
+          menu = { auto_show = true },
+          list = {
+            selection = {
+              preselect = false,
+            }
+          }
+        },
+      },
     })
   end,
 }
