@@ -11,7 +11,6 @@ font-size = 13.5
 font-family = "IoskeleyMono Nerd Font"
 
 window-padding-balance = true
-window-padding-color = "extend"
 macos-titlebar-proxy-icon = "hidden"
 macos-option-as-alt = right
 
