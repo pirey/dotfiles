@@ -787,7 +787,7 @@ local orgmode = {
   end,
 }
 local opencode = {
-  src = "pirey/opencode.nvim",
+  src = "sudo-tee/opencode.nvim",
   dependencies = {
     { src = "saghen/blink.cmp", version = vim.version.range("1.*") },
     {
