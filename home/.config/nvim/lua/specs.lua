@@ -534,11 +534,10 @@ local outline = {
   src = "hedyhli/outline.nvim",
   config = function()
     require("outline").setup({
-      keymaps = {
-        goto_location = "o",
-        peek_location = "<S-Cr>",
-        goto_and_close = "<Cr>",
-      },
+      outline_window = {
+        relative_width = false,
+        auto_close = true,
+      }
     })
     vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
   end,
