@@ -797,7 +797,6 @@ local opencode = {
           anti_conceal = { enabled = false },
           file_types = { "markdown", "opencode_output" },
           heading = { enabled = false },
-          paragraph = { enabled = false },
           bullet = { enabled = false },
         })
       end,
