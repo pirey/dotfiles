@@ -559,6 +559,19 @@ local neogit = {
     vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>")
   end,
 }
+
+---@param msg string
+---@param cmd_template string
+---@return fun()
+local function prompt_cmd(msg, cmd_template)
+  return function()
+    local ok, value = pcall(vim.fn.input, msg)
+    if ok and value ~= "" then
+      vim.cmd(cmd_template:gsub("%$", function() return value end))
+    end
+  end
+end
+
 local diffview = {
   src = "dlyongemallo/diffview-plus.nvim",
   config = function()
@@ -571,14 +584,9 @@ local diffview = {
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>g,", function()
-      local prompt = "Search git: "
-      local ok, query = pcall(vim.fn.input, prompt)
-      if not ok or query == "" then
-        return
-      end
-      vim.cmd("DiffviewFileHistory -S" .. query)
-    end, { silent = true })
+    vim.keymap.set("n", "<leader>gv", prompt_cmd("Show git commit: ", "DiffviewOpen $^..$"), { silent = true })
+    vim.keymap.set("n", "<leader>g,", prompt_cmd("Search git: ", 'DiffviewFileHistory -S"$"'), { silent = true })
+    vim.keymap.set("n", "<leader>gc", prompt_cmd("Search commit message: ", 'DiffviewFileHistory --grep="$"'), { silent = true })
   end,
 }
 local oil = {
@@ -678,7 +686,7 @@ local blink_cmp = {
         enabled = config.opts.cmdline_completion == true,
         completion = {
           menu = { auto_show = true },
-          list = { selection = { preselect = false } }
+          list = { selection = { preselect = false } },
         },
       },
     })
