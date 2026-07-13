@@ -228,7 +228,9 @@ local fff = {
     vim.keymap.set("n", "f,", function()
       require("fff").live_grep()
     end)
-    vim.keymap.set("n", "f.", "<cmd>FFFResume<cr>")
+    vim.keymap.set("n", "f.", function()
+      require("fff").resume()
+    end)
   end,
 }
 local satellite = { src = "lewis6991/satellite.nvim" }
