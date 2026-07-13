@@ -203,7 +203,7 @@ local fff = {
       })
     end
 
-    if config.opts.preset_fff == "top-down" then
+    if config.opts.preset_fff == "vertical" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         preview_position = "bottom",
@@ -839,9 +839,9 @@ local function setup(specs_ext)
   vim.pack.add(specs, { confirm = false })
 
   -- configure packages
-  for _, config in ipairs(configs) do
-    if type(config) == "function" then
-      config()
+  for _, config_fn in ipairs(configs) do
+    if type(config_fn) == "function" then
+      config_fn()
     end
   end
 end

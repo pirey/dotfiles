@@ -2,7 +2,7 @@
 ---@field use_nerd_font? boolean
 ---@field preset_statusline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 ---@field preset_incline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
----@field preset_fff? "corner"|"left-right"|"top-down"
+---@field preset_fff? "corner"|"horizontal"|"vertical"
 
 ---@type ConfigOpts
 local default_opts = {
