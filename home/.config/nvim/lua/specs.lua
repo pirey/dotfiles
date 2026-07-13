@@ -1,4 +1,5 @@
 local config = require("config")
+local icons = require("icons")
 local augroup = vim.api.nvim_create_augroup("SpecsAugroup", { clear = true })
 
 local jump = {
@@ -136,8 +137,6 @@ local lspconfig = {
       },
     })
 
-    local icons = require("icons")
-
     vim.diagnostic.config({
       signs = {
         text = {
@@ -196,7 +195,7 @@ local fff = {
       flex = { wrap = "bottom" },
     }
 
-    if config.preset_fff == "corner" then
+    if config.opts.preset_fff == "corner" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         height = 0.5,
@@ -204,7 +203,7 @@ local fff = {
       })
     end
 
-    if config.preset_fff == "top-down" then
+    if config.opts.preset_fff == "top-down" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         preview_position = "bottom",
@@ -215,7 +214,7 @@ local fff = {
       prompt = " ",
       title = "Files",
       layout = layout,
-      preview = { enabled = config.preset_fff ~= "corner" },
+      preview = { enabled = config.opts.preset_fff ~= "corner" },
       keymaps = {
         close = { "<esc>", "<c-c>" },
         cycle_grep_modes = "<c-_>",
@@ -234,12 +233,26 @@ local fff = {
 }
 local satellite = { src = "lewis6991/satellite.nvim" }
 local illuminate = { src = "RRethy/vim-illuminate" }
+local navic = {
+  src = "SmiteshP/nvim-navic",
+  config = function()
+    local opts = {
+      lsp = {
+        auto_attach = true,
+      },
+      highlight = true,
+      click = true,
+    }
+    if not config.opts.use_nerd_font then
+      opts.icons = false
+    end
+    require("nvim-navic").setup(opts)
+  end,
+}
 local lualine = {
   src = "nvim-lualine/lualine.nvim",
   config = function()
     vim.o.showtabline = 0
-
-    local icons = require("icons")
 
     local conditions = {
       buffer_not_empty = function()
@@ -280,6 +293,15 @@ local lualine = {
         modified = icons.get("modified"),
         readonly = icons.get("readonly"),
       },
+    }
+
+    local navic_status = {
+      function()
+        return require("nvim-navic").get_location()
+      end,
+      cond = function()
+        return require("nvim-navic").is_available() and conditions.screen_width(120)()
+      end,
     }
 
     local lsp = {
@@ -344,7 +366,7 @@ local lualine = {
       cond = conditions.screen_width(120),
     }
 
-    local preset = config.preset_statusline
+    local preset = config.opts.preset_statusline
 
     -- default separators
     local section_seps = { left = "", right = "" }
@@ -395,7 +417,7 @@ local lualine = {
       sections = {
         lualine_a = { edge_component(cwd) },
         lualine_b = { tabs },
-        lualine_c = { filename },
+        lualine_c = { filename, navic_status },
         lualine_x = {
           orgmode_status,
           lsp,
@@ -419,9 +441,9 @@ local incline = {
   src = "b0o/incline.nvim",
   config = function()
     vim.o.laststatus = 3
-    local icons = require("icons")
-    local preset_statusline = config.preset_statusline
-    local preset = config.preset_incline or preset_statusline
+
+    local preset_statusline = config.opts.preset_statusline
+    local preset = config.opts.preset_incline or preset_statusline
     local wrap_char = ({
       bubble = {
         left = icons.sep("round_left_filled"),
@@ -510,7 +532,6 @@ local outline = {
 local neogit = {
   src = "NeogitOrg/neogit",
   config = function()
-    local icons = require("icons")
     require("neogit").setup({
       graph_style = "unicode",
       disable_context_highlighting = true,
@@ -529,7 +550,6 @@ local diffview = {
   config = function()
     vim.o.fillchars = "diff: "
 
-    local icons = require("icons")
     require("diffview").setup({
       use_icons = icons.enabled,
       file_panel = { listing_style = "list" },
@@ -770,7 +790,7 @@ local opencode = {
       keymap_prefix = "<leader>a",
       ui = {
         output = { auto_scroll = true },
-        icons = { preset = config.use_nerd_font and "nerdfonts" or "text" },
+        icons = { preset = config.opts.use_nerd_font and "nerdfonts" or "text" },
       },
     })
   end,
@@ -832,6 +852,7 @@ setup({
   fff,
   satellite,
   illuminate,
+  navic,
   lualine,
   incline,
   outline,

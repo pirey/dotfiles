@@ -2,7 +2,7 @@ local config = require("config")
 local M = {}
 
 function M.init()
-  M.enabled = config.use_nerd_font
+  M.enabled = config.opts.use_nerd_font
 end
 
 M.registry = {
@@ -40,6 +40,7 @@ M.separators = {
   arrow_right_thin = { icon = "", fallback = "" },
   arrow_left_filled = { icon = "", fallback = "" },
   arrow_left_thin = { icon = "", fallback = "" },
+  chevron_right_thin = { icon = "", fallback = ">" },
   round_right_filled = { icon = "", fallback = "" },
   round_right_thin = { icon = "", fallback = "" },
   round_left_filled = { icon = "", fallback = "" },

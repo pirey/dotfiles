@@ -21,6 +21,10 @@
       "rev": "e51af76acc83fe728e9c9dae527bee330d90436d",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
+    "dropbar.nvim": {
+      "rev": "808ba31cde89aec8833e9789f5e04557cd31c9e1",
+      "src": "https://github.com/Bekaboo/dropbar.nvim"
+    },
     "fff.nvim": {
       "rev": "44a5b259570730a4236ecbf06673d43ef7b2263e",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
@@ -64,6 +68,10 @@
     "nvim-lspconfig": {
       "rev": "5955a100ae7155962330643924e21a798b9bdc91",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-navic": {
+      "rev": "f5eba192f39b453675d115351808bd51276d9de5",
+      "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",

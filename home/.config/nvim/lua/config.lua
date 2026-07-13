@@ -12,16 +12,32 @@ local default_opts = {
   preset_fff = "corner",
 }
 
-local M = {}
+---@class ConfigModule
+---@field opts ConfigOpts
+---@field setup fun(opts?: ConfigOpts)
+---@field _set_options fun()
+---@field is_rounded_preset fun(): boolean
+
+---@type ConfigModule
+local M = {
+  opts = {
+    use_nerd_font = false,
+    preset_statusline = nil,
+    preset_incline = nil,
+    preset_fff = "corner",
+  },
+  setup = function() end,
+  _set_options = function() end,
+  is_rounded_preset = function() return false end,
+}
 
 ---@param opts? ConfigOpts
 function M.setup(opts)
-  opts = vim.tbl_extend('force', default_opts, opts or {})
-  M.use_nerd_font = opts.use_nerd_font or vim.g.use_nerd_font
-  M.preset_statusline = opts.preset_statusline or vim.g.preset_statusline
-  M.preset_incline = opts.preset_incline or vim.g.preset_incline
-  M.preset_fff = opts.preset_fff or vim.g.preset_fff
-
+  M.opts = vim.tbl_extend('force', default_opts, opts or {})
+  M.opts.use_nerd_font = M.opts.use_nerd_font or vim.g.use_nerd_font
+  M.opts.preset_statusline = M.opts.preset_statusline or vim.g.preset_statusline
+  M.opts.preset_incline = M.opts.preset_incline or vim.g.preset_incline
+  M.opts.preset_fff = M.opts.preset_fff or vim.g.preset_fff
   M._set_options()
 end
 
@@ -34,7 +50,7 @@ end
 
 ---@return boolean
 function M.is_rounded_preset()
-  return vim.tbl_contains({ "bubble", "asymmetric", "asymmetric2" }, M.preset_statusline)
+  return vim.tbl_contains({ "bubble", "asymmetric", "asymmetric2" }, M.opts.preset_statusline)
 end
 
 return M
