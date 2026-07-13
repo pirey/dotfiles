@@ -351,6 +351,10 @@ local lualine = {
 
     local tabs = {
       "tabs",
+      tabs_color = config.opts.preset_statusline == nil and {
+        active = "Cursor",
+        inactive = "StatusLine",
+      } or nil,
       show_modified_status = false,
       cond = function()
         local tabcount = #vim.api.nvim_list_tabpages()
@@ -415,9 +419,16 @@ local lualine = {
         } or "auto",
       },
       sections = {
-        lualine_a = { edge_component(cwd) },
-        lualine_b = { tabs },
-        lualine_c = { filename, navic_status },
+        lualine_a = {
+          edge_component(cwd),
+        },
+        lualine_b = {
+          tabs,
+        },
+        lualine_c = {
+          filename,
+          navic_status,
+        },
         lualine_x = {
           orgmode_status,
           lsp,
