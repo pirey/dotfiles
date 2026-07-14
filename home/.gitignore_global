@@ -8,6 +8,7 @@ tags
 
 .eslintcache
 node_modules/*
+.next-backup
 bower_modules/*
 .phalcon
 .vscode
