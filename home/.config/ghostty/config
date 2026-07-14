@@ -9,6 +9,7 @@ theme = "tokyonight"
 
 font-size = 13.5
 font-family = "IoskeleyMono Nerd Font"
+font-feature = -calt, -liga, -dlig
 
 window-padding-balance = true
 macos-titlebar-proxy-icon = "hidden"
