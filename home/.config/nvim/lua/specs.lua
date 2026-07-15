@@ -539,7 +539,7 @@ local outline = {
         width = 40,
         relative_width = false,
         auto_close = true,
-      }
+      },
     })
     vim.keymap.set("n", "<leader>s", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
   end,
@@ -568,7 +568,9 @@ local function prompt_cmd(msg, cmd_template)
   return function()
     local ok, value = pcall(vim.fn.input, msg)
     if ok and value ~= "" then
-      vim.cmd(cmd_template:gsub("%$", function() return value end))
+      vim.cmd(cmd_template:gsub("%$", function()
+        return value
+      end))
     end
   end
 end
@@ -587,7 +589,12 @@ local diffview = {
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", prompt_cmd("Show git commit: ", "DiffviewOpen $^..$"), { silent = true })
     vim.keymap.set("n", "<leader>g,", prompt_cmd("Search git: ", 'DiffviewFileHistory -S"$"'), { silent = true })
-    vim.keymap.set("n", "<leader>gc", prompt_cmd("Search commit message: ", 'DiffviewFileHistory --grep="$"'), { silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader>gc",
+      prompt_cmd("Search commit message: ", 'DiffviewFileHistory --grep="$"'),
+      { silent = true }
+    )
   end,
 }
 local oil = {
@@ -823,6 +830,12 @@ local opencode = {
     })
   end,
 }
+local curl = {
+  src = "pirey/curl.nvim",
+  config = function()
+    require("curl").setup()
+  end,
+}
 local function setup(specs_ext)
   local specs = {}
   local configs = {}
@@ -897,4 +910,5 @@ setup({
 
   orgmode,
   opencode,
+  curl,
 })

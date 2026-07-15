@@ -17,12 +17,16 @@
       "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "curl.nvim": {
+      "rev": "d260759cff2a08d33146a499335637bc52f52673",
+      "src": "https://github.com/pirey/curl.nvim"
+    },
     "diffview-plus.nvim": {
       "rev": "fd688b76e260a26db4b22561af4db16596165e73",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "44a5b259570730a4236ecbf06673d43ef7b2263e",
+      "rev": "63fac0b45534be1645c9f23713963e45172dc89b",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
