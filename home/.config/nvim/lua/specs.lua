@@ -744,6 +744,7 @@ local orgmode = {
       org_default_notes_file = "~/org/inbox.org",
       org_todo_keywords = { "TODO", "STARTED", "|", "DONE", "INVALID" },
       org_log_done = false,
+      org_agenda_span = "day",
       org_agenda_files = { "~/org/**/*.org", "~/vault-org/**/*.org" },
       org_agenda_time_grid = {
         times = { 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400 },
