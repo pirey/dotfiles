@@ -8,6 +8,9 @@ If the message I am sending you contains any sort of questions, then you MUST
 give answers or ask me for clarifications and NOT do any command or file
 editing.
 
+DO NOT UNDER ANY CIRCUMSTANCES ssh into any server from my machine. I repeat,
+DO NOT do ssh command.
+
 DO NOT DO ANY GIT WRITE OPERATION (e.g. git commit, git add, git push, git
 stash, git restore, etc)!
 
