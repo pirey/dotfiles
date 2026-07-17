@@ -26,7 +26,7 @@
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "57b6773f4c31f786184f16985af80381f8a0e6ca",
+      "rev": "b14c31d137e108b7c520d0d9e0b0017a1a88141d",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "95295edaa26e8e8db5a9bc4119256e602311c6bc",
+      "rev": "f8674ec894315c02449b61c9de9a116c5aafeb90",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nightfox.nvim": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "d5b6e3db4c17b0146f63a2fc47e2027a754b2cb1",
+      "rev": "b386c50cd7816f8c8a2b13b298a218af1f5a75c6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -82,7 +82,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "cf289a411aa5dd20eeb2ffb471c4e299175d897e",
+      "rev": "5e89ef97c88aaca11f23c32e297daed5b641dab5",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {

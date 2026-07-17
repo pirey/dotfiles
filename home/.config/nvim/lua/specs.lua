@@ -428,9 +428,9 @@ local lualine = {
         },
         lualine_b = {
           tabs,
-          filename,
         },
         lualine_c = {
+          filename,
           navic_status,
         },
         lualine_x = {
