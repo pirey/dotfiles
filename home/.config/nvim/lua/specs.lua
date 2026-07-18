@@ -247,7 +247,7 @@ local navic = {
       click = true,
     }
     if not config.opts.use_nerd_font then
-      opts.icons = false
+      opts.icons = { enabled = false }
     end
     require("nvim-navic").setup(opts)
   end,
@@ -355,6 +355,7 @@ local lualine = {
 
     local tabs = {
       "tabs",
+      use_mode_colors = config.opts.preset_statusline ~= nil,
       tabs_color = config.opts.preset_statusline == nil and {
         active = "Cursor",
         inactive = "StatusLine",
@@ -425,12 +426,12 @@ local lualine = {
       sections = {
         lualine_a = {
           edge_component(cwd),
-        },
-        lualine_b = {
           tabs,
         },
-        lualine_c = {
+        lualine_b = {
           filename,
+        },
+        lualine_c = {
           navic_status,
         },
         lualine_x = {
