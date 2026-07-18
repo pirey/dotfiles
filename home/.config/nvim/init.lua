@@ -95,7 +95,9 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 require("config").setup({
   use_nerd_font = true,
   cmdline_completion = true,
-  preset_statusline = "bubble",
+  winbar_provider = "lualine",
+  preset_navic = "statusline",
+  preset_statusline = nil,
   preset_incline = nil,
   preset_fff = nil,
 })

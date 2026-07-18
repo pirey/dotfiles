@@ -4,6 +4,8 @@
 ---@field preset_statusline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 ---@field preset_incline? "simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 ---@field preset_fff? "corner"|"horizontal"|"vertical"
+---@field winbar_provider? "incline"|"lualine"
+---@field preset_navic? "statusline"|"winbar"
 
 ---@type ConfigOpts
 local default_opts = {
@@ -12,6 +14,8 @@ local default_opts = {
   preset_statusline = nil,
   preset_incline = nil,
   preset_fff = nil,
+  winbar_provider = nil,
+  preset_navic = nil,
 }
 
 ---@class ConfigModule
@@ -28,6 +32,8 @@ local M = {
     preset_statusline = nil,
     preset_incline = nil,
     preset_fff = "corner",
+    winbar_provider = nil,
+    preset_navic = nil,
   },
   setup = function() end,
   _set_options = function() end,
@@ -42,6 +48,8 @@ function M.setup(opts)
   M.opts.preset_statusline = M.opts.preset_statusline or vim.g.preset_statusline
   M.opts.preset_incline = M.opts.preset_incline or vim.g.preset_incline
   M.opts.preset_fff = M.opts.preset_fff or vim.g.preset_fff
+  M.opts.winbar_provider = M.opts.winbar_provider or vim.g.winbar_provider
+  M.opts.preset_navic = M.opts.preset_navic or vim.g.preset_navic
   M._set_options()
 end
 

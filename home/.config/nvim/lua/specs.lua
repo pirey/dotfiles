@@ -239,17 +239,15 @@ local illuminate = { src = "RRethy/vim-illuminate" }
 local navic = {
   src = "SmiteshP/nvim-navic",
   config = function()
-    local opts = {
+    require("nvim-navic").setup({
       lsp = {
         auto_attach = true,
       },
       highlight = true,
       click = true,
-    }
-    if not config.opts.use_nerd_font then
-      opts.icons = { enabled = false }
-    end
-    require("nvim-navic").setup(opts)
+      icons = { enabled = config.opts.use_nerd_font },
+      separator = " › ",
+    })
   end,
 }
 local lualine = {
@@ -297,6 +295,18 @@ local lualine = {
         readonly = icons.get("readonly"),
         unnamed = "",
       },
+    }
+
+    local winbar_filename = {
+      "filename",
+      path = 0,
+      shorting_target = vim.fn.winwidth(0) / 2,
+      symbols = {
+        modified = icons.get("modified"),
+        readonly = icons.get("readonly"),
+        -- unnamed = " ",
+      },
+      -- cond = conditions.buffer_not_empty,
     }
 
     local navic_status = {
@@ -395,8 +405,10 @@ local lualine = {
       section_seps = { left = icons.sep("round_right_filled"), right = icons.sep("slant_left_upper") }
     end
 
+    ---@param component table
+    ---@param side? "left"|"right"|"both"
     local function edge_component(component, side)
-      side = side or "both" -- "left" | "right" | "both"
+      side = side or "both"
       if preset == "bubble" then
         return vim.tbl_extend("force", component, {
           separator = {
@@ -408,13 +420,19 @@ local lualine = {
       return component
     end
 
-    require("lualine").setup({
+    local disabled_winbar_filetypes = {}
+    if config.opts.winbar_provider == "lualine" then
+      disabled_winbar_filetypes = { "opencode_output", "opencode", "terminal", "help" }
+    end
+
+    local lualine_config = {
       options = {
         globalstatus = true,
         always_divide_middle = false,
         always_show_tabline = false,
         component_separators = component_seps,
         section_separators = section_seps,
+        disabled_filetypes = { winbar = disabled_winbar_filetypes },
         theme = not preset and {
           normal = {
             a = "StatusLine",
@@ -431,9 +449,9 @@ local lualine = {
         lualine_b = {
           filename,
         },
-        lualine_c = {
+        lualine_c = config.opts.preset_navic == "statusline" and {
           navic_status,
-        },
+        } or {},
         lualine_x = {
           orgmode_status,
           lsp,
@@ -450,12 +468,26 @@ local lualine = {
           edge_component(progress, "right"),
         },
       },
-    })
+    }
+    if config.opts.winbar_provider == "lualine" then
+      lualine_config.winbar = {
+        lualine_b = { edge_component(winbar_filename) },
+        lualine_c = config.opts.preset_navic == "winbar" and { navic_status } or {},
+      }
+      lualine_config.inactive_winbar = {
+        lualine_b = { edge_component(winbar_filename) },
+        lualine_c = {},
+      }
+    end
+    require("lualine").setup(lualine_config)
   end,
 }
 local incline = {
   src = "b0o/incline.nvim",
   config = function()
+    if config.opts.winbar_provider ~= "incline" then
+      return
+    end
     vim.o.laststatus = 3
 
     local preset_statusline = config.opts.preset_statusline
@@ -824,6 +856,11 @@ local opencode = {
     require("opencode").setup({
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
+      keymap = {
+        input_window = {
+          ["<c-j>"] = { "submit_input_prompt", mode = { "n", "i" } },
+        },
+      },
       ui = {
         output = { auto_scroll = true },
         icons = { preset = config.opts.use_nerd_font and "nerdfonts" or "text" },
