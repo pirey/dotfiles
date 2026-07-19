@@ -207,7 +207,6 @@ local fff = {
 
     if config.opts.file_picker and config.opts.file_picker.preset == "vertical" then
       layout = vim.tbl_extend("force", layout, {
-        width = 0.4,
         preview_position = "bottom",
       })
     end

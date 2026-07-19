@@ -96,9 +96,9 @@ require("config").setup({
   enable_icons = true,
   enable_cmdline_completion = true,
   statusline = { provider = "lualine", preset = "flat" },
-  winbar = { provider = "lualine", preset = "flat" },
-  breadcrumbs = { provider = "navic", placement = "winbar" },
-  file_picker = { provider = "fff", preset = "vertical" },
+  winbar = { provider = "incline", preset = "flat" },
+  breadcrumbs = { provider = "navic", placement = "statusline" },
+  file_picker = { provider = "fff", preset = "horizontal" },
 })
 require("vim._core.ui2").enable()
 require("specs")
