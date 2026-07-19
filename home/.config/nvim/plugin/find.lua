@@ -73,7 +73,7 @@ local function find_fd_files(cmdarg)
 end
 
 function _G.FindSmart(cmdarg, cmdcomplete)
-  if not config.opts.cmdline_completion then
+  if not config.opts.enable_cmdline_completion then
     if cmdcomplete and cmdarg == "" then
       local modified_files = get_modified_files()
       local oldfiles = get_oldfiles_cwd()
@@ -94,7 +94,7 @@ function _G.FindSmart(cmdarg, cmdcomplete)
   return files
 end
 
-if config.opts.cmdline_completion then
+if config.opts.enable_cmdline_completion then
   vim.keymap.set("n", "<leader>f", ":find ")
 else
   vim.cmd([[

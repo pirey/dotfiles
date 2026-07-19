@@ -93,13 +93,12 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 
 require("config").setup({
-  use_nerd_font = true,
-  cmdline_completion = true,
-  winbar_provider = "lualine",
-  preset_navic = "statusline",
-  preset_statusline = nil,
-  preset_incline = nil,
-  preset_fff = nil,
+  enable_icons = true,
+  enable_cmdline_completion = true,
+  statusline = { provider = "lualine", preset = "flat" },
+  winbar = { provider = "lualine", preset = "flat" },
+  breadcrumbs = { provider = "navic", placement = "winbar" },
+  file_picker = { provider = "fff", preset = "vertical" },
 })
 require("vim._core.ui2").enable()
 require("specs")

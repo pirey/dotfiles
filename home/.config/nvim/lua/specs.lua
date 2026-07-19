@@ -177,6 +177,7 @@ local lspconfig = {
 }
 local fff = {
   src = "dmtrKovalenko/fff.nvim",
+  enabled = config.opts.file_picker ~= nil and config.opts.file_picker.provider == "fff",
   config = function()
     vim.api.nvim_create_autocmd("PackChanged", {
       group = augroup,
@@ -196,7 +197,7 @@ local fff = {
       flex = { wrap = "bottom" },
     }
 
-    if config.opts.preset_fff == "corner" then
+    if config.opts.file_picker and config.opts.file_picker.preset == "corner" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         height = 0.5,
@@ -204,7 +205,7 @@ local fff = {
       })
     end
 
-    if config.opts.preset_fff == "vertical" then
+    if config.opts.file_picker and config.opts.file_picker.preset == "vertical" then
       layout = vim.tbl_extend("force", layout, {
         width = 0.4,
         preview_position = "bottom",
@@ -215,7 +216,7 @@ local fff = {
       prompt = " ",
       title = "Files",
       layout = layout,
-      preview = { enabled = config.opts.preset_fff ~= "corner" },
+      preview = { enabled = config.opts.file_picker and config.opts.file_picker.preset ~= "corner" },
       keymaps = {
         close = { "<esc>", "<c-c>" },
         cycle_grep_modes = "<c-_>",
@@ -245,13 +246,14 @@ local navic = {
       },
       highlight = true,
       click = true,
-      icons = { enabled = config.opts.use_nerd_font },
+      icons = { enabled = config.opts.enable_icons },
       separator = " › ",
     })
   end,
 }
 local lualine = {
   src = "nvim-lualine/lualine.nvim",
+  enabled = config.opts.statusline ~= nil,
   config = function()
     vim.o.showtabline = 0
 
@@ -365,8 +367,8 @@ local lualine = {
 
     local tabs = {
       "tabs",
-      use_mode_colors = config.opts.preset_statusline ~= nil,
-      tabs_color = config.opts.preset_statusline == nil and {
+      use_mode_colors = config.opts.statusline ~= nil,
+      tabs_color = config.opts.statusline == nil and {
         active = "Cursor",
         inactive = "StatusLine",
       } or nil,
@@ -385,7 +387,7 @@ local lualine = {
       cond = conditions.screen_width(120),
     }
 
-    local preset = config.opts.preset_statusline
+    local preset = config.opts.statusline and config.opts.statusline.preset
 
     -- default separators
     local section_seps = { left = "", right = "" }
@@ -421,7 +423,7 @@ local lualine = {
     end
 
     local disabled_winbar_filetypes = {}
-    if config.opts.winbar_provider == "lualine" then
+    if config.opts.winbar and config.opts.winbar.provider == "lualine" then
       disabled_winbar_filetypes = { "opencode_output", "opencode", "terminal", "help" }
     end
 
@@ -433,7 +435,7 @@ local lualine = {
         component_separators = component_seps,
         section_separators = section_seps,
         disabled_filetypes = { winbar = disabled_winbar_filetypes },
-        theme = not preset and {
+        theme = preset == "flat" and {
           normal = {
             a = "StatusLine",
             b = "StatusLine",
@@ -449,7 +451,7 @@ local lualine = {
         lualine_b = {
           filename,
         },
-        lualine_c = config.opts.preset_navic == "statusline" and {
+        lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "statusline" and {
           navic_status,
         } or {},
         lualine_x = {
@@ -469,10 +471,10 @@ local lualine = {
         },
       },
     }
-    if config.opts.winbar_provider == "lualine" then
+    if config.opts.winbar and config.opts.winbar.provider == "lualine" then
       lualine_config.winbar = {
         lualine_b = { edge_component(winbar_filename) },
-        lualine_c = config.opts.preset_navic == "winbar" and { navic_status } or {},
+        lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "winbar" and { navic_status } or {},
       }
       lualine_config.inactive_winbar = {
         lualine_b = { edge_component(winbar_filename) },
@@ -482,16 +484,17 @@ local lualine = {
     require("lualine").setup(lualine_config)
   end,
 }
+
 local incline = {
   src = "b0o/incline.nvim",
+  enabled = config.opts.winbar ~= nil and config.opts.winbar.provider == "incline",
   config = function()
-    if config.opts.winbar_provider ~= "incline" then
+    if config.opts.winbar and config.opts.winbar.provider ~= "incline" then
       return
     end
     vim.o.laststatus = 3
 
-    local preset_statusline = config.opts.preset_statusline
-    local preset = config.opts.preset_incline or preset_statusline
+    local preset = config.opts.winbar and config.opts.winbar.preset
     local wrap_char = ({
       bubble = {
         left = icons.sep("round_left_filled"),
@@ -549,7 +552,7 @@ local incline = {
           modified_char = icons.get("modified")
         end
 
-        if not preset then
+        if not preset or preset == "flat" then
           return { { modified_char }, { " " .. filename .. " " } }
         end
 
@@ -724,7 +727,7 @@ local blink_cmp = {
         ["<C-_>"] = { "show" },
       },
       cmdline = {
-        enabled = config.opts.cmdline_completion == true,
+        enabled = config.opts.enable_cmdline_completion == true,
         completion = {
           menu = { auto_show = true },
           list = { selection = { preselect = false } },
@@ -856,14 +859,9 @@ local opencode = {
     require("opencode").setup({
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
-      keymap = {
-        input_window = {
-          ["<c-j>"] = { "submit_input_prompt", mode = { "n", "i" } },
-        },
-      },
       ui = {
         output = { auto_scroll = true },
-        icons = { preset = config.opts.use_nerd_font and "nerdfonts" or "text" },
+        icons = { preset = config.opts.enable_icons and "nerdfonts" or "text" },
       },
     })
   end,
@@ -874,6 +872,14 @@ local curl = {
     require("curl").setup()
   end,
 }
+---@class Spec
+---@field src string
+---@field enabled? boolean
+---@field config? fun()
+---@field dependencies? Spec[]
+---@field version? string
+
+---@param specs_ext Spec[]
 local function setup(specs_ext)
   local specs = {}
   local configs = {}
@@ -887,18 +893,26 @@ local function setup(specs_ext)
 
   -- resolve specs and configs
   for _, spec in ipairs(specs_ext) do
+    if spec.enabled == false then
+      goto continue
+    end
     if spec.dependencies then
       for _, dep in ipairs(spec.dependencies) do
+        if dep.enabled == false then
+          goto continue_dep
+        end
         table.insert(specs, { src = normalize_src(dep.src), version = dep.version })
         if dep.config then
           table.insert(configs, dep.config)
         end
+        ::continue_dep::
       end
     end
     table.insert(specs, vim.tbl_extend("force", spec, { src = normalize_src(spec.src) }))
     if spec.config then
       table.insert(configs, spec.config)
     end
+    ::continue::
   end
 
   -- install packages

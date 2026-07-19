@@ -2,7 +2,7 @@ local config = require("config")
 local M = {}
 
 function M.init()
-  M.enabled = config.opts.use_nerd_font
+  M.enabled = config.opts.enable_icons
 end
 
 M.registry = {

@@ -74,6 +74,7 @@ local function toggle_lwindow()
   end
 end
 
+-- TODO: when selecting opened buffer, go to last position
 local function buffers()
   local items = {}
   for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
