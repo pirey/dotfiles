@@ -223,15 +223,12 @@ local fff = {
       },
       icons = { enabled = false },
     }
-    vim.keymap.set("n", "f ", function()
-      require("fff").find_files()
-    end)
-    vim.keymap.set("n", "f,", function()
-      require("fff").live_grep()
-    end)
-    vim.keymap.set("n", "f.", function()
-      require("fff").resume()
-    end)
+
+    -- stylua: ignore start
+    vim.keymap.set("n", "f ", function() require("fff").find_files() end)
+    vim.keymap.set("n", "f,", function() require("fff").live_grep() end)
+    vim.keymap.set("n", "f.", function() require("fff").resume() end)
+    -- stylua: ignore end
   end,
 }
 local satellite = { src = "lewis6991/satellite.nvim" }
@@ -473,7 +470,8 @@ local lualine = {
     if config.opts.winbar and config.opts.winbar.provider == "lualine" then
       lualine_config.winbar = {
         lualine_b = { edge_component(winbar_filename) },
-        lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "winbar" and { navic_status } or {},
+        lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "winbar" and { navic_status }
+          or {},
       }
       lualine_config.inactive_winbar = {
         lualine_b = { edge_component(winbar_filename) },

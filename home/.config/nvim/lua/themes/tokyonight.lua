@@ -19,6 +19,7 @@ return {
         sidebars = "dark", -- style for sidebars, see below
         floats = "dark", -- style for floating windows
       },
+      lualine_bold = true,
 
       on_highlights = function(highlights, colors)
         highlights.Folded = {
