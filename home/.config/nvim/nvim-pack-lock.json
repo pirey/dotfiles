@@ -74,7 +74,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "24977147550d53589e53b874ec75e14e4fbc304e",
+      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
@@ -82,7 +82,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "5e89ef97c88aaca11f23c32e297daed5b641dab5",
+      "rev": "c8dc57b5606d6acac2891b139ec434c2a3d9382d",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
