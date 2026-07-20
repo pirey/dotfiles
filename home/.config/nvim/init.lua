@@ -95,8 +95,8 @@ vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 require("config").setup({
   enable_icons = true,
   enable_cmdline_completion = true,
-  statusline = { provider = "lualine", preset = "asymmetric" },
-  winbar = { provider = "incline", preset = "bubble" },
+  statusline = { provider = "lualine", preset = "flat" },
+  winbar = { provider = "incline", preset = "flat" },
   breadcrumbs = { provider = "navic", placement = "statusline" },
   file_picker = { provider = "fff", preset = "horizontal" },
 })
