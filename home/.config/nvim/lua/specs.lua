@@ -364,7 +364,7 @@ local lualine = {
     local tabs = {
       "tabs",
       use_mode_colors = config.opts.statusline ~= nil,
-      tabs_color = config.opts.statusline == nil and {
+      tabs_color = (config.opts.statusline == nil or config.opts.statusline.preset == "flat") and {
         active = "Cursor",
         inactive = "StatusLine",
       } or nil,
