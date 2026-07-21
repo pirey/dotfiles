@@ -175,10 +175,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
 
-vim.keymap.set("n", "<localleader>q", toggle_cwindow)
-vim.keymap.set("n", "<localleader>l", toggle_lwindow)
-vim.keymap.set("n", "<localleader>,", grep)
-vim.keymap.set("n", "<localleader>/", buffer_lines)
-vim.keymap.set("n", "<localleader>'", oldfiles)
-vim.keymap.set("n", "<localleader>b", buffers)
+vim.keymap.set("n", "<leader>q", toggle_cwindow)
+vim.keymap.set("n", "<leader>l", toggle_lwindow)
+vim.keymap.set("n", "<leader>,", grep)
+vim.keymap.set("n", "<leader>/", buffer_lines)
+vim.keymap.set("n", "<leader>'", oldfiles)
+vim.keymap.set("n", "<leader>b", buffers)
 vim.cmd("packadd cfilter")
