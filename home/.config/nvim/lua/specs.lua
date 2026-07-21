@@ -763,6 +763,27 @@ local blink_indent = {
     })
   end,
 }
+local sidescroll = {
+  src = "pirey/vim-sidescroll",
+}
+local winpick = {
+  src = "pirey/winpick.nvim",
+  config = function()
+    require("winpick").setup({
+      border = "none",
+      padding = { x = 3, y = 1 },
+    })
+    vim.keymap.set("n", "<c-w>p", require("winpick").pick, { desc = "Pick window" })
+    vim.keymap.set("n", "<c-w><c-p>", require("winpick").pick, { desc = "Pick window" })
+  end,
+}
+local scratch = {
+  src = "pirey/scratch.nvim",
+  config = function()
+    require("scratch").setup()
+    vim.keymap.set("n", "<localleader>s", "<cmd>tab Scratch<cr>", { silent = true })
+  end,
+}
 local conform = {
   src = "stevearc/conform.nvim",
   dependencies = { { src = "mason-org/mason.nvim" } },
@@ -950,6 +971,9 @@ setup({
   conform,
   blink_cmp,
   blink_indent,
+  sidescroll,
+  winpick,
+  scratch,
 
   -- UI
   fff,
