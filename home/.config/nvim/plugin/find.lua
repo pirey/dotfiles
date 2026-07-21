@@ -95,11 +95,11 @@ function _G.FindSmart(cmdarg, cmdcomplete)
 end
 
 if config.opts.enable_cmdline_completion then
-  vim.keymap.set("n", "<leader>f", ":find ")
+  vim.keymap.set("n", "<localleader>f", ":find ")
 else
   vim.cmd([[
     set wildcharm=<Nul>
-    nnoremap <leader>f :find <Nul><c-p>
+    nnoremap <localleader>f :find <Nul><c-p>
   ]])
 end
 

@@ -226,9 +226,9 @@ local fff = {
     }
 
     -- stylua: ignore start
-    vim.keymap.set("n", "f ", function() require("fff").find_files() end)
-    vim.keymap.set("n", "f,", function() require("fff").live_grep() end)
-    vim.keymap.set("n", "f.", function() require("fff").resume() end)
+    vim.keymap.set("n", "<leader>f", function() require("fff").find_files() end)
+    vim.keymap.set("n", "<leader>,", function() require("fff").live_grep() end)
+    vim.keymap.set("n", "<leader>.", function() require("fff").resume() end)
     -- stylua: ignore end
   end,
 }
