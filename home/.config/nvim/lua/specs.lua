@@ -54,18 +54,30 @@ local treesitter = {
   src = "nvim-treesitter/nvim-treesitter",
   config = function()
     local ts = require("nvim-treesitter")
-    local languages =
-      { "haskell", "nix", "javascript", "typescript", "tsx", "lua", "html", "blade", "php", "diff", "go" }
+    local install_languages = {
+      "haskell",
+      "nix",
+      "javascript",
+      "typescript",
+      "tsx",
+      "lua",
+      "html",
+      "blade",
+      "php",
+      "diff",
+      "go",
+      "mermaid",
+    }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
       "javascriptreact",
       "markdown",
       "opencode_output",
       "c",
-    }, languages)
+    }, install_languages)
 
     local installed = ts.get_installed()
-    local task = ts.install(languages)
+    local task = ts.install(install_languages)
 
     task:await(function(err)
       if err then
