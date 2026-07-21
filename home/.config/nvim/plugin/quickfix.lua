@@ -1,3 +1,5 @@
+local lib = require("lib")
+
 local function grep()
   local prompt = "Search: "
   local ok, query = pcall(vim.fn.input, prompt)
@@ -74,21 +76,14 @@ local function toggle_lwindow()
   end
 end
 
--- TODO: when selecting opened buffer, go to last position
 local function buffers()
   local items = {}
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(bufnr) and vim.bo[bufnr].buflisted then
-      local name = vim.api.nvim_buf_get_name(bufnr)
-      if name ~= "" then
-        items[#items + 1] = {
-          filename = vim.fn.fnamemodify(name, ":."),
-          bufnr = bufnr,
-          lnum = 1,
-          col = 1,
-        }
-      end
-    end
+  for _, path in ipairs(lib.get_buffer_files()) do
+    items[#items + 1] = {
+      filename = path,
+      lnum = 1,
+      col = 1,
+    }
   end
   vim.fn.setqflist({}, " ", {
     items = items,
@@ -104,21 +99,19 @@ local function buffers()
   vim.cmd("copen")
 end
 
-local function oldfiles()
-  local cwd = vim.uv.cwd() or ""
+local function smart_recent()
+  local files = lib.smart_recent()
   local items = {}
-  for _, path in ipairs(vim.v.oldfiles) do
-    if path:find(cwd, 1, true) == 1 and vim.uv.fs_stat(path) then
-      items[#items + 1] = {
-        filename = vim.fn.fnamemodify(path, ":."),
-        lnum = 1,
-        col = 1,
-      }
-    end
+  for _, path in ipairs(files) do
+    items[#items + 1] = {
+      filename = path,
+      lnum = 1,
+      col = 1,
+    }
   end
   vim.fn.setqflist({}, " ", {
     items = items,
-    title = "Oldfiles",
+    title = "Smart recent",
     quickfixtextfunc = function()
       local lines = {}
       for _, item in ipairs(items) do
@@ -172,13 +165,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
 
-vim.keymap.set("n", "<leader>q", toggle_cwindow)
+vim.keymap.set("n", "<leader>c", toggle_cwindow)
 vim.keymap.set("n", "<leader>l", toggle_lwindow)
 vim.keymap.set("n", "<leader>,", grep)
 vim.keymap.set("n", "<leader>/", buffer_lines)
-vim.keymap.set("n", "<leader>'", oldfiles)
+vim.keymap.set("n", "<leader>'", smart_recent)
 vim.keymap.set("n", "<leader>b", buffers)
 vim.cmd("packadd cfilter")
