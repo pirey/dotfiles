@@ -77,7 +77,7 @@ vim.keymap.set({ "n", "t" }, "]t", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set({ "n", "t" }, "[t", "<cmd>tabprevious<cr>", { silent = true })
 
 -- etc
-vim.keymap.set("n", ",x", "<cmd>bd<cr>", { silent = true })
+vim.keymap.set("n", "<localleader>x", "<cmd>bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>", { silent = true })
 vim.keymap.set("n", "<leader>X", "<cmd>confirm %bd<cr>", { silent = true })
 vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold" })

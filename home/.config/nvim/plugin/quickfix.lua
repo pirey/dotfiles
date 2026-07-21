@@ -130,6 +130,34 @@ local function oldfiles()
   vim.cmd("copen")
 end
 
+local function del_qf_item()
+  local items = vim.fn.getqflist()
+  local line = vim.fn.line('.')
+  table.remove(items, line)
+  vim.fn.setqflist(items, 'r')
+  vim.api.nvim_win_set_cursor(0, { math.min(line, #items), 0 })
+end
+
+local function del_qf_item_visual()
+  local first = vim.fn.line('v')
+  local last = vim.fn.line('.')
+  if first < 1 or last < 1 then return end
+  if first > last then first, last = last, first end
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
+  local items = vim.fn.getqflist()
+  local kept = {}
+  for i = 1, #items do
+    if i < first or i > last then
+      kept[#kept + 1] = items[i]
+    end
+  end
+  vim.fn.setqflist(kept, 'r')
+  local last_line = vim.fn.line('$')
+  if last_line > 0 then
+    vim.api.nvim_win_set_cursor(0, { math.min(first, last_line), 0 })
+  end
+end
+
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -138,14 +166,16 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.cmd("setl cursorline cursorlineopt=both signcolumn=yes nonumber")
 
-    vim.keymap.set("n", "<c-o>", "<CR><Cmd>cclose<CR><Cmd>lclose<CR>", { buf = 0, remap = true })
+    vim.keymap.set("n", "<c-w><cr>", "<CR><Cmd>cclose<CR><Cmd>lclose<CR>", { buf = 0, remap = true })
+    vim.keymap.set('n', 'dd', del_qf_item, { silent = true, buf = 0 })
+    vim.keymap.set('x', 'd', del_qf_item_visual, { silent = true, buf = 0 })
   end,
 })
 
 -- ignore .git by default so we doesn't need to specify it when using --hidden
 vim.o.grepprg = "rg --hidden --vimgrep --smart-case --fixed-strings --glob=!.git"
 
-vim.keymap.set("n", "<localleader>c", toggle_cwindow)
+vim.keymap.set("n", "<localleader>q", toggle_cwindow)
 vim.keymap.set("n", "<localleader>l", toggle_lwindow)
 vim.keymap.set("n", "<localleader>,", grep)
 vim.keymap.set("n", "<localleader>/", buffer_lines)
