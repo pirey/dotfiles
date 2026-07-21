@@ -60,6 +60,7 @@ local treesitter = {
       "typescriptreact",
       "javascriptreact",
       "markdown",
+      "opencode_output",
       "c",
     }, languages)
 
@@ -857,7 +858,6 @@ local opencode = {
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
       ui = {
-        output = { auto_scroll = true },
         icons = { preset = config.opts.enable_icons and "nerdfonts" or "text" },
       },
     })
