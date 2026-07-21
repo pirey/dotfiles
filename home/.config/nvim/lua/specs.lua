@@ -179,6 +179,7 @@ local lspconfig = {
 local fff = {
   src = "dmtrKovalenko/fff.nvim",
   enabled = config.opts.file_picker ~= nil and config.opts.file_picker.provider == "fff",
+  version = vim.version.range("0.10.*"),
   config = function()
     vim.api.nvim_create_autocmd("PackChanged", {
       group = augroup,

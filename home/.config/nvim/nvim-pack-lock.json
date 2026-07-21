@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "53b0b2d4859079eaed0ff8594703e53d28853cc6",
+      "rev": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -26,8 +26,9 @@
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "073698c8e7dad9f6106d23ef588f5ebc7f98b326",
-      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+      "rev": "686a84959ddc72185a7cacaf00145af5ccac7a83",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim",
+      "version": "0.10.0 - 0.11.0"
     },
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
@@ -66,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "7f87dbb4707f54117e98ab8f15d6a2975b3f13f0",
+      "rev": "98b0b8a52742afc9e2e2078e2e451f91beef1717",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
