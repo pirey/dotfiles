@@ -35,7 +35,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
-      "rev": "1cc080f55706b38aabfa97d40acb6adf59ac4a5a",
+      "rev": "0f6a5d0d7a70659b11bbcd6b3673ee0fe61b6024",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "iceberg.vim": {
@@ -55,7 +55,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "9abecb022a581e3a333430a4490f45c784aef5c9",
+      "rev": "2043096b7ae81e8350ec8cceb3e7ab08dca1dcfe",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nightfox.nvim": {
