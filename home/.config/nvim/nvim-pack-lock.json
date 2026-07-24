@@ -26,7 +26,7 @@
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "686a84959ddc72185a7cacaf00145af5ccac7a83",
+      "rev": "fde8c52a298a2fa4375edf626e0c37b0400f5a8b",
       "src": "https://github.com/dmtrKovalenko/fff.nvim",
       "version": "0.10.0 - 0.11.0"
     },
@@ -67,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "b89138d9af0a96e6048e202a15765fc6b6416bd4",
+      "rev": "d592c1e6ad9a0a01b3d5ed3f0345d68407167181",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -75,7 +75,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
+      "rev": "bd41519ff7901da11ba6e1c8f419f17f2d94305a",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
@@ -83,7 +83,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "33a6629fde5c936f1bc0809ec6e25355dcf665d0",
+      "rev": "e510d325e684a55f7e96a9a136553074a983c0a9",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
