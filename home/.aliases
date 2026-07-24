@@ -30,6 +30,7 @@ alias sail='./vendor/bin/sail'
 alias rl='rlwrap --always-readline'
 
 alias v='nvim'
+alias nvi='nvim'
 alias e='emacsclient -nw -a ""'
 alias em='emacs -nw'
 alias ekill='emacsclient -e "(kill-emacs)"'
