@@ -55,7 +55,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "2043096b7ae81e8350ec8cceb3e7ab08dca1dcfe",
+      "rev": "8cdf050f8037456c58f32a8917d705c5ce35a938",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nightfox.nvim": {
