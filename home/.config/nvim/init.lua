@@ -91,6 +91,7 @@ end, { desc = "Toggle all folds" })
 
 vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
+vim.cmd("autocmd OptionSet diff if &diff | set cursorlineopt=number | endif")
 
 require("config").setup({
   enable_icons = true,
