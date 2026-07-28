@@ -55,7 +55,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "57c9f8ee784bcd07141bf7fa958b5c5bb1420de8",
+      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nightfox.nvim": {
@@ -83,7 +83,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "e510d325e684a55f7e96a9a136553074a983c0a9",
+      "rev": "cdf00c5f4ac8161d3ec66bfcb8af140b30b42c6a",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
