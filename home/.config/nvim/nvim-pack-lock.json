@@ -67,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "1c0d8f70dbc8827263eedc3cf7021ceba0f68689",
+      "rev": "43ed3797b266e1ee8d222e491379ad471c9d3146",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
