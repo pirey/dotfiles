@@ -892,6 +892,7 @@ local opencode = {
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
       ui = {
+        window_width = 0.5,
         icons = { preset = config.opts.enable_icons and "nerdfonts" or "text" },
       },
     })
