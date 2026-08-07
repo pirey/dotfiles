@@ -903,6 +903,7 @@ local curl = {
     require("curl").setup()
   end,
 }
+
 ---@class Spec
 ---@field src string
 ---@field enabled? boolean
@@ -997,4 +998,7 @@ setup({
   orgmode,
   opencode,
   curl,
+
+  -- EXPERIMENTAL
+  require("experimental.bloocky"),
 })

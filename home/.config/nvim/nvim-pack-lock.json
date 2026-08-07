@@ -9,6 +9,10 @@
       "rev": "8b69b9262891fe81fe728fe6a52fa2a84dd5d5e0",
       "src": "https://github.com/saghen/blink.indent"
     },
+    "bloocky": {
+      "rev": "a052c3b1a8126e04b194bb3db3c4c6ca641c0e4e",
+      "src": "https://github.com/atiladefreitas/bloocky"
+    },
     "canola.nvim": {
       "rev": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
       "src": "https://github.com/barrettruth/canola.nvim"
