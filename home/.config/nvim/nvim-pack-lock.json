@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "bloocky": {
-      "rev": "a052c3b1a8126e04b194bb3db3c4c6ca641c0e4e",
+      "rev": "2f493d637bd9f385b812d49beb6a93564051bb77",
       "src": "https://github.com/atiladefreitas/bloocky"
     },
     "canola.nvim": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "3d3321b560a63ff92a8692401f303a5123336b86",
+      "rev": "c9f9ed6c1892f629ea399f4ee7905f2686fa13f2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
