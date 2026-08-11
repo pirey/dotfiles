@@ -93,7 +93,7 @@ vim.cmd("autocmd TermOpen * startinsert")
 vim.cmd("autocmd WinEnter * if &buftype == 'terminal' | startinsert | endif")
 vim.cmd("autocmd OptionSet diff if &diff | set cursorlineopt=number | endif")
 
-require("config").setup({
+require("preset").setup({
   enable_icons = true,
   enable_cmdline_completion = true,
   statusline = { provider = "lualine", preset = "flat" },

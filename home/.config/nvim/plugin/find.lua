@@ -1,4 +1,4 @@
-local config = require("config")
+local config = require("preset")
 local lib = require("lib")
 
 local function find_glob(cmdarg, cmdcomplete)
