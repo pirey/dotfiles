@@ -231,7 +231,7 @@ local fff = {
       layout = layout,
       preview = { enabled = config.opts.file_picker and config.opts.file_picker.preset ~= "corner" },
       keymaps = {
-        close = { "<esc>", "<c-c>" },
+        close = { "<c-c>" },
         cycle_grep_modes = "<c-_>",
         cycle_previous_query = "<c-k>",
       },
@@ -891,6 +891,11 @@ local opencode = {
     require("opencode").setup({
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
+      keymap = {
+        input_window = {
+          ["<c-j>"] = { "submit_input_prompt", mode = { "n", "i" } },
+        },
+      },
       ui = {
         window_width = 0.5,
         icons = { preset = config.opts.enable_icons and "nerdfonts" or "text" },
