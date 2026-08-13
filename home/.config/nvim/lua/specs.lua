@@ -231,7 +231,7 @@ local fff = {
       layout = layout,
       preview = { enabled = config.opts.file_picker and config.opts.file_picker.preset ~= "corner" },
       keymaps = {
-        close = { "<c-c>" },
+        close = { "<esc>", "<c-c>" },
         cycle_grep_modes = "<c-_>",
         cycle_previous_query = "<c-k>",
       },
