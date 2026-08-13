@@ -349,7 +349,7 @@ local lualine = {
 
     local cwd = {
       function()
-        return icons.get("folder") .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
       end,
     }
 

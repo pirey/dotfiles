@@ -7,7 +7,6 @@ end
 
 M.registry = {
   branch = { icon = "", fallback = "⎇ " },
-  folder = { icon = "󰉋 ", fallback = "" },
   error = { icon = " ", fallback = "● " },
   warn = { icon = " ", fallback = "● " },
   info = { icon = " ", fallback = "● " },
