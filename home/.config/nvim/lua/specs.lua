@@ -893,8 +893,12 @@ local opencode = {
       preferred_picker = "select",
       keymap_prefix = "<leader>a",
       keymap = {
+        output_window = {
+          ["<esc>"] = false,
+        },
         input_window = {
           ["<cr>"] = { "submit_input_prompt", mode = { "n", "i" } },
+          ["<esc>"] = false,
         },
       },
       ui = {
