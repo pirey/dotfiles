@@ -91,6 +91,33 @@ vim.api.nvim_create_user_command("GitPush", function(args)
   })
 end, { nargs = "*", complete = "file" })
 
+local branch_flags = {
+  "-a", "-r", "-d", "-D", "-m", "-M", "-c", "-v", "-vv", "-u", "-f", "-q", "-t",
+  "--all", "--remotes", "--list", "--delete", "--move", "--verbose", "--merged", "--no-merged", "--contains",
+}
+
+local function complete_branch(arglead)
+  local matches = {}
+  if vim.startswith(arglead, "-") then
+    for _, f in ipairs(branch_flags) do
+      if vim.startswith(f, arglead) then
+        matches[#matches + 1] = f
+      end
+    end
+    return matches
+  end
+  local out = vim.fn.system("git branch --format='%(refname:short)' 2>/dev/null")
+  if vim.v.shell_error ~= 0 then
+    return {}
+  end
+  for _, b in ipairs(vim.split(out, "\n", { trimempty = true })) do
+    if vim.startswith(b, arglead) then
+      matches[#matches + 1] = b
+    end
+  end
+  return matches
+end
+
 vim.api.nvim_create_user_command("GitCheckout", function(args)
   local noargs = args.args == ""
   local create = false
@@ -112,10 +139,10 @@ vim.api.nvim_create_user_command("GitCheckout", function(args)
   else
     vim.notify((create and "Created and checked out " or "Checked out ") .. args.args, vim.log.levels.INFO)
   end
-end, { nargs = "*" })
+end, { nargs = "*", complete = complete_branch })
 
-vim.api.nvim_create_user_command("GitBranch", function()
-  local out = vim.fn.system("git branch --list 2>&1")
+vim.api.nvim_create_user_command("GitBranch", function(args)
+  local out = vim.fn.system("git branch" .. (args.args ~= "" and " " .. args.args or "") .. " 2>&1")
   if vim.v.shell_error ~= 0 then
     vim.notify(vim.trim(out), vim.log.levels.ERROR)
     return
@@ -141,7 +168,7 @@ vim.api.nvim_create_user_command("GitBranch", function()
     end,
   })
   vim.cmd("copen")
-end, {})
+end, { nargs = "*", complete = complete_branch })
 
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'

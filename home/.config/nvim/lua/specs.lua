@@ -871,21 +871,22 @@ local orgmode = {
     })
   end,
 }
+local markdown = {
+  src = "MeanderingProgrammer/render-markdown.nvim",
+  config = function()
+    require("render-markdown").setup({
+      anti_conceal = { enabled = false },
+      file_types = { "markdown", "opencode_output" },
+      heading = { enabled = false },
+      bullet = { enabled = false },
+    })
+  end,
+}
 local opencode = {
   src = "sudo-tee/opencode.nvim",
   dependencies = {
     { src = "saghen/blink.cmp", version = vim.version.range("1.*") },
-    {
-      src = "MeanderingProgrammer/render-markdown.nvim",
-      config = function()
-        require("render-markdown").setup({
-          anti_conceal = { enabled = false },
-          file_types = { "markdown", "opencode_output" },
-          heading = { enabled = false },
-          bullet = { enabled = false },
-        })
-      end,
-    },
+    { src = "MeanderingProgrammer/render-markdown.nvim" },
   },
   config = function()
     require("opencode").setup({
@@ -1002,6 +1003,7 @@ setup({
   lspconfig,
 
   orgmode,
+  markdown,
   opencode,
   curl,
 
