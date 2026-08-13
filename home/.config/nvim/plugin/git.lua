@@ -91,7 +91,61 @@ vim.api.nvim_create_user_command("GitPush", function(args)
   })
 end, { nargs = "*", complete = "file" })
 
+vim.api.nvim_create_user_command("GitCheckout", function(args)
+  local noargs = args.args == ""
+  local create = false
+  local cmd = "git checkout"
+  if not noargs then
+    local branch = vim.split(args.args, "%s+")[1]
+    if not vim.startswith(branch, "-") then
+      vim.fn.system("git show-ref --verify --quiet refs/heads/" .. branch)
+      create = vim.v.shell_error ~= 0
+    end
+    cmd = (create and "git checkout -b" or "git checkout") .. " " .. vim.fn.shellescape(args.args)
+  end
+  local out = vim.fn.system(cmd .. " 2>&1")
+  if vim.v.shell_error ~= 0 then
+    vim.cmd("tabnew | setl bufhidden=wipe readonly")
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(out, "\n", { trimempty = true }))
+  elseif noargs then
+    vim.notify(vim.trim(out), vim.log.levels.INFO)
+  else
+    vim.notify((create and "Created and checked out " or "Checked out ") .. args.args, vim.log.levels.INFO)
+  end
+end, { nargs = "*" })
+
+vim.api.nvim_create_user_command("GitBranch", function()
+  local out = vim.fn.system("git branch --list 2>&1")
+  if vim.v.shell_error ~= 0 then
+    vim.notify(vim.trim(out), vim.log.levels.ERROR)
+    return
+  end
+  local items = {}
+  for _, l in ipairs(vim.split(out, "\n", { trimempty = true })) do
+    local name = l:match("^%* (.+)$")
+    if name then
+      items[#items + 1] = { filename = name .. " (current)" }
+    else
+      items[#items + 1] = { filename = l:match("^  (.+)$") or vim.trim(l) }
+    end
+  end
+  vim.fn.setqflist({}, " ", {
+    items = items,
+    title = "Branches",
+    quickfixtextfunc = function()
+      local lines = {}
+      for _, item in ipairs(items) do
+        table.insert(lines, item.filename)
+      end
+      return lines
+    end,
+  })
+  vim.cmd("copen")
+end, {})
+
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
   cabbrev <expr> gp getcmdtype() == ':' && getcmdline() =~# '^gp' ? 'GitPush' : 'gp'
+  cabbrev <expr> gco getcmdtype() == ':' && getcmdline() =~# '^gco' ? 'GitCheckout' : 'gco'
+  cabbrev <expr> gb getcmdtype() == ':' && getcmdline() =~# '^gb' ? 'GitBranch' : 'gb'
 ]])

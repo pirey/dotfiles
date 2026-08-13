@@ -893,7 +893,7 @@ local opencode = {
       keymap_prefix = "<leader>a",
       keymap = {
         input_window = {
-          ["<c-j>"] = { "submit_input_prompt", mode = { "n", "i" } },
+          ["<cr>"] = { "submit_input_prompt", mode = { "n", "i" } },
         },
       },
       ui = {
