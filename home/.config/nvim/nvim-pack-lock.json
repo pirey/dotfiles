@@ -30,7 +30,7 @@
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "a166255d8f84ea86648efbab30cccfe09ba4f5c6",
+      "rev": "f4def12a1c1e1fe529edb72c018702298944b630",
       "src": "https://github.com/dmtrKovalenko/fff.nvim",
       "version": "0.10.0 - 0.11.0"
     },
