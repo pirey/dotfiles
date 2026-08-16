@@ -2,6 +2,8 @@ local function cmdsplit(mod)
   -- command that has s variant
   -- e.g. :sfind :sb etc
   local svariant = { "find", "b" }
+  -- command whose split variant replaces it, e.g. :e -> :sp
+  local replace = { e = "sp" }
 
   return function()
     local cmd = vim.fn.getcmdline()
@@ -12,8 +14,17 @@ local function cmdsplit(mod)
         sprefix = "s"
       end
     end
+    if sprefix ~= "" then
+      return "<c-b>" .. mod .. " " .. sprefix .. "<cr>"
+    end
 
-    return "<c-b>" .. mod .. " " .. sprefix .. "<cr>"
+    for k, v in pairs(replace) do
+      if cmd:match("^" .. k .. " ") then
+        return "<c-e><c-u>" .. mod .. " " .. v .. cmd:sub(#k + 1) .. "<cr>"
+      end
+    end
+
+    return "<c-b>" .. mod .. " <cr>"
   end
 end
 
