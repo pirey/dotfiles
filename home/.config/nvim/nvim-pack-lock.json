@@ -26,11 +26,11 @@
       "src": "https://github.com/pirey/curl.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "62dc5adf4e77489a2a6d3bf36ef6e4ac5738b634",
+      "rev": "e54dc97a584e1ae410da9d4898adb8224437ad63",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
-      "rev": "b6f351d7295d3f89d4f9ecaa94d72089964edc0f",
+      "rev": "a166255d8f84ea86648efbab30cccfe09ba4f5c6",
       "src": "https://github.com/dmtrKovalenko/fff.nvim",
       "version": "0.10.0 - 0.11.0"
     },
@@ -79,7 +79,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "a1bcffc8095c142ad1f7a9671a4ae180333f9209",
+      "rev": "074aa4422bf029908338e855d0c0f71470a971bb",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
