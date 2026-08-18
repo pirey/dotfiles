@@ -71,7 +71,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "6fc041976833841cc9d991f45193533fe2a2e09b",
+      "rev": "c8a582abc20a3121a768073df569d088cb5604b5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -87,7 +87,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "cdf00c5f4ac8161d3ec66bfcb8af140b30b42c6a",
+      "rev": "bafc8e779eca5c87de8cf284ef0d4e5bd6c0d109",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
