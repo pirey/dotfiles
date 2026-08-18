@@ -3,21 +3,17 @@ set -euo pipefail
 
 prefix="$HOME/code"
 shallow=true
-cd_into=true
 
 usage() {
     echo "Usage: $0 [OPTIONS] <git-repo-url>"
     echo "Options:"
     echo "  -p, --prefix <path>  Base directory for clones (default: \$HOME/code)"
     echo "  --no-shallow         Clone entire history (no --depth=1)"
-    echo "  -c, --cd             cd into the cloned directory (default)"
-    echo "  --no-cd              do not cd into the cloned directory"
     echo ""
     echo "Examples:"
     echo "  $0 git@github.com:ratatui/ratatui.git"
     echo "  $0 --prefix /workspace git@github.com:ratatui/ratatui.git"
     echo "  $0 --no-shallow git@github.com:ratatui/ratatui.git"
-    echo "  $0 --cd git@github.com:ratatui/ratatui.git"
     exit 1
 }
 
@@ -33,14 +29,6 @@ while [[ $# -gt 0 ]]; do
             ;;
         --no-shallow)
             shallow=false
-            shift
-            ;;
-        -c|--cd)
-            cd_into=true
-            shift
-            ;;
-        --no-cd)
-            cd_into=false
             shift
             ;;
         -h|--help)
@@ -86,7 +74,3 @@ else
 fi
 
 echo "Cloned to: $target_dir"
-
-if [[ "$cd_into" == "true" ]]; then
-    cd "$target_dir"
-fi
