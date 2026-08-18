@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "bloocky": {
-      "rev": "64a6de6560c40b3351d29545528ddaed98cd9984",
+      "rev": "061c3f2ac258691b70f2cebf37fcbce4700e0013",
       "src": "https://github.com/atiladefreitas/bloocky"
     },
     "canola.nvim": {
