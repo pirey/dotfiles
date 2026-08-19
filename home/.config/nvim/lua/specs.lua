@@ -424,15 +424,15 @@ local lualine = {
     ---@param side? "left"|"right"|"both"
     local function edge_component(component, side)
       side = side or "both"
-      if preset == "bubble" then
-        return vim.tbl_extend("force", component, {
-          separator = {
-            left = side ~= "right" and " " .. icons.sep("round_left_filled") or "",
-            right = side ~= "left" and icons.sep("round_right_filled") .. " " or "",
-          },
-        })
+      if section_seps.left == "" and section_seps.right == "" then
+        return component
       end
-      return component
+      return vim.tbl_extend("force", component, {
+        separator = {
+          left = side ~= "right" and " " .. section_seps.right or "",
+          right = side ~= "left" and section_seps.left .. " " or "",
+        },
+      })
     end
 
     local disabled_winbar_filetypes = {}
@@ -458,7 +458,7 @@ local lualine = {
       },
       sections = {
         lualine_a = {
-          edge_component(cwd),
+          edge_component(cwd, preset == "bubble" and "both" or "right"),
           tabs,
         },
         lualine_b = {
@@ -480,18 +480,18 @@ local lualine = {
           selectioncount,
           macro,
           location,
-          edge_component(progress, "right"),
+          edge_component(progress, preset == "bubble" and "both" or "left"),
         },
       },
     }
     if config.opts.winbar and config.opts.winbar.provider == "lualine" then
       lualine_config.winbar = {
-        lualine_b = { edge_component(winbar_filename) },
+        lualine_b = { edge_component(winbar_filename, preset == "bubble" and "both" or "left") },
         lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "winbar" and { navic_status }
           or {},
       }
       lualine_config.inactive_winbar = {
-        lualine_b = { edge_component(winbar_filename) },
+        lualine_b = { edge_component(winbar_filename, preset == "bubble" and "both" or "left") },
         lualine_c = {},
       }
     end
