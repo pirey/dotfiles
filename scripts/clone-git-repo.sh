@@ -8,12 +8,13 @@ usage() {
     echo "Usage: $0 [OPTIONS] <git-repo-url>"
     echo "Options:"
     echo "  -p, --prefix <path>  Base directory for clones (default: \$HOME/code)"
-    echo "  --no-shallow         Clone entire history (no --depth=1)"
+    echo "  -n, --no-shallow     Clone entire history (default: shallow depth=1)"
     echo ""
     echo "Examples:"
     echo "  $0 git@github.com:ratatui/ratatui.git"
     echo "  $0 --prefix /workspace git@github.com:ratatui/ratatui.git"
     echo "  $0 --no-shallow git@github.com:ratatui/ratatui.git"
+    echo "  $0 ssh://git@gitlab.example.com:2222/group/repo.git"
     exit 1
 }
 
@@ -27,7 +28,7 @@ while [[ $# -gt 0 ]]; do
             prefix="$2"
             shift 2
             ;;
-        --no-shallow)
+        -n|--no-shallow)
             shallow=false
             shift
             ;;
@@ -49,15 +50,40 @@ if [[ $# -lt 1 ]]; then
 fi
 
 repo_url="$1"
+repo_url="${repo_url%/}"
 
-if [[ "$repo_url" =~ ^git@([^:]+):(.+)\.git$ ]]; then
-    host="${BASH_REMATCH[1]}"
-    path="${BASH_REMATCH[2]}"
-elif [[ "$repo_url" =~ ^https?://([^/]+)/(.+)\.git$ ]]; then
-    host="${BASH_REMATCH[1]}"
-    path="${BASH_REMATCH[2]}"
+# Parse host and path from any git URL form
+if [[ "$repo_url" == *"://"* ]]; then
+    rest="${repo_url#*://}"
+    host="${rest%%/*}"
+    host="${host##*@}"
+    host="${host%%:*}"
+    path="${rest#*/}"
 else
-    echo "Error: Invalid git repo URL format"
+    if [[ "$repo_url" == *":"* ]]; then
+        # scp-like: [user@]host:path
+        host="${repo_url%%:*}"
+        host="${host##*@}"
+        path="${repo_url#*:}"
+    else
+        # local path
+        host="localhost"
+        path="$repo_url"
+    fi
+fi
+
+# file:// URLs leave host empty and path leading with /
+if [[ -z "$host" ]]; then
+    host="localhost"
+    path="${path#/}"
+    path="${path#/}"
+fi
+
+path="${path%.git}"
+path="${path%/}"
+
+if [[ -z "$path" ]]; then
+    echo "Error: Could not parse repository URL: $repo_url"
     exit 1
 fi
 
