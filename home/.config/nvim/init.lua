@@ -106,7 +106,7 @@ vim.cmd("autocmd OptionSet diff if &diff | set cursorlineopt=number | endif")
 require("preset").setup({
   enable_icons = true,
   enable_cmdline_completion = true,
-  statusline = { provider = "lualine", preset = "flat" },
+  statusline = { provider = "lualine", preset = "bubble" },
   winbar = { provider = "incline", preset = "flat" },
   breadcrumbs = { provider = "navic", placement = "statusline" },
   file_picker = { provider = "fff", preset = "horizontal" },

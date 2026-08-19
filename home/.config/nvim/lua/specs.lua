@@ -381,7 +381,10 @@ local lualine = {
       tabs_color = (config.opts.statusline == nil or config.opts.statusline.preset == "flat") and {
         active = "Cursor",
         inactive = "StatusLine",
-      } or nil,
+      } or {
+        active = "lualine_a_normal",
+        inactive = "lualine_a_inactive",
+      },
       show_modified_status = false,
       cond = function()
         local tabcount = #vim.api.nvim_list_tabpages()
