@@ -26,7 +26,7 @@
       "src": "https://github.com/pirey/curl.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "31f3992c24e54578dbe5553bcf60638a91153b3f",
+      "rev": "e0fa08e670977326ae5cd4270088d99f1ea644e5",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "c8a582abc20a3121a768073df569d088cb5604b5",
+      "rev": "a00eb57db2ef4d1ff2d4ef50ead2029cebd09f01",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
