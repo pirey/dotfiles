@@ -5,7 +5,7 @@
 # vsplit: cmd+d (macOS)
 # jump split: cmd+] and cmd+[ (macOS)
 
-# theme = "iceberg"
+theme = "iceberg"
 
 font-size = 13.5
 font-family = "IoskeleyMono Nerd Font"

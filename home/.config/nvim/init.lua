@@ -104,4 +104,4 @@ require("preset").setup({
 require("vim._core.ui2").enable()
 require("specs")
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("iceberg")
