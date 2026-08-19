@@ -99,4 +99,5 @@ else
     git clone "$repo_url" "$target_dir"
 fi
 
-echo "Cloned to: $target_dir"
+echo "Cloned to:"
+echo "$target_dir"

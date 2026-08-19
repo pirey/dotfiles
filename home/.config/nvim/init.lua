@@ -41,6 +41,16 @@ vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-w>]], [[<c-\><c-n><C-w><C-w>]], {
   noremap = true,
   desc = "Alternate window",
 })
+vim.keymap.set({ "n", "i", "t" }, "]w", [[<c-\><c-n><C-w>l]], {
+  silent = true,
+  noremap = true,
+  desc = "move to right window",
+})
+vim.keymap.set({ "n", "i", "t" }, "[w", [[<c-\><c-n><C-w>h]], {
+  silent = true,
+  noremap = true,
+  desc = "move to left window",
+})
 vim.keymap.set({ "n", "i", "t" }, [[<C-\><C-u>]], [[<c-\><c-n><C-u>]], {
   silent = true,
   noremap = true,
