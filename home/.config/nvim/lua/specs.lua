@@ -915,6 +915,9 @@ local curl = {
   src = "pirey/curl.nvim",
   config = function()
     require("curl").setup()
+    vim.cmd([[
+      cabbrev <expr> cu getcmdtype() == ':' && getcmdline() =~# '^cu' ? 'CurlOpen' : 'cu'
+    ]])
   end,
 }
 
