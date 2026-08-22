@@ -161,6 +161,41 @@ local lspconfig = {
       },
     })
 
+    vim.diagnostic.handlers.loclist = {
+      show = function()
+        local items = vim.fn.getloclist(0, { items = 0 }).items
+        vim.fn.setloclist(0, {}, "r", {
+          items = items,
+          quickfixtextfunc = function()
+            local lines = {}
+            for _, item in ipairs(vim.fn.getloclist(0, { items = 0 }).items) do
+              local type = item.type
+              local severity = type == "W" and " warning"
+                or type == "I" and " info"
+                or type == "N" and " note"
+                or type == "E" and " error"
+                or ""
+              local range = tostring(item.lnum or 1)
+              if item.end_lnum and item.lnum ~= item.end_lnum then
+                range = range .. "-" .. item.end_lnum
+              end
+              if item.col and item.col > 0 then
+                range = range .. " col " .. item.col
+                if item.end_col and item.col ~= item.end_col then
+                  range = range .. "-" .. item.end_col
+                end
+              end
+              if item.nr and item.nr > 0 then
+                severity = severity .. " " .. item.nr
+              end
+              table.insert(lines, "|" .. range .. severity .. "| " .. (item.text or ""))
+            end
+            return lines
+          end,
+        })
+      end,
+    }
+
     vim.lsp.document_color.enable(true, {}, { style = "virtual" })
 
     vim.lsp.enable({
@@ -642,6 +677,7 @@ local diffview = {
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gy", "<cmd>DiffviewFileHistory -g --range=stash<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gv", prompt_cmd("Show git commit: ", "DiffviewOpen $^..$"), { silent = true })
     vim.keymap.set("n", "<leader>g,", prompt_cmd("Search git: ", 'DiffviewFileHistory -S"$"'), { silent = true })
     vim.keymap.set(
