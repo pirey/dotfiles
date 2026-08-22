@@ -151,6 +151,33 @@ local function del_qf_item_visual()
   end
 end
 
+local function open_qf_item(opener)
+  local is_loc = vim.fn.getloclist(0, { winid = 0 }).winid ~= 0
+  local items = is_loc and vim.fn.getloclist(0, { items = 0 }).items
+    or vim.fn.getqflist({ items = 0 }).items
+  local entry = items[vim.fn.line(".")]
+  if not entry then
+    return
+  end
+
+  vim.cmd("wincmd p")
+  if opener == "split" then
+    vim.cmd("split")
+  elseif opener == "vsplit" then
+    vim.cmd("vsplit")
+  elseif opener == "tab" then
+    vim.cmd("tabnew")
+  end
+
+  local bufnr = entry.bufnr or 0
+  if bufnr > 0 then
+    vim.api.nvim_win_set_buf(0, bufnr)
+  elseif entry.filename and entry.filename ~= "" then
+    vim.cmd("edit " .. vim.fn.fnameescape(entry.filename))
+  end
+  vim.api.nvim_win_set_cursor(0, { entry.lnum or 1, (entry.col or 1) - 1 })
+end
+
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -160,6 +187,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("setl cursorline cursorlineopt=both signcolumn=yes nonumber")
 
     vim.keymap.set("n", "<c-w><cr>", "<CR><Cmd>cclose<CR><Cmd>lclose<CR>", { buf = 0, remap = true })
+    vim.keymap.set("n", "<c-s>", function() open_qf_item("split") end, { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-t>", function() open_qf_item("tab") end, { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-v>", function() open_qf_item("vsplit") end, { silent = true, buf = 0 })
     vim.keymap.set('n', 'dd', del_qf_item, { silent = true, buf = 0 })
     vim.keymap.set('x', 'd', del_qf_item_visual, { silent = true, buf = 0 })
   end,
