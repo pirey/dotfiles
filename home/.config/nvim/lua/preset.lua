@@ -1,10 +1,10 @@
 ---@class StatuslineConfig
 ---@field provider "lualine"
----@field preset "flat"|"simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
+---@field preset "flat"|"simple"|"bubble"|"bubble2"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 
 ---@class WinbarConfig
 ---@field provider "incline"|"lualine"
----@field preset? "flat"|"simple"|"bubble"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
+---@field preset? "flat"|"simple"|"bubble"|"bubble2"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
 
 ---@class BreadcrumbsConfig
 ---@field provider "navic"
@@ -50,12 +50,14 @@ local M = {
   },
   setup = function() end,
   _set_options = function() end,
-  is_rounded_preset = function() return false end,
+  is_rounded_preset = function()
+    return false
+  end,
 }
 
 ---@param opts? ConfigOpts
 function M.setup(opts)
-  M.opts = vim.tbl_extend('force', default_opts, opts or {})
+  M.opts = vim.tbl_extend("force", default_opts, opts or {})
   M.opts.enable_icons = M.opts.enable_icons or vim.g.enable_icons
   M.opts.enable_cmdline_completion = M.opts.enable_cmdline_completion or vim.g.enable_cmdline_completion
   M._set_options()
@@ -74,7 +76,12 @@ end
 ---@return boolean
 function M.is_rounded_preset()
   local preset = M.opts.statusline and M.opts.statusline.preset
-  return preset and vim.tbl_contains({ "bubble", "asymmetric", "asymmetric2" }, preset) or false
+  return preset and vim.tbl_contains({
+    "bubble",
+    "bubble2",
+    "asymmetric",
+    "asymmetric2",
+  }, preset) or false
 end
 
 return M

@@ -67,6 +67,7 @@ return {
         vim.api.nvim_set_hl(0, "SignColumn", { bg = linenr_bg })
         vim.api.nvim_set_hl(0, "FoldColumn", { bg = bg, fg = fg_dark })
         vim.api.nvim_set_hl(0, "StatusLine", { fg = statusline_fg, bg = statusline_bg })
+        vim.api.nvim_set_hl(0, "StatusLineNC", { fg = fg_dark, bg = bg_dark })
         vim.api.nvim_set_hl(0, "StatusLineTerm", { fg = statusline_fg, bg = statusline_bg })
         vim.api.nvim_set_hl(0, "TabLineFill", { fg = tabline_fg, bg = tabline_bg })
 

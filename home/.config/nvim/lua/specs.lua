@@ -406,7 +406,7 @@ local lualine = {
     local section_seps = { left = "", right = "" }
     local component_seps = { left = "", right = "" }
 
-    if preset == "bubble" then
+    if preset == "bubble" or preset == "bubble2" then
       section_seps = { left = icons.sep("round_right_filled"), right = icons.sep("round_left_filled") }
     elseif preset == "slanted" then
       section_seps = { left = icons.sep("slant_right_filled"), right = icons.sep("slant_left_filled") }
@@ -514,6 +514,10 @@ local incline = {
         left = icons.sep("round_left_filled"),
         right = icons.sep("round_right_filled"),
       },
+      bubble2 = {
+        left = icons.sep("round_left_filled"),
+        right = "",
+      },
       slanted = {
         left = icons.sep("slant_left_filled"),
         right = icons.sep("slant_right_filled"),
@@ -546,6 +550,7 @@ local incline = {
         margin = { vertical = 0 },
         overlap = { borders = true },
       },
+      ignore = { filetypes = { "curl" } },
       highlight = {
         groups = {
           InclineNormal = "StatusLine",
