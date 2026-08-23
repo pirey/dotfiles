@@ -162,7 +162,7 @@ local lspconfig = {
     })
 
     vim.diagnostic.handlers.loclist = {
-      show = function()
+      show = function(_, _, _, _)
         local items = vim.fn.getloclist(0, { items = 0 }).items
         vim.fn.setloclist(0, {}, "r", {
           items = items,
@@ -398,6 +398,13 @@ local lualine = {
       end,
     }
 
+    local quickfix_title = {
+      function()
+        return vim.w.quickfix_title
+      end,
+      cond = function() return vim.w.quickfix_title ~= nil end,
+    }
+
     local selectioncount = {
       "selectioncount",
     }
@@ -497,6 +504,7 @@ local lualine = {
           tabs,
         },
         lualine_b = {
+          quickfix_title,
           filename,
         },
         lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "statusline" and {
