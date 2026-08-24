@@ -111,7 +111,7 @@ local function smart_recent()
   end
   vim.fn.setqflist({}, " ", {
     items = items,
-    title = "Smart recent",
+    title = "Recent Files",
     quickfixtextfunc = function()
       local lines = {}
       for _, item in ipairs(items) do
@@ -125,18 +125,22 @@ end
 
 local function del_qf_item()
   local items = vim.fn.getqflist()
-  local line = vim.fn.line('.')
+  local line = vim.fn.line(".")
   table.remove(items, line)
-  vim.fn.setqflist(items, 'r')
+  vim.fn.setqflist(items, "r")
   vim.api.nvim_win_set_cursor(0, { math.min(line, #items), 0 })
 end
 
 local function del_qf_item_visual()
-  local first = vim.fn.line('v')
-  local last = vim.fn.line('.')
-  if first < 1 or last < 1 then return end
-  if first > last then first, last = last, first end
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
+  local first = vim.fn.line("v")
+  local last = vim.fn.line(".")
+  if first < 1 or last < 1 then
+    return
+  end
+  if first > last then
+    first, last = last, first
+  end
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
   local items = vim.fn.getqflist()
   local kept = {}
   for i = 1, #items do
@@ -144,8 +148,8 @@ local function del_qf_item_visual()
       kept[#kept + 1] = items[i]
     end
   end
-  vim.fn.setqflist(kept, 'r')
-  local last_line = vim.fn.line('$')
+  vim.fn.setqflist(kept, "r")
+  local last_line = vim.fn.line("$")
   if last_line > 0 then
     vim.api.nvim_win_set_cursor(0, { math.min(first, last_line), 0 })
   end
@@ -153,8 +157,7 @@ end
 
 local function open_qf_item(opener)
   local is_loc = vim.fn.getloclist(0, { winid = 0 }).winid ~= 0
-  local items = is_loc and vim.fn.getloclist(0, { items = 0 }).items
-    or vim.fn.getqflist({ items = 0 }).items
+  local items = is_loc and vim.fn.getloclist(0, { items = 0 }).items or vim.fn.getqflist({ items = 0 }).items
   local entry = items[vim.fn.line(".")]
   if not entry then
     return
@@ -178,6 +181,17 @@ local function open_qf_item(opener)
   vim.api.nvim_win_set_cursor(0, { entry.lnum or 1, (entry.col or 1) - 1 })
 end
 
+local function qf_item_fn(opener, close_win)
+  close_win = close_win or false
+  return function()
+    open_qf_item(opener)
+    if close_win then
+      vim.cmd("cclose")
+      vim.cmd("lclose")
+    end
+  end
+end
+
 local augroup = vim.api.nvim_create_augroup("InitQF", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -187,11 +201,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("setl cursorline cursorlineopt=both signcolumn=yes nonumber")
 
     vim.keymap.set("n", "<c-w><cr>", "<CR><Cmd>cclose<CR><Cmd>lclose<CR>", { buf = 0, remap = true })
-    vim.keymap.set("n", "<c-s>", function() open_qf_item("split") end, { silent = true, buf = 0 })
-    vim.keymap.set("n", "<c-t>", function() open_qf_item("tab") end, { silent = true, buf = 0 })
-    vim.keymap.set("n", "<c-v>", function() open_qf_item("vsplit") end, { silent = true, buf = 0 })
-    vim.keymap.set('n', 'dd', del_qf_item, { silent = true, buf = 0 })
-    vim.keymap.set('x', 'd', del_qf_item_visual, { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-w><c-s>", qf_item_fn("split", true), { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-w><c-t>", qf_item_fn("tab", true), { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-w><c-v>", qf_item_fn("vsplit", true), { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-s>", qf_item_fn("split"), { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-t>", qf_item_fn("tab"), { silent = true, buf = 0 })
+    vim.keymap.set("n", "<c-v>", qf_item_fn("vsplit"), { silent = true, buf = 0 })
+    vim.keymap.set("n", "dd", del_qf_item, { silent = true, buf = 0 })
+    vim.keymap.set("x", "d", del_qf_item_visual, { silent = true, buf = 0 })
   end,
 })
 
