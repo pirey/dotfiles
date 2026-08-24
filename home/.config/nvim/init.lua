@@ -107,7 +107,7 @@ require("preset").setup({
   enable_icons = true,
   enable_cmdline_completion = true,
   statusline = { provider = "lualine", preset = "bubble2" },
-  winbar = { provider = "incline", preset = "bubble2" },
+  winbar = { provider = "incline", preset = "bubble" },
   breadcrumbs = { provider = "navic", placement = "statusline" },
   file_picker = { provider = "fff", preset = "horizontal" },
 })
