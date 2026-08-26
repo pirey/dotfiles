@@ -43,8 +43,8 @@ return {
         if vim.o.background == "light" then
           bg = "#e8e9ec"
           fg = "#33374c"
-          fg_dark = "#cad0de"
-          bg_dark = "#8b98b6"
+          fg_dark = "#8b98b6"
+          bg_dark = "#ced3de"
           border_fg = fg_dark
           float_bg = bg
           float_fg = fg
@@ -56,9 +56,9 @@ return {
           diff_delete = "#e3d2da"
           diff_text = "#acc5d3"
           tabline_fg = "#8b98b6"
-          tabline_bg = "#cad0de"
+          tabline_bg = "#ced3de"
           statusline_fg = fg
-          statusline_bg = tabline_bg
+          statusline_bg = bg_dark
         end
 
         vim.api.nvim_set_hl(0, "NonText", { link = "Comment" })
