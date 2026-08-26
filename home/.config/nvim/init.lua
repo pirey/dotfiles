@@ -115,4 +115,3 @@ require("vim._core.ui2").enable()
 require("specs")
 
 vim.cmd.colorscheme("iceberg")
-vim.o.bg = "light" -- suitable when working outside / bright room

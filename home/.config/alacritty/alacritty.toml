@@ -1,7 +1,7 @@
 # https://alacritty.org/config-alacritty.html
 
 [general]
-import = ["~/dotfiles/home/.config/alacritty/iceberg-light.toml"]
+import = ["~/dotfiles/home/.config/alacritty/iceberg.toml"]
 
 [window]
 # (MacOS)
