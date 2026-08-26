@@ -752,7 +752,8 @@ local gitsigns = {
 local grug_far = {
   src = "MagicDuck/grug-far.nvim",
   config = function()
-    require("grug-far").setup({
+    local gf = require("grug-far")
+    gf.setup({
       icons = { enabled = false },
       transient = true,
       windowCreationCommand = "tab split",
@@ -767,7 +768,7 @@ local grug_far = {
       },
     })
     vim.keymap.set("n", "<leader><c-f>", "<cmd>GrugFar<cr>", { silent = true })
-    vim.keymap.set("x", "<leader><c-f>", "<cmd>GrugFar<cr>", { silent = true })
+    vim.keymap.set("x", "<leader><c-f>", gf.with_visual_selection, { silent = true })
   end,
 }
 local blink_cmp = {
