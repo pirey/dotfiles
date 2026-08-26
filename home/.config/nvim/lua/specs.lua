@@ -277,6 +277,7 @@ local fff = {
     vim.keymap.set("n", "ff", function() require("fff").find_files() end)
     vim.keymap.set("n", "f,", function() require("fff").live_grep() end)
     vim.keymap.set("n", "f.", function() require("fff").resume() end)
+    vim.keymap.set({ "n", "x" }, "fw", function() require('fff').live_grep_under_cursor() end)
     -- stylua: ignore end
   end,
 }
@@ -402,7 +403,9 @@ local lualine = {
       function()
         return vim.w.quickfix_title
       end,
-      cond = function() return vim.w.quickfix_title ~= nil end,
+      cond = function()
+        return vim.w.quickfix_title ~= nil
+      end,
     }
 
     local selectioncount = {
