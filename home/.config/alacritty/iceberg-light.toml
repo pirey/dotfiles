@@ -1,0 +1,47 @@
+# Iceberg Light Theme
+
+[colors.primary]
+background = "#e8e9ec"
+foreground = "#2b3041"
+
+[colors.cursor]
+
+text = "#e8e9ec"
+cursor = "#2b3041"
+
+# Normal colors
+[colors.normal]
+
+black = "#161821"
+
+red = "#cc517a"
+green = "#668e3d"
+yellow = "#c57339"
+blue = "#2d539e"
+magenta = "#7759b4"
+cyan = "#008480"
+white = "#2b3041"
+
+[colors.dim]
+
+black = "#161821"
+red = "#cc517a"
+green = "#668e3d"
+
+yellow = "#c57339"
+blue = "#2d539e"
+magenta = "#7759b4"
+cyan = "#008480"
+white = "#2b3041"
+
+# Bright colors
+[colors.bright]
+
+black = "#8b909e"
+red = "#cc3768"
+green = "#4d7c2d"
+yellow = "#b0662f"
+blue = "#1d4b98"
+magenta = "#6845ad"
+cyan = "#006b7c"
+white = "#d2d4de"
