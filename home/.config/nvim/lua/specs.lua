@@ -800,6 +800,16 @@ local blink_cmp = {
           list = { selection = { preselect = false } },
         },
       },
+      sources = {
+        per_filetype = {
+          org = { "orgmode", "snippets" },
+          sql = { "dadbod", "snippets" },
+        },
+        providers = {
+          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+          orgmode = { name = "Orgmode", module = "orgmode.org.autocompletion.blink", fallbacks = { "buffer" } },
+        },
+      },
     })
   end,
 }
@@ -973,6 +983,22 @@ local curl = {
     ]])
   end,
 }
+local dadbod_ui = {
+  src = "kristijanhusak/vim-dadbod-ui",
+  dependencies = {
+    { src = "tpope/vim-dadbod" },
+    { src = "kristijanhusak/vim-dadbod-completion" },
+  },
+  config = function()
+    vim.g.db_ui_execute_on_save = 0
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "sql", "mysql", "plsql" },
+      callback = function()
+        vim.keymap.set("n", "<cr>", "<Plug>(DBUI_ExecuteQuery)<Cmd>write<CR>", { silent = true })
+      end,
+    })
+  end,
+}
 
 ---@class Spec
 ---@field src string
@@ -1069,6 +1095,7 @@ setup({
   markdown,
   opencode,
   curl,
+  dadbod_ui,
 
   -- EXPERIMENTAL
   require("experimental.bloocky"),
