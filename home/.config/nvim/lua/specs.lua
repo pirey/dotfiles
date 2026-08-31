@@ -972,12 +972,14 @@ local opencode = {
         icons = { preset = config.opts.enable_icons and "nerdfonts" or "text" },
       },
     })
+    vim.keymap.set("n", "<localleader>a", "<cmd>Opencode<cr>")
   end,
 }
 local curl = {
   src = "pirey/curl.nvim",
   config = function()
     require("curl").setup()
+    vim.keymap.set("n", "<localleader>c", "<cmd>CurlOpen<cr>")
     vim.cmd([[
       cabbrev <expr> cu getcmdtype() == ':' && getcmdline() =~# '^cu' ? 'CurlOpen' : 'cu'
     ]])
@@ -991,10 +993,11 @@ local dadbod_ui = {
   },
   config = function()
     vim.g.db_ui_execute_on_save = 0
+    vim.keymap.set("n", "<localleader>d", "<cmd>tab DBUI<cr>")
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "sql", "mysql", "plsql" },
       callback = function()
-        vim.keymap.set("n", "<cr>", "<Plug>(DBUI_ExecuteQuery)<Cmd>write<CR>", { silent = true })
+        vim.keymap.set("n", "<cr>", "<Plug>(DBUI_ExecuteQuery)<Cmd>write<CR>", { silent = true, buffer = true })
       end,
     })
   end,
@@ -1096,7 +1099,4 @@ setup({
   opencode,
   curl,
   dadbod_ui,
-
-  -- EXPERIMENTAL
-  require("experimental.bloocky"),
 })
