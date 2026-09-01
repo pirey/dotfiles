@@ -993,7 +993,20 @@ local dadbod_ui = {
   },
   config = function()
     vim.g.db_ui_execute_on_save = 0
-    vim.keymap.set("n", "<localleader>d", "<cmd>tab DBUI<cr>")
+    local function open_dbui()
+      for _, tab in ipairs(vim.api.nvim_list_tabpages()) do
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
+          local ft = vim.bo[vim.api.nvim_win_get_buf(win)].filetype
+          if ft == "dbui" or ft == "dbout" then
+            vim.api.nvim_set_current_tabpage(tab)
+            vim.api.nvim_set_current_win(win)
+            return
+          end
+        end
+      end
+      vim.cmd("tab DBUI")
+    end
+    vim.keymap.set("n", "<localleader>d", open_dbui)
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "sql", "mysql", "plsql" },
       callback = function()
