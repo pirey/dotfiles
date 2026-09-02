@@ -33,6 +33,8 @@ local mason = {
       "blade-formatter",
       "stylua",
       "gopls",
+      "elm-language-server",
+      "elm-format",
     }
 
     for _, tool in ipairs(ensure_installed) do
@@ -67,6 +69,7 @@ local treesitter = {
       "diff",
       "go",
       "mermaid",
+      "elm",
     }
     local activate_on_ft = vim.list_extend({
       "typescriptreact",
@@ -207,6 +210,7 @@ local lspconfig = {
       "cssls",
       "gopls",
       "clangd",
+      "elmls",
     })
 
     -- disable semantic highlight
@@ -861,6 +865,7 @@ local conform = {
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
+        elm = { "elm-format" },
         markdown = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
