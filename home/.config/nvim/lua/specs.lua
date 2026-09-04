@@ -999,6 +999,19 @@ local dadbod_ui = {
   config = function()
     vim.g.db_ui_execute_on_save = 0
     local function open_dbui()
+      local current_tab = vim.api.nvim_get_current_tabpage()
+      local already_in_dbui_tab = false
+      for _, win in ipairs(vim.api.nvim_tabpage_list_wins(current_tab)) do
+        local ft = vim.bo[vim.api.nvim_win_get_buf(win)].filetype
+        if ft == "dbout" then
+          already_in_dbui_tab = true
+          break
+        end
+      end
+      if already_in_dbui_tab then
+        vim.cmd("DBUI")
+        return
+      end
       for _, tab in ipairs(vim.api.nvim_list_tabpages()) do
         for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
           local ft = vim.bo[vim.api.nvim_win_get_buf(win)].filetype
