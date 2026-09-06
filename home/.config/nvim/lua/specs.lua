@@ -731,8 +731,8 @@ local gitsigns = {
         end
 
         -- stylua: ignore start
-        map("n", "]g", function() gs.nav_hunk("next") end, "Next Hunk")
-        map("n", "[g", function() gs.nav_hunk("prev") end, "Prev Hunk")
+        map("n", "]g", function() gs.nav_hunk("next", { target = "all" }) end, "Next Hunk")
+        map("n", "[g", function() gs.nav_hunk("prev", { target = "all" }) end, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Toggle Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
         map("n", "<leader>ghq", gs.setqflist, "Add hunks to qflist")
