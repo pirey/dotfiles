@@ -988,13 +988,6 @@ local curl = {
     vim.cmd([[
       cabbrev <expr> cu getcmdtype() == ':' && getcmdline() =~# '^cu' ? 'CurlOpen' : 'cu'
     ]])
-    vim.api.nvim_create_autocmd("FileType", {
-      group = augroup,
-      pattern = "curl",
-      callback = function()
-        vim.bo.syntax = "bash"
-      end,
-    })
   end,
 }
 local dadbod_ui = {
