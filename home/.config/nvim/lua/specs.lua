@@ -686,13 +686,20 @@ local diffview = {
     vim.o.fillchars = "diff: "
 
     require("diffview").setup({
+      default_args = {
+        DiffviewOpen = { "--imply-local" },
+      },
       use_icons = icons.enabled,
-      file_panel = { listing_style = "list" },
+      file_panel = {
+        listing_style = "list",
+        show_branch_name = true,
+      },
     })
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gy", "<cmd>DiffviewFileHistory -g --range=stash<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>gd", prompt_cmd("Diff branch: ", "DiffviewOpen $^...HEAD"), { silent = true })
     vim.keymap.set("n", "<leader>gv", prompt_cmd("Show git commit: ", "DiffviewOpen $^..$"), { silent = true })
     vim.keymap.set("n", "<leader>g,", prompt_cmd("Search git: ", 'DiffviewFileHistory -S"$"'), { silent = true })
     vim.keymap.set(
