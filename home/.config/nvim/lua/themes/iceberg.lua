@@ -109,6 +109,7 @@ return {
         vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
         vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
         vim.api.nvim_set_hl(0, "FlashLabel", { link = "IncSearch" })
+        vim.api.nvim_set_hl(0, "BlinkIndentScope", { fg = "#454a56" })
 
         patch_group_pattern("DiagnosticUnderline", { undercurl = true })
 
