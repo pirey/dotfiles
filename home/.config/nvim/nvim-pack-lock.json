@@ -130,6 +130,10 @@
       "rev": "afd07819d8efcefc3317205b855ad4e3513b0011",
       "src": "https://github.com/kristijanhusak/vim-dadbod-ui"
     },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
     "vim-illuminate": {
       "rev": "1cc33d347c574c3bd21a4852fc9ffed677c1c58c",
       "src": "https://github.com/RRethy/vim-illuminate"
