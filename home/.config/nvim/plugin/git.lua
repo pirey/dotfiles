@@ -170,9 +170,40 @@ vim.api.nvim_create_user_command("GitBranch", function(args)
   vim.cmd("copen")
 end, { nargs = "*", complete = complete_branch })
 
+local function complete_gitadd(arglead)
+  local matches = {}
+  local out = vim.fn.system("git status --porcelain 2>/dev/null")
+  if vim.v.shell_error ~= 0 then
+    return matches
+  end
+  for _, line in ipairs(vim.split(out, "\n", { trimempty = true })) do
+    local file = line:sub(4)
+    if vim.startswith(file, arglead) then
+      matches[#matches + 1] = file
+    end
+  end
+  return matches
+end
+
+vim.api.nvim_create_user_command("GitAdd", function(args)
+  local cmd = "git add"
+  if args.args == "" then
+    cmd = cmd .. " ."
+  else
+    cmd = cmd .. " " .. vim.fn.shellescape(args.args)
+  end
+  local out = vim.fn.system(cmd .. " 2>&1")
+  if vim.v.shell_error ~= 0 then
+    vim.notify(vim.trim(out), vim.log.levels.ERROR)
+  else
+    vim.notify("Added" .. (args.args == "" and " all" or " " .. args.args), vim.log.levels.INFO)
+  end
+end, { nargs = "*", complete = complete_gitadd })
+
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
   cabbrev <expr> gp getcmdtype() == ':' && getcmdline() =~# '^gp' ? 'GitPush' : 'gp'
   cabbrev <expr> gco getcmdtype() == ':' && getcmdline() =~# '^gco' ? 'GitCheckout' : 'gco'
   cabbrev <expr> gb getcmdtype() == ':' && getcmdline() =~# '^gb' ? 'GitBranch' : 'gb'
+  cabbrev <expr> ga getcmdtype() == ':' && getcmdline() =~# '^ga' ? 'GitAdd' : 'ga'
 ]])
