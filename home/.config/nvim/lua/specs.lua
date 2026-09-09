@@ -389,7 +389,11 @@ local lualine = {
 
     local cwd = {
       function()
-        return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        local dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        if config.opts.statusline.preset == "flat" then
+          dir = "[" .. dir .. "]"
+        end
+        return dir
       end,
     }
 
