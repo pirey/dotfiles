@@ -200,10 +200,20 @@ vim.api.nvim_create_user_command("GitAdd", function(args)
   end
 end, { nargs = "*", complete = complete_gitadd })
 
+vim.api.nvim_create_user_command("GitCommitAmend", function()
+  local out = vim.fn.system("git commit --amend --no-edit 2>&1")
+  if vim.v.shell_error ~= 0 then
+    vim.notify(vim.trim(out), vim.log.levels.ERROR)
+  else
+    vim.notify("Amended", vim.log.levels.INFO)
+  end
+end, {})
+
 vim.cmd([[
   cabbrev <expr> gc getcmdtype() == ':' && getcmdline() =~# '^gc' ? 'GitCommit' : 'gc'
   cabbrev <expr> gp getcmdtype() == ':' && getcmdline() =~# '^gp' ? 'GitPush' : 'gp'
   cabbrev <expr> gco getcmdtype() == ':' && getcmdline() =~# '^gco' ? 'GitCheckout' : 'gco'
   cabbrev <expr> gb getcmdtype() == ':' && getcmdline() =~# '^gb' ? 'GitBranch' : 'gb'
   cabbrev <expr> ga getcmdtype() == ':' && getcmdline() =~# '^ga' ? 'GitAdd' : 'ga'
+  cabbrev <expr> gcn getcmdtype() == ':' && getcmdline() =~# '^gcn' ? 'GitCommitAmend' : 'gcn'
 ]])
