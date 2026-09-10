@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "blink.indent": {
-      "rev": "8b69b9262891fe81fe728fe6a52fa2a84dd5d5e0",
+      "rev": "2e9c9768affeaf3a48b2dc329eb59763012f79f6",
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
@@ -31,7 +31,7 @@
       "version": "0.10.0 - 0.11.0"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "f2421c550618d257048afa650413d9e542ddbe67",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -67,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "19576de1c1b6d1b5e231ea6ef9cba9a811c322bb",
+      "rev": "84b6b6c3f13cb34a6c8a0354b0da4c67d8ccf867",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -83,7 +83,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "893ec646d918f7bbf4ec9d5510768b87298ff588",
+      "rev": "6b96260d2ce94b811d0b3278590c04257e899ec1",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
