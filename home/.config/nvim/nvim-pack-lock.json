@@ -95,7 +95,7 @@
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "facc647f5d8110e3f20e8f793ef792fe6a78d444",
+      "rev": "1c88406fac56809eef03b1132aca90eca55a9b89",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "satellite.nvim": {

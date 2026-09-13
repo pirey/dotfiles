@@ -712,6 +712,7 @@ local fugitive = {
       vim.cmd("Git")
       vim.api.nvim_win_set_cursor(vim.api.nvim_tabpage_get_win(0), last_pos)
     end, { silent = true })
+    vim.keymap.set("n", "<leader>gg", "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", fugitive_map("g"), "<cmd>tab Git<cr>", { silent = true })
     vim.keymap.set("n", fugitive_map("v"), "<cmd>vert Git<cr>", { silent = true })
 
