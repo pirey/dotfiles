@@ -87,7 +87,7 @@
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "005368b30cea12ececfbe27240b4269939aac6e6",
+      "rev": "c563e997caef5a2abd1460c742d6f146aed57e66",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
@@ -95,7 +95,7 @@
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "1c88406fac56809eef03b1132aca90eca55a9b89",
+      "rev": "a778444a73080301a50c4a6f58c90d7e094dd59e",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "satellite.nvim": {
