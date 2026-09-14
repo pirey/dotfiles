@@ -31,7 +31,7 @@
       "version": "0.10.0 - 0.11.0"
     },
     "gitsigns.nvim": {
-      "rev": "f2421c550618d257048afa650413d9e542ddbe67",
+      "rev": "fd36f038e52ad8409fbf9926ae4a0a514cca04d8",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -83,7 +83,7 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "636a26425227bb35c622653a65ccab5690927539",
+      "rev": "b629972c9589d89a426bff281376104b1d15204f",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
