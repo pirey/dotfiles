@@ -7,8 +7,8 @@
 
 theme = dark:iceberg,light:iceberg light
 
-font-size = 13.5
-font-family = "IoskeleyMono Nerd Font"
+# font-size = 13.5
+# font-family = "IoskeleyMono Nerd Font"
 font-feature = -calt, -liga, -dlig
 
 window-padding-balance = true
