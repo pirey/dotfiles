@@ -153,6 +153,10 @@
     "winpick.nvim": {
       "rev": "6b0d6c04beb27035b6fd06c2ba741857fe7407ec",
       "src": "https://github.com/pirey/winpick.nvim"
+    },
+    "zen-mode.nvim": {
+      "rev": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
+      "src": "https://github.com/folke/zen-mode.nvim"
     }
   }
 }

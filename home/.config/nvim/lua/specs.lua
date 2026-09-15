@@ -850,6 +850,14 @@ local grug_far = {
     vim.keymap.set("x", "<leader><c-f>", gf.with_visual_selection, { silent = true })
   end,
 }
+local zen = {
+  src = "folke/zen-mode.nvim",
+  config = function()
+    vim.keymap.set("n", "<leader>z", function()
+      require("zen-mode").toggle()
+    end, { desc = "Toggle zen mode" })
+  end,
+}
 local blink_cmp = {
   src = "saghen/blink.cmp",
   version = vim.version.range("1.*"),
@@ -1194,6 +1202,7 @@ setup({
   oil,
   gitsigns,
   grug_far,
+  zen,
 
   -- TOOLS
   mason,
