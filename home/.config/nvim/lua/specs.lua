@@ -853,6 +853,16 @@ local grug_far = {
 local zen = {
   src = "folke/zen-mode.nvim",
   config = function()
+    local zen = require("zen-mode")
+    local width = math.max(vim.o.columns * 0.4, 80)
+    zen.setup({
+      window = {
+        width = width,
+        options = {
+          number = false
+        }
+      },
+    })
     vim.keymap.set("n", "<leader>z", function()
       require("zen-mode").toggle()
     end, { desc = "Toggle zen mode" })
