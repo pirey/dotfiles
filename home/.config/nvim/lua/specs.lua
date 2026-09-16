@@ -862,6 +862,16 @@ local zen = {
           number = false
         }
       },
+      on_open = function()
+        local ok, inc = pcall(require, "incline")
+        if not ok then return end
+        inc.toggle()
+      end,
+      on_close = function()
+        local ok, inc = pcall(require, "incline")
+        if not ok then return end
+        inc.toggle()
+      end
     })
     vim.keymap.set("n", "<leader>z", function()
       require("zen-mode").toggle()
