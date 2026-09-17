@@ -31,7 +31,7 @@
       "version": "0.10.0 - 0.11.0"
     },
     "gitsigns.nvim": {
-      "rev": "5eb287fdbd523c3a1b3d01f304f43570e73e259b",
+      "rev": "8d79f2410c76e62b92e51c28c82e28c1c5a3daeb",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -87,7 +87,7 @@
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "3bfd89bcfb210c5768be41f00c51f3f4721e55e7",
+      "rev": "a09ed25a4fa90ec6949f54d092adbd4fb5c5c465",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
