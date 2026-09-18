@@ -347,6 +347,24 @@ local lualine = {
         readonly = icons.get("readonly"),
         unnamed = "",
       },
+      cond = function()
+        return vim.bo.buftype ~= "terminal"
+      end,
+    }
+
+    local term_filename = {
+      function()
+        local title = vim.b.term_title
+        if title and title ~= "" and not title:match("^term://") then
+          return "term: " .. (title:match("([^/]+)$") or title)
+        end
+        local name = vim.api.nvim_buf_get_name(0)
+        local cmd = name:match(":([^:]+)$") or name
+        return "term: " .. (cmd:match("([^/]+)$") or cmd)
+      end,
+      cond = function()
+        return vim.bo.buftype == "terminal"
+      end,
     }
 
     local winbar_filename = {
@@ -517,6 +535,7 @@ local lualine = {
         lualine_b = {
           quickfix_title,
           filename,
+          term_filename,
         },
         lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "statusline" and {
           navic_status,
