@@ -22,7 +22,7 @@
       "src": "https://github.com/pirey/curl.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "c0a00386bd99d2abd27c8c8af9cfdd9374c2b3ed",
+      "rev": "5152bada7d81cd602373e77534aabc631419e8e0",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
