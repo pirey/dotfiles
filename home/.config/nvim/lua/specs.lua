@@ -993,7 +993,7 @@ local conform = {
         lua = { "stylua" },
         php = { "php_cs_fixer" },
         blade = { "blade-formatter" },
-        elm = { "elm-format" },
+        elm = { "elm_format" },
         markdown = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
