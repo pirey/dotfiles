@@ -345,7 +345,6 @@ local lualine = {
       symbols = {
         modified = icons.get("modified"),
         readonly = icons.get("readonly"),
-        unnamed = "",
       },
       cond = function()
         return vim.bo.buftype ~= "terminal"
@@ -412,6 +411,9 @@ local lualine = {
           dir = "[" .. dir .. "]"
         end
         return dir
+      end,
+      cond = function()
+        return config.opts.statusline.preset ~= "flat"
       end,
     }
 
@@ -878,19 +880,23 @@ local zen = {
       window = {
         width = width,
         options = {
-          number = false
-        }
+          number = false,
+        },
       },
       on_open = function()
         local ok, inc = pcall(require, "incline")
-        if not ok then return end
+        if not ok then
+          return
+        end
         inc.toggle()
       end,
       on_close = function()
         local ok, inc = pcall(require, "incline")
-        if not ok then return end
+        if not ok then
+          return
+        end
         inc.toggle()
-      end
+      end,
     })
     vim.keymap.set("n", "<leader>z", function()
       require("zen-mode").toggle()
