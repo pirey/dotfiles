@@ -800,7 +800,7 @@ local diffview = {
   end,
 }
 local oil = {
-  src = "barrettruth/canola.nvim",
+  src = "https://forge.barrettruth.com/barrettruth/canola.nvim",
   config = function()
     require("oil").setup({
       columns = {
