@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
+      "rev": "55b90e550bedf22da8d874e328ab97ac071cc547",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
