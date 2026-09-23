@@ -1,6 +1,7 @@
 ---@class StatuslineConfig
 ---@field provider "lualine"
 ---@field preset "flat"|"simple"|"bubble"|"bubble2"|"slanted"|"slanted2"|"slanted3"|"asymmetric"|"asymmetric2"
+---@field scope? "global"|"window"
 
 ---@class WinbarConfig
 ---@field provider "incline"|"lualine"

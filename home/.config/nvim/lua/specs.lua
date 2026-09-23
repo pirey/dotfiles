@@ -474,6 +474,8 @@ local lualine = {
     }
 
     local preset = config.opts.statusline and config.opts.statusline.preset
+    local scope = (config.opts.statusline and config.opts.statusline.scope) or "global"
+    local is_global = scope ~= "window"
 
     -- default separators
     local section_seps = { left = "", right = "" }
@@ -513,9 +515,73 @@ local lualine = {
       disabled_winbar_filetypes = { "opencode_output", "opencode", "terminal", "help" }
     end
 
+    local active_sections
+    local inactive_sections = nil
+    local global_sections = {
+      lualine_a = {
+        edge_component(cwd, preset == "bubble" and "both" or "right"),
+        tabs,
+      },
+      lualine_b = {
+        quickfix_title,
+        filename,
+        term_filename,
+      },
+      lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "statusline" and {
+        navic_status,
+      } or {},
+      lualine_x = {
+        orgmode_status,
+        lsp,
+        diagnostics,
+      },
+      lualine_y = {
+        diff,
+        branch,
+      },
+      lualine_z = {
+        selectioncount,
+        macro,
+        location,
+        edge_component(progress, preset == "bubble" and "both" or "left"),
+      },
+    }
+    local window_sections = {
+      lualine_a = {
+        edge_component(filename, preset == "bubble" and "both" or "right"),
+        edge_component(term_filename, preset == "bubble" and "both" or "right"),
+        quickfix_title,
+      },
+      lualine_b = {
+      },
+      lualine_c = {},
+      lualine_x = {
+        diagnostics,
+      },
+      lualine_y = {},
+      lualine_z = {
+        location,
+        edge_component(progress, preset == "bubble" and "both" or "left"),
+      },
+    }
+    local window_inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { filename, term_filename },
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    }
+    if is_global then
+      active_sections = global_sections
+    else
+      active_sections = window_sections
+      inactive_sections = window_inactive_sections
+    end
+
     local lualine_config = {
       options = {
-        globalstatus = true,
+        globalstatus = is_global,
         always_divide_middle = false,
         always_show_tabline = false,
         component_separators = component_seps,
@@ -527,37 +593,15 @@ local lualine = {
             b = "StatusLine",
             c = "StatusLine",
           },
+          inactive = {
+            a = "StatusLineNC",
+            b = "StatusLineNC",
+            c = "StatusLineNC",
+          }
         } or "auto",
       },
-      sections = {
-        lualine_a = {
-          edge_component(cwd, preset == "bubble" and "both" or "right"),
-          tabs,
-        },
-        lualine_b = {
-          quickfix_title,
-          filename,
-          term_filename,
-        },
-        lualine_c = config.opts.breadcrumbs and config.opts.breadcrumbs.placement == "statusline" and {
-          navic_status,
-        } or {},
-        lualine_x = {
-          orgmode_status,
-          lsp,
-          diagnostics,
-        },
-        lualine_y = {
-          diff,
-          branch,
-        },
-        lualine_z = {
-          selectioncount,
-          macro,
-          location,
-          edge_component(progress, preset == "bubble" and "both" or "left"),
-        },
-      },
+      sections = active_sections,
+      inactive_sections = inactive_sections,
     }
     if config.opts.winbar and config.opts.winbar.provider == "lualine" then
       lualine_config.winbar = {
@@ -581,7 +625,6 @@ local incline = {
     if config.opts.winbar and config.opts.winbar.provider ~= "incline" then
       return
     end
-    vim.o.laststatus = 3
 
     local preset = config.opts.winbar and config.opts.winbar.preset
     local wrap_char = ({

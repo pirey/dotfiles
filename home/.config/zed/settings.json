@@ -8,7 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "theme": "Iceberg",
-  "buffer_font_size": 14.0,
   "title_bar": {
     "show_sign_in": false,
   },
