@@ -548,11 +548,12 @@ local lualine = {
     }
     local window_sections = {
       lualine_a = {
-        edge_component(filename, preset == "bubble" and "both" or "right"),
-        edge_component(term_filename, preset == "bubble" and "both" or "right"),
-        quickfix_title,
+        tabs,
       },
       lualine_b = {
+        filename,
+        term_filename,
+        quickfix_title,
       },
       lualine_c = {},
       lualine_x = {
