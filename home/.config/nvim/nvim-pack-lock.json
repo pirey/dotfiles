@@ -67,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff",
+      "rev": "046b1a797af1effe8e0474b9af9657a3761ec58a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -111,7 +111,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "treesj": {
-      "rev": "79aedb401bbdc7e4202f7881eab5f6feb2105b0a",
+      "rev": "9f349ba62c524f065d6f43254d731ddf8319b9bf",
       "src": "https://github.com/Wansmer/treesj"
     },
     "vim-abolish": {
