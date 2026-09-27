@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "8173bc716f29797ce0ad94359565a20e17a0b88c",
+      "rev": "407c8949deafb39c5aa373bb06f9796c09e0635e",
       "src": "https://forge.barrettruth.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -67,7 +67,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "22ab578cec4878723c498e62b3cebbbd3403538b",
+      "rev": "a9bb4d5f4276aa5cddc015faa3ecc5a7b5a26b14",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -75,7 +75,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "25a9b06a09ea4e10712bec37e7b7d9f423262b91",
+      "rev": "728e031f6b11d03d1f0708b7dc4fb0f1d9c8a137",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
