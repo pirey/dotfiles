@@ -22,7 +22,7 @@
       "src": "https://github.com/pirey/curl.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "5152bada7d81cd602373e77534aabc631419e8e0",
+      "rev": "bb4f066b65c4d1d87b8f2097ed33550af34a6e90",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "728e031f6b11d03d1f0708b7dc4fb0f1d9c8a137",
+      "rev": "e6be2ff65d89df5039cad7a422600757bbf81d02",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
