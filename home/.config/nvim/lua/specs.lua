@@ -827,6 +827,11 @@ local diffview = {
         listing_style = "list",
         show_branch_name = true,
       },
+      view = {
+        merge_tool = {
+          layout = "diff3_mixed"
+        }
+      }
     })
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
