@@ -598,7 +598,7 @@ local lualine = {
             a = "StatusLineNC",
             b = "StatusLineNC",
             c = "StatusLineNC",
-          }
+          },
         } or "auto",
       },
       sections = active_sections,
@@ -829,9 +829,9 @@ local diffview = {
       },
       view = {
         merge_tool = {
-          layout = "diff3_mixed"
-        }
-      }
+          layout = "diff3_mixed",
+        },
+      },
     })
     vim.keymap.set("n", "<leader>gs", "<cmd>DiffviewOpen<cr>", { silent = true })
     vim.keymap.set("n", "<leader>gl", "<cmd>DiffviewFileHistory<cr>", { silent = true })
