@@ -7,19 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
   "theme": "Iceberg",
   "title_bar": {
     "show_sign_in": false,
-  },
-  "agent_servers": {
-    "OpenCode": {
-      "default_config_options": {
-        "model": "deepseek/deepseek-v4-flash",
-      },
-      "type": "custom",
-      "command": "opencode",
-      "args": ["acp"],
-    },
   },
   "telemetry": {
     "metrics": false,
