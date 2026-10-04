@@ -26,6 +26,8 @@ alias gprun='git fetch --prune'
 alias gres='git restore '
 
 alias sail='./vendor/bin/sail'
+alias stinker='sail artisan tinker'
+alias tinker='php artisan tinker'
 
 alias rl='rlwrap --always-readline'
 
