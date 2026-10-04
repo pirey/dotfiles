@@ -10,7 +10,7 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
-        "model": "gpt-6-luna"
+        "model": "gpt-6-sol"
       },
       "type": "registry"
     }
