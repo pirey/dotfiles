@@ -10,7 +10,7 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
-        "model": "gpt-6-sol"
+        "model": "gpt-6.1-sol"
       },
       "type": "registry"
     }
@@ -58,4 +58,50 @@
       },
     },
   },
+  "theme_overrides": {
+    "One Dark": {
+      "editor.active_line_number": "#dce0e5ff",
+
+      "syntax": {
+        "constant": {
+          "color": "#acb2beff",
+          "font_style": "italic"
+        },
+
+        "constructor": {
+          "color": "#acb2beff"
+        },
+
+        "namespace": {
+          "color": "#56b6c2ff"
+        },
+
+        "tag": {
+          "color": "#56b6c2ff"
+        },
+
+        "attribute": {
+          "color": "#61afefff",
+          "font_style": "italic"
+        },
+
+        "type": {
+          "color": "#56b6c2ff"
+        },
+
+        "variable.parameter": {
+          "color": "#acb2beff"
+        },
+
+        "variable.special": {
+          "color": "#56b6c2ff"
+        },
+
+        "title": {
+          "color": "#56b6c2ff",
+          "font_weight": 700
+        }
+      }
+    }
+  }
 }
