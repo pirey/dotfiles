@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "group_by": "staging"
+  },
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
