@@ -24,6 +24,14 @@
   "vim": {
     "use_system_clipboard": "never",
   },
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "elm": true,
+    "haskell": true,
+    "html": true,
+    "make": true,
+    "php": true
+  },
   "languages": {
     "PHP": {
       "format_on_save": "off",
