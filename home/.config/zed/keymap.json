@@ -66,5 +66,18 @@
     "bindings": {
       "g a": "pane::AlternateFile"
     }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-[": "workspace::ActivatePaneLeft",
+      "cmd-]": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-cmd-r": "projects::OpenRecent"
+    }
   }
 ]
