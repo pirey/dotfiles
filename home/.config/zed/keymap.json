@@ -60,5 +60,11 @@
     "bindings": {
       "g w": "vim::HelixJumpToWord"
     }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "g a": "pane::AlternateFile"
+    }
   }
 ]
