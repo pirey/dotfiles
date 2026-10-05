@@ -64,3 +64,10 @@ The following command will create symlinks to the configuration files in the hom
 It may overwrite dotfiles because of the `--adopt` flag, review and adjust changes as necessary.
 
 Also, it will only create symlinks for config under user home directory, so we need to create symlinks for other config files manually, e.g. keyd to /etc/keyd.
+
+
+## Migrating to Zed
+
+Missing feature in Zed:
+
+- Review changes againts base branch (e.g. for review)
