@@ -7,15 +7,8 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    },
-  },
-  {
     "context": "Editor",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
       "ctrl-m": "editor::Newline",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-tab": "pane::ActivateNextItem",
@@ -26,6 +19,7 @@
     "bindings": {
       ";": "command_palette::Toggle",
       ":": "vim::RepeatFind",
+      "g p": ["workspace::SendKeystrokes", "`[v`]"],
     },
   },
   {
@@ -34,50 +28,33 @@
       // "j k": ["workspace::SendKeystrokes", "escape"]
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-tab": "pane::ActivateNextItem",
-    },
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-alt-o": [
-        "agent::NewExternalAgentThread",
-        {
-          "agent": {
-            "custom": {
-              "name": "OpenCode",
-              "command": {
-                "command": "opencode",
-                "args": ["acp"],
-              },
-            },
-          },
-        },
-      ],
-    },
-  },
-  {
-    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
-    "bindings": {
-      "g w": "vim::HelixJumpToWord"
-    }
-  },
-  {
-    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
-    "bindings": {
-      "g a": "pane::AlternateFile"
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
       "cmd-[": "workspace::ActivatePaneLeft",
       "cmd-]": "workspace::ActivatePaneRight"
+    },
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "s": "vim::HelixJumpToWord",
+      "g a": "pane::AlternateFile",
+      "g l": ["workspace::SendKeystrokes", "$"],
+      "g h": ["workspace::SendKeystrokes", "0"],
+      "j": ["workspace::SendKeystrokes", "g j"],
+      "k": ["workspace::SendKeystrokes", "g k"],
+      "m m": ["workspace::SendKeystrokes", "%"],
+    }
+  },
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      "g l": ["workspace::SendKeystrokes", "$ h"],
+      "a m": ["workspace::SendKeystrokes", "a %"],
     }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-cmd-r": "projects::OpenRecent"
+      "ctrl-shift-r": "projects::OpenRecent"
     }
   }
 ]

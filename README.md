@@ -68,6 +68,34 @@ Also, it will only create symlinks for config under user home directory, so we n
 
 ## Migrating to Zed
 
-Missing feature in Zed:
+### Common shortcuts (macOS)
 
-- Review changes againts base branch (e.g. for review)
+- `Cmd-Shift-P` — command palette
+- `Cmd-P` — find file
+- `Cmd-Shift-F` — search in project
+- `Cmd-Shift-O` — find symbol in file; `Cmd-T` — find symbol in project
+- `Cmd-Shift-E` — project panel; `Cmd-Shift-B` — outline panel
+- `Ctrl` + backtick — toggle terminal
+- `Cmd-Shift-M` — diagnostics
+- `Cmd-,` — settings
+
+### Custom keymap
+
+See [`home/.config/zed/keymap.json`](home/.config/zed/keymap.json). Current custom bindings:
+
+- In normal Vim mode, `;` opens the command palette and `:` repeats the last find.
+- In normal or visual Vim mode, `j`/`k` move by screen lines, `s` jumps to a word, `g a` switches to the alternate file, `g h`/`g l` move to line start/end, and `m m` jumps to the matching bracket.
+- In normal mode, `g p` selects the last pasted text. In visual mode, `g l` extends to line end and `a m` selects through the matching bracket.
+- `Ctrl-Tab` / `Ctrl-Shift-Tab` switch between open items in the editor and terminal.
+- In the terminal, `Cmd-[` / `Cmd-]` move to the left/right pane.
+- `Ctrl-Cmd-R` opens recent projects.
+- In the editor, `Ctrl-M` inserts a newline.
+
+### Missing feature in Zed:
+
+- Compare changes against a base branch (e.g. for review)
+- Search Git history by changed content (pickaxe, `git log -S`)
+
+Workaround:
+
+- Search commit messages with the `Git Graph: Open` action, then use its search box.
