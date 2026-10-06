@@ -15,14 +15,6 @@
     },
   },
   {
-    "context": "vim_mode == normal",
-    "bindings": {
-      ";": "command_palette::Toggle",
-      ":": "vim::RepeatFind",
-      "g p": ["workspace::SendKeystrokes", "`[v`]"],
-    },
-  },
-  {
     "context": "Terminal",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
@@ -45,6 +37,14 @@
     }
   },
   {
+    "context": "vim_mode == normal",
+    "bindings": {
+      ";": "command_palette::Toggle",
+      ":": "vim::RepeatFind",
+      "g p": ["workspace::SendKeystrokes", "`[v`]"],
+    },
+  },
+  {
     "context": "vim_mode == visual && !menu",
     "bindings": {
       "g l": ["workspace::SendKeystrokes", "$ h"],
@@ -54,7 +54,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-shift-r": "projects::OpenRecent"
+      "ctrl-cmd-r": "projects::OpenRecent"
     }
   }
 ]
