@@ -7,21 +7,17 @@
 // from the command palette.
 [
   {
-    "context": "Editor",
     "bindings": {
-      "ctrl-m": "editor::Newline",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-tab": "pane::ActivateNextItem",
-    },
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-tab": "pane::ActivateNextItem",
       "cmd-[": "workspace::ActivatePaneLeft",
       "cmd-]": "workspace::ActivatePaneRight"
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-m": "editor::Newline",
     },
   },
   {
