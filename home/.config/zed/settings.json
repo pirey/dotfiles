@@ -104,6 +104,11 @@
         "title": {
           "color": "#56b6c2ff",
           "font_weight": 700
+        },
+
+        "property": {
+          "color": "#56b6c2ff",
+          "font_weight": 700
         }
       }
     }
