@@ -144,7 +144,8 @@
         "warning.border": "#665044",
         "players": [
           {
-            "cursor": "#c6c8d1"
+            "cursor": "#c6c8d1",
+            "selection": "#84a0c666"
           }
         ],
         "syntax": {
