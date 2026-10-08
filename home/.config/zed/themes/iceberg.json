@@ -150,6 +150,12 @@
           }
         ],
         "syntax": {
+          "title.markup": {
+            "color": "#84a0c6",
+            "background_color": null,
+            "font_style": null,
+            "font_weight": 700
+          },
           "attribute": {
             "color": "#a093c7",
             "background_color": null,
