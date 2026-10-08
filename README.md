@@ -68,7 +68,7 @@ Also, it will only create symlinks for config under user home directory, so we n
 
 ## Migrating to Zed
 
-### Common shortcuts (macOS)
+### Common keyboard shortcuts (macOS)
 
 - `Cmd-Shift-P` — command palette
 - `Cmd-P` — find file
@@ -100,3 +100,4 @@ See [`home/.config/zed/keymap.json`](home/.config/zed/keymap.json). Current cust
 Workaround:
 
 - Search commit messages with the `Git Graph: Open` action, then use its search box.
+- Resolve merge conflict with agent.
