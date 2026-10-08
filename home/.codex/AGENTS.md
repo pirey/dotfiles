@@ -50,6 +50,12 @@ is a question, answer it without running commands.
 
 When you're tasked to analyze something, summarize the result in numbered list instead of just bullet points, this make it easier to refer to each point by number for feedbacks.
 
+## Code Review / Merge Review
+
+When I ask you to review changes of one branch against another, I want you to analyze the changes and summarize potential issues that may rise.
+
+Tell me the intended flow, if available, and how are some of the part relates to another instead of just telling me the issue directly.
+
 ## Security
 
 Never write API keys, tokens, or secrets to files, commit them, or echo them in
