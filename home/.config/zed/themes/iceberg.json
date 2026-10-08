@@ -140,9 +140,13 @@
         "unreachable.background": null,
         "unreachable.border": null,
         "warning": "#e2a478",
-        "warning.background": null,
-        "warning.border": null,
-        "players": [],
+        "warning.background": "#302621",
+        "warning.border": "#665044",
+        "players": [
+          {
+            "cursor": "#c6c8d1"
+          }
+        ],
         "syntax": {
           "attribute": {
             "color": "#a093c7",

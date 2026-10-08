@@ -46,6 +46,10 @@ to do those steps. Ask first only before actions I have prohibited or that
 change files, run tests/builds, or perform Git write operations. If my request
 is a question, answer it without running commands.
 
+## Analysis
+
+When you're tasked to analyze something, summarize the result in numbered list instead of just bullet points, this make it easier to refer to each point by number for feedbacks.
+
 ## Security
 
 Never write API keys, tokens, or secrets to files, commit them, or echo them in
@@ -68,4 +72,3 @@ discuss it with me.
 
 When i say "commit" or "suggest commit" or "suggest commit message", I want you
 to check staged files and suggest a commit message based on the changes.
-
