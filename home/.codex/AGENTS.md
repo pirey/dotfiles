@@ -69,7 +69,7 @@ Explain reviews in execution-flow order, not severity order.
 
 The primary goal is to understand the flow, what can go wrong, and how
 to fix it. Keep explanations concise, but include enough context to
-connect each issue to the surrounding steps.
+connect each issue to the surrounding steps, including providing relevant source file and line number.
 
 ## Security
 
