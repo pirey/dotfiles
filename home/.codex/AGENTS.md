@@ -69,7 +69,9 @@ Explain reviews in execution-flow order, not severity order.
 
 The primary goal is to understand the flow, what can go wrong, and how
 to fix it. Keep explanations concise, but include enough context to
-connect each issue to the surrounding steps, including providing relevant source file and line number.
+connect each issue to the surrounding steps.
+
+For every finding, cite file paths and line numbers for both the problematic code and any supporting behavior used to establish the issue, including unchanged files. Don’t make cross-file claims with only one side referenced.
 
 ## Security
 
