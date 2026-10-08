@@ -52,9 +52,24 @@ When you're tasked to analyze something, summarize the result in numbered list i
 
 ## Code Review / Merge Review
 
-When I ask you to review changes of one branch against another, I want you to analyze the changes and summarize potential issues that may rise.
+Explain reviews in execution-flow order, not severity order.
 
-Tell me the intended flow, if available, and how are some of the part relates to another instead of just telling me the issue directly.
+1. Start with a short overview of the intended end-to-end flow.
+2. Walk through the flow, explaining how each component passes data or
+   control to the next.
+3. Introduce issues where they occur in that flow. Number issues
+   sequentially in order of occurrence, and keep those numbers consistent
+   in follow-up responses.
+4. For each issue, state its severity explicitly, explain the trigger and
+   downstream impact, and provide a suggested fix.
+5. If intended behavior is unclear, include a focused clarification
+   question for the author.
+6. Use severity as additional information for prioritization; do not
+   reorder the main review by severity.
+
+The primary goal is to understand the flow, what can go wrong, and how
+to fix it. Keep explanations concise, but include enough context to
+connect each issue to the surrounding steps.
 
 ## Security
 
