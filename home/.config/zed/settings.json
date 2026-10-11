@@ -7,7 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "Iceberg",
+  "theme": {
+    "mode": "system",
+    "light": "Iceberg Light",
+    "dark": "Iceberg"
+  },
   "when_closing_with_no_tabs": "keep_window_open",
   "git_panel": {
     "group_by": "staging"
