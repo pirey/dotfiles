@@ -24,6 +24,9 @@
       "type": "registry"
     }
   },
+  "agent": {
+    "expand_edit_card": false
+  },
   "title_bar": {
     "show_sign_in": false,
   },
