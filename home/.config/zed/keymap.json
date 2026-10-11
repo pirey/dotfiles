@@ -17,6 +17,8 @@
   {
     "context": "Editor",
     "bindings": {
+      "alt-n": "editor::GoToNextDocumentHighlight",
+      "alt-p": "editor::GoToPreviousDocumentHighlight",
       "ctrl-cmd-p": "projects::OpenRecent",
       "ctrl-m": "editor::Newline",
     },
