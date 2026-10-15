@@ -10,7 +10,7 @@
   "theme": {
     "mode": "system",
     "light": "Iceberg Light",
-    "dark": "Iceberg"
+    "dark": "One Dark"
   },
   "when_closing_with_no_tabs": "keep_window_open",
   "git_panel": {

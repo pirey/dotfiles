@@ -1,9 +1,5 @@
 ## General Instruction
 
-I want you to act in plan mode all the time, i.e. do not do any actions like
-edit file or run any commands, unless I specically said so, or after you have
-explicitly asked me to do it and I answered explicitly as well.
-
 If the message I am sending you contains any sort of questions, then you MUST
 give answers or ask me for clarifications and NOT do any command or file
 editing.
@@ -40,8 +36,8 @@ will lose track of what happen. Instead, if the change requires modifying .env
 or similar files, you may inform me and I will make the adjustment manually.
 Unless, I specifically mention to you to do the thing.
 
-When I explicitly request a task, that request authorizes the read-only
-commands and file inspection needed to complete it. Do not ask for permission
+When I request a task, that request authorizes the read-only
+commands on current root folder and file inspection needed to complete it. Do not ask for permission
 to do those steps. Ask first only before actions I have prohibited or that
 change files, run tests/builds, or perform Git write operations. If my request
 is a question, answer it without running commands.
