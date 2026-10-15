@@ -25,7 +25,8 @@
     }
   },
   "agent": {
-    "expand_edit_card": false
+    "expand_edit_card": false,
+    "expand_terminal_card": false
   },
   "title_bar": {
     "show_sign_in": false,

@@ -96,6 +96,7 @@ See [`home/.config/zed/keymap.json`](home/.config/zed/keymap.json). Current cust
 - Compare changes against a base branch (e.g. for review)
 - Search Git history by changed content (pickaxe, `git log -S`)
 - Three way diff for merge conflicts
+- View file content in different branch or specific commit
 
 Workaround:
 
