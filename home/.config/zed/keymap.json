@@ -8,6 +8,8 @@
 [
   {
     "bindings": {
+      // the native cmd-j is buggy and sometimes lost app focus
+      "cmd-j": "terminal_panel::Toggle",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
       "ctrl-tab": "pane::ActivateNextItem",
       "cmd-[": "workspace::ActivatePaneLeft",
