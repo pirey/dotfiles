@@ -43,7 +43,7 @@ export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 [ -f "/Users/yeri/.ghcup/env" ] && . "/Users/yeri/.ghcup/env" # ghcup-env
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # export ESCDELAY=0
 export FZF_DEFAULT_OPTS='--reverse --gutter=" " --cycle --color=16,fg:8,fg+:7,bg:-1,bg+:-1,gutter:-1,pointer:7,info:-1,border:8,prompt:-1,header:-1'
