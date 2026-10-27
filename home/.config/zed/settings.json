@@ -35,6 +35,9 @@
     "metrics": false,
     "diagnostics": false,
   },
+  "markdown_preview": {
+    "limit_content_width": false
+  },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "never",
