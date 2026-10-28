@@ -29,6 +29,8 @@
 ## Analysis and Reviews
 
 For analysis, use a numbered list so I can refer to individual points.
+Include a concrete suggested change for each item when practical, such as
+replacement wording or a code snippet.
 
 For code and merge reviews:
 
