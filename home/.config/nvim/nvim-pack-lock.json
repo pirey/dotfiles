@@ -10,7 +10,7 @@
       "src": "https://github.com/saghen/blink.indent"
     },
     "canola.nvim": {
-      "rev": "94243648851aabb173c589d583f6d9fe014ddf76",
+      "rev": "d666c3b9eae1704bbaae2de45e8013bf6308488a",
       "src": "https://forge.barrettruth.com/barrettruth/canola.nvim"
     },
     "conform.nvim": {
@@ -22,7 +22,7 @@
       "src": "https://github.com/pirey/curl.nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "3aba39f4d1704cc7aa26af487ab5579b5c614437",
+      "rev": "fae72d6c981075dce2e0f946f002382ce0cb44e1",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "fff.nvim": {
@@ -31,7 +31,7 @@
       "version": "0.10.0 - 0.11.0"
     },
     "gitsigns.nvim": {
-      "rev": "1e9d0fbfe7ff848bc402d2c2e2854fb4eff2dce7",
+      "rev": "4bcd99167c265f135886b282baad77afe06206b2",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
@@ -63,7 +63,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "7d120778543b876b5a1e216e4ae9f1cb0b88a01b",
+      "rev": "adfbb74472f6c231b651b650a89f414c2680fb31",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "a2f694478be07f89c2d03cc17858a8745a400c4b",
+      "rev": "0195cd62fa89950f34c0e0d648ea7897ab85d4d3",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
@@ -79,11 +79,11 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "93b05362a847bd705c436f6a681ae8a86f900ba6",
+      "rev": "c94d864aaf6abb06c3b4c7a258328f126ad89d82",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "61274cfda2cb5878f5587d4fab0429ec356d4ec8",
+      "rev": "a7fdbd3cfdd94b425c655cc72e3a6c4dd0a3959f",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
