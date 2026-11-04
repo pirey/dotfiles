@@ -10,6 +10,7 @@
   "cli_default_open_behavior": "existing_window",
   "when_closing_with_no_tabs": "keep_window_open",
   "git_panel": {
+    "tree_view": true,
     "group_by": "staging"
   },
   "agent_servers": {

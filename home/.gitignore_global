@@ -30,6 +30,7 @@ dump.rdb
 tinker_fiddle
 
 .env
+.env.testing
 
 # emacs
 eln-cache
