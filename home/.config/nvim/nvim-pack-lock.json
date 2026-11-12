@@ -63,7 +63,7 @@
       "src": "https://github.com/yorickpeterse/nvim-jump"
     },
     "nvim-lspconfig": {
-      "rev": "cc404d425c7752f56b8eaa269107be44d888ea51",
+      "rev": "443d92c6bea761ab54cdde46fb197a2b4d614bdd",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {
@@ -71,7 +71,7 @@
       "src": "https://github.com/SmiteshP/nvim-navic"
     },
     "nvim-treesitter": {
-      "rev": "610734c5d3e59761d5f79318d120633374537fa5",
+      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "onedark.nvim": {
@@ -79,11 +79,11 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
-      "rev": "0dbd52d84e85023742ea999456b8804a987cac43",
+      "rev": "96c610b841788f738eefe65442d05bc9f600b857",
       "src": "https://github.com/sudo-tee/opencode.nvim"
     },
     "orgmode": {
-      "rev": "a7fdbd3cfdd94b425c655cc72e3a6c4dd0a3959f",
+      "rev": "08c3ea6ca3745d49435378cddfa93d06e0b39574",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
     "outline.nvim": {
@@ -91,11 +91,11 @@
       "src": "https://github.com/hedyhli/outline.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "8e8795368391036643b622875a6da6a51bcd33f4",
+      "rev": "9c235bedc4f96145e63fcad5b78cd78bce8822c4",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "satellite.nvim": {
-      "rev": "87843c9c8f28b54332497302de380a6d94c9e82b",
+      "rev": "fc48d8b7644a9636922690287568ef998eacad93",
       "src": "https://github.com/lewis6991/satellite.nvim"
     },
     "scratch.nvim": {
