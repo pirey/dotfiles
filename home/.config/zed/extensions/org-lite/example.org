@@ -1,0 +1,30 @@
+#+title: Org Lite example
+
+* TODO First project :work:
+SCHEDULED: <2026-11-17 Tue>
+:PROPERTIES:
+:ID: first-project
+:END:
+This body should fold with its heading, including both subsections.
+
+** NEXT Small task
+- [ ] Open the outline panel
+- [X] Install the extension
+
+#+begin_src python
+print("Source block highlighting")
+# A heading-looking line inside a block must not become a heading fold:
+* example text
+#+end_src
+
+** DONE Another task
+:LOGBOOK:
+Closed this task today.
+:END:
+
+* Notes
+This heading is outside the first project's fold.
+
+#+begin_example
+** This is literal text, not a subsection
+#+end_example

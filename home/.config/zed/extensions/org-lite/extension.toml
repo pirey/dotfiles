@@ -1,0 +1,14 @@
+id = "org-lite"
+name = "Org Lite"
+version = "0.1.0"
+schema_version = 1
+authors = ["Yeri"]
+description = "Org highlighting, heading outline, and folding"
+
+[grammars.org]
+repository = "https://github.com/milisims/tree-sitter-org"
+rev = "64cfbc213f5a83da17632c95382a5a0a2f3357c1"
+
+[language_servers.org-lite]
+name = "Org Lite Folding"
+languages = ["Org"]

@@ -1,0 +1,4 @@
+name = "Org"
+grammar = "org"
+path_suffixes = ["org"]
+line_comments = ["# "]

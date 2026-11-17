@@ -1,0 +1,236 @@
+#+TITLE: Org Syntax Showcase
+#+AUTHOR: Example Author
+#+DESCRIPTION: Static fixture for syntax highlighting and folding in Zed.
+#+LANGUAGE: en
+#+STARTUP: overview
+#+OPTIONS: toc:2 num:t
+#+TODO: TODO(t) NEXT(n) WAITING(w@) | DONE(d!) CANCELED(c@)
+#+TAGS: editor(e) syntax(s) sample(m)
+#+PROPERTY: header-args :eval never
+
+* Headings and inline markup                                        :syntax:
+** Level two
+*** Level three
+**** Level four
+***** Level five
+****** Level six
+
+*bold*, /italic/, _underline_, +strikethrough+, =verbatim=, and ~inline code~.
+Combined emphasis: *bold with /italic/ inside*.
+Unicode: café, 日本語, Ελληνικά, →, λ, ✓.
+Subscript: H_{2}O. Superscript: x^{2}.
+A forced line break follows here. \\
+This is the next line in the same paragraph.
+
+Horizontal rule:
+-----
+
+* Tasks, priorities, and planning                                    :editor:
+** TODO [#A] Verify highlighting                                    :syntax:
+SCHEDULED: <2026-11-17 Tue 09:00> DEADLINE: <2026-11-20 Fri 17:00>
+:PROPERTIES:
+:ID:       9a1d02bf-089e-47c6-b682-5cda8ca6a374
+:CUSTOM_ID: highlighting-task
+:EFFORT:   0:30
+:END:
+
+** NEXT [#B] Check folding [1/3]
+- [X] Fold a heading
+- [ ] Fold a source block
+- [ ] Fold a drawer
+
+** WAITING [#C] Review checkbox rendering [50%]
+- [X] Complete item
+- [-] Partially complete item
+  - [X] First child
+  - [ ] Second child
+- [ ] Incomplete item
+
+** DONE Review clock entries
+CLOSED: [2026-11-16 Mon 10:30]
+:LOGBOOK:
+CLOCK: [2026-11-16 Mon 10:00]--[2026-11-16 Mon 10:30] =>  0:30
+- State "DONE" from "TODO" [2026-11-16 Mon 10:30]
+:END:
+
+** CANCELED Obsolete task
+** TODO Recurring task
+SCHEDULED: <2026-11-18 Wed 09:00 +1w>
+
+* Timestamps
+- Active: <2026-11-17 Tue>
+- Inactive: [2026-11-17 Tue]
+- Time range: <2026-11-17 Tue 09:00-10:30>
+- Date range: <2026-11-17 Tue>--<2026-11-19 Thu>
+- Repeater and warning: <2026-12-01 Tue +1m -3d>
+- Catch-up repeater: <2026-11-18 Wed 09:00 ++1w>
+- Restart repeater: <2026-11-18 Wed 09:00 .+1w>
+
+* Lists
+- Unordered item
+  Continuation paragraph belonging to this item.
+  - Nested item
+    + Alternate bullet
+- Another item
+
+1. First ordered item
+2. Second ordered item
+   1. Nested ordered item
+3. [@7] Explicit counter
+
+- Term :: Description list entry.
+- Another term :: Description with *emphasis* and =literal text=.
+
+* Links, targets, and footnotes
+- [[https://example.com][Descriptive web link]]
+- [[https://example.com/path?q=org#section]]
+- Bare URL: https://example.com
+- [[mailto:reader@example.com][Email link]]
+- [[file:org-basic.org][Local Org file]]
+- [[file:org-basic.org::*Markup][Heading in another file]]
+- [[*Lists][Heading in this file]]
+- [[#highlighting-task][Custom ID link]]
+- [[sample-target][Named target]]
+
+<<sample-target>> This paragraph is a link target.
+<<<radio target>>> declares a radio target; another radio target mention follows.
+
+A named footnote[fn:sample] and an inline footnote[fn::Inline footnote text.].
+
+[fn:sample] Footnote definition with a [[https://example.com][link]].
+
+* Tables
+#+NAME: sample-table
+#+CAPTION: A table with alignment cookies and a formula.
+| Item   | Quantity | Price | Total |
+|--------+----------+-------+-------|
+| <l>    |      <r> |   <r> |   <r> |
+| Apple  |        2 |  1.50 |  3.00 |
+| Orange |        3 |  2.00 |  6.00 |
+|--------+----------+-------+-------|
+| Sum    |          |       |  9.00 |
+#+TBLFM: $4=$2*$3;%.2f::@>$4=vsum(@4..@5);%.2f
+
+* Source blocks and results
+#+NAME: greet
+#+CAPTION: Python source with header arguments.
+#+BEGIN_SRC python :var name="Org" :results output :exports both
+def greet(name):
+    # Source-language comment
+    return f"Hello, {name}!"
+
+print(greet(name))
+#+END_SRC
+
+#+RESULTS: greet
+: Hello, Org!
+
+#+BEGIN_SRC typescript :eval never
+type User = { name: string; active: boolean };
+const user: User = { name: "Ada", active: true };
+console.log(`${user.name}: ${user.active}`);
+#+END_SRC
+
+#+BEGIN_SRC sh :eval never
+# Static sample; do not execute as part of syntax inspection.
+printf '%s\n' 'Hello, Org!'
+#+END_SRC
+
+Inline source: src_python[:exports code]{1 + 2}.
+
+#+NAME: fragment
+#+BEGIN_SRC python :eval never
+message = "Noweb fragment"
+#+END_SRC
+
+#+BEGIN_SRC python :noweb yes :eval never
+<<fragment>>
+print(message)
+#+END_SRC
+
+* Other blocks
+#+BEGIN_EXAMPLE
+Literal text: *not bold*, [[not a link]], and #+NOT_A_KEYWORD.
+,* Escaped heading inside a block
+,#+END_EXAMPLE
+#+END_EXAMPLE
+
+Fixed-width text:
+: first literal line
+: second literal line with *unparsed emphasis*
+
+#+BEGIN_QUOTE
+A quotation with *bold text* and a [[https://example.com][link]].
+#+END_QUOTE
+
+#+BEGIN_VERSE
+First line of verse
+    Indented second line
+Third line
+#+END_VERSE
+
+#+BEGIN_CENTER
+Centered text.
+#+END_CENTER
+
+#+BEGIN_EXPORT html
+<aside class="sample">Raw HTML export block</aside>
+#+END_EXPORT
+
+#+BEGIN_COMMENT
+Comment block contents should be distinguishable from normal prose.
+* This is inside the comment block.
+#+END_COMMENT
+
+#+BEGIN_aside
+A custom special block with /inline markup/.
+#+END_aside
+
+#+BEGIN: clocktable :scope file :maxlevel 2
+#+END:
+
+* Drawers and comments
+:PROPERTIES:
+:CUSTOM_ID: drawer-example
+:CATEGORY: Showcase
+:END:
+:NOTES:
+Custom drawer contents.
+Another line with =literal text=.
+:END:
+
+# A single-line Org comment.
+# Another comment with *markup-like text*.
+
+** COMMENT Commented subtree
+This subtree is marked as a comment.
+*** Nested commented content
+Still inside the commented subtree.
+
+* Math and export snippets
+Inline math: \(a^2 + b^2 = c^2\) and $E = mc^2$.
+
+\[
+\sum_{k=1}^{n} k = \frac{n(n+1)}{2}
+\]
+
+\begin{equation}
+\int_0^1 x^2\,dx = \frac{1}{3}
+\end{equation}
+
+Entities: \alpha, \beta, \rightarrow.
+Inline export: @@html:<kbd>Tab</kbd>@@.
+
+* Macros and keyword values
+#+MACRO: badge *$1*
+Macro use: {{{badge(Preview)}}}.
+
+#+ATTR_HTML: :class sample
+#+CAPTION: A short quote with affiliated keywords.
+#+BEGIN_QUOTE
+An affiliated keyword belongs to the following element.
+#+END_QUOTE
+
+* Archived subtree                                                :ARCHIVE:
+** Old entry
+Archived content for tag and folding checks.
