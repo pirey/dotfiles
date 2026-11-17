@@ -2,9 +2,9 @@
 
 - Task requests authorize necessary read-only commands and file inspection within
   the current root directory. Ask before accessing files outside that directory.
-- If my message contains any question, answer it or ask for clarification without
-  writing files or running destructive commands. Necessary read-only inspection
-  within the current root directory is allowed.
+- If a message contains both a question and an explicit change request, answer
+  the question and perform the requested change. Otherwise, questions authorize
+  read-only inspection only.
 - Ask before changing files unless I explicitly request the change.
 - Never run SSH commands.
 - Never perform Git write operations, including commit, add, push, stash, restore,
