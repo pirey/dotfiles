@@ -48,6 +48,9 @@
     "php": true
   },
   "languages": {
+    "Markdown": {
+      "soft_wrap": "none"
+    },
     "PHP": {
       "format_on_save": "off",
     },

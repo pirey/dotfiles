@@ -62,7 +62,31 @@ Rebuild/reinstall the dev extension after changes, including Python changes, sin
 its source is embedded in the compiled adapter. Use `zed: open log` for failures.
 Builds and runtime tests have not been run as part of adding this extension.
 
+## Cleanup and uninstall
+
+To uninstall the dev extension, open Zed's Extensions page (`Cmd-Shift-X` on
+macOS), find **Org Lite**, and choose **Uninstall**. Keep this source directory
+if you want to install or develop it again later.
+
+To remove generated build files, run the following from the dotfiles repository
+root after uninstalling:
+
+```sh
+cd home/.config/zed/extensions/org-lite
+rm -rf target grammars extension.wasm
+```
+
+These paths are generated and ignored by Git. Zed recreates them when you
+install/rebuild the dev extension. Keep `Cargo.lock` and the source files.
+
+On macOS, Zed stores installed extensions under
+`~/Library/Application Support/Zed/extensions/`: `installed/` contains installed
+extensions, and `work/` contains extension-created data. Prefer uninstalling
+through Zed before inspecting any leftovers; do not delete the whole extensions
+directory to clean up Org Lite.
+
 References:
+- https://zed.dev/docs/extensions/installing-extensions#installation-location
 - https://zed.dev/docs/extensions/developing-extensions
 - https://zed.dev/docs/extensions/languages
 - https://zed.dev/docs/reference/all-settings#lsp-folding-ranges
