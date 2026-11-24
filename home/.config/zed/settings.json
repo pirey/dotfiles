@@ -22,7 +22,9 @@
   },
   "agent": {
     "expand_edit_card": false,
-    "expand_terminal_card": false
+    "expand_terminal_card": false,
+    "max_content_width": 1028,
+
   },
   "title_bar": {
     "show_sign_in": false,
