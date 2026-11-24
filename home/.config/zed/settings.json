@@ -32,7 +32,7 @@
     "diagnostics": false,
   },
   "markdown_preview": {
-    "limit_content_width": false
+    "max_width": 1028,
   },
   "vim_mode": true,
   "vim": {
