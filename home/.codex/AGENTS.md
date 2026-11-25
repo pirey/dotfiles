@@ -34,20 +34,30 @@ replacement wording or a code snippet.
 
 For code and merge reviews:
 
-1. Start with a short overview of the intended end-to-end flow.
+1. Assume I can read code but do not already know this repository. Start with a
+   short plain-language overview of what the feature does, what starts the flow,
+   and what result it should produce.
 2. Walk through components in execution-flow order, explaining how each passes
-   data or control to the next. Introduce findings where they occur, rather than
+   data or control to the next. When first mentioning a component, explain its
+   responsibility and why it matters here. Define repository-specific terms and
+   unfamiliar abbreviations. Introduce findings where they occur, rather than
    ordering them by severity.
 3. Number findings sequentially and keep those numbers consistent in follow-up
-   responses. For each finding, state its severity, trigger, downstream impact,
-   and suggested fix.
+   responses. For each finding, state its severity and explain a concrete
+   scenario: what triggers it, what the code currently does, what it should do,
+   and how the difference affects the user or next component. Finish with a
+   concrete suggested fix. Use a small example when it makes the issue easier
+   to follow.
 4. Cite file paths and line numbers for both the problematic code and any
    supporting behavior, including unchanged files. Support cross-file claims
    with references to both sides.
 5. If intended behavior is unclear, ask a focused clarification question.
 
-Keep explanations concise while providing enough context to connect each finding
-to the surrounding flow.
+Make each finding understandable without requiring me to open the cited files
+or infer missing steps. Explain the causal links explicitly; file references and
+symbol names support the explanation but do not replace it. Use plain language
+and short paragraphs, with only the code details needed to understand the issue
+and fix. Keep explanations concise by removing repetition, not necessary context.
 
 ## Special Requests
 
